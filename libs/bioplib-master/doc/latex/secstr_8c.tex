@@ -1,0 +1,800 @@
+\hypertarget{secstr_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/secstr.c File Reference}
+\label{secstr_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/secstr.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/secstr.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}array.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}angle.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}secstr.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{secstr_8c_aa35a7eb54cdb2518d65f10403ae17453}{T\-E\-S\-T\-C\-O\-D\-E}~1
+\item 
+\#define \hyperlink{secstr_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~160
+\begin{DoxyCompactList}\small\item\em Secondary structure calculation. \end{DoxyCompactList}\item 
+\#define \hyperlink{secstr_8c_ac4598941eb7970f24c995f55035651d1}{C\-O\-O\-R\-D\-\_\-\-D\-I\-M}~3    /$\ast$ number of coord dimensions\-: x, y, z  $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a3caf3bf9455cf620f077ae1d08f4ef52}{N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-C\-H\-A\-R\-S}
+\item 
+\#define \hyperlink{secstr_8c_aaf02aad7b1b8152a6780ae33dec5d4de}{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-H\-B\-O\-N\-D}~4    /$\ast$ number of allowed H-\/bonds            $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a1357e80712e2879fa905feb063dde898}{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N}
+\item 
+\#define \hyperlink{secstr_8c_a70525a7291d99902dbaebb6eb4ba0609}{N\-R\-U\-L\-E\-S}~3
+\item 
+\#define \hyperlink{secstr_8c_a9407980077c66081a87c3c8d5a961a21}{P\-A\-R\-L\-E\-L}~1
+\item 
+\#define \hyperlink{secstr_8c_af95f4a1eb28ecf65ebaaaeecd9976891}{N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E}~4 /$\ast$ Max bridge index                     $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a9b81a790123d01bf5b4e33adcf457fab}{N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-P\-A\-I\-R}~2 /$\ast$ Paired strands                       $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a94cfb3c54560b7f2df52a995ff009727}{N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E\-\_\-\-P\-A\-I\-R}~2 /$\ast$ Paired strands for bridge            $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_ac19a7bcd5758a81f15f0e352abb6fcea}{N\-U\-M\-\_\-\-D\-I\-H\-E\-D\-\_\-\-D\-A\-T\-A}~3 /$\ast$ number of dihedral data points       $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a7ea59cdac013722976892da8b64b05f3}{R\-E\-S\-T\-Y\-P\-E\-\_\-\-P\-R\-O\-L\-I\-N\-E}
+\item 
+\#define \hyperlink{secstr_8c_aa6dd2d855c50cdbf76e514fcf3b49b53}{N\-U\-M\-\_\-\-M\-C\-\_\-\-A\-T\-O\-M\-\_\-\-T\-Y\-P\-E\-S}~6 /$\ast$ number of M/C atom types             $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a99b25ab70b8d1b777fa32b9a4c86962a}{A\-T\-O\-M\-\_\-\-N}~0 /$\ast$ atom indexes                         $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a61d67722c5c077064a5d941e305382d6}{A\-T\-O\-M\-\_\-\-C\-A}~1
+\item 
+\#define \hyperlink{secstr_8c_ae78f7b74fd47cf2df623484a78009847}{A\-T\-O\-M\-\_\-\-C}~2
+\item 
+\#define \hyperlink{secstr_8c_a32bbf9918b891f903453178b2a989044}{A\-T\-O\-M\-\_\-\-O}~3
+\item 
+\#define \hyperlink{secstr_8c_a44c5e1205febc02ca9d2975e1c2809fa}{A\-T\-O\-M\-\_\-\-H}~4
+\item 
+\#define \hyperlink{secstr_8c_a8bb9a300f77c1eae118733d772d88829}{A\-T\-O\-M\-\_\-\-C\-B}~5
+\item 
+\#define \hyperlink{secstr_8c_a5f7faaf8d3ad82eef1d81dd901bf6d7e}{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-A\-N\-G\-L\-E\-S}~7 /$\ast$ number of angles calculated       $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_acbf15571c485e8d416cff02199d5c8f3}{N\-U\-M\-\_\-\-S\-T\-A\-N\-D\-A\-R\-D\-\_\-\-D\-I\-H\-E\-D\-R\-A\-L\-S}~4 /$\ast$ number of standard dihedrals      $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_abbe373461648a244504fbb92acc65fb7}{D\-I\-H\-E\-D\-\_\-\-P\-H\-I}~0 /$\ast$ dihedral indexes                  $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a46d635138158ecf0de1b3fe44e1085cd}{D\-I\-H\-E\-D\-\_\-\-P\-S\-I}~1
+\item 
+\#define \hyperlink{secstr_8c_a8893a1bd7233d5cd76de2ef2fe79494f}{D\-I\-H\-E\-D\-\_\-\-O\-M\-E\-G\-A}~2
+\item 
+\#define \hyperlink{secstr_8c_abeca587ecb5a22aac5841daee5fe2435}{D\-I\-H\-E\-D\-\_\-\-C\-H\-I\-R\-A\-L}~3
+\item 
+\#define \hyperlink{secstr_8c_a5e47f7e387266bf3c325bdc17ce99266}{D\-I\-H\-E\-D\-\_\-\-I\-M\-P\-L\-D}~4
+\item 
+\#define \hyperlink{secstr_8c_a9d3011e0499c8ba2c3c14a2849434962}{D\-I\-H\-E\-D\-\_\-\-K\-A\-P\-P\-A}~5
+\item 
+\#define \hyperlink{secstr_8c_a4181a989e823bfa39a8b2a9c1883436f}{D\-I\-H\-E\-D\-\_\-\-T\-C\-O}~6
+\item 
+\#define \hyperlink{secstr_8c_a2cd8b0f85b10d06f41e390d997f29c4f}{N\-U\-M\-\_\-\-S\-T\-R\-U\-C\-\_\-\-S\-Y\-M\-S}~(11) /$\ast$ number of structure symbols      $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_af55311648868a7cb18cac9e073ae7292}{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-A\-L\-P\-H\-A\-H}~0  /$\ast$ Symbol indexes                   $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a97cc4cd282397f0ff6703efc7798caaa}{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T1}~1
+\item 
+\#define \hyperlink{secstr_8c_abd6de96a3396fde43ed065fa476cbcdc}{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T}~2
+\item 
+\#define \hyperlink{secstr_8c_accd362a25429351c836c4cfe200041f8}{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G\-E}~3
+\item 
+\#define \hyperlink{secstr_8c_a6b1a103b4d79af7c199856a97a21c68a}{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G1}~4
+\item 
+\#define \hyperlink{secstr_8c_ad883cbdfbe393b490ccb2d4c929094da}{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G2}~5
+\item 
+\#define \hyperlink{secstr_8c_ac8102c05c8af1678b55401332dff7ffa}{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-H\-R\-T\-N\-H}~6
+\item 
+\#define \hyperlink{secstr_8c_a149b4a144c6315e7a7f928ac2bf4f3b5}{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-P\-I\-H}~7
+\item 
+\#define \hyperlink{secstr_8c_a4d0c727cd70d41c6fd28ede7775b5f1e}{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-U\-R\-N}~8
+\item 
+\#define \hyperlink{secstr_8c_a6260e34788f08013cd3ea6820c6d5ff8}{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-E\-N\-D}~9
+\item 
+\#define \hyperlink{secstr_8c_a893b5630fad0691a7008c0cece03aab9}{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-C\-H\-I\-S\-G\-N}~10
+\item 
+\#define \hyperlink{secstr_8c_aa32ffc695d6031884256b17b1d8a7f2f}{N\-U\-M\-\_\-\-H\-E\-L\-I\-X\-\_\-\-T\-Y\-P\-E}~3 /$\ast$ number of helix types                $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a05f59753dd40ed9b69250b10b5aeda7b}{H\-E\-L\-I\-X\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}~4 /$\ast$ Helices are made in chunks of this   $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a8aae91c72efc5dc6516ed01ddabe7ad0}{T\-H\-R\-E\-E\-\_\-\-T\-E\-N\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}~3 /$\ast$ 3\-\_\-10 helices in chunks of this       $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a5f3faff76105322aeca80e0952f1f84d}{P\-I\-H\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}~5 /$\ast$ Pi helices in chunks of this         $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a7a7f006a4a1b8350a844ad264025ebe4}{B\-R\-I\-D\-G\-E\-\_\-\-S\-E\-P}~2 /$\ast$ bridge separation                    $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a6a9814e15fab84eaff183ef3671699eb}{B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-L}~5
+\item 
+\#define \hyperlink{secstr_8c_aac2006be26bf42b229a166284fda74cd}{B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-S}~2
+\item 
+\#define \hyperlink{secstr_8c_a774aa867ffa37c901bcf3db2bc378cc3}{C\-S\-T}~0 /$\ast$ Offsets to store H\-Bond energies      $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_aba99514484a1d6388a800285ffa8677a}{N\-S\-T}~2
+\item 
+\#define \hyperlink{secstr_8c_a63f60d3300872e3ff3a785290a329a0b}{N\-U\-M\-\_\-\-T\-U\-R\-N\-\_\-\-T\-Y\-P\-E}~3 /$\ast$ number of turn types                 $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a090430b65ca8e2355a86e3883133638a}{R\-A\-D\-I\-A\-N}~(180.\-0/3.\-141592) /$\ast$ constant to convert R\-A\-Ds to degrees  $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a9f7b0cc105833e943ed1dd8fd0abf90d}{N\-U\-L\-L\-V\-A\-L}~999.\-9 /$\ast$ used as a \hyperlink{array3_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\-U\-L\-L} value                 $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a60dfc79d6391ba271181810ab1df8e95}{M\-A\-X\-\_\-\-P\-E\-P\-T\-I\-D\-E\-\_\-\-B\-O\-N\-D}~2.\-5 /$\ast$ maximum peptide bond length          $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_ad02f92c311305a9839471d7a2576b206}{M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E}~5.\-0 /$\ast$ maximum C\-A-\/C\-A distance               $\ast$/
+\item 
+\#define \hyperlink{secstr_8c_a0ec579d4bd685c0aa7cf0a143b3759fa}{B\-E\-N\-D\-\_\-\-S\-I\-Z\-E}
+\item 
+\#define \hyperlink{secstr_8c_a45748457d4dba3c433e5c37cc2b18418}{M\-A\-X\-\_\-\-H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y}~-\/0.\-5
+\item 
+\#define \hyperlink{secstr_8c_aa1635812f01d3d7b0baf98a4f3ae9e0f}{H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y\-\_\-\-L\-I\-M\-I\-T}~-\/9.\-9
+\item 
+\#define \hyperlink{secstr_8c_a46c0082f601026fe0fadce3c5dba58fc}{H\-B\-O\-N\-D\-\_\-\-M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T}~8.\-0
+\item 
+\#define \hyperlink{secstr_8c_a51a0ca499db27c73d41024bfa73c333c}{H\-B\-O\-N\-D\-\_\-\-Q1}~0.\-42
+\item 
+\#define \hyperlink{secstr_8c_a0f68269fd65c9fec614e9673ef8a6ce8}{H\-B\-O\-N\-D\-\_\-\-Q2}~0.\-2
+\item 
+\#define \hyperlink{secstr_8c_a53707d039d7adf65df66b647e263c844}{H\-B\-O\-N\-D\-\_\-\-F}~332
+\item 
+\#define \hyperlink{secstr_8c_af270a96662132d0385cb6b4637c5a689}{A\-C\-C\-U\-R\-A\-C\-Y}~0.\-0001
+\item 
+\#define \hyperlink{secstr_8c_a20db868584d9f138fff29cb2a385df62}{A\-P\-P\-R\-O\-X\-E\-Q}(x, y)~(\hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S}((x)-\/(y)) $<$ \hyperlink{secstr_8c_af270a96662132d0385cb6b4637c5a689}{A\-C\-C\-U\-R\-A\-C\-Y})
+\item 
+\#define \hyperlink{secstr_8c_af69398ab7a21bc88c64a7e2fa5a3703f}{A\-P\-P\-R\-O\-X\-N\-E}(x, y)~(\hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S}((x)-\/(y)) $>$= \hyperlink{secstr_8c_af270a96662132d0385cb6b4637c5a689}{A\-C\-C\-U\-R\-A\-C\-Y})
+\item 
+\#define \hyperlink{secstr_8c_afbb9ceb0d2d8c857ff30e0b219132b8a}{A\-T\-D\-I\-S\-T}(a, b)
+\item 
+\#define \hyperlink{secstr_8c_a147eef57e76201c027089ad1361ee92b}{A\-N\-I\-N\-T}(x)~((\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L})(int)((x) + (((x) $>$= 0.\-0)?0.\-5\-:(-\/0.\-5))))
+\item 
+\#define \hyperlink{secstr_8c_aa021eb6523aba5b0dbf7ba64f7078887}{F\-R\-E\-E\-\_\-\-S\-E\-C\-S\-T\-R\-\_\-\-M\-E\-M\-O\-R\-Y}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{secstr_8c_aca5046643e5b5b54b6c5732816ee2b5a}{bl\-Calc\-Sec\-Struc\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb\-Start, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb\-Stop, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} verbose)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{secstr_8c_af270a96662132d0385cb6b4637c5a689}{\index{secstr.\-c@{secstr.\-c}!A\-C\-C\-U\-R\-A\-C\-Y@{A\-C\-C\-U\-R\-A\-C\-Y}}
+\index{A\-C\-C\-U\-R\-A\-C\-Y@{A\-C\-C\-U\-R\-A\-C\-Y}!secstr.c@{secstr.\-c}}
+\subsubsection[{A\-C\-C\-U\-R\-A\-C\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-C\-U\-R\-A\-C\-Y~0.\-0001}}\label{secstr_8c_af270a96662132d0385cb6b4637c5a689}
+
+
+Definition at line 179 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a147eef57e76201c027089ad1361ee92b}{\index{secstr.\-c@{secstr.\-c}!A\-N\-I\-N\-T@{A\-N\-I\-N\-T}}
+\index{A\-N\-I\-N\-T@{A\-N\-I\-N\-T}!secstr.c@{secstr.\-c}}
+\subsubsection[{A\-N\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-N\-I\-N\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(({\bf R\-E\-A\-L})(int)((x) + (((x) $>$= 0.\-0)?0.\-5\-:(-\/0.\-5))))}}\label{secstr_8c_a147eef57e76201c027089ad1361ee92b}
+
+
+Definition at line 190 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a20db868584d9f138fff29cb2a385df62}{\index{secstr.\-c@{secstr.\-c}!A\-P\-P\-R\-O\-X\-E\-Q@{A\-P\-P\-R\-O\-X\-E\-Q}}
+\index{A\-P\-P\-R\-O\-X\-E\-Q@{A\-P\-P\-R\-O\-X\-E\-Q}!secstr.c@{secstr.\-c}}
+\subsubsection[{A\-P\-P\-R\-O\-X\-E\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-P\-P\-R\-O\-X\-E\-Q(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~({\bf A\-B\-S}((x)-\/(y)) $<$ {\bf A\-C\-C\-U\-R\-A\-C\-Y})}}\label{secstr_8c_a20db868584d9f138fff29cb2a385df62}
+
+
+Definition at line 180 of file secstr.\-c.
+
+\hypertarget{secstr_8c_af69398ab7a21bc88c64a7e2fa5a3703f}{\index{secstr.\-c@{secstr.\-c}!A\-P\-P\-R\-O\-X\-N\-E@{A\-P\-P\-R\-O\-X\-N\-E}}
+\index{A\-P\-P\-R\-O\-X\-N\-E@{A\-P\-P\-R\-O\-X\-N\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{A\-P\-P\-R\-O\-X\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-P\-P\-R\-O\-X\-N\-E(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~({\bf A\-B\-S}((x)-\/(y)) $>$= {\bf A\-C\-C\-U\-R\-A\-C\-Y})}}\label{secstr_8c_af69398ab7a21bc88c64a7e2fa5a3703f}
+
+
+Definition at line 181 of file secstr.\-c.
+
+\hypertarget{secstr_8c_afbb9ceb0d2d8c857ff30e0b219132b8a}{\index{secstr.\-c@{secstr.\-c}!A\-T\-D\-I\-S\-T@{A\-T\-D\-I\-S\-T}}
+\index{A\-T\-D\-I\-S\-T@{A\-T\-D\-I\-S\-T}!secstr.c@{secstr.\-c}}
+\subsubsection[{A\-T\-D\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-D\-I\-S\-T(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}}\label{secstr_8c_afbb9ceb0d2d8c857ff30e0b219132b8a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+sqrt(((a)[0]-(b)[0])*((a)[0]-(b)[0]) +                                \(\backslash\)
+        ((a)[1]-(b)[1])*((a)[1]-(b)[1]) +                                \(\backslash\)
+        ((a)[2]-(b)[2])*((a)[2]-(b)[2]))
+\end{DoxyCode}
+
+
+Definition at line 184 of file secstr.\-c.
+
+\hypertarget{secstr_8c_ae78f7b74fd47cf2df623484a78009847}{\index{secstr.\-c@{secstr.\-c}!A\-T\-O\-M\-\_\-\-C@{A\-T\-O\-M\-\_\-\-C}}
+\index{A\-T\-O\-M\-\_\-\-C@{A\-T\-O\-M\-\_\-\-C}!secstr.c@{secstr.\-c}}
+\subsubsection[{A\-T\-O\-M\-\_\-\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-O\-M\-\_\-\-C~2}}\label{secstr_8c_ae78f7b74fd47cf2df623484a78009847}
+
+
+Definition at line 119 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a61d67722c5c077064a5d941e305382d6}{\index{secstr.\-c@{secstr.\-c}!A\-T\-O\-M\-\_\-\-C\-A@{A\-T\-O\-M\-\_\-\-C\-A}}
+\index{A\-T\-O\-M\-\_\-\-C\-A@{A\-T\-O\-M\-\_\-\-C\-A}!secstr.c@{secstr.\-c}}
+\subsubsection[{A\-T\-O\-M\-\_\-\-C\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-O\-M\-\_\-\-C\-A~1}}\label{secstr_8c_a61d67722c5c077064a5d941e305382d6}
+
+
+Definition at line 118 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a8bb9a300f77c1eae118733d772d88829}{\index{secstr.\-c@{secstr.\-c}!A\-T\-O\-M\-\_\-\-C\-B@{A\-T\-O\-M\-\_\-\-C\-B}}
+\index{A\-T\-O\-M\-\_\-\-C\-B@{A\-T\-O\-M\-\_\-\-C\-B}!secstr.c@{secstr.\-c}}
+\subsubsection[{A\-T\-O\-M\-\_\-\-C\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-O\-M\-\_\-\-C\-B~5}}\label{secstr_8c_a8bb9a300f77c1eae118733d772d88829}
+
+
+Definition at line 122 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a44c5e1205febc02ca9d2975e1c2809fa}{\index{secstr.\-c@{secstr.\-c}!A\-T\-O\-M\-\_\-\-H@{A\-T\-O\-M\-\_\-\-H}}
+\index{A\-T\-O\-M\-\_\-\-H@{A\-T\-O\-M\-\_\-\-H}!secstr.c@{secstr.\-c}}
+\subsubsection[{A\-T\-O\-M\-\_\-\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-O\-M\-\_\-\-H~4}}\label{secstr_8c_a44c5e1205febc02ca9d2975e1c2809fa}
+
+
+Definition at line 121 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a99b25ab70b8d1b777fa32b9a4c86962a}{\index{secstr.\-c@{secstr.\-c}!A\-T\-O\-M\-\_\-\-N@{A\-T\-O\-M\-\_\-\-N}}
+\index{A\-T\-O\-M\-\_\-\-N@{A\-T\-O\-M\-\_\-\-N}!secstr.c@{secstr.\-c}}
+\subsubsection[{A\-T\-O\-M\-\_\-\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-O\-M\-\_\-\-N~0 /$\ast$ atom indexes                         $\ast$/}}\label{secstr_8c_a99b25ab70b8d1b777fa32b9a4c86962a}
+
+
+Definition at line 117 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a32bbf9918b891f903453178b2a989044}{\index{secstr.\-c@{secstr.\-c}!A\-T\-O\-M\-\_\-\-O@{A\-T\-O\-M\-\_\-\-O}}
+\index{A\-T\-O\-M\-\_\-\-O@{A\-T\-O\-M\-\_\-\-O}!secstr.c@{secstr.\-c}}
+\subsubsection[{A\-T\-O\-M\-\_\-\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-T\-O\-M\-\_\-\-O~3}}\label{secstr_8c_a32bbf9918b891f903453178b2a989044}
+
+
+Definition at line 120 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a0ec579d4bd685c0aa7cf0a143b3759fa}{\index{secstr.\-c@{secstr.\-c}!B\-E\-N\-D\-\_\-\-S\-I\-Z\-E@{B\-E\-N\-D\-\_\-\-S\-I\-Z\-E}}
+\index{B\-E\-N\-D\-\_\-\-S\-I\-Z\-E@{B\-E\-N\-D\-\_\-\-S\-I\-Z\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{B\-E\-N\-D\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-E\-N\-D\-\_\-\-S\-I\-Z\-E}}\label{secstr_8c_a0ec579d4bd685c0aa7cf0a143b3759fa}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+70.0 \textcolor{comment}{/* mainchain atoms bent by more than this}
+\textcolor{comment}{                                   angle are flagged as "bend"          */}
+\end{DoxyCode}
+
+
+Definition at line 167 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a7a7f006a4a1b8350a844ad264025ebe4}{\index{secstr.\-c@{secstr.\-c}!B\-R\-I\-D\-G\-E\-\_\-\-S\-E\-P@{B\-R\-I\-D\-G\-E\-\_\-\-S\-E\-P}}
+\index{B\-R\-I\-D\-G\-E\-\_\-\-S\-E\-P@{B\-R\-I\-D\-G\-E\-\_\-\-S\-E\-P}!secstr.c@{secstr.\-c}}
+\subsubsection[{B\-R\-I\-D\-G\-E\-\_\-\-S\-E\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-R\-I\-D\-G\-E\-\_\-\-S\-E\-P~2 /$\ast$ bridge separation                    $\ast$/}}\label{secstr_8c_a7a7f006a4a1b8350a844ad264025ebe4}
+
+
+Definition at line 152 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a6a9814e15fab84eaff183ef3671699eb}{\index{secstr.\-c@{secstr.\-c}!B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-L@{B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-L}}
+\index{B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-L@{B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-L}!secstr.c@{secstr.\-c}}
+\subsubsection[{B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-L~5}}\label{secstr_8c_a6a9814e15fab84eaff183ef3671699eb}
+
+
+Definition at line 153 of file secstr.\-c.
+
+\hypertarget{secstr_8c_aac2006be26bf42b229a166284fda74cd}{\index{secstr.\-c@{secstr.\-c}!B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-S@{B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-S}}
+\index{B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-S@{B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-S}!secstr.c@{secstr.\-c}}
+\subsubsection[{B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-L\-G\-E\-\_\-\-S\-I\-Z\-E\-\_\-\-S~2}}\label{secstr_8c_aac2006be26bf42b229a166284fda74cd}
+
+
+Definition at line 154 of file secstr.\-c.
+
+\hypertarget{secstr_8c_ac4598941eb7970f24c995f55035651d1}{\index{secstr.\-c@{secstr.\-c}!C\-O\-O\-R\-D\-\_\-\-D\-I\-M@{C\-O\-O\-R\-D\-\_\-\-D\-I\-M}}
+\index{C\-O\-O\-R\-D\-\_\-\-D\-I\-M@{C\-O\-O\-R\-D\-\_\-\-D\-I\-M}!secstr.c@{secstr.\-c}}
+\subsubsection[{C\-O\-O\-R\-D\-\_\-\-D\-I\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-O\-O\-R\-D\-\_\-\-D\-I\-M~3    /$\ast$ number of coord dimensions\-: x, y, z  $\ast$/}}\label{secstr_8c_ac4598941eb7970f24c995f55035651d1}
+
+
+Definition at line 91 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a774aa867ffa37c901bcf3db2bc378cc3}{\index{secstr.\-c@{secstr.\-c}!C\-S\-T@{C\-S\-T}}
+\index{C\-S\-T@{C\-S\-T}!secstr.c@{secstr.\-c}}
+\subsubsection[{C\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-S\-T~0 /$\ast$ Offsets to store H\-Bond energies      $\ast$/}}\label{secstr_8c_a774aa867ffa37c901bcf3db2bc378cc3}
+
+
+Definition at line 156 of file secstr.\-c.
+
+\hypertarget{secstr_8c_abeca587ecb5a22aac5841daee5fe2435}{\index{secstr.\-c@{secstr.\-c}!D\-I\-H\-E\-D\-\_\-\-C\-H\-I\-R\-A\-L@{D\-I\-H\-E\-D\-\_\-\-C\-H\-I\-R\-A\-L}}
+\index{D\-I\-H\-E\-D\-\_\-\-C\-H\-I\-R\-A\-L@{D\-I\-H\-E\-D\-\_\-\-C\-H\-I\-R\-A\-L}!secstr.c@{secstr.\-c}}
+\subsubsection[{D\-I\-H\-E\-D\-\_\-\-C\-H\-I\-R\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-I\-H\-E\-D\-\_\-\-C\-H\-I\-R\-A\-L~3}}\label{secstr_8c_abeca587ecb5a22aac5841daee5fe2435}
+
+
+Definition at line 129 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a5e47f7e387266bf3c325bdc17ce99266}{\index{secstr.\-c@{secstr.\-c}!D\-I\-H\-E\-D\-\_\-\-I\-M\-P\-L\-D@{D\-I\-H\-E\-D\-\_\-\-I\-M\-P\-L\-D}}
+\index{D\-I\-H\-E\-D\-\_\-\-I\-M\-P\-L\-D@{D\-I\-H\-E\-D\-\_\-\-I\-M\-P\-L\-D}!secstr.c@{secstr.\-c}}
+\subsubsection[{D\-I\-H\-E\-D\-\_\-\-I\-M\-P\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-I\-H\-E\-D\-\_\-\-I\-M\-P\-L\-D~4}}\label{secstr_8c_a5e47f7e387266bf3c325bdc17ce99266}
+
+
+Definition at line 130 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a9d3011e0499c8ba2c3c14a2849434962}{\index{secstr.\-c@{secstr.\-c}!D\-I\-H\-E\-D\-\_\-\-K\-A\-P\-P\-A@{D\-I\-H\-E\-D\-\_\-\-K\-A\-P\-P\-A}}
+\index{D\-I\-H\-E\-D\-\_\-\-K\-A\-P\-P\-A@{D\-I\-H\-E\-D\-\_\-\-K\-A\-P\-P\-A}!secstr.c@{secstr.\-c}}
+\subsubsection[{D\-I\-H\-E\-D\-\_\-\-K\-A\-P\-P\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-I\-H\-E\-D\-\_\-\-K\-A\-P\-P\-A~5}}\label{secstr_8c_a9d3011e0499c8ba2c3c14a2849434962}
+
+
+Definition at line 131 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a8893a1bd7233d5cd76de2ef2fe79494f}{\index{secstr.\-c@{secstr.\-c}!D\-I\-H\-E\-D\-\_\-\-O\-M\-E\-G\-A@{D\-I\-H\-E\-D\-\_\-\-O\-M\-E\-G\-A}}
+\index{D\-I\-H\-E\-D\-\_\-\-O\-M\-E\-G\-A@{D\-I\-H\-E\-D\-\_\-\-O\-M\-E\-G\-A}!secstr.c@{secstr.\-c}}
+\subsubsection[{D\-I\-H\-E\-D\-\_\-\-O\-M\-E\-G\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-I\-H\-E\-D\-\_\-\-O\-M\-E\-G\-A~2}}\label{secstr_8c_a8893a1bd7233d5cd76de2ef2fe79494f}
+
+
+Definition at line 128 of file secstr.\-c.
+
+\hypertarget{secstr_8c_abbe373461648a244504fbb92acc65fb7}{\index{secstr.\-c@{secstr.\-c}!D\-I\-H\-E\-D\-\_\-\-P\-H\-I@{D\-I\-H\-E\-D\-\_\-\-P\-H\-I}}
+\index{D\-I\-H\-E\-D\-\_\-\-P\-H\-I@{D\-I\-H\-E\-D\-\_\-\-P\-H\-I}!secstr.c@{secstr.\-c}}
+\subsubsection[{D\-I\-H\-E\-D\-\_\-\-P\-H\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-I\-H\-E\-D\-\_\-\-P\-H\-I~0 /$\ast$ dihedral indexes                  $\ast$/}}\label{secstr_8c_abbe373461648a244504fbb92acc65fb7}
+
+
+Definition at line 126 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a46d635138158ecf0de1b3fe44e1085cd}{\index{secstr.\-c@{secstr.\-c}!D\-I\-H\-E\-D\-\_\-\-P\-S\-I@{D\-I\-H\-E\-D\-\_\-\-P\-S\-I}}
+\index{D\-I\-H\-E\-D\-\_\-\-P\-S\-I@{D\-I\-H\-E\-D\-\_\-\-P\-S\-I}!secstr.c@{secstr.\-c}}
+\subsubsection[{D\-I\-H\-E\-D\-\_\-\-P\-S\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-I\-H\-E\-D\-\_\-\-P\-S\-I~1}}\label{secstr_8c_a46d635138158ecf0de1b3fe44e1085cd}
+
+
+Definition at line 127 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a4181a989e823bfa39a8b2a9c1883436f}{\index{secstr.\-c@{secstr.\-c}!D\-I\-H\-E\-D\-\_\-\-T\-C\-O@{D\-I\-H\-E\-D\-\_\-\-T\-C\-O}}
+\index{D\-I\-H\-E\-D\-\_\-\-T\-C\-O@{D\-I\-H\-E\-D\-\_\-\-T\-C\-O}!secstr.c@{secstr.\-c}}
+\subsubsection[{D\-I\-H\-E\-D\-\_\-\-T\-C\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-I\-H\-E\-D\-\_\-\-T\-C\-O~6}}\label{secstr_8c_a4181a989e823bfa39a8b2a9c1883436f}
+
+
+Definition at line 132 of file secstr.\-c.
+
+\hypertarget{secstr_8c_aa021eb6523aba5b0dbf7ba64f7078887}{\index{secstr.\-c@{secstr.\-c}!F\-R\-E\-E\-\_\-\-S\-E\-C\-S\-T\-R\-\_\-\-M\-E\-M\-O\-R\-Y@{F\-R\-E\-E\-\_\-\-S\-E\-C\-S\-T\-R\-\_\-\-M\-E\-M\-O\-R\-Y}}
+\index{F\-R\-E\-E\-\_\-\-S\-E\-C\-S\-T\-R\-\_\-\-M\-E\-M\-O\-R\-Y@{F\-R\-E\-E\-\_\-\-S\-E\-C\-S\-T\-R\-\_\-\-M\-E\-M\-O\-R\-Y}!secstr.c@{secstr.\-c}}
+\subsubsection[{F\-R\-E\-E\-\_\-\-S\-E\-C\-S\-T\-R\-\_\-\-M\-E\-M\-O\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-E\-\_\-\-S\-E\-C\-S\-T\-R\-\_\-\-M\-E\-M\-O\-R\-Y}}\label{secstr_8c_aa021eb6523aba5b0dbf7ba64f7078887}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                                  \(\backslash\)
+   if(gotAtom != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                                                   \hyperlink{array_8h_a84d0e26dfc099f32311a7e21256e24b2}{\(\backslash\)}
+\hyperlink{array_8h_a84d0e26dfc099f32311a7e21256e24b2}{      blFreeArray2D}((\textcolor{keywordtype}{char} **)gotAtom, \hyperlink{secstr_8c_aa6dd2d855c50cdbf76e514fcf3b49b53}{NUM\_MC\_ATOM\_TYPES}, seqlenMalloc);
+        \(\backslash\)
+   if(mcCoords != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                                                  \hyperlink{array_8h_ae6221c1d22d4ba567ef07f44594d051a}{\(\backslash\)}
+\hyperlink{array_8h_ae6221c1d22d4ba567ef07f44594d051a}{      blFreeArray3D}((\textcolor{keywordtype}{char} ***)mcCoords, \hyperlink{secstr_8c_aa6dd2d855c50cdbf76e514fcf3b49b53}{NUM\_MC\_ATOM\_TYPES}, seqlenMalloc
+      , \(\backslash\)
+                    \hyperlink{secstr_8c_ac4598941eb7970f24c995f55035651d1}{COORD\_DIM});                                          \(\backslash\)
+   if(hbondEnergy != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                                               \hyperlink{array_8h_a84d0e26dfc099f32311a7e21256e24b2}{\(\backslash\)}
+\hyperlink{array_8h_a84d0e26dfc099f32311a7e21256e24b2}{      blFreeArray2D}((\textcolor{keywordtype}{char} **)hbondEnergy, seqlenMalloc, 
+      \hyperlink{secstr_8c_aaf02aad7b1b8152a6780ae33dec5d4de}{MAX\_NUM\_HBOND});  \(\backslash\)
+   if(mcAngles != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                                                  \hyperlink{array_8h_a84d0e26dfc099f32311a7e21256e24b2}{\(\backslash\)}
+\hyperlink{array_8h_a84d0e26dfc099f32311a7e21256e24b2}{      blFreeArray2D}((\textcolor{keywordtype}{char} **)mcAngles, \hyperlink{secstr_8c_a5f7faaf8d3ad82eef1d81dd901bf6d7e}{MAX\_NUM\_ANGLES}, seqlenMalloc);    \(\backslash\)
+   if(detailSS != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) free(detailSS);                                  \(\backslash\)
+   if(finalSS != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) free(finalSS);                                    \(\backslash\)
+   if(breakSymbol != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) free(breakSymbol);                            \(\backslash\)
+   if(ssTable != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                                                   \(\backslash\)
+      \hyperlink{array_8h_a84d0e26dfc099f32311a7e21256e24b2}{blFreeArray2D}((\textcolor{keywordtype}{char} **)ssTable, \hyperlink{secstr_8c_a2cd8b0f85b10d06f41e390d997f29c4f}{NUM\_STRUC\_SYMS}, seqlenMalloc);     \(\backslash\)
+   if(residueID != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                                                 \(\backslash\)
+      \hyperlink{array_8h_a84d0e26dfc099f32311a7e21256e24b2}{blFreeArray2D}((\textcolor{keywordtype}{char} **)residueID, seqlenMalloc, 16);               \(\backslash\)
+   if(residueTypes != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) free(residueTypes);                          \(\backslash\)
+   if(hbond != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                                                     \(\backslash\)
+      \hyperlink{array_8h_a84d0e26dfc099f32311a7e21256e24b2}{blFreeArray2D}((\textcolor{keywordtype}{char} **)hbond, seqlenMalloc, \hyperlink{secstr_8c_aaf02aad7b1b8152a6780ae33dec5d4de}{MAX\_NUM\_HBOND});        \(\backslash\)
+   if(bridgePoints != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                                              \(\backslash\)
+      \hyperlink{array_8h_a84d0e26dfc099f32311a7e21256e24b2}{blFreeArray2D}((\textcolor{keywordtype}{char} **)bridgePoints, \hyperlink{secstr_8c_a94cfb3c54560b7f2df52a995ff009727}{NUM\_BRIDGE\_PAIR},              \(\backslash\)
+                    seqlenMalloc);                                       \(\backslash\)
+   \} while(0)
+\end{DoxyCode}
+
+
+Definition at line 193 of file secstr.\-c.
+
+\hypertarget{secstr_8c_aa1635812f01d3d7b0baf98a4f3ae9e0f}{\index{secstr.\-c@{secstr.\-c}!H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y\-\_\-\-L\-I\-M\-I\-T@{H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y\-\_\-\-L\-I\-M\-I\-T}}
+\index{H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y\-\_\-\-L\-I\-M\-I\-T@{H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y\-\_\-\-L\-I\-M\-I\-T}!secstr.c@{secstr.\-c}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y\-\_\-\-L\-I\-M\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y\-\_\-\-L\-I\-M\-I\-T~-\/9.\-9}}\label{secstr_8c_aa1635812f01d3d7b0baf98a4f3ae9e0f}
+
+
+Definition at line 172 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a53707d039d7adf65df66b647e263c844}{\index{secstr.\-c@{secstr.\-c}!H\-B\-O\-N\-D\-\_\-\-F@{H\-B\-O\-N\-D\-\_\-\-F}}
+\index{H\-B\-O\-N\-D\-\_\-\-F@{H\-B\-O\-N\-D\-\_\-\-F}!secstr.c@{secstr.\-c}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-F~332}}\label{secstr_8c_a53707d039d7adf65df66b647e263c844}
+
+
+Definition at line 176 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a46c0082f601026fe0fadce3c5dba58fc}{\index{secstr.\-c@{secstr.\-c}!H\-B\-O\-N\-D\-\_\-\-M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T@{H\-B\-O\-N\-D\-\_\-\-M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T}}
+\index{H\-B\-O\-N\-D\-\_\-\-M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T@{H\-B\-O\-N\-D\-\_\-\-M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T}!secstr.c@{secstr.\-c}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T~8.\-0}}\label{secstr_8c_a46c0082f601026fe0fadce3c5dba58fc}
+
+
+Definition at line 173 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a51a0ca499db27c73d41024bfa73c333c}{\index{secstr.\-c@{secstr.\-c}!H\-B\-O\-N\-D\-\_\-\-Q1@{H\-B\-O\-N\-D\-\_\-\-Q1}}
+\index{H\-B\-O\-N\-D\-\_\-\-Q1@{H\-B\-O\-N\-D\-\_\-\-Q1}!secstr.c@{secstr.\-c}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-Q1}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-Q1~0.\-42}}\label{secstr_8c_a51a0ca499db27c73d41024bfa73c333c}
+
+
+Definition at line 174 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a0f68269fd65c9fec614e9673ef8a6ce8}{\index{secstr.\-c@{secstr.\-c}!H\-B\-O\-N\-D\-\_\-\-Q2@{H\-B\-O\-N\-D\-\_\-\-Q2}}
+\index{H\-B\-O\-N\-D\-\_\-\-Q2@{H\-B\-O\-N\-D\-\_\-\-Q2}!secstr.c@{secstr.\-c}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-Q2}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-Q2~0.\-2}}\label{secstr_8c_a0f68269fd65c9fec614e9673ef8a6ce8}
+
+
+Definition at line 175 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a05f59753dd40ed9b69250b10b5aeda7b}{\index{secstr.\-c@{secstr.\-c}!H\-E\-L\-I\-X\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E@{H\-E\-L\-I\-X\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}}
+\index{H\-E\-L\-I\-X\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E@{H\-E\-L\-I\-X\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{H\-E\-L\-I\-X\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-E\-L\-I\-X\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E~4 /$\ast$ Helices are made in chunks of this   $\ast$/}}\label{secstr_8c_a05f59753dd40ed9b69250b10b5aeda7b}
+
+
+Definition at line 148 of file secstr.\-c.
+
+\hypertarget{secstr_8c_ad02f92c311305a9839471d7a2576b206}{\index{secstr.\-c@{secstr.\-c}!M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E@{M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E}}
+\index{M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E@{M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-C\-A\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E~5.\-0 /$\ast$ maximum C\-A-\/C\-A distance               $\ast$/}}\label{secstr_8c_ad02f92c311305a9839471d7a2576b206}
+
+
+Definition at line 165 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a45748457d4dba3c433e5c37cc2b18418}{\index{secstr.\-c@{secstr.\-c}!M\-A\-X\-\_\-\-H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y@{M\-A\-X\-\_\-\-H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y}}
+\index{M\-A\-X\-\_\-\-H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y@{M\-A\-X\-\_\-\-H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y}!secstr.c@{secstr.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-H\-B\-O\-N\-D\-\_\-\-E\-N\-E\-R\-G\-Y~-\/0.\-5}}\label{secstr_8c_a45748457d4dba3c433e5c37cc2b18418}
+
+
+Definition at line 171 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a5f7faaf8d3ad82eef1d81dd901bf6d7e}{\index{secstr.\-c@{secstr.\-c}!M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-A\-N\-G\-L\-E\-S@{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-A\-N\-G\-L\-E\-S}}
+\index{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-A\-N\-G\-L\-E\-S@{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-A\-N\-G\-L\-E\-S}!secstr.c@{secstr.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-A\-N\-G\-L\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-A\-N\-G\-L\-E\-S~7 /$\ast$ number of angles calculated       $\ast$/}}\label{secstr_8c_a5f7faaf8d3ad82eef1d81dd901bf6d7e}
+
+
+Definition at line 124 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a1357e80712e2879fa905feb063dde898}{\index{secstr.\-c@{secstr.\-c}!M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N@{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N}}
+\index{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N@{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N}!secstr.c@{secstr.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N}}\label{secstr_8c_a1357e80712e2879fa905feb063dde898}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+200   \textcolor{comment}{/* number of allowed 'chains'; the way}
+\textcolor{comment}{                                   the code is used, it should be handled}
+\textcolor{comment}{                                   an individual chain, but it can also}
+\textcolor{comment}{                                   cope with (up to 50) multiple chains}
+\textcolor{comment}{                                   and has to allow this to deal with }
+\textcolor{comment}{                                   apparent chain breaks resulting from }
+\textcolor{comment}{                                   missing residues                     */}
+\end{DoxyCode}
+
+
+Definition at line 95 of file secstr.\-c.
+
+\hypertarget{secstr_8c_aaf02aad7b1b8152a6780ae33dec5d4de}{\index{secstr.\-c@{secstr.\-c}!M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-H\-B\-O\-N\-D@{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-H\-B\-O\-N\-D}}
+\index{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-H\-B\-O\-N\-D@{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-H\-B\-O\-N\-D}!secstr.c@{secstr.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-H\-B\-O\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-H\-B\-O\-N\-D~4    /$\ast$ number of allowed H-\/bonds            $\ast$/}}\label{secstr_8c_aaf02aad7b1b8152a6780ae33dec5d4de}
+
+
+Definition at line 94 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a60dfc79d6391ba271181810ab1df8e95}{\index{secstr.\-c@{secstr.\-c}!M\-A\-X\-\_\-\-P\-E\-P\-T\-I\-D\-E\-\_\-\-B\-O\-N\-D@{M\-A\-X\-\_\-\-P\-E\-P\-T\-I\-D\-E\-\_\-\-B\-O\-N\-D}}
+\index{M\-A\-X\-\_\-\-P\-E\-P\-T\-I\-D\-E\-\_\-\-B\-O\-N\-D@{M\-A\-X\-\_\-\-P\-E\-P\-T\-I\-D\-E\-\_\-\-B\-O\-N\-D}!secstr.c@{secstr.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-P\-E\-P\-T\-I\-D\-E\-\_\-\-B\-O\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-P\-E\-P\-T\-I\-D\-E\-\_\-\-B\-O\-N\-D~2.\-5 /$\ast$ maximum peptide bond length          $\ast$/}}\label{secstr_8c_a60dfc79d6391ba271181810ab1df8e95}
+
+
+Definition at line 164 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{secstr.\-c@{secstr.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!secstr.c@{secstr.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~160}}\label{secstr_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Secondary structure calculation. 
+
+secstruc.\-c
+
+\begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+04.\-02.\-21 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Prof. Andrew C. R. Martin, U\-C\-L, 1988-\/2021 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 19.\-05.\-99 Original, written while at Inpharmatica By\-: A\-C\-R\-M
+\item V1.\-1 10.\-07.\-15 Modified for Biop\-Lib
+\item 17.\-02.\-16 xyz for coordinates now count from zero Calc\-Dihedral() also now uses arrays that count from zero
+\item 18.\-02.\-16 N\-U\-M\-\_\-\-M\-C\-\_\-\-A\-T\-O\-M\-\_\-\-T\-Y\-P\-E\-S now counts from zero M\-A\-X\-\_\-\-N\-U\-M\-\_\-\-A\-N\-G\-L\-E\-S now counts from zero
+\item V1.\-2 07.\-08.\-18 Calc\-Dihedral() -\/ Corrected size of dihatm\mbox{[}\mbox{]} to 4 rather than N\-U\-M\-\_\-\-D\-I\-H\-E\-D\-\_\-\-D\-A\-T\-A
+\item V1.\-3 04.\-02.\-21 Make\-Turns\-And\-Bridges() -\/ Corrected fabs() to abs() 
+\end{DoxyItemize}
+
+Definition at line 90 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a70525a7291d99902dbaebb6eb4ba0609}{\index{secstr.\-c@{secstr.\-c}!N\-R\-U\-L\-E\-S@{N\-R\-U\-L\-E\-S}}
+\index{N\-R\-U\-L\-E\-S@{N\-R\-U\-L\-E\-S}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-R\-U\-L\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-R\-U\-L\-E\-S~3}}\label{secstr_8c_a70525a7291d99902dbaebb6eb4ba0609}
+
+
+Definition at line 104 of file secstr.\-c.
+
+\hypertarget{secstr_8c_aba99514484a1d6388a800285ffa8677a}{\index{secstr.\-c@{secstr.\-c}!N\-S\-T@{N\-S\-T}}
+\index{N\-S\-T@{N\-S\-T}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-S\-T~2}}\label{secstr_8c_aba99514484a1d6388a800285ffa8677a}
+
+
+Definition at line 157 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a9f7b0cc105833e943ed1dd8fd0abf90d}{\index{secstr.\-c@{secstr.\-c}!N\-U\-L\-L\-V\-A\-L@{N\-U\-L\-L\-V\-A\-L}}
+\index{N\-U\-L\-L\-V\-A\-L@{N\-U\-L\-L\-V\-A\-L}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-U\-L\-L\-V\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-L\-L\-V\-A\-L~999.\-9 /$\ast$ used as a {\bf N\-U\-L\-L} value                 $\ast$/}}\label{secstr_8c_a9f7b0cc105833e943ed1dd8fd0abf90d}
+
+
+Definition at line 162 of file secstr.\-c.
+
+\hypertarget{secstr_8c_af95f4a1eb28ecf65ebaaaeecd9976891}{\index{secstr.\-c@{secstr.\-c}!N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E@{N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E}}
+\index{N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E@{N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E~4 /$\ast$ Max bridge index                     $\ast$/}}\label{secstr_8c_af95f4a1eb28ecf65ebaaaeecd9976891}
+
+
+Definition at line 107 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a94cfb3c54560b7f2df52a995ff009727}{\index{secstr.\-c@{secstr.\-c}!N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E\-\_\-\-P\-A\-I\-R@{N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E\-\_\-\-P\-A\-I\-R}}
+\index{N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E\-\_\-\-P\-A\-I\-R@{N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E\-\_\-\-P\-A\-I\-R}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E\-\_\-\-P\-A\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-B\-R\-I\-D\-G\-E\-\_\-\-P\-A\-I\-R~2 /$\ast$ Paired strands for bridge            $\ast$/}}\label{secstr_8c_a94cfb3c54560b7f2df52a995ff009727}
+
+
+Definition at line 109 of file secstr.\-c.
+
+\hypertarget{secstr_8c_ac19a7bcd5758a81f15f0e352abb6fcea}{\index{secstr.\-c@{secstr.\-c}!N\-U\-M\-\_\-\-D\-I\-H\-E\-D\-\_\-\-D\-A\-T\-A@{N\-U\-M\-\_\-\-D\-I\-H\-E\-D\-\_\-\-D\-A\-T\-A}}
+\index{N\-U\-M\-\_\-\-D\-I\-H\-E\-D\-\_\-\-D\-A\-T\-A@{N\-U\-M\-\_\-\-D\-I\-H\-E\-D\-\_\-\-D\-A\-T\-A}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-D\-I\-H\-E\-D\-\_\-\-D\-A\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-D\-I\-H\-E\-D\-\_\-\-D\-A\-T\-A~3 /$\ast$ number of dihedral data points       $\ast$/}}\label{secstr_8c_ac19a7bcd5758a81f15f0e352abb6fcea}
+
+
+Definition at line 111 of file secstr.\-c.
+
+\hypertarget{secstr_8c_aa32ffc695d6031884256b17b1d8a7f2f}{\index{secstr.\-c@{secstr.\-c}!N\-U\-M\-\_\-\-H\-E\-L\-I\-X\-\_\-\-T\-Y\-P\-E@{N\-U\-M\-\_\-\-H\-E\-L\-I\-X\-\_\-\-T\-Y\-P\-E}}
+\index{N\-U\-M\-\_\-\-H\-E\-L\-I\-X\-\_\-\-T\-Y\-P\-E@{N\-U\-M\-\_\-\-H\-E\-L\-I\-X\-\_\-\-T\-Y\-P\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-H\-E\-L\-I\-X\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-H\-E\-L\-I\-X\-\_\-\-T\-Y\-P\-E~3 /$\ast$ number of helix types                $\ast$/}}\label{secstr_8c_aa32ffc695d6031884256b17b1d8a7f2f}
+
+
+Definition at line 147 of file secstr.\-c.
+
+\hypertarget{secstr_8c_aa6dd2d855c50cdbf76e514fcf3b49b53}{\index{secstr.\-c@{secstr.\-c}!N\-U\-M\-\_\-\-M\-C\-\_\-\-A\-T\-O\-M\-\_\-\-T\-Y\-P\-E\-S@{N\-U\-M\-\_\-\-M\-C\-\_\-\-A\-T\-O\-M\-\_\-\-T\-Y\-P\-E\-S}}
+\index{N\-U\-M\-\_\-\-M\-C\-\_\-\-A\-T\-O\-M\-\_\-\-T\-Y\-P\-E\-S@{N\-U\-M\-\_\-\-M\-C\-\_\-\-A\-T\-O\-M\-\_\-\-T\-Y\-P\-E\-S}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-M\-C\-\_\-\-A\-T\-O\-M\-\_\-\-T\-Y\-P\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-M\-C\-\_\-\-A\-T\-O\-M\-\_\-\-T\-Y\-P\-E\-S~6 /$\ast$ number of M/C atom types             $\ast$/}}\label{secstr_8c_aa6dd2d855c50cdbf76e514fcf3b49b53}
+
+
+Definition at line 116 of file secstr.\-c.
+
+\hypertarget{secstr_8c_acbf15571c485e8d416cff02199d5c8f3}{\index{secstr.\-c@{secstr.\-c}!N\-U\-M\-\_\-\-S\-T\-A\-N\-D\-A\-R\-D\-\_\-\-D\-I\-H\-E\-D\-R\-A\-L\-S@{N\-U\-M\-\_\-\-S\-T\-A\-N\-D\-A\-R\-D\-\_\-\-D\-I\-H\-E\-D\-R\-A\-L\-S}}
+\index{N\-U\-M\-\_\-\-S\-T\-A\-N\-D\-A\-R\-D\-\_\-\-D\-I\-H\-E\-D\-R\-A\-L\-S@{N\-U\-M\-\_\-\-S\-T\-A\-N\-D\-A\-R\-D\-\_\-\-D\-I\-H\-E\-D\-R\-A\-L\-S}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-S\-T\-A\-N\-D\-A\-R\-D\-\_\-\-D\-I\-H\-E\-D\-R\-A\-L\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-S\-T\-A\-N\-D\-A\-R\-D\-\_\-\-D\-I\-H\-E\-D\-R\-A\-L\-S~4 /$\ast$ number of standard dihedrals      $\ast$/}}\label{secstr_8c_acbf15571c485e8d416cff02199d5c8f3}
+
+
+Definition at line 125 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a3caf3bf9455cf620f077ae1d08f4ef52}{\index{secstr.\-c@{secstr.\-c}!N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-C\-H\-A\-R\-S@{N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-C\-H\-A\-R\-S}}
+\index{N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-C\-H\-A\-R\-S@{N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-C\-H\-A\-R\-S}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-C\-H\-A\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-C\-H\-A\-R\-S}}\label{secstr_8c_a3caf3bf9455cf620f077ae1d08f4ef52}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+26    \textcolor{comment}{/* number of available strand characters}
+\textcolor{comment}{                                   (the 26 letters of the alphabet)     */}
+\end{DoxyCode}
+
+
+Definition at line 92 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a9b81a790123d01bf5b4e33adcf457fab}{\index{secstr.\-c@{secstr.\-c}!N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-P\-A\-I\-R@{N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-P\-A\-I\-R}}
+\index{N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-P\-A\-I\-R@{N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-P\-A\-I\-R}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-P\-A\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-S\-T\-R\-A\-N\-D\-\_\-\-P\-A\-I\-R~2 /$\ast$ Paired strands                       $\ast$/}}\label{secstr_8c_a9b81a790123d01bf5b4e33adcf457fab}
+
+
+Definition at line 108 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a2cd8b0f85b10d06f41e390d997f29c4f}{\index{secstr.\-c@{secstr.\-c}!N\-U\-M\-\_\-\-S\-T\-R\-U\-C\-\_\-\-S\-Y\-M\-S@{N\-U\-M\-\_\-\-S\-T\-R\-U\-C\-\_\-\-S\-Y\-M\-S}}
+\index{N\-U\-M\-\_\-\-S\-T\-R\-U\-C\-\_\-\-S\-Y\-M\-S@{N\-U\-M\-\_\-\-S\-T\-R\-U\-C\-\_\-\-S\-Y\-M\-S}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-S\-T\-R\-U\-C\-\_\-\-S\-Y\-M\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-S\-T\-R\-U\-C\-\_\-\-S\-Y\-M\-S~(11) /$\ast$ number of structure symbols      $\ast$/}}\label{secstr_8c_a2cd8b0f85b10d06f41e390d997f29c4f}
+
+
+Definition at line 134 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a63f60d3300872e3ff3a785290a329a0b}{\index{secstr.\-c@{secstr.\-c}!N\-U\-M\-\_\-\-T\-U\-R\-N\-\_\-\-T\-Y\-P\-E@{N\-U\-M\-\_\-\-T\-U\-R\-N\-\_\-\-T\-Y\-P\-E}}
+\index{N\-U\-M\-\_\-\-T\-U\-R\-N\-\_\-\-T\-Y\-P\-E@{N\-U\-M\-\_\-\-T\-U\-R\-N\-\_\-\-T\-Y\-P\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-T\-U\-R\-N\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-T\-U\-R\-N\-\_\-\-T\-Y\-P\-E~3 /$\ast$ number of turn types                 $\ast$/}}\label{secstr_8c_a63f60d3300872e3ff3a785290a329a0b}
+
+
+Definition at line 159 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a9407980077c66081a87c3c8d5a961a21}{\index{secstr.\-c@{secstr.\-c}!P\-A\-R\-L\-E\-L@{P\-A\-R\-L\-E\-L}}
+\index{P\-A\-R\-L\-E\-L@{P\-A\-R\-L\-E\-L}!secstr.c@{secstr.\-c}}
+\subsubsection[{P\-A\-R\-L\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-L\-E\-L~1}}\label{secstr_8c_a9407980077c66081a87c3c8d5a961a21}
+
+
+Definition at line 105 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a5f3faff76105322aeca80e0952f1f84d}{\index{secstr.\-c@{secstr.\-c}!P\-I\-H\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E@{P\-I\-H\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}}
+\index{P\-I\-H\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E@{P\-I\-H\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{P\-I\-H\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-H\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E~5 /$\ast$ Pi helices in chunks of this         $\ast$/}}\label{secstr_8c_a5f3faff76105322aeca80e0952f1f84d}
+
+
+Definition at line 150 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a090430b65ca8e2355a86e3883133638a}{\index{secstr.\-c@{secstr.\-c}!R\-A\-D\-I\-A\-N@{R\-A\-D\-I\-A\-N}}
+\index{R\-A\-D\-I\-A\-N@{R\-A\-D\-I\-A\-N}!secstr.c@{secstr.\-c}}
+\subsubsection[{R\-A\-D\-I\-A\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-A\-D\-I\-A\-N~(180.\-0/3.\-141592) /$\ast$ constant to convert R\-A\-Ds to degrees  $\ast$/}}\label{secstr_8c_a090430b65ca8e2355a86e3883133638a}
+
+
+Definition at line 161 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a7ea59cdac013722976892da8b64b05f3}{\index{secstr.\-c@{secstr.\-c}!R\-E\-S\-T\-Y\-P\-E\-\_\-\-P\-R\-O\-L\-I\-N\-E@{R\-E\-S\-T\-Y\-P\-E\-\_\-\-P\-R\-O\-L\-I\-N\-E}}
+\index{R\-E\-S\-T\-Y\-P\-E\-\_\-\-P\-R\-O\-L\-I\-N\-E@{R\-E\-S\-T\-Y\-P\-E\-\_\-\-P\-R\-O\-L\-I\-N\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{R\-E\-S\-T\-Y\-P\-E\-\_\-\-P\-R\-O\-L\-I\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-T\-Y\-P\-E\-\_\-\-P\-R\-O\-L\-I\-N\-E}}\label{secstr_8c_a7ea59cdac013722976892da8b64b05f3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+15 \textcolor{comment}{/* residue type number for Proline - an}
+\textcolor{comment}{                                   offset into the KnownResidueTypes}
+\textcolor{comment}{                                   array                                */}
+\end{DoxyCode}
+
+
+Definition at line 112 of file secstr.\-c.
+
+\hypertarget{secstr_8c_af55311648868a7cb18cac9e073ae7292}{\index{secstr.\-c@{secstr.\-c}!S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-A\-L\-P\-H\-A\-H@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-A\-L\-P\-H\-A\-H}}
+\index{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-A\-L\-P\-H\-A\-H@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-A\-L\-P\-H\-A\-H}!secstr.c@{secstr.\-c}}
+\subsubsection[{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-A\-L\-P\-H\-A\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-A\-L\-P\-H\-A\-H~0  /$\ast$ Symbol indexes                   $\ast$/}}\label{secstr_8c_af55311648868a7cb18cac9e073ae7292}
+
+
+Definition at line 135 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a6260e34788f08013cd3ea6820c6d5ff8}{\index{secstr.\-c@{secstr.\-c}!S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-E\-N\-D@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-E\-N\-D}}
+\index{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-E\-N\-D@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-E\-N\-D}!secstr.c@{secstr.\-c}}
+\subsubsection[{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-E\-N\-D~9}}\label{secstr_8c_a6260e34788f08013cd3ea6820c6d5ff8}
+
+
+Definition at line 144 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a6b1a103b4d79af7c199856a97a21c68a}{\index{secstr.\-c@{secstr.\-c}!S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G1@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G1}}
+\index{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G1@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G1}!secstr.c@{secstr.\-c}}
+\subsubsection[{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G1}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G1~4}}\label{secstr_8c_a6b1a103b4d79af7c199856a97a21c68a}
+
+
+Definition at line 139 of file secstr.\-c.
+
+\hypertarget{secstr_8c_ad883cbdfbe393b490ccb2d4c929094da}{\index{secstr.\-c@{secstr.\-c}!S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G2@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G2}}
+\index{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G2@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G2}!secstr.c@{secstr.\-c}}
+\subsubsection[{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G2}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G2~5}}\label{secstr_8c_ad883cbdfbe393b490ccb2d4c929094da}
+
+
+Definition at line 140 of file secstr.\-c.
+
+\hypertarget{secstr_8c_accd362a25429351c836c4cfe200041f8}{\index{secstr.\-c@{secstr.\-c}!S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G\-E@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G\-E}}
+\index{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G\-E@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-B\-R\-I\-D\-G\-E~3}}\label{secstr_8c_accd362a25429351c836c4cfe200041f8}
+
+
+Definition at line 138 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a893b5630fad0691a7008c0cece03aab9}{\index{secstr.\-c@{secstr.\-c}!S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-C\-H\-I\-S\-G\-N@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-C\-H\-I\-S\-G\-N}}
+\index{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-C\-H\-I\-S\-G\-N@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-C\-H\-I\-S\-G\-N}!secstr.c@{secstr.\-c}}
+\subsubsection[{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-C\-H\-I\-S\-G\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-C\-H\-I\-S\-G\-N~10}}\label{secstr_8c_a893b5630fad0691a7008c0cece03aab9}
+
+
+Definition at line 145 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a149b4a144c6315e7a7f928ac2bf4f3b5}{\index{secstr.\-c@{secstr.\-c}!S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-P\-I\-H@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-P\-I\-H}}
+\index{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-P\-I\-H@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-P\-I\-H}!secstr.c@{secstr.\-c}}
+\subsubsection[{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-P\-I\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-P\-I\-H~7}}\label{secstr_8c_a149b4a144c6315e7a7f928ac2bf4f3b5}
+
+
+Definition at line 142 of file secstr.\-c.
+
+\hypertarget{secstr_8c_abd6de96a3396fde43ed065fa476cbcdc}{\index{secstr.\-c@{secstr.\-c}!S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T}}
+\index{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T}!secstr.c@{secstr.\-c}}
+\subsubsection[{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T~2}}\label{secstr_8c_abd6de96a3396fde43ed065fa476cbcdc}
+
+
+Definition at line 137 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a97cc4cd282397f0ff6703efc7798caaa}{\index{secstr.\-c@{secstr.\-c}!S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T1@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T1}}
+\index{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T1@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T1}!secstr.c@{secstr.\-c}}
+\subsubsection[{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T1}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-S\-H\-E\-E\-T1~1}}\label{secstr_8c_a97cc4cd282397f0ff6703efc7798caaa}
+
+
+Definition at line 136 of file secstr.\-c.
+
+\hypertarget{secstr_8c_ac8102c05c8af1678b55401332dff7ffa}{\index{secstr.\-c@{secstr.\-c}!S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-H\-R\-T\-N\-H@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-H\-R\-T\-N\-H}}
+\index{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-H\-R\-T\-N\-H@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-H\-R\-T\-N\-H}!secstr.c@{secstr.\-c}}
+\subsubsection[{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-H\-R\-T\-N\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-H\-R\-T\-N\-H~6}}\label{secstr_8c_ac8102c05c8af1678b55401332dff7ffa}
+
+
+Definition at line 141 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a4d0c727cd70d41c6fd28ede7775b5f1e}{\index{secstr.\-c@{secstr.\-c}!S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-U\-R\-N@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-U\-R\-N}}
+\index{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-U\-R\-N@{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-U\-R\-N}!secstr.c@{secstr.\-c}}
+\subsubsection[{S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-U\-R\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-S\-T\-R\-\_\-\-I\-D\-X\-\_\-\-T\-U\-R\-N~8}}\label{secstr_8c_a4d0c727cd70d41c6fd28ede7775b5f1e}
+
+
+Definition at line 143 of file secstr.\-c.
+
+\hypertarget{secstr_8c_aa35a7eb54cdb2518d65f10403ae17453}{\index{secstr.\-c@{secstr.\-c}!T\-E\-S\-T\-C\-O\-D\-E@{T\-E\-S\-T\-C\-O\-D\-E}}
+\index{T\-E\-S\-T\-C\-O\-D\-E@{T\-E\-S\-T\-C\-O\-D\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{T\-E\-S\-T\-C\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-S\-T\-C\-O\-D\-E~1}}\label{secstr_8c_aa35a7eb54cdb2518d65f10403ae17453}
+
+
+Definition at line 1 of file secstr.\-c.
+
+\hypertarget{secstr_8c_a8aae91c72efc5dc6516ed01ddabe7ad0}{\index{secstr.\-c@{secstr.\-c}!T\-H\-R\-E\-E\-\_\-\-T\-E\-N\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E@{T\-H\-R\-E\-E\-\_\-\-T\-E\-N\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}}
+\index{T\-H\-R\-E\-E\-\_\-\-T\-E\-N\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E@{T\-H\-R\-E\-E\-\_\-\-T\-E\-N\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}!secstr.c@{secstr.\-c}}
+\subsubsection[{T\-H\-R\-E\-E\-\_\-\-T\-E\-N\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-H\-R\-E\-E\-\_\-\-T\-E\-N\-\_\-\-C\-H\-U\-N\-K\-\_\-\-S\-I\-Z\-E~3 /$\ast$ 3\-\_\-10 helices in chunks of this       $\ast$/}}\label{secstr_8c_a8aae91c72efc5dc6516ed01ddabe7ad0}
+
+
+Definition at line 149 of file secstr.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{secstr_8c_aca5046643e5b5b54b6c5732816ee2b5a}{\index{secstr.\-c@{secstr.\-c}!bl\-Calc\-Sec\-Struc\-P\-D\-B@{bl\-Calc\-Sec\-Struc\-P\-D\-B}}
+\index{bl\-Calc\-Sec\-Struc\-P\-D\-B@{bl\-Calc\-Sec\-Struc\-P\-D\-B}!secstr.c@{secstr.\-c}}
+\subsubsection[{bl\-Calc\-Sec\-Struc\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Calc\-Sec\-Struc\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb\-Start, }
+\item[{{\bf P\-D\-B} $\ast$}]{pdb\-Stop, }
+\item[{{\bf B\-O\-O\-L}}]{verbose}
+\end{DoxyParamCaption}
+)}}\label{secstr_8c_aca5046643e5b5b54b6c5732816ee2b5a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb\-Start} & Start of P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$pdb\-Stop} & End of P\-D\-B linked list (N\-U\-L\-L or pointer to start of next chain) \\
+\hline
+\mbox{\tt in}  & {\em verbose} & Provide informational messages \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 -\/ success -\/ve -\/ error (See S\-E\-C\-S\-T\-R\-\_\-\-E\-R\-R\-\_\-xxxxx)
+\end{DoxyReturn}
+Calculate secondary structure populating the ss field of the P\-D\-B structure.
+
+
+\begin{DoxyItemize}
+\item 19.\-05.\-99 Original By\-: A\-C\-R\-M
+\item 27.\-05.\-99 Standard format for messages
+\item 09.\-06.\-99 Warning only issued if not quiet
+\item 10.\-07.\-15 Modified for Biop\-Lib
+\item 09.\-03.\-16 Zero-\/basing
+\item 10.\-08.\-16 Completed zero-\/basing 
+\end{DoxyItemize}
+
+Definition at line 318 of file secstr.\-c.
+

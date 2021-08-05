@@ -1,0 +1,41 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.12;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/*
+*   Prints the current values for the debugging variables.
+*/
+ 
+void prtdbgvars(
+void
+)
+{
+   fprintf(out,"\nDebugging variables:\n");
+   fprintf(out,"ALLOC = %d  ALLHP = %d  ALLSTK = %d\n",
+          dbg.alloc,dbg.allhp,dbg.allstk);
+   fprintf(out,"CGEN = %d  CLSCHN = %d\n",dbg.cgen,dbg.clschn);
+}
+ 
+@

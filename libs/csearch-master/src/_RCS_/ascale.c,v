@@ -1,0 +1,47 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.13.36;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifdef __FORT_UNDERSCORE__
+#define ascale ascale_
+#endif
+
+#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Scales an array. Called from FORTRAN so uses pointers
+
+   02.08.92 Some rewriting.   By: ACRM
+*/
+ 
+void ascale(float *InArray,
+            float *Scale,
+            float *OutArray,
+            int   *NItems)
+{
+   int i;
+ 
+   for(i=0; i < *NItems; i++)
+      OutArray[i] = *Scale * InArray[i];
+}
+ 
+@

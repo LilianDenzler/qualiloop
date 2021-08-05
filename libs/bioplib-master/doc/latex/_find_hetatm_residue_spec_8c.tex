@@ -1,0 +1,96 @@
+\hypertarget{_find_hetatm_residue_spec_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Find\-Hetatm\-Residue\-Spec.c File Reference}
+\label{_find_hetatm_residue_spec_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Find\-Hetatm\-Residue\-Spec.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Find\-Hetatm\-Residue\-Spec.\-c}}
+}
+
+
+Parse a residue specification.  
+
+
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_find_hetatm_residue_spec_8c_a192ca18214526a19859f6bf1b7b1b81e}{bl\-Find\-Hetatm\-Residue\-Spec} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, char $\ast$resspec)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parse a residue specification. \begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) 2011-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 26.\-10.\-11 Original based on \hyperlink{_find_residue_spec_8c}{Find\-Residue\-Spec.\-c}
+\item V1.\-1 28.\-08.\-13 Mofified for new Parse\-Res\-Spec that terminates strings
+\item V1.\-2 24.\-02.\-14 Now calls Biop\-Find\-Residue(). By\-: C\-T\-P
+\item V1.\-3 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_find_hetatm_residue_spec_8c_source}{Find\-Hetatm\-Residue\-Spec.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_find_hetatm_residue_spec_8c_a192ca18214526a19859f6bf1b7b1b81e}{\index{Find\-Hetatm\-Residue\-Spec.\-c@{Find\-Hetatm\-Residue\-Spec.\-c}!bl\-Find\-Hetatm\-Residue\-Spec@{bl\-Find\-Hetatm\-Residue\-Spec}}
+\index{bl\-Find\-Hetatm\-Residue\-Spec@{bl\-Find\-Hetatm\-Residue\-Spec}!FindHetatmResidueSpec.c@{Find\-Hetatm\-Residue\-Spec.\-c}}
+\subsubsection[{bl\-Find\-Hetatm\-Residue\-Spec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Find\-Hetatm\-Residue\-Spec (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{char $\ast$}]{resspec}
+\end{DoxyParamCaption}
+)}}\label{_find_hetatm_residue_spec_8c_a192ca18214526a19859f6bf1b7b1b81e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$resspec} & Residue specification \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to first atom of specified residue (N\-U\-L\-L if not found).
+\end{DoxyReturn}
+Search a P\-D\-B linked list for a specified residue (given as \mbox{[}chain\mbox{]}num\mbox{[}insert\mbox{]}) but limits search to H\-E\-T\-A\-T\-M residues
+
+
+\begin{DoxyItemize}
+\item 26.\-10.\-11 Original By\-: A\-C\-R\-M
+\item 28.\-08.\-13 Mofified for new Parse\-Res\-Spec that terminates strings
+\item 24.\-02.\-14 Now calls Biop\-Find\-Residue(). By\-: C\-T\-P
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 105 of file Find\-Hetatm\-Residue\-Spec.\-c.
+

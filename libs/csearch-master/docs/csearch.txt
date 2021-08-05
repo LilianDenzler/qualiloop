@@ -1,0 +1,91 @@
+The RTF File format
+===================
+
+TOPOLOGY { PROT }
+         { HPRO }
+         { ALLH }
+         { DNA  }
+         { UNKN }
+Specify the RTF TOPOLOGY type depending on the first letter of the keyword.
+
+TYPE atom-type-code atom-type-name mass
+Read in an atom type and set its mass
+
+DECLARE name value
+Declare a name-value equivalent
+
+RESIDUE name [total-charge]
+Start a new residue, finishes the last residue if necessary
+
+ATOM iupac atom-type-code charge "repeat(exclusion-names)"
+Reads information for an atom. The exclusion names must be in double
+inverted commas if more than one.
+
+BOND iupac1 iupac2
+Specifies a bond between 2 atoms
+   
+ANGLE iupac1 iupac2 iupac3
+Specifies an angle between 3 atoms
+
+TORSION iupac1 iupac2 iupac3 iupac4
+Specifies a torsion between 4 atoms
+
+IMPROPER iupac1 iupac2 iupac3 iupac4
+Specifies an improper torsion between 4 atoms
+
+DONOR hydrogen heavy-atom antecedant1 antecedant2
+Specifies an HBond donor. This code only supports the explicit
+hydrogen model, so the first atom must be a hydrogen and
+antecedants must be specified.
+
+ACCEPTOR iupac 
+         "iupac iupac"
+         "iupac iupac iupac"   
+Specifies an HBond acceptor. One or 2 antecedants may be specified.
+If so, the atoms must be placed in double inverted commas.
+   
+BUILD name name name name bond angle phi angle bond
+Fills in builder information for a set of 4 atoms.
+
+GROUP name first-atom-iupac last-atom-iupac
+Specifies a group.
+
+PRINT ON
+      OFF
+Sets the print flag.
+
+END
+Specify end of file
+
+
+
+
+CGEN Commands
+=============
+
+CHAIN <maxevdw> <chain> <resid>
+Specify first residue of chain closure
+
+FORWARD <maxevdw> <chain> <startres> <endres> <closeres> <closeatm>
+Specify forward backbone search
+
+REVERSE <maxevdw> <chain> <startres> <endres> <closeres> <closeatm>
+Specify reverse backbone search
+
+SIDECHAIN <maxevdw> <MIN|gridsize> <chain> <startres> <endres> <method>
+Do sidechain search. <method> is one of FIRST, INDEPENDENT, ALL,
+COMBINATION, ITERATIVE
+
+WRITE <filename>
+
+STATUS <filename>
+
+LOOPS <filename>
+Specify filename from which to read database loops
+
+{  EVALUATE                                                             }
+{  Causes evaluation of energy if this has been included within CSEARCH }
+
+END
+Starts the conformational search
+

@@ -1,0 +1,95 @@
+\hypertarget{_dist_pt_line_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Dist\-Pt\-Line.c File Reference}
+\label{_dist_pt_line_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Dist\-Pt\-Line.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Dist\-Pt\-Line.\-c}}
+}
+
+
+General maths/stats/vector functions.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Util.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{_dist_pt_line_8c_a5fecc1af047d8c84e295d8ac3c60ec05}{bl\-Dist\-Pt\-Line} (\hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} Point, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} End1, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} End2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+General maths/stats/vector functions. \begin{DoxyVersion}{Version}
+V1.\-5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+20.\-07.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1996-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 29.\-01.\-96 Original By\-: A\-C\-R\-M
+\item V1.\-1 18.\-06.\-96 Added vector routines
+\item V1.\-2 06.\-10.\-98 Added Vec\-Add3()
+\item V1.\-3 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-4 20.\-07.\-15 Renamed from bl\-Dist\-Pt\-Vect() 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_dist_pt_line_8c_source}{Dist\-Pt\-Line.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_dist_pt_line_8c_a5fecc1af047d8c84e295d8ac3c60ec05}{\index{Dist\-Pt\-Line.\-c@{Dist\-Pt\-Line.\-c}!bl\-Dist\-Pt\-Line@{bl\-Dist\-Pt\-Line}}
+\index{bl\-Dist\-Pt\-Line@{bl\-Dist\-Pt\-Line}!DistPtLine.c@{Dist\-Pt\-Line.\-c}}
+\subsubsection[{bl\-Dist\-Pt\-Line}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Dist\-Pt\-Line (
+\begin{DoxyParamCaption}
+\item[{{\bf V\-E\-C3\-F}}]{Point, }
+\item[{{\bf V\-E\-C3\-F}}]{End1, }
+\item[{{\bf V\-E\-C3\-F}}]{End2}
+\end{DoxyParamCaption}
+)}}\label{_dist_pt_line_8c_a5fecc1af047d8c84e295d8ac3c60ec05}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Point} & The coordinates of a point \\
+\hline
+\mbox{\tt in}  & {\em End1} & Coordinates of one end of vector \\
+\hline
+\mbox{\tt in}  & {\em End2} & Coordinates of other end of vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance from pt to line
+\end{DoxyReturn}
+Calculate the distance from a point to a line described by two vector end points
+
+
+\begin{DoxyItemize}
+\item 18.\-06.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 20.\-07.\-15 Renamed from bl\-Dist\-Pt\-Vect() By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 100 of file Dist\-Pt\-Line.\-c.
+

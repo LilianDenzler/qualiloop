@@ -1,0 +1,538 @@
+\hypertarget{_p_d_b_header_info_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-P\-D\-B\-Header\-Info.c File Reference}
+\label{_p_d_b_header_info_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-P\-D\-B\-Header\-Info.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-P\-D\-B\-Header\-Info.\-c}}
+}
+
+
+Get misc header info from P\-D\-B header.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}seq.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fsscanf.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hash.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_p_d_b_header_info_8c_abdf813ae969421add7c4be8f806be018}{M\-A\-X\-W\-O\-R\-D}~8
+\item 
+\#define \hyperlink{_p_d_b_header_info_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~160
+\item 
+\#define \hyperlink{_p_d_b_header_info_8c_aa9b785ec0b88702d35f444586b8a89f9}{A\-L\-L\-O\-C\-S\-I\-Z\-E}~80
+\item 
+\#define \hyperlink{_p_d_b_header_info_8c_a0926e2443fa500b5c8f1b0d170e50e5b}{C\-L\-E\-A\-R\-\_\-\-B\-I\-O\-M\-O\-L}(b)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_p_d_b_header_info_8c_a020709b8b0f9cc91850067b206f79bf2}{bl\-Get\-Header\-Whole\-P\-D\-B} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, char $\ast$header, int maxheader, char $\ast$date, int maxdate, char $\ast$pdbcode, int maxcode)
+\item 
+char $\ast$ \hyperlink{_p_d_b_header_info_8c_a8f59413f497349ebcefb4ba1ab6184ee}{bl\-Get\-Title\-Whole\-P\-D\-B} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_p_d_b_header_info_8c_a417c7df4ac8fb7dd31f2a09d79464f10}{bl\-Get\-Compound\-Whole\-P\-D\-B\-Chain} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, char $\ast$chain, \hyperlink{pdb_8h_a694a12bbd3f130e9e22c3ec8d8a2d9d2}{C\-O\-M\-P\-N\-D} $\ast$compnd)
+\item 
+int \hyperlink{_p_d_b_header_info_8c_aac641dc33109c5b0dfb9772182799df6}{bl\-Find\-Mol\-I\-D} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, char $\ast$chain)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_p_d_b_header_info_8c_aa3dde006c07b1fff09030126a6e99d4d}{bl\-Get\-Species\-Whole\-P\-D\-B\-Chain} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, char $\ast$chain, \hyperlink{pdb_8h_a0e30c16745637622724b1f7d310fda24}{P\-D\-B\-S\-O\-U\-R\-C\-E} $\ast$source)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_p_d_b_header_info_8c_a85e30cac350ad8abfad44d097aec9504}{bl\-Get\-Compound\-Whole\-P\-D\-B\-Mol\-I\-D} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, int molid, \hyperlink{pdb_8h_a694a12bbd3f130e9e22c3ec8d8a2d9d2}{C\-O\-M\-P\-N\-D} $\ast$compnd)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_p_d_b_header_info_8c_a33415e6d8ecd4bf670f8b3846a9fb90d}{bl\-Get\-Species\-Whole\-P\-D\-B\-Mol\-I\-D} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, int molid, \hyperlink{pdb_8h_a0e30c16745637622724b1f7d310fda24}{P\-D\-B\-S\-O\-U\-R\-C\-E} $\ast$source)
+\item 
+char $\ast$ \hyperlink{_p_d_b_header_info_8c_afe803b05ac022d530cd887ffa0c4834d}{bl\-Get\-Seqres\-As\-String\-Whole\-P\-D\-B} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, char $\ast$$\ast$chains, \hyperlink{pdb_8h_adf219a60a6e4c11f8bed0b2a3136b7cb}{M\-O\-D\-R\-E\-S} $\ast$modres, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} do\-Nucleic)
+\item 
+\hyperlink{pdb_8h_adf219a60a6e4c11f8bed0b2a3136b7cb}{M\-O\-D\-R\-E\-S} $\ast$ \hyperlink{_p_d_b_header_info_8c_a1962f92f359a1015ca08ebe5efcb51fc}{bl\-Get\-Modres\-Whole\-P\-D\-B} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb)
+\item 
+void \hyperlink{_p_d_b_header_info_8c_a5949768dfe74da6c5287394f14498285}{bl\-Find\-Original\-Res\-Type} (char $\ast$mod\-A\-A, char $\ast$std\-A\-A, \hyperlink{pdb_8h_adf219a60a6e4c11f8bed0b2a3136b7cb}{M\-O\-D\-R\-E\-S} $\ast$modres)
+\item 
+\hyperlink{pdb_8h_a7516ad97fdea8516eb3ce156e5e2114d}{B\-I\-O\-M\-O\-L\-E\-C\-U\-L\-E} $\ast$ \hyperlink{_p_d_b_header_info_8c_a92e5b91f6d1c9fce21d9f2b0060c36b0}{bl\-Get\-Biomolecule\-Whole\-P\-D\-B} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb)
+\item 
+void \hyperlink{_p_d_b_header_info_8c_afa45c9ef1af2e0ebc263f73e57d1c29e}{bl\-Free\-Biomolecule} (\hyperlink{pdb_8h_a7516ad97fdea8516eb3ce156e5e2114d}{B\-I\-O\-M\-O\-L\-E\-C\-U\-L\-E} $\ast$biomolecule)
+\item 
+\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$ \hyperlink{_p_d_b_header_info_8c_a20dfcd6d2107bffd2d3b92e19b286066}{bl\-Get\-Seqres\-By\-Chain\-Whole\-P\-D\-B} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, \hyperlink{pdb_8h_adf219a60a6e4c11f8bed0b2a3136b7cb}{M\-O\-D\-R\-E\-S} $\ast$modres, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} do\-Nucleic)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Get misc header info from P\-D\-B header. \begin{DoxyVersion}{Version}
+V1.\-9 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+13.\-03.\-19
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C.\-R. Martin / U\-C\-L, 2015-\/2019 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+See documentation for details
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 26.\-03.\-15 Original
+\item V1.\-1 13.\-05.\-15 \hyperlink{pdb_8h_a8f59413f497349ebcefb4ba1ab6184ee}{bl\-Get\-Title\-Whole\-P\-D\-B()} returns N\-U\-L\-L if no title line in header. Fix for \hyperlink{pdb_8h_aa3dde006c07b1fff09030126a6e99d4d}{bl\-Get\-Species\-Whole\-P\-D\-B\-Chain()} Added \hyperlink{pdb_8h_a85e30cac350ad8abfad44d097aec9504}{bl\-Get\-Compound\-Whole\-P\-D\-B\-Mol\-I\-D()} and \hyperlink{pdb_8h_a33415e6d8ecd4bf670f8b3846a9fb90d}{bl\-Get\-Species\-Whole\-P\-D\-B\-Mol\-I\-D()} By\-: C\-T\-P
+\item V1.\-2 04.\-06.\-15 Fixed bug in dealing with compounds where the referenced chains span more than one line
+\item V1.\-3 09.\-06.\-15 Merged changes from C\-T\-P and A\-C\-R\-M. Updated \hyperlink{pdb_8h_a8f59413f497349ebcefb4ba1ab6184ee}{bl\-Get\-Title\-Whole\-P\-D\-B()} By\-: C\-T\-P
+\item V1.\-4 11.\-06.\-15 Added \hyperlink{pdb_8h_afe803b05ac022d530cd887ffa0c4834d}{bl\-Get\-Seqres\-As\-String\-Whole\-P\-D\-B()}, \hyperlink{pdb_8h_a1962f92f359a1015ca08ebe5efcb51fc}{bl\-Get\-Modres\-Whole\-P\-D\-B()} and \hyperlink{pdb_8h_a28d6880822e08963736837b82ca79f92}{bl\-Find\-Original\-Res\-Type()} By\-: A\-C\-R\-M
+\item V1.\-5 26.\-06.\-15 Added \hyperlink{pdb_8h_a92e5b91f6d1c9fce21d9f2b0060c36b0}{bl\-Get\-Biomolecule\-Whole\-P\-D\-B()} and \hyperlink{pdb_8h_afa45c9ef1af2e0ebc263f73e57d1c29e}{bl\-Free\-Biomolecule()}
+\item V1.\-6 25.\-11.\-15 Added \hyperlink{pdb_8h_a20dfcd6d2107bffd2d3b92e19b286066}{bl\-Get\-Seqres\-By\-Chain\-Whole\-P\-D\-B()}
+\item V1.\-7 02.\-12.\-15 Sequences were not being terminated properly in \hyperlink{pdb_8h_a20dfcd6d2107bffd2d3b92e19b286066}{bl\-Get\-Seqres\-By\-Chain\-Whole\-P\-D\-B()}
+\item V1.\-8 03.\-10.\-16 Added $<$stdlib.\-h$>$
+\item V1.\-9 13.\-03.\-19 Some fixes to terminate strings made with strncpy() 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_p_d_b_header_info_8c_source}{P\-D\-B\-Header\-Info.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_p_d_b_header_info_8c_aa9b785ec0b88702d35f444586b8a89f9}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!A\-L\-L\-O\-C\-S\-I\-Z\-E@{A\-L\-L\-O\-C\-S\-I\-Z\-E}}
+\index{A\-L\-L\-O\-C\-S\-I\-Z\-E@{A\-L\-L\-O\-C\-S\-I\-Z\-E}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{A\-L\-L\-O\-C\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-L\-O\-C\-S\-I\-Z\-E~80}}\label{_p_d_b_header_info_8c_aa9b785ec0b88702d35f444586b8a89f9}
+
+
+Definition at line 138 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_a0926e2443fa500b5c8f1b0d170e50e5b}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!C\-L\-E\-A\-R\-\_\-\-B\-I\-O\-M\-O\-L@{C\-L\-E\-A\-R\-\_\-\-B\-I\-O\-M\-O\-L}}
+\index{C\-L\-E\-A\-R\-\_\-\-B\-I\-O\-M\-O\-L@{C\-L\-E\-A\-R\-\_\-\-B\-I\-O\-M\-O\-L}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{C\-L\-E\-A\-R\-\_\-\-B\-I\-O\-M\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-L\-E\-A\-R\-\_\-\-B\-I\-O\-M\-O\-L(
+\begin{DoxyParamCaption}
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_a0926e2443fa500b5c8f1b0d170e50e5b}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do}\{                                          \(\backslash\)
+   (b)->details         = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL};                 \(\backslash\)
+   (b)->numBiomolecules = 0;                    \(\backslash\)
+   (b)->biomolNumber    = 0;                    \(\backslash\)
+   (b)->authorUnit[0]   = \textcolor{charliteral}{'\(\backslash\)0'};                 \(\backslash\)
+   (b)->softwareUnit[0] = \textcolor{charliteral}{'\(\backslash\)0'};                 \(\backslash\)
+   (b)->chains          = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL};                 \(\backslash\)
+   (b)->biomt           = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL};                 \(\backslash\)
+   \}  \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 140 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~160}}\label{_p_d_b_header_info_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 137 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_abdf813ae969421add7c4be8f806be018}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!M\-A\-X\-W\-O\-R\-D@{M\-A\-X\-W\-O\-R\-D}}
+\index{M\-A\-X\-W\-O\-R\-D@{M\-A\-X\-W\-O\-R\-D}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{M\-A\-X\-W\-O\-R\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-W\-O\-R\-D~8}}\label{_p_d_b_header_info_8c_abdf813ae969421add7c4be8f806be018}
+
+
+Definition at line 136 of file P\-D\-B\-Header\-Info.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_p_d_b_header_info_8c_aac641dc33109c5b0dfb9772182799df6}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Find\-Mol\-I\-D@{bl\-Find\-Mol\-I\-D}}
+\index{bl\-Find\-Mol\-I\-D@{bl\-Find\-Mol\-I\-D}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Find\-Mol\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Find\-Mol\-I\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{char $\ast$}]{chain}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_aac641dc33109c5b0dfb9772182799df6}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & W\-H\-O\-L\-E\-P\-D\-B structure \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain} & Chain label \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+M\-O\-L\-\_\-\-I\-D or 0 if chain not found
+\end{DoxyReturn}
+Finds the M\-O\-L\-\_\-\-I\-D for a specified chain
+
+
+\begin{DoxyItemize}
+\item 28.\-04.\-15 Original By\-: A\-C\-R\-M
+\item 04.\-06.\-15 Modified to use the Extract\-Field() routine instead of duplicating code here. Fixes a bug in dealing with compounds where the referenced chains span more than one line 
+\end{DoxyItemize}
+
+Definition at line 482 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_a5949768dfe74da6c5287394f14498285}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Find\-Original\-Res\-Type@{bl\-Find\-Original\-Res\-Type}}
+\index{bl\-Find\-Original\-Res\-Type@{bl\-Find\-Original\-Res\-Type}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Find\-Original\-Res\-Type}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Find\-Original\-Res\-Type (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{mod\-A\-A, }
+\item[{char $\ast$}]{std\-A\-A, }
+\item[{{\bf M\-O\-D\-R\-E\-S} $\ast$}]{modres}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_a5949768dfe74da6c5287394f14498285}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$mod\-A\-A} & Non-\/standard (modified) amino acid name \\
+\hline
+\mbox{\tt out}  & {\em $\ast$std\-A\-A} & Standard amino acid from which it was derived \\
+\hline
+\mbox{\tt in}  & {\em $\ast$modres} & M\-O\-D\-R\-E\-S linked list\\
+\hline
+\end{DoxyParams}
+Uses the M\-O\-D\-R\-E\-S information to identify the original (standard) amino acid from which a modified amino acid was derived
+
+
+\begin{DoxyItemize}
+\item 07.\-03.\-07 Original By\-: A\-C\-R\-M
+\item 11.\-06.\-15 Moved to bioplib, renamed routine and parameters
+\item 13.\-03.\-19 Terminate string 
+\end{DoxyItemize}
+
+Definition at line 944 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_afa45c9ef1af2e0ebc263f73e57d1c29e}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Free\-Biomolecule@{bl\-Free\-Biomolecule}}
+\index{bl\-Free\-Biomolecule@{bl\-Free\-Biomolecule}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Free\-Biomolecule}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Free\-Biomolecule (
+\begin{DoxyParamCaption}
+\item[{{\bf B\-I\-O\-M\-O\-L\-E\-C\-U\-L\-E} $\ast$}]{biomolecule}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_afa45c9ef1af2e0ebc263f73e57d1c29e}
+
+
+Definition at line 1257 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_a92e5b91f6d1c9fce21d9f2b0060c36b0}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Get\-Biomolecule\-Whole\-P\-D\-B@{bl\-Get\-Biomolecule\-Whole\-P\-D\-B}}
+\index{bl\-Get\-Biomolecule\-Whole\-P\-D\-B@{bl\-Get\-Biomolecule\-Whole\-P\-D\-B}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Get\-Biomolecule\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-I\-O\-M\-O\-L\-E\-C\-U\-L\-E}$\ast$ bl\-Get\-Biomolecule\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_a92e5b91f6d1c9fce21d9f2b0060c36b0}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & Pointer to W\-H\-O\-L\-E\-P\-D\-B structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to malloc()'d B\-I\-O\-M\-O\-L\-E\-C\-U\-L\-E linked list
+\end{DoxyReturn}
+Reads the biomolecule assembly data from R\-E\-M\-A\-R\-K 300 and R\-E\-M\-A\-R\-K 350 headers.
+
+The returned pointer is a linked list of B\-I\-O\-M\-O\-L\-E\-C\-U\-L\-E structures. The first item in the list contains the information from R\-E\-M\-A\-R\-K 300\-: the total number of biomolecule assemblies and any additional information provided in R\-E\-M\-A\-R\-K 300 beyond the standard comments. The additional information (biomolecule-\/$>$details) is a S\-T\-R\-I\-N\-G\-L\-I\-S\-T linked list.
+
+The list of chains will appear in biomolcule-\/$>$chains as a comma separated list and the transformation to be applied to them will appear in the biomolecule-\/$>$biomt structure. This is also a linked list so if multiple transformations are required these will appear in further entries to this list.
+
+Additional entries will be found in the B\-I\-O\-M\-O\-L\-E\-C\-U\-L\-E linked list for each different biomolecule.
+
+See the test code in \hyperlink{_p_d_b_header_info_8c}{P\-D\-B\-Header\-Info.\-c} for example usage.
+
+
+\begin{DoxyItemize}
+\item 26.\-06.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 1237 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_a417c7df4ac8fb7dd31f2a09d79464f10}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Get\-Compound\-Whole\-P\-D\-B\-Chain@{bl\-Get\-Compound\-Whole\-P\-D\-B\-Chain}}
+\index{bl\-Get\-Compound\-Whole\-P\-D\-B\-Chain@{bl\-Get\-Compound\-Whole\-P\-D\-B\-Chain}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Get\-Compound\-Whole\-P\-D\-B\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Get\-Compound\-Whole\-P\-D\-B\-Chain (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{char $\ast$}]{chain, }
+\item[{{\bf C\-O\-M\-P\-N\-D} $\ast$}]{compnd}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_a417c7df4ac8fb7dd31f2a09d79464f10}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & W\-H\-O\-L\-E\-P\-D\-B structure \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain} & Chain label of interest \\
+\hline
+\mbox{\tt out}  & {\em $\ast$compnd} & Data from the C\-O\-M\-P\-N\-D records \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+B\-O\-O\-L Success
+\end{DoxyReturn}
+Extracts the C\-O\-M\-P\-N\-D data for a specified chain. Returns F\-A\-L\-S\-E if the chain isn't found
+
+
+\begin{DoxyItemize}
+\item 28.\-04.\-15 Original By\-: A\-C\-R\-M
+\item 04.\-06.\-15 Modified to use the Extract\-Field() routine instead of duplicating code here. Fixes a bug in dealing with compounds where the referenced chains span more than one line 
+\end{DoxyItemize}
+
+Definition at line 397 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_a85e30cac350ad8abfad44d097aec9504}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Get\-Compound\-Whole\-P\-D\-B\-Mol\-I\-D@{bl\-Get\-Compound\-Whole\-P\-D\-B\-Mol\-I\-D}}
+\index{bl\-Get\-Compound\-Whole\-P\-D\-B\-Mol\-I\-D@{bl\-Get\-Compound\-Whole\-P\-D\-B\-Mol\-I\-D}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Get\-Compound\-Whole\-P\-D\-B\-Mol\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Get\-Compound\-Whole\-P\-D\-B\-Mol\-I\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{int}]{molid, }
+\item[{{\bf C\-O\-M\-P\-N\-D} $\ast$}]{compnd}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_a85e30cac350ad8abfad44d097aec9504}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & W\-H\-O\-L\-E\-P\-D\-B structure \\
+\hline
+\mbox{\tt in}  & {\em molid} & M\-O\-L\-\_\-\-I\-D from P\-D\-B-\/format C\-O\-M\-P\-N\-D record. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$compnd} & Data from the C\-O\-M\-P\-N\-D records \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+B\-O\-O\-L Success
+\end{DoxyReturn}
+Extracts the C\-O\-M\-P\-N\-D data for a specified M\-O\-L\-\_\-\-I\-D. Returns F\-A\-L\-S\-E if the M\-O\-L\-\_\-\-I\-D isn't found
+
+
+\begin{DoxyItemize}
+\item 13.\-05.\-15 Original based on \hyperlink{pdb_8h_a417c7df4ac8fb7dd31f2a09d79464f10}{bl\-Get\-Compound\-Whole\-P\-D\-B\-Chain()}. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 601 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_a020709b8b0f9cc91850067b206f79bf2}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Get\-Header\-Whole\-P\-D\-B@{bl\-Get\-Header\-Whole\-P\-D\-B}}
+\index{bl\-Get\-Header\-Whole\-P\-D\-B@{bl\-Get\-Header\-Whole\-P\-D\-B}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Get\-Header\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Get\-Header\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{char $\ast$}]{header, }
+\item[{int}]{maxheader, }
+\item[{char $\ast$}]{date, }
+\item[{int}]{maxdate, }
+\item[{char $\ast$}]{pdbcode, }
+\item[{int}]{maxcode}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_a020709b8b0f9cc91850067b206f79bf2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & W\-H\-O\-L\-E\-P\-D\-B structure pointer \\
+\hline
+\mbox{\tt out}  & {\em $\ast$header} & String containing header text \\
+\hline
+\mbox{\tt in}  & {\em maxheader} & Max length for storing header \\
+\hline
+\mbox{\tt out}  & {\em $\ast$date} & Date string \\
+\hline
+\mbox{\tt in}  & {\em maxdate} & Max length for storing date \\
+\hline
+\mbox{\tt out}  & {\em $\ast$pdbcode} & P\-D\-B code \\
+\hline
+\mbox{\tt in}  & {\em maxcode} & Max length for storing P\-D\-B code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\-R\-U\-E\-: Found H\-E\-A\-D\-E\-R F\-A\-L\-S\-E\-: Didn't find H\-E\-A\-D\-E\-R
+\end{DoxyReturn}
+Obtains information from the P\-D\-B H\-E\-A\-D\-E\-R record
+
+
+\begin{DoxyItemize}
+\item 26.\-03.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 183 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_a1962f92f359a1015ca08ebe5efcb51fc}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Get\-Modres\-Whole\-P\-D\-B@{bl\-Get\-Modres\-Whole\-P\-D\-B}}
+\index{bl\-Get\-Modres\-Whole\-P\-D\-B@{bl\-Get\-Modres\-Whole\-P\-D\-B}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Get\-Modres\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-O\-D\-R\-E\-S}$\ast$ bl\-Get\-Modres\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_a1962f92f359a1015ca08ebe5efcb51fc}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \textbackslash{}return} & Reads M\-O\-D\-R\-E\-S records from a Whole P\-D\-B structure and returns a linked list containing the information\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item 07.\-03.\-07 Original By\-: A\-C\-R\-M
+\item 11.\-06.\-15 Moved to Bioplib
+\item 13.\-03.\-19 Terminate string 
+\end{DoxyItemize}
+
+Definition at line 884 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_afe803b05ac022d530cd887ffa0c4834d}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Get\-Seqres\-As\-String\-Whole\-P\-D\-B@{bl\-Get\-Seqres\-As\-String\-Whole\-P\-D\-B}}
+\index{bl\-Get\-Seqres\-As\-String\-Whole\-P\-D\-B@{bl\-Get\-Seqres\-As\-String\-Whole\-P\-D\-B}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Get\-Seqres\-As\-String\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Get\-Seqres\-As\-String\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{char $\ast$$\ast$}]{chains, }
+\item[{{\bf M\-O\-D\-R\-E\-S} $\ast$}]{modres, }
+\item[{{\bf B\-O\-O\-L}}]{do\-Nucleic}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_afe803b05ac022d530cd887ffa0c4834d}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & Pointer to whole P\-D\-B structure \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$chains} & Chain labels for the chains -\/ may also be set to N\-U\-L\-L if you don't want to record chain labels \\
+\hline
+\mbox{\tt in}  & {\em $\ast$modres} & Linked list of M\-O\-D\-R\-E\-S information. May be N\-U\-L\-L if you don't want to translate non-\/standard amino acids. \\
+\hline
+\mbox{\tt in}  & {\em do\-Nucleic} & Read sequence for nucleic acid chains \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+malloc()'d Sequence from S\-E\-Q\-R\-E\-S, chains separated by a $\ast$
+\end{DoxyReturn}
+Reads sequence from S\-E\-Q\-R\-E\-S records into a character string in 1-\/letter code. Chains are terminated by $\ast$ characters.
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-97 Original by\-: A\-C\-R\-M
+\item 22.\-08.\-97 Added chains parameter
+\item 26.\-08.\-97 No longer reads D\-N\-A/\-R\-N\-A
+\item 07.\-03.\-07 Added code to check for modified amino acids Now reads from wpdb rather than from the file
+\item 07.\-11.\-14 Initialize lastchain
+\item 11.\-06.\-15 Moved to bioplib -\/ do\-Nucleic is now a paramater instead of a global; chains is now an array of strings
+\item 12.\-06.\-15 Frees memory and returns N\-U\-L\-L if no S\-E\-Q\-R\-E\-S found 
+\end{DoxyItemize}
+
+Definition at line 760 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_a20dfcd6d2107bffd2d3b92e19b286066}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Get\-Seqres\-By\-Chain\-Whole\-P\-D\-B@{bl\-Get\-Seqres\-By\-Chain\-Whole\-P\-D\-B}}
+\index{bl\-Get\-Seqres\-By\-Chain\-Whole\-P\-D\-B@{bl\-Get\-Seqres\-By\-Chain\-Whole\-P\-D\-B}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Get\-Seqres\-By\-Chain\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf H\-A\-S\-H\-T\-A\-B\-L\-E}$\ast$ bl\-Get\-Seqres\-By\-Chain\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{{\bf M\-O\-D\-R\-E\-S} $\ast$}]{modres, }
+\item[{{\bf B\-O\-O\-L}}]{do\-Nucleic}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_a20dfcd6d2107bffd2d3b92e19b286066}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & Pointer to whole P\-D\-B structure \\
+\hline
+\mbox{\tt in}  & {\em $\ast$modres} & Linked list of M\-O\-D\-R\-E\-S information. May be N\-U\-L\-L if you don't want to translate non-\/standard amino acids. \\
+\hline
+\mbox{\tt in}  & {\em do\-Nucleic} & Read sequence for nucleic acid chains \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A hash of 1-\/letter code sequences indexed by chain label
+\end{DoxyReturn}
+Reads sequence from S\-E\-Q\-R\-E\-S records in 1-\/letter code, storing the results in a hash indexed by chain label.
+
+
+\begin{DoxyItemize}
+\item 25.\-11.\-15 Original by\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 1305 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_aa3dde006c07b1fff09030126a6e99d4d}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Get\-Species\-Whole\-P\-D\-B\-Chain@{bl\-Get\-Species\-Whole\-P\-D\-B\-Chain}}
+\index{bl\-Get\-Species\-Whole\-P\-D\-B\-Chain@{bl\-Get\-Species\-Whole\-P\-D\-B\-Chain}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Get\-Species\-Whole\-P\-D\-B\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Get\-Species\-Whole\-P\-D\-B\-Chain (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{char $\ast$}]{chain, }
+\item[{{\bf P\-D\-B\-S\-O\-U\-R\-C\-E} $\ast$}]{source}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_aa3dde006c07b1fff09030126a6e99d4d}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & W\-H\-O\-L\-E\-P\-D\-B structure \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain} & Chain label \\
+\hline
+\mbox{\tt out}  & {\em $\ast$source} & S\-O\-U\-R\-C\-E information for chain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success (chain found?)
+\end{DoxyReturn}
+Extracts the S\-O\-U\-R\-C\-E data for a specified chain
+
+
+\begin{DoxyItemize}
+\item 26.\-03.\-15 Original By\-: A\-C\-R\-M
+\item 13.\-05.\-15 Fixes... 
+\end{DoxyItemize}
+
+Definition at line 535 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_a33415e6d8ecd4bf670f8b3846a9fb90d}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Get\-Species\-Whole\-P\-D\-B\-Mol\-I\-D@{bl\-Get\-Species\-Whole\-P\-D\-B\-Mol\-I\-D}}
+\index{bl\-Get\-Species\-Whole\-P\-D\-B\-Mol\-I\-D@{bl\-Get\-Species\-Whole\-P\-D\-B\-Mol\-I\-D}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Get\-Species\-Whole\-P\-D\-B\-Mol\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Get\-Species\-Whole\-P\-D\-B\-Mol\-I\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{int}]{molid, }
+\item[{{\bf P\-D\-B\-S\-O\-U\-R\-C\-E} $\ast$}]{source}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_a33415e6d8ecd4bf670f8b3846a9fb90d}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & W\-H\-O\-L\-E\-P\-D\-B structure \\
+\hline
+\mbox{\tt in}  & {\em molid} & M\-O\-L\-\_\-\-I\-D from P\-D\-B-\/format S\-O\-U\-R\-C\-E record. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$source} & S\-O\-U\-R\-C\-E information for chain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success (chain found?)
+\end{DoxyReturn}
+Extracts the S\-O\-U\-R\-C\-E data for a specified M\-O\-L\-\_\-\-I\-D. Returns F\-A\-L\-S\-E if not found.
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original based on \hyperlink{pdb_8h_aa3dde006c07b1fff09030126a6e99d4d}{bl\-Get\-Species\-Whole\-P\-D\-B\-Chain()}. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 680 of file P\-D\-B\-Header\-Info.\-c.
+
+\hypertarget{_p_d_b_header_info_8c_a8f59413f497349ebcefb4ba1ab6184ee}{\index{P\-D\-B\-Header\-Info.\-c@{P\-D\-B\-Header\-Info.\-c}!bl\-Get\-Title\-Whole\-P\-D\-B@{bl\-Get\-Title\-Whole\-P\-D\-B}}
+\index{bl\-Get\-Title\-Whole\-P\-D\-B@{bl\-Get\-Title\-Whole\-P\-D\-B}!PDBHeaderInfo.c@{P\-D\-B\-Header\-Info.\-c}}
+\subsubsection[{bl\-Get\-Title\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Get\-Title\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b_header_info_8c_a8f59413f497349ebcefb4ba1ab6184ee}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & W\-H\-O\-L\-E\-P\-D\-B structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Tit;le from P\-D\-B file (malloc()'d)
+\end{DoxyReturn}
+Extracts the title from a P\-D\-B file malloc()ing a string in which to store the data. This must be freed by user code
+
+
+\begin{DoxyItemize}
+\item 28.\-04.\-15 Original By\-: A\-C\-R\-M
+\item 11.\-05.\-15 Return N\-U\-L\-L if T\-I\-T\-L\-E line absent. By\-: C\-T\-P
+\item 09.\-06.\-15 Add columns 11 to 80 to title string for both start and continuation lines. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 229 of file P\-D\-B\-Header\-Info.\-c.
+

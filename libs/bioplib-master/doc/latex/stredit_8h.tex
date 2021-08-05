@@ -1,0 +1,39 @@
+\hypertarget{stredit_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/stredit.h File Reference}
+\label{stredit_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/stredit.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/stredit.\-h}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{stredit_8h_a88762cbf98631a7d0a47b57fdd37e317}{bl\-Levenshtein\-Distance} (char $\ast$s, char $\ast$t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{stredit_8h_a88762cbf98631a7d0a47b57fdd37e317}{\index{stredit.\-h@{stredit.\-h}!bl\-Levenshtein\-Distance@{bl\-Levenshtein\-Distance}}
+\index{bl\-Levenshtein\-Distance@{bl\-Levenshtein\-Distance}!stredit.h@{stredit.\-h}}
+\subsubsection[{bl\-Levenshtein\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Levenshtein\-Distance (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{column\-String, }
+\item[{char $\ast$}]{row\-String}
+\end{DoxyParamCaption}
+)}}\label{stredit_8h_a88762cbf98631a7d0a47b57fdd37e317}
+column\-String A N\-U\-L\-L-\/terminated string pointer  row\-String A N\-U\-L\-L-\/terminated string pointer \begin{DoxyReturn}{Returns}
+Levenshtein distance ($<$0 for error)
+\end{DoxyReturn}
+Calculates the Levenshtein edit distance using the iterative method with two matrix rows. See \href{https://en.m.wikipedia.org/wiki/Levenshtein_distance}{\tt https\-://en.\-m.\-wikipedia.\-org/wiki/\-Levenshtein\-\_\-distance}
+
+The method is memory efficient as it uses only two rows from the complete matrix -\/ to minimize memory usage, ensure that row\-String is the shorter string.
+
+However, it is suboptimal. The amount of memory required may be reduced to one row and one (index) word of overhead, for better cache locality. Thus speed comes from using very little memory, often keeping the buffer entirely in cache, and reducing the amount of work by skipping any prefix and postfix that won't add to the cost. You only really need to know the three values when you want to update a cell in the matrix and you can keep two of them in a buffer, while keeping the third value in a fixed location.
+
+See \href{https://web.archive.org/web/20180612143641/https://bitbucket.org/clearer/iosifovich/}{\tt https\-://web.\-archive.\-org/web/20180612143641/https\-://bitbucket.\-org/clearer/iosifovich/}
+
+and the C++ implementation of that version at \href{https://github.com/rljacobson/Levenshtein/blob/master/damlev.cpp}{\tt https\-://github.\-com/rljacobson/\-Levenshtein/blob/master/damlev.\-cpp}
+
+
+\begin{DoxyItemize}
+\item 15.\-06.\-20 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 110 of file levenshtein.\-c.
+

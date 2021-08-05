@@ -1,0 +1,33 @@
+RESTOP   /acrm/home/andrew/ANTIBODIES/AbM/AbM2.03SRC/ABM/DAT/topology
+PARAMS   /acrm/home/andrew/ANTIBODIES/AbM/AbM2.03SRC/ABM/DAT/params
+SIDETOP  /acrm/home/andrew/ANTIBODIES/AbM/AbM2.03SRC/ABM/DAT/sidetop
+ALAMAP   /acrm/home/andrew/ANTIBODIES/AbM/AbM2.03SRC/ABM/DAT/emapala30
+GLYMAP   /acrm/home/andrew/ANTIBODIES/AbM/AbM2.03SRC/ABM/DAT/emapgly30
+PROMAP   /acrm/home/andrew/ANTIBODIES/AbM/AbM2.03SRC/ABM/DAT/emappro30
+PROCONS  /acrm/home/andrew/ANTIBODIES/AbM/AbM2.03SRC/ABM/DAT/procns
+PGP      /acrm/home/andrew/ANTIBODIES/AbM/AbM2.03SRC/ABM/DAT/pgp
+!
+SEQUENCE 1yqv.pir   ! Sequence for this run
+COORDS   1yqv.pdb   ! Input structure file for this run
+! Parameters for this run
+GLYEMAX  2.00
+ALAEMAX  2.00
+PROEMAX  2.00
+ERINGPRO 50.00
+EPS      50.0
+CUTNB    5.0
+CUTHB    4.5
+CUTHA    90.0
+!
+ECHO                    ! Write coordinate file after input
+CLEAR L   26   30       ! Clear the range for reconstruction
+
+DEBUG CGEN 10
+! Start the actual conformational search specification
+CGEN
+   FORWARD   100.0 L 26 26 30 CA
+!   REVERSE   100.0 L 30 30 27 N
+!   CHAIN     100.0 L 27
+!   SIDECHAIN 100.0 MIN L 26 30 ITER
+   WRITE     L26_30.cg
+END

@@ -1,0 +1,102 @@
+\hypertarget{_append_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Append\-P\-D\-B.c File Reference}
+\label{_append_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Append\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Append\-P\-D\-B.\-c}}
+}
+
+
+P\-D\-B linked list manipulation.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_append_p_d_b_8c_aa860ec58117bba9e94990820e0b54c09}{bl\-Append\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$first, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$second)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+P\-D\-B linked list manipulation. \begin{DoxyVersion}{Version}
+V1.\-11 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+08.\-10.\-99 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1992-\/6 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 22.\-02.\-94 Original release
+\item V1.\-1 23.\-05.\-94 Added Find\-Next\-Chain\-P\-D\-B()
+\item V1.\-2 05.\-10.\-94 Kill\-Sidechain() uses B\-O\-O\-L rather than int
+\item V1.\-3 24.\-07.\-95 Added Term\-P\-D\-B()
+\item V1.\-4 25.\-07.\-95 Added Get\-P\-D\-B\-Chain\-Labels()
+\item V1.\-5 26.\-09.\-95 Fixed bug in Term\-P\-D\-B()
+\item V1.\-6 12.\-10.\-95 Added Dupe\-P\-D\-B(), Copy\-P\-D\-B\-Coords()
+\item V1.\-7 23.\-10.\-95 Moved Find\-Residue\-Spec() to \hyperlink{_parse_res_8c}{Parse\-Res.\-c}
+\item V1.\-8 10.\-01.\-96 Added Extract\-Zone\-P\-D\-B()
+\item V1.\-9 14.\-03.\-96 Added Find\-Atom\-In\-Res()
+\item V1.\-10 08.\-10.\-99 Initialised some variables 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_append_p_d_b_8c_source}{Append\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_append_p_d_b_8c_aa860ec58117bba9e94990820e0b54c09}{\index{Append\-P\-D\-B.\-c@{Append\-P\-D\-B.\-c}!bl\-Append\-P\-D\-B@{bl\-Append\-P\-D\-B}}
+\index{bl\-Append\-P\-D\-B@{bl\-Append\-P\-D\-B}!AppendPDB.c@{Append\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Append\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Append\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{first, }
+\item[{{\bf P\-D\-B} $\ast$}]{second}
+\end{DoxyParamCaption}
+)}}\label{_append_p_d_b_8c_aa860ec58117bba9e94990820e0b54c09}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$first} & First linked list (may be N\-U\-L\-L) \\
+\hline
+\mbox{\tt in}  & {\em $\ast$second} & Second linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Start of list
+\end{DoxyReturn}
+Appends list second onto first. Returns start of new list (useful if first was N\-U\-L\-L).
+
+
+\begin{DoxyItemize}
+\item 13.\-05.\-92 Original
+\item 09.\-07.\-93 Changed to use \hyperlink{macros_8h_a49dd722216353daa94f49c2dbb53e0cb}{L\-A\-S\-T()}
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 109 of file Append\-P\-D\-B.\-c.
+

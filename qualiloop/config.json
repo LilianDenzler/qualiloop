@@ -1,0 +1,15 @@
+{
+    "qualiloop_scripts" : "/home/lilian/sync_project/WWW/CDRH3loop/CDRH3loop/qualiloop",
+    "actual_PDBs_NR" : "/home/lilian/sync_project/actual_PDBs_NR", 
+    "redundant_PDBs" : "/home/lilian/sync_project/Redundant_PDBs.txt", 
+    "input_Abymod_seq" : "/home/lilian/sync_project/input_Abymod_seq",
+    "abymod_structures": "/home/lilian/sync_project/abymod_structures2",
+    "abymod_logs": "/home/lilian/sync_project/abymod_structures2_log",
+    "nohup_logs": "/home/lilian/sync_project/WWW/CDRH3loop/CDRH3loop/qualiloop",
+    "feature_dir" : "/home/lilian/sync_project/WWW/CDRH3loop/CDRH3loop/feature_dir",
+
+    "lab_book_pics" : "/home/lilian/sync_project/WWW/CDRH3loop/CDRH3loop/qualiloop/lab_book_pics",
+    "lab_book_scripts": "/home/lilian/sync_project/WWW/CDRH3loop/CDRH3loop/qualiloop/lab_book_scripts"
+}
+
+

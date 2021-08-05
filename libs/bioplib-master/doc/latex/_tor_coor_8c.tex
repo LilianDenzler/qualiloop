@@ -1,0 +1,113 @@
+\hypertarget{_tor_coor_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Tor\-Coor.c File Reference}
+\label{_tor_coor_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Tor\-Coor.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Tor\-Coor.\-c}}
+}
+
+
+Calculate cartesian coordinates from torsion angle.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_tor_coor_8c_af77edc1f833593caecfc032dcc5953a6}{E\-T\-A}~(1.\-07e-\/7)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_tor_coor_8c_a902829b1c25ea3681486c1ede42846b6}{bl\-Tor\-To\-Coor} (\hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} ant1, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} ant2, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} ant3, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} bond, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} theta, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} torsion, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$coords)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calculate cartesian coordinates from torsion angle. \begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1989-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+Definition in file \hyperlink{_tor_coor_8c_source}{Tor\-Coor.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_tor_coor_8c_af77edc1f833593caecfc032dcc5953a6}{\index{Tor\-Coor.\-c@{Tor\-Coor.\-c}!E\-T\-A@{E\-T\-A}}
+\index{E\-T\-A@{E\-T\-A}!TorCoor.c@{Tor\-Coor.\-c}}
+\subsubsection[{E\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-T\-A~(1.\-07e-\/7)}}\label{_tor_coor_8c_af77edc1f833593caecfc032dcc5953a6}
+
+
+Definition at line 71 of file Tor\-Coor.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_tor_coor_8c_a902829b1c25ea3681486c1ede42846b6}{\index{Tor\-Coor.\-c@{Tor\-Coor.\-c}!bl\-Tor\-To\-Coor@{bl\-Tor\-To\-Coor}}
+\index{bl\-Tor\-To\-Coor@{bl\-Tor\-To\-Coor}!TorCoor.c@{Tor\-Coor.\-c}}
+\subsubsection[{bl\-Tor\-To\-Coor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Tor\-To\-Coor (
+\begin{DoxyParamCaption}
+\item[{{\bf V\-E\-C3\-F}}]{ant1, }
+\item[{{\bf V\-E\-C3\-F}}]{ant2, }
+\item[{{\bf V\-E\-C3\-F}}]{ant3, }
+\item[{{\bf R\-E\-A\-L}}]{bond, }
+\item[{{\bf R\-E\-A\-L}}]{theta, }
+\item[{{\bf R\-E\-A\-L}}]{torsion, }
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{coords}
+\end{DoxyParamCaption}
+)}}\label{_tor_coor_8c_a902829b1c25ea3681486c1ede42846b6}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ant1} & First antecedent atom coordinates \\
+\hline
+\mbox{\tt in}  & {\em ant2} & Second antecedent atom coordinates \\
+\hline
+\mbox{\tt in}  & {\em ant3} & Third antecedent atom coordinates \\
+\hline
+\mbox{\tt in}  & {\em bond} & Bond length from ant3 to new atom \\
+\hline
+\mbox{\tt in}  & {\em theta} & Bond angle ant2-\/ant3-\/new \\
+\hline
+\mbox{\tt in}  & {\em torsion} & Torsion angle ant1-\/ant2-\/ant3-\/new \\
+\hline
+\mbox{\tt out}  & {\em $\ast$coords} & Coordinates of new atom \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\-R\-U\-E if distance between atoms 2 and 3 is $<$ E\-T\-A (1.\-07e-\/7)
+\end{DoxyReturn}
+Calculates cartesian coordinates for an atom given the coordinates of three antecedant atoms and the bond length, angle and torsion angle
+
+
+\begin{DoxyItemize}
+\item 08.\-07.\-96 Original By\-: A\-C\-R\-M based on earlier F\-O\-R\-T\-R\-A\-N code
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 104 of file Tor\-Coor.\-c.
+

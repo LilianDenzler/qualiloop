@@ -1,0 +1,295 @@
+\hypertarget{_wind_i_o_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Wind\-I\-O.h File Reference}
+\label{_wind_i_o_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Wind\-I\-O.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Wind\-I\-O.\-h}}
+}
+
+
+Header for window/normal interface routines.  
+
+
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_wind_i_o_8h_a1214c73995df5e8213e26e6498d8c4fc}{\-\_\-\-W\-I\-N\-D\-I\-O\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_wind_i_o_8h_a47350d0b7190f1755a8bd73455fec94e}{bl\-Screen} (char $\ast$string)
+\item 
+void \hyperlink{_wind_i_o_8h_ad7d9c635098851044f5e311e73c70ead}{bl\-Prompt} (char $\ast$string)
+\item 
+void \hyperlink{_wind_i_o_8h_a64719533d3bc93c3763afe7461a22844}{bl\-Re\-Prompt} (void)
+\item 
+void \hyperlink{_wind_i_o_8h_a2287dad2ad5b0cc2da7febccbb381883}{bl\-Get\-Kybd\-String} (char $\ast$string, int maxlen)
+\item 
+void \hyperlink{_wind_i_o_8h_adf5e91712535d73909121b7b676b5af8}{bl\-Paging\-On} (void)
+\item 
+void \hyperlink{_wind_i_o_8h_a9cb4c1f0af3d1a43344ea43e7afc06d6}{bl\-Paging\-Off} (void)
+\item 
+void \hyperlink{_wind_i_o_8h_a8303a84d835d5e3a39eba81632d95e5f}{bl\-Window\-Mode} (\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} mode)
+\item 
+void \hyperlink{_wind_i_o_8h_a25b25603f56047b205c78b6621becf5e}{bl\-Window\-Interactive} (\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} mode)
+\item 
+int \hyperlink{_wind_i_o_8h_a9acc08a644bc6780948eb6b1e962efdb}{bl\-Yor\-N} (char deflt)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header for window/normal interface routines. \begin{DoxyVersion}{Version}
+V1.\-6 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-5 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-6 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_wind_i_o_8h_source}{Wind\-I\-O.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_wind_i_o_8h_a1214c73995df5e8213e26e6498d8c4fc}{\index{Wind\-I\-O.\-h@{Wind\-I\-O.\-h}!\-\_\-\-W\-I\-N\-D\-I\-O\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-W\-I\-N\-D\-I\-O\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-W\-I\-N\-D\-I\-O\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-W\-I\-N\-D\-I\-O\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!WindIO.h@{Wind\-I\-O.\-h}}
+\subsubsection[{\-\_\-\-W\-I\-N\-D\-I\-O\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-W\-I\-N\-D\-I\-O\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{_wind_i_o_8h_a1214c73995df5e8213e26e6498d8c4fc}
+
+
+Definition at line 74 of file Wind\-I\-O.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_wind_i_o_8h_a2287dad2ad5b0cc2da7febccbb381883}{\index{Wind\-I\-O.\-h@{Wind\-I\-O.\-h}!bl\-Get\-Kybd\-String@{bl\-Get\-Kybd\-String}}
+\index{bl\-Get\-Kybd\-String@{bl\-Get\-Kybd\-String}!WindIO.h@{Wind\-I\-O.\-h}}
+\subsubsection[{bl\-Get\-Kybd\-String}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Get\-Kybd\-String (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{int}]{maxlen}
+\end{DoxyParamCaption}
+)}}\label{_wind_i_o_8h_a2287dad2ad5b0cc2da7febccbb381883}
+Reads a string from the keyboard
+
+
+\begin{DoxyItemize}
+\item 02.\-10.\-92 Original
+\item 05.\-10.\-92 Added A\-M\-I\-G\-A\-\_\-\-W\-I\-N\-D\-O\-W\-S support
+\item 15.\-03.\-94 Added check on s\-Window\-Mode
+\item 01.\-02.\-01 Added maxlen parameter and changed gets() to fgets()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 263 of file Wind\-I\-O.\-c.
+
+\hypertarget{_wind_i_o_8h_a9cb4c1f0af3d1a43344ea43e7afc06d6}{\index{Wind\-I\-O.\-h@{Wind\-I\-O.\-h}!bl\-Paging\-Off@{bl\-Paging\-Off}}
+\index{bl\-Paging\-Off@{bl\-Paging\-Off}!WindIO.h@{Wind\-I\-O.\-h}}
+\subsubsection[{bl\-Paging\-Off}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Paging\-Off (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_wind_i_o_8h_a9cb4c1f0af3d1a43344ea43e7afc06d6}
+Switches off screen paging.
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-92 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 311 of file Wind\-I\-O.\-c.
+
+\hypertarget{_wind_i_o_8h_adf5e91712535d73909121b7b676b5af8}{\index{Wind\-I\-O.\-h@{Wind\-I\-O.\-h}!bl\-Paging\-On@{bl\-Paging\-On}}
+\index{bl\-Paging\-On@{bl\-Paging\-On}!WindIO.h@{Wind\-I\-O.\-h}}
+\subsubsection[{bl\-Paging\-On}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Paging\-On (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_wind_i_o_8h_adf5e91712535d73909121b7b676b5af8}
+Switches on screen paging.
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-92 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 295 of file Wind\-I\-O.\-c.
+
+\hypertarget{_wind_i_o_8h_ad7d9c635098851044f5e311e73c70ead}{\index{Wind\-I\-O.\-h@{Wind\-I\-O.\-h}!bl\-Prompt@{bl\-Prompt}}
+\index{bl\-Prompt@{bl\-Prompt}!WindIO.h@{Wind\-I\-O.\-h}}
+\subsubsection[{bl\-Prompt}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Prompt (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{_wind_i_o_8h_ad7d9c635098851044f5e311e73c70ead}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & Prompt string\\
+\hline
+\end{DoxyParams}
+Sets a prompt for input. If windowing is on, this simply sets the prompt variable (the actual prompt is issued by the Get\-Kybd\-String() function). If no windowing is used, the actual string is printed. If the prompt ends with a . it is simply printed; if not, a $>$ is appended.
+
+
+\begin{DoxyItemize}
+\item 25.\-09.\-92 Original
+\item 02.\-10.\-92 Added C\-U\-R\-S\-E\-S support
+\item 05.\-10.\-92 Added A\-M\-I\-G\-A\-\_\-\-W\-I\-N\-D\-O\-W\-S support
+\item 11.\-03.\-94 Modified to save prompt string even if not windowing
+\item 15.\-03.\-94 Now sets up string and just calls Re\-Prompt()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 217 of file Wind\-I\-O.\-c.
+
+\hypertarget{_wind_i_o_8h_a64719533d3bc93c3763afe7461a22844}{\index{Wind\-I\-O.\-h@{Wind\-I\-O.\-h}!bl\-Re\-Prompt@{bl\-Re\-Prompt}}
+\index{bl\-Re\-Prompt@{bl\-Re\-Prompt}!WindIO.h@{Wind\-I\-O.\-h}}
+\subsubsection[{bl\-Re\-Prompt}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Re\-Prompt (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_wind_i_o_8h_a64719533d3bc93c3763afe7461a22844}
+Reissue the current prompt. Only has any effect when windowing is not in use. Normally only used by Read\-Buffered\-File() and Probe\-Buffered\-File() to re-\/issue prompts while eating blank lines.
+
+
+\begin{DoxyItemize}
+\item 10.\-03.\-94 Original By\-: A\-C\-R\-M
+\item 15.\-03.\-94 Changed to work whenever we're not windowing and are interactive
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 241 of file Wind\-I\-O.\-c.
+
+\hypertarget{_wind_i_o_8h_a47350d0b7190f1755a8bd73455fec94e}{\index{Wind\-I\-O.\-h@{Wind\-I\-O.\-h}!bl\-Screen@{bl\-Screen}}
+\index{bl\-Screen@{bl\-Screen}!WindIO.h@{Wind\-I\-O.\-h}}
+\subsubsection[{bl\-Screen}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Screen (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{_wind_i_o_8h_a47350d0b7190f1755a8bd73455fec94e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & String to write on window\\
+\hline
+\end{DoxyParams}
+Writes information to the screen. Handles any windows as appropriate.
+
+
+\begin{DoxyItemize}
+\item 25.\-09.\-92 Original
+\item 02.\-10.\-92 Added C\-U\-R\-S\-E\-S support
+\item 05.\-10.\-92 Added A\-M\-I\-G\-A\-\_\-\-W\-I\-N\-D\-O\-W\-S support
+\item 07.\-10.\-92 Added paging support
+\item 11.\-03.\-94 Added check on s\-Window\-Mode
+\item 14.\-03.\-94 Changed this to check on s\-Interactive Changed check on W\-I\-N\-D\-O\-W\-I\-N\-G to s\-Window\-Mode
+\item 01.\-02.\-01 Added maxlen parameter
+\item 15.\-02.\-01 oops! removed maxlen parameter, value of 80 should have gone into Get\-Kybd\-String()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 155 of file Wind\-I\-O.\-c.
+
+\hypertarget{_wind_i_o_8h_a25b25603f56047b205c78b6621becf5e}{\index{Wind\-I\-O.\-h@{Wind\-I\-O.\-h}!bl\-Window\-Interactive@{bl\-Window\-Interactive}}
+\index{bl\-Window\-Interactive@{bl\-Window\-Interactive}!WindIO.h@{Wind\-I\-O.\-h}}
+\subsubsection[{bl\-Window\-Interactive}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Window\-Interactive (
+\begin{DoxyParamCaption}
+\item[{{\bf B\-O\-O\-L}}]{mode}
+\end{DoxyParamCaption}
+)}}\label{_wind_i_o_8h_a25b25603f56047b205c78b6621becf5e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mode} & T\-R\-U\-E\-: Is interactive (default) F\-A\-L\-S\-E\-: Not interactive\\
+\hline
+\end{DoxyParams}
+Switch interactive mode on or off. If switched off, calls Window\-Mode(\-F\-A\-L\-S\-E) to switch off windowing
+
+
+\begin{DoxyItemize}
+\item 15.\-03.\-94 Original By\-: A\-C\-R\-M
+\item 17.\-03.\-94 Set s\-Interactive not s\-Window\-Mode!
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 354 of file Wind\-I\-O.\-c.
+
+\hypertarget{_wind_i_o_8h_a8303a84d835d5e3a39eba81632d95e5f}{\index{Wind\-I\-O.\-h@{Wind\-I\-O.\-h}!bl\-Window\-Mode@{bl\-Window\-Mode}}
+\index{bl\-Window\-Mode@{bl\-Window\-Mode}!WindIO.h@{Wind\-I\-O.\-h}}
+\subsubsection[{bl\-Window\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Window\-Mode (
+\begin{DoxyParamCaption}
+\item[{{\bf B\-O\-O\-L}}]{mode}
+\end{DoxyParamCaption}
+)}}\label{_wind_i_o_8h_a8303a84d835d5e3a39eba81632d95e5f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mode} & T\-R\-U\-E\-: Use windowing F\-A\-L\-S\-E\-: Output normally (default)\\
+\hline
+\end{DoxyParams}
+Switch window mode on or off.
+
+
+\begin{DoxyItemize}
+\item 11.\-03.\-94 Original By\-: A\-C\-R\-M
+\item 15.\-03.\-94 Added check on W\-I\-N\-D\-O\-W\-I\-N\-G
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 330 of file Wind\-I\-O.\-c.
+
+\hypertarget{_wind_i_o_8h_a9acc08a644bc6780948eb6b1e962efdb}{\index{Wind\-I\-O.\-h@{Wind\-I\-O.\-h}!bl\-Yor\-N@{bl\-Yor\-N}}
+\index{bl\-Yor\-N@{bl\-Yor\-N}!WindIO.h@{Wind\-I\-O.\-h}}
+\subsubsection[{bl\-Yor\-N}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Yor\-N (
+\begin{DoxyParamCaption}
+\item[{char}]{deflt}
+\end{DoxyParamCaption}
+)}}\label{_wind_i_o_8h_a9acc08a644bc6780948eb6b1e962efdb}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$deflt} & Default response ('y' or 'n') if return is pressed without a letter or an invalid letter is given \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the user responds with N or n 1 if the user responds with Y or y 2 if the user responds with A or a 3 if the user responds with Q or q
+\end{DoxyReturn}
+Get a yes or no response from the keyboard
+
+A default ('y' or 'n') is supplied in the function call and hitting $<$return$>$ or supplying any invalid character will result in the default being used.
+
+The routine will work correctly with any response which starts with the right letter (e.\-g. Yes, Yeah, yellow(!), no, Never, etc.)
+
+
+\begin{DoxyItemize}
+\item 18.\-06.\-93 Original By\-: A\-C\-R\-M
+\item 01.\-02.\-01 Added maxlen parameter to Get\-Kybd\-String()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 388 of file Wind\-I\-O.\-c.
+

@@ -1,0 +1,84 @@
+\hypertarget{_rot_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rot\-P\-D\-B.c File Reference}
+\label{_rot_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rot\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rot\-P\-D\-B.\-c}}
+}
+
+
+Rotate a P\-D\-B linked list.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_rot_p_d_b_8c_a32aa545c5bf3c73599da61c4e860a3fc}{bl\-Rotate\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} matrix\mbox{[}3\mbox{]}\mbox{[}3\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Rotate a P\-D\-B linked list. \begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+August 1993 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Rotate a P\-D\-B linked list. Moves the structure to the origin first, applies the rotation and moves back from the origin.
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+Definition in file \hyperlink{_rot_p_d_b_8c_source}{Rot\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_rot_p_d_b_8c_a32aa545c5bf3c73599da61c4e860a3fc}{\index{Rot\-P\-D\-B.\-c@{Rot\-P\-D\-B.\-c}!bl\-Rotate\-P\-D\-B@{bl\-Rotate\-P\-D\-B}}
+\index{bl\-Rotate\-P\-D\-B@{bl\-Rotate\-P\-D\-B}!RotPDB.c@{Rot\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Rotate\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Rotate\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf R\-E\-A\-L}}]{matrix\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{_rot_p_d_b_8c_a32aa545c5bf3c73599da61c4e860a3fc}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list to rotate \\
+\hline
+\mbox{\tt in}  & {\em matrix} & Rotation matrix\\
+\hline
+\end{DoxyParams}
+Rotates a P\-D\-B linked list using Apply\-Matrix\-P\-D\-B() which ignores coordinates of 9999.\-0. The structure is moved to the origin, the matrix is applied and the structure is moved back.
+
+
+\begin{DoxyItemize}
+\item 30.\-09.\-92 Original
+\item 01.\-10.\-92 Added check on N\-U\-L\-L coordinates
+\item 22.\-07.\-93 Moves to origin first; calls Apply\-Matrix\-P\-D\-B() to do the work
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_a0f422dbe39a51ccb3271f2c017aaebc7}{bl\-Rotate\-P\-D\-B()}. Use bl prefix for functions. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 101 of file Rot\-P\-D\-B.\-c.
+

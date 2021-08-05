@@ -1,0 +1,40 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.39;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* This is a new routine to replace copy4 in C */
+ 
+void CopyFArray(
+float *a,
+float *cop,
+int   n
+)
+{
+int i;
+   for(i=0; i<n; i++)
+      cop[i] = a[i];
+}
+ 
+@

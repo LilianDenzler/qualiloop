@@ -1,0 +1,75 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@c @;
+
+
+1.1
+date	2006.02.17.12.03.46;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+      SUBROUTINE ECSETXYZSYS(ANTE,ORI,EX,EY,EZ)
+C
+C     Constructs a coordinate system for van der Waals repulsion
+C     avoidance. The origin is on atom ante(2), the x axis is on the
+C     ante(1)-ante(2) vector, the y axis is the perpendicular component
+C     of the ante(0)-ante(1) vector, and z axis being the cross product.
+C
+ 
+C      IMPLICIT INTEGER(A-Z)
+ 
+COM OMUPD BNJ 2/9/91
+ 
+      IMPLICIT NONE
+ 
+COM
+ 
+      INTEGER ANTE(0:2)
+      REAL ORI(3), EX(3), EY(3), EZ(3)
+C
+#include "params.inc"
+#include "coords.inc"
+#include "dbg.inc"
+      REAL DOTP, RX, RY, RZ
+C
+      ORI(1) = XCART(ANTE(2))
+      ORI(2) = YCART(ANTE(2))
+      ORI(3) = ZCART(ANTE(2))
+      EX(1) = XCART(ANTE(2)) - XCART(ANTE(1))
+      EX(2) = YCART(ANTE(2)) - YCART(ANTE(1))
+      EX(3) = ZCART(ANTE(2)) - ZCART(ANTE(1))
+      RX = SQRT(EX(1)**2+EX(2)**2+EX(3)**2)
+      EX(1) = EX(1)/RX
+      EX(2) = EX(2)/RX
+      EX(3) = EX(3)/RX
+      EY(1) = XCART(ANTE(0)) - XCART(ANTE(1))
+      EY(2) = YCART(ANTE(0)) - YCART(ANTE(1))
+      EY(3) = ZCART(ANTE(0)) - ZCART(ANTE(1))
+      DOTP = EX(1)*EY(1) + EX(2)*EY(2) + EX(3)*EY(3)
+      EY(1) = EY(1) - DOTP*EX(1)
+      EY(2) = EY(2) - DOTP*EX(2)
+      EY(3) = EY(3) - DOTP*EX(3)
+      RY = SQRT(EY(1)**2+EY(2)**2+EY(3)**2)
+      EY(1) = EY(1)/RY
+      EY(2) = EY(2)/RY
+      EY(3) = EY(3)/RY
+      EZ(1) = EX(2)*EY(3) - EX(3)*EY(2)
+      EZ(2) = EX(3)*EY(1) - EX(1)*EY(3)
+      EZ(3) = EX(1)*EY(2) - EX(2)*EY(1)
+      RETURN
+      END
+@

@@ -1,0 +1,51 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.24;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifndef __RESTOPIO_H__
+#define __RESTOPIO_H__
+
+
+#ifdef MAIN
+
+/* Global variables for ResTop reader */
+
+char *ResTop_strparam[RESTOPMAXSTRPARAM]; /* Array for returned strings */
+float ResTop_numparam[RESTOPMAXNUMPARAM];  /* Array for returned numbers */
+int ResTop_errcnt;
+int ResTop_wrncnt;
+int nitc;
+
+#else
+
+/* Global variables for ResTop reader */
+
+extern char *ResTop_strparam[RESTOPMAXSTRPARAM]; /* Array for returned strings */
+extern float ResTop_numparam[RESTOPMAXNUMPARAM];  /* Array for returned numbers */
+extern int ResTop_errcnt;
+extern int ResTop_wrncnt;
+extern int natc;
+ 
+#endif
+
+#endif
+@

@@ -1,0 +1,314 @@
+\hypertarget{access_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/access.c File Reference}
+\label{access_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/access.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/access.\-c}}
+}
+
+
+Accessibility calculation code.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}access.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{access_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~160 /$\ast$ I/O buffer                            $\ast$/
+\item 
+\#define \hyperlink{access_8c_ad02ddb4d9305a8951fff3446bdab6a0f}{M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T}
+\item 
+\#define \hyperlink{access_8c_a4630b6dc925eb56084d255996da261cf}{M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-E\-X\-P}~100 /$\ast$ Amount to expand intersect array by   $\ast$/
+\item 
+\#define \hyperlink{access_8c_a2f909abeaa05386a8f204599a3afdf28}{M\-A\-X\-\_\-\-A\-T\-O\-M\-\_\-\-I\-N\-\_\-\-C\-U\-B\-E}
+\item 
+\#define \hyperlink{access_8c_a0e35357d7338629397bdc8600d97c255}{F\-R\-E\-E\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-S\-T\-O\-R\-A\-G\-E}
+\item 
+\#define \hyperlink{access_8c_a3e1df93aca05a2a476c75345a5b21c2d}{E\-X\-P\-A\-N\-D\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-A\-R\-R\-A\-Y\-S}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{access_8h_a63db097c1f823f4e2d7aa4f02b045379}{R\-E\-S\-R\-A\-D} $\ast$ \hyperlink{access_8c_ae697c1552c8004b355d84f2f72a4c6f9}{bl\-Set\-Atom\-Radii} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, F\-I\-L\-E $\ast$fp\-Rad)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{access_8c_a25e95868bba0491487408f2a04f018cf}{bl\-Calc\-Access} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, int natoms, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} integration\-Accuracy, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} probe\-Radius, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} do\-Accessibility)
+\item 
+\hyperlink{access_8h_a76af7605541c2e03adbac474389d0963}{R\-E\-S\-A\-C\-C\-E\-S\-S} $\ast$ \hyperlink{access_8c_a8665f8aad4742be11492028cfc816902}{bl\-Calc\-Res\-Access} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{access_8h_a63db097c1f823f4e2d7aa4f02b045379}{R\-E\-S\-R\-A\-D} $\ast$resrad)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Accessibility calculation code. \begin{DoxyVersion}{Version}
+V1.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+17.\-06.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L, Dr. Andrew C.\-R. Martin, 1999-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C.\-R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Calculation of solvent accessibility by the method of Lee and Richards. Based loosely on P\-M\-C\-L code by Peter Mc\-Laughlin
+
+\subsection*{Usage\-: }
+
+
+\begin{DoxyCode}
+\hyperlink{struct__resrad}{RESRAD} *\hyperlink{access_8c_ae697c1552c8004b355d84f2f72a4c6f9}{blSetAtomRadii}(\hyperlink{structpdb__entry}{PDB} *pdb, FILE *fpRad)
+\end{DoxyCode}
+ Read the radius file and set the radii in the P\-D\-B linked list. Also returns the data from the radius file for use by \hyperlink{access_8c_a8665f8aad4742be11492028cfc816902}{bl\-Calc\-Res\-Access()}
+
+
+\begin{DoxyCode}
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{BOOL} \hyperlink{access_8c_a25e95868bba0491487408f2a04f018cf}{blCalcAccess}(\hyperlink{structpdb__entry}{PDB} *pdb, \textcolor{keywordtype}{int} natoms, 
+                  \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL} integrationAccuracy, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL} probeRadius,
+                  \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{BOOL} doAccessibility)
+\end{DoxyCode}
+ Does the accessibilty calculations. integration\-Accuracy can be set to zero to use the default value
+
+
+\begin{DoxyCode}
+\hyperlink{struct__resaccess}{RESACCESS} *\hyperlink{access_8c_a8665f8aad4742be11492028cfc816902}{blCalcResAccess}(\hyperlink{structpdb__entry}{PDB} *pdb, \hyperlink{struct__resrad}{RESRAD} *resrad)
+\end{DoxyCode}
+ Calculates residue accessibility and relative accessibility
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 21.\-04.\-99 Original By\-: A\-C\-R\-M
+\item V1.\-1 17.\-07.\-14 Extracted from X\-M\-A\-S code
+\item V1.\-2 17.\-06.\-15 Added sidechain residues access 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{access_8c_source}{access.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{access_8c_a3e1df93aca05a2a476c75345a5b21c2d}{\index{access.\-c@{access.\-c}!E\-X\-P\-A\-N\-D\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-A\-R\-R\-A\-Y\-S@{E\-X\-P\-A\-N\-D\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-A\-R\-R\-A\-Y\-S}}
+\index{E\-X\-P\-A\-N\-D\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-A\-R\-R\-A\-Y\-S@{E\-X\-P\-A\-N\-D\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-A\-R\-R\-A\-Y\-S}!access.c@{access.\-c}}
+\subsubsection[{E\-X\-P\-A\-N\-D\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-A\-R\-R\-A\-Y\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-X\-P\-A\-N\-D\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-A\-R\-R\-A\-Y\-S}}\label{access_8c_a3e1df93aca05a2a476c75345a5b21c2d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{  \textcolor{keywordtype}{int} newMaxIntersect = (maxIntersect+\hyperlink{access_8c_a4630b6dc925eb56084d255996da261cf}{MAX\_INTERSECT\_EXP}),            \(\backslash\)
+          iexpand;                                                       \(\backslash\)
+   neighbours = (\textcolor{keywordtype}{int}  *)realloc(neighbours,                              \(\backslash\)
+                                (newMaxIntersect+1)*\textcolor{keyword}{sizeof}(int));        \(\backslash\)
+   flag = (\textcolor{keywordtype}{int}  *)realloc(flag, (newMaxIntersect+1)*\textcolor{keyword}{sizeof}(int));        \(\backslash\)
+   arci = (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL} *)realloc(arci, (newMaxIntersect+1)*\textcolor{keyword}{sizeof}(\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL}));       \(\backslash\)
+   arcf = (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL} *)realloc(arcf, (newMaxIntersect+1)*\textcolor{keyword}{sizeof}(\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL}));       \(\backslash\)
+   deltaX = (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL} *)realloc(deltaX, (newMaxIntersect+1)*\textcolor{keyword}{sizeof}(\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL}));   \(\backslash\)
+   deltaY = (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL} *)realloc(deltaY, (newMaxIntersect+1)*\textcolor{keyword}{sizeof}(\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL}));   \(\backslash\)
+   dist   = (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL} *)realloc(dist,   (newMaxIntersect+1)*\textcolor{keyword}{sizeof}(\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL}));   \(\backslash\)
+   distSquared = (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL} *)realloc(distSquared,                            \(\backslash\)
+                                 (newMaxIntersect+1)*\textcolor{keyword}{sizeof}(\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL}));      \(\backslash\)
+   if(neighbours==\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL} || flag==\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}   || arci==\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL} || arcf==\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL} ||    \(\backslash\)
+      deltaX==\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}     || deltaY==\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL} || dist==\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL} ||                  \(\backslash\)
+      distSquared==\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                                                 \(\backslash\)
+   \{  \hyperlink{access_8c_a0e35357d7338629397bdc8600d97c255}{FREE\_ACCESS\_STORAGE};                                               \(\backslash\)
+      return(\hyperlink{macros_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE});                                                     \(\backslash\)
+   \}                                                                     \(\backslash\)
+   for(iexpand=maxIntersect+1; iexpand<=newMaxIntersect; iexpand++)      \(\backslash\)
+   \{  neighbours[iexpand]  = 0;                                          \(\backslash\)
+      flag[iexpand]        = 0;                                          \(\backslash\)
+      arci[iexpand]        = 0.0;                                        \(\backslash\)
+      arcf[iexpand]        = 0.0;                                        \(\backslash\)
+      deltaX[iexpand]      = 0.0;                                        \(\backslash\)
+      deltaY[iexpand]      = 0.0;                                        \(\backslash\)
+      dist[iexpand]        = 0.0;                                        \(\backslash\)
+      distSquared[iexpand] = 0.0;                                        \(\backslash\)
+   \}                                                                     \(\backslash\)
+   maxIntersect = newMaxIntersect;                                       \(\backslash\)
+\} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 139 of file access.\-c.
+
+\hypertarget{access_8c_a0e35357d7338629397bdc8600d97c255}{\index{access.\-c@{access.\-c}!F\-R\-E\-E\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-S\-T\-O\-R\-A\-G\-E@{F\-R\-E\-E\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-S\-T\-O\-R\-A\-G\-E}}
+\index{F\-R\-E\-E\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-S\-T\-O\-R\-A\-G\-E@{F\-R\-E\-E\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-S\-T\-O\-R\-A\-G\-E}!access.c@{access.\-c}}
+\subsubsection[{F\-R\-E\-E\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-S\-T\-O\-R\-A\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-E\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-S\-T\-O\-R\-A\-G\-E}}\label{access_8c_a0e35357d7338629397bdc8600d97c255}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                                     \(\backslash\)
+   if(cube)         free(cube);                                          \(\backslash\)
+   if(radii)        free(radii);                                         \(\backslash\)
+   if(radiiSquared) free(radiiSquared);                                  \(\backslash\)
+   if(neighbours)   free(neighbours);                                    \(\backslash\)
+   if(flag)         free(flag);                                          \(\backslash\)
+   if(arci)         free(arci);                                          \(\backslash\)
+   if(arcf)         free(arcf);                                          \(\backslash\)
+   if(deltaX)       free(deltaX);                                        \(\backslash\)
+   if(deltaY)       free(deltaY);                                        \(\backslash\)
+   if(dist)         free(dist);                                          \(\backslash\)
+   if(distSquared)  free(distSquared);                                   \(\backslash\)
+   if(atomTable)    free(atomTable);                                     \(\backslash\)
+   if(atomsInCube)  \{                                                    \(\backslash\)
+      for(i=0;i<=maxAtomInCube;i++)                                      \(\backslash\)
+      \{  \textcolor{keywordflow}{if}(atomsInCube[i]) free(atomsInCube[i]);                        \(\backslash\)
+         else        \textcolor{keywordflow}{break};                                              \(\backslash\)
+      \}                                                                  \(\backslash\)
+      free(atomsInCube);                                                 \(\backslash\)
+   \}                                                                     \(\backslash\)
+\}  \textcolor{keywordflow}{while}(0);
+\end{DoxyCode}
+
+
+Definition at line 115 of file access.\-c.
+
+\hypertarget{access_8c_a2f909abeaa05386a8f204599a3afdf28}{\index{access.\-c@{access.\-c}!M\-A\-X\-\_\-\-A\-T\-O\-M\-\_\-\-I\-N\-\_\-\-C\-U\-B\-E@{M\-A\-X\-\_\-\-A\-T\-O\-M\-\_\-\-I\-N\-\_\-\-C\-U\-B\-E}}
+\index{M\-A\-X\-\_\-\-A\-T\-O\-M\-\_\-\-I\-N\-\_\-\-C\-U\-B\-E@{M\-A\-X\-\_\-\-A\-T\-O\-M\-\_\-\-I\-N\-\_\-\-C\-U\-B\-E}!access.c@{access.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-A\-T\-O\-M\-\_\-\-I\-N\-\_\-\-C\-U\-B\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-A\-T\-O\-M\-\_\-\-I\-N\-\_\-\-C\-U\-B\-E}}\label{access_8c_a2f909abeaa05386a8f204599a3afdf28}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+100 \textcolor{comment}{/* Initial max no. of atoms in a cube -}
+\textcolor{comment}{                                  expands as required                   */}
+\end{DoxyCode}
+
+
+Definition at line 112 of file access.\-c.
+
+\hypertarget{access_8c_ad02ddb4d9305a8951fff3446bdab6a0f}{\index{access.\-c@{access.\-c}!M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T@{M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T}}
+\index{M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T@{M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T}!access.c@{access.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T}}\label{access_8c_ad02ddb4d9305a8951fff3446bdab6a0f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+10000 \textcolor{comment}{/* Initial max no. of intersections of }
+\textcolor{comment}{                                  neighbouring spheres - expands as}
+\textcolor{comment}{                                  required                              */}
+\end{DoxyCode}
+
+
+Definition at line 108 of file access.\-c.
+
+\hypertarget{access_8c_a4630b6dc925eb56084d255996da261cf}{\index{access.\-c@{access.\-c}!M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-E\-X\-P@{M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-E\-X\-P}}
+\index{M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-E\-X\-P@{M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-E\-X\-P}!access.c@{access.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-E\-X\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-I\-N\-T\-E\-R\-S\-E\-C\-T\-\_\-\-E\-X\-P~100 /$\ast$ Amount to expand intersect array by   $\ast$/}}\label{access_8c_a4630b6dc925eb56084d255996da261cf}
+
+
+Definition at line 111 of file access.\-c.
+
+\hypertarget{access_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{access.\-c@{access.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!access.c@{access.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~160 /$\ast$ I/O buffer                            $\ast$/}}\label{access_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 107 of file access.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{access_8c_a25e95868bba0491487408f2a04f018cf}{\index{access.\-c@{access.\-c}!bl\-Calc\-Access@{bl\-Calc\-Access}}
+\index{bl\-Calc\-Access@{bl\-Calc\-Access}!access.c@{access.\-c}}
+\subsubsection[{bl\-Calc\-Access}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Calc\-Access (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{int}]{natoms, }
+\item[{{\bf R\-E\-A\-L}}]{integration\-Accuracy, }
+\item[{{\bf R\-E\-A\-L}}]{probe\-Radius, }
+\item[{{\bf B\-O\-O\-L}}]{do\-Accessibility}
+\end{DoxyParamCaption}
+)}}\label{access_8c_a25e95868bba0491487408f2a04f018cf}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em natoms} & Number of atoms \\
+\hline
+\mbox{\tt in}  & {\em integration\-Accuracy} & Integration accuracy \\
+\hline
+\mbox{\tt in}  & {\em probe\-Radius} & Probe radius \\
+\hline
+\mbox{\tt in}  & {\em do\-Accessibility} & Accessibility or contact area \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Allocates arrays and calls routines to populate them, do the access calculations and populate into the P\-D\-B linked list
+
+
+\begin{DoxyItemize}
+\item 22.\-04.\-99 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 331 of file access.\-c.
+
+\hypertarget{access_8c_a8665f8aad4742be11492028cfc816902}{\index{access.\-c@{access.\-c}!bl\-Calc\-Res\-Access@{bl\-Calc\-Res\-Access}}
+\index{bl\-Calc\-Res\-Access@{bl\-Calc\-Res\-Access}!access.c@{access.\-c}}
+\subsubsection[{bl\-Calc\-Res\-Access}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-S\-A\-C\-C\-E\-S\-S}$\ast$ bl\-Calc\-Res\-Access (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf R\-E\-S\-R\-A\-D} $\ast$}]{resrad}
+\end{DoxyParamCaption}
+)}}\label{access_8c_a8665f8aad4742be11492028cfc816902}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$resrad} & Linked list of atom radius information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked list of residue accessibilities
+\end{DoxyReturn}
+Calculates and populates the residue totals and relative values using standards stored in resrad
+
+
+\begin{DoxyItemize}
+\item 22.\-04.\-99 Original By\-: A\-C\-R\-M
+\item 04.\-08.\-99 Changed check on return from Get\-Standard\-Access() to check for $<$ V\-E\-R\-Y\-\_\-\-S\-M\-A\-L\-L rather than ==0.\-0 Set relative access to -\/1 if the standard accessibility is unknown rather than to 0.\-0
+\item 17.\-06.\-15 Added calculation of sidechain accessibility 
+\end{DoxyItemize}
+
+Definition at line 673 of file access.\-c.
+
+\hypertarget{access_8c_ae697c1552c8004b355d84f2f72a4c6f9}{\index{access.\-c@{access.\-c}!bl\-Set\-Atom\-Radii@{bl\-Set\-Atom\-Radii}}
+\index{bl\-Set\-Atom\-Radii@{bl\-Set\-Atom\-Radii}!access.c@{access.\-c}}
+\subsubsection[{bl\-Set\-Atom\-Radii}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-S\-R\-A\-D}$\ast$ bl\-Set\-Atom\-Radii (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{F\-I\-L\-E $\ast$}]{fp\-Rad}
+\end{DoxyParamCaption}
+)}}\label{access_8c_ae697c1552c8004b355d84f2f72a4c6f9}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$fp\-Rad} & Radius file pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked list of radius information
+\end{DoxyReturn}
+Set atom radii from the radius file in the P\-D\-B linked list Returns the radius lookup information since it also contains the standard accessibilities
+
+
+\begin{DoxyItemize}
+\item 22.\-04.\-99 Original By\-: A\-C\-R\-M
+\item 16.\-06.\-99 Initialise radii to N\-U\-L\-L
+\item 22.\-06.\-99 Changed to call Default\-Radius() with element type rather than atom name
+\item 16.\-07.\-14 Rewritten to work outside X\-M\-A\-S format and now takes the file pointer to the radii file rather than the filename 
+\end{DoxyItemize}
+
+Definition at line 259 of file access.\-c.
+

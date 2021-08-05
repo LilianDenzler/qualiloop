@@ -1,0 +1,47 @@
+**!!CUBINF.INS
+C
+C
+C -- ????
+      INTEGER NCUBES
+C -- ????
+      INTEGER MXCUBS
+C -- ????
+      INTEGER NCUBEX
+C -- ????
+      INTEGER NCUBEY
+C -- ????
+      INTEGER NCUBEZ
+      COMMON /CUBINF/  NCUBES , MXCUBS , NCUBEX , NCUBEY , NCUBEZ
+C
+C -- ????
+      DOUBLE PRECISION XOFADJ
+C -- ????
+      DOUBLE PRECISION CUBLNX
+C -- ????
+      DOUBLE PRECISION CUBLNY
+C -- ????
+      DOUBLE PRECISION CUBLNZ
+C -- ????
+      DOUBLE PRECISION XOFSET
+C -- ????
+      DOUBLE PRECISION YOFSET
+C -- ????
+      DOUBLE PRECISION ZOFSET
+C -- ????
+      DOUBLE PRECISION BOXSZX
+C -- ????
+      DOUBLE PRECISION BOXSZY
+C -- ????
+      DOUBLE PRECISION BOXSZZ
+C -- ????
+      DOUBLE PRECISION RCBLNX
+C -- ????
+      DOUBLE PRECISION RCBLNY
+C -- ????
+      DOUBLE PRECISION RCBLNZ
+      COMMON /CUBINF/  XOFADJ , CUBLNX , CUBLNY , CUBLNZ , XOFSET ,
+     +                 YOFSET , ZOFSET , BOXSZX , BOXSZY , BOXSZZ ,
+     +                 RCBLNX , RCBLNY , RCBLNZ
+C
+      SAVE /CUBINF/
+C

@@ -1,0 +1,140 @@
+\hypertarget{_index_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Index\-P\-D\-B.c File Reference}
+\label{_index_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Index\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Index\-P\-D\-B.\-c}}
+}
+
+
+Create an array of pointers into a P\-D\-B linked list.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$$\ast$ \hyperlink{_index_p_d_b_8c_a95ee48f286d0f89b7829d832f69d09ca}{bl\-Index\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, int $\ast$natom)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$$\ast$ \hyperlink{_index_p_d_b_8c_a5441ad334a5b5bdc86e355d58444bb1f}{bl\-Index\-Atom\-Numbers\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, int $\ast$index\-Size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Create an array of pointers into a P\-D\-B linked list. \begin{DoxyVersion}{Version}
+V2.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+19.\-04.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Index\-P\-D\-B() creates an array of pointers to each P\-D\-B record in a linked list. This allows random access to atoms without having to step through the P\-D\-B linked list.
+
+\subsection*{Usage\-: }
+
+\hyperlink{pdb_8h}{pdb.\-h} must be included before using this routine.
+
+
+\begin{DoxyCode}
+\hyperlink{structpdb__entry}{PDB} **indx,
+    *pdb;
+\textcolor{keywordtype}{int} natom;
+
+indx = IndexPDB(pdb, &natom);
+\end{DoxyCode}
+
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 19.\-07.\-90 Original
+\item V1.\-0a 15.\-02.\-91 Corrected comments to match new standard.
+\item V1.\-1 01.\-06.\-92 A\-N\-S\-Ied and documented, F\-P\-U condition added
+\item V2.\-0 24.\-02.\-94 Completely re-\/written. Note that the calling format has changed!! N\-O\-T B\-A\-C\-K\-W\-A\-R\-D\-L\-Y C\-O\-M\-P\-A\-T\-I\-B\-L\-E!
+\item V2.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V2.\-2 19.\-04.\-15 Added \hyperlink{_index_p_d_b_8c_a5441ad334a5b5bdc86e355d58444bb1f}{bl\-Index\-Atom\-Numbers\-P\-D\-B()} By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_index_p_d_b_8c_source}{Index\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_index_p_d_b_8c_a5441ad334a5b5bdc86e355d58444bb1f}{\index{Index\-P\-D\-B.\-c@{Index\-P\-D\-B.\-c}!bl\-Index\-Atom\-Numbers\-P\-D\-B@{bl\-Index\-Atom\-Numbers\-P\-D\-B}}
+\index{bl\-Index\-Atom\-Numbers\-P\-D\-B@{bl\-Index\-Atom\-Numbers\-P\-D\-B}!IndexPDB.c@{Index\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Index\-Atom\-Numbers\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$$\ast$ bl\-Index\-Atom\-Numbers\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{int $\ast$}]{index\-Size}
+\end{DoxyParamCaption}
+)}}\label{_index_p_d_b_8c_a5441ad334a5b5bdc86e355d58444bb1f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt out}  & {\em $\ast$index\-Size} & Index size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+malloc'd array of P\-D\-B pointers indexed by atom number
+\end{DoxyReturn}
+Creates an array of pointers to P\-D\-B from a linked list. This is used to allow array style access to items in the linked list by atom number\-: e.\-g. (indx\mbox{[}23\mbox{]})-\/$>$x will give the x coordinate of atom number 23
+
+
+\begin{DoxyItemize}
+\item 19.\-04.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 156 of file Index\-P\-D\-B.\-c.
+
+\hypertarget{_index_p_d_b_8c_a95ee48f286d0f89b7829d832f69d09ca}{\index{Index\-P\-D\-B.\-c@{Index\-P\-D\-B.\-c}!bl\-Index\-P\-D\-B@{bl\-Index\-P\-D\-B}}
+\index{bl\-Index\-P\-D\-B@{bl\-Index\-P\-D\-B}!IndexPDB.c@{Index\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Index\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$$\ast$ bl\-Index\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{int $\ast$}]{natom}
+\end{DoxyParamCaption}
+)}}\label{_index_p_d_b_8c_a95ee48f286d0f89b7829d832f69d09ca}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & Pointer to the start of a P\-D\-B linked list. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms in the P\-D\-B linked list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array of pointers to the P\-D\-B records. N\-U\-L\-L if unable to allocate memory.
+\end{DoxyReturn}
+Creates an array of pointers to P\-D\-B from a linked list. This is used to allow array style access to items in the linked list\-: e.\-g. (indx\mbox{[}23\mbox{]})-\/$>$x will give the x coordinate of the 23rd item
+
+
+\begin{DoxyItemize}
+\item 19.\-07.\-90 Original
+\item 01.\-06.\-92 A\-N\-S\-Ied and documented.
+\item 24.\-02.\-94 Re-\/written. Now allocates and returns the index.
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 117 of file Index\-P\-D\-B.\-c.
+

@@ -1,0 +1,106 @@
+\hypertarget{_fit_n_ca_c_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Fit\-N\-Ca\-C\-P\-D\-B.c File Reference}
+\label{_fit_n_ca_c_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Fit\-N\-Ca\-C\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Fit\-N\-Ca\-C\-P\-D\-B.\-c}}
+}
+
+
+Fit two P\-D\-B linked lists. Also a weighted fit and support routines.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fit.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_fit_n_ca_c_p_d_b_8c_ad83bbf1040dda7d31cc2b8a662d0c845}{bl\-Fit\-N\-Ca\-C\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ref\-\_\-pdb, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$fit\-\_\-pdb, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} rm\mbox{[}3\mbox{]}\mbox{[}3\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fit two P\-D\-B linked lists. Also a weighted fit and support routines. \begin{DoxyVersion}{Version}
+V1.\-6 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-08.\-18 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2018 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-03.\-94 Original release
+\item V1.\-1 11.\-03.\-94 Fixed bug in calls to matfit(). Had not been changed to reflect modification in Mat\-Mult3\-\_\-33().
+\item V1.\-2 14.\-03.\-94 Fixed Fit\-P\-D\-B(); wasn't filling in the output matrix
+\item V1.\-3 14.\-03.\-96 Added Fit\-Ca\-P\-D\-B() Changed Fit\-P\-D\-B() and Fit\-Ca\-Cb\-P\-D\-B() to use Apply\-Matrix\-P\-D\-B() rather than Rotate\-P\-D\-B() since the P\-D\-B linked lists are already at the origin
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-5 19.\-08.\-14 Added As\-Copy suffix to calls to bl\-Select\-Atoms\-P\-D\-B() By\-: C\-T\-P
+\item V1.\-6 07.\-08.\-18 Removed erroneous check on sel\mbox{[}3\mbox{]} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_fit_n_ca_c_p_d_b_8c_source}{Fit\-N\-Ca\-C\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_fit_n_ca_c_p_d_b_8c_ad83bbf1040dda7d31cc2b8a662d0c845}{\index{Fit\-N\-Ca\-C\-P\-D\-B.\-c@{Fit\-N\-Ca\-C\-P\-D\-B.\-c}!bl\-Fit\-N\-Ca\-C\-P\-D\-B@{bl\-Fit\-N\-Ca\-C\-P\-D\-B}}
+\index{bl\-Fit\-N\-Ca\-C\-P\-D\-B@{bl\-Fit\-N\-Ca\-C\-P\-D\-B}!FitNCaCPDB.c@{Fit\-N\-Ca\-C\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Fit\-N\-Ca\-C\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Fit\-N\-Ca\-C\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{ref\-\_\-pdb, }
+\item[{{\bf P\-D\-B} $\ast$}]{fit\-\_\-pdb, }
+\item[{{\bf R\-E\-A\-L}}]{rm\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{_fit_n_ca_c_p_d_b_8c_ad83bbf1040dda7d31cc2b8a662d0c845}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$ref\-\_\-pdb} & Reference P\-D\-B linked list \\
+\hline
+\mbox{\tt in,out}  & {\em $\ast$fit\-\_\-pdb} & Mobile P\-D\-B linked list \\
+\hline
+\mbox{\tt out}  & {\em rm} & Rotation matrix (May be input as N\-U\-L\-L). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Fits two P\-D\-B linked lists using only the N, C\-A, C atoms.
+
+Actually fits fit\-\_\-pdb onto ref\-\_\-pdb and also returns the rotation matrix. This may be N\-U\-L\-L if these data are not required.
+
+
+\begin{DoxyItemize}
+\item 12.\-12.\-01 Original based on Fit\-Ca\-P\-D\-B() By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 19.\-08.\-14 Added As\-Copy suffix to calls to bl\-Select\-Atoms\-P\-D\-B() By\-: C\-T\-P
+\item 03.\-11.\-17 Initialize Ret\-Val! By\-: A\-C\-R\-M
+\item 07.\-08.\-18 Removed erroneous check on sel\mbox{[}3\mbox{]} 
+\end{DoxyItemize}
+
+Definition at line 118 of file Fit\-N\-Ca\-C\-P\-D\-B.\-c.
+

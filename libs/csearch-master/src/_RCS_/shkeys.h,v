@@ -1,0 +1,33 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.25;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/* OMLIB SH keypress return values (C) */
+
+#define SHUP    -1
+#define SHDOWN  -2
+#define SHLEFT  -3
+#define SHRIGHT -4
+#define SHCR    -5
+
+#define KEY_OMLRETURN 10
+@

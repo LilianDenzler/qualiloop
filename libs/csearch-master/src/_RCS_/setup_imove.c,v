@@ -1,0 +1,43 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.46;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Sets up imove for the evaluation degree of freedom. */
+ 
+void setup_imove(
+struct evaluate_d *desc
+)
+{
+int i;
+short i1;
+ 
+   desc->imove = (short int *) alloc(values.natoms * sizeof(short int));
+   /* ACRM Should be no problems here; added cast */
+   fill2(desc->imove,&values.natoms,(i1=(short)1,&i1));
+   for (i=0; i<desc->nconsp; i++)
+     desc->imove[desc->consp[i]-1] = 0;
+}
+ 
+@

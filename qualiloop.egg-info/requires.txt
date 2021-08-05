@@ -1,0 +1,8 @@
+biopandas
+keras
+scikit-learn
+seaborn
+statsmodels
+tensorflow
+xgboost
+yellowbrick

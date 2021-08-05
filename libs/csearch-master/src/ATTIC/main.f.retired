@@ -1,0 +1,20 @@
+      PROGRAM CFCGEN
+
+      include 'values.inc'
+      include 'params.inc'
+
+      include 'cg.inc'
+      include 'coords.inc'
+      include 'dbg.inc'
+      include 'engpar.inc'
+      include 'grid.inc'
+      include 'getpar.inc'
+      include 'hbonds.inc'
+C      include 'impnone.inc'
+      include 'pstruct.inc'
+      include 'restop.inc'
+      include 'sidetop.inc'
+
+      CALL CSEARCH
+
+      END

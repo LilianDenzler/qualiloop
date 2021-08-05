@@ -1,0 +1,108 @@
+\hypertarget{_add_n_ter_hs_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Add\-N\-Ter\-Hs.c File Reference}
+\label{_add_n_ter_hs_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Add\-N\-Ter\-Hs.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Add\-N\-Ter\-Hs.\-c}}
+}
+
+
+Routines to add N-\/terminal hydrogens and C-\/terminal oxygens.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_add_n_ter_hs_8c_ad8723c1844a4ac8e92bf2282e3fd871d}{bl\-Add\-N\-Ter\-Hs} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$$\ast$ppdb, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Charmm)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Routines to add N-\/terminal hydrogens and C-\/terminal oxygens. \begin{DoxyVersion}{Version}
+V1.\-11 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+23.\-06.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1994-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+int Add\-N\-Ter\-Hs(\-P\-D\-B $\ast$$\ast$ppdb, B\-O\-O\-L Charmm)
+
+This routine is used to generate a set of N-\/terminal hydrogens. By default G\-R\-O\-M\-O\-S naming is used; the Charmm flag changes this to Charmm format in which case an extra N\-T\-E\-R residue will be created. Any pre-\/existing backbone H will be removed. Typically this routine would be called after calling H\-Add\-P\-D\-B()
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 24.\-08.\-94 Original By\-: A\-C\-R\-M
+\item V1.\-1 05.\-10.\-94 Removed unused variables
+\item V1.\-2 12.\-11.\-96 If any of the antecedant coordinates are undefined, set the terminal oxygen to N\-U\-L\-L coordinates
+\item V1.\-3 13.\-11.\-96 Also checks for missing C\-A,C and O1 records
+\item V1.\-4 30.\-05.\-02 Changed P\-D\-B field from 'junk' to 'record\-\_\-type'
+\item V1.\-5 06.\-02.\-03 Handles atnam\-\_\-raw
+\item V1.\-6 03.\-06.\-05 Handles altpos
+\item V1.\-7 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H By\-: C\-T\-P
+\item V1.\-8 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-9 17.\-02.\-15 Handles element and segid By\-: A\-C\-R\-M
+\item V1.\-10 05.\-03.\-15 Replaced \hyperlink{pdb_8h_a6aa61ec8fe75fe36706c29beac74ef59}{bl\-Find\-End\-P\-D\-B()} with \hyperlink{_find_next_residue_8c_ae76e39017432838cc6dd70d5ac50f6cf}{bl\-Find\-Next\-Residue()}
+\item V1.\-11 23.\-06.\-15 Added \hyperlink{pdb_8h_aa060eecccbc29f0bfbbaf442b42d0cdc}{C\-L\-E\-A\-R\-\_\-\-P\-D\-B()} calls 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_add_n_ter_hs_8c_source}{Add\-N\-Ter\-Hs.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_add_n_ter_hs_8c_ad8723c1844a4ac8e92bf2282e3fd871d}{\index{Add\-N\-Ter\-Hs.\-c@{Add\-N\-Ter\-Hs.\-c}!bl\-Add\-N\-Ter\-Hs@{bl\-Add\-N\-Ter\-Hs}}
+\index{bl\-Add\-N\-Ter\-Hs@{bl\-Add\-N\-Ter\-Hs}!AddNTerHs.c@{Add\-N\-Ter\-Hs.\-c}}
+\subsubsection[{bl\-Add\-N\-Ter\-Hs}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Add\-N\-Ter\-Hs (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$$\ast$}]{ppdb, }
+\item[{{\bf B\-O\-O\-L}}]{Charmm}
+\end{DoxyParamCaption}
+)}}\label{_add_n_ter_hs_8c_ad8723c1844a4ac8e92bf2282e3fd871d}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$$\ast$ppdb} & Pointer to pointer to P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em Charmm} & Do Charmm style Nter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of hydrogens added
+\end{DoxyReturn}
+Adds hydrogens onto the N-\/termini
+
+
+\begin{DoxyItemize}
+\item 23.\-08.\-94 Original By\-: A\-C\-R\-M
+\item 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H By\-: C\-T\-P
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 23.\-06.\-15 Added \hyperlink{pdb_8h_aa060eecccbc29f0bfbbaf442b42d0cdc}{C\-L\-E\-A\-R\-\_\-\-P\-D\-B()} calls By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 123 of file Add\-N\-Ter\-Hs.\-c.
+

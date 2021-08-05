@@ -1,0 +1,79 @@
+\hypertarget{_legal_atom_spec_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Legal\-Atom\-Spec.c File Reference}
+\label{_legal_atom_spec_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Legal\-Atom\-Spec.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Legal\-Atom\-Spec.\-c}}
+}
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_legal_atom_spec_8c_ada6348597286455a167d0fb1e79310f4}{bl\-Legal\-Atom\-Spec} (char $\ast$spec)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-8 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, University of Reading, 2002-\/14 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-03.\-94 Original
+\item V1.\-1 07.\-07.\-95 Now non-\/destructive
+\item V1.\-2 17.\-07.\-95 Now checks that a number was specified as part of the spec. and returns a B\-O\-O\-L
+\item V1.\-3 23.\-10.\-95 Moved Find\-Residue\-Spec() from P\-D\-B\-List.\-c
+\item V1.\-4 08.\-02.\-96 Added Find\-Residue() and changed Find\-Residue\-Spec() to use it
+\item V1.\-5 23.\-07.\-96 Added Atom\-Name\-Match() and Legal\-Atom\-Spec()
+\item V1.\-6 18.\-03.\-98 Added option to include a . to separate chain and residue number so numeric chain names can be used
+\item V1.\-7 11.\-10.\-99 Allow a . to be used to start a number (such that the default blank chain name is used). Allows negative residue numbers
+\item V1.\-8 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_legal_atom_spec_8c_source}{Legal\-Atom\-Spec.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_legal_atom_spec_8c_ada6348597286455a167d0fb1e79310f4}{\index{Legal\-Atom\-Spec.\-c@{Legal\-Atom\-Spec.\-c}!bl\-Legal\-Atom\-Spec@{bl\-Legal\-Atom\-Spec}}
+\index{bl\-Legal\-Atom\-Spec@{bl\-Legal\-Atom\-Spec}!LegalAtomSpec.c@{Legal\-Atom\-Spec.\-c}}
+\subsubsection[{bl\-Legal\-Atom\-Spec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Legal\-Atom\-Spec (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{spec}
+\end{DoxyParamCaption}
+)}}\label{_legal_atom_spec_8c_ada6348597286455a167d0fb1e79310f4}
+Partner routine for Atom\-Name\-Match(). Checks whether a wildcard specfication is legal (i.\-e. will not return an error when used with Atom\-Name\-Match()).
+
+The only thing which is not legal is characters following a $\ast$
+
+
+\begin{DoxyItemize}
+\item 23.\-07.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 106 of file Legal\-Atom\-Spec.\-c.
+

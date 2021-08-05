@@ -1,0 +1,8 @@
+**!!DRVMOL.INS
+C
+C -- ????
+      DOUBLE PRECISION DERMOL
+      COMMON /DRVMOL/  DERMOL ( NXYZ , MXMOL )
+C
+      SAVE /DRVMOL/
+C

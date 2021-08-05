@@ -1,0 +1,367 @@
+\hypertarget{parse_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/parse.h File Reference}
+\label{parse_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/parse.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/parse.\-h}}
+}
+
+
+Include file for the command parser.  
+
+
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_key_wd}{Key\-Wd}
+\item 
+struct \hyperlink{struct_m_key_wd}{M\-Key\-Wd}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{parse_8h_a0f4d394a3ab4e09bff60f714c66dc5ee}{S\-T\-R\-I\-N\-G}~1    /$\ast$ Defines used for the \hyperlink{parse_8h_a771c92e0b396c953fb6f27b584039623}{M\-A\-K\-E\-K\-E\-Y} macro       $\ast$/
+\item 
+\#define \hyperlink{parse_8h_abc544a4ed22112e62773c113652c5063}{N\-U\-M\-B\-E\-R}~0
+\item 
+\#define \hyperlink{parse_8h_ab83123cf5e742d179fbd57087ca5e87c}{P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-C}~-\/1    /$\ast$ Error return values from parse()         $\ast$/
+\item 
+\#define \hyperlink{parse_8h_a7e8150fcd9f5eb83f1ef50f2d6e3f133}{P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-P}~-\/2
+\item 
+\#define \hyperlink{parse_8h_adfd6f402e23f7c73cdf0391830ac2004}{P\-A\-R\-S\-E\-\_\-\-C\-O\-M\-M\-E\-N\-T}~-\/3
+\item 
+\#define \hyperlink{parse_8h_a771c92e0b396c953fb6f27b584039623}{M\-A\-K\-E\-K\-E\-Y}(x, w, v, z)
+\item 
+\#define \hyperlink{parse_8h_abeec203e957ffcad9f578ca711ce0bbd}{M\-A\-K\-E\-M\-K\-E\-Y}(x, w, v, mn, mx)
+\item 
+\#define \hyperlink{parse_8h_aa438272040252e5e34ac81a13348223e}{\-\_\-\-P\-A\-R\-S\-E\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{parse_8h_ac5e4896b876b34de62c93885aeac82d8}{bl\-Parse} (char $\ast$comline, int nkeys, \hyperlink{struct_key_wd}{Key\-Wd} $\ast$keywords, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$R\-E\-A\-Lparam, char $\ast$$\ast$strparam)
+\item 
+int \hyperlink{parse_8h_aa491559068f9e3d1b5c543cdcd568ad2}{bl\-Mparse} (char $\ast$comline, int nkeys, \hyperlink{struct_m_key_wd}{M\-Key\-Wd} $\ast$keywords, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$R\-E\-A\-Lparam, char $\ast$$\ast$strparam, int $\ast$nparams)
+\item 
+int \hyperlink{parse_8h_af4d52eae06ff069484ebd98143722134}{bl\-Match} (char $\ast$comstring, char $\ast$string2, int $\ast$nletters)
+\item 
+int \hyperlink{parse_8h_af033f70cf7105d7542d8479f74273a5f}{bl\-Get\-String} (char $\ast$command, char $\ast$strparam)
+\item 
+int \hyperlink{parse_8h_a8b2804199a5cb9ee4afc116eae9061dc}{bl\-Get\-Param} (char $\ast$command, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$value, int $\ast$nletters)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Include file for the command parser. \begin{DoxyVersion}{Version}
+V1.\-11 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Sci\-Tech Software 1991-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Here are defined the M\-A\-K\-E\-K\-E\-Y macro, S\-T\-R\-I\-N\-G and N\-U\-M\-B\-E\-R defines, the \hyperlink{struct_key_wd}{Key\-Wd} structure and return values for the parser.
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 11.\-07.\-90 Original
+\item V1.\-1 08.\-12.\-92 Defines prototypes
+\item V1.\-2 16.\-06.\-93 Added memory check to M\-A\-K\-E\-K\-E\-Y
+\item V1.\-3-\/1.\-6 Skipped
+\item V1.\-7 01.\-03.\-94 Added mparse()
+\item V1.\-8 11.\-03.\-94 Skipped
+\item V1.\-9 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-10 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-11 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{parse_8h_source}{parse.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{parse_8h_aa438272040252e5e34ac81a13348223e}{\index{parse.\-h@{parse.\-h}!\-\_\-\-P\-A\-R\-S\-E\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-P\-A\-R\-S\-E\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-P\-A\-R\-S\-E\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-P\-A\-R\-S\-E\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!parse.h@{parse.\-h}}
+\subsubsection[{\-\_\-\-P\-A\-R\-S\-E\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-P\-A\-R\-S\-E\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{parse_8h_aa438272040252e5e34ac81a13348223e}
+
+
+Definition at line 130 of file parse.\-h.
+
+\hypertarget{parse_8h_a771c92e0b396c953fb6f27b584039623}{\index{parse.\-h@{parse.\-h}!M\-A\-K\-E\-K\-E\-Y@{M\-A\-K\-E\-K\-E\-Y}}
+\index{M\-A\-K\-E\-K\-E\-Y@{M\-A\-K\-E\-K\-E\-Y}!parse.h@{parse.\-h}}
+\subsubsection[{M\-A\-K\-E\-K\-E\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-K\-E\-K\-E\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{w, }
+\item[{}]{v, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)}}\label{parse_8h_a771c92e0b396c953fb6f27b584039623}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(x).name = (\textcolor{keywordtype}{char} *)malloc((strlen(w)+2) * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})); \(\backslash\)
+        if((x).name != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) strcpy((x).name,w); \(\backslash\)
+                              (x).\textcolor{keywordtype}{string} = v; \(\backslash\)
+                              (x).nparam = z
+\end{DoxyCode}
+
+
+Definition at line 102 of file parse.\-h.
+
+\hypertarget{parse_8h_abeec203e957ffcad9f578ca711ce0bbd}{\index{parse.\-h@{parse.\-h}!M\-A\-K\-E\-M\-K\-E\-Y@{M\-A\-K\-E\-M\-K\-E\-Y}}
+\index{M\-A\-K\-E\-M\-K\-E\-Y@{M\-A\-K\-E\-M\-K\-E\-Y}!parse.h@{parse.\-h}}
+\subsubsection[{M\-A\-K\-E\-M\-K\-E\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-K\-E\-M\-K\-E\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{w, }
+\item[{}]{v, }
+\item[{}]{mn, }
+\item[{}]{mx}
+\end{DoxyParamCaption}
+)}}\label{parse_8h_abeec203e957ffcad9f578ca711ce0bbd}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(x).name = (\textcolor{keywordtype}{char} *)malloc((strlen(w)+2) * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})); \(\backslash\)
+        if((x).name != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) strcpy((x).name,w); \(\backslash\)
+                              (x).\textcolor{keywordtype}{string}   = v; \(\backslash\)
+                              (x).minparam = mn; \(\backslash\)
+                              (x).maxparam = mx
+\end{DoxyCode}
+
+
+Definition at line 109 of file parse.\-h.
+
+\hypertarget{parse_8h_abc544a4ed22112e62773c113652c5063}{\index{parse.\-h@{parse.\-h}!N\-U\-M\-B\-E\-R@{N\-U\-M\-B\-E\-R}}
+\index{N\-U\-M\-B\-E\-R@{N\-U\-M\-B\-E\-R}!parse.h@{parse.\-h}}
+\subsubsection[{N\-U\-M\-B\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-B\-E\-R~0}}\label{parse_8h_abc544a4ed22112e62773c113652c5063}
+
+
+Definition at line 77 of file parse.\-h.
+
+\hypertarget{parse_8h_adfd6f402e23f7c73cdf0391830ac2004}{\index{parse.\-h@{parse.\-h}!P\-A\-R\-S\-E\-\_\-\-C\-O\-M\-M\-E\-N\-T@{P\-A\-R\-S\-E\-\_\-\-C\-O\-M\-M\-E\-N\-T}}
+\index{P\-A\-R\-S\-E\-\_\-\-C\-O\-M\-M\-E\-N\-T@{P\-A\-R\-S\-E\-\_\-\-C\-O\-M\-M\-E\-N\-T}!parse.h@{parse.\-h}}
+\subsubsection[{P\-A\-R\-S\-E\-\_\-\-C\-O\-M\-M\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-S\-E\-\_\-\-C\-O\-M\-M\-E\-N\-T~-\/3}}\label{parse_8h_adfd6f402e23f7c73cdf0391830ac2004}
+
+
+Definition at line 81 of file parse.\-h.
+
+\hypertarget{parse_8h_ab83123cf5e742d179fbd57087ca5e87c}{\index{parse.\-h@{parse.\-h}!P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-C@{P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-C}}
+\index{P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-C@{P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-C}!parse.h@{parse.\-h}}
+\subsubsection[{P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-C~-\/1    /$\ast$ Error return values from parse()         $\ast$/}}\label{parse_8h_ab83123cf5e742d179fbd57087ca5e87c}
+
+
+Definition at line 79 of file parse.\-h.
+
+\hypertarget{parse_8h_a7e8150fcd9f5eb83f1ef50f2d6e3f133}{\index{parse.\-h@{parse.\-h}!P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-P@{P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-P}}
+\index{P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-P@{P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-P}!parse.h@{parse.\-h}}
+\subsubsection[{P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-S\-E\-\_\-\-E\-R\-R\-P~-\/2}}\label{parse_8h_a7e8150fcd9f5eb83f1ef50f2d6e3f133}
+
+
+Definition at line 80 of file parse.\-h.
+
+\hypertarget{parse_8h_a0f4d394a3ab4e09bff60f714c66dc5ee}{\index{parse.\-h@{parse.\-h}!S\-T\-R\-I\-N\-G@{S\-T\-R\-I\-N\-G}}
+\index{S\-T\-R\-I\-N\-G@{S\-T\-R\-I\-N\-G}!parse.h@{parse.\-h}}
+\subsubsection[{S\-T\-R\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-R\-I\-N\-G~1    /$\ast$ Defines used for the {\bf M\-A\-K\-E\-K\-E\-Y} macro       $\ast$/}}\label{parse_8h_a0f4d394a3ab4e09bff60f714c66dc5ee}
+
+
+Definition at line 76 of file parse.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{parse_8h_a8b2804199a5cb9ee4afc116eae9061dc}{\index{parse.\-h@{parse.\-h}!bl\-Get\-Param@{bl\-Get\-Param}}
+\index{bl\-Get\-Param@{bl\-Get\-Param}!parse.h@{parse.\-h}}
+\subsubsection[{bl\-Get\-Param}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Get\-Param (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{value, }
+\item[{int $\ast$}]{nletters}
+\end{DoxyParamCaption}
+)}}\label{parse_8h_a8b2804199a5cb9ee4afc116eae9061dc}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$command} & A character string \\
+\hline
+\mbox{\tt out}  & {\em $\ast$value} & Returned float value \\
+\hline
+\mbox{\tt out}  & {\em $\ast$nletters} & Number of charcters pulled out of the command string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 If error 1 If O\-K
+\end{DoxyReturn}
+Extracts the first space-\/delimited number from the `command' character string.
+
+
+\begin{DoxyItemize}
+\item 11.\-07.\-90 Original By\-: A\-C\-R\-M
+\item 22.\-04.\-93 Tidied comments, etc. Corrected N\-U\-L\-L to 0
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 412 of file parse.\-c.
+
+\hypertarget{parse_8h_af033f70cf7105d7542d8479f74273a5f}{\index{parse.\-h@{parse.\-h}!bl\-Get\-String@{bl\-Get\-String}}
+\index{bl\-Get\-String@{bl\-Get\-String}!parse.h@{parse.\-h}}
+\subsubsection[{bl\-Get\-String}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Get\-String (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command, }
+\item[{char $\ast$}]{strparam}
+\end{DoxyParamCaption}
+)}}\label{parse_8h_af033f70cf7105d7542d8479f74273a5f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$command} & A character string \\
+\hline
+\mbox{\tt out}  & {\em $\ast$strparam} & Returned character string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of characters pulled out of the command string
+\end{DoxyReturn}
+Returns the first space-\/delimited group of characters from character string `command'
+
+
+\begin{DoxyItemize}
+\item 11.\-07.\-90 Original By\-: A\-C\-R\-M
+\item 22.\-04.\-93 Tidied comments, etc. Changed toggle method
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 358 of file parse.\-c.
+
+\hypertarget{parse_8h_af4d52eae06ff069484ebd98143722134}{\index{parse.\-h@{parse.\-h}!bl\-Match@{bl\-Match}}
+\index{bl\-Match@{bl\-Match}!parse.h@{parse.\-h}}
+\subsubsection[{bl\-Match}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Match (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{comstring, }
+\item[{char $\ast$}]{string2, }
+\item[{int $\ast$}]{nletters}
+\end{DoxyParamCaption}
+)}}\label{parse_8h_af4d52eae06ff069484ebd98143722134}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$comstring} & A character string \\
+\hline
+\mbox{\tt in}  & {\em $\ast$string2} & A second string \\
+\hline
+\mbox{\tt out}  & {\em $\ast$nletters} & Number of letters matched \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 String mismatch 1 First string finished first 2 Second string finished first
+\end{DoxyReturn}
+Matches two strings, but stops the comparison as soon as a space or N\-U\-L\-L is found in either string. The returned value indicates which string finished first or 0 if the letters before the space or N\-U\-L\-L have a mismatch. The routine calls String\-To\-Upper() on `comstring' before the comparison.
+
+
+\begin{DoxyItemize}
+\item 11.\-07.\-90 Original By\-: A\-C\-R\-M
+\item 22.\-04.\-93 Tidied comments, etc. Added check on malloc and corrected calls to free()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 304 of file parse.\-c.
+
+\hypertarget{parse_8h_aa491559068f9e3d1b5c543cdcd568ad2}{\index{parse.\-h@{parse.\-h}!bl\-Mparse@{bl\-Mparse}}
+\index{bl\-Mparse@{bl\-Mparse}!parse.h@{parse.\-h}}
+\subsubsection[{bl\-Mparse}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Mparse (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{comline, }
+\item[{int}]{nkeys, }
+\item[{{\bf M\-Key\-Wd} $\ast$}]{keywords, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{floatparam, }
+\item[{char $\ast$$\ast$}]{strparam, }
+\item[{int $\ast$}]{nparam}
+\end{DoxyParamCaption}
+)}}\label{parse_8h_aa491559068f9e3d1b5c543cdcd568ad2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$comline} & A command line string to parse \\
+\hline
+\mbox{\tt in}  & {\em nkeys} & Number of keywords \\
+\hline
+\mbox{\tt in}  & {\em $\ast$keywords} & Array of keyword structures \\
+\hline
+\mbox{\tt out}  & {\em $\ast$floatparam} & Array of returned strings \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$strparam} & Array of pointers to returned strings \\
+\hline
+\mbox{\tt out}  & {\em $\ast$nparam} & Number of parameters found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of found command or error flag
+\end{DoxyReturn}
+As \hyperlink{parse_8c_ac9aa602f7562ba794b53e6ffbc75115c}{bl\-Parse()}, but allows variable number of parameters to each keyword.
+
+
+\begin{DoxyItemize}
+\item 23.\-02.\-94 Original based on parse() By\-: A\-C\-R\-M
+\item 11.\-03.\-94 Added \$ line handling
+\item 08.\-10.\-99 Initialise nlett to 0
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 447 of file parse.\-c.
+
+\hypertarget{parse_8h_ac5e4896b876b34de62c93885aeac82d8}{\index{parse.\-h@{parse.\-h}!bl\-Parse@{bl\-Parse}}
+\index{bl\-Parse@{bl\-Parse}!parse.h@{parse.\-h}}
+\subsubsection[{bl\-Parse}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Parse (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{comline, }
+\item[{int}]{nkeys, }
+\item[{{\bf Key\-Wd} $\ast$}]{keywords, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{floatparam, }
+\item[{char $\ast$$\ast$}]{strparam}
+\end{DoxyParamCaption}
+)}}\label{parse_8h_ac5e4896b876b34de62c93885aeac82d8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$comline} & A command line string to parse \\
+\hline
+\mbox{\tt in}  & {\em nkeys} & Number of keywords \\
+\hline
+\mbox{\tt in}  & {\em $\ast$keywords} & Array of keyword structures \\
+\hline
+\mbox{\tt out}  & {\em $\ast$floatparam} & Array of returned strings \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$strparam} & Array of pointers to returned strings \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of found command or error flag
+\end{DoxyReturn}
+Keyword-\/based command parser using a fixed number of parameters per command
+
+
+\begin{DoxyItemize}
+\item 11.\-07.\-90 Original By\-: A\-C\-R\-M
+\item 22.\-04.\-93 Tidied comments, etc. Corrected N\-U\-L\-L to 0.
+\item 11.\-03.\-94 Added \$ line handling
+\item 08.\-10.\-99 Initialise nlett
+\item 28.\-02.\-11 Added \# for comments
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 202 of file parse.\-c.
+

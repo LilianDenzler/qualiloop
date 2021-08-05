@@ -1,0 +1,196 @@
+\hypertarget{_order_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Order\-P\-D\-B.c File Reference}
+\label{_order_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Order\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Order\-P\-D\-B.\-c}}
+}
+
+
+Functions to modify atom order in P\-D\-B linked list.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_order_p_d_b_8c_a906f5c2c60e2384016857f256b060bca}{bl\-Fix\-Order\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Pad, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Renum)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_order_p_d_b_8c_aaf020a54833d9c54ee8bec709714f87f}{bl\-Shuffle\-Res\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$start, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$end, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Pad)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_order_p_d_b_8c_ad57e5fc3d8794aec833bb5a28b692d0e}{bl\-Get\-Atom\-Types} (char $\ast$resnam, char $\ast$$\ast$Atom\-Types)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_order_p_d_b_8c_af1352d0bc00942103c48bed332fdc24b}{bl\-Shuffle\-B\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions to modify atom order in P\-D\-B linked list. \begin{DoxyVersion}{Version}
+V1.\-6 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+05.\-03.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 22.\-02.\-04 Original
+\item V1.\-1 09.\-03.\-94 Bug fix in Shuffle\-Res\-P\-D\-B(). Added P\-C\-A to s\-Atoms table
+\item V1.\-2 18.\-03.\-94 Bug fix in Shuffle\-Res\-P\-D\-B().
+\item V1.\-3 22.\-06.\-08 Bug fix in Shuffle\-B\-B()
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-5 23.\-02.\-15 Modified for new \hyperlink{pdb_8h_ae1ff7a56e4d028aef80c0220f59c1358}{bl\-Renum\-Atoms\-P\-D\-B()} which takes an offset By\-: A\-C\-R\-M
+\item V1.\-6 05.\-03.\-15 Replaced \hyperlink{pdb_8h_a6aa61ec8fe75fe36706c29beac74ef59}{bl\-Find\-End\-P\-D\-B()} with \hyperlink{_find_next_residue_8c_ae76e39017432838cc6dd70d5ac50f6cf}{bl\-Find\-Next\-Residue()} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_order_p_d_b_8c_source}{Order\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_order_p_d_b_8c_a906f5c2c60e2384016857f256b060bca}{\index{Order\-P\-D\-B.\-c@{Order\-P\-D\-B.\-c}!bl\-Fix\-Order\-P\-D\-B@{bl\-Fix\-Order\-P\-D\-B}}
+\index{bl\-Fix\-Order\-P\-D\-B@{bl\-Fix\-Order\-P\-D\-B}!OrderPDB.c@{Order\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Fix\-Order\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Fix\-Order\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf B\-O\-O\-L}}]{Pad, }
+\item[{{\bf B\-O\-O\-L}}]{Renum}
+\end{DoxyParamCaption}
+)}}\label{_order_p_d_b_8c_a906f5c2c60e2384016857f256b060bca}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list to fix atom order \\
+\hline
+\mbox{\tt in}  & {\em Pad} & T\-R\-U\-E\-: Create dummy coordinate atoms for any missing atoms in standard residues \\
+\hline
+\mbox{\tt in}  & {\em Renum} & T\-R\-U\-E\-: Renumber the atoms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Corrected P\-D\-B linked list
+\end{DoxyReturn}
+Runs through a P\-D\-B linked list and corrects the atom order to match the N,C\-A,C,O,s/c standard. Only standard amino acids are processed. The input linked list is modified (i.\-e. a new list is not built), but the return value from the routine should be used for the corrected list rather than the input P\-D\-B pointer, since the start of the list may have changed. i.\-e. the routine should be called with the form\-: \begin{DoxyVerb}           pdb = FixOrderPDB(pdb,TRUE,TRUE);
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item 08.\-07.\-93 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 23.\-02.\-15 Modified for new \hyperlink{pdb_8h_ae1ff7a56e4d028aef80c0220f59c1358}{bl\-Renum\-Atoms\-P\-D\-B()} which takes an offset
+\item 05.\-03.\-15 Replaced \hyperlink{pdb_8h_a6aa61ec8fe75fe36706c29beac74ef59}{bl\-Find\-End\-P\-D\-B()} with \hyperlink{_find_next_residue_8c_ae76e39017432838cc6dd70d5ac50f6cf}{bl\-Find\-Next\-Residue()} 
+\end{DoxyItemize}
+
+Definition at line 169 of file Order\-P\-D\-B.\-c.
+
+\hypertarget{_order_p_d_b_8c_ad57e5fc3d8794aec833bb5a28b692d0e}{\index{Order\-P\-D\-B.\-c@{Order\-P\-D\-B.\-c}!bl\-Get\-Atom\-Types@{bl\-Get\-Atom\-Types}}
+\index{bl\-Get\-Atom\-Types@{bl\-Get\-Atom\-Types}!OrderPDB.c@{Order\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Get\-Atom\-Types}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Get\-Atom\-Types (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{resnam, }
+\item[{char $\ast$$\ast$}]{Atom\-Types}
+\end{DoxyParamCaption}
+)}}\label{_order_p_d_b_8c_ad57e5fc3d8794aec833bb5a28b692d0e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$resnam} & Residue name for which to search \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$\-Atom\-Types} & Array of atom names contained in the residue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Fill in atom types for a given residue. Atom\-Types must be pre-\/allocated and must be set up as an array of character pointers using Array2\-D() (or equivalent) rather than being created as a simple char types\mbox{[}\mbox{]}\mbox{[}\mbox{]} -\/ T\-H\-I\-S W\-I\-L\-L N\-O\-T W\-O\-R\-K!
+
+
+\begin{DoxyItemize}
+\item 08.\-07.\-93 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 349 of file Order\-P\-D\-B.\-c.
+
+\hypertarget{_order_p_d_b_8c_af1352d0bc00942103c48bed332fdc24b}{\index{Order\-P\-D\-B.\-c@{Order\-P\-D\-B.\-c}!bl\-Shuffle\-B\-B@{bl\-Shuffle\-B\-B}}
+\index{bl\-Shuffle\-B\-B@{bl\-Shuffle\-B\-B}!OrderPDB.c@{Order\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Shuffle\-B\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Shuffle\-B\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_order_p_d_b_8c_af1352d0bc00942103c48bed332fdc24b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & Input P\-D\-B linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Start of shuffled P\-D\-B linked list
+\end{DoxyReturn}
+Shuffles the P\-D\-B list to match the standard of N,C\-A,C,O,C\-B,other. Basically designed to be used with backbones only since the sidechain order is not modified. Returns the start of the shuffled P\-D\-B linked list.
+
+
+\begin{DoxyItemize}
+\item 13.\-05.\-92 Original
+\item 22.\-06.\-08 Fixed to use Find\-Next\-Residue(). It was continuing to search out of the current residue, so if the same residue number in a different chain was of the same type, it ended up changing that instead!
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 389 of file Order\-P\-D\-B.\-c.
+
+\hypertarget{_order_p_d_b_8c_aaf020a54833d9c54ee8bec709714f87f}{\index{Order\-P\-D\-B.\-c@{Order\-P\-D\-B.\-c}!bl\-Shuffle\-Res\-P\-D\-B@{bl\-Shuffle\-Res\-P\-D\-B}}
+\index{bl\-Shuffle\-Res\-P\-D\-B@{bl\-Shuffle\-Res\-P\-D\-B}!OrderPDB.c@{Order\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Shuffle\-Res\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Shuffle\-Res\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{start, }
+\item[{{\bf P\-D\-B} $\ast$}]{end, }
+\item[{{\bf B\-O\-O\-L}}]{Pad}
+\end{DoxyParamCaption}
+)}}\label{_order_p_d_b_8c_aaf020a54833d9c54ee8bec709714f87f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$start} & Start of residue to be shuffled \\
+\hline
+\mbox{\tt in}  & {\em $\ast$end} & Start of next residue in linked list (N\-U\-L\-L for last residue) \\
+\hline
+\mbox{\tt in}  & {\em Pad} & T\-R\-U\-E\-: Create dummy records for missing atoms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to new start of linked list
+\end{DoxyReturn}
+Shuffle atoms within a residue into the standard order. Returns a pointer to the new first atom in the residue. Atoms not in the known list are discarded. If we fail to allocate memory for extra atom records, no action is taken.
+
+
+\begin{DoxyItemize}
+\item 08.\-07.\-93 Original By\-: A\-C\-R\-M
+\item 09.\-03.\-94 Correctly handles residues not found in the standard list (i.\-e. returns them unmodified)
+\item 17.\-03.\-94 If no atoms are found, then we return start. This is the case when partial occupancy atoms are named as \char`\"{}\-N  A\char`\"{}, \char`\"{}\-N  B\char`\"{}, etc.
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 228 of file Order\-P\-D\-B.\-c.
+

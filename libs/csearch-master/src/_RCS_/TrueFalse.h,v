@@ -1,0 +1,58 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.12;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/***********************************************************************
+ *      Name: TrueFalse                                                *
+ *  Function: Declares some types                                      *
+ * Copyright: (C) Oxford Molecular Limited                             *
+ *---------------------------------------------------------------------*
+ *    Author: G C Calvert, Tessella Support Services plc               *
+ *      Date: 16/07/90                                                 *
+ *---------------------------------------------------------------------*
+ *    Inputs:                                                          *
+ *   Returns:                                                          *
+ *   Globals:                                                          *
+ *---------------------------------------------------------------------*
+ * Modification Record                                                 *
+ * Date     Inits   Comments                                           *
+ * dd/mm/yy                                                            *
+ ***********************************************************************/
+
+#ifndef __TRUEFALSE__
+#define __TRUEFALSE__
+
+enum { false , true } ;
+
+#define PIMMS_FALSE 0
+#define PIMMS_TRUE 1
+
+#ifndef TRUE
+#define TRUE 1
+#endif
+
+#ifndef FALSE
+#define FALSE 0
+#endif
+
+#endif
+@

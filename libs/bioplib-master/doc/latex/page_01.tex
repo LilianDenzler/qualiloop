@@ -1,0 +1,184 @@
+Bioplib -\/ Compiling and Installing the Biop\-Lib Library
+
+\subsection*{Installation on U\-N\-I\-X systems }
+
+\subsubsection*{(1) Create sub-\/directories of your main directory called include and lib\-:}
+
+\begin{DoxyVerb}     mkdir ~/include
+     mkdir ~/include/bioplib
+     mkdir ~/lib
+\end{DoxyVerb}
+
+
+\subsubsection*{(2) Unpack the distribution file\-:}
+
+If you have downloaded a gzipped tar file\-: \begin{DoxyVerb}        zcat bioplib-X.Y.tar.gz | tar -xvf -
+     -or-
+        gunzip bioplib-X.Y.tar.gz
+        tar -xvf bioplib-X.Y.tar
+     -or- (if you have Gnu tar)
+        tar -zxvf bioplib-X.Y.tar.gz
+\end{DoxyVerb}
+
+
+(where X.\-Y is the major and minor version numbers -\/ e.\-g. 3.\-0)
+
+If you have downloaded a Z\-I\-P file\-: \begin{DoxyVerb}     unzip bioplib-X.Y.zip
+\end{DoxyVerb}
+
+
+\subsubsection*{(3) This will create a directory called bioplib-\/\-X.\-Y.}
+
+Enter this directory and then go into the src sub-\/directory\-: \begin{DoxyVerb}     cd bioplib-X.Y/src
+\end{DoxyVerb}
+
+
+Modify the Makefile as required for your system. If you are using the G\-N\-U C compiler and have followed the directions above, no changes should be needed. If you have chosen alternative locations for the include and library directories then you will need to change L\-I\-B\-D\-E\-S\-T to be the library directory you have created and I\-N\-C\-D\-E\-S\-T to the include directory you have created (N.\-B. the complete path is required, you can't do $\sim$/lib).
+
+\subsubsection*{(4) To build the libraries, type\-:}
+
+\begin{DoxyVerb}     make 
+\end{DoxyVerb}
+
+
+The compilation should complete with no errors or warnings except for implicit declarations of \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} in \hyperlink{_read_p_d_b_8c}{Read\-P\-D\-B.\-c} and Whole\-P\-D\-B.\-c This is because \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} is not an A\-N\-S\-I C function and the -\/ansi flag causes this to be a warning.
+
+\subsubsection*{(5) Install the libraries and the include files\-:}
+
+\begin{DoxyVerb}     make install
+\end{DoxyVerb}
+
+
+\subsubsection*{(6) Build the documentation\-:}
+
+\begin{DoxyVerb}     make doxygen
+\end{DoxyVerb}
+
+
+This uses Doxygen (www.\-doxygen.\-org) and exploits the markdown format which is supported by version 1.\-8.\-0 (or later) of Doxygen.
+
+The resulting documentation will be found in the doc/html sub-\/directory of bioplib-\/\-X.\-Y
+
+\subsubsection*{(7) To remove the object files and local copies of the libraries\-:}
+
+\begin{DoxyVerb}     make clean
+\end{DoxyVerb}
+
+
+\subsubsection*{(8) To remove the documentation\-:}
+
+\begin{DoxyVerb}     make doxyclean
+\end{DoxyVerb}
+
+
+\subsubsection*{(9) Set up aliases}
+
+If you are using a shell which supports aliases, set up an alias for the cc command to add the include directory to the include search path and the lib directory to the lib search path. Using the B\-A\-S\-H shell and assuming you have installed the libraries and include files in the default location, the following will work\-: \begin{DoxyVerb}     alias cc '/bin/cc -I$HOME/include -L$HOME/lib'
+\end{DoxyVerb}
+
+
+If you have chosen an alternative location to install the libraries and include files, you will need to change the paths for include and lib.
+
+You can then compile a program using the command\-: \begin{DoxyVerb}     cc -o foo foo.c -lbiop -lgen -lm
+\end{DoxyVerb}
+
+
+Note that -\/lbiop must appear before -\/lgen
+
+If support for reading and writing pdbml-\/formatted files is required then the program must be linked to the libxml2 library. Compile using the command\-: \begin{DoxyVerb}     cc -o foo foo.c -lbiop -lgen -lm -lxml2
+\end{DoxyVerb}
+
+
+It is good practice to add flags to enforce the strict A\-N\-S\-I C standard at the same time (-\/\-Wall -\/ansi -\/pedantic for G\-C\-C or -\/ansi -\/fullwarn on an S\-G\-I).
+
+\subsubsection*{(10) Using Makefiles}
+
+If building a project using a Makefile, then you will need to include -\/\-I\$\-H\-O\-M\-E/include -\/\-L\$\-H\-O\-M\-E/lib in your C\-F\-L\-A\-G\-S and remember to include the libraries (-\/lbiop -\/lgen and maybe -\/lm or -\/lxml2) at the end of your link command.
+
+\subsubsection*{(11) Include the header files}
+
+To access the C library functions you will need to include appropriate header files. For example\-: \begin{DoxyVerb}     #include "bioplib/pdb.h"
+\end{DoxyVerb}
+
+
+\subsection*{Makefile Options }
+
+Various options for compiling the Biop\-Lib library are available by editing the Makefile in the src directory.
+
+{\itshape P\-D\-B\-M\-L Format}
+
+Biop\-Lib uses the libxml2 library for parsing and output of P\-D\-B\-M\-L-\/format files.
+
+Libxml2 may already be installed on your system. For instance, it is part of the standard installation on the Apple O\-S X operating system.
+
+If the libxml2 library is not installed, then instructions for downloading and installing the libxml2 library are available at the libxml2 website\-: \href{http://xmlsoft.org}{\tt http\-://xmlsoft.\-org}
+
+By default, Biop\-Lib is configured with support for P\-D\-B\-M\-L-\/formatted files. If you don't need this then comment out the following line in the Makefile\-: \begin{DoxyVerb}     COPT := $(COPT) -D XML_SUPPORT $(shell xml2-config --cflags)
+\end{DoxyVerb}
+
+
+The compiler directive X\-M\-L\-\_\-\-S\-U\-P\-P\-O\-R\-T is used as a switch to compile the code in Biop\-Lib for reading and writing pdbml files. The program xml2-\/config is part of the libxml2 installation and ensures the libxml2 include file is in the search path (-\/\-I option).
+
+Use either \char`\"{}-\/lxml2\char`\"{} or \char`\"{}\$(shell xml2-\/config -\/-\/libs)\char`\"{} to link a program to the libxml2 library.
+
+{\itshape Install Location}
+
+The default location for installing Biop\-Lib is in the user's home directory. This location can be changed to install in another location. For example, to install in the /usr/local/include and /usr/local/lib directories, change the install location by editing the following lines in the Makefile\-: \begin{DoxyVerb}     LIBDEST = ${HOME}/lib
+     INCDEST = ${HOME}/include
+     SHAREDLIBDEST = ${HOME}/lib
+\end{DoxyVerb}
+
+
+to \begin{DoxyVerb}     LIBDEST = /usr/local/lib
+     INCDEST = /usr/local/include
+     SHAREDLIBDEST = /usr/local/lib
+\end{DoxyVerb}
+
+
+{\itshape Deprecated Functions}
+
+In 2014 almost all of the the functions in the Biop\-Lib library had the prefix bl added to the function name (e.\-g. Read\-P\-D\-B() became \hyperlink{pdb_8h_a4027e61f67886772894d7a948a3be2c0}{bl\-Read\-P\-D\-B()}) to provide a consistent naming scheme. In addition, functions that expected a single character for the chain name were updated to take a string.
+
+Programs using the older function names will compile however, a warning message will be generated if the function is called by a program. The default option is to display a warning message unless the environment variable, B\-I\-O\-P\-L\-I\-B\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D\-\_\-\-Q\-U\-I\-E\-T is set.
+
+There are also options for handling error messages are also set within the Makefile. Uncommenting one of the following lines will either always display a warning message or silence the warning message\-: \begin{DoxyVerb}     #COPT := $(COPT) -D BIOPLIB_DEPRECATED_CHECK
+     #COPT := $(COPT) -D BIOPLIB_DEPRECATED_QUIET
+\end{DoxyVerb}
+
+
+Note that deprecated functions will be removed in V4.\-0, so if you have programs that use the old functions, start changing them now!
+
+To obtain a warning of the use of deprecated Biop\-Lib functions at compile time, you can define the value N\-O\-D\-E\-P\-R\-E\-C\-A\-T\-I\-O\-N when you compile your code. This prevents the deprecated function header files from being read and with -\/\-Wall (G\-C\-C) or -\/fullwarn (Irix) will cause warnings about undefined functions. For example\-: \begin{DoxyVerb}     cc -Wall -D NODEPRECATION -o myprogram myprogram.c -lbiop -lgen -lm -lxml2
+\end{DoxyVerb}
+
+
+\subsection*{Windows Installation }
+
+{\itshape Min\-G\-W and M\-S\-Y\-S}
+
+The Biop\-Lib library will compile on Microsoft Windows systems. We compiled Biop\-Lib on Windows 7 using the the Min\-G\-W (Minimalist G\-N\-U for Windows) and M\-S\-Y\-S (Minimalist System) packages which are available from www.\-mingw.\-org.
+
+Min\-G\-W and M\-S\-Y\-S can be installed by downloading the Min\-G\-W installer executable and using it to install Min\-G\-W and M\-S\-Y\-S. Min\-G\-W provides a port of the G\-C\-C compiler and M\-S\-Y\-S creates a unix-\/like environment and filesystem on the Windows machine and provides a unix-\/like terminal.
+
+{\itshape Installing the Libxml2 and Check Libraries}
+
+The Libxml2 library is required to read pdbml-\/formatted files. The Check library is required only if unit tests are to be run. Libxml2 can be downloaded from xmlsoft.\-org and Check can be downloaded from check.\-sourceforge.\-net.
+
+To compile and install either the libxml2 or check library from source, unpack the source files and use './configure', 'make', and 'make install' from within the M\-S\-Y\-S shell (N\-O\-T the cmd window). When running a program that uses a user-\/installed library, the dynamically-\/linked library file needs to be in the P\-A\-T\-H. The path can be set from the cmd window command line or from the control panel in M\-S Windows. Setting a user's path from the control panel is preferable
+\begin{DoxyItemize}
+\item it only has to be done once and compiled programs can be launched by double-\/clicking on the executable from the Windows file browser.
+\end{DoxyItemize}
+
+{\itshape Installing Biop\-Lib}
+
+To install Biop\-Lib, follow the commands for installing on unix like systems from within the M\-S\-Y\-S terminal.
+
+Biop\-Lib can also be compiled form within the cmd window using mingw32-\/make however the makefile will have to be altered to give the location of the libxml2 library include files explicitly (e.\-g. -\/\-I C\-:\textbackslash{}1.\-0)
+
+{\itshape Unit Tests}
+
+Unit tests were added for newly installed features from 2014. Unit tests use the Check library which can be installed from check.\-sourceforge.\-net.
+
+Unit tests are in the src/\-T\-E\-S\-T subdirectory. To run tests first compile Biop\-Lib from within the src directory with ‘make’ and then compile the unit tests from within the src/\-T\-E\-S\-T directory with ‘make’ to create an executable file, run\-\_\-tests. Tests can be run by typing either ‘./run\-\_\-tests’ or ‘./run\-\_\-tests -\/v’ for verbose output.
+
+Note\-: If unit tests are run under M\-S windows then the unit tests must be run from within a M\-S\-Y\-S terminal as the tests for writing P\-D\-B files require the unix ‘dos2unix’ and ‘cmp’ commands. 

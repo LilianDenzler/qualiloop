@@ -1,0 +1,31 @@
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+      SUBROUTINE COMPSPCGRD(IND,IX,IY,IZ,OUTOFBOUND)
+C
+C     Compute space grid index for atom IND.
+C
+C      IMPLICIT CHARACTER*32767(A-H,J-Z)
+ 
+COM OMUPD BNJ
+ 
+      IMPLICIT NONE
+ 
+COM
+ 
+      INTEGER IND
+      INTEGER IX, IY, IZ
+      LOGICAL OUTOFBOUND
+
+      include "params.inc"
+      include "coords.inc"
+      include "grid.inc"
+C
+      IX = (XCART(IND)-XMN)*RECIPGRID + 1
+      IY = (YCART(IND)-YMN)*RECIPGRID + 1
+      IZ = (ZCART(IND)-ZMN)*RECIPGRID + 1
+
+      OUTOFBOUND = IX.LT.1 .OR. IX.GT.NGRIDX .OR. IY.LT.1 .OR.
+     +             IY.GT.NGRIDY .OR. IZ.LT.1 .OR. IZ.GT.NGRIDZ
+ 
+      RETURN
+      END
+ 

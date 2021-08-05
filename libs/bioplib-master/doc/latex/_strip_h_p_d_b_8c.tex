@@ -1,0 +1,98 @@
+\hypertarget{_strip_h_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Strip\-H\-P\-D\-B.c File Reference}
+\label{_strip_h_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Strip\-H\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Strip\-H\-P\-D\-B.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_strip_h_p_d_b_8c_afd543872026cab5d575c5b6400e7a630}{bl\-Strip\-H\-P\-D\-B\-As\-Copy} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdbin, int $\ast$natom)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-10 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+19.\-04.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin, University of Reading, 2002-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-03.\-90 Original By\-: A\-C\-R\-M
+\item V1.\-1 28.\-03.\-90 Modified to match new version of \hyperlink{pdb_8h}{pdb.\-h}
+\item V1.\-2 24.\-05.\-90 Fixed so the variables passed in as sel\mbox{[}\mbox{]} don't have$\ast$ to be 4 chars.
+\item V1.\-3 17.\-05.\-93 Modified for book. Returns B\-O\-O\-L.
+\item V1.\-4 09.\-07.\-93 Modified to return P\-D\-B pointer. Changed allocation scheme. Changed back to sel\mbox{[}\mbox{]} variables {\itshape must} be 4 chars.
+\item V1.\-5 01.\-11.\-94 Added H\-Strip\-P\-D\-B()
+\item V1.\-6 26.\-07.\-95 Removed unused variables
+\item V1.\-7 16.\-10.\-96 Added Select\-Ca\-P\-D\-B()
+\item V1.\-8 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-9 19.\-08.\-14 Renamed \hyperlink{pdb_8h_afd543872026cab5d575c5b6400e7a630}{bl\-Strip\-H\-P\-D\-B\-As\-Copy()} to \hyperlink{pdb_8h_afd543872026cab5d575c5b6400e7a630}{bl\-Strip\-H\-P\-D\-B\-As\-Copy()} By\-: C\-T\-P
+\item V1.\-10 19.\-04.\-15 Added call to \hyperlink{_build_conect_8c_ad267806fc8e84f90103c1a4034bf3fc1}{bl\-Copy\-Conects()} By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_strip_h_p_d_b_8c_source}{Strip\-H\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_strip_h_p_d_b_8c_afd543872026cab5d575c5b6400e7a630}{\index{Strip\-H\-P\-D\-B.\-c@{Strip\-H\-P\-D\-B.\-c}!bl\-Strip\-H\-P\-D\-B\-As\-Copy@{bl\-Strip\-H\-P\-D\-B\-As\-Copy}}
+\index{bl\-Strip\-H\-P\-D\-B\-As\-Copy@{bl\-Strip\-H\-P\-D\-B\-As\-Copy}!StripHPDB.c@{Strip\-H\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Strip\-H\-P\-D\-B\-As\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Strip\-H\-P\-D\-B\-As\-Copy (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdbin, }
+\item[{int $\ast$}]{natom}
+\end{DoxyParamCaption}
+)}}\label{_strip_h_p_d_b_8c_afd543872026cab5d575c5b6400e7a630}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdbin} & Input list \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms kept \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Output list
+\end{DoxyReturn}
+Take a P\-D\-B linked list and returns the P\-D\-B list minus hydrogens
+
+N.\-B. The routine is non-\/destructive; i.\-e. the original P\-D\-B linked list is intact after the selection process
+
+
+\begin{DoxyItemize}
+\item 01.\-11.\-94 Original based on Sel\-Atoms\-P\-D\-B() By\-: A\-C\-R\-M
+\item 26.\-07.\-95 Removed unused variables
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 19.\-08.\-14 Renamed function to \hyperlink{pdb_8h_afd543872026cab5d575c5b6400e7a630}{bl\-Strip\-H\-P\-D\-B\-As\-Copy()} By\-: C\-T\-P
+\item 19.\-04.\-15 Added call to bl\-Copy\-Conect() By\-: A\-C\-R\-M
+\item 19.\-01.\-18 Strips deuterium as well as hydrogen 
+\end{DoxyItemize}
+
+Definition at line 116 of file Strip\-H\-P\-D\-B.\-c.
+

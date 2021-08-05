@@ -1,0 +1,97 @@
+\hypertarget{_term_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Term\-P\-D\-B.c File Reference}
+\label{_term_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Term\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Term\-P\-D\-B.\-c}}
+}
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_term_p_d_b_8c_a23a6468a99e28990a7ee9c6838d72fe0}{bl\-Term\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, int length)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-12 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1992-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 22.\-02.\-94 Original release
+\item V1.\-1 23.\-05.\-94 Added Find\-Next\-Chain\-P\-D\-B()
+\item V1.\-2 05.\-10.\-94 Kill\-Sidechain() uses B\-O\-O\-L rather than int
+\item V1.\-3 24.\-07.\-95 Added Term\-P\-D\-B()
+\item V1.\-4 25.\-07.\-95 Added Get\-P\-D\-B\-Chain\-Labels()
+\item V1.\-5 26.\-09.\-95 Fixed bug in Term\-P\-D\-B()
+\item V1.\-6 12.\-10.\-95 Added Dupe\-P\-D\-B(), Copy\-P\-D\-B\-Coords()
+\item V1.\-7 23.\-10.\-95 Moved Find\-Residue\-Spec() to \hyperlink{_parse_res_8c}{Parse\-Res.\-c}
+\item V1.\-8 10.\-01.\-96 Added Extract\-Zone\-P\-D\-B()
+\item V1.\-9 14.\-03.\-96 Added Find\-Atom\-In\-Res()
+\item V1.\-10 08.\-10.\-99 Initialised some variables
+\item V1.\-11 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H macro. By\-: C\-T\-P
+\item V1.\-12 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_term_p_d_b_8c_source}{Term\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_term_p_d_b_8c_a23a6468a99e28990a7ee9c6838d72fe0}{\index{Term\-P\-D\-B.\-c@{Term\-P\-D\-B.\-c}!bl\-Term\-P\-D\-B@{bl\-Term\-P\-D\-B}}
+\index{bl\-Term\-P\-D\-B@{bl\-Term\-P\-D\-B}!TermPDB.c@{Term\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Term\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Term\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}}\label{_term_p_d_b_8c_a23a6468a99e28990a7ee9c6838d72fe0}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em length} & Number of residues after which to terminate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to next residue after terminated list. N\-U\-L\-L if not enough residues in linked list.
+\end{DoxyReturn}
+Terminate a P\-D\-B linked list after length residues, returning a pointer to the next residue.
+
+Note that the number of residues may cross chain boundaries.
+
+
+\begin{DoxyItemize}
+\item 06.\-07.\-95 Original By\-: A\-C\-R\-M
+\item 26.\-09.\-95 Corrected update of resnum etc to use p-\/$>$ not pdb-\/$>$ (!!)
+\item 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H macro. By\-: C\-T\-P
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 112 of file Term\-P\-D\-B.\-c.
+

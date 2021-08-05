@@ -1,0 +1,117 @@
+\hypertarget{wrapprint_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/wrapprint.c File Reference}
+\label{wrapprint_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/wrapprint.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/wrapprint.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{wrapprint_8c_acccb9091b4202013b48322965cb19dcf}{bl\-Wrap\-String} (char $\ast$in, char $\ast$out, int maxlen)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{wrapprint_8c_af558d2efeb2ba23931396882d32f3fe9}{bl\-Wrap\-Print} (F\-I\-L\-E $\ast$out, char $\ast$string)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, University of Reading, 2002-\/14 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-2 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{wrapprint_8c_source}{wrapprint.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{wrapprint_8c_af558d2efeb2ba23931396882d32f3fe9}{\index{wrapprint.\-c@{wrapprint.\-c}!bl\-Wrap\-Print@{bl\-Wrap\-Print}}
+\index{bl\-Wrap\-Print@{bl\-Wrap\-Print}!wrapprint.c@{wrapprint.\-c}}
+\subsubsection[{bl\-Wrap\-Print}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Wrap\-Print (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{out, }
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{wrapprint_8c_af558d2efeb2ba23931396882d32f3fe9}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$out} & Output file pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$string} & String to be printed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O\-K?
+\end{DoxyReturn}
+Wraps a string with double inverted commas if it contains spaces and escapes any contained double inverted commas with a backslash. Allocates memory for temporary storage of the wrapped string. Returns F\-A\-L\-S\-E if this memory allocation failed.
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 204 of file wrapprint.\-c.
+
+\hypertarget{wrapprint_8c_acccb9091b4202013b48322965cb19dcf}{\index{wrapprint.\-c@{wrapprint.\-c}!bl\-Wrap\-String@{bl\-Wrap\-String}}
+\index{bl\-Wrap\-String@{bl\-Wrap\-String}!wrapprint.c@{wrapprint.\-c}}
+\subsubsection[{bl\-Wrap\-String}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Wrap\-String (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{in, }
+\item[{char $\ast$}]{out, }
+\item[{int}]{maxlen}
+\end{DoxyParamCaption}
+)}}\label{wrapprint_8c_acccb9091b4202013b48322965cb19dcf}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$in} & Input string \\
+\hline
+\mbox{\tt in}  & {\em maxlen} & Max length of output string \\
+\hline
+\mbox{\tt out}  & {\em $\ast$out} & Output wrapped string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Output string was long enough
+\end{DoxyReturn}
+Wraps a string with double inverted commas if it contains spaces and escapes any contained double inverted commas with a backslash. If the output string wasn't big enough, then the routine just returns F\-A\-L\-S\-E without copying anything into the output string.
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 104 of file wrapprint.\-c.
+

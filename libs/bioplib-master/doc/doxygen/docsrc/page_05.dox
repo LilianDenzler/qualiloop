@@ -1,0 +1,233 @@
+/** 
+\page page_05 General Programming
+\brief
+  BiopLib - General Programming
+
+
+
+
+
+
+
+These are general programming routines, not related to proteins or DNA
+in any way.  They are all in the libgen library so this can be used
+without libbiop. However, many of the libbiop routines rely on libgen.
+
+
+
+
+Array handling
+--------------
+
+- FINDINARRAY(x,l,y,r) - Macro: Finds value (y) is in array (x) if length (l) returning the offset in (r). Offset is -1 if not found 
+- TESTINARRAY(x,l,y,r) - Macro: Tests whether value (y) is in array (x) if length (l) returning the result in (r)
+- blArray2D() - Create a 2D array of elements of size `size' with dimensions `dim1' rows by `dim2' columns. 
+- blArray3D() - Create a 3D array of elements of size `size' with dimensions `dim1' rows by `dim2' columns by `dim3' planes 
+- blFreeArray2D() - Frees a 2D array with dimensions `dim1' rows by `dim2' columns.
+- blFreeArray3D() - Frees a 3D array with dimensions `dim1' rows by `dim2' columns by `dim3' planes.
+
+
+Debugging
+---------
+
+- D(BUG) - Macro: Prints the BUG string if DEBUG is defined first 
+
+
+File IO
+-------
+
+- FindNextNumber() - Find the next number which occurs in a file within a specified number of lines.
+- blCheckExtn() - Check the extension of a filename. Case insensitive!
+- blCloseOrPipe() - Attempts to close a file pointer as a pipe.
+- blFgetsany() - blFgetsany() provides a routine like fgets() for reading strings from a file, but does not require you to impose a limit on the length of string which may be read.
+- blGetFilestem() - Extracts the filestem from a complete filename. Should work under Unix, VMS, MS-DOS, AmigaDOS, etc.
+- blKillLine() - This routine reads characters from a file till it reaches a return character or the end of file.
+- blOpenBufferedFile() - Open a file for buffered input. This allows probe-ahead to look at the contents of the next line without removing it from the input stream. 
+- blOpenFile() - Attempts to open a filename as specified. Returns a file pointer. If this fails looks in a directory specified using an environment variable or assign.
+- blOpenOrPipe() - Opens a file for writing unless the filename begins with a | in which case it is opened as a pipe. 
+- blOpenStdFiles() - Open the files if specified. Does not modify the file handles if files are not specified. Typically used to open files for input and output using stdin and stdout if files not given.
+- blProbeBufferedFile() - Read the next line from a buffered file without removing it from the input stream. Repeated calls will thus return the same string. The next call to ReadBufferedFile will also output the same string, but will remove the line from the input stream. Blank lines in the file will be skipped.
+- blReadBufferedFile() - Reads a line from a buffered file (like fgets()). Blank lines in the file will be skipped. 
+- blSetExtn() - Force a filename extension. Modifies the input filename to have the specified extension.
+- fsscanf() - A FORTRAN-style rigid-column formatted version of sscanf()
+
+
+File handling
+-------------
+
+- FCLOSE(fp) - Macro: close a file pointer if it is non-NULL and not stdin/out/err. Set the file pointer to NULL afterwards 
+
+
+Filenames
+---------
+
+- blCheckProgName() - Tests if a program name matches the specified name
+
+
+Flags and bitwise operations
+----------------------------
+
+- ISSET(x,y) - Macro: Tests bit y (a hex value) in variable x 
+- SET(x,y) - Macro: Sets bit y (a hex value) in variable x
+- TOGGLE(x) - Macro: Toggle a flag
+- UNSET(x,y) - Macro: Clears bit y (a hex value) in variable x
+
+
+Handling errors
+---------------
+
+- blShowErrors() - Display the error stack using the supplied print routine or the simple default one if NULL is given.
+- blStoreError() - Stores an error on the error stack. 
+
+
+Handling linked lists
+---------------------
+
+- ALLOCNEXT(x,y) - Macro: Allocate next item in list and step on
+- ALLOCNEXTPREV(x,y) - Macro: Allocate next item in doubly linked list and step on.
+- DELETE(lst,itm,type) - Macro: Deletes (itm) from linked list (lst) of type (type)
+- DELETEDOUBLE(lst,itm,type) - Macro: Deletes (itm) from a doubly linked list (lst) of type (type) 
+- FINDPREV(p, start, q) - Set p to item in linked list start before q
+- FREE(x) - Macro: Free memory if non-NULL and set the variable to NULL
+- FREELIST(y,z) - Macro: Free list y of type z
+- INIT(x,y) - Macro: Initialise list of name x and type y. Set x->next to NULL
+- INITPREV(x,y) - Macro: Initialise list of name x and type y. Set x->next and x->prev to NULL
+- LAST(x) - Macro: Move to end of list
+- NEXT(x) - Macro: Step on in linked list
+- PREV(x) - Macro: Step back in doubly linked list
+
+
+Hashes / Dictionaries
+---------------------
+
+- blDeleteHashKey() - Deletes an entry from the hash 
+- blDumpHash() - Utility function to dump a hash to a file 
+- blFreeHash() - Frees all memory associated with a hash 
+- blFreeHashKeyList() - Frees a list of hash keys from blGetHashKeyList() 
+- blGetHashKeyList() - Allocates an array containing the hash keys 
+- blGetHashValue() - Gets a hash value for a specified key 
+- blGetHashValueChar() - Wrapper to blGetHashValue() specifically for chars 
+- blGetHashValueDouble() - Wrapper to blGetHashValue() specifically for doubles 
+- blGetHashValueInt() - Wrapper to blGetHashValue() specifically for ints 
+- blGetHashValuePointer() - Wrapper to blGetHashValue() specifically for pointers 
+- blGetHashValueString() - Wrapper to blGetHashValue() specifically for strings 
+- blHashKeyDefined() - Tests if a key is defined in the hash 
+- blInitializeHash() - Initializes a hash structure 
+- blSetHashValue() - Sets a hash key:value pair 
+- blSetHashValueChar() - Sets a hash key:value pair for a char value 
+- blSetHashValueDouble() - Sets a hash key:value pair for a double value 
+- blSetHashValueInt() - Sets a hash key:value pair for an int value 
+- blSetHashValuePointer() - Sets a hash key:value pair for a general pointer (BPTR) value 
+- blSetHashValueString() - Sets a hash key:value pair for a string value 
+
+
+Lists of strings
+----------------
+
+- blFreeStringList() - Frees memory allocated for a string list.
+- blInStringList() - Searches a string list for an *exact match* with the specified string.
+- blStoreString() - Stores strings (of any length) in a linked list of type STRINGLIST. Return a pointer to the start of the linked list which is used on the first call to access the newly allocated memory.
+
+
+Maths
+-----
+
+- ABS(x,y) - Macro: abs() as macro 
+- MAX(x,y) - Macro: max() as macro
+- MIN(x,y) - Macro: min() as macro
+- blFindNextPrime() - Finds the next prime 
+- blIsPrime() - Tests whether a number is prime 
+
+
+Memory management
+-----------------
+
+- blSafefree() - Debugging version of free() which checks protection buffers each side of the requested memory block. 
+- blSafeleaks() - Prints a list of any safemalloc()'d memory which was not freed
+- blSafemalloc() - Debugging version of malloc() which creates protection buffers each side of the requested memory block. 
+
+
+Miscellaneous
+-------------
+
+- NEWLINE - Macro: Print a newline character to stdout
+- RANGECHECK(x,y,z) - Macro: Return x constrained to range y to z 
+
+
+Sorting
+-------
+
+- blIndexReal() - Index an array by Heapsort.
+
+
+String handling
+---------------
+
+- DEDOTIFY(str) - Macro: Replace '.' with ' ' in string
+- DOTIFY(str) - Macro: Replace ' ' with '.' in string
+- KILLLEADSPACES(x,y) - Macro: Makes x a pointer into string y after any spaces or tabs.
+- KILLTRAILSPACES(x) - Macro: Terminate string to remove any trailing white space
+- PADCHARMINTERM(str,char,len) - Macro: Pads a string to len chars with specified character only if it is shorter
+- PADMINTERM(str,len) - Macro: Pads a string to len chars only if it is shorter
+- STRNCPYNOSPACES(out, in, maxlen) - Macro: Like strncpy() but skips spaces 
+- TERMAT(x,y) - Macro: Terminates character string x at first character y
+- TERMINATE(x) - Macro: Terminate a string at the first \n
+- TERMINATECR(x) - Macro: Terminate a string at the first \r
+- UPPER(x) - Macro: Converts a string to upper case
+- blChindex() - Returns the offset of a character in a string. -1 if not found. This is used in a similar manner to strchr(), but gives an offset in the string rather than a pointer to the character.
+- blCollapseSpaces() - Takes a string and collapses multiple spaces down to a single space Equivalent of perl 's/\s+/ /g' 
+- blCountchar() - Counts occurrences of a charcater in a string
+- blFtostr() - Convert a REAL to a string using precision decimal places. If precision is negative, use e-form, otherwise use f-form. This is used to generate precisely formatted string versions of numbers for applications where the appearance of a numeric value is important.
+- blGetParam() - Extracts the first space-delimited number from a character string.
+- blGetString() - Returns the first space-delimited group of characters from a character string 
+- blGetWord() - Reads a whitespace/comma delimited word out of buffer into word. 
+- blGetWordNC() - Reads a whitespace delimited word out of buffer into word. Commas are treated just like normal characters. 
+- blGetfield() - Reads a column out of a buffer. If the specfied column extends beyond the size of the buffer, then it will be padded with spaces.
+- blKillLeadSpaces() - This routine strips leading spaces and tabs from a string returning a pointer to the first non-whitespace character. The macro KILLLEADSPACES() in macros.h is now a recommended replacement
+- blMatch() - Matches two strings, but stops the comparison as soon as a space or NULL is found in either string. The returned value 
+- blPadchar() - Pads a string with a specified character to length characters, then terminates it. Note that PADCHARMINTERM() in macros.h is a replacement for this
+- blPadterm() - Pads a string with spaces to length characters, then terminates it. Note that the PADMINTERM() macro in macros.h is a replacement for this
+- blQueryStrStr() - This is like strstr() but allows a ? character in the substring which matches any character.
+- blRemoveSpaces() - Strips all whitespace out of a string. Allocates a new string.
+- blRightJustify() - Right justifies a string in place
+- blSplitStringOnChars() - Split a string into an array of individual characters, but each stored as a string. Mallocs a 2D array
+- blSplitStringOnCommas() - Split a comma-separated string into an array of items. Mallocs a 2D array 
+- blStrcatalloc() - Like strcat() but uses a realloc() on instr to make space available.
+- blStrdup() - Duplicates a string, allocating memory for it. An implementation of SVr4, 4.3BSD, POSIX.1-2001 strdup() which is not standard ANSI C 
+- blStringToLower() - Converts a lower or mixed case string to lower case. The LOWER() macro from macros.h is now preferred
+- blStringToUpper() - Converts a lower or mixed case string to upper case. The UPPER() macro from macros.h is now preferred
+- blStrncat() - Like strncat() but takes the max number of characters that the output string can hold rather than the maximum number of characterss to be appended.
+- blUpstrcmp() - Like strcmp(), but upcases each character before comparison
+- blUpstrncmp() - Like strncmp(), but upcases each character before comparison
+- blWord() - Removes leading spaces and extracts a space/tab delimited word. string2 must have the same amount of space as string1.
+- blWordN() - Removes leading spaces and extracts a space/tab delimited word. A maximum of MaxChar characters will be copied into the word.
+- blWrapPrint() - Wraps a string with double inverted commas if it contains spaces and escapes any contained double inverted commas with a backslash. Then prints the string
+- blWrapString() - Wraps a string with double inverted commas if it contains spaces and escapes any contained double inverted commas with a backslash. 
+
+
+Text window handling - experimental
+-----------------------------------
+
+- blGetKybdString() - Reads a string from the keyboard 
+- blPagingOff() - Switches off screen paging. 
+- blPagingOn() - Switches on screen paging. 
+- blPrompt() - Sets a prompt for input. If windowing is on, this simply sets the prompt variable (the actual prompt is issued by the GetKybdString() function). If no windowing is used, the actual string is printed. If the prompt ends with a . it is simply printed; if not, a > is appended. 
+- blRePrompt() - Reissue the current prompt. Only has any effect when windowing is not in use. Normally only used by ReadBufferedFile() and ProbeBufferedFile() to re-issue prompts while eating blank lines. 
+- blScreen() - Writes information to the screen. Handles any windows as appropriate. 
+- blWindowInteractive() - Switch interactive mode on or off. If switched off, calls WindowMode(FALSE) to switch off windowing 
+- blWindowMode() - Switch window mode on or off. 
+- blYorN() - Get a yes or no response from the keyboard
+
+
+User interaction
+----------------
+
+- PROMPT(fp,x) - Macro: Issue a prompt to stdout if fp is a terminal 
+- blDoHelp() - Handles help facility. This is the normal entry point.
+- blHelp() - Generates help from a help file on the topic named by string. If this is `help' or `?', available topics will be listed. 
+- blMparse() - As blParse(), but allows variable number of parameters to each keyword.   
+- blParse() - Keyword-based command parser using a fixed number of parameters per command 
+
+
+*/
+

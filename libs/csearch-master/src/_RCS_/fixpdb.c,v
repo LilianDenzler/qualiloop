@@ -1,0 +1,47 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.50;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* This routine adds hydrogens to the PDB linked list and fixes the
+   coords of CTER OT2 */
+ 
+void fixpdb(
+FILE *hadd_fp,
+PDB *pdb
+)
+{
+   PDB *p;
+   int atnum = 0;
+ 
+   hadd(hadd_fp,pdb);
+ 
+   FixNterH(pdb);
+   FixCterO(pdb);
+ 
+   /* Renumber the pdb linked list */
+   for(p=pdb; p; NEXT(p)) p->atnum = ++atnum;
+ }
+ 
+@

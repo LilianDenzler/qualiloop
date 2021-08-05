@@ -1,0 +1,8 @@
+**!!TITLD.INS
+C
+C -- ????
+      INTEGER ITITLE
+      COMMON /TITLD/ ITITLE ( 18 )
+C
+      SAVE /TITLD/
+C

@@ -1,0 +1,36 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@c @;
+
+
+1.1
+date	2006.02.17.12.03.47;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C     FILLLOG
+C     ACRM 24.06.91
+C     Fills an array with logicals
+      SUBROUTINE FILLLOG(ARR,NUM,TRUTH)
+      LOGICAL ARR(*), TRUTH
+      INTEGER NUM, I
+      DO 100 I = 1, NUM
+         ARR(I) = TRUTH
+  100 CONTINUE
+      RETURN
+      END
+@

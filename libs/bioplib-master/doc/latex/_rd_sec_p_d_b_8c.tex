@@ -1,0 +1,150 @@
+\hypertarget{_rd_sec_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rd\-Sec\-P\-D\-B.c File Reference}
+\label{_rd_sec_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rd\-Sec\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rd\-Sec\-P\-D\-B.\-c}}
+}
+
+
+Read secondary structure information from the H\-E\-L\-I\-X, T\-U\-R\-N and S\-H\-E\-E\-T records in a P\-D\-B file.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fsscanf.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_a25697ec511d1e670741bb42360fd5329}{S\-E\-C\-S\-T\-R\-U\-C} $\ast$ \hyperlink{_rd_sec_p_d_b_8c_a301c5031ec640bcc41cdca87818ac50c}{bl\-Read\-Sec\-P\-D\-B} (F\-I\-L\-E $\ast$fp, int $\ast$nsec)
+\item 
+\hyperlink{pdb_8h_a25697ec511d1e670741bb42360fd5329}{S\-E\-C\-S\-T\-R\-U\-C} $\ast$ \hyperlink{_rd_sec_p_d_b_8c_a33509dcd8e1c9d239a31adecd138aeff}{bl\-Read\-Sec\-Whole\-P\-D\-B} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, int $\ast$nsec)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read secondary structure information from the H\-E\-L\-I\-X, T\-U\-R\-N and S\-H\-E\-E\-T records in a P\-D\-B file. \begin{DoxyVersion}{Version}
+V1.\-5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+26.\-02.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1990-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+
+\begin{DoxyCode}
+sec = \hyperlink{pdb_8h_a301c5031ec640bcc41cdca87818ac50c}{blReadSecPDB}(fp,&nsec)
+\end{DoxyCode}
+
+
+This routine reads the secondary structure informaton from the header of a .P\-D\-B file. It reads from file fp and creates a linked list of type S\-E\-C\-S\-T\-R\-U\-C. The user should include \char`\"{}pdb.\-h\char`\"{}
+
+On return, the variable nsec, or the value returned by the routine should be checked to ensure some secondary structure was returned. The secondary structure is stored together with ranges of residues to which it applies. The form of the structure should be checked in \hyperlink{pdb_8h}{pdb.\-h}
+
+\begin{DoxyVerb}Input:    fp    *FILE      Pointer to PDB file
+Output:   nsec  *int       Number of sec struc regions identified
+Returns:  sec   *SECSTRUC  Linked list of type SECSTRUC
+\end{DoxyVerb}
+
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 22.\-03.\-90 Original
+\item V1.\-1 20.\-06.\-90 Would crash if no secondary structure found---fixed.
+\item V1.\-2 09.\-07.\-93 Changed allocation scheme. Returns pointer to S\-E\-C\-S\-T\-R\-U\-C. No need to initialise this before calling
+\item V1.\-3 18.\-08.\-98 Changed S\-E\-C to S\-E\-C\-S\-T\-R\-U\-C 'cos of conflict in Sun\-O\-S
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-5 26.\-02.\-15 Added \hyperlink{pdb_8h_a33509dcd8e1c9d239a31adecd138aeff}{bl\-Read\-Sec\-Whole\-P\-D\-B()} By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_rd_sec_p_d_b_8c_source}{Rd\-Sec\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_rd_sec_p_d_b_8c_a301c5031ec640bcc41cdca87818ac50c}{\index{Rd\-Sec\-P\-D\-B.\-c@{Rd\-Sec\-P\-D\-B.\-c}!bl\-Read\-Sec\-P\-D\-B@{bl\-Read\-Sec\-P\-D\-B}}
+\index{bl\-Read\-Sec\-P\-D\-B@{bl\-Read\-Sec\-P\-D\-B}!RdSecPDB.c@{Rd\-Sec\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-Sec\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-E\-C\-S\-T\-R\-U\-C}$\ast$ bl\-Read\-Sec\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int $\ast$}]{nsec}
+\end{DoxyParamCaption}
+)}}\label{_rd_sec_p_d_b_8c_a301c5031ec640bcc41cdca87818ac50c}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & Pointer to P\-D\-B file \\
+\hline
+\mbox{\tt out}  & {\em $\ast$nsec} & Number of sec struc regions identified \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked list of type S\-E\-C\-S\-T\-R\-U\-C
+\end{DoxyReturn}
+Reads secondary structure information from the header of a P\-D\-B file. Returns a pointer to a linked list of type S\-E\-C\-S\-T\-R\-U\-C.
+
+On return, the variable nsec, or the value returned by the routine should be checked to ensure some secondary structure was returned. The secondary structure is stored together with ranges of residues to which it applies. The form of the structure should be checked in \hyperlink{pdb_8h}{pdb.\-h}
+
+
+\begin{DoxyItemize}
+\item 22.\-03.\-90 Original
+\item 20.\-06.\-90 Would crash if no secondary structure found---fixed.
+\item 09.\-07.\-93 Changed allocation scheme. Returns pointer to S\-E\-C\-S\-T\-R\-U\-C. No need to initialise this before calling. Uses \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()}
+\item 18.\-08.\-98 Changed S\-E\-C to S\-E\-C\-S\-T\-R\-U\-C 'cos of conflict in Sun\-O\-S
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 141 of file Rd\-Sec\-P\-D\-B.\-c.
+
+\hypertarget{_rd_sec_p_d_b_8c_a33509dcd8e1c9d239a31adecd138aeff}{\index{Rd\-Sec\-P\-D\-B.\-c@{Rd\-Sec\-P\-D\-B.\-c}!bl\-Read\-Sec\-Whole\-P\-D\-B@{bl\-Read\-Sec\-Whole\-P\-D\-B}}
+\index{bl\-Read\-Sec\-Whole\-P\-D\-B@{bl\-Read\-Sec\-Whole\-P\-D\-B}!RdSecPDB.c@{Rd\-Sec\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-Sec\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-E\-C\-S\-T\-R\-U\-C}$\ast$ bl\-Read\-Sec\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{int $\ast$}]{nsec}
+\end{DoxyParamCaption}
+)}}\label{_rd_sec_p_d_b_8c_a33509dcd8e1c9d239a31adecd138aeff}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & W\-H\-O\-L\-E\-P\-D\-B structure \\
+\hline
+\mbox{\tt out}  & {\em $\ast$nsec} & Number of sec struc regions identified \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked list of type S\-E\-C\-S\-T\-R\-U\-C
+\end{DoxyReturn}
+Reads secondary structure information from the header of a P\-D\-B file stored in a W\-H\-O\-L\-E\-P\-D\-B structure. Returns a pointer to a linked list of type S\-E\-C\-S\-T\-R\-U\-C.
+
+On return, the variable nsec, or the value returned by the routine should be checked to ensure some secondary structure was returned. The secondary structure is stored together with ranges of residues to which it applies. The form of the structure should be checked in \hyperlink{pdb_8h}{pdb.\-h}
+
+
+\begin{DoxyItemize}
+\item 26.\-02.\-15 Original based on \hyperlink{pdb_8h_a301c5031ec640bcc41cdca87818ac50c}{bl\-Read\-Sec\-P\-D\-B()} 
+\end{DoxyItemize}
+
+Definition at line 256 of file Rd\-Sec\-P\-D\-B.\-c.
+

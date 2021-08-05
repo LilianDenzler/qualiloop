@@ -1,0 +1,3 @@
+   ecalc -p flapped_structure_-8.pdh
+core dumps as a result of missing atoms. It should exit cleanly!
+

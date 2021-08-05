@@ -1,0 +1,41 @@
+\hypertarget{stringcat_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/stringcat.c File Reference}
+\label{stringcat_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/stringcat.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/stringcat.\-c}}
+}
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{stringcat_8c_a6b5045229f8ad05a80f24126203cc2d8}{bl\-Strncat} (char $\ast$out, const char $\ast$in, size\-\_\-t len)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{stringcat_8c_a6b5045229f8ad05a80f24126203cc2d8}{\index{stringcat.\-c@{stringcat.\-c}!bl\-Strncat@{bl\-Strncat}}
+\index{bl\-Strncat@{bl\-Strncat}!stringcat.c@{stringcat.\-c}}
+\subsubsection[{bl\-Strncat}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Strncat (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{out, }
+\item[{const char $\ast$}]{in, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{stringcat_8c_a6b5045229f8ad05a80f24126203cc2d8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$in} & Input string to be appended \\
+\hline
+\mbox{\tt in}  & {\em len} & Length of output string \\
+\hline
+\mbox{\tt in,out}  & {\em $\ast$out} & String that we are appending to\\
+\hline
+\end{DoxyParams}
+A simpler version of strncat. strncat takes the max number of chars to be appended whereas this takes the max number of chars that 'out' can hold.
+
+
+\begin{DoxyItemize}
+\item 16.\-01.\-15 Original By\-: A\-C\-R\-M
+\item 04.\-06.\-15 Fixed -\/ was subtracting the input string length as well! 
+\end{DoxyItemize}
+
+Definition at line 97 of file stringcat.\-c.
+

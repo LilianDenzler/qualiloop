@@ -1,0 +1,88 @@
+\hypertarget{strcatalloc_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/strcatalloc.c File Reference}
+\label{strcatalloc_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/strcatalloc.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/strcatalloc.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{strcatalloc_8c_afcb923c739bf3a71e89e724e42a23af3}{bl\-Strcatalloc} (char $\ast$instr, char $\ast$catstr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+26.\-06.\-15
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, University of Reading, 2002-\/14 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 22.\-05.\-99 Original By\-: A\-C\-R\-M
+\item V1.\-1 11.\-07.\-00 Check that realloc succeeded
+\item V1.\-2 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-3 26.\-06.\-15 Corrected checks on input strings being N\-U\-L\-L By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{strcatalloc_8c_source}{strcatalloc.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{strcatalloc_8c_afcb923c739bf3a71e89e724e42a23af3}{\index{strcatalloc.\-c@{strcatalloc.\-c}!bl\-Strcatalloc@{bl\-Strcatalloc}}
+\index{bl\-Strcatalloc@{bl\-Strcatalloc}!strcatalloc.c@{strcatalloc.\-c}}
+\subsubsection[{bl\-Strcatalloc}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Strcatalloc (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{instr, }
+\item[{char $\ast$}]{catstr}
+\end{DoxyParamCaption}
+)}}\label{strcatalloc_8c_afcb923c739bf3a71e89e724e42a23af3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$instr} & String to append to \\
+\hline
+\mbox{\tt in}  & {\em $\ast$catstr} & String to append \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+realloc'd version of instr with catstr appended
+\end{DoxyReturn}
+Like strcat() but uses a realloc() on instr to make space available.
+
+
+\begin{DoxyItemize}
+\item 22.\-05.\-99 Original By\-: A\-C\-R\-M
+\item 16.\-06.\-99 Initialise outstr to N\-U\-L\-L
+\item 25.\-08.\-99 Fixed bug where testing for N\-U\-L\-L outstr instead of catstr
+\item 11.\-07.\-00 Check that realloc succeeded
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 26.\-06.\-15 Corrected checks on instr and catstr being null By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 100 of file strcatalloc.\-c.
+

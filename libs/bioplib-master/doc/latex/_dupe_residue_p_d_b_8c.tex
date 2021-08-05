@@ -1,0 +1,87 @@
+\hypertarget{_dupe_residue_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Dupe\-Residue\-P\-D\-B.c File Reference}
+\label{_dupe_residue_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Dupe\-Residue\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Dupe\-Residue\-P\-D\-B.\-c}}
+}
+
+
+Create a new P\-D\-B linked list with a copy of a residue.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_dupe_residue_p_d_b_8c_a962182369bc2bc6e2618bae8d913a610}{bl\-Dupe\-Residue\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$in)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Create a new P\-D\-B linked list with a copy of a residue. \begin{DoxyVersion}{Version}
+V1.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, U\-C\-L, 1996-\/2007 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 27.\-08.\-96 Original from mutmodel By\-: A\-C\-R\-M
+\item V1.\-1 08.\-11.\-07 Initialize p and q; Moved into bioplib
+\item V1.\-2 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_dupe_residue_p_d_b_8c_source}{Dupe\-Residue\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_dupe_residue_p_d_b_8c_a962182369bc2bc6e2618bae8d913a610}{\index{Dupe\-Residue\-P\-D\-B.\-c@{Dupe\-Residue\-P\-D\-B.\-c}!bl\-Dupe\-Residue\-P\-D\-B@{bl\-Dupe\-Residue\-P\-D\-B}}
+\index{bl\-Dupe\-Residue\-P\-D\-B@{bl\-Dupe\-Residue\-P\-D\-B}!DupeResiduePDB.c@{Dupe\-Residue\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Dupe\-Residue\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Dupe\-Residue\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{_dupe_residue_p_d_b_8c_a962182369bc2bc6e2618bae8d913a610}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$in} & P\-D\-B linked list pointing to residue to duplicate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Duplicate linked list of residue at `in' (N\-U\-L\-L if allocation fails)
+\end{DoxyReturn}
+Makes a duplicate P\-D\-B linked list of just the residue pointed to by `in'. Note that C\-O\-N\-E\-C\-T data will not be preserved since it would not be valid.
+
+
+\begin{DoxyItemize}
+\item 27.\-08.\-96 Original By\-: A\-C\-R\-M
+\item 08.\-11.\-07 Initialize p and q Moved into bioplib
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 100 of file Dupe\-Residue\-P\-D\-B.\-c.
+

@@ -1,0 +1,158 @@
+\hypertarget{_p_d_b2_seq_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-P\-D\-B2\-Seq.c File Reference}
+\label{_p_d_b2_seq_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-P\-D\-B2\-Seq.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-P\-D\-B2\-Seq.\-c}}
+}
+
+
+Conversion from P\-D\-B to sequence and other sequence related routines.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}seq.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{_p_d_b2_seq_8c_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Do\-Asx\-Glx, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Prot\-Only, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} No\-X)
+\item 
+\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$ \hyperlink{_p_d_b2_seq_8c_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Do\-Asx\-Glx, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Prot\-Only, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} No\-X)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Conversion from P\-D\-B to sequence and other sequence related routines. \begin{DoxyVersion}{Version}
+V1.\-15 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+01.\-12.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 29.\-09.\-92 Original
+\item V1.\-1 07.\-06.\-93 Corrected allocation
+\item V1.\-2 18.\-06.\-93 Handles multi-\/chains and skips N\-T\-E\-R and C\-T\-E\-R residues. Added Split\-Seq()
+\item V1.\-3 09.\-07.\-93 Split\-Seq() cleans up properly if allocation failed
+\item V1.\-4 11.\-05.\-94 Added True\-Seq\-Len()
+\item V1.\-5 13.\-05.\-94 Fixed bug in P\-D\-B2\-Seq(). Added Known\-Seq\-Len().
+\item V1.\-6 07.\-09.\-94 Fixed allocation bug in Split\-Seq()
+\item V1.\-7 19.\-07.\-95 Added check for A\-T\-O\-M records
+\item V1.\-8 24.\-01.\-96 Fixed bug when no A\-T\-O\-M records in linked list Returns a blank string
+\item V1.\-9 26.\-08.\-97 Renamed Do\-P\-D\-B2\-Seq() with handling of Asx/\-Glx and protein-\/only. Added macros to recreate the old P\-D\-B2\-Seq() interface and similar new calls
+\item V1.\-10 02.\-10.\-00 Added No\-X option
+\item V1.\-11 30.\-05.\-02 Changed P\-D\-B field from 'junk' to 'record\-\_\-type'
+\item V1.\-12 10.\-06.\-05 Fixed bug -\/ was undercounting by 1 for C\-A-\/only chains
+\item V1.\-13 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H By\-: C\-T\-P
+\item V1.\-14 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-15 01.\-12.\-15 Added \hyperlink{_p_d_b2_seq_8c_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain()} By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_p_d_b2_seq_8c_source}{P\-D\-B2\-Seq.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_p_d_b2_seq_8c_a3ceea54ec3e1794795d12708eb15d21b}{\index{P\-D\-B2\-Seq.\-c@{P\-D\-B2\-Seq.\-c}!bl\-Do\-P\-D\-B2\-Seq@{bl\-Do\-P\-D\-B2\-Seq}}
+\index{bl\-Do\-P\-D\-B2\-Seq@{bl\-Do\-P\-D\-B2\-Seq}!PDB2Seq.c@{P\-D\-B2\-Seq.\-c}}
+\subsubsection[{bl\-Do\-P\-D\-B2\-Seq}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Do\-P\-D\-B2\-Seq (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf B\-O\-O\-L}}]{Do\-Asx\-Glx, }
+\item[{{\bf B\-O\-O\-L}}]{Prot\-Only, }
+\item[{{\bf B\-O\-O\-L}}]{No\-X}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b2_seq_8c_a3ceea54ec3e1794795d12708eb15d21b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em Do\-Asx\-Glx} & Handle Asx and Glx as B and Z rather than X \\
+\hline
+\mbox{\tt in}  & {\em Prot\-Only} & Don't do D\-N\-A/\-R\-N\-A; these simply don't get done rather than being handled as X \\
+\hline
+\mbox{\tt in}  & {\em No\-X} & Skip amino acids which would be assigned as X \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Allocated character array containing sequence
+\end{DoxyReturn}
+malloc()'s an array containing the 1-\/letter sequence corresponding to an input P\-D\-B linked list. Returns N\-U\-L\-L if given a N\-U\-L\-L parameter or memory allocation fails. Puts $\ast$'s in the sequence for multi-\/chains.
+
+This routine is normally called via the macro interfaces\-: P\-D\-B2\-Seq(pdb), P\-D\-B2\-Seq\-X(pdb), P\-D\-B\-Prot2\-Seq(pdb), P\-D\-B\-Prot2\-Seq\-X(pdb) Those with Prot in their names handle protein only; those with X handle Asx/\-Glx as B/\-Z rather than as X
+
+
+\begin{DoxyItemize}
+\item 29.\-09.\-92 Original By\-: A\-C\-R\-M
+\item 07.\-06.\-93 Corrected allocation.
+\item 18.\-06.\-93 Handles multi-\/chains and skips N\-T\-E\-R and C\-T\-E\-R residues
+\item 13.\-05.\-94 Check for chain change {\itshape before} copy residue (!) (Bug reported by Bob Mac\-Cullum)
+\item 19.\-07.\-95 Added check for A\-T\-O\-M records
+\item 24.\-01.\-96 Returns blank string (rather than core dumping!) if the linked list contained no A\-T\-O\-M records
+\item 26.\-08.\-97 Changed to do\-P\-D\-B2\-Seq with extra parameters (Do\-Asx\-Glx \& Prot\-Only). The old calling forms have now become macros
+\item 02.\-10.\-00 Added No\-X
+\item 10.\-06.\-05 Changed the initialization of rescount, resnum, etc. so it correctly points to the first residue. This solves a bug with C\-A-\/only chains where it was undercounting by 1
+\item 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H By\-: C\-T\-P
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 146 of file P\-D\-B2\-Seq.\-c.
+
+\hypertarget{_p_d_b2_seq_8c_a1e99d4509d7280688a936f96d9c00325}{\index{P\-D\-B2\-Seq.\-c@{P\-D\-B2\-Seq.\-c}!bl\-Do\-P\-D\-B2\-Seq\-By\-Chain@{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}}
+\index{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain@{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}!PDB2Seq.c@{P\-D\-B2\-Seq.\-c}}
+\subsubsection[{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf H\-A\-S\-H\-T\-A\-B\-L\-E}$\ast$ bl\-Do\-P\-D\-B2\-Seq\-By\-Chain (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf B\-O\-O\-L}}]{Do\-Asx\-Glx, }
+\item[{{\bf B\-O\-O\-L}}]{Prot\-Only, }
+\item[{{\bf B\-O\-O\-L}}]{No\-X}
+\end{DoxyParamCaption}
+)}}\label{_p_d_b2_seq_8c_a1e99d4509d7280688a936f96d9c00325}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em Do\-Asx\-Glx} & Handle Asx and Glx as B and Z rather than X \\
+\hline
+\mbox{\tt in}  & {\em Prot\-Only} & Don't do D\-N\-A/\-R\-N\-A; these simply don't get done rather than being handled as X \\
+\hline
+\mbox{\tt in}  & {\em No\-X} & Skip amino acids which would be assigned as X \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A hash of 1-\/letter code sequences indexed by chain label
+\end{DoxyReturn}
+Reads sequence from A\-T\-O\-M records in 1-\/letter code, storing the results in a hash indexed by chain label.
+
+This routine is normally called via the macro interfaces\-: P\-D\-B2\-Seq\-By\-C\-Hain(pdb), P\-D\-B2\-Seq\-X\-By\-C\-Hain(pdb), P\-D\-B\-Prot2\-Seq\-By\-Chain(pdb), P\-D\-B\-Prot2\-Seq\-X\-By\-Chain(pdb) Those with Prot in their names handle protein only; those with X handle Asx/\-Glx as B/\-Z rather than as X
+
+
+\begin{DoxyItemize}
+\item 30.\-11.\-15 Original based on \hyperlink{_p_d_b2_seq_8c_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq()} By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 294 of file P\-D\-B2\-Seq.\-c.
+

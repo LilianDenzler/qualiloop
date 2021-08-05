@@ -1,0 +1,100 @@
+/******************************************************************************/
+/* File        :                                                              */
+/*              choth.types                                                   */
+/* Copyright   :                                                              */
+/*              Copyright (C) 1992 S.M.J.Searle. All rights reserved          */
+/*              This file may not be copied or redistributed in any           */
+/*              form or by any method except with written permission          */
+/*              from the author.                                              */
+/* Address     :                                                              */
+/*              Biochemistry Department,                                      */
+/*              University of Bath,                                           */
+/*              4 West,                                                       */
+/*              Claverton Down,                                               */
+/*              Bath,                                                         */
+/*              Avon,                                                         */
+/*              BA2 7AY,                                                      */
+/*              England.                                                      */
+/* Telephone   :                                                              */
+/*              0225 826826 Ext. 5411                                         */
+/******************************************************************************/
+typedef struct pattern_entry
+        {
+        char posres[25];  /* this list is terminated with '*'  */
+        int nres[2];  /* this list is terminated with "-1' */
+        int pflag; /* defined position or not or multiple */
+	int terminus;
+        struct pattern_entry *next;
+        struct pattern_entry *prev;
+        } 
+PATTERN;
+typedef struct canloop
+	{
+	char seq[MAXLOOPLEN];
+	char sequence[MAXCHAINLEN];
+	char seqpat[MAXPAT];
+	char name[MAXIDENT];
+	}
+LOOPS;
+typedef struct chothia
+	{
+	int classnum;
+	int range[2];
+	int length[2];
+	int pos;
+	int frame[2][2];
+	int nter;
+	int cter;
+	PATTERN *pathead;
+	char pat[MAXSTRLEN];
+        char chain[MAXSTRLEN];
+	int nstr;
+	LOOPS loop[MAXSTRUCT];
+	}
+CHOTH;
+struct patinfo
+	{
+	int maxlen;
+	int minlen;
+	int ntflag;
+	int ctflag;
+	int numpat;
+	};
+typedef struct strstruct
+	{
+	char name[MAXIDENT];
+	char seq[MAXSEQLEN];
+	}
+STRUCT;
+typedef struct pdb_format
+        {
+        char info[7];
+        int atomno;
+        char atomtyp[5];
+        char altloc[2];
+        char restyp[4];
+        char chainid[2];
+        int resno;
+        char inserted_res[2];
+        double X,Y,Z,occup,bval;
+        int footnote;
+        struct pdb_format *next;
+        struct pdb_format *prev;
+        } 
+PDB;
+typedef struct mdmmatrix
+	{
+	int mat[NRES][NRES];
+	char res[NRES];
+	}
+MDM;
+typedef struct vecmat 
+	{
+	double vec[3];
+	}
+VECTOR;
+typedef struct transformationmatrix
+	{
+	double mat[3][3];
+	}
+MATRIX;

@@ -1,0 +1,102 @@
+\hypertarget{atomtype_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/atomtype.c File Reference}
+\label{atomtype_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/atomtype.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/atomtype.\-c}}
+}
+
+
+Set atom types in a P\-D\-B file.  
+
+
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{atomtype_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~240
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{general_8h_a9689e1c779b5f538d971aa687c441210}{S\-T\-R\-I\-N\-G\-L\-I\-S\-T} $\ast$ \hyperlink{atomtype_8c_ac9a747dcb953584e2dc27248ed89747b}{bl\-Set\-P\-D\-B\-Atom\-Types} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Set atom types in a P\-D\-B file. \begin{DoxyVersion}{Version}
+V2.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+22.\-07.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, U\-C\-L, 1999-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+This code sets atomtypes for P\-D\-B atoms. See \hyperlink{pdb_8h}{pdb.\-h}/\-A\-T\-O\-M\-T\-Y\-P\-E\-\_\-xxxx for the types
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 23.\-03.\-99 Original By\-: A\-C\-R\-M
+\item V1.\-1 27.\-04.\-99 Fixes in Set\-P\-D\-B\-Atom\-Types\-N\-S\-Residues() with O3$\ast$ and P
+\item V1.\-2 18.\-06.\-99 Fixes in Set\-P\-D\-B\-Atom\-Types\-N\-S\-Residues() B\-O\-O\-L return and force parameter
+\item V1.\-3 21.\-06.\-99 Fixes in Set\-P\-D\-B\-Atom\-Types\-N\-S\-Residues() Force now for individual issues
+\item V1.\-4 06.\-09.\-99 Fixes in Set\-P\-D\-B\-Atom\-Types\-N\-S\-Residues() Further simple check for nucleotides.
+\item V2.\-0 22.\-07.\-15 All force code etc removed -\/ now returns a list of warnings 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{atomtype_8c_source}{atomtype.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{atomtype_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{atomtype.\-c@{atomtype.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!atomtype.c@{atomtype.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~240}}\label{atomtype_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 70 of file atomtype.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{atomtype_8c_ac9a747dcb953584e2dc27248ed89747b}{\index{atomtype.\-c@{atomtype.\-c}!bl\-Set\-P\-D\-B\-Atom\-Types@{bl\-Set\-P\-D\-B\-Atom\-Types}}
+\index{bl\-Set\-P\-D\-B\-Atom\-Types@{bl\-Set\-P\-D\-B\-Atom\-Types}!atomtype.c@{atomtype.\-c}}
+\subsubsection[{bl\-Set\-P\-D\-B\-Atom\-Types}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-T\-R\-I\-N\-G\-L\-I\-S\-T}$\ast$ bl\-Set\-P\-D\-B\-Atom\-Types (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{atomtype_8c_ac9a747dcb953584e2dc27248ed89747b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\-T\-R\-I\-N\-G\-L\-I\-S\-T of any warning messages N\-U\-L\-L if all O\-K
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item 21.\-07.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 95 of file atomtype.\-c.
+

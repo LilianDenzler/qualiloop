@@ -1,0 +1,86 @@
+\hypertarget{_origin_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Origin\-P\-D\-B.c File Reference}
+\label{_origin_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Origin\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Origin\-P\-D\-B.\-c}}
+}
+
+
+Move a P\-D\-B linked list to the origin.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_origin_p_d_b_8c_a00841413b2f8e980c82051f6ad393b17}{bl\-Origin\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Move a P\-D\-B linked list to the origin. \begin{DoxyVersion}{Version}
+V1.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/4 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-10.\-92 Original
+\item V1.\-1 22.\-02.\-94 Changed N\-U\-L\-L check to any coordinate not 9999.\-0
+\item V1.\-2 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_origin_p_d_b_8c_source}{Origin\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_origin_p_d_b_8c_a00841413b2f8e980c82051f6ad393b17}{\index{Origin\-P\-D\-B.\-c@{Origin\-P\-D\-B.\-c}!bl\-Origin\-P\-D\-B@{bl\-Origin\-P\-D\-B}}
+\index{bl\-Origin\-P\-D\-B@{bl\-Origin\-P\-D\-B}!OriginPDB.c@{Origin\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Origin\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Origin\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_origin_p_d_b_8c_a00841413b2f8e980c82051f6ad393b17}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list to move\\
+\hline
+\end{DoxyParams}
+Moves a P\-D\-B linked list to the origin, ignoring N\-U\-L\-L coordinates.
+
+
+\begin{DoxyItemize}
+\item 01.\-10.\-92 Original
+\item 22.\-02.\-94 Changed N\-U\-L\-L check to any coordinate not 9999.\-0
+\item 11.\-03.\-94 Changed N\-U\-L\-L check to $>$9998.\-0 Added cast to R\-E\-A\-L
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 96 of file Origin\-P\-D\-B.\-c.
+

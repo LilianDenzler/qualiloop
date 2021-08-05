@@ -1,0 +1,87 @@
+\hypertarget{_known_seq_len_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Known\-Seq\-Len.c File Reference}
+\label{_known_seq_len_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Known\-Seq\-Len.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Known\-Seq\-Len.\-c}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_known_seq_len_8c_a458ac08b1ca2e18cdca58412b48a59af}{bl\-Known\-Seq\-Len} (char $\ast$sequence)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-11 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 29.\-09.\-92 Original
+\item V1.\-1 07.\-06.\-93 Corrected allocation
+\item V1.\-2 18.\-06.\-93 Handles multi-\/chains and skips N\-T\-E\-R and C\-T\-E\-R residues. Added Split\-Seq()
+\item V1.\-3 09.\-07.\-93 Split\-Seq() cleans up properly if allocation failed
+\item V1.\-4 11.\-05.\-94 Added True\-Seq\-Len()
+\item V1.\-5 13.\-05.\-94 Fixed bug in P\-D\-B2\-Seq(). Added Known\-Seq\-Len().
+\item V1.\-6 07.\-09.\-94 Fixed allocation bug in Split\-Seq()
+\item V1.\-7 19.\-07.\-95 Added check for A\-T\-O\-M records
+\item V1.\-8 24.\-01.\-96 Fixed bug when no A\-T\-O\-M records in linked list Returns a blank string
+\item V1.\-9 26.\-08.\-97 Renamed Do\-P\-D\-B2\-Seq() with handling of Asx/\-Glx and protein-\/only. Added macros to recreate the old P\-D\-B2\-Seq() interface and similar new calls
+\item V1.\-10 02.\-10.\-00 Added No\-X option
+\item V1.\-11 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_known_seq_len_8c_source}{Known\-Seq\-Len.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_known_seq_len_8c_a458ac08b1ca2e18cdca58412b48a59af}{\index{Known\-Seq\-Len.\-c@{Known\-Seq\-Len.\-c}!bl\-Known\-Seq\-Len@{bl\-Known\-Seq\-Len}}
+\index{bl\-Known\-Seq\-Len@{bl\-Known\-Seq\-Len}!KnownSeqLen.c@{Known\-Seq\-Len.\-c}}
+\subsubsection[{bl\-Known\-Seq\-Len}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Known\-Seq\-Len (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{sequence}
+\end{DoxyParamCaption}
+)}}\label{_known_seq_len_8c_a458ac08b1ca2e18cdca58412b48a59af}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$sequence} & A sequence containing deletions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Length without deletions
+\end{DoxyReturn}
+Scans a 1-\/letter code sequence and calculate the length without `-\/', ` ' or '?' residues
+
+
+\begin{DoxyItemize}
+\item 13.\-05.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 107 of file Known\-Seq\-Len.\-c.
+

@@ -1,0 +1,104 @@
+\hypertarget{_in_p_d_b_zone_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-In\-P\-D\-B\-Zone.c File Reference}
+\label{_in_p_d_b_zone_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-In\-P\-D\-B\-Zone.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-In\-P\-D\-B\-Zone.\-c}}
+}
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_in_p_d_b_zone_8c_ad1651a4f6bca1953cfe08aa364fe1b1f}{bl\-In\-P\-D\-B\-Zone} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$p, char $\ast$chain, int resnum1, char $\ast$insert1, int resnum2, char $\ast$insert2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-8 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 30.\-09.\-92 Original
+\item V1.\-1 16.\-06.\-93 Tidied for book. Mode now a char.
+\item V1.\-2 18.\-06.\-96 Added In\-P\-D\-B\-Zone() from Q\-Tree program
+\item V1.\-3 19.\-09.\-96 Added In\-P\-D\-B\-Zone\-Spec()
+\item V1.\-4 24.\-02.\-14 Added Biop\-In\-P\-D\-B\-Zone() By\-: C\-T\-P
+\item V1.\-5 25.\-02.\-14 Added error message for In\-P\-D\-B\-Zone(). By\-: C\-T\-P
+\item V1.\-6 02.\-03.\-14 Use strcmp to compare inserts. Bugfix for insert residues. By\-: C\-T\-P
+\item V1.\-7 07.\-05.\-14 Moved In\-P\-D\-B\-Zone() to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P
+\item V1.\-8 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_in_p_d_b_zone_8c_source}{In\-P\-D\-B\-Zone.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_in_p_d_b_zone_8c_ad1651a4f6bca1953cfe08aa364fe1b1f}{\index{In\-P\-D\-B\-Zone.\-c@{In\-P\-D\-B\-Zone.\-c}!bl\-In\-P\-D\-B\-Zone@{bl\-In\-P\-D\-B\-Zone}}
+\index{bl\-In\-P\-D\-B\-Zone@{bl\-In\-P\-D\-B\-Zone}!InPDBZone.c@{In\-P\-D\-B\-Zone.\-c}}
+\subsubsection[{bl\-In\-P\-D\-B\-Zone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-In\-P\-D\-B\-Zone (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{p, }
+\item[{char $\ast$}]{chain, }
+\item[{int}]{resnum1, }
+\item[{char $\ast$}]{insert1, }
+\item[{int}]{resnum2, }
+\item[{char $\ast$}]{insert2}
+\end{DoxyParamCaption}
+)}}\label{_in_p_d_b_zone_8c_ad1651a4f6bca1953cfe08aa364fe1b1f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$p} & Pointer to a P\-D\-B record \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain} & Chain name \\
+\hline
+\mbox{\tt in}  & {\em resnum1} & First residue \\
+\hline
+\mbox{\tt in}  & {\em $\ast$insert1} & First insert code \\
+\hline
+\mbox{\tt in}  & {\em resnum2} & Second residue \\
+\hline
+\mbox{\tt in}  & {\em $\ast$insert2} & Second insert code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Is p in the range specified?
+\end{DoxyReturn}
+Checks that atom stored in P\-D\-B pointer p is within the specified residue range.
+
+N.\-B. This assumes A\-S\-C\-I\-I coding.
+
+
+\begin{DoxyItemize}
+\item 24.\-02.\-14 Based on In\-P\-D\-B\-Zone() but takes chain and inserts as stings instead of chars. By\-: C\-T\-P
+\item 02.\-03.\-14 Use strcmp to compare inserts. Fixed bug handling insert residues where start and finish of zone have same residue number. By\-: C\-T\-P
+\item 07.\-07.\-14 Renamed to \hyperlink{_in_p_d_b_zone_8c_ad1651a4f6bca1953cfe08aa364fe1b1f}{bl\-In\-P\-D\-B\-Zone()}. Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 115 of file In\-P\-D\-B\-Zone.\-c.
+

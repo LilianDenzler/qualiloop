@@ -1,0 +1,12 @@
+**!!CPLINF.INS
+C
+C -- ????
+*-IF FPS
+*-      WORD NAMCPL
+*-ELSE
+      INTEGER NAMCPL
+*-ENDIF
+      COMMON /CPLINF/ NAMCPL
+C
+      SAVE /CPLINF/
+C

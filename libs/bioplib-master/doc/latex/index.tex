@@ -1,0 +1,102 @@
+Bioplib -\/ a high quality programming library for protein bioinformatics \begin{DoxyAuthor}{Author}
+Dr. Andrew C.\-R. Martin with additions by Dr. Craig T. Porter
+\end{DoxyAuthor}
+Bioplib is a programming library, written in the C programming language, for handling bioinformatics data – primarily protein structures, but also sequence data.
+
+\subsubsection*{Click the 'Related Pages' link above for information on installation and detailed listings of what the library contains}
+
+The library has equivalents for other programming languages such as Python (Bio\-Python) and Perl (Bio\-Perl) and another C library and tool-\/set (E\-M\-B\-O\-S\-S) is also available. However, the focus of all these other libraries is on protein and D\-N\-A sequence rather than structure. Conversely, Bioplib is a very comprehensive library for handling protein structure, with some support for protein and D\-N\-A sequences. The fact that the code is implemented in C means that it is ideal for more complex and C\-P\-U-\/intensive tasks since C (unlike Perl and Python) is a compiled language.
+
+Some of the most significant work in Bioplib includes\-:
+\begin{DoxyItemize}
+\item an extremely reliable P\-D\-B parser capable of handling multiple occupancies and selecting lower occupancy conformations for analysis
+\item structure fitting routines (used by Pro\-Fit)
+\item sequence alignment and general purpose dynamic programming routines
+\item P\-D\-B manipulation routines including
+\begin{DoxyItemize}
+\item list manipulation – finding residues by name, truncating and selecting residues or atoms;
+\item replacing sidechains;
+\item adding hydrogens;
+\item adding a C-\/terminal oxygen;
+\item standardizing atom order;
+\item extracting the sequence from A\-T\-O\-M and S\-E\-Q\-R\-E\-S records and comparing these;
+\item handling and regenerating C\-O\-N\-E\-C\-T records;
+\item parsing of key header records (H\-E\-A\-D\-E\-R, C\-O\-M\-P\-N\-D, S\-E\-Q\-R\-E\-S, T\-I\-T\-L\-E, S\-O\-U\-R\-C\-E).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+The Bioplib library currently consists of approximately 47,700 lines of C-\/code including comments, or 31,000 lines excluding comments.
+
+Functions exist for\-:
+\begin{DoxyItemize}
+\item Reading and Writing P\-D\-B and C\-S\-S\-R Files
+\item Manipulating a list of P\-D\-B coordinates (e.\-g. joining, copying or truncating lists of coordinates or extracting regions, finding atoms or residues)
+\item Modifying the content of the P\-D\-B coordinates (e.\-g. translation, rotation, renumbering)
+\item Working with coordinates (e.\-g. building neighbour lists, fitting, testing for H-\/bonds)
+\item General and 3\-D maths (e.\-g. distance from a point to a line, matrix multiplication)
+\item Protein and D\-N\-A Sequences (e.\-g. reading and writing P\-I\-R and F\-A\-S\-T\-A formats, D\-N\-A translation)
+\item General programming (e.\-g. command parser, string manipulation, multiple-\/dimension arrays, interactive help, rigid column file reading, prime numbers, hashes/dictionaries)
+\end{DoxyItemize}
+
+\subsection*{Include files }
+
+{\bfseries Data Structures}
+\begin{DoxyItemize}
+\item \hyperlink{pdb_8h}{pdb.\-h} Definitions of W\-H\-O\-L\-E\-P\-D\-B and P\-D\-B data structures and functions for manipulating them.
+\item \hyperlink{aalist_8h}{aalist.\-h} Include file for amino acid linked lists.
+\end{DoxyItemize}
+
+{\bfseries Handling Stucture Data}
+\begin{DoxyItemize}
+\item \hyperlink{angle_8h}{angle.\-h} Calculate angles, torsions, etc.
+\item \hyperlink{fit_8h}{fit.\-h} Include file for least squares fitting
+\item \hyperlink{hbond_8h}{hbond.\-h} Report whether two residues are H-\/bonded
+\item \hyperlink{access_8h}{access.\-h} Solvent accessibility
+\end{DoxyItemize}
+
+{\bfseries Handling Sequence Data}
+\begin{DoxyItemize}
+\item \hyperlink{seq_8h}{seq.\-h} Used for all sequence functions
+\end{DoxyItemize}
+
+{\bfseries Utility Functions}
+\begin{DoxyItemize}
+\item \hyperlink{general_8h}{general.\-h} General purpose routines used bu Biop\-Lib
+\item \hyperlink{macros_8h}{macros.\-h} Useful macros including linked list definitions used by P\-D\-B.
+\item \hyperlink{hash_8h}{hash.\-h} Hash/dictionary functions
+\end{DoxyItemize}
+
+\subsection*{Example of usage }
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "bioplib/pdb.h"}
+\textcolor{preprocessor}{#include "bioplib/macros.h"}
+
+\hyperlink{struct__wholepdb}{WHOLEPDB} *wpdb = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL};
+\hyperlink{structpdb__entry}{PDB}      *p    = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL};
+
+\textcolor{keywordflow}{if}((fp\_in = fopen(\textcolor{stringliteral}{"input\_file.pdb"},\textcolor{stringliteral}{"r"}))!=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})
+\{
+   wpdb = \hyperlink{pdb_8h_aac630c13aff6802b905c10ce97d64761}{blReadWholePDB}(fp\_in);
+   close(fp\_in);
+
+   \textcolor{keywordflow}{if}((wpdb != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) && (wpdb->\hyperlink{struct__wholepdb_a9cac171f884f9ad8fd8dbb4d36b233a0}{pdb} != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}))
+   \{
+      \textcolor{keywordflow}{for}(p=wpdb->\hyperlink{struct__wholepdb_a9cac171f884f9ad8fd8dbb4d36b233a0}{pdb}; p != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{NEXT}(p))
+      \{
+         \_do\_something\_here\_ 
+      \}
+
+      \textcolor{keywordflow}{if}((fp\_out = fopen(\textcolor{stringliteral}{"output\_file.pdb"},\textcolor{stringliteral}{"w"}))!=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})
+      \{
+         \hyperlink{pdb_8h_a41023286849e00cae2fbe0a6c89118f2}{blWriteWholePDB}(fp\_out, wpdb);
+         fclose(fp\_out);
+      \}
+      \textcolor{comment}{// --- else handle error --- }
+   \}
+   \textcolor{comment}{// --- else handle error ---}
+\}
+\textcolor{comment}{// --- else handle error ---}
+\end{DoxyCode}
+ 

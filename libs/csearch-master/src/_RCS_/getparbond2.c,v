@@ -1,0 +1,41 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.55;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Gets the parameter for the bond length between i and j. */
+ 
+float getparbond2(
+int i,
+int j
+)
+{
+float xxx;
+
+   xxx = mygetparbond(&i,&j,cg.parm_no,pstruct.atcode,engpar.bndkey,
+                      &values.nbpar,pstruct.atmnme,engpar.eqbdis);
+   return xxx;
+}
+ 
+@

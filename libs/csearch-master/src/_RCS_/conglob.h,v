@@ -1,0 +1,46 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.13.57;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifndef __CONGLOB_H__
+#define __CONGLOB_H__
+
+ 
+extern char   gres[MAXTYPE][8],
+              gatom[MAXTYPE][8][8],
+              grname[8],
+              ghname[8][8],
+              gnat[16][8];
+extern int    igtype[MAXTYPE],
+              info_level,
+              npgp,
+              no,
+              kmax,
+              it1, it2, it3, it4, it5, ih;
+extern float  gr[MAXTYPE],
+              alpha[MAXTYPE],
+              beta[MAXTYPE],
+              gx[16], gy[16], gz[16],
+              hfac, fac;
+
+#endif
+@

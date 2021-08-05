@@ -1,0 +1,42 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.47;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Inserts the bond and bond angle in an atom data structure from the
+   antecedents specified there as well as the parameters. */
+ 
+void fillbndang(
+struct atom *atp
+)
+{
+   if (atp->atomno && atp->ante[2])
+   {
+      atp->bond = getparbond2(atp->atomno,atp->ante[2]);
+      if (atp->ante[1])
+         atp->angle = gtprangl2(atp->atomno,atp->ante[2],atp->ante[1]);
+   }
+}
+ 
+@

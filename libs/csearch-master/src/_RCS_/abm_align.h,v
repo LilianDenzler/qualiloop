@@ -1,0 +1,120 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.13;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifndef __ABM_ALIGN_H__
+#define __ABM_ALIGN_H__
+/*****************************************************************************
+ *      Name: abm_align.h                                                    *
+ *  Function: To define any parameters to be used in the AbM antibody modell-*
+ *            ing program alignment editing routines.                        *
+ * Copyright: (C) OXFORD MOLECULAR LTD, 1993                                 *
+ *---------------------------------------------------------------------------*
+ *    Author: Robert Williams                                                *
+ *      Date: 29/09/93                                                       *
+ *---------------------------------------------------------------------------*
+ * MODIFICATION RECORD:                                                      *
+ * DD/MM/YY   Initials   Comments                                            *
+ *****************************************************************************/
+
+/* Alignment screens definitiona */
+
+#define ALIGN_LEFT_MARGIN  5   /* The size of the left hand margin */
+#define SCORE_WIDTH        8   /* Width of the scoring column in alignment */
+#define UDB_LINES         10   /* No. of aligned seqs. in align screen */
+#define ALI_SEQ_LINE      14   /* The line on which the sequence is found */
+#define EDGE_BUFF         12   /* Minimum space from cursor to screen edge */
+#define CURSOR_UP          0   /* Code for scrolling the UDB lines up */
+#define CURSOR_DOWN        1   /* Code for scrolling the UDB lines down */
+#define CURSOR_LEFT        2   /* Code for moving the cursor left */
+#define CURSOR_RIGHT       3   /* Code for moving the cursor right */
+
+/* Alignment screen edit modes */
+
+#define ALIGN_MAIN     0
+#define ALIGN_INSERT   1
+#define ALIGN_APPEND   2
+#define ALIGN_GOTO     3
+#define ALIGN_DELETE   4
+#define ALIGN_MUTATE   5
+#define ALIGN_LIMITS   6
+#define ALIGN_CANON    7
+
+/* The event loop continue/quit/finish flags */
+
+#define ALIGN_TRUE     8
+#define ALIGN_QUIT     9
+#define ALIGN_FINISH  10
+
+/* Type definitions */
+
+typedef struct AlignData AlignData;     /* Structure for alignment screen */
+
+/* Structure definitions */
+
+struct AlignData
+{
+   /* Textural data */
+
+   char MsgLines[MSG_LINES][SCREEN_WIDTH+1];   /* Message area text lines */
+   char DataLines[DATA_LINES][SCREEN_WIDTH+1]; /* Data area text lines */
+   char TitleLine[SCREEN_WIDTH+1];             /* Screen title text */
+   char ScaleBar[2][MAX_SEQ_LEN+1];   /* Strings containing scale bar */
+   char LimitBar[MAX_SEQ_LEN+1];      /* String containing loop limit bar */
+   char TmpUser[MAX_SEQ_LEN+1];       /* Copy of UserSeq for editing */
+   char TmpFrame[MAX_SEQ_LEN+1];      /* Copy of FrameSeq for editing */
+   char UndoUser[MAX_SEQ_LEN+1];      /* Copy of TmpUser for edit undoing */
+   char UndoFrame[MAX_SEQ_LEN+1];     /* Copy of TmpFrame for edit undoing */
+
+   /* Data for handling CHOOSER residue underlining */
+
+   int  ChooserDiff[MAX_SEQ_LEN];     /* Array of CHOOSER mutation flags... */
+   int  QChooserDiff;                 /* ...tells if there are any mutation */
+
+   /* Other data */
+
+   int *TmpStart;       /* Copy of FrgStart for edits */
+   int *TmpEnd;         /* Copy of FrgEnd for edits */
+   int *UndoStart;      /* Copy of TmpStart for undoing edits */
+   int *UndoEnd;        /* Copy of TmpEnd for undoing edits */
+   int  MaxWidth;       /* Length of the UDB aligned sequences */
+   int  QNoEdits;       /* Whether or not to disable sequence edits */
+   int  Qalign;         /* Whether or not the sequence is aligned */
+   int  Qscore;         /* Whether or not to display UDB scores */
+   int  UDBStartLine;   /* First UDB framework serial No. to display */
+   int  UDBStopLine;    /* Last UDB framework serial No. to display */
+   int  SeqPos;         /* Position of the cursor w.r.t actual sequence */
+   int  CursorPos;      /* Position of the cursor w.r.t UDB sequences */
+   int  OldCurPos;      /* Used to get cursor position after edit undo */
+   int  ScreenStart;    /* Left hand screen position in UDB sequences */
+   int  ScreenWidth;    /* Number of characters in a screen width */
+   int  SeqLength;      /* The current length of the displayed sequence */
+   int  EditMode;       /* The edit mode the user is in */
+   int  QSpecial;       /* If there is a special edit highlight to do */
+   int  SpecialEdit;    /* Position where the special highlight starts */
+   int  HiRegion;       /* A chain fragment region to high light */
+   int  QDrawData;      /* Whether or not to redraw the data area */
+   int  QDrawSeq;       /* Whether or not to redraw the user sequence */
+};
+
+#endif
+@

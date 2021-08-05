@@ -1,0 +1,157 @@
+\hypertarget{array2_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/array2.c File Reference}
+\label{array2_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/array2.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/array2.\-c}}
+}
+
+
+Allocate and free 2\-D arrays.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\-U\-L\-L}~((void $\ast$)0)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \hyperlink{array2_8c_a39af89e09b89710340b965e39cc7ac90}{bl\-Array2\-D} (int size, int dim1, int dim2)
+\item 
+void \hyperlink{array2_8c_a84d0e26dfc099f32311a7e21256e24b2}{bl\-Free\-Array2\-D} (char $\ast$$\ast$array, int dim1, int dim2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Allocate and free 2\-D arrays. \begin{DoxyVersion}{Version}
+V1.\-5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07/07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Creates a 2\-D array where the first dimension is a set of pointers. This is better for passing into subroutines than the conventional C method of simply declaring\-:
+
+T\-Y\-P\-E matrix\mbox{[}10\mbox{]}\mbox{[}10\mbox{]};
+
+which, when passed to a function, loses the concept of dimensions unless the matrix is explicitly defined with these dimension in the function.
+
+This routine creates an array of pointers to 1-\/\-D arrays and can thus be passed to functions successfully.
+
+\subsection*{Usage\-: }
+
+matrix = (T\-Y\-P\-E $\ast$$\ast$)Array2\-D(sizeof(\-T\-Y\-P\-E), nrows, ncolumns);
+
+
+\begin{DoxyCode}
+matrix = (\textcolor{keywordtype}{float} **)Array2D(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}), 10, 10);
+\end{DoxyCode}
+
+
+Returns N\-U\-L\-L (having freed any allocated memory) if there is a problem.
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 07.\-10.\-92 Original
+\item V1.\-1 29.\-01.\-93 Added includes of sysdefs.\-h \& malloc.\-h for M\-S-\/\-D\-O\-S
+\item V1.\-2 16.\-06.\-93 Includes stdlib.\-h rather than malloc.\-h
+\item V1.\-3 01.\-03.\-94 Corrected other include file usage
+\item V1.\-4 18.\-03.\-94 Added N\-U\-L\-L definition for systems which don't define it in stdlib.\-h
+\item V1.\-5 07.\-07.\-14 Include \hyperlink{array_8h}{array.\-h} Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{array2_8c_source}{array2.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{\index{array2.\-c@{array2.\-c}!N\-U\-L\-L@{N\-U\-L\-L}}
+\index{N\-U\-L\-L@{N\-U\-L\-L}!array2.c@{array2.\-c}}
+\subsubsection[{N\-U\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-L\-L~((void $\ast$)0)}}\label{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}
+
+
+Definition at line 99 of file array2.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{array2_8c_a39af89e09b89710340b965e39cc7ac90}{\index{array2.\-c@{array2.\-c}!bl\-Array2\-D@{bl\-Array2\-D}}
+\index{bl\-Array2\-D@{bl\-Array2\-D}!array2.c@{array2.\-c}}
+\subsubsection[{bl\-Array2\-D}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ bl\-Array2\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{size, }
+\item[{int}]{dim1, }
+\item[{int}]{dim2}
+\end{DoxyParamCaption}
+)}}\label{array2_8c_a39af89e09b89710340b965e39cc7ac90}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em size} & Size of an array element \\
+\hline
+\mbox{\tt in}  & {\em dim1} & First dimension (number of rows) \\
+\hline
+\mbox{\tt in}  & {\em dim2} & Second dimension (number of columns) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array of pointers. Must be cast to required type
+\end{DoxyReturn}
+Create a 2\-D array of elements of size `size' with dimensions `dim1' rows by `dim2' columns.
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-92 Original
+\item 12.\-07.\-93 Tidied and commented
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 130 of file array2.\-c.
+
+\hypertarget{array2_8c_a84d0e26dfc099f32311a7e21256e24b2}{\index{array2.\-c@{array2.\-c}!bl\-Free\-Array2\-D@{bl\-Free\-Array2\-D}}
+\index{bl\-Free\-Array2\-D@{bl\-Free\-Array2\-D}!array2.c@{array2.\-c}}
+\subsubsection[{bl\-Free\-Array2\-D}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Free\-Array2\-D (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{array, }
+\item[{int}]{dim1, }
+\item[{int}]{dim2}
+\end{DoxyParamCaption}
+)}}\label{array2_8c_a84d0e26dfc099f32311a7e21256e24b2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em array} & Array of pointers to be freed \\
+\hline
+\mbox{\tt in}  & {\em dim1} & First dimension (number of rows) \\
+\hline
+\mbox{\tt in}  & {\em dim2} & Second dimension (number of columns)\\
+\hline
+\end{DoxyParams}
+Frees a 2\-D array with dimensions `dim1' rows by `dim2' columns.
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-92 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 174 of file array2.\-c.
+

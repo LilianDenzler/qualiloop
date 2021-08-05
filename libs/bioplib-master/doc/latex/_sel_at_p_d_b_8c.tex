@@ -1,0 +1,163 @@
+\hypertarget{_sel_at_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Sel\-At\-P\-D\-B.c File Reference}
+\label{_sel_at_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Sel\-At\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Sel\-At\-P\-D\-B.\-c}}
+}
+
+
+Select a subset of atom types from a P\-D\-B linked list.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_sel_at_p_d_b_8c_ab6752fd043cf86fcc57fef437f68f758}{bl\-Select\-Atoms\-P\-D\-B\-As\-Copy} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdbin, int nsel, char $\ast$$\ast$sel, int $\ast$natom)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Select a subset of atom types from a P\-D\-B linked list. \begin{DoxyVersion}{Version}
+V1.\-11 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+19.\-04.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1990-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+
+\begin{DoxyCode}
+pdbout = \hyperlink{pdb_8h_ab6752fd043cf86fcc57fef437f68f758}{blSelectAtomsPDBAsCopy}(pdbin,nsel,sel,natom)
+\end{DoxyCode}
+
+
+This routine takes a linked list of type P\-D\-B and returns a list containing only those atom types specfied in the sel array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pdbin} & Input list \\
+\hline
+\mbox{\tt in}  & {\em nsel} & Number of atom types to keep \\
+\hline
+\mbox{\tt in}  & {\em sel} & List of atom types to keep \\
+\hline
+\mbox{\tt out}  & {\em natom} & Number of atoms kept \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P\-D\-B output list
+\end{DoxyReturn}
+To set up the list of atoms to keep, define an array of pointers to char\-: e.\-g. char $\ast$sel\mbox{[}10\mbox{]}
+
+Then define the atoms in the list thus\-: \begin{DoxyVerb}     SELECT(sel[0],"N   ");
+     SELECT(sel[1],"CA  ");
+     SELECT(sel[2],"C   ");
+     SELECT(sel[3],"O   ");
+\end{DoxyVerb}
+
+
+The S\-E\-L\-E\-C\-T macro returns a character pointer which will be N\-U\-L\-L if the allocation it performs fails.
+
+N.\-B. The routines are non-\/destructive; i.\-e. the original P\-D\-B linked list is intact after the selection process
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-03.\-90 Original By\-: A\-C\-R\-M
+\item V1.\-1 28.\-03.\-90 Modified to match new version of \hyperlink{pdb_8h}{pdb.\-h}
+\item V1.\-2 24.\-05.\-90 Fixed so the variables passed in as sel\mbox{[}\mbox{]} don't have$\ast$ to be 4 chars.
+\item V1.\-3 17.\-05.\-93 Modified for book. Returns B\-O\-O\-L.
+\item V1.\-4 09.\-07.\-93 Modified to return P\-D\-B pointer. Changed allocation scheme. Changed back to sel\mbox{[}\mbox{]} variables {\itshape must} be 4 chars.
+\item V1.\-5 01.\-11.\-94 Added H\-Strip\-P\-D\-B()
+\item V1.\-6 26.\-07.\-95 Removed unused variables
+\item V1.\-7 16.\-10.\-96 Added Select\-Ca\-P\-D\-B()
+\item V1.\-8 04.\-02.\-09 Select\-Atoms\-P\-D\-B()\-: Initialize q for fussy compliers
+\item V1.\-9 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-10 19.\-08.\-14 Renamed function to \hyperlink{pdb_8h_ab6752fd043cf86fcc57fef437f68f758}{bl\-Select\-Atoms\-P\-D\-B\-As\-Copy()}. By\-: C\-T\-P
+\item V1.\-11 19.\-04.\-15 Added call to bl\-Copy\-Conect() By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_sel_at_p_d_b_8c_source}{Sel\-At\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_sel_at_p_d_b_8c_ab6752fd043cf86fcc57fef437f68f758}{\index{Sel\-At\-P\-D\-B.\-c@{Sel\-At\-P\-D\-B.\-c}!bl\-Select\-Atoms\-P\-D\-B\-As\-Copy@{bl\-Select\-Atoms\-P\-D\-B\-As\-Copy}}
+\index{bl\-Select\-Atoms\-P\-D\-B\-As\-Copy@{bl\-Select\-Atoms\-P\-D\-B\-As\-Copy}!SelAtPDB.c@{Sel\-At\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Select\-Atoms\-P\-D\-B\-As\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Select\-Atoms\-P\-D\-B\-As\-Copy (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdbin, }
+\item[{int}]{nsel, }
+\item[{char $\ast$$\ast$}]{sel, }
+\item[{int $\ast$}]{natom}
+\end{DoxyParamCaption}
+)}}\label{_sel_at_p_d_b_8c_ab6752fd043cf86fcc57fef437f68f758}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdbin} & Input list \\
+\hline
+\mbox{\tt in}  & {\em nsel} & Number of atom types to keep \\
+\hline
+\mbox{\tt in}  & {\em $\ast$$\ast$sel} & List of atom types to keep \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms kept \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Output list
+\end{DoxyReturn}
+Take a P\-D\-B linked list and returns a list containing only those atom types specified in the sel array.
+
+To set up the list of atoms to keep, define an array of pointers to char\-: e.\-g. char $\ast$sel\mbox{[}10\mbox{]} Then define the atoms in the list thus\-:
+
+\begin{DoxyVerb}        SELECT(sel[0],"N   ");
+        SELECT(sel[1],"CA  ");
+        SELECT(sel[2],"C   ");
+        SELECT(sel[3],"O   ");
+\end{DoxyVerb}
+
+
+Ensure the spaces are used!!
+
+N.\-B. The routine is non-\/destructive; i.\-e. the original P\-D\-B linked list is intact after the selection process
+
+
+\begin{DoxyItemize}
+\item 01.\-03.\-90 Original By\-: A\-C\-R\-M
+\item 28.\-03.\-90 Modified to match new version of \hyperlink{pdb_8h}{pdb.\-h}
+\item 24.\-05.\-90 Fixed so the variables passed in as sel\mbox{[}\mbox{]} don't have$\ast$ to be 4 chars.
+\item 17.\-05.\-93 Modified for book. Returns B\-O\-O\-L.
+\item 09.\-07.\-93 Modified to return P\-D\-B pointer. Changed allocation scheme. Changed back to sel\mbox{[}\mbox{]} variables {\itshape must} be 4 chars.
+\item 04.\-02.\-09 Initialize q for fussy compliers
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 19.\-08.\-14 Renamed function to \hyperlink{pdb_8h_ab6752fd043cf86fcc57fef437f68f758}{bl\-Select\-Atoms\-P\-D\-B\-As\-Copy()}. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 173 of file Sel\-At\-P\-D\-B.\-c.
+

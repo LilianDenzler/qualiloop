@@ -1,0 +1,49 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.13;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Prints the range list pointed to by rp. */
+ 
+void prtrnglst(
+struct range_list *rp
+)
+{
+   float *lowp,*highp;
+   int i;
+ 
+   if (rp->nrange == 0)
+      fprintf(out,"The list is empty.\n");
+   else
+   {
+      for (i=0, lowp=rp->low, highp=rp->high;
+           i < rp->nrange;
+           i++,lowp++,highp++)
+      {
+         fprintf(out,"  %g to %g\n",*lowp,*highp);
+      }
+   }
+}
+ 
+@

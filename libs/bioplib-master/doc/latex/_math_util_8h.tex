@@ -1,0 +1,582 @@
+\hypertarget{_math_util_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Math\-Util.h File Reference}
+\label{_math_util_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Math\-Util.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Math\-Util.\-h}}
+}
+
+
+Prototypes, etc. for maths utility routines.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_math_util_8h_a58fb067db242557bf466ddc8d04594e0}{\-\_\-\-M\-A\-T\-H\-U\-T\-I\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_math_util_8h_a6be832c4999268c59458a08373d1b144}{bl\-Calc\-S\-D} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} val, int action, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$mean, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$S\-D)
+\item 
+void \hyperlink{_math_util_8h_a0ce11017b526a387632280d0d7bb8930}{bl\-Calc\-Ext\-S\-D} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} val, int action, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$Sx, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$Sx\-Sq, int $\ast$N\-Values, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$mean, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$S\-D)
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{_math_util_8h_a950d087bd130c8270ec1960f8d1c361e}{bl\-Pearson} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$y, int N\-Item)
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{_math_util_8h_a43c7573134f708e799ef237f15eb5614}{bl\-Pearson1} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$y, int N\-Item)
+\item 
+void \hyperlink{_math_util_8h_ae030a8e5551b2a1ffd5bbc9f7456ac40}{bl\-Cross\-Prod3} (\hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$Out, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} In1, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} In2)
+\item 
+void \hyperlink{_math_util_8h_ab122c0a7de95289d60f96dc717580010}{bl\-Vec\-Sub3} (\hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$Out, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} In1, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} In2)
+\item 
+void \hyperlink{_math_util_8h_adefb6a6e11a7bb36ddc6479ce93667db}{bl\-Vec\-Add3} (\hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$Out, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} In1, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} In2)
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{_math_util_8h_a7f5b432d8567a25ff5da2b6aae162cc7}{bl\-Vec\-Len3} (\hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} Vec)
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{_math_util_8h_a5fecc1af047d8c84e295d8ac3c60ec05}{bl\-Dist\-Pt\-Line} (\hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} Point, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} End1, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} End2)
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{_math_util_8h_aa79ffe75bcb856281d385996098de754}{bl\-Point\-Line\-Distance} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Px, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Py, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Pz, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P1x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P1y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P1z, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P2x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P2y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P2z, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$Rx, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$Ry, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$Rz, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$frac)
+\item 
+\hyperlink{_sys_defs_8h_af632da489ebc3708ec3ab6791ee53fa4}{U\-L\-O\-N\-G} \hyperlink{_math_util_8h_abca90ab73d789494132fac8c76ccc461}{bl\-Factorial} (int n)
+\item 
+\hyperlink{_sys_defs_8h_af632da489ebc3708ec3ab6791ee53fa4}{U\-L\-O\-N\-G} \hyperlink{_math_util_8h_adfed83e4c2306e2fe6caac25651e5391}{bl\-Factdiv} (int n1, int n2)
+\item 
+\hyperlink{_sys_defs_8h_af632da489ebc3708ec3ab6791ee53fa4}{U\-L\-O\-N\-G} \hyperlink{_math_util_8h_aeedda0f6840d485f123a8694494f83ee}{bl\-N\-Perm} (int n, int r)
+\item 
+\hyperlink{_sys_defs_8h_af632da489ebc3708ec3ab6791ee53fa4}{U\-L\-O\-N\-G} \hyperlink{_math_util_8h_a5231f7d17925927da83f3bc2b2e43f6c}{bl\-N\-Comb} (int n, int r)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_math_util_8h_a8710dcd15377c24eb078a9621f872fff}{bl\-Is\-Prime} (\hyperlink{_sys_defs_8h_af632da489ebc3708ec3ab6791ee53fa4}{U\-L\-O\-N\-G} input)
+\item 
+\hyperlink{_sys_defs_8h_af632da489ebc3708ec3ab6791ee53fa4}{U\-L\-O\-N\-G} \hyperlink{_math_util_8h_a1f7a32478dd010effe9291ad8b9ff5ef}{bl\-Find\-Next\-Prime} (\hyperlink{_sys_defs_8h_af632da489ebc3708ec3ab6791ee53fa4}{U\-L\-O\-N\-G} input, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} above)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Prototypes, etc. for maths utility routines. \begin{DoxyVersion}{Version}
+V1.\-8 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+20.\-07.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1994-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-03.\-94 Original
+\item V1.\-1 18.\-06.\-96 Added vector routines
+\item V1.\-2 10.\-09.\-96 Added combperm.\-c routines
+\item V1.\-3 06.\-10.\-98 Added Vec\-Add3()
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-5 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-6 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P
+\item V1.\-7 15.\-05.\-15 Added \hyperlink{_math_util_8h_a8710dcd15377c24eb078a9621f872fff}{bl\-Is\-Prime()} and \hyperlink{_math_util_8h_a1f7a32478dd010effe9291ad8b9ff5ef}{bl\-Find\-Next\-Prime()} By\-: A\-C\-R\-M
+\item V1.\-8 20.\-07.\-15 Renamed bl\-Dist\-Pt\-Vect() to \hyperlink{_dist_pt_line_8c_a5fecc1af047d8c84e295d8ac3c60ec05}{bl\-Dist\-Pt\-Line()} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_math_util_8h_source}{Math\-Util.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_math_util_8h_a58fb067db242557bf466ddc8d04594e0}{\index{Math\-Util.\-h@{Math\-Util.\-h}!\-\_\-\-M\-A\-T\-H\-U\-T\-I\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-M\-A\-T\-H\-U\-T\-I\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-M\-A\-T\-H\-U\-T\-I\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-M\-A\-T\-H\-U\-T\-I\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{\-\_\-\-M\-A\-T\-H\-U\-T\-I\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-A\-T\-H\-U\-T\-I\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{_math_util_8h_a58fb067db242557bf466ddc8d04594e0}
+
+
+Definition at line 96 of file Math\-Util.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_math_util_8h_a0ce11017b526a387632280d0d7bb8930}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Calc\-Ext\-S\-D@{bl\-Calc\-Ext\-S\-D}}
+\index{bl\-Calc\-Ext\-S\-D@{bl\-Calc\-Ext\-S\-D}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Calc\-Ext\-S\-D}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Calc\-Ext\-S\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{val, }
+\item[{int}]{action, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{Sx, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{Sx\-Sq, }
+\item[{int $\ast$}]{N\-Values, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{mean, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{S\-D}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_a0ce11017b526a387632280d0d7bb8930}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em val} & The value to be sampled \\
+\hline
+\mbox{\tt in}  & {\em action} & 0\-: Sample the value 1\-: Calculate \& return mean and S\-D 2\-: Clear the sample lists \\
+\hline
+\mbox{\tt out}  & {\em mean} & The returned mean \\
+\hline
+\mbox{\tt out}  & {\em S\-D} & The returned standard deviation \\
+\hline
+\mbox{\tt in,out}  & {\em Sx} & Sum of values \\
+\hline
+\mbox{\tt in,out}  & {\em Sx\-Sq} & Sum of values squared \\
+\hline
+\mbox{\tt in,out}  & {\em N\-Values} & Number of values\\
+\hline
+\end{DoxyParams}
+Calculate the mean and standard deviation from a set of numbers. The routine is called with each value to be sampled and the action required is specified\-:
+
+The output values are only set when action==1
+
+This is the same as \hyperlink{_calc_s_d_8c_a6be832c4999268c59458a08373d1b144}{bl\-Calc\-S\-D()} except that the Sx, Sx\-Sq and N\-Values variables are kept outside the function instead of being static within the function
+
+
+\begin{DoxyItemize}
+\item 13.\-10.\-93 Original based on Calc\-S\-D By\-: A\-C\-R\-M
+\item 22.\-06.\-94 Fixed for only one value supplied
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 137 of file Calc\-Ext\-S\-D.\-c.
+
+\hypertarget{_math_util_8h_a6be832c4999268c59458a08373d1b144}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Calc\-S\-D@{bl\-Calc\-S\-D}}
+\index{bl\-Calc\-S\-D@{bl\-Calc\-S\-D}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Calc\-S\-D}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Calc\-S\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{val, }
+\item[{int}]{action, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{mean, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{S\-D}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_a6be832c4999268c59458a08373d1b144}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em val} & The value to be sampled \\
+\hline
+\mbox{\tt in}  & {\em action} & 0\-: Sample the value 1\-: Calculate \& return mean and S\-D 2\-: Clear the sample lists \\
+\hline
+\mbox{\tt out}  & {\em mean} & The returned mean \\
+\hline
+\mbox{\tt out}  & {\em S\-D} & The returned standard deviation\\
+\hline
+\end{DoxyParams}
+Calculate the mean and standard deviation from a set of numbers. The routine is called with each value to be sampled and the action required is specified.
+
+The output values are only set when action=1
+
+
+\begin{DoxyItemize}
+\item 30.\-03.\-90 Original By\-: A\-C\-R\-M
+\item 17.\-06.\-93 Modified for book
+\item 22.\-06.\-94 Fixed for 0 values supplied
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 124 of file Calc\-S\-D.\-c.
+
+\hypertarget{_math_util_8h_ae030a8e5551b2a1ffd5bbc9f7456ac40}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Cross\-Prod3@{bl\-Cross\-Prod3}}
+\index{bl\-Cross\-Prod3@{bl\-Cross\-Prod3}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Cross\-Prod3}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Cross\-Prod3 (
+\begin{DoxyParamCaption}
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{Out, }
+\item[{{\bf V\-E\-C3\-F}}]{In1, }
+\item[{{\bf V\-E\-C3\-F}}]{In2}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_ae030a8e5551b2a1ffd5bbc9f7456ac40}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em In1} & First vector \\
+\hline
+\mbox{\tt in}  & {\em In2} & Second vector \\
+\hline
+\mbox{\tt out}  & {\em Out} & Output vector\\
+\hline
+\end{DoxyParams}
+Calculate the cross product of 2 3-\/vectors
+
+
+\begin{DoxyItemize}
+\item 18.\-06.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 94 of file Cross\-Prod3.\-c.
+
+\hypertarget{_math_util_8h_a5fecc1af047d8c84e295d8ac3c60ec05}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Dist\-Pt\-Line@{bl\-Dist\-Pt\-Line}}
+\index{bl\-Dist\-Pt\-Line@{bl\-Dist\-Pt\-Line}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Dist\-Pt\-Line}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Dist\-Pt\-Line (
+\begin{DoxyParamCaption}
+\item[{{\bf V\-E\-C3\-F}}]{Point, }
+\item[{{\bf V\-E\-C3\-F}}]{End1, }
+\item[{{\bf V\-E\-C3\-F}}]{End2}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_a5fecc1af047d8c84e295d8ac3c60ec05}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Point} & The coordinates of a point \\
+\hline
+\mbox{\tt in}  & {\em End1} & Coordinates of one end of vector \\
+\hline
+\mbox{\tt in}  & {\em End2} & Coordinates of other end of vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance from pt to line
+\end{DoxyReturn}
+Calculate the distance from a point to a line described by two vector end points
+
+
+\begin{DoxyItemize}
+\item 18.\-06.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 20.\-07.\-15 Renamed from bl\-Dist\-Pt\-Vect() By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 100 of file Dist\-Pt\-Line.\-c.
+
+\hypertarget{_math_util_8h_adfed83e4c2306e2fe6caac25651e5391}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Factdiv@{bl\-Factdiv}}
+\index{bl\-Factdiv@{bl\-Factdiv}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Factdiv}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G} bl\-Factdiv (
+\begin{DoxyParamCaption}
+\item[{int}]{n1, }
+\item[{int}]{n2}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_adfed83e4c2306e2fe6caac25651e5391}
+Calculates the factorial of one number divided by the factorial of another (smaller) number. Returns 0 on numeric overflow or if n2 $>$ n1
+
+
+\begin{DoxyItemize}
+\item 09.\-09.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 91 of file factdiv.\-c.
+
+\hypertarget{_math_util_8h_abca90ab73d789494132fac8c76ccc461}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Factorial@{bl\-Factorial}}
+\index{bl\-Factorial@{bl\-Factorial}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Factorial}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G} bl\-Factorial (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_abca90ab73d789494132fac8c76ccc461}
+Calculates the factorial of an integer. Returns 0 on numeric overflow.
+
+
+\begin{DoxyItemize}
+\item 09.\-09.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 89 of file factorial.\-c.
+
+\hypertarget{_math_util_8h_a1f7a32478dd010effe9291ad8b9ff5ef}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Find\-Next\-Prime@{bl\-Find\-Next\-Prime}}
+\index{bl\-Find\-Next\-Prime@{bl\-Find\-Next\-Prime}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Find\-Next\-Prime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G} bl\-Find\-Next\-Prime (
+\begin{DoxyParamCaption}
+\item[{{\bf U\-L\-O\-N\-G}}]{prime\-Num, }
+\item[{{\bf B\-O\-O\-L}}]{above}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_a1f7a32478dd010effe9291ad8b9ff5ef}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em prime\-Num} & Input number (prime or not) \\
+\hline
+\mbox{\tt in}  & {\em above} & Always return a number above the input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The next prime
+\end{DoxyReturn}
+Returns a prime above (or equal to if 'above' is F\-A\-L\-S\-E) the input number
+
+
+\begin{DoxyItemize}
+\item 15.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 97 of file prime.\-c.
+
+\hypertarget{_math_util_8h_a8710dcd15377c24eb078a9621f872fff}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Is\-Prime@{bl\-Is\-Prime}}
+\index{bl\-Is\-Prime@{bl\-Is\-Prime}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Is\-Prime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Is\-Prime (
+\begin{DoxyParamCaption}
+\item[{{\bf U\-L\-O\-N\-G}}]{input}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_a8710dcd15377c24eb078a9621f872fff}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em input} & Number to test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Is this number a prime?
+\end{DoxyReturn}
+Tests whether the input number is a prime
+
+
+\begin{DoxyItemize}
+\item 15.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 142 of file prime.\-c.
+
+\hypertarget{_math_util_8h_a5231f7d17925927da83f3bc2b2e43f6c}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-N\-Comb@{bl\-N\-Comb}}
+\index{bl\-N\-Comb@{bl\-N\-Comb}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-N\-Comb}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G} bl\-N\-Comb (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{r}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_a5231f7d17925927da83f3bc2b2e43f6c}
+Calculates number of combinations of n items in r groups Returns 0 if a numeric overflow occurs.
+
+
+\begin{DoxyItemize}
+\item 09.\-09.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 91 of file N\-Comb.\-c.
+
+\hypertarget{_math_util_8h_aeedda0f6840d485f123a8694494f83ee}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-N\-Perm@{bl\-N\-Perm}}
+\index{bl\-N\-Perm@{bl\-N\-Perm}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-N\-Perm}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G} bl\-N\-Perm (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{r}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_aeedda0f6840d485f123a8694494f83ee}
+Calculates number of permutations of n items in r groups Returns 0 if a numeric overflow occurs.
+
+
+\begin{DoxyItemize}
+\item 09.\-09.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 90 of file N\-Perm.\-c.
+
+\hypertarget{_math_util_8h_a950d087bd130c8270ec1960f8d1c361e}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Pearson@{bl\-Pearson}}
+\index{bl\-Pearson@{bl\-Pearson}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Pearson}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Pearson (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$}]{x, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{y, }
+\item[{int}]{N\-Item}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_a950d087bd130c8270ec1960f8d1c361e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$x} & Array of x items \\
+\hline
+\mbox{\tt in}  & {\em $\ast$y} & Array of y items \\
+\hline
+\mbox{\tt in}  & {\em N\-Item} & Number of items \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pearson correlation coefficient
+\end{DoxyReturn}
+Calculates the Pearson correlation coefficient This version makes 2 passes through the data
+
+
+\begin{DoxyItemize}
+\item 15.\-07.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 99 of file pearson.\-c.
+
+\hypertarget{_math_util_8h_a43c7573134f708e799ef237f15eb5614}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Pearson1@{bl\-Pearson1}}
+\index{bl\-Pearson1@{bl\-Pearson1}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Pearson1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Pearson1 (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$}]{x, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{y, }
+\item[{int}]{N\-Item}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_a43c7573134f708e799ef237f15eb5614}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$x} & Array of x items \\
+\hline
+\mbox{\tt in}  & {\em $\ast$y} & Array of y items \\
+\hline
+\mbox{\tt in}  & {\em N\-Item} & Number of items \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pearson correlation coefficient
+\end{DoxyReturn}
+This version makes a single pass through the data
+
+
+\begin{DoxyItemize}
+\item 15.\-07.\-94 Original By\-: A\-C\-R\-M
+\item 18.\-01.\-96 Alternative version which does a single pass through the data. Method from page 191 of Statistical Methods in Biology 2 ed. Norman T\-J Bailey. Publ. Unibooks 1981 By\-: R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 98 of file pearson1.\-c.
+
+\hypertarget{_math_util_8h_aa79ffe75bcb856281d385996098de754}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Point\-Line\-Distance@{bl\-Point\-Line\-Distance}}
+\index{bl\-Point\-Line\-Distance@{bl\-Point\-Line\-Distance}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Point\-Line\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Point\-Line\-Distance (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{Px, }
+\item[{{\bf R\-E\-A\-L}}]{Py, }
+\item[{{\bf R\-E\-A\-L}}]{Pz, }
+\item[{{\bf R\-E\-A\-L}}]{P1x, }
+\item[{{\bf R\-E\-A\-L}}]{P1y, }
+\item[{{\bf R\-E\-A\-L}}]{P1z, }
+\item[{{\bf R\-E\-A\-L}}]{P2x, }
+\item[{{\bf R\-E\-A\-L}}]{P2y, }
+\item[{{\bf R\-E\-A\-L}}]{P2z, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{Rx, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{Ry, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{Rz, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{frac}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_aa79ffe75bcb856281d385996098de754}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Px} & Point x coordinate \\
+\hline
+\mbox{\tt in}  & {\em Py} & Point y coordinate \\
+\hline
+\mbox{\tt in}  & {\em Pz} & Point z coordinate \\
+\hline
+\mbox{\tt in}  & {\em P1x} & Line start x coordinate \\
+\hline
+\mbox{\tt in}  & {\em P1y} & Line start y coordinate \\
+\hline
+\mbox{\tt in}  & {\em P1z} & Line start z coordinate \\
+\hline
+\mbox{\tt in}  & {\em P2x} & Line end x coordinate \\
+\hline
+\mbox{\tt in}  & {\em P2y} & Line end y coordinate \\
+\hline
+\mbox{\tt in}  & {\em P2z} & Line end z coordinate \\
+\hline
+\mbox{\tt out}  & {\em $\ast$\-Rx} & Nearest point on line x coordinate \\
+\hline
+\mbox{\tt out}  & {\em $\ast$\-Ry} & Nearest point on line y coordinate \\
+\hline
+\mbox{\tt out}  & {\em $\ast$\-Rz} & Nearest point on line z coordinate \\
+\hline
+\mbox{\tt out}  & {\em $\ast$frac} & Fraction along P1-\/\-P2 of R \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance from P to R
+\end{DoxyReturn}
+Calculates the shortest distance from a point P to a line between points P1 and P2. This value is returned.
+
+If the Rx,Ry,Rz pointers are all non-\/\-N\-U\-L\-L, then the point on the line nearest to P is output.
+
+If the frac pointer is non-\/\-N\-U\-L\-L then the fraction of R along the P1-\/\-P2 vector is output. Thus\-: R==P1 ==$>$ frac=0 R==P2 ==$>$ frac=1 Thus if (0$<$=frac$<$=1) then the point R is within the line segment P1-\/\-P2
+
+
+\begin{DoxyItemize}
+\item 16.\-11.\-99 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 126 of file pldist.\-c.
+
+\hypertarget{_math_util_8h_adefb6a6e11a7bb36ddc6479ce93667db}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Vec\-Add3@{bl\-Vec\-Add3}}
+\index{bl\-Vec\-Add3@{bl\-Vec\-Add3}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Vec\-Add3}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Vec\-Add3 (
+\begin{DoxyParamCaption}
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{Out, }
+\item[{{\bf V\-E\-C3\-F}}]{In1, }
+\item[{{\bf V\-E\-C3\-F}}]{In2}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_adefb6a6e11a7bb36ddc6479ce93667db}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em In1} & First vector \\
+\hline
+\mbox{\tt in}  & {\em In2} & Second vector \\
+\hline
+\mbox{\tt out}  & {\em Out} & Output vector\\
+\hline
+\end{DoxyParams}
+Add 2 vectors
+
+
+\begin{DoxyItemize}
+\item 06.\-10.\-98 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 95 of file Vec\-Add3.\-c.
+
+\hypertarget{_math_util_8h_a7f5b432d8567a25ff5da2b6aae162cc7}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Vec\-Len3@{bl\-Vec\-Len3}}
+\index{bl\-Vec\-Len3@{bl\-Vec\-Len3}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Vec\-Len3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Vec\-Len3 (
+\begin{DoxyParamCaption}
+\item[{{\bf V\-E\-C3\-F}}]{Vec}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_a7f5b432d8567a25ff5da2b6aae162cc7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Vec} & Vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Length of vector
+\end{DoxyReturn}
+Calculate the length of a vector
+
+
+\begin{DoxyItemize}
+\item 18.\-06.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 94 of file Vec\-Len3.\-c.
+
+\hypertarget{_math_util_8h_ab122c0a7de95289d60f96dc717580010}{\index{Math\-Util.\-h@{Math\-Util.\-h}!bl\-Vec\-Sub3@{bl\-Vec\-Sub3}}
+\index{bl\-Vec\-Sub3@{bl\-Vec\-Sub3}!MathUtil.h@{Math\-Util.\-h}}
+\subsubsection[{bl\-Vec\-Sub3}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Vec\-Sub3 (
+\begin{DoxyParamCaption}
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{Out, }
+\item[{{\bf V\-E\-C3\-F}}]{In1, }
+\item[{{\bf V\-E\-C3\-F}}]{In2}
+\end{DoxyParamCaption}
+)}}\label{_math_util_8h_ab122c0a7de95289d60f96dc717580010}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em In1} & First vector \\
+\hline
+\mbox{\tt in}  & {\em In2} & Second vector \\
+\hline
+\mbox{\tt out}  & {\em Out} & Output vector\\
+\hline
+\end{DoxyParams}
+Subtract 2 vectors
+\begin{DoxyItemize}
+\item 18.\-06.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 94 of file Vec\-Sub3.\-c.
+

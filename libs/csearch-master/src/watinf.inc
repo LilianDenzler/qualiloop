@@ -1,0 +1,13 @@
+**!!WATINF.INS
+C
+C -- ????
+      INTEGER*2 NOTWTR
+C -- ????
+      INTEGER*2 LISWAT
+      COMMON /WATINF/ NOTWTR ( MXRES ) , LISWAT ( MXMOL )
+C
+      INTEGER NWAT
+      COMMON /WATINF/ NWAT
+C
+      SAVE /WATINF/
+C

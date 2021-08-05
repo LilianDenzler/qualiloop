@@ -1,0 +1,514 @@
+#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+#define SMALL_DIS (float)0.010
+
+PDB *makeh( int igtype_m, float gr_m, float alpha_m, float beta_m, 
+            unsigned short firstres)
+{
+   char  *nt = "NT  ";
+   char  *n  = "N   ";
+   float  x1 = (float)0.0;
+   float  y1 = (float)0.0;
+   float  z1 = (float)0.0;
+   float  x2 = (float)0.0;
+   float  y2 = (float)0.0;
+   float  z2 = (float)0.0;
+   float  x3 = (float)0.0;
+   float  y3 = (float)0.0;
+   float  z3 = (float)0.0;
+   float  x4 = (float)0.0;
+   float  y4 = (float)0.0;
+   float  z4 = (float)0.0;
+   float  x5 = (float)0.0;
+   float  y5 = (float)0.0;
+   float  z5 = (float)0.0;
+   float  x6 = (float)0.0;
+   float  y6 = (float)0.0;
+   float  z6 = (float)0.0;
+   float  x21,y21,z21,r21,
+          x21p,y21p,z21p,r21p,
+          x23,y23,z23,r23,
+          xp23,yp23,zp23,rp23,
+          x24,y24,z24,r24,
+          x32,y32,z32,
+          xv25,yv25,zv25,rv25,
+          cosa,sina,
+          cosb,sinb,
+          cosax,cosay,cosaz,
+          xa,ya,za,xb,yb,zb,
+          xab,yab,zab,rab,
+          xmin,ymin,zmin,
+          xapb,yapb,zapb,rapb,
+          xplus,yplus,zplus,
+          xp,yp,zp,
+          xs,ys,zs,
+          xh,yh,zh,
+          xv,yv,zv,
+          scalpr;
+   int    kount = 0,
+          num_ant,k,jj;
+   unsigned short nt_point,ok;
+   PDB   *hlist,*hlist_start;
+   int    undef;
+   init_pdb(hlist_start);
+   clear_pdb(hlist_start);
+   hlist = hlist_start;
+ 
+   undef    = 0;
+   nt_point = 0;
+   num_ant  = (igtype_m == 1) ? 4 : 3;
+ 
+   /* Don't add a planar H to the Nter N. */
+   if(firstres && igtype_m==4 && !strncmp(ghname[2],n,4))
+   {
+      return(0);
+   }
+ 
+   /* Work through the atoms in this residue (gnat[]) and compare them with the
+      first 4 atoms in the PGP atom list in ghname[], storing the associated
+      coordinates */
+   for(k=1;k<=kmax;k++)
+   {
+      if(nt_point)
+      {
+         strcpy(gnat[nt_point],"N   ");
+         nt_point=0;
+      }
+ 
+      if(!strncmp(ghname[1],gnat[k],4))
+      {
+         if(!strncmp(gnat[k],"NT  ",4)) nt_point=k;
+         kount++;
+         x1=gx[k];
+         y1=gy[k];
+         z1=gz[k];
+
+/* OMUPD rkw 20/08/92 assume a dummy atom if coords are >990.0 as there
+                      appear to be some atoms set to 999 instead of 9999 
+                      , perhaps due to file format inconsistences */
+
+         if (x1 > 990.0) undef = 1;
+      }
+      else if(!strncmp(ghname[2],gnat[k],4))
+      {
+         if(!strncmp(gnat[k],"NT  ",4)) nt_point=k;
+         kount++;
+         x2=gx[k];
+         y2=gy[k];
+         z2=gz[k];
+
+/* OMUPD rkw 20/08/92 assume a dummy atom if coords are >990.0 as there
+                      appear to be some atoms set to 999 instead of 9999 
+                      , perhaps due to file format inconsistences */
+
+         if (x2 > 990.0) undef = 1;
+      }
+      else if(!strncmp(ghname[3],gnat[k],4))
+      {
+         if(!strncmp(gnat[k],"NT  ",4)) nt_point=k;
+         kount++;
+         x3=gx[k];
+         y3=gy[k];
+         z3=gz[k];
+
+/* OMUPD rkw 20/08/92 assume a dummy atom if coords are >990.0 as there
+                      appear to be some atoms set to 999 instead of 9999 
+                      , perhaps due to file format inconsistences */
+
+         if (x3 > 990.0) undef = 1;
+      }
+      else if(!strncmp(ghname[4],gnat[k],4))
+      {
+         if(!strncmp(gnat[k],"NT  ",4)) nt_point=k;
+         kount++;
+         x4=gx[k];
+         y4=gy[k];
+         z4=gz[k];
+
+/* OMUPD rkw 20/08/92 assume a dummy atom if coords are >990.0 as there
+                      appear to be some atoms set to 999 instead of 9999 
+                      , perhaps due to file format inconsistences */
+
+         if (x4 > 990.0) undef = 1;
+      }
+   }  /* End of k loop around this residue */
+ 
+   /* Check we found all the atoms we need for this PGP */
+   if(kount != num_ant)
+   {
+      ok = FALSE;
+      if(firstres)
+      {
+         /* Check it's not the missing N in the first residue */
+         for(jj=1;jj<=4;jj++) if(!strncmp(ghname[jj],n,4)) ok = TRUE;
+      }
+      else
+      {
+         /* Check it's not just the NT */
+         for(jj=1;jj<=4;jj++) if(!strncmp(ghname[jj],nt,4)) ok = TRUE;
+      }
+      if(!ok)
+      {
+         puts("Error==> makeh() unable to find all atoms required by PGP");
+         printf("Atoms required by PGP\n");
+         printf("GHNAME: ");
+         for(jj=1;jj<=4;jj++)    printf(" %4s",ghname[jj]);
+         printf("\n");
+         printf("Atoms in current residue\n");
+         printf("GNAT  : ");
+         for(jj=1;jj<=kmax;jj++) printf(" %4s",gnat[jj]);
+         printf("\n");
+      }
+      return(0);
+   }
+ 
+   x21=x2-x1;
+   y21=y2-y1;
+   z21=z2-z1;
+   r21=sqrt(x21*x21 + y21*y21 + z21*z21);
+ 
+   x23=x2-x3;
+   y23=y2-y3;
+   z23=z2-z3;
+   r23=sqrt(x23*x23 + y23*y23 + z23*z23);
+ 
+   /* OMUPD rkw 11/10/93 Make H undefined if r21 or r23 = 0 */
+
+   if ((r21 <= SMALL_DIS) || (r23 <= SMALL_DIS))
+   {
+      undef = 1;
+   }
+
+/* IGTYPE 1: Generation of 1 tetrahedral H */
+ 
+   if(igtype_m == 1)
+   {
+      /* If one of the atoms was undefined (coords = 9999.0), then
+         make the coords for the H 9999.0
+      */
+      if(undef)
+      {
+         hlist->resnum=no;
+         strcpy(hlist->atnam,ghname[5]);
+         hlist->x=9999.0;
+         hlist->y=9999.0;
+         hlist->z=9999.0;
+         ALLOCNEXT(hlist,PDB);
+         clear_pdb(hlist);
+      }
+      else
+      {
+         x24=x2-x4;
+         y24=y2-y4;
+         z24=z2-z4;
+         r24=sqrt(x24*x24 + y24*y24 + z24*z24);
+         xv25=x21/r21+x24/r24+x23/r23;
+         yv25=y21/r21+y24/r24+y23/r23;
+         zv25=z21/r21+z24/r24+z23/r23;
+         rv25=sqrt(xv25*xv25 + yv25*yv25 + zv25*zv25);
+         x5=x2+gr_m*xv25/rv25;
+         y5=y2+gr_m*yv25/rv25;
+         z5=z2+gr_m*zv25/rv25;
+ 
+         hlist->resnum=no;
+         strcpy(hlist->atnam,ghname[5]);
+         hlist->x=x5;
+         hlist->y=y5;
+         hlist->z=z5;
+         ALLOCNEXT(hlist,PDB);
+         clear_pdb(hlist);
+      }
+ 
+#ifdef DEBUG
+      printf("makeh() Type 1 allocated hlist = %d\n",(int)hlist);
+#endif
+ 
+      it1++;
+   }  /* End of IGTYPE 1 */
+   else
+   {
+      cosa=cos(alpha_m);
+      sina=sin(alpha_m);
+      switch(igtype_m)
+      {
+/* IGTYPE 2: Generation of 2 tetrahedral H's */
+case 2:
+         /* If one of the atoms was undefined (coords = 9999.0), then
+            make the coords for the H 9999.0
+         */
+         if(undef)
+         {
+            hlist->resnum=no;
+            strcpy(hlist->atnam,ghname[4]);
+            hlist->x=9999.0;
+            hlist->y=9999.0;
+            hlist->z=9999.0;
+            ALLOCNEXT(hlist,PDB);
+            clear_pdb(hlist);
+ 
+            hlist->resnum=no;
+            strcpy(hlist->atnam,ghname[5]);
+            hlist->x=9999.0;
+            hlist->y=9999.0;
+            hlist->z=9999.0;
+            ALLOCNEXT(hlist,PDB);
+            clear_pdb(hlist);
+         }
+         else
+         {
+            xa=x21/r21;
+            ya=y21/r21;
+            za=z21/r21;
+            xb=x23/r23;
+            yb=y23/r23;
+            zb=z23/r23;
+            xab=xa-xb;
+            yab=ya-yb;
+            zab=za-zb;
+            rab=sqrt(xab*xab+yab*yab+zab*zab);
+            xmin=xab/rab;
+            ymin=yab/rab;
+            zmin=zab/rab;
+            xapb=xa+xb;
+            yapb=ya+yb;
+            zapb=za+zb;
+            rapb=sqrt(xapb*xapb+yapb*yapb+zapb*zapb);
+            xplus=xapb/rapb;
+            yplus=yapb/rapb;
+            zplus=zapb/rapb;
+            xs=yplus*zmin-zplus*ymin;
+            ys=zplus*xmin-xplus*zmin;
+            zs=xplus*ymin-yplus*xmin;
+            x4=x2+gr_m*(cosa*xplus+sina*xs);
+            y4=y2+gr_m*(cosa*yplus+sina*ys);
+            z4=z2+gr_m*(cosa*zplus+sina*zs);
+            x5=x2+gr_m*(cosa*xplus-sina*xs);
+            y5=y2+gr_m*(cosa*yplus-sina*ys);
+            z5=z2+gr_m*(cosa*zplus-sina*zs);
+ 
+            hlist->resnum=no;
+            strcpy(hlist->atnam,ghname[4]);
+            hlist->x=x4;
+            hlist->y=y4;
+            hlist->z=z4;
+            ALLOCNEXT(hlist,PDB);
+            clear_pdb(hlist);
+ 
+#ifdef DEBUG
+            printf("makeh() Type 2a allocated hlist = %d\n",(int)hlist);
+#endif
+ 
+            hlist->resnum=no;
+            strcpy(hlist->atnam,ghname[5]);
+            hlist->x=x5;
+            hlist->y=y5;
+            hlist->z=z5;
+            ALLOCNEXT(hlist,PDB);
+            clear_pdb(hlist);
+ 
+#ifdef DEBUG
+            printf("makeh() Type 2b allocated hlist = %d\n",(int)hlist);
+#endif
+         }
+ 
+         it2+=2;
+         break;
+ 
+/* Initialisation for both these cases is the same */
+case 3:
+case 5:
+         if(undef)
+         {
+            hlist->resnum=no;
+            strcpy(hlist->atnam,ghname[4]);
+            hlist->x=9999.0;
+            hlist->y=9999.0;
+            hlist->z=9999.0;
+            ALLOCNEXT(hlist,PDB);
+            clear_pdb(hlist);
+ 
+            if(igtype_m==3)
+            {
+               hlist->resnum=no;
+               strcpy(hlist->atnam,ghname[5]);
+               hlist->x=9999.0;
+               hlist->y=9999.0;
+               hlist->z=9999.0;
+               ALLOCNEXT(hlist,PDB);
+               clear_pdb(hlist);
+ 
+               hlist->resnum=no;
+               strcpy(hlist->atnam,ghname[6]);
+               hlist->x=9999.0;
+               hlist->y=9999.0;
+               hlist->z=9999.0;
+               ALLOCNEXT(hlist,PDB);
+               clear_pdb(hlist);
+               it3 += 3;
+            }
+            else
+            {
+               it5++;
+            }
+         }
+         else
+         {
+            x32=x3-x2;
+            y32=y3-y2;
+            z32=z3-z2;
+            xh=x32/r23;
+            yh=y32/r23;
+            zh=z32/r23;
+            scalpr=(x21*x32+y21*y32+z21*z32)/r23;
+            xp=scalpr*xh;
+            yp=scalpr*yh;
+            zp=scalpr*zh;
+            x21p=x21-xp;
+            y21p=y21-yp;
+            z21p=z21-zp;
+            r21p=sqrt(x21p*x21p+y21p*y21p+z21p*z21p);
+            xv=x21p/r21p;
+            yv=y21p/r21p;
+            zv=z21p/r21p;
+            xs=yh*zv-zh*yv;
+            ys=zh*xv-xh*zv;
+            zs=xh*yv-yh*xv;
+            cosax=cosa*xh;
+            cosay=cosa*yh;
+            cosaz=cosa*zh;
+ 
+/* IGTYPE 3: Generation of 3 tetrahedral H's */
+            if(igtype_m==3)
+            {
+               x4=x3+gr_m*(cosax+sina*xv);
+               y4=y3+gr_m*(cosay+sina*yv);
+               z4=z3+gr_m*(cosaz+sina*zv);
+ 
+               /* V2.2: Bug fix here: xy, ys, zs; not xs all the time! */
+               x5=x3+gr_m*(cosax+sina*(fac*xs-0.5*xv));
+               y5=y3+gr_m*(cosay+sina*(fac*ys-0.5*yv));
+               z5=z3+gr_m*(cosaz+sina*(fac*zs-0.5*zv));
+               x6=x3+gr_m*(cosax+sina*(-fac*xs-0.5*xv));
+               y6=y3+gr_m*(cosay+sina*(-fac*ys-0.5*yv));
+               z6=z3+gr_m*(cosaz+sina*(-fac*zs-0.5*zv));
+ 
+               hlist->resnum=no;
+               strcpy(hlist->atnam,ghname[4]);
+               hlist->x=x4;
+               hlist->y=y4;
+               hlist->z=z4;
+               ALLOCNEXT(hlist,PDB);
+               clear_pdb(hlist);
+ 
+#ifdef DEBUG
+               printf("makeh() Type 3a allocated hlist = %d\n",(int)hlist);
+#endif
+ 
+               hlist->resnum=no;
+               strcpy(hlist->atnam,ghname[5]);
+               hlist->x=x5;
+               hlist->y=y5;
+               hlist->z=z5;
+               ALLOCNEXT(hlist,PDB);
+               clear_pdb(hlist);
+ 
+#ifdef DEBUG
+               printf("makeh() Type 3b allocated hlist = %d\n",(int)hlist);
+#endif
+ 
+               hlist->resnum=no;
+               strcpy(hlist->atnam,ghname[6]);
+               hlist->x=x6;
+               hlist->y=y6;
+               hlist->z=z6;
+               ALLOCNEXT(hlist,PDB);
+               clear_pdb(hlist);
+ 
+#ifdef DEBUG
+               printf("makeh() Type 3c allocated hlist = %d\n",(int)hlist);
+#endif
+ 
+               it3+=3;
+            }
+            else if(igtype_m==5)
+            {
+/* IGTYPE 5: Generation of 1 H where an angle is specified */
+               cosb=cos(beta_m);
+               sinb=sin(beta_m);
+               x4=x3+gr_m*(cosax+sina*(cosb*xv+sinb*xs));
+               y4=y3+gr_m*(cosay+sina*(cosb*yv+sinb*ys));
+               z4=z3+gr_m*(cosaz+sina*(cosb*zv+sinb*zs));
+ 
+               hlist->resnum=no;
+               strcpy(hlist->atnam,ghname[4]);
+               hlist->x=x4;
+               hlist->y=y4;
+               hlist->z=z4;
+               ALLOCNEXT(hlist,PDB);
+               clear_pdb(hlist);
+ 
+#ifdef DEBUG
+               printf("makeh() Type 5 allocated hlist = %d\n",(int)hlist);
+#endif
+ 
+               it5++;
+            }
+         }
+         break;
+ 
+/* IGTYPE 4: Generation of 1 sp2 H */
+case 4:
+         if(undef)
+         {
+            hlist->resnum=no;
+            strcpy(hlist->atnam,ghname[4]);
+            hlist->x=9999.0;
+            hlist->y=9999.0;
+            hlist->z=9999.0;
+            ALLOCNEXT(hlist,PDB);
+            clear_pdb(hlist);
+         }
+         else
+         {
+            x32=x3-x2;
+            y32=y3-y2;
+            z32=z3-z2;
+            scalpr=(x21*x32+y21*y32+z21*z32)/r21;
+            xh=x21/r21;
+            yh=y21/r21;
+            zh=z21/r21;
+            xp=scalpr*xh;
+            yp=scalpr*yh;
+            zp=scalpr*zh;
+            xp23=xp+x23;
+            yp23=yp+y23;
+            zp23=zp+z23;
+            rp23=sqrt(xp23*xp23+yp23*yp23+zp23*zp23);
+            xv=xp23/rp23;
+            yv=yp23/rp23;
+            zv=zp23/rp23;
+            x4=x2+gr_m*(sina*xv-cosa*xh);
+            y4=y2+gr_m*(sina*yv-cosa*yh);
+            z4=z2+gr_m*(sina*zv-cosa*zh);
+ 
+            hlist->resnum=no;
+            strcpy(hlist->atnam,ghname[4]);
+            hlist->x=x4;
+            hlist->y=y4;
+            hlist->z=z4;
+            ALLOCNEXT(hlist,PDB);
+            clear_pdb(hlist);
+         }
+ 
+#ifdef DEBUG
+         printf("makeh() Type 4 allocated hlist = %d\n",(int)hlist);
+#endif
+ 
+         it4++;
+      }  /* End of switch */
+   }  /* End of IGTYPE 1 else clause */
+ 
+   return(hlist_start);
+}
+ 

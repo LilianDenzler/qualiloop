@@ -1,0 +1,43 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.40;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+void cpyprm(
+float *parm,
+short *itc,
+short *iac,
+float *atoma,
+int *natom
+)
+{
+   int i;
+ 
+   if(*natom != 0)
+      for(i=0; i< *natom; i++)
+         atoma[i] = parm[itc[iac[i]-1]-1];
+         /* FORTRAN: ATOMA(I)=PARM(ITC(IAC(I))) */
+}
+ 
+@

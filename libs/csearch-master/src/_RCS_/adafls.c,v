@@ -1,0 +1,73 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.26;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+
+/* -- FUNCTION -- */
+/* This is used for linked list handling. It is called from FORTRAN, so
+   uses pointers in the function call.
+   
+   02.08.92 Recoded.    By:   ACRM
+
+*/
+int adafls(int *ListStart,
+           int *ListEnd,
+           int *Position,
+           int *NewItem,
+           int *NextItem)
+{
+   if(*Position == 0)
+   {
+      if(*ListStart == 0)                 /* Initialise list            */
+      {
+         *ListStart = *NewItem;
+         *ListEnd   = *NewItem;
+         NextItem[*NewItem-1] = 0;
+      }
+      else                                /* Insert at start of list    */
+      {
+         NextItem[*NewItem-1] = *ListStart;
+         *ListStart = *NewItem;
+      }
+   }
+   else if(NextItem[*Position-1] != 0)    /* Middle of list             */
+   {
+      NextItem[*NewItem-1]  = NextItem[*Position-1];
+      NextItem[*Position-1] = *NewItem;
+   }
+   else if(*ListEnd!=*Position)           /* List or position is fubar  */
+   {
+      fprintf(out,"Bad position passed to adafls list handler.\n");
+      die();
+   }
+   else                                   /* End of list                */
+   {
+      NextItem[*ListEnd-1] = *NewItem;
+      NextItem[*NewItem-1] = 0;
+      *ListEnd             = *NewItem;
+   }
+   
+   return(0);
+}
+@

@@ -1,0 +1,541 @@
+\hypertarget{hpgl_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/hpgl.h File Reference}
+\label{hpgl_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/hpgl.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/hpgl.\-h}}
+}
+
+
+Include file for hpgl.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hpgl_8h_a53276bbed88ab03c95ab445c75aef008}{\-\_\-\-H\-P\-G\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{hpgl_8h_a4898f2d666137da6060ec24dafcc37ac}{bl\-H\-P\-G\-L\-Init} (char $\ast$filename, char $\ast$Alt\-Font, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} xmargin, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} ymargin)
+\item 
+void \hyperlink{hpgl_8h_ae634f9a420b0bc53593539ff8a07a95a}{bl\-H\-P\-G\-L\-Pen} (int num)
+\item 
+void \hyperlink{hpgl_8h_aa2dab0cb46001a4e691d18653661252b}{bl\-H\-P\-G\-L\-Move} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y)
+\item 
+void \hyperlink{hpgl_8h_a2d313965c53e91b778a56c63cb0e14e1}{bl\-H\-P\-G\-L\-Draw} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y)
+\item 
+void \hyperlink{hpgl_8h_ace61dbc87fdbbc3bd61a4d9e28143d65}{bl\-H\-P\-G\-L\-Set\-Dash} (int style)
+\item 
+void \hyperlink{hpgl_8h_a070b3ec317aad4cd6bb323831af760fa}{bl\-H\-P\-G\-L\-Font} (int font, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} size)
+\item 
+void \hyperlink{hpgl_8h_a75caa4a93caf0f9fae0d4cc621fe292f}{bl\-H\-P\-G\-L\-L\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, char $\ast$string)
+\item 
+void \hyperlink{hpgl_8h_ae886d9e073bd3b8ecb8c59672b23099f}{bl\-H\-P\-G\-L\-C\-B\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} offset, char $\ast$text)
+\item 
+void \hyperlink{hpgl_8h_a5361120c9b1cc0eaa71a35feeea063ae}{bl\-H\-P\-G\-L\-R\-Off\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} offset, char $\ast$text)
+\item 
+void \hyperlink{hpgl_8h_a5ec2d9d164e180cca358086752e6e710}{bl\-H\-P\-G\-L\-L\-C\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, char $\ast$text)
+\item 
+void \hyperlink{hpgl_8h_a4bb376309f3f9d49322364ac78f002d8}{bl\-H\-P\-G\-L\-C\-T\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} offset, char $\ast$text)
+\item 
+void \hyperlink{hpgl_8h_ae4e171552ee152d0fe3b4fe854839810}{bl\-H\-P\-G\-L\-V\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} xoff, char $\ast$text, int Title\-Font, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Title\-Size, char $\ast$label, int Label\-Font, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Label\-Size)
+\item 
+void \hyperlink{hpgl_8h_a1ee57be1db63b05fc5e14295305f97a4}{bl\-H\-P\-G\-L\-End} (void)
+\item 
+void \hyperlink{hpgl_8h_a0f240ad996dec6dc323f1f86e187f671}{bl\-H\-P\-G\-L\-Show\-Text} (char $\ast$text, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} orientation, int X\-Base, int Y\-Base)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Include file for hpgl. \begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1991-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 25.\-03.\-91 Original
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-2 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-3 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{hpgl_8h_source}{hpgl.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{hpgl_8h_a53276bbed88ab03c95ab445c75aef008}{\index{hpgl.\-h@{hpgl.\-h}!\-\_\-\-H\-P\-G\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-H\-P\-G\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-H\-P\-G\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-H\-P\-G\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{\-\_\-\-H\-P\-G\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-H\-P\-G\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{hpgl_8h_a53276bbed88ab03c95ab445c75aef008}
+
+
+Definition at line 89 of file hpgl.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{hpgl_8h_ae886d9e073bd3b8ecb8c59672b23099f}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-C\-B\-Text@{bl\-H\-P\-G\-L\-C\-B\-Text}}
+\index{bl\-H\-P\-G\-L\-C\-B\-Text@{bl\-H\-P\-G\-L\-C\-B\-Text}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-C\-B\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-C\-B\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{{\bf R\-E\-A\-L}}]{offset, }
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_ae886d9e073bd3b8ecb8c59672b23099f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em offset} & Y-\/offset (multiplied by font height). Move text up by this amount \\
+\hline
+\mbox{\tt in}  & {\em $\ast$text} & Text to print\\
+\hline
+\end{DoxyParams}
+Write centre-\/bottom justified text in H\-P\-G\-L
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Framework
+\item 26.\-06.\-92 Original
+\item 29.\-06.\-92 Added Simplify\-Text(). Changed to use H\-P\-G\-L\-Show\-Text().
+\item 06.\-07.\-92 Modified x-\/pos for wider font width
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 401 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_a4bb376309f3f9d49322364ac78f002d8}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-C\-T\-Text@{bl\-H\-P\-G\-L\-C\-T\-Text}}
+\index{bl\-H\-P\-G\-L\-C\-T\-Text@{bl\-H\-P\-G\-L\-C\-T\-Text}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-C\-T\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-C\-T\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{{\bf R\-E\-A\-L}}]{offset, }
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_a4bb376309f3f9d49322364ac78f002d8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em offset} & Y offset in points. Move text down by this. \\
+\hline
+\mbox{\tt in}  & {\em $\ast$text} & Text to print\\
+\hline
+\end{DoxyParams}
+Center Top justify text at x,y with y-\/offset in pts.
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Framework
+\item 26.\-06.\-92 Original
+\item 29.\-06.\-92 Added Simplify\-Text(). Changed to use H\-P\-G\-L\-Show\-Text().
+\item 01.\-07.\-92 Corrected y-\/positioning. Changed offset to be in pts rather than a multiplier of font size.
+\item 06.\-07.\-92 Modified x-\/pos for wider font width
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 522 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_a2d313965c53e91b778a56c63cb0e14e1}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-Draw@{bl\-H\-P\-G\-L\-Draw}}
+\index{bl\-H\-P\-G\-L\-Draw@{bl\-H\-P\-G\-L\-Draw}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-Draw}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-Draw (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_a2d313965c53e91b778a56c63cb0e14e1}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & X position (0.\-0--1.\-0) \\
+\hline
+\mbox{\tt in}  & {\em y} & Y position (0.\-0--1.\-0)\\
+\hline
+\end{DoxyParams}
+Draw on H\-P\-G\-L plot
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Taken from Mo\-G
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 258 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_a1ee57be1db63b05fc5e14295305f97a4}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-End@{bl\-H\-P\-G\-L\-End}}
+\index{bl\-H\-P\-G\-L\-End@{bl\-H\-P\-G\-L\-End}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-End}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-End (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_a1ee57be1db63b05fc5e14295305f97a4}
+Close the H\-P\-G\-L plot file
+
+
+\begin{DoxyItemize}
+\item 06.\-07.\-93 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 652 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_a070b3ec317aad4cd6bb323831af760fa}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-Font@{bl\-H\-P\-G\-L\-Font}}
+\index{bl\-H\-P\-G\-L\-Font@{bl\-H\-P\-G\-L\-Font}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-Font}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-Font (
+\begin{DoxyParamCaption}
+\item[{int}]{font, }
+\item[{{\bf R\-E\-A\-L}}]{size}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_a070b3ec317aad4cd6bb323831af760fa}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em font} & Font number \\
+\hline
+\mbox{\tt in}  & {\em size} & Point size of font\\
+\hline
+\end{DoxyParams}
+Set font for H\-P\-G\-L plot
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Taken from Mo\-G
+\item 29.\-06.\-92 Corrected C\-A to C\-S and added S\-S. Changed to use global width and height variables. Altered width to 1/2.\-4 $\ast$ height
+\item 27.\-07.\-93 Changed precision of floating i/o to double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 328 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_a4898f2d666137da6060ec24dafcc37ac}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-Init@{bl\-H\-P\-G\-L\-Init}}
+\index{bl\-H\-P\-G\-L\-Init@{bl\-H\-P\-G\-L\-Init}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-Init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-H\-P\-G\-L\-Init (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{char $\ast$}]{Alt\-Font, }
+\item[{{\bf R\-E\-A\-L}}]{xmargin, }
+\item[{{\bf R\-E\-A\-L}}]{ymargin}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_a4898f2d666137da6060ec24dafcc37ac}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$filename} & H\-P\-G\-L file name \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Alt\-Font} & Alternative font used for Greek characters \\
+\hline
+\mbox{\tt in}  & {\em xmargin} & Unprintable x margin \\
+\hline
+\mbox{\tt in}  & {\em ymargin} & Unprintable y margin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Initialise an H\-P\-G\-L plot. The parameters specify the unprintable margins on the output device.
+
+The plot is also affected by global variables\-:
+
+\begin{DoxyVerb}  PSxpicsize  X picture size
+  PSypicsize  Y picture size
+  PSxoffset   X offset
+  PSyoffset   Y offset
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Taken from Mo\-G. Changed to support offsets. Added parameters.
+\item 29.\-06.\-92 Added initialisation of alternate font.
+\item 06.\-07.\-93 Added Alt\-Font parameter
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 171 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_a5ec2d9d164e180cca358086752e6e710}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-L\-C\-Text@{bl\-H\-P\-G\-L\-L\-C\-Text}}
+\index{bl\-H\-P\-G\-L\-L\-C\-Text@{bl\-H\-P\-G\-L\-L\-C\-Text}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-L\-C\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-L\-C\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_a5ec2d9d164e180cca358086752e6e710}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em $\ast$text} & Text to print\\
+\hline
+\end{DoxyParams}
+Print left-\/centre justified text
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Framework
+\item 26.\-06.\-92 Original
+\item 29.\-06.\-92 Changed to use H\-P\-G\-L\-Show\-Text().
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 483 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_a75caa4a93caf0f9fae0d4cc621fe292f}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-L\-Text@{bl\-H\-P\-G\-L\-L\-Text}}
+\index{bl\-H\-P\-G\-L\-L\-Text@{bl\-H\-P\-G\-L\-L\-Text}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-L\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-L\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_a75caa4a93caf0f9fae0d4cc621fe292f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em $\ast$string} & Text to print\\
+\hline
+\end{DoxyParams}
+Write left justified text on H\-P\-G\-L plot
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Taken from Mo\-G
+\item 29.\-06.\-92 Changed to use H\-P\-G\-L\-Show\-Text().
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 369 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_aa2dab0cb46001a4e691d18653661252b}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-Move@{bl\-H\-P\-G\-L\-Move}}
+\index{bl\-H\-P\-G\-L\-Move@{bl\-H\-P\-G\-L\-Move}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-Move}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-Move (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_aa2dab0cb46001a4e691d18653661252b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & X position (0.\-0--1.\-0) \\
+\hline
+\mbox{\tt in}  & {\em y} & Y position (0.\-0--1.\-0)\\
+\hline
+\end{DoxyParams}
+Move on H\-P\-G\-L plot
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Taken from Mo\-G
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 236 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_ae634f9a420b0bc53593539ff8a07a95a}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-Pen@{bl\-H\-P\-G\-L\-Pen}}
+\index{bl\-H\-P\-G\-L\-Pen@{bl\-H\-P\-G\-L\-Pen}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-Pen}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-Pen (
+\begin{DoxyParamCaption}
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_ae634f9a420b0bc53593539ff8a07a95a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em num} & Pen number\\
+\hline
+\end{DoxyParams}
+Select a Pen
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Taken from Mo\-G
+\item 08.\-09.\-92 Changed to store pen first (having seen Intro\-C\-A\-D output)
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 215 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_a5361120c9b1cc0eaa71a35feeea063ae}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-R\-Off\-Text@{bl\-H\-P\-G\-L\-R\-Off\-Text}}
+\index{bl\-H\-P\-G\-L\-R\-Off\-Text@{bl\-H\-P\-G\-L\-R\-Off\-Text}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-R\-Off\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-R\-Off\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{{\bf R\-E\-A\-L}}]{offset, }
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_a5361120c9b1cc0eaa71a35feeea063ae}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em offset} & Move left by this amount (pts) \\
+\hline
+\mbox{\tt in}  & {\em $\ast$text} & Text to print\\
+\hline
+\end{DoxyParams}
+Print right-\/justified text to H\-P\-G\-L
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Framework
+\item 26.\-06.\-92 Original
+\item 29.\-06.\-92 Added Simplify\-Text(). Changed to use H\-P\-G\-L\-Show\-Text().
+\item 06.\-07.\-92 Modified x-\/pos for wider font width
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 441 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_ace61dbc87fdbbc3bd61a4d9e28143d65}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-Set\-Dash@{bl\-H\-P\-G\-L\-Set\-Dash}}
+\index{bl\-H\-P\-G\-L\-Set\-Dash@{bl\-H\-P\-G\-L\-Set\-Dash}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-Set\-Dash}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-Set\-Dash (
+\begin{DoxyParamCaption}
+\item[{int}]{style}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_ace61dbc87fdbbc3bd61a4d9e28143d65}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em style} & Line style\\
+\hline
+\end{DoxyParams}
+Set the line style (may be printer dependent)\-: \begin{DoxyVerb}  0 Solid line
+  1 ............
+  2 -.-.-.-.-.-.
+  3 ------------
+  4 -..-..-..-..
+  5 --.--.--.--.
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Framework
+\item 26.\-06.\-92 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 287 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_a0f240ad996dec6dc323f1f86e187f671}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-Show\-Text@{bl\-H\-P\-G\-L\-Show\-Text}}
+\index{bl\-H\-P\-G\-L\-Show\-Text@{bl\-H\-P\-G\-L\-Show\-Text}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-Show\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-Show\-Text (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{text, }
+\item[{{\bf B\-O\-O\-L}}]{orientation, }
+\item[{int}]{X\-Base, }
+\item[{int}]{Y\-Base}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_a0f240ad996dec6dc323f1f86e187f671}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$text} & Text to be displayed with control codes \\
+\hline
+\mbox{\tt in}  & {\em orientation} & T\-R\-U\-E=vertical, F\-A\-L\-S\-E=horizontal \\
+\hline
+\mbox{\tt in}  & {\em X\-Base} & Position at which to start (device coords) \\
+\hline
+\mbox{\tt in}  & {\em Y\-Base} & Position at which to start (device coords)\\
+\hline
+\end{DoxyParams}
+Displays the text, raising or lowering as appropriate and selecting alternate font where required. Used by the various ...Text() routines.
+
+
+\begin{DoxyItemize}
+\item 29.\-06.\-92 Original based on Post\-Script version.
+\item 27.\-07.\-93 Changed precision of floating i/o to double
+\item 11.\-03.\-94 Changed orientation to B\-O\-O\-L
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 13.\-03.\-19 Doubled the size of Out\-Buff By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 676 of file hpgl.\-c.
+
+\hypertarget{hpgl_8h_ae4e171552ee152d0fe3b4fe854839810}{\index{hpgl.\-h@{hpgl.\-h}!bl\-H\-P\-G\-L\-V\-Text@{bl\-H\-P\-G\-L\-V\-Text}}
+\index{bl\-H\-P\-G\-L\-V\-Text@{bl\-H\-P\-G\-L\-V\-Text}!hpgl.h@{hpgl.\-h}}
+\subsubsection[{bl\-H\-P\-G\-L\-V\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-H\-P\-G\-L\-V\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{{\bf R\-E\-A\-L}}]{xoff, }
+\item[{char $\ast$}]{text, }
+\item[{int}]{Title\-Font, }
+\item[{{\bf R\-E\-A\-L}}]{Title\-Size, }
+\item[{char $\ast$}]{label, }
+\item[{int}]{Label\-Font, }
+\item[{{\bf R\-E\-A\-L}}]{Label\-Size}
+\end{DoxyParamCaption}
+)}}\label{hpgl_8h_ae4e171552ee152d0fe3b4fe854839810}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & X coordinate (in data units) \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate (in data units) \\
+\hline
+\mbox{\tt in}  & {\em xoff} & X-\/offset in pts \\
+\hline
+\mbox{\tt in}  & {\em $\ast$text} & Text to be written \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Title\-Font} & Font in which to write it \\
+\hline
+\mbox{\tt in}  & {\em Title\-Size} & Size of font \\
+\hline
+\mbox{\tt in}  & {\em $\ast$label} & Label to be used to calc x offset \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Label\-Font} & Font of this label \\
+\hline
+\mbox{\tt in}  & {\em Label\-Size} & Size of this label\\
+\hline
+\end{DoxyParams}
+Write vertical text centred on x,y offset back along x by the size of label and by xoff in pts The `label' specification is used to calculate an amount by which to move the text back. Typically this would be the longest data label on the graph's Y-\/axis. The F\-I\-X\-V\-E\-R\-T code is used to correct character dimensions. Not sure if it is a bug in the P\-L\-T\-: interpreter which requires this, or whether it is standard H\-P\-G\-L. Define F\-I\-X\-V\-E\-R\-T if it improves your output.
+
+
+\begin{DoxyItemize}
+\item 25.\-06.\-92 Framework
+\item 29.\-06.\-92 Original
+\item 06.\-07.\-92 Modified x-\/pos for wider font width
+\item 27.\-07.\-93 Changed precision of floating i/o to double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 578 of file hpgl.\-c.
+

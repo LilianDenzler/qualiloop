@@ -1,0 +1,46 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.33;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Write a coordinate set to the CG file */
+ 
+void cgwrtnxt (
+int *consp,
+int ncons,
+float tote
+)
+{
+   int i;
+ 
+   for(i=0;i<ncons;i++)
+   {
+      fprintf(write_fp,"%8.3f %8.3f %8.3f\n",
+      coords.xcart[consp[i]-1],coords.ycart[consp[i]-1],
+      coords.zcart[consp[i]-1]);
+   }
+   fprintf(write_fp,"%15.5f\n",tote);
+}
+ 
+@

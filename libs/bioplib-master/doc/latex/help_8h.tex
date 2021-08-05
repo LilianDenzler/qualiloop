@@ -1,0 +1,146 @@
+\hypertarget{help_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/help.h File Reference}
+\label{help_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/help.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/help.\-h}}
+}
+
+
+Include file for help functions.  
+
+
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{help_8h_a22339ddf4b6066c1cd112e6537f6da6a}{\-\_\-\-H\-E\-L\-P\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{help_8h_a3ff43d9a155129038cde38442c4dee23}{bl\-Help} (char $\ast$string, char $\ast$Help\-File)
+\item 
+void \hyperlink{help_8h_ad508d3cae25ca4b71bc9f7a92daa97ee}{bl\-Do\-Help} (char $\ast$string, char $\ast$Help\-File)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Include file for help functions. \begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-2 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-3 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{help_8h_source}{help.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{help_8h_a22339ddf4b6066c1cd112e6537f6da6a}{\index{help.\-h@{help.\-h}!\-\_\-\-H\-E\-L\-P\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-H\-E\-L\-P\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-H\-E\-L\-P\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-H\-E\-L\-P\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!help.h@{help.\-h}}
+\subsubsection[{\-\_\-\-H\-E\-L\-P\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-H\-E\-L\-P\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{help_8h_a22339ddf4b6066c1cd112e6537f6da6a}
+
+
+Definition at line 67 of file help.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{help_8h_ad508d3cae25ca4b71bc9f7a92daa97ee}{\index{help.\-h@{help.\-h}!bl\-Do\-Help@{bl\-Do\-Help}}
+\index{bl\-Do\-Help@{bl\-Do\-Help}!help.h@{help.\-h}}
+\subsubsection[{bl\-Do\-Help}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Do\-Help (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{char $\ast$}]{Help\-File}
+\end{DoxyParamCaption}
+)}}\label{help_8h_ad508d3cae25ca4b71bc9f7a92daa97ee}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & String on which to give help, must include the word \char`\"{}help\char`\"{}. If given on its own, sits in a loop prompting for help. \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Help\-File} & The help file to search\\
+\hline
+\end{DoxyParams}
+Handles help facility. This is the normal entry point and should be supplied with the complete command including the word `help'.
+
+e.\-g. Do\-Help(\char`\"{}help\char`\"{},\char`\"{}foo.\-hlp\char`\"{}); or Do\-Help(\char`\"{}help bar\char`\"{},\char`\"{}foo.\-hlp\char`\"{});
+
+If help is the only word given, the routine will prompt with Help$>$ and give help on each word typed until return is hit to exit help. If help followed by a keyword is given, help only on that topic will be supplied.
+
+
+\begin{DoxyItemize}
+\item 25.\-09.\-92 Original
+\item 28.\-09.\-92 Changed to call Help(\char`\"{}\-Help\char`\"{})
+\item 02.\-10.\-92 Added Get\-Kybd\-String() rather than gets()
+\item 04.\-01.\-94 Changed to fix problem with compilers which don't let you write to strings defined in double inverted commas and never assigned to a variable
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 317 of file help.\-c.
+
+\hypertarget{help_8h_a3ff43d9a155129038cde38442c4dee23}{\index{help.\-h@{help.\-h}!bl\-Help@{bl\-Help}}
+\index{bl\-Help@{bl\-Help}!help.h@{help.\-h}}
+\subsubsection[{bl\-Help}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Help (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{char $\ast$}]{Help\-File}
+\end{DoxyParamCaption}
+)}}\label{help_8h_a3ff43d9a155129038cde38442c4dee23}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & Topic on which to provide help. If \char`\"{}help\char`\"{} or \char`\"{}?\char`\"{} then list all topics \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Help\-File} & Name of help file, or \char`\"{}\-C\-L\-O\-S\-E\char`\"{} to close the help file\\
+\hline
+\end{DoxyParams}
+Generates help from a help file on the topic named by string. If this is `help' or `?', available topics will be listed.
+
+Only one help file may be open at a time. Once a file is open, no check is made on the Help\-File string to check that you still require the same help file. You must first close the file before changing to a new file.
+
+Calling\-: Help(N\-U\-L\-L,\char`\"{}\-C\-L\-O\-S\-E\char`\"{}) will close the help file.
+
+The directory specified by the environment variable or assign specified by the \#define H\-E\-L\-P\-E\-N\-V (normally H\-E\-L\-P\-D\-I\-R) will be searched for the help file if not found in the local directory.
+
+
+\begin{DoxyItemize}
+\item 25.\-09.\-92 Original
+\item 28.\-09.\-92 Added H\-E\-L\-P
+\item 29.\-09.\-92 Changed to file-\/based version
+\item 07.\-10.\-92 Added paging support
+\item 12.\-08.\-93 Correctly returns if help file not found
+\item 05.\-01.\-94 Handles getenv() call for Unix
+\item 11.\-03.\-94 Resets First\-Call to T\-R\-U\-E when file is closed
+\item 18.\-01.\-95 Calls Open\-File() rather than handling alternative directory internally. Consequently assign or envvar is called H\-E\-L\-P\-D\-I\-R.
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 172 of file help.\-c.
+

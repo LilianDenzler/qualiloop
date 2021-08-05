@@ -1,0 +1,10 @@
+**!!EXIT.INS
+C
+C -- ????
+      INTEGER IEXIT
+C -- ????
+      INTEGER IEXTIM
+      COMMON /FEXIT/ IEXIT , IEXTIM
+C
+      SAVE /FEXIT/
+C

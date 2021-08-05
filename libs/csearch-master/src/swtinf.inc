@@ -1,0 +1,34 @@
+**!!SWTINF.INS
+C
+C -- ????
+      DOUBLE PRECISION RSWTL
+C -- ????
+      DOUBLE PRECISION RSWTU
+C -- ????
+      DOUBLE PRECISION RSWTL2
+C -- ????
+      DOUBLE PRECISION RSWTU2
+C -- ????
+      DOUBLE PRECISION RSWT5
+C -- ????
+      DOUBLE PRECISION RSWT4
+C -- ????
+      DOUBLE PRECISION RSWT3
+C -- ????
+      DOUBLE PRECISION DRSWT4
+C -- ????
+      DOUBLE PRECISION DRSWT3
+C -- ????
+      DOUBLE PRECISION DRSWT2
+C -- ????
+      DOUBLE PRECISION D2RSW3
+C -- ????
+      DOUBLE PRECISION D2RSW2
+C -- ????
+      DOUBLE PRECISION D2RSWT
+      COMMON /SWTINF/  RSWTL  , RSWTU  , RSWTL2 , RSWTU2 , RSWT5  ,
+     +                 RSWT4  , RSWT3  , DRSWT4 , DRSWT3 , DRSWT2 ,
+     +                 D2RSW3 , D2RSW2 , D2RSWT
+C
+      SAVE /SWTINF/
+C

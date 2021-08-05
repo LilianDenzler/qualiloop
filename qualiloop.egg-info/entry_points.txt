@@ -1,0 +1,7 @@
+[console_scripts]
+makemodel = qualiloop.model_experimenter:main
+makeprediction = qualiloop.final_predictor:param_parser
+
+[gui_scripts]
+
+

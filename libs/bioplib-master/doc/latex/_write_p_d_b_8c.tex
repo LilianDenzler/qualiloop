@@ -1,0 +1,580 @@
+\hypertarget{_write_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Write\-P\-D\-B.c File Reference}
+\label{_write_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Write\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Write\-P\-D\-B.\-c}}
+}
+
+
+Write a P\-D\-B file from a linked list.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hash.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fsscanf.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_write_p_d_b_8c_adc56cb074063b6c069815df909cedfdc}{W\-R\-I\-T\-E\-P\-D\-B\-\_\-\-M\-A\-I\-N}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_write_p_d_b_8c_a55086bc1125dc7baa000bf42ddcf5930}{bl\-Write\-P\-D\-B} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_write_p_d_b_8c_a44f443f6e0f780f7c292b797e8257ac2}{bl\-Format\-Check\-Write\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+int \hyperlink{_write_p_d_b_8c_a9dfc0bf16ae99ffe8d06f85f0570c214}{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} do\-Gromos)
+\item 
+void \hyperlink{_write_p_d_b_8c_a38074f8c79f2c5580917416cb2acdd8e}{bl\-Write\-Ter\-Card} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$p)
+\item 
+void \hyperlink{_write_p_d_b_8c_ad3bc6ad58dd19e3a2e854404b88b9271}{bl\-Write\-P\-D\-B\-Record} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+void \hyperlink{_write_p_d_b_8c_aea39909935b5431a822bfc8109827aa3}{bl\-Write\-P\-D\-B\-Record\-Atnam} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_write_p_d_b_8c_a61af7bbe63cb7d61c90190dc64365200}{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+void \hyperlink{_write_p_d_b_8c_ad1ac8c9e80a90772fadb3db213dcb091}{bl\-Set\-Element\-Symbol\-From\-Atom\-Name} (char $\ast$element, char $\ast$atom\-\_\-name)
+\item 
+void \hyperlink{_write_p_d_b_8c_ab9293b4f3ac5e09a01ba3efe31c88561}{bl\-Write\-Gromos\-P\-D\-B} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+void \hyperlink{_write_p_d_b_8c_aed0b487e0e0e60cdcd54fb5efe3d605b}{bl\-Write\-Gromos\-P\-D\-B\-Record} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_write_p_d_b_8c_a41023286849e00cae2fbe0a6c89118f2}{bl\-Write\-Whole\-P\-D\-B} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb)
+\item 
+void \hyperlink{_write_p_d_b_8c_ad26e70b41f8f5de74c3943a903087294}{bl\-Write\-Whole\-P\-D\-B\-Header} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb)
+\item 
+void \hyperlink{_write_p_d_b_8c_a0fba06c6fec28f13118fd7900f1cf01f}{bl\-Write\-Whole\-P\-D\-B\-Trailer} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, int num\-Ter)
+\item 
+void \hyperlink{_write_p_d_b_8c_aa27fe4cbc1362b181b308c8f1eeff85d}{bl\-Write\-Whole\-P\-D\-B\-Header\-No\-Res} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Write a P\-D\-B file from a linked list. \begin{DoxyVersion}{Version}
+V1.\-31 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-08.\-18 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2018 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+This routine will write a .P\-D\-B file of any size from a linked list of the protein structure. This list is contained in a linked set of structures of type \hyperlink{structpdb__entry}{pdb\-\_\-entry}. The structure is set up by including the file \char`\"{}pdb.\-h\char`\"{}. For details of the structure, see this file.
+
+\subsection*{Usage\-: }
+
+
+\begin{DoxyCode}
+\hyperlink{pdb_8h_a55086bc1125dc7baa000bf42ddcf5930}{blWritePDB}(fp, pdb)
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to the file to write \\
+\hline
+\mbox{\tt in}  & {\em $\ast$pdb} & The start of the P\-D\-B linked list.\\
+\hline
+\end{DoxyParams}
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 08.\-03.\-89 Original
+\item V1.\-2 28.\-03.\-90 Modified to match the correct column definition of Read\-P\-D\-B V1.\-2 (N.\-B. There was no V1.\-1)
+\item V1.\-3 01.\-06.\-92 Corrected header, to match standard. Autodoc'd, A\-N\-S\-Ied. Added F\-P\-U check.
+\item V1.\-4 10.\-06.\-93 Changed to use \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{N\-E\-X\-T()} macro. void types
+\item V1.\-5 22.\-02.\-94 Added T\-E\-R card at end of file
+\item V1.\-6 15.\-02.\-01 Writes using atnam\-\_\-raw so atom name is unchanged from input
+\item V1.\-7 30.\-05.\-02 Changed P\-D\-B field from 'junk' to 'record\-\_\-type'
+\item V1.\-8 03.\-06.\-05 'atnam\-\_\-raw' no longer includes the alternate indicator which is now in 'altpos'
+\item V1.\-9 22.\-09.\-06 Added Write\-P\-D\-B\-Record\-Atnam()
+\item V1.\-10 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H macro. By\-: C\-T\-P
+\item V1.\-11 01.\-06.\-14 Added Write\-P\-D\-B\-M\-L() By\-: C\-T\-P
+\item V1.\-12 21.\-06.\-14 Added \hyperlink{pdb_8h_a55086bc1125dc7baa000bf42ddcf5930}{bl\-Write\-P\-D\-B()}, \hyperlink{pdb_8h_a44f443f6e0f780f7c292b797e8257ac2}{bl\-Format\-Check\-Write\-P\-D\-B()} and bl\-Write\-As\-P\-D\-B(). Renamed Write\-P\-D\-B\-M\-L() to bl\-Write\-As\-P\-D\-B\-M\-L() and deprecated Write\-P\-D\-B(). Defined W\-R\-I\-T\-E\-P\-D\-B\-\_\-\-M\-A\-I\-N. By\-: C\-T\-P
+\item V1.\-13 07.\-07.\-14 Renamed functions to use bl prefix. Moved Write\-P\-D\-B() to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P
+\item V1.\-14 17.\-07.\-14 Added \hyperlink{pdb_8h_ad1ac8c9e80a90772fadb3db213dcb091}{bl\-Set\-Element\-Symbol\-From\-Atom\-Name()} By\-: C\-T\-P
+\item V1.\-15 16.\-08.\-14 Added writing element and charge. By\-: C\-T\-P
+\item V1.\-16 18.\-08.\-14 Added X\-M\-L\-\_\-\-S\-U\-P\-P\-O\-R\-T option allowing compilation without support for P\-D\-B\-M\-L format. By\-: C\-T\-P
+\item V1.\-17 17.\-02.\-15 Handles segid and the element and formal charge in \hyperlink{pdb_8h_aea39909935b5431a822bfc8109827aa3}{bl\-Write\-P\-D\-B\-Record\-Atnam()} By\-: A\-C\-R\-M
+\item V1.\-18 23.\-02.\-15 Modified bl\-Write\-As\-P\-D\-B() to do proper T\-E\-R cards -\/ now returns an int -\/ the number of T\-E\-R cards written
+\item V1.\-19 24.\-02.\-15 Renamed bl\-Write\-As\-P\-D\-B() to \hyperlink{pdb_8h_a9dfc0bf16ae99ffe8d06f85f0570c214}{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos()} and integrated Gromos support into this routine. Now takes a new B\-O\-O\-L flag
+\item V1.\-20 25.\-02.\-15 \hyperlink{pdb_8h_a61af7bbe63cb7d61c90190dc64365200}{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L()} now returns B\-O\-O\-L and checks all memory allocations
+\item V1.\-21 02.\-03.\-15 Corrected counting of O\-R\-I\-G\-X, S\-C\-A\-L\-E and M\-T\-R\-I\-X records in Write\-Master(). Added \hyperlink{pdb_8h_aa27fe4cbc1362b181b308c8f1eeff85d}{bl\-Write\-Whole\-P\-D\-B\-Header\-No\-Res()} Added space padding to T\-E\-R in \hyperlink{pdb_8h_a38074f8c79f2c5580917416cb2acdd8e}{bl\-Write\-Ter\-Card()} Added space padding to E\-N\-D and to C\-O\-N\-E\-C\-T in \hyperlink{pdb_8h_a0fba06c6fec28f13118fd7900f1cf01f}{bl\-Write\-Whole\-P\-D\-B\-Trailer()}
+\item V1.\-22 09.\-03.\-15 \hyperlink{pdb_8h_aa27fe4cbc1362b181b308c8f1eeff85d}{bl\-Write\-Whole\-P\-D\-B\-Header\-No\-Res()} now skips more header lines
+\item V1.\-23 10.\-03.\-15 \hyperlink{pdb_8h_aa27fe4cbc1362b181b308c8f1eeff85d}{bl\-Write\-Whole\-P\-D\-B\-Header\-No\-Res()} now skips more header lines
+\item V1.\-24 02.\-04.\-15 Write\-Master() Padded M\-A\-S\-T\-E\-R record to 80 cols. By\-: C\-T\-P
+\item V1.\-25 13.\-05.\-15 Updated \hyperlink{pdb_8h_a61af7bbe63cb7d61c90190dc64365200}{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L()} to write C\-O\-N\-E\-C\-T records, Added output of C\-O\-M\-P\-N\-D and S\-O\-U\-R\-C\-E records. By\-: C\-T\-P
+\item V1.\-26 08.\-06.\-15 Updated X\-M\-L check for output format. By\-: C\-T\-P
+\item V1.\-27 21.\-06.\-15 Added bl\-Map\-Chains\-To\-Entity(). bl\-Do\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L() sets entity\-\_\-id based on C\-O\-M\-P\-N\-D records if entty\-\_\-id not already set. By\-: C\-T\-P
+\item V1.\-28 10.\-07.\-15 Added return value for \hyperlink{pdb_8h_a61af7bbe63cb7d61c90190dc64365200}{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L()} and bl\-Do\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L() when X\-M\-L\-\_\-\-S\-U\-P\-P\-O\-R\-T not defined By\-: A\-C\-R\-M
+\item V1.\-29 29.\-07.\-15 Added output of P\-D\-B\-M\-L seqres records from wpdb-\/$>$header. Added Read\-Seqres\-Chain\-Label\-Whole\-P\-D\-B() and Read\-Seqres\-Residue\-List\-Whole\-P\-D\-B(). By\-: C\-T\-P
+\item V1.\-30 09.\-02.\-18 Corrected calls to \hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S()} in formal charges By\-: A\-C\-R\-M
+\item V1.\-31 07.\-08.\-18 Increased text buffer sizes to silence gcc 7.\-3.\-1 with -\/\-O2 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_write_p_d_b_8c_source}{Write\-P\-D\-B.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_write_p_d_b_8c_adc56cb074063b6c069815df909cedfdc}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!W\-R\-I\-T\-E\-P\-D\-B\-\_\-\-M\-A\-I\-N@{W\-R\-I\-T\-E\-P\-D\-B\-\_\-\-M\-A\-I\-N}}
+\index{W\-R\-I\-T\-E\-P\-D\-B\-\_\-\-M\-A\-I\-N@{W\-R\-I\-T\-E\-P\-D\-B\-\_\-\-M\-A\-I\-N}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{W\-R\-I\-T\-E\-P\-D\-B\-\_\-\-M\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-R\-I\-T\-E\-P\-D\-B\-\_\-\-M\-A\-I\-N}}\label{_write_p_d_b_8c_adc56cb074063b6c069815df909cedfdc}
+
+
+Definition at line 176 of file Write\-P\-D\-B.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_write_p_d_b_8c_a44f443f6e0f780f7c292b797e8257ac2}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Format\-Check\-Write\-P\-D\-B@{bl\-Format\-Check\-Write\-P\-D\-B}}
+\index{bl\-Format\-Check\-Write\-P\-D\-B@{bl\-Format\-Check\-Write\-P\-D\-B}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Format\-Check\-Write\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Format\-Check\-Write\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_a44f443f6e0f780f7c292b797e8257ac2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list to write\\
+\hline
+\end{DoxyParams}
+Checks P\-D\-B linked list is compatible with P\-D\-B-\/formatted text file.
+
+
+\begin{DoxyItemize}
+\item 21.\-06.\-14 Original By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 272 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_ad1ac8c9e80a90772fadb3db213dcb091}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Set\-Element\-Symbol\-From\-Atom\-Name@{bl\-Set\-Element\-Symbol\-From\-Atom\-Name}}
+\index{bl\-Set\-Element\-Symbol\-From\-Atom\-Name@{bl\-Set\-Element\-Symbol\-From\-Atom\-Name}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Set\-Element\-Symbol\-From\-Atom\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Set\-Element\-Symbol\-From\-Atom\-Name (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{element, }
+\item[{char $\ast$}]{atom\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_ad1ac8c9e80a90772fadb3db213dcb091}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em $\ast$element} & Element symbol \\
+\hline
+\mbox{\tt in}  & {\em $\ast$atom\-\_\-name} & Atom name\\
+\hline
+\end{DoxyParams}
+Set the element symbol (columns 77-\/78 of a pdb file) based on the atom name (columns 13-\/16 of a pdb file).
+
+The atom name is stored in the P\-D\-B data stucture as atnam\-\_\-raw.
+
+
+\begin{DoxyItemize}
+\item 17.\-07.\-14 Original. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 1439 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_ab9293b4f3ac5e09a01ba3efe31c88561}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-Gromos\-P\-D\-B@{bl\-Write\-Gromos\-P\-D\-B}}
+\index{bl\-Write\-Gromos\-P\-D\-B@{bl\-Write\-Gromos\-P\-D\-B}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-Gromos\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-Gromos\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_ab9293b4f3ac5e09a01ba3efe31c88561}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & P\-D\-B file pointer to be written \\
+\hline
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list to write\\
+\hline
+\end{DoxyParams}
+Write a P\-D\-B linked list by calls to Write\-P\-D\-B\-Record()
+
+
+\begin{DoxyItemize}
+\item 08.\-03.\-89 Original
+\item 01.\-06.\-92 A\-N\-S\-Ied and autodoc'd
+\item 10.\-06.\-93 Uses N\-E\-X\-T macro; void type
+\item 08.\-07.\-93 Added insertion of T\-E\-R cards
+\item 22.\-02.\-94 And a T\-E\-R card at the end of the file
+\item 15.\-02.\-01 This is the old Write\-P\-D\-B()
+\item 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H macro. By\-: C\-T\-P
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 23.\-02.\-15 Proper T\-E\-R card support By\-: A\-C\-R\-M
+\item 24.\-02.\-15 Now just uses \hyperlink{pdb_8h_a9dfc0bf16ae99ffe8d06f85f0570c214}{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos()} 
+\end{DoxyItemize}
+
+Definition at line 1497 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_aed0b487e0e0e60cdcd54fb5efe3d605b}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-Gromos\-P\-D\-B\-Record@{bl\-Write\-Gromos\-P\-D\-B\-Record}}
+\index{bl\-Write\-Gromos\-P\-D\-B\-Record@{bl\-Write\-Gromos\-P\-D\-B\-Record}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-Gromos\-P\-D\-B\-Record}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-Gromos\-P\-D\-B\-Record (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_aed0b487e0e0e60cdcd54fb5efe3d605b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & P\-D\-B file pointer to be written \\
+\hline
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list record to write\\
+\hline
+\end{DoxyParams}
+Write a P\-D\-B record
+
+
+\begin{DoxyItemize}
+\item 08.\-03.\-89 Original
+\item 28.\-03.\-90 Changed to match Read\-P\-D\-B() V1.\-2 for column widths
+\item 01.\-06.\-92 A\-N\-S\-Ied and autodoc'd
+\item 10.\-06.\-93 void type
+\item 22.\-06.\-93 Changed to lf. Ljust strings
+\item 11.\-03.\-94 lf back to f (!)
+\item 12.\-02.\-01 This is the old Write\-P\-D\-B\-Record()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 1523 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_a55086bc1125dc7baa000bf42ddcf5930}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-P\-D\-B@{bl\-Write\-P\-D\-B}}
+\index{bl\-Write\-P\-D\-B@{bl\-Write\-P\-D\-B}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Write\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_a55086bc1125dc7baa000bf42ddcf5930}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & P\-D\-B file pointer to be written \\
+\hline
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Number of T\-E\-R cards written (0 indicates error)
+\end{DoxyReturn}
+Write a P\-D\-B linked list...
+
+
+\begin{DoxyItemize}
+\item 21.\-06.\-14 Original By\-: C\-T\-P
+\item 18.\-08.\-14 Added X\-M\-L\-\_\-\-S\-U\-P\-P\-O\-R\-T option. Return error if attempting to write P\-D\-B\-M\-L format. By\-: C\-T\-P
+\item 23.\-02.\-15 Now returns an int
+\item 24.\-02.\-15 Changed to call \hyperlink{pdb_8h_a9dfc0bf16ae99ffe8d06f85f0570c214}{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos()} and \hyperlink{pdb_8h_a61af7bbe63cb7d61c90190dc64365200}{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L()} 
+\end{DoxyItemize}
+
+Definition at line 226 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_a61af7bbe63cb7d61c90190dc64365200}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L@{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L}}
+\index{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L@{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_a61af7bbe63cb7d61c90190dc64365200}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & P\-D\-B file pointer to be written \\
+\hline
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Write a P\-D\-B linked list in P\-D\-B\-M\-L format.
+
+
+\begin{DoxyItemize}
+\item 02.\-06.\-14 Original. By\-: C\-T\-P
+\item 21.\-06.\-14 Renamed bl\-Write\-As\-P\-D\-B\-M\-L() and updated symbol handling. By\-: C\-T\-P
+\item 17.\-07.\-14 Use \hyperlink{pdb_8h_ad1ac8c9e80a90772fadb3db213dcb091}{bl\-Set\-Element\-Symbol\-From\-Atom\-Name()} By\-: C\-T\-P
+\item 16.\-08.\-14 Use element and charge data. By\-: C\-T\-P
+\item 17.\-02.\-15 Added segid support By\-: A\-C\-R\-M
+\item 24.\-02.\-15 Changed name to \hyperlink{pdb_8h_a61af7bbe63cb7d61c90190dc64365200}{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L()}
+\item 25.\-02.\-15 Changed to type B\-O\-O\-L and checks all memory allocations
+\item 29.\-04.\-15 Updated to write C\-O\-N\-E\-C\-T records. By\-: C\-T\-P
+\item 11.\-05.\-15 Made function into wrapper for bl\-Do\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L(). By\-: C\-T\-P
+\item 10.\-07.\-15 Added return value for no X\-M\-L\-\_\-\-S\-U\-P\-P\-O\-R\-T By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 530 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_a9dfc0bf16ae99ffe8d06f85f0570c214}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos@{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos}}
+\index{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos@{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf B\-O\-O\-L}}]{do\-Gromos}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_a9dfc0bf16ae99ffe8d06f85f0570c214}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & P\-D\-B file pointer to be written \\
+\hline
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of T\-E\-R cards written (0=error)
+\end{DoxyReturn}
+Write a P\-D\-B linked list by calls to Write\-P\-D\-B\-Record()
+
+
+\begin{DoxyItemize}
+\item 08.\-03.\-89 Original
+\item 01.\-06.\-92 A\-N\-S\-Ied and autodoc'd
+\item 10.\-06.\-93 Uses N\-E\-X\-T macro; void type
+\item 08.\-07.\-93 Added insertion of T\-E\-R cards
+\item 22.\-02.\-94 And a T\-E\-R card at the end of the file
+\item 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H macro. By\-: C\-T\-P
+\item 17.\-06.\-14 Renamed to bl\-Write\-As\-P\-D\-B() By\-: C\-T\-P
+\item 07.\-07.\-14 Use \hyperlink{pdb_8h_ad3bc6ad58dd19e3a2e854404b88b9271}{bl\-Write\-P\-D\-B\-Record()} By\-: C\-T\-P
+\item 23.\-02.\-15 Write correct format T\-E\-R cards. Now returns int By\-: A\-C\-R\-M
+\item 24.\-02.\-15 Renamed to \hyperlink{pdb_8h_a9dfc0bf16ae99ffe8d06f85f0570c214}{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos()} and added do\-Gromos flag 
+\end{DoxyItemize}
+
+Definition at line 311 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_ad3bc6ad58dd19e3a2e854404b88b9271}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-P\-D\-B\-Record@{bl\-Write\-P\-D\-B\-Record}}
+\index{bl\-Write\-P\-D\-B\-Record@{bl\-Write\-P\-D\-B\-Record}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-P\-D\-B\-Record}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-P\-D\-B\-Record (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_ad3bc6ad58dd19e3a2e854404b88b9271}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & P\-D\-B file pointer to be written \\
+\hline
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list record to write\\
+\hline
+\end{DoxyParams}
+Write a P\-D\-B record
+
+
+\begin{DoxyItemize}
+\item 08.\-03.\-89 Original
+\item 28.\-03.\-90 Changed to match Read\-P\-D\-B() V1.\-2 for column widths
+\item 01.\-06.\-92 A\-N\-S\-Ied and autodoc'd
+\item 10.\-06.\-93 void type
+\item 22.\-06.\-93 Changed to lf. Ljust strings
+\item 11.\-03.\-94 lf back to f (!)
+\item 15.\-02.\-01 Modified to use atnam\-\_\-raw
+\item 03.\-06.\-05 Modified to use altpos
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_ad3bc6ad58dd19e3a2e854404b88b9271}{bl\-Write\-P\-D\-B\-Record()} By\-: C\-T\-P
+\item 16.\-08.\-14 Write element and formal charge. By\-: C\-T\-P
+\item 17.\-02.\-15 Added segid support By\-: A\-C\-R\-M
+\item 09.\-02.\-18 Corrected \hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S()} call 
+\end{DoxyItemize}
+
+Definition at line 419 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_aea39909935b5431a822bfc8109827aa3}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-P\-D\-B\-Record\-Atnam@{bl\-Write\-P\-D\-B\-Record\-Atnam}}
+\index{bl\-Write\-P\-D\-B\-Record\-Atnam@{bl\-Write\-P\-D\-B\-Record\-Atnam}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-P\-D\-B\-Record\-Atnam}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-P\-D\-B\-Record\-Atnam (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_aea39909935b5431a822bfc8109827aa3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & P\-D\-B file pointer to be written \\
+\hline
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list record to write\\
+\hline
+\end{DoxyParams}
+Write a P\-D\-B record using the data in atnam rather than atnam\-\_\-raw
+
+
+\begin{DoxyItemize}
+\item 08.\-03.\-89 Original
+\item 28.\-03.\-90 Changed to match Read\-P\-D\-B() V1.\-2 for column widths
+\item 01.\-06.\-92 A\-N\-S\-Ied and autodoc'd
+\item 10.\-06.\-93 void type
+\item 22.\-06.\-93 Changed to lf. Ljust strings
+\item 11.\-03.\-94 lf back to f (!)
+\item 15.\-02.\-01 Modified to use atnam\-\_\-raw
+\item 03.\-06.\-05 Modified to use altpos
+\item 22.\-09.\-05 This is like the old version which used atnam rather than atnam\-\_\-raw
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_aea39909935b5431a822bfc8109827aa3}{bl\-Write\-P\-D\-B\-Record\-Atnam()} By\-: C\-T\-P
+\item 17.\-02.\-15 Added element, formalcharge and segid support By\-: A\-C\-R\-M
+\item 09.\-02.\-17 Corrected \hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S()} call 
+\end{DoxyItemize}
+
+Definition at line 476 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_a38074f8c79f2c5580917416cb2acdd8e}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-Ter\-Card@{bl\-Write\-Ter\-Card}}
+\index{bl\-Write\-Ter\-Card@{bl\-Write\-Ter\-Card}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-Ter\-Card}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-Ter\-Card (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf P\-D\-B} $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_a38074f8c79f2c5580917416cb2acdd8e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$p} & P\-D\-B record pointer\\
+\hline
+\end{DoxyParams}
+Prints a T\-E\-R card in the new P\-D\-B format -\/ i.\-e. with the residue information for the previous A\-T\-O\-M/\-H\-E\-T\-A\-T\-M, rather than just printing T\-E\-R
+
+
+\begin{DoxyItemize}
+\item 23.\-02.\-15 Original By\-: A\-C\-R\-M
+\item 02.\-03.\-15 Added space padding 
+\end{DoxyItemize}
+
+Definition at line 385 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_a41023286849e00cae2fbe0a6c89118f2}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-Whole\-P\-D\-B@{bl\-Write\-Whole\-P\-D\-B}}
+\index{bl\-Write\-Whole\-P\-D\-B@{bl\-Write\-Whole\-P\-D\-B}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Write\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_a41023286849e00cae2fbe0a6c89118f2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$wpdb} & Whole P\-D\-B structure pointer\\
+\hline
+\end{DoxyParams}
+Writes a P\-D\-B file including header and trailer information. Output in P\-D\-B\-M\-L-\/format if flags set.
+
+
+\begin{DoxyItemize}
+\item 21.\-06.\-14 Original By\-: C\-T\-P
+\item 18.\-08.\-14 Added X\-M\-L\-\_\-\-S\-U\-P\-P\-O\-R\-T option. Return error if attempting to write P\-D\-B\-M\-L format. By\-: C\-T\-P
+\item 12.\-02.\-15 Now a wrapper to bl\-Do\-Write\-While\-P\-D\-B()
+\item 24.\-02.\-15 bl\-Write\-As\-P\-D\-B\-M\-L() changed to \hyperlink{pdb_8h_a61af7bbe63cb7d61c90190dc64365200}{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L()} bl\-Write\-As\-P\-D\-B() changed to \hyperlink{pdb_8h_a9dfc0bf16ae99ffe8d06f85f0570c214}{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos()}
+\item 25.\-02.\-15 No longer a wrapper
+\item 04.\-03.\-15 Added check on wpdb and wpdb-\/$>$pdb being non-\/\-N\-U\-L\-L
+\item 11.\-05.\-15 Updated to use bl\-Do\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L(). By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 1563 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_ad26e70b41f8f5de74c3943a903087294}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-Whole\-P\-D\-B\-Header@{bl\-Write\-Whole\-P\-D\-B\-Header}}
+\index{bl\-Write\-Whole\-P\-D\-B\-Header@{bl\-Write\-Whole\-P\-D\-B\-Header}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-Whole\-P\-D\-B\-Header}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-Whole\-P\-D\-B\-Header (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_ad26e70b41f8f5de74c3943a903087294}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$wpdb} & Whole P\-D\-B structure pointer\\
+\hline
+\end{DoxyParams}
+Writes the header of a P\-D\-B file
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original By\-: A\-C\-R\-M
+\item 21.\-06.\-14 Renamed to \hyperlink{pdb_8h_ad26e70b41f8f5de74c3943a903087294}{bl\-Write\-Whole\-P\-D\-B\-Header()} By\-: C\-T\-P
+\item 12.\-02.\-15 Added X\-M\-L check By\-: A\-C\-R\-M
+\item 06.\-08.\-15 Updated X\-M\-L check. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 1614 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_aa27fe4cbc1362b181b308c8f1eeff85d}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-Whole\-P\-D\-B\-Header\-No\-Res@{bl\-Write\-Whole\-P\-D\-B\-Header\-No\-Res}}
+\index{bl\-Write\-Whole\-P\-D\-B\-Header\-No\-Res@{bl\-Write\-Whole\-P\-D\-B\-Header\-No\-Res}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-Whole\-P\-D\-B\-Header\-No\-Res}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-Whole\-P\-D\-B\-Header\-No\-Res (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_aa27fe4cbc1362b181b308c8f1eeff85d}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$wpdb} & Whole P\-D\-B structure pointer\\
+\hline
+\end{DoxyParams}
+Writes the header of a P\-D\-B file, but skips any records that include residue numbers for cases where these may have changed.
+
+Skips\-: R\-E\-M\-A\-R\-K 500 D\-B\-R\-E\-F H\-E\-L\-I\-X S\-H\-E\-E\-T S\-S\-B\-O\-N\-D C\-I\-S\-P\-E\-P S\-E\-Q\-A\-D\-V M\-O\-D\-R\-E\-S H\-E\-T S\-I\-T\-E R\-E\-M\-A\-R\-K 465 R\-E\-M\-A\-R\-K 470 R\-E\-M\-A\-R\-K 475 R\-E\-M\-A\-R\-K 480 R\-E\-M\-A\-R\-K 525 R\-E\-M\-A\-R\-K 610 R\-E\-M\-A\-R\-K 615 R\-E\-M\-A\-R\-K 620 R\-E\-M\-A\-R\-K 630 R\-E\-M\-A\-R\-K 3
+
+
+\begin{DoxyItemize}
+\item 02.\-03.\-15 Original By\-: A\-C\-R\-M
+\item 09.\-03.\-15 Additionally skips S\-E\-Q\-A\-D\-V, M\-O\-D\-R\-E\-S, H\-E\-T, S\-I\-T\-E
+\item 10.\-03.\-15 Additionally skips R\-E\-M\-A\-R\-K 3,465,470,475,480,525,610,615,620,630
+\item 06.\-08.\-15 Updated X\-M\-L check. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 1816 of file Write\-P\-D\-B.\-c.
+
+\hypertarget{_write_p_d_b_8c_a0fba06c6fec28f13118fd7900f1cf01f}{\index{Write\-P\-D\-B.\-c@{Write\-P\-D\-B.\-c}!bl\-Write\-Whole\-P\-D\-B\-Trailer@{bl\-Write\-Whole\-P\-D\-B\-Trailer}}
+\index{bl\-Write\-Whole\-P\-D\-B\-Trailer@{bl\-Write\-Whole\-P\-D\-B\-Trailer}!WritePDB.c@{Write\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-Whole\-P\-D\-B\-Trailer}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-Whole\-P\-D\-B\-Trailer (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{int}]{num\-Ter}
+\end{DoxyParamCaption}
+)}}\label{_write_p_d_b_8c_a0fba06c6fec28f13118fd7900f1cf01f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$wpdb} & Whole P\-D\-B structure pointer \\
+\hline
+\mbox{\tt in}  & {\em num\-Ter} & Number of T\-E\-R cards\\
+\hline
+\end{DoxyParams}
+Writes the trailer of a P\-D\-B file
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original By\-: A\-C\-R\-M
+\item 21.\-06.\-14 Renamed to \hyperlink{pdb_8h_a0fba06c6fec28f13118fd7900f1cf01f}{bl\-Write\-Whole\-P\-D\-B\-Trailer()} By\-: C\-T\-P
+\item 12.\-02.\-15 Added X\-M\-L check By\-: A\-C\-R\-M
+\item 18.\-02.\-15 Complete rewrite to use the parsed C\-O\-N\-E\-C\-T data rather than simply rewriting what was read in
+\item 23.\-02.\-15 Added num\-Ter parameter
+\item 02.\-03.\-15 Padded E\-N\-D and C\-O\-N\-E\-C\-T
+\item 06.\-08.\-15 Updated X\-M\-L check. By\-: C\-T\-P
+\item 07.\-08.\-18 Increased text buffer sizes to silence gcc 7.\-3.\-1 with -\/\-O2 
+\end{DoxyItemize}
+
+Definition at line 1650 of file Write\-P\-D\-B.\-c.
+

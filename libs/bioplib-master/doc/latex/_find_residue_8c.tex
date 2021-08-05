@@ -1,0 +1,107 @@
+\hypertarget{_find_residue_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Find\-Residue.c File Reference}
+\label{_find_residue_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Find\-Residue.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Find\-Residue.\-c}}
+}
+
+
+Parse a residue specification.  
+
+
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_find_residue_8c_a781ea7a8b1ce623d1f7df8c97a542e38}{bl\-Find\-Residue} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, char $\ast$chain, int resnum, char $\ast$insert)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parse a residue specification. \begin{DoxyVersion}{Version}
+V1.\-11 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-03.\-94 Original
+\item V1.\-1 07.\-07.\-95 Now non-\/destructive
+\item V1.\-2 17.\-07.\-95 Now checks that a number was specified as part of the spec. and returns a B\-O\-O\-L
+\item V1.\-3 23.\-10.\-95 Moved Find\-Residue\-Spec() from P\-D\-B\-List.\-c
+\item V1.\-4 08.\-02.\-96 Added Find\-Residue() and changed Find\-Residue\-Spec() to use it
+\item V1.\-5 23.\-07.\-96 Added Atom\-Name\-Match() and Legal\-Atom\-Spec()
+\item V1.\-6 18.\-03.\-98 Added option to include a . to separate chain and residue number so numeric chain names can be used
+\item V1.\-7 11.\-10.\-99 Allow a . to be used to start a number (such that the default blank chain name is used). Allows negative residue numbers
+\item V1.\-8 24.\-02.\-14 Added Biop\-Find\-Residue(). By\-: C\-T\-P
+\item V1.\-9 25.\-02.\-14 Added error message for Find\-Residue(). By\-: C\-T\-P
+\item V1.\-10 07.\-05.\-14 Moved Find\-Residue() to \hyperlink{deprecated_8h}{deprecated.\-h}. By\-: C\-T\-P
+\item V1.\-11 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_find_residue_8c_source}{Find\-Residue.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_find_residue_8c_a781ea7a8b1ce623d1f7df8c97a542e38}{\index{Find\-Residue.\-c@{Find\-Residue.\-c}!bl\-Find\-Residue@{bl\-Find\-Residue}}
+\index{bl\-Find\-Residue@{bl\-Find\-Residue}!FindResidue.c@{Find\-Residue.\-c}}
+\subsubsection[{bl\-Find\-Residue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Find\-Residue (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{char $\ast$}]{chain, }
+\item[{int}]{resnum, }
+\item[{char $\ast$}]{insert}
+\end{DoxyParamCaption}
+)}}\label{_find_residue_8c_a781ea7a8b1ce623d1f7df8c97a542e38}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em chain} & Chain label \\
+\hline
+\mbox{\tt in}  & {\em resnum} & Residue number \\
+\hline
+\mbox{\tt in}  & {\em insert} & Insert code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to start of specified residue
+\end{DoxyReturn}
+Finds a pointer to the start of a residue in a P\-D\-B linked list. Uses string for chain and insert.
+
+
+\begin{DoxyItemize}
+\item 24.\-02.\-14 Original By\-: C\-T\-P
+\item 07.\-07.\-14 Renamed to \hyperlink{_find_residue_8c_a781ea7a8b1ce623d1f7df8c97a542e38}{bl\-Find\-Residue()} Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 117 of file Find\-Residue.\-c.
+

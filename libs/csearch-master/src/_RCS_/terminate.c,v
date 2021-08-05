@@ -1,0 +1,44 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.56;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@
+#include "ProtoTypes.h"
+
+#define CR 13
+#define LF 10
+
+void terminate(char *string)
+{
+   int i=0;
+
+   while(string[i])
+   {
+      if((string[i]==CR)||(string[i]==LF))
+      {
+         string[i] = '\0';
+         break;
+      }
+      i++;
+   }
+}
+@

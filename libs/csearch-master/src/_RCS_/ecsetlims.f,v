@@ -1,0 +1,81 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@c @;
+
+
+1.1
+date	2006.02.17.12.03.46;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+      SUBROUTINE ECSETLIMS(OC,ECX,AVOIDXCENTER,AVOIDEXTENT,
+     +                         AVOIDRMAX,AVOIDVDWRMAX,STARTX,STARTY,
+     +                         STARTZ,LASTX,LASTY,LASTZ,RMAX)
+C
+C     Sets the searching limits for the clump whose x axis is given by
+C     OC and ECX and whose size is given by the AVOID parameters. RMAX
+C     is returned as the maximum possible distance.
+C
+ 
+C      IMPLICIT INTEGER(A-Z)
+ 
+COM OMUPD BNJ 2/9/91
+ 
+      IMPLICIT NONE
+ 
+COM
+ 
+      REAL OC(3), ECX(3), AVOIDXCENTER, AVOIDEXTENT, AVOIDRMAX,
+     +     AVOIDVDWRMAX
+      INTEGER STARTX, STARTY, STARTZ, LASTX, LASTY, LASTZ
+C ACRM added INT definition of CHMCEIL
+      INTEGER CHMCEIL
+ 
+COM OMUPD BNJ
+ 
+      INTEGER IRAD,IX,IY,IZ
+ 
+      REAL RMAX
+C
+#include "dbg.inc"
+#include "grid.inc"
+      REAL CENTER(3)
+C
+      CENTER(1) = OC(1) + ECX(1)*AVOIDXCENTER
+      CENTER(2) = OC(2) + ECX(2)*AVOIDXCENTER
+      CENTER(3) = OC(3) + ECX(3)*AVOIDXCENTER
+      RMAX = SQRT(AVOIDRMAX**2+AVOIDEXTENT**2) + MAXRADIUS +
+     +       AVOIDVDWRMAX
+      IRAD = CHMCEIL(RMAX*RECIPGRID)
+      IX = (CENTER(1)-XMN)*RECIPGRID + 1
+      IY = (CENTER(2)-YMN)*RECIPGRID + 1
+      IZ = (CENTER(3)-ZMN)*RECIPGRID + 1
+      STARTX = IX - IRAD
+      STARTY = IY - IRAD
+      STARTZ = IZ - IRAD
+      IF (STARTX.LT.1) STARTX = 1
+      IF (STARTY.LT.1) STARTY = 1
+      IF (STARTZ.LT.1) STARTZ = 1
+      LASTX = IX + IRAD
+      LASTY = IY + IRAD
+      LASTZ = IZ + IRAD
+      IF (LASTX.GT.NGRIDX) LASTX = NGRIDX
+      IF (LASTY.GT.NGRIDY) LASTY = NGRIDY
+      IF (LASTZ.GT.NGRIDZ) LASTZ = NGRIDZ
+      RETURN
+      END
+@

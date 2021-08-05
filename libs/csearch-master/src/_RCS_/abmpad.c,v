@@ -1,0 +1,54 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.26;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Pad a string with spaces */
+ 
+void abmpad(
+char string[],
+int num
+)
+{
+   int i,
+       do_rest = 0;
+ 
+   for(i=0;i<num;i++)
+   {
+      if(do_rest)
+      {
+         string[i] = ' ';
+      }
+      else
+      {
+         if(!string[i])
+         {
+            do_rest = 1;
+            string[i] = ' ';
+         }
+      }
+   }
+}
+ 
+@

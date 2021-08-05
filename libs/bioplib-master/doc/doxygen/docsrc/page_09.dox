@@ -1,0 +1,97 @@
+/** 
+\page page_09 Handling Sequence Data
+\brief
+  BiopLib - Handling Sequence Data
+
+
+
+
+
+
+
+
+Include the seq.h header file for sequence functions.
+
+\code
+   #include seq.h
+\endcode
+
+
+
+
+
+Alignment
+---------
+
+- blAffinealign() - Perform simple N&W alignment of seq1 and seq2 with separate gap opening and extension penalties 
+- blAffinealignuc() - Perform simple N&W alignment of seq1 and seq2 with separate gap opening and extension penalties. Optimized for DNA sequences 
+- blAlign() - Perform simple N&W alignment of seq1 and seq2. A single gap penalty is used so there is no extension penalty 
+- blCalcMDMScore() - Calculates a score for comparing two amino acids using a mutation data matrix 
+- blCalcMDMScoreUC() - As blCalcMDMScore() but upcases the amino acid labels before calculation 
+- blFreeMDM() - Free the memory containing the mutation data matrix allocated by blReadMDM() 
+- blNumericAffineAlign() - Perform simple N&W alignment using sequences encodede as arrays of numeric tokens
+- blNumericCalcMDMScore() - Calculate score from static globally stored mutation data matrix for number-encoded sequences 
+- blNumericReadMDM() - Read mutation data matrix into static global arrays for number-encoded sequences 
+- blReadMDM() - Read mutation data matrix into static global arrays for use by alignment code 
+- blSetMDMScoreWeight() - Apply a weight to a particular amino acid substitution. Modifies the scoring matrix read by blReadMDM() 
+- blZeroMDM() - Modifies all values in the MDM such that the minimum value is 0 
+
+
+Conversions
+-----------
+
+- blDNAtoAA() - Converts a nucleic acid codon to the 1-letter amino acid equivalent. Termination codons are returned as X. No special action is taken for initiation codons.
+- blOnethr() - Converts 1-letter code to 3-letter code (actually as 4 chars).
+- blThrone() - Converts 3-letter code to 1-letter code. Handles ASX and GLX as X 
+- blThronex() - Converts 3-letter code to 1-letter code. Handles ASX and GLX as B and Z. 
+
+
+File IO
+-------
+
+- blReadRawPIR() - This is based on ReadPIR(), but reads all characters into the sequence arrays (i.e. all punctuation characters are read as is). This is useful when punctuation has been used to indicate consensus sequence features.
+- blReadSimplePIR() - Read a PIR file containing multiple chains of up to maxres amino acids. Doesn't handle special PIR characters
+
+
+Obtaining information
+---------------------
+
+- blKnownSeqLen() - Scans a 1-letter code sequence and calculate the length without `-', ` ' or '?' residues
+- blTrueSeqLen() - Scans a 1-letter code sequence and calculate the length without `-' or ` ' residues
+
+
+Sequence Utilities
+------------------
+
+- blFindLongestTranslation() - Finds the longest protein sequence within the long sequence where each section is separated with a * 
+- blReadFASTA() - Each call reads another sequence from a FASTA file allocating memory for the sequence. Note that this is not re-entrant - it uses a static buffer to look ahead to the next line. 
+- blReadFASTAExtBuffer() - Each call reads another sequence from a FASTA file allocating memory for the sequence. 
+- blReverseComplement() - Malloc's a reverse complement sequence 
+- blSixFTBest() - Performs a 6FT and find the longest translation starting from the beginning of the DNA or a Met. Returns malloc'd memory for the protein sequence. Optionally outputs the ORF that was translated. 
+- blTranslateFrame() - Translates a given frame of DNA filling in the protein sequence for the complete DNA - stop codons are indicated with * 
+- blWriteFASTA() - Writes a sequence in FASTA format 
+
+
+Sequence manipulation
+---------------------
+
+- blBuildAAList() - Converts a sequence string into a linked list 
+- blBuildFlagSeqFromAAList() - Builds a sequence string with blanks except where the flag in the sequence structure is set. At these positions the character specified in ch is used instead. 
+- blBuildSeqFromAAList() - Converts the linked list back into a string which is malloc'd 
+- blFindAAListItemByResnum() - Searches the linked list of the specified resnum (i.e. the original residue number in the sequence before any insertions were made) and returns a pointer to that item in the list. 
+- blFindAAListOffsetByResnum() - Searches the linked list of the specified resnum (i.e. the original residue number in the sequence before any insertions were made) and returns the position of that residue in the list (numbered from 1) 
+- blGetAAListLen() - Returns the number of items in the linked list
+- blInsertNextResidueInAAList() - Inserts a residues after the current position in the linked list. The returned value is the residue which has been inserted so this can be called again on the returned aa to insert another aa 
+- blInsertNextResiduesInAAList() - Inserts a set of identical residues after the current position in the linked list.  The returned value is the last residue which has been inserted so this can be called again on the returned aa to insert another aa 
+- blInsertResidueInAAListAt() - Inserts a residue after the specified position in the list. Residues are numbered from 1. If the position is > length of the list then the residue will be added at the end. If the position is zero, it will be at the start of the list in which case the return value for the list will be different from the input value. 
+- blInsertResiduesInAAListAt() - Inserts a set of residues after the specified position in the list. Residues are numbered from 1. If the position is > length of the list then the residue will be added at the end. If the position is zero, it will be at the start of the list in which case the return value for the list will be different from the input value. 
+- blSetAAListFlagByResnum() - Searches the linked list of the specified resnum (i.e. the original residue number in the sequence before any insertions were made) and sets the flag in that item in the linked list 
+
+
+Note that there are also functions to extract sequence data from PDB files
+
+
+
+
+*/
+

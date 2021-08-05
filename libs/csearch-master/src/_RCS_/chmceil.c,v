@@ -1,0 +1,44 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.35;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+int chmceil(
+float *r
+)
+{
+   int retval;
+ 
+   if(*r < 0.0)
+      retval = (int)(*r);
+   else if(*r == 0.0)
+      retval = 0;
+   else
+   {
+      retval = (int)(*r);
+      if(*r - (float)retval != 0.0) retval++;
+   }
+   return(retval);
+}
+@

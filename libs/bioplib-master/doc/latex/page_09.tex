@@ -1,0 +1,85 @@
+Biop\-Lib -\/ Handling Sequence Data
+
+Include the \hyperlink{seq_8h}{seq.\-h} header file for sequence functions.
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include seq.h}
+\end{DoxyCode}
+
+
+\subsection*{Alignment }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{align_8c_a2bfda833cbb45aa99d853f90b0a8c3e6}{bl\-Affinealign()} -\/ Perform simple N\&W alignment of seq1 and seq2 with separate gap opening and extension penalties
+\item \hyperlink{align_8c_a202550fea7f22fad1fa8bcd23aa736b3}{bl\-Affinealignuc()} -\/ Perform simple N\&W alignment of seq1 and seq2 with separate gap opening and extension penalties. Optimized for D\-N\-A sequences
+\item \hyperlink{align_8c_ad4440404ba000b804b8e5bdbf5144296}{bl\-Align()} -\/ Perform simple N\&W alignment of seq1 and seq2. A single gap penalty is used so there is no extension penalty
+\item \hyperlink{align_8c_a503439e6489823462c1c4c242ccc47e0}{bl\-Calc\-M\-D\-M\-Score()} -\/ Calculates a score for comparing two amino acids using a mutation data matrix
+\item \hyperlink{align_8c_ad4bd60d9e34a3ac0d408508be92f4c83}{bl\-Calc\-M\-D\-M\-Score\-U\-C()} -\/ As \hyperlink{align_8c_a503439e6489823462c1c4c242ccc47e0}{bl\-Calc\-M\-D\-M\-Score()} but upcases the amino acid labels before calculation
+\item \hyperlink{align_8c_a6ff80e0085ce2af58bdbdfbefa887749}{bl\-Free\-M\-D\-M()} -\/ Free the memory containing the mutation data matrix allocated by \hyperlink{align_8c_a7427990ccc2bc14bf3e1a1797a1aaba7}{bl\-Read\-M\-D\-M()}
+\item \hyperlink{_numeric_align_8c_a65436ca35c20f5c0dca48c3ead12b816}{bl\-Numeric\-Affine\-Align()} -\/ Perform simple N\&W alignment using sequences encodede as arrays of numeric tokens
+\item \hyperlink{_numeric_align_8c_a4ca4dc7d7e7714971036f5d1e22ccce6}{bl\-Numeric\-Calc\-M\-D\-M\-Score()} -\/ Calculate score from static globally stored mutation data matrix for number-\/encoded sequences
+\item \hyperlink{_numeric_align_8c_af3438f88a5286d057de168f03e146703}{bl\-Numeric\-Read\-M\-D\-M()} -\/ Read mutation data matrix into static global arrays for number-\/encoded sequences
+\item \hyperlink{align_8c_a7427990ccc2bc14bf3e1a1797a1aaba7}{bl\-Read\-M\-D\-M()} -\/ Read mutation data matrix into static global arrays for use by alignment code
+\item \hyperlink{align_8c_a543c1d8afe579c1d3ebf03c4522f8554}{bl\-Set\-M\-D\-M\-Score\-Weight()} -\/ Apply a weight to a particular amino acid substitution. Modifies the scoring matrix read by \hyperlink{align_8c_a7427990ccc2bc14bf3e1a1797a1aaba7}{bl\-Read\-M\-D\-M()}
+\item \hyperlink{align_8c_ad774c0d240bcf9902340a66c2336658e}{bl\-Zero\-M\-D\-M()} -\/ Modifies all values in the M\-D\-M such that the minimum value is 0
+\end{DoxyItemize}
+
+\subsection*{Conversions }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_d_n_ato_a_a_8c_ae68acfc61d30bed5ecfdaf4422c70f87}{bl\-D\-N\-Ato\-A\-A()} -\/ Converts a nucleic acid codon to the 1-\/letter amino acid equivalent. Termination codons are returned as X. No special action is taken for initiation codons.
+\item \hyperlink{seq_8h_ae549d85acf85ad5233ec378101033e8b}{bl\-Onethr()} -\/ Converts 1-\/letter code to 3-\/letter code (actually as 4 chars).
+\item \hyperlink{seq_8h_a29e50e2e8ab3aa15ab9e05e81d2274ab}{bl\-Throne()} -\/ Converts 3-\/letter code to 1-\/letter code. Handles A\-S\-X and G\-L\-X as X
+\item \hyperlink{seq_8h_ad5f101649d4acff71295dd407310d194}{bl\-Thronex()} -\/ Converts 3-\/letter code to 1-\/letter code. Handles A\-S\-X and G\-L\-X as B and Z.
+\end{DoxyItemize}
+
+\subsection*{File I\-O }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_read_raw_p_i_r_8c_a30bfed19b661389a331406432e9dfc59}{bl\-Read\-Raw\-P\-I\-R()} -\/ This is based on Read\-P\-I\-R(), but reads all characters into the sequence arrays (i.\-e. all punctuation characters are read as is). This is useful when punctuation has been used to indicate consensus sequence features.
+\item \hyperlink{_read_simple_p_i_r_8c_ad246bc81a152dd498cbfd579d9f7b901}{bl\-Read\-Simple\-P\-I\-R()} -\/ Read a P\-I\-R file containing multiple chains of up to maxres amino acids. Doesn't handle special P\-I\-R characters
+\end{DoxyItemize}
+
+\subsection*{Obtaining information }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_known_seq_len_8c_a458ac08b1ca2e18cdca58412b48a59af}{bl\-Known\-Seq\-Len()} -\/ Scans a 1-\/letter code sequence and calculate the length without `-\/', ` ' or '?' residues
+\item \hyperlink{seq_8h_ac0b588fc17073612af3c544bba8d1044}{bl\-True\-Seq\-Len()} -\/ Scans a 1-\/letter code sequence and calculate the length without `-\/' or ` ' residues
+\end{DoxyItemize}
+
+\subsection*{Sequence Utilities }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{sequtil_8c_a14243958a63fe950b33751f9fd869bdf}{bl\-Find\-Longest\-Translation()} -\/ Finds the longest protein sequence within the long sequence where each section is separated with a $\ast$
+\item \hyperlink{sequtil_8c_adeac6f6b4733e0f90508ef56bb06ff13}{bl\-Read\-F\-A\-S\-T\-A()} -\/ Each call reads another sequence from a F\-A\-S\-T\-A file allocating memory for the sequence. Note that this is not re-\/entrant -\/ it uses a static buffer to look ahead to the next line.
+\item \hyperlink{sequtil_8c_a75c219dbcdca061783a26233ad7c0723}{bl\-Read\-F\-A\-S\-T\-A\-Ext\-Buffer()} -\/ Each call reads another sequence from a F\-A\-S\-T\-A file allocating memory for the sequence.
+\item \hyperlink{sequtil_8c_ac4717c09e6b624508c2a36a9b77b210e}{bl\-Reverse\-Complement()} -\/ Malloc's a reverse complement sequence
+\item \hyperlink{sequtil_8c_a35f659dd77c18c95822d35424be303cf}{bl\-Six\-F\-T\-Best()} -\/ Performs a 6\-F\-T and find the longest translation starting from the beginning of the D\-N\-A or a Met. Returns malloc'd memory for the protein sequence. Optionally outputs the O\-R\-F that was translated.
+\item \hyperlink{sequtil_8c_a1a7fdd4e4f5ba19fa47b1191d2b3f712}{bl\-Translate\-Frame()} -\/ Translates a given frame of D\-N\-A filling in the protein sequence for the complete D\-N\-A -\/ stop codons are indicated with $\ast$
+\item \hyperlink{sequtil_8c_ac111bbccdde0b09afd455f7a6fc95130}{bl\-Write\-F\-A\-S\-T\-A()} -\/ Writes a sequence in F\-A\-S\-T\-A format
+\end{DoxyItemize}
+
+\subsection*{Sequence manipulation }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{aalist_8c_a4a942e598ffec1ffa3662effbe6853c0}{bl\-Build\-A\-A\-List()} -\/ Converts a sequence string into a linked list
+\item \hyperlink{aalist_8c_affdffc769319fbf9d122fa753bb4b513}{bl\-Build\-Flag\-Seq\-From\-A\-A\-List()} -\/ Builds a sequence string with blanks except where the flag in the sequence structure is set. At these positions the character specified in ch is used instead.
+\item \hyperlink{aalist_8c_a2f3ba11a61d656da739551a52c2836a7}{bl\-Build\-Seq\-From\-A\-A\-List()} -\/ Converts the linked list back into a string which is malloc'd
+\item \hyperlink{aalist_8c_a800ee85e449ffdadc29e7691e7295b12}{bl\-Find\-A\-A\-List\-Item\-By\-Resnum()} -\/ Searches the linked list of the specified resnum (i.\-e. the original residue number in the sequence before any insertions were made) and returns a pointer to that item in the list.
+\item \hyperlink{aalist_8c_a61021fd3b8916301d750cefce6a6d092}{bl\-Find\-A\-A\-List\-Offset\-By\-Resnum()} -\/ Searches the linked list of the specified resnum (i.\-e. the original residue number in the sequence before any insertions were made) and returns the position of that residue in the list (numbered from 1)
+\item \hyperlink{aalist_8c_a56c0686a9a0be7f118b83de2fbc68c17}{bl\-Get\-A\-A\-List\-Len()} -\/ Returns the number of items in the linked list
+\item \hyperlink{aalist_8c_a2384edcb4138647570dffa05649e5431}{bl\-Insert\-Next\-Residue\-In\-A\-A\-List()} -\/ Inserts a residues after the current position in the linked list. The returned value is the residue which has been inserted so this can be called again on the returned aa to insert another aa
+\item \hyperlink{aalist_8c_adf719a32ce8680d302c3bad7990e6700}{bl\-Insert\-Next\-Residues\-In\-A\-A\-List()} -\/ Inserts a set of identical residues after the current position in the linked list. The returned value is the last residue which has been inserted so this can be called again on the returned aa to insert another aa
+\item \hyperlink{aalist_8c_a3f39f73cc5f6a94b40865651dbe87d31}{bl\-Insert\-Residue\-In\-A\-A\-List\-At()} -\/ Inserts a residue after the specified position in the list. Residues are numbered from 1. If the position is $>$ length of the list then the residue will be added at the end. If the position is zero, it will be at the start of the list in which case the return value for the list will be different from the input value.
+\item \hyperlink{aalist_8c_a830167609ac35df9a6950f4c09c5fc0e}{bl\-Insert\-Residues\-In\-A\-A\-List\-At()} -\/ Inserts a set of residues after the specified position in the list. Residues are numbered from 1. If the position is $>$ length of the list then the residue will be added at the end. If the position is zero, it will be at the start of the list in which case the return value for the list will be different from the input value.
+\item \hyperlink{aalist_8c_aa3085ff05d331b03a7f0aad5684f48bc}{bl\-Set\-A\-A\-List\-Flag\-By\-Resnum()} -\/ Searches the linked list of the specified resnum (i.\-e. the original residue number in the sequence before any insertions were made) and sets the flag in that item in the linked list
+\end{DoxyItemize}
+
+Note that there are also functions to extract sequence data from P\-D\-B files 

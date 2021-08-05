@@ -1,0 +1,83 @@
+\hypertarget{_get_p_d_b_chain_as_copy_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-P\-D\-B\-Chain\-As\-Copy.c File Reference}
+\label{_get_p_d_b_chain_as_copy_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-P\-D\-B\-Chain\-As\-Copy.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-P\-D\-B\-Chain\-As\-Copy.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_get_p_d_b_chain_as_copy_8c_a28ae20b6b67825c2ae27c06f9a2181f9}{bl\-Get\-P\-D\-B\-Chain\-As\-Copy} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdbin, char $\ast$chain)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+19.\-04.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 26.\-03.\-16 Original By\-: A\-C\-R\-M
+\item V1.\-1 19.\-04.\-15 Added call to bl\-Copy\-Conect() 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_get_p_d_b_chain_as_copy_8c_source}{Get\-P\-D\-B\-Chain\-As\-Copy.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_get_p_d_b_chain_as_copy_8c_a28ae20b6b67825c2ae27c06f9a2181f9}{\index{Get\-P\-D\-B\-Chain\-As\-Copy.\-c@{Get\-P\-D\-B\-Chain\-As\-Copy.\-c}!bl\-Get\-P\-D\-B\-Chain\-As\-Copy@{bl\-Get\-P\-D\-B\-Chain\-As\-Copy}}
+\index{bl\-Get\-P\-D\-B\-Chain\-As\-Copy@{bl\-Get\-P\-D\-B\-Chain\-As\-Copy}!GetPDBChainAsCopy.c@{Get\-P\-D\-B\-Chain\-As\-Copy.\-c}}
+\subsubsection[{bl\-Get\-P\-D\-B\-Chain\-As\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Get\-P\-D\-B\-Chain\-As\-Copy (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdbin, }
+\item[{char $\ast$}]{chain}
+\end{DoxyParamCaption}
+)}}\label{_get_p_d_b_chain_as_copy_8c_a28ae20b6b67825c2ae27c06f9a2181f9}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdbin} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain} & Chain label \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P\-D\-B linked list for requested chain
+\end{DoxyReturn}
+Extracts a specified chain from a P\-D\-B linked list allocating a new list containing only that chain. The original list is unchanged.
+
+
+\begin{DoxyItemize}
+\item 26.\-03.\-15 Original By\-: A\-C\-R\-M
+\item 19.\-04.\-15 Added call to bl\-Copy\-Conect() 
+\end{DoxyItemize}
+
+Definition at line 95 of file Get\-P\-D\-B\-Chain\-As\-Copy.\-c.
+

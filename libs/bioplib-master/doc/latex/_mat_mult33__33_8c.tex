@@ -1,0 +1,88 @@
+\hypertarget{_mat_mult33__33_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Mat\-Mult33\-\_\-33.c File Reference}
+\label{_mat_mult33__33_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Mat\-Mult33\-\_\-33.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Mat\-Mult33\-\_\-33.\-c}}
+}
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_mat_mult33__33_8c_a022074db4fea512661f861a76ff61649}{bl\-Mat\-Mult33\-\_\-33} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} a\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} b\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} out\mbox{[}3\mbox{]}\mbox{[}3\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-7 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, University of Reading, 2002-\/14 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 06.\-09.\-91 Original
+\item V1.\-0a 01.\-06.\-92 Documented
+\item V1.\-1 30.\-09.\-92 Matrix multiplication added
+\item V1.\-2 10.\-06.\-93 void return from matrix multiplication
+\item V1.\-3 22.\-07.\-93 Added Create\-Rot\-Mat()
+\item V1.\-4 03.\-08.\-93 Changed matrix multiplication to standard direction
+\item V1.\-5 28.\-07.\-95 Added Vec\-Dist()
+\item V1.\-6 27.\-09.\-95 Added Mat\-Mult33\-\_\-33()
+\item V1.\-7 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_mat_mult33__33_8c_source}{Mat\-Mult33\-\_\-33.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_mat_mult33__33_8c_a022074db4fea512661f861a76ff61649}{\index{Mat\-Mult33\-\_\-33.\-c@{Mat\-Mult33\-\_\-33.\-c}!bl\-Mat\-Mult33\-\_\-33@{bl\-Mat\-Mult33\-\_\-33}}
+\index{bl\-Mat\-Mult33\-\_\-33@{bl\-Mat\-Mult33\-\_\-33}!MatMult33_33.c@{Mat\-Mult33\-\_\-33.\-c}}
+\subsubsection[{bl\-Mat\-Mult33\-\_\-33}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Mat\-Mult33\-\_\-33 (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{a\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{b\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{out\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{_mat_mult33__33_8c_a022074db4fea512661f861a76ff61649}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & Matrix to be multiplied \\
+\hline
+\mbox{\tt in}  & {\em b} & Matrix to be multiplied \\
+\hline
+\mbox{\tt out}  & {\em out} & Output matrix\\
+\hline
+\end{DoxyParams}
+Multiply two 3x3 matrices
+
+
+\begin{DoxyItemize}
+\item 27.\-09.\-95 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 99 of file Mat\-Mult33\-\_\-33.\-c.
+

@@ -1,0 +1,141 @@
+\hypertarget{_rd_seq_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rd\-Seq\-P\-D\-B.c File Reference}
+\label{_rd_seq_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rd\-Seq\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rd\-Seq\-P\-D\-B.\-c}}
+}
+
+
+Read sequence from S\-E\-Q\-R\-E\-S records in a P\-D\-B file.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}seq.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fsscanf.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_rd_seq_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~160
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \hyperlink{_rd_seq_p_d_b_8c_a48d84abb9adcd40bacbfaeeaf0f7b1b2}{bl\-Read\-Seqres\-P\-D\-B} (F\-I\-L\-E $\ast$fp, int $\ast$nchains)
+\item 
+char $\ast$$\ast$ \hyperlink{_rd_seq_p_d_b_8c_a05140d6cdf11bff4e029ec0e9b307e0d}{bl\-Read\-Seqres\-Whole\-P\-D\-B} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, int $\ast$nchains)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read sequence from S\-E\-Q\-R\-E\-S records in a P\-D\-B file. \begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+26.\-02.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1996-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 14.\-10.\-96 Original By\-: A\-C\-R\-M
+\item V1.\-1 25.\-03.\-14 Added C\-H\-A\-I\-N\-M\-A\-T\-C\-H. By\-: C\-T\-P
+\item V1.\-2 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-3 26.\-02.\-15 Added \hyperlink{pdb_8h_a05140d6cdf11bff4e029ec0e9b307e0d}{bl\-Read\-Seqres\-Whole\-P\-D\-B()} By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_rd_seq_p_d_b_8c_source}{Rd\-Seq\-P\-D\-B.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_rd_seq_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{Rd\-Seq\-P\-D\-B.\-c@{Rd\-Seq\-P\-D\-B.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!RdSeqPDB.c@{Rd\-Seq\-P\-D\-B.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~160}}\label{_rd_seq_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 78 of file Rd\-Seq\-P\-D\-B.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_rd_seq_p_d_b_8c_a48d84abb9adcd40bacbfaeeaf0f7b1b2}{\index{Rd\-Seq\-P\-D\-B.\-c@{Rd\-Seq\-P\-D\-B.\-c}!bl\-Read\-Seqres\-P\-D\-B@{bl\-Read\-Seqres\-P\-D\-B}}
+\index{bl\-Read\-Seqres\-P\-D\-B@{bl\-Read\-Seqres\-P\-D\-B}!RdSeqPDB.c@{Rd\-Seq\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-Seqres\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ bl\-Read\-Seqres\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int $\ast$}]{nchains}
+\end{DoxyParamCaption}
+)}}\label{_rd_seq_p_d_b_8c_a48d84abb9adcd40bacbfaeeaf0f7b1b2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & P\-D\-B file pointer \\
+\hline
+\mbox{\tt out}  & {\em $\ast$nchains} & Number of chains found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array of sequence strings
+\end{DoxyReturn}
+Reads the sequence from the S\-E\-Q\-R\-E\-S records of a P\-D\-B file. Creates an array of malloc()'d character arrays in which the sequence is stored. Can therefore cope with any size of sequence information from the P\-D\-B file.
+
+This is not normally recommended to get the sequence for a P\-D\-B file this way, but is useful to detect discrepancies compared with the sequence described by the A\-T\-O\-M records.
+
+
+\begin{DoxyItemize}
+\item 14.\-10.\-96 Original By\-: A\-C\-R\-M
+\item 25.\-03.\-14 Added C\-H\-A\-I\-N\-M\-A\-T\-C\-H. Chain I\-Ds handled as strings. By\-: C\-T\-P
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 113 of file Rd\-Seq\-P\-D\-B.\-c.
+
+\hypertarget{_rd_seq_p_d_b_8c_a05140d6cdf11bff4e029ec0e9b307e0d}{\index{Rd\-Seq\-P\-D\-B.\-c@{Rd\-Seq\-P\-D\-B.\-c}!bl\-Read\-Seqres\-Whole\-P\-D\-B@{bl\-Read\-Seqres\-Whole\-P\-D\-B}}
+\index{bl\-Read\-Seqres\-Whole\-P\-D\-B@{bl\-Read\-Seqres\-Whole\-P\-D\-B}!RdSeqPDB.c@{Rd\-Seq\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-Seqres\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ bl\-Read\-Seqres\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{int $\ast$}]{nchains}
+\end{DoxyParamCaption}
+)}}\label{_rd_seq_p_d_b_8c_a05140d6cdf11bff4e029ec0e9b307e0d}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em wpdb} & W\-H\-O\-L\-E\-P\-D\-B structure \\
+\hline
+\mbox{\tt out}  & {\em $\ast$nchains} & Number of chains found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array of sequence strings
+\end{DoxyReturn}
+Reads the sequence from the S\-E\-Q\-R\-E\-S records from the P\-D\-B header stored in a W\-H\-O\-L\-E\-P\-D\-B structure. Creates an array of malloc()'d character arrays in which the sequence is stored. Can therefore cope with any size of sequence information from the P\-D\-B file.
+
+This is not normally recommended to get the sequence for a P\-D\-B file this way, but is useful to detect discrepancies compared with the sequence described by the A\-T\-O\-M records.
+
+
+\begin{DoxyItemize}
+\item 26.\-02.\-15 Original based on \hyperlink{pdb_8h_a48d84abb9adcd40bacbfaeeaf0f7b1b2}{bl\-Read\-Seqres\-P\-D\-B()} By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 228 of file Rd\-Seq\-P\-D\-B.\-c.
+

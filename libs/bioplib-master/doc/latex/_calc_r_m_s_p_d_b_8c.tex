@@ -1,0 +1,96 @@
+\hypertarget{_calc_r_m_s_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-R\-M\-S\-P\-D\-B.c File Reference}
+\label{_calc_r_m_s_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-R\-M\-S\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-R\-M\-S\-P\-D\-B.\-c}}
+}
+
+
+Fit two P\-D\-B linked lists. Also a weighted fit and support routines.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fit.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{_calc_r_m_s_p_d_b_8c_a97af087139626cc883393fdfa81a25a8}{bl\-Calc\-R\-M\-S\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb1, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fit two P\-D\-B linked lists. Also a weighted fit and support routines. \begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/6 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-03.\-94 Original release
+\item V1.\-1 11.\-03.\-94 Fixed bug in calls to matfit(). Had not been changed to reflect modification in Mat\-Mult3\-\_\-33().
+\item V1.\-2 14.\-03.\-94 Fixed Fit\-P\-D\-B(); wasn't filling in the output matrix
+\item V1.\-3 14.\-03.\-96 Added Fit\-Ca\-P\-D\-B() Changed Fit\-P\-D\-B() and Fit\-Ca\-Cb\-P\-D\-B() to use Apply\-Matrix\-P\-D\-B() rather than Rotate\-P\-D\-B() since the P\-D\-B linked lists are already at the origin
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_calc_r_m_s_p_d_b_8c_source}{Calc\-R\-M\-S\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_calc_r_m_s_p_d_b_8c_a97af087139626cc883393fdfa81a25a8}{\index{Calc\-R\-M\-S\-P\-D\-B.\-c@{Calc\-R\-M\-S\-P\-D\-B.\-c}!bl\-Calc\-R\-M\-S\-P\-D\-B@{bl\-Calc\-R\-M\-S\-P\-D\-B}}
+\index{bl\-Calc\-R\-M\-S\-P\-D\-B@{bl\-Calc\-R\-M\-S\-P\-D\-B}!CalcRMSPDB.c@{Calc\-R\-M\-S\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Calc\-R\-M\-S\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Calc\-R\-M\-S\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb1, }
+\item[{{\bf P\-D\-B} $\ast$}]{pdb2}
+\end{DoxyParamCaption}
+)}}\label{_calc_r_m_s_p_d_b_8c_a97af087139626cc883393fdfa81a25a8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb1} & First P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$pdb2} & Second P\-D\-B linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+R\-M\-S deviation
+\end{DoxyReturn}
+Calculate the R\-M\-S deviation between two fitted P\-D\-B linked lists. No fitting is done. The two lists must contain equivalent structures (same atom types in same order). No checks are made on this.
+
+
+\begin{DoxyItemize}
+\item 11.\-03.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 110 of file Calc\-R\-M\-S\-P\-D\-B.\-c.
+

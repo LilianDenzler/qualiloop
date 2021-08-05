@@ -1,0 +1,141 @@
+\hypertarget{fit_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/fit.c File Reference}
+\label{fit_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/fit.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/fit.\-c}}
+}
+
+
+Perform least squares fitting of coordinate sets.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fit.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{fit_8c_a09c78d2f8feb311dd9fc969a0bf84979}{S\-M\-A\-L\-L}~1.\-0e-\/20     /$\ast$ Convergence cutoffs                       $\ast$/
+\item 
+\#define \hyperlink{fit_8c_a39c421a06ac8891152337c8262623728}{S\-M\-A\-L\-S\-N}~1.\-0e-\/10
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{fit_8c_a04b6a274d146e9a4b4e3ee014b90d514}{bl\-Matfit} (\hyperlink{_math_type_8h_abc50014a01227cc91a1efa4c12846fcf}{C\-O\-O\-R} $\ast$x1, \hyperlink{_math_type_8h_abc50014a01227cc91a1efa4c12846fcf}{C\-O\-O\-R} $\ast$x2, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} rm\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, int n, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$wt1, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} column)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Perform least squares fitting of coordinate sets. \begin{DoxyVersion}{Version}
+V1.\-8 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-08.\-18 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2018 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+This code performs least squares fitting of two coordinate set using the method of Mc\-Lachlan as modified by Sutcliffe.
+
+\subsection*{Usage\-: }
+
+Passed two coordinate arrays both centred around the origin and, optionally, an array of weights, returns a rotation matrix.
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 04.\-02.\-91 Original
+\item V1.\-1 01.\-06.\-92 A\-N\-S\-Ied and static'd
+\item V1.\-2 08.\-12.\-92 Changed abs() to \hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S()} using \hyperlink{macros_8h}{macros.\-h}. Includes stdio.\-h
+\item V1.\-3 11.\-02.\-94 Changed column flag to B\-O\-O\-L
+\item V1.\-4 03.\-06.\-97 Corrected documentation
+\item V1.\-5 03.\-04.\-09 Initialize clep in qikfit() By\-: C\-T\-P
+\item V1.\-6 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-7 17.\-07.\-14 Removed unused varables By\-: A\-C\-R\-M
+\item V1.\-8 07.\-08.\-18 Initialized step\mbox{[}\mbox{]} to silence gcc 7.\-3.\-1 with -\/\-O2 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{fit_8c_source}{fit.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{fit_8c_a09c78d2f8feb311dd9fc969a0bf84979}{\index{fit.\-c@{fit.\-c}!S\-M\-A\-L\-L@{S\-M\-A\-L\-L}}
+\index{S\-M\-A\-L\-L@{S\-M\-A\-L\-L}!fit.c@{fit.\-c}}
+\subsubsection[{S\-M\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-M\-A\-L\-L~1.\-0e-\/20     /$\ast$ Convergence cutoffs                       $\ast$/}}\label{fit_8c_a09c78d2f8feb311dd9fc969a0bf84979}
+
+
+Definition at line 87 of file fit.\-c.
+
+\hypertarget{fit_8c_a39c421a06ac8891152337c8262623728}{\index{fit.\-c@{fit.\-c}!S\-M\-A\-L\-S\-N@{S\-M\-A\-L\-S\-N}}
+\index{S\-M\-A\-L\-S\-N@{S\-M\-A\-L\-S\-N}!fit.c@{fit.\-c}}
+\subsubsection[{S\-M\-A\-L\-S\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-M\-A\-L\-S\-N~1.\-0e-\/10}}\label{fit_8c_a39c421a06ac8891152337c8262623728}
+
+
+Definition at line 88 of file fit.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{fit_8c_a04b6a274d146e9a4b4e3ee014b90d514}{\index{fit.\-c@{fit.\-c}!bl\-Matfit@{bl\-Matfit}}
+\index{bl\-Matfit@{bl\-Matfit}!fit.c@{fit.\-c}}
+\subsubsection[{bl\-Matfit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Matfit (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-O\-O\-R} $\ast$}]{x1, }
+\item[{{\bf C\-O\-O\-R} $\ast$}]{x2, }
+\item[{{\bf R\-E\-A\-L}}]{rm\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, }
+\item[{int}]{n, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{wt1, }
+\item[{{\bf B\-O\-O\-L}}]{column}
+\end{DoxyParamCaption}
+)}}\label{fit_8c_a04b6a274d146e9a4b4e3ee014b90d514}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$x1} & First (fixed) array of coordinates \\
+\hline
+\mbox{\tt in}  & {\em $\ast$x2} & Second (mobile) array of coordinates \\
+\hline
+\mbox{\tt in}  & {\em n} & Number of coordinates \\
+\hline
+\mbox{\tt in}  & {\em $\ast$wt1} & Weight array or N\-U\-L\-L \\
+\hline
+\mbox{\tt in}  & {\em column} & T\-R\-U\-E\-: Output a column-\/wise matrix (as used by F\-R\-O\-D\-O) F\-A\-L\-S\-E\-: Output a standard row-\/wise matrix. \\
+\hline
+\mbox{\tt out}  & {\em rm} & Returned rotation matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\-R\-U\-E\-: success F\-A\-L\-S\-E\-: error
+\end{DoxyReturn}
+Fit coordinate array x2 to x1 both centred around the origin and of length n. Optionally weighted with the wt1 array if wt1 is not N\-U\-L\-L. If column is set the matrix will be returned column-\/wise rather than row-\/wise.
+
+
+\begin{DoxyItemize}
+\item 04.\-02.\-91 Original based on code by Mike Sutcliffe
+\item 01.\-06.\-92 A\-N\-S\-Ied \& doc'd
+\item 17.\-06.\-93 various changes for release (including parameters)
+\item 11.\-03.\-94 column changed to B\-O\-O\-L
+\item 25.\-11.\-02 Corrected header!
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 129 of file fit.\-c.
+

@@ -1,0 +1,2 @@
+#define MAXTYPE 200
+#define MAXATINRES 64

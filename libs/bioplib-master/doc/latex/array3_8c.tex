@@ -1,0 +1,159 @@
+\hypertarget{array3_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/array3.c File Reference}
+\label{array3_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/array3.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/array3.\-c}}
+}
+
+
+Allocate and free 3\-D arrays.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}array.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{array3_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\-U\-L\-L}~((void $\ast$)0)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$$\ast$ \hyperlink{array3_8c_a36eab413bdc4c6528833e2cadd426c6a}{bl\-Array3\-D} (int size, int dim1, int dim2, int dim3)
+\item 
+void \hyperlink{array3_8c_ae6221c1d22d4ba567ef07f44594d051a}{bl\-Free\-Array3\-D} (char $\ast$$\ast$$\ast$array, int dim1, int dim2, int dim3)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Allocate and free 3\-D arrays. \begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, University of Reading, 2002-\/14 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Creates a 3\-D array where the first dimension is a set of pointers. This is better for passing into subroutines than the conventional C method of simply declaring\-:
+
+T\-Y\-P\-E matrix\mbox{[}10\mbox{]}\mbox{[}10\mbox{]}\mbox{[}10\mbox{]};
+
+which, when passed to a fuunction, loses the concept of dimensions unless the matrix is explicitly defined with these dimension in the function.
+
+This routine creates an array of pointers to 1-\/\-D arrays and can thus be passed to functions successfully.
+
+\subsection*{Usage\-: }
+
+matrix = (T\-Y\-P\-E $\ast$$\ast$$\ast$)Array3\-D(sizeof(\-T\-Y\-P\-E), nrows, ncolumns, nplanes);
+
+
+\begin{DoxyCode}
+matrix = (\textcolor{keywordtype}{float} **)Array3D(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}), 10, 10, 10);
+\end{DoxyCode}
+
+
+Returns N\-U\-L\-L (having freed any allocated memory) if there is a problem.
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 30.\-05.\-02 Original
+\item V1.\-1 07.\-07.\-14 Include \hyperlink{array_8h}{array.\-h}. Remove Free\-Array3\-D() prototype. Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{array3_8c_source}{array3.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{array3_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{\index{array3.\-c@{array3.\-c}!N\-U\-L\-L@{N\-U\-L\-L}}
+\index{N\-U\-L\-L@{N\-U\-L\-L}!array3.c@{array3.\-c}}
+\subsubsection[{N\-U\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-L\-L~((void $\ast$)0)}}\label{array3_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}
+
+
+Definition at line 96 of file array3.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{array3_8c_a36eab413bdc4c6528833e2cadd426c6a}{\index{array3.\-c@{array3.\-c}!bl\-Array3\-D@{bl\-Array3\-D}}
+\index{bl\-Array3\-D@{bl\-Array3\-D}!array3.c@{array3.\-c}}
+\subsubsection[{bl\-Array3\-D}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$$\ast$ bl\-Array3\-D (
+\begin{DoxyParamCaption}
+\item[{int}]{size, }
+\item[{int}]{dim1, }
+\item[{int}]{dim2, }
+\item[{int}]{dim3}
+\end{DoxyParamCaption}
+)}}\label{array3_8c_a36eab413bdc4c6528833e2cadd426c6a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em size} & Size of an array element \\
+\hline
+\mbox{\tt in}  & {\em dim1} & First dimension (number of rows) \\
+\hline
+\mbox{\tt in}  & {\em dim2} & Second dimension (number of columns) \\
+\hline
+\mbox{\tt in}  & {\em dim3} & Third dimension (number of planes) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array of pointers. Must be cast to required type
+\end{DoxyReturn}
+Create a 3\-D array of elements of size `size' with dimensions `dim1' rows by `dim2' columns by `dim3' planes
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 127 of file array3.\-c.
+
+\hypertarget{array3_8c_ae6221c1d22d4ba567ef07f44594d051a}{\index{array3.\-c@{array3.\-c}!bl\-Free\-Array3\-D@{bl\-Free\-Array3\-D}}
+\index{bl\-Free\-Array3\-D@{bl\-Free\-Array3\-D}!array3.c@{array3.\-c}}
+\subsubsection[{bl\-Free\-Array3\-D}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Free\-Array3\-D (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$$\ast$}]{array, }
+\item[{int}]{dim1, }
+\item[{int}]{dim2, }
+\item[{int}]{dim3}
+\end{DoxyParamCaption}
+)}}\label{array3_8c_ae6221c1d22d4ba567ef07f44594d051a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em array} & Array of pointers to be freed \\
+\hline
+\mbox{\tt in}  & {\em dim1} & First dimension (number of rows) \\
+\hline
+\mbox{\tt in}  & {\em dim2} & Second dimension (number of columns) \\
+\hline
+\mbox{\tt in}  & {\em dim3} & Third dimension (number of planes)\\
+\hline
+\end{DoxyParams}
+Frees a 3\-D array with dimensions `dim1' rows by `dim2' columns by `dim3' planes.
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 182 of file array3.\-c.
+

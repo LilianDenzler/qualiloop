@@ -1,0 +1,44 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.54;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+void sorti_perm(
+int *array,
+int numb,
+int *idx
+)
+{
+int *temp,i;
+ 
+   indexi(numb,array,idx);
+   temp = (int *)malloc(numb * sizeof(int));
+   for(i=0;i<numb;i++)
+      temp[i] = array[idx[i]];
+   for(i=0;i<numb;i++)
+      array[i] = temp[i];
+   free(temp);
+}
+ 
+@

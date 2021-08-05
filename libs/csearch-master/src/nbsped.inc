@@ -1,0 +1,22 @@
+**!!NBSPED.INS
+C
+C -- ????
+      DOUBLE PRECISION CNBDER
+C -- ????
+      DOUBLE PRECISION CRG
+      COMMON /NBSPED/  CNBDER ( 2 , MXPRTP ) , CRG ( MXPRTP )
+C
+C -- ????
+      INTEGER NCGTYP
+C -- ????
+      INTEGER NNBTYP
+      COMMON /NBSPED/ NCGTYP , NNBTYP
+C
+C -- ????
+      INTEGER*2 NO
+C -- ????
+      INTEGER*2 NCG
+      COMMON /NBSPED/ NO ( MXATYP, MXATYP) , NCG ( MXATYP, MXATYP )
+C
+      SAVE /NBSPED/
+C

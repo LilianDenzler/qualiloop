@@ -1,0 +1,192 @@
+\hypertarget{safemem_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/safemem.c File Reference}
+\label{safemem_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/safemem.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/safemem.\-c}}
+}
+
+
+Safe malloc()/free() routines which check for array overflow on free.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__memlist}{\-\_\-memlist}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{safemem_8c_a66b468d854dc9494a702c58ce717c737}{C\-H\-E\-C\-K\-S\-I\-Z\-E}~256            /$\ast$ Default protection buffer size      $\ast$/
+\item 
+\#define \hyperlink{safemem_8c_a5aebfba92373e0dc8a76d272bcd8e85d}{B\-L\-A\-N\-K}~(char)(0x\-F\-F)   /$\ast$ Default blanking character          $\ast$/
+\item 
+\#define \hyperlink{safemem_8c_a80fd60d2237f5326fc1bf3accd2adca8}{M\-A\-X\-B\-Y\-T\-E}~8              /$\ast$ Max bytes occupied by an address    $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct__memlist}{\-\_\-memlist} \hyperlink{safemem_8c_a00d3f109046cae7ef06feb099d067311}{M\-E\-M\-L\-I\-S\-T}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{safemem_8c_a6fb1420daf9aae70c83e9cd558bce4f7}{bl\-Safemalloc} (int nbytes)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{safemem_8c_a75e4d6982f7cc802621dbc4f776446df}{bl\-Safefree} (void $\ast$ptr)
+\item 
+void \hyperlink{safemem_8c_a32aa9f6dc5a258fd19c0523385d0f33a}{bl\-Safeleaks} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Safe malloc()/free() routines which check for array overflow on free. \begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1995-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\hyperlink{safemem_8c_a6fb1420daf9aae70c83e9cd558bce4f7}{bl\-Safemalloc()} and \hyperlink{safemem_8c_a75e4d6982f7cc802621dbc4f776446df}{bl\-Safefree()} are provided as temporary debugging replacements for malloc() and free(). They maintain their own linked list of malloc()'d memory and allocate a `protection buffer' each side of the requested amount of memory. This is filled with a given pattern and, when safefree() is called, this buffer is checked to ensure the pattern is still present.
+
+Unlike free(), \hyperlink{safemem_8c_a75e4d6982f7cc802621dbc4f776446df}{bl\-Safefree()} is of type B\-O\-O\-L, returning T\-R\-U\-E if an error occured.
+
+\begin{DoxyParagraph}{S\-M\-\_\-\-S\-I\-Z\-E Environment Variable}
+
+\end{DoxyParagraph}
+The size of the buffer (default 256bytes each side) may be controlled by the environment variable S\-M\-\_\-\-S\-I\-Z\-E. If code continues to core dump, try increasing the value of S\-M\-\_\-\-S\-I\-Z\-E.
+
+\begin{DoxyParagraph}{S\-M\-\_\-\-F\-I\-L\-L Environment Variable}
+
+\end{DoxyParagraph}
+The byte used for filling the protection buffers (default 255) is defined by the environment variable S\-M\-\_\-\-F\-I\-L\-L. If code which core dumps with normal malloc()/free(), but not with \hyperlink{safemem_8c_a6fb1420daf9aae70c83e9cd558bce4f7}{bl\-Safemalloc()} / \hyperlink{safemem_8c_a75e4d6982f7cc802621dbc4f776446df}{bl\-Safefree()}, yet no error message is generated, the character which is corrupting memory is probably the same as the fill character. Try modifying S\-M\-\_\-\-F\-I\-L\-L.
+
+\subsection*{Usage\-: }
+
+N\-O\-T\-E\-: \hyperlink{safemem_8h}{safemem.\-h} must be included {\itshape after} \hyperlink{macros_8h}{macros.\-h}
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 23.\-06.\-95 Original
+\item V1.\-1 27.\-02.\-98 Added cast to ptr
+\item V1.\-2 03.\-07.\-06 Added 'ok' to the M\-E\-M\-L\-I\-S\-T and added safeleaks()
+\item V1.\-3 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{safemem_8c_source}{safemem.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{safemem_8c_a5aebfba92373e0dc8a76d272bcd8e85d}{\index{safemem.\-c@{safemem.\-c}!B\-L\-A\-N\-K@{B\-L\-A\-N\-K}}
+\index{B\-L\-A\-N\-K@{B\-L\-A\-N\-K}!safemem.c@{safemem.\-c}}
+\subsubsection[{B\-L\-A\-N\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-L\-A\-N\-K~(char)(0x\-F\-F)   /$\ast$ Default blanking character          $\ast$/}}\label{safemem_8c_a5aebfba92373e0dc8a76d272bcd8e85d}
+
+
+Definition at line 109 of file safemem.\-c.
+
+\hypertarget{safemem_8c_a66b468d854dc9494a702c58ce717c737}{\index{safemem.\-c@{safemem.\-c}!C\-H\-E\-C\-K\-S\-I\-Z\-E@{C\-H\-E\-C\-K\-S\-I\-Z\-E}}
+\index{C\-H\-E\-C\-K\-S\-I\-Z\-E@{C\-H\-E\-C\-K\-S\-I\-Z\-E}!safemem.c@{safemem.\-c}}
+\subsubsection[{C\-H\-E\-C\-K\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-E\-C\-K\-S\-I\-Z\-E~256            /$\ast$ Default protection buffer size      $\ast$/}}\label{safemem_8c_a66b468d854dc9494a702c58ce717c737}
+
+
+Definition at line 108 of file safemem.\-c.
+
+\hypertarget{safemem_8c_a80fd60d2237f5326fc1bf3accd2adca8}{\index{safemem.\-c@{safemem.\-c}!M\-A\-X\-B\-Y\-T\-E@{M\-A\-X\-B\-Y\-T\-E}}
+\index{M\-A\-X\-B\-Y\-T\-E@{M\-A\-X\-B\-Y\-T\-E}!safemem.c@{safemem.\-c}}
+\subsubsection[{M\-A\-X\-B\-Y\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-Y\-T\-E~8              /$\ast$ Max bytes occupied by an address    $\ast$/}}\label{safemem_8c_a80fd60d2237f5326fc1bf3accd2adca8}
+
+
+Definition at line 110 of file safemem.\-c.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{safemem_8c_a00d3f109046cae7ef06feb099d067311}{\index{safemem.\-c@{safemem.\-c}!M\-E\-M\-L\-I\-S\-T@{M\-E\-M\-L\-I\-S\-T}}
+\index{M\-E\-M\-L\-I\-S\-T@{M\-E\-M\-L\-I\-S\-T}!safemem.c@{safemem.\-c}}
+\subsubsection[{M\-E\-M\-L\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \-\_\-memlist}   {\bf M\-E\-M\-L\-I\-S\-T}}}\label{safemem_8c_a00d3f109046cae7ef06feb099d067311}
+
+
+\subsection{Function Documentation}
+\hypertarget{safemem_8c_a75e4d6982f7cc802621dbc4f776446df}{\index{safemem.\-c@{safemem.\-c}!bl\-Safefree@{bl\-Safefree}}
+\index{bl\-Safefree@{bl\-Safefree}!safemem.c@{safemem.\-c}}
+\subsubsection[{bl\-Safefree}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Safefree (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}}\label{safemem_8c_a75e4d6982f7cc802621dbc4f776446df}
+Debugging version of free() which checks protection buffers each side of the requested memory block.
+
+
+\begin{DoxyItemize}
+\item 23.\-06.\-95 Original By\-: A\-C\-R\-M
+\item 27.\-02.\-98 Added cast to ptr
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 246 of file safemem.\-c.
+
+\hypertarget{safemem_8c_a32aa9f6dc5a258fd19c0523385d0f33a}{\index{safemem.\-c@{safemem.\-c}!bl\-Safeleaks@{bl\-Safeleaks}}
+\index{bl\-Safeleaks@{bl\-Safeleaks}!safemem.c@{safemem.\-c}}
+\subsubsection[{bl\-Safeleaks}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Safeleaks (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{safemem_8c_a32aa9f6dc5a258fd19c0523385d0f33a}
+Prints a list of any safemalloc()'d memory which was not freed
+
+
+\begin{DoxyItemize}
+\item 03.\-07.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 322 of file safemem.\-c.
+
+\hypertarget{safemem_8c_a6fb1420daf9aae70c83e9cd558bce4f7}{\index{safemem.\-c@{safemem.\-c}!bl\-Safemalloc@{bl\-Safemalloc}}
+\index{bl\-Safemalloc@{bl\-Safemalloc}!safemem.c@{safemem.\-c}}
+\subsubsection[{bl\-Safemalloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ bl\-Safemalloc (
+\begin{DoxyParamCaption}
+\item[{int}]{nbytes}
+\end{DoxyParamCaption}
+)}}\label{safemem_8c_a6fb1420daf9aae70c83e9cd558bce4f7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em nbytes} & Number of bytes to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to block of memory
+\end{DoxyReturn}
+Debugging version of malloc() which creates protection buffers each side of the requested memory block.
+
+
+\begin{DoxyItemize}
+\item 23.\-06.\-95 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 145 of file safemem.\-c.
+

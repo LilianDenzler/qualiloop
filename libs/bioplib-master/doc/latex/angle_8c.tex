@@ -1,0 +1,157 @@
+\hypertarget{angle_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/angle.c File Reference}
+\label{angle_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/angle.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/angle.\-c}}
+}
+
+
+Calculate angles, torsions, etc.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{angle_8c_a15d42fd7c62e6437ea948e4f4368aa8a}{bl\-Angle} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} xi, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} yi, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} zi, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} xj, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} yj, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} zj, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} xk, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} yk, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} zk)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calculate angles, torsions, etc. \begin{DoxyVersion}{Version}
+V1.\-6 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+These routines return angles and torsion angles. The definition of a torsion angle is the chemical definition\-: i.\-e. Assuming the atoms are co-\/planar\-:
+
+\begin{DoxyVerb}        A---B          A---B
+            | = 0.0        |  = 180.0
+            |              |
+        D---C              C---D
+\end{DoxyVerb}
+
+
+\subsection*{Usage\-: }
+
+\begin{DoxyVerb}  REAL angle(xi,yi,zi,xj,yj,zj,xk,yk,zk)
+  Input:   REAL     xi,yi,zi    Input coordinates
+  Input:            xj,yj,zj
+  Input:            xk,yk,zk
+  Returns: REAL                 The angle between the 3 atoms
+
+
+  REAL phi(xi,yi,zi,xj,yj,zj,xk,yk,zk,xl,yl,zl)
+  Input:   REAL     xi,yi,zi    Input coordinates
+  Input:            xj,yj,zj
+  Input:            xk,yk,zk
+  Input:            xl,yl,zl
+  Returns: REAL                 The torsion angle between the 4 atoms
+
+
+  REAL simpleang(ang)
+  Input:   REAL     ang         An angle
+  Returns: REAL                 Simplified angle
+
+  Simplifies a signed angle to an unsigned angle <=2*PI
+
+
+  REAL TrueAngle(REAL opp, REAL adj)
+  Input:   REAL     opp         Length of opposite side
+  Input:   REAL     adj         Length of adjacent side
+  Returns: REAL                 The angle from 0 to 2PI
+
+  Returns the true positive angle between 0 and 2PI given the opp and
+  adj lengths
+\end{DoxyVerb}
+
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 07.\-02.\-91 Original
+\item V1.\-1 17.\-02.\-91 Corrected comments to new standard and added phi()
+\item V1.\-2 04.\-03.\-91 angle() and phi() now return {\itshape correct} values!
+\item V1.\-3 01.\-06.\-92 A\-N\-S\-Ied
+\item V1.\-4 08.\-12.\-92 Changed abs() to \hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S()} from \hyperlink{macros_8h}{macros.\-h}
+\item V1.\-5 27.\-03.\-95 Added True\-Angle()
+\item V1.\-6 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{angle_8c_source}{angle.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{angle_8c_a15d42fd7c62e6437ea948e4f4368aa8a}{\index{angle.\-c@{angle.\-c}!bl\-Angle@{bl\-Angle}}
+\index{bl\-Angle@{bl\-Angle}!angle.c@{angle.\-c}}
+\subsubsection[{bl\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Angle (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{xi, }
+\item[{{\bf R\-E\-A\-L}}]{yi, }
+\item[{{\bf R\-E\-A\-L}}]{zi, }
+\item[{{\bf R\-E\-A\-L}}]{xj, }
+\item[{{\bf R\-E\-A\-L}}]{yj, }
+\item[{{\bf R\-E\-A\-L}}]{zj, }
+\item[{{\bf R\-E\-A\-L}}]{xk, }
+\item[{{\bf R\-E\-A\-L}}]{yk, }
+\item[{{\bf R\-E\-A\-L}}]{zk}
+\end{DoxyParamCaption}
+)}}\label{angle_8c_a15d42fd7c62e6437ea948e4f4368aa8a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em xi} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em yi} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em zi} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em xj} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em yj} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em zj} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em xk} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em yk} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em zk} & Input coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle between the 3 atoms
+\end{DoxyReturn}
+Calculates the angle between three sets of coordinates
+
+
+\begin{DoxyItemize}
+\item 07.\-02.\-89 Original By\-: A\-C\-R\-M
+\item 04.\-03.\-91 Fixed return value
+\item 16.\-06.\-93 Changed float to R\-E\-A\-L
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 150 of file angle.\-c.
+

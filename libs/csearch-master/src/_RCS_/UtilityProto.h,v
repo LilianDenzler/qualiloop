@@ -1,0 +1,285 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.13;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/***********************************************************************
+ *      Name: UtilityProto.h                                           *
+ *  Function:                                                          *
+ * Copyright: (C) Oxford Molecular Limited                             *
+ *---------------------------------------------------------------------*
+ *    Author: G C Calvert, Tessella Support Services plc               *
+ *      Date: 25/07/90                                                 *
+ *---------------------------------------------------------------------*
+ * Modification Record                                                 *
+ * Date     Inits   Comments                                           *
+ * dd/mm/yy                                                            *
+ * 04/02/91 GCC     Removed fit read and write options                 *
+ * 18/02/91 GCC     Changed numbering of utility identifiers.          *
+ * 12/04/91 GCC     Increased number of fitting atoms.                 *
+ * 14/12/92 DW      Define the number of utilities for the Motif GUI   *
+ ***********************************************************************/
+#ifndef __UTILITYPROTO__
+#define __UTILITYPROTO__
+ 
+/* dummy menu selection numbers */
+enum {  DM_ADD_DUMMY,
+        DM_LIST_DUMMY,
+        DM_CLEAR_DUMMY,
+        DM_ADD_PLANE,
+        DM_LIST_PLANE,
+        DM_CLEAR_PLANE,
+        DM_CLEAR,
+        DM_FINISH
+     };
+#define DM_MAX_OPTIONS DM_FINISH+1
+ 
+/* dummy atom name return values */
+enum {DUMMY_NAME_CANCEL, DUMMY_NAME_ENTER};
+ 
+/* geometry menu selection numbers */
+enum {GC_CALCULATE, GC_MODIFY, GC_PLANES, GC_CLEAR, GC_FINISH};
+#define GC_MAX_OPTIONS GC_FINISH+1
+#define MAX_GC_SELECT 4
+ 
+/* debugging aid to ensure that strings do not overwrite storage */
+#define CheckLength(String, Maxlength) if (strlen(String) > Maxlength) DoMessage("Internal error in string storage", PIMMS_FALSE)
+ 
+/* Utility item identifiers */
+#define NO_UTILITY             0
+#define GEOMETRY_CALCULATION   1
+#define DUMMIES                2
+#define MONITOR                3
+#define BOND_ROTATION          4
+#define ENERGY                 5
+#define EUREKA                 6
+#define FITTING                7
+#define CHARGE_2               8
+#define CHIRALITY              9
+
+#ifdef __MOTIF_GUI__
+
+/* OMUPD DW 14/12/92 Define the number of utilities */
+#define NUM_UTILITIES 10
+
+#endif
+ 
+/* Geometry Calculation constants */
+#define ATOM      1      /* single atom defines point in space */
+#define BOND      2      /* two atoms define a bond */
+#define ANGLE     3      /* three atoms define an angle */
+#define TORSION   4      /* four atoms define a torsion angle */
+ 
+/* inactive utility/application identifier */
+#define NOTACTIVE         -1
+#define NO_OPTION         -1
+ 
+/* Dummies item identifiers */
+#define MAX_DUMMIES_BUTTONS    8    /* maximum number of Dummies buttons */
+#define MAX_DUMMY_NAME_LENGTH  21   /* maximum length of dummy atom name */
+#define ADD_DUMMIES            0
+#define LIST_DUMMIES           1
+#define CLEAR_DUMMIES          2
+#define ADD_PLANES             3
+#define LIST_PLANES            4
+#define CLEAR_PLANES           5
+#define DUMMIES_CLEAR          6
+#define DUMMIES_FINISH         7
+ 
+/* Dummies constants */
+#define MAX_DUMMY_SIZE         50      /* maximum number of atoms defining adummy atom */
+#define MAX_DUMMIES            10      /* maximum number of dummy atoms */
+/* NO_ATOM already defined in 'ActiveMols' */
+/*  #define NO_ATOM               -1      */
+#define NO_DUMMY               -1      
+#define NO_PLANE               -1      
+#define MAX_PLANE_SIZE          3      /* maximum number of atoms defining a plane */
+#define MAX_PLANES              5      /* maximum number of planes */
+ 
+/* Bond Rotation item identifiers */
+#define MAX_BR_BUTTONS          4      /* maximum number of BR buttons */
+#define MAX_BR_CONTROLS         4      /* maximum number of BR controls */
+#define MAX_BR_CTL_BOXES       21      /* maximum number of BR control boxes */
+#define BR_MAX_OPTIONS          8
+#define BR_ADD_BONDS            0      /* add rotatable bond */
+#define BR_CLEAR_BONDS          1      /* clear rotatable bond */
+#define BR_RESET_BONDS          2
+#define BR_FINISH               3
+#define BR_BOND1                4
+#define BR_BOND2                5
+#define BR_BOND3                6
+#define BR_BOND4                7
+ 
+/* Bond Rotation constants */
+#define MAX_BR_BONDS            4      /* maximum number of rotatable bonds */
+#define NO_BR_ATOM             -1      /* no bond rotation atom selected */
+#define inBRFixed90             1      /* rotate by 90 degrees */
+#define inBRFixed30             2      /* rotate by 30 degrees */
+#define inBRFixed10             3      /* rotate by 10 degrees */
+#define inBRFixed5              4      /* rotate by 5 degrees */
+#define inBRFixed1              5      /* rotate by 1 degrees */
+ 
+/* Fitting item identifiers */
+#define MAX_FIT_BUTTONS      9   /* maximum number of fitting buttons */
+#define MAX_FIT_PAIRS       25   /* maximum number of pairs for fitting */
+#define MIN_FIT_PAIRS        3   /* minimum number of pairs for fitting */
+#define NO_FIT_ATOM         -1   /* no selected atom */
+#define NO_FIT_MOLECULE     -1   /* no selected molecule */
+ 
+/* Charge2 item identifiers and limits */
+#define MAX_CHARGE_BUTTONS  5      /* maximum number of charge buttons */
+#define MAX_CHARGE_ATOMS   20      /* maximum number of charged atoms */
+#define CHARGE_SET          0      /* set atom charges */
+#define CHARGE_CALCULATE    1      /* calculate partial charges */
+#define CHARGE_LIST         2      /* list charged atoms */
+#define CHARGE_CLEAR        3      /* clear charged atom list */
+#define CHARGE_FINISH       4      /* leave charge dialog */
+ 
+/* Monitor item identifiers */
+#define MAX_MON_BUTTONS      8   /* maximum number of Monitor buttons */
+#define MON_ADD_DISTANCE     0   /* Add monitor distance button */
+#define MON_ADD_ANGLE        1   /* Add monitor angle button */
+#define MON_ADD_TORSION      2   /* Add monitor torsion button */
+#define MON_SET_OPTIONS      3   /* Set monitor switches button */
+#define MON_CLEAR_DISTANCE   4   /* Clear monitor distance button */
+#define MON_CLEAR_ANGLE      5   /* Clear monitor angle button */
+#define MON_CLEAR_TORSION    6   /* Clear monitor torsion button */
+#define MON_FINISH           7   /* Monitor Finish button */
+ 
+/* Monitor constants */
+#define MAX_MON_DISTANCES    5      /* maximum number of monitor distances */
+#define MAX_MON_ANGLES       5      /* maximum number of monitor angles */
+#define MAX_MON_TORSIONS     5      /* maximum number of monitor torsions */
+/* NO_ATOM already defined in 'ActiveMols' */
+/* #define NO_ATOM          -1 */      /* no bond rotation atom selected */
+#define MON_BUTTON_LEFT     35      /* left corner of first button */
+#define MON_BUTTON_TOP      38      /* top corner of first button */
+#define MON_BUTTON_RIGHT   115      /* right corner of first button */
+#define MON_BUTTON_BOTTOM   55      /* bottom corner of first button */
+#define MON_H_SHIFT         90      /* horizontal distance between control corners */
+#define MON_V_SHIFT         30      /* vertical distance between control corners */
+ 
+/* The Geometry Calculation record contains the layout of the controls */
+/* and the current state of any selections made during the dialog      */
+typedef struct
+   {
+   short   nselected;                     /* number of atoms so far selected */
+   short   selectedAtoms[MAX_GC_SELECT];  /* list of selected atom positions (in the atom list) */
+   short   selectedPlane;                 /* selected plane */
+   } GeomCalcRecord;
+ 
+/* The Dummies record contains the layout of the controls and  */
+/* the current state of any selections made during the dialog  */
+typedef struct
+   {
+   short  nselected;                              /* number of atoms selected */
+   short  selectedAtoms[MAX_DUMMY_SIZE];               /* list of atoms selected */
+   char   Dummies[MAX_DUMMIES][MAX_DUMMY_NAME_LENGTH]; /* list of dummy atoms */
+   char   Planes[MAX_PLANES][MAX_DUMMY_NAME_LENGTH];   /* list of active atoms */
+   } DummiesRecord;
+ 
+/* The Bond Rotation record contains the layout of the controls and  */
+/* the current state of any selections made during the dialog  */
+typedef struct
+   {
+   short   nbonds;                          /* number of bonds selected */
+   short   BRoption;                        /* bond rotation option selected */
+   char    buttonTitle[MAX_BR_BUTTONS][20]; /* titles for the option buttons */
+   Logical BRSign[MAX_BR_CONTROLS];   /* rotation direction signs */
+   Logical activeBond[MAX_BR_BONDS];  /* active bond flags */
+   short   newBond[2];                /* prospective new bond */
+   short   BondAtom[MAX_BR_BONDS][2]; /* atoms defining the bonds */
+   float   ResetAngle[MAX_BR_BONDS];  /* the untransformed angle of the bond */
+   short   CurrentBond;               /* the currently active bond */
+   } BondRotationRecord;
+ 
+/* The Fitting record contains the layout of the controls and  */
+/* the current state of any selections made during the dialog  */
+typedef struct
+   {
+   short  Fitoption;                  /* bond rotation option selected */
+   short  nFitPairs;                  /* number of match pairs defined */
+   short  nNewAtoms;                  /* number of atoms clicked for new pair */
+   short  newPair[2*MAX_FIT_PAIRS];   /* candidate atoms for a new pair */
+   short  FitPair[MAX_FIT_PAIRS][2];  /* atoms defining the fitting pairs */
+   short  fixedMolecule;              /* fixed molecule - during fitting */
+   short  movingMolecule;             /* moving molecule - during fitting */
+   short  ShowMatch;
+        /* flag to indicate if matched pairs are joined by dashed line */
+   } FittingRecord;
+ 
+/* The Charge record contains the layout of the controls and the */
+/* current state of any selections made during the charge dialog */
+typedef struct
+   {
+   short   currentAtom;         /* currently selected atom */
+   short   nselected;           /* number of atoms so far selected */
+   short   selectedAtoms[MAX_CHARGE_ATOMS];  /* list of selected atom positions (in the atom list) */
+   float   charges[MAX_CHARGE_ATOMS];        /* list of selected atom charges */
+   short   ChargeOption;        /* Charge dialog option selected */
+   } ChargeRecord;
+ 
+/* The Monitor record contains the layout of the controls and the */
+/* current state of any selections made during the monitor dialog */
+typedef struct
+   {
+   short    nselected;      /* number of atoms so far selected */
+   short    selectedAtoms[TORSION];                /* list of selected atoms */
+   short    ndistances;     /* number of distances defined */
+   short    distance[MAX_MON_DISTANCES][BOND];     /* list of atoms defining monitor distances */
+   short    nangles;       /* number of angles defined */
+   short    angle[MAX_MON_ANGLES][ANGLE];          /* list of atoms defining monitor angles */
+   short    ntorsions;     /* number of torsions defined */
+   short    torsion[MAX_MON_TORSIONS][TORSION];    /* list of atoms defining monitor torsion */
+   short    MonitorOption; /* Monitor dialog option selected */
+   Logical  Energy;        /* Monitor Energy flag */
+   Logical  Geometry;      /* Monitor Geometry flag */
+   Logical  DispGeom;      /* Monitor Energy flag */
+   } MonitorRecord;
+
+/* OMUPD KYC 16/08/93 replace fitting constants here, needed by ClearFitPairs */
+      enum {
+        NO_RETURN = -1,
+        FIT_ADD = 0,
+        FIT_LIST,
+        FIT_CLEAR,
+        FIT_SHOW,
+        FIT_MATCH,
+        FIT_SELECT,
+        FIT_FINISH
+      };
+ 
+/* The Chirality record contains the layout of the controls and the
+   current state of any selections made during the chirality dialogue */
+ 
+enum {CHIRAL_CALCULATE, CHIRAL_CLEAR, CHIRAL_FINISH};
+#define CHIRAL_MAX_OPTIONS 3
+
+#define MAX_CHIRAL_ATOMS  20
+ 
+typedef struct
+{
+   short   nselected;                       /* number of selected atoms */
+   short   selectedAtoms[MAX_CHIRAL_ATOMS]; /* list of selected atoms */
+} ChiralityRecord;
+ 
+#endif
+@

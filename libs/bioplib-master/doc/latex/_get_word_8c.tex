@@ -1,0 +1,201 @@
+\hypertarget{_get_word_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-Word.c File Reference}
+\label{_get_word_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-Word.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-Word.\-c}}
+}
+
+
+Get a space delimited word from a string.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}array.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{_get_word_8c_a1b9e2ca42db07f3426006d6b0e8fc9ac}{bl\-Get\-Word} (char $\ast$buffer, char $\ast$word, int maxlen)
+\item 
+char $\ast$ \hyperlink{_get_word_8c_a2a5476282817a78d1532407c76a095d1}{bl\-Get\-Word\-N\-C} (char $\ast$buffer, char $\ast$word, int maxlen)
+\item 
+char $\ast$$\ast$ \hyperlink{_get_word_8c_a78bedd3b9e96196fe6eb9fe9bcd1e19b}{bl\-Split\-String\-On\-Commas} (char $\ast$string, int min\-Item\-Len)
+\item 
+char $\ast$$\ast$ \hyperlink{_get_word_8c_a62e1ec6a65252619dd1060bdd68bc7a5}{bl\-Split\-String\-On\-Chars} (char $\ast$string)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Get a space delimited word from a string. \begin{DoxyVersion}{Version}
+V2.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12.\-03.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1995-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 02.\-03.\-99 Original By\-: A\-C\-R\-M
+\item V2.\-0 10.\-06.\-99 Complete rewrite to allow escaping of characters
+\item V2.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V2.\-2 08.\-03.\-14 Made do\-Get\-Word() a static function. By C\-T\-P
+\item V2.\-3 10.\-03.\-15 Added \hyperlink{general_8h_a78bedd3b9e96196fe6eb9fe9bcd1e19b}{bl\-Split\-String\-On\-Commas()} By\-: A\-C\-R\-M
+\item V2.\-4 12.\-03.\-15 Added \hyperlink{general_8h_a62e1ec6a65252619dd1060bdd68bc7a5}{bl\-Split\-String\-On\-Chars()} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_get_word_8c_source}{Get\-Word.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_get_word_8c_a1b9e2ca42db07f3426006d6b0e8fc9ac}{\index{Get\-Word.\-c@{Get\-Word.\-c}!bl\-Get\-Word@{bl\-Get\-Word}}
+\index{bl\-Get\-Word@{bl\-Get\-Word}!GetWord.c@{Get\-Word.\-c}}
+\subsubsection[{bl\-Get\-Word}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Get\-Word (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{char $\ast$}]{word, }
+\item[{int}]{maxlen}
+\end{DoxyParamCaption}
+)}}\label{_get_word_8c_a1b9e2ca42db07f3426006d6b0e8fc9ac}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$buffer} & Input buffer to read words from \\
+\hline
+\mbox{\tt in}  & {\em maxlen} & Max length of output word \\
+\hline
+\mbox{\tt out}  & {\em $\ast$word} & Word read from buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to start of next word in buffer or N\-U\-L\-L
+\end{DoxyReturn}
+This code is a wrapper to do\-Get\-Word()
+
+Reads a whitespace/comma delimited word out of buffer into word.
+
+Words containing white space may be wrapped in double inverted commas. A \textbackslash{} is used as an escape character and maybe used to escape {\itshape any} following character. In particular\-: \char`\"{}\textbackslash{}\textbackslash{}\char`\"{} -\/$>$ '\textbackslash{}' To get a backslash \char`\"{}\textbackslash{} \char`\"{} -\/$>$ ' ' To get a hard whitespace (alternatively wrap the string in double inverted commas) \char`\"{}\textbackslash{}\char`\"{}\char`\"{} -\/$>$ '\char`\"{}' To get a double inverted comma
+
+
+\begin{DoxyItemize}
+\item 10.\-06.\-99 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 268 of file Get\-Word.\-c.
+
+\hypertarget{_get_word_8c_a2a5476282817a78d1532407c76a095d1}{\index{Get\-Word.\-c@{Get\-Word.\-c}!bl\-Get\-Word\-N\-C@{bl\-Get\-Word\-N\-C}}
+\index{bl\-Get\-Word\-N\-C@{bl\-Get\-Word\-N\-C}!GetWord.c@{Get\-Word.\-c}}
+\subsubsection[{bl\-Get\-Word\-N\-C}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Get\-Word\-N\-C (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{char $\ast$}]{word, }
+\item[{int}]{maxlen}
+\end{DoxyParamCaption}
+)}}\label{_get_word_8c_a2a5476282817a78d1532407c76a095d1}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$buffer} & Input buffer to read words from \\
+\hline
+\mbox{\tt in}  & {\em maxlen} & Max length of output word \\
+\hline
+\mbox{\tt out}  & {\em $\ast$word} & Word read from buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to start of next word in buffer or N\-U\-L\-L
+\end{DoxyReturn}
+This code is a wrapper to do\-Get\-Word()
+
+Reads a whitespace delimited word out of buffer into word. Commas are treated just like normal characters.
+
+Words containing white space may be wrapped in double inverted commas. A \textbackslash{} is used as an escape character and maybe used to escape {\itshape any} following character. In particular\-: \char`\"{}\textbackslash{}\textbackslash{}\char`\"{} -\/$>$ '\textbackslash{}' To get a backslash \char`\"{}\textbackslash{} \char`\"{} -\/$>$ ' ' To get a hard whitespace (alternatively wrap the string in double inverted commas) \char`\"{}\textbackslash{}\char`\"{}\char`\"{} -\/$>$ '\char`\"{}' To get a double inverted comma
+
+
+\begin{DoxyItemize}
+\item 10.\-06.\-99 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 300 of file Get\-Word.\-c.
+
+\hypertarget{_get_word_8c_a62e1ec6a65252619dd1060bdd68bc7a5}{\index{Get\-Word.\-c@{Get\-Word.\-c}!bl\-Split\-String\-On\-Chars@{bl\-Split\-String\-On\-Chars}}
+\index{bl\-Split\-String\-On\-Chars@{bl\-Split\-String\-On\-Chars}!GetWord.c@{Get\-Word.\-c}}
+\subsubsection[{bl\-Split\-String\-On\-Chars}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ bl\-Split\-String\-On\-Chars (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{_get_word_8c_a62e1ec6a65252619dd1060bdd68bc7a5}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & String containing comma-\/separated items \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Malloc'd array of strings
+\end{DoxyReturn}
+Splits a string into a list of items malloc'ing a 2\-D array which contains the item strings. The first dimension will be the number if items plus one. The second dimension will be 2 -\/ a single charcater plus the \textbackslash{}0
+
+The last position in the first array will be set to a null string
+
+Note that this routine malloc's a 2\-D array which will need to be freed
+
+
+\begin{DoxyItemize}
+\item 12.\-03.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 394 of file Get\-Word.\-c.
+
+\hypertarget{_get_word_8c_a78bedd3b9e96196fe6eb9fe9bcd1e19b}{\index{Get\-Word.\-c@{Get\-Word.\-c}!bl\-Split\-String\-On\-Commas@{bl\-Split\-String\-On\-Commas}}
+\index{bl\-Split\-String\-On\-Commas@{bl\-Split\-String\-On\-Commas}!GetWord.c@{Get\-Word.\-c}}
+\subsubsection[{bl\-Split\-String\-On\-Commas}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ bl\-Split\-String\-On\-Commas (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{int}]{min\-Item\-Len}
+\end{DoxyParamCaption}
+)}}\label{_get_word_8c_a78bedd3b9e96196fe6eb9fe9bcd1e19b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & String containing comma-\/separated items \\
+\hline
+\mbox{\tt in}  & {\em min\-Item\-Length} & Min size to allocate for each item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Malloc'd array of strings
+\end{DoxyReturn}
+Splits a comma separated list of items malloc'ing a 2\-D array which contains the item strings. The first dimension will be the number if items plus one. The second dimension will be the maximum item length plus one, or at least min\-Item\-Len.
+
+The last position in the first array will be set to a null string
+
+Note that this routine malloc's a 2\-D array which will need to be freed
+
+
+\begin{DoxyItemize}
+\item 10.\-03.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 325 of file Get\-Word.\-c.
+

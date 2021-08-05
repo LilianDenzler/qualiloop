@@ -1,0 +1,293 @@
+\hypertarget{sequtil_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/sequtil.c File Reference}
+\label{sequtil_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/sequtil.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/sequtil.\-c}}
+}
+
+
+Six-\/frame translation and F\-A\-S\-T\-A handling.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}sequtil.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sequtil_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~256
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{sequtil_8c_a35f659dd77c18c95822d35424be303cf}{bl\-Six\-F\-T\-Best} (char $\ast$in\-Dna, char $\ast$orf)
+\item 
+char $\ast$ \hyperlink{sequtil_8c_ac4717c09e6b624508c2a36a9b77b210e}{bl\-Reverse\-Complement} (char $\ast$dna)
+\item 
+void \hyperlink{sequtil_8c_a1a7fdd4e4f5ba19fa47b1191d2b3f712}{bl\-Translate\-Frame} (char $\ast$dna, int frame, char $\ast$protein)
+\item 
+int \hyperlink{sequtil_8c_a14243958a63fe950b33751f9fd869bdf}{bl\-Find\-Longest\-Translation} (char $\ast$prot\-Seq, int $\ast$prot\-Len)
+\item 
+void \hyperlink{sequtil_8c_ac111bbccdde0b09afd455f7a6fc95130}{bl\-Write\-F\-A\-S\-T\-A} (F\-I\-L\-E $\ast$out, char $\ast$header, char $\ast$sequence, int width, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} pad)
+\item 
+char $\ast$ \hyperlink{sequtil_8c_adeac6f6b4733e0f90508ef56bb06ff13}{bl\-Read\-F\-A\-S\-T\-A} (F\-I\-L\-E $\ast$in, char $\ast$header, int size)
+\item 
+char $\ast$ \hyperlink{sequtil_8c_a75c219dbcdca061783a26233ad7c0723}{bl\-Read\-F\-A\-S\-T\-A\-Ext\-Buffer} (F\-I\-L\-E $\ast$in, char $\ast$header, int header\-Size, char $\ast$buffer, int buffer\-Size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Six-\/frame translation and F\-A\-S\-T\-A handling. \begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+10.\-11.\-17 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 2017-\/2019 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Prof. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This program is not in the public domain, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 10.\-11.\-17 Original By\-: A\-C\-R\-M
+\item V1.\-1 01.\-11.\-19 Moved M\-A\-X\-B\-U\-F\-F into here from \hyperlink{sequtil_8h}{sequtil.\-h} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{sequtil_8c_source}{sequtil.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{sequtil_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{sequtil.\-c@{sequtil.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!sequtil.c@{sequtil.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~256}}\label{sequtil_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 99 of file sequtil.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{sequtil_8c_a14243958a63fe950b33751f9fd869bdf}{\index{sequtil.\-c@{sequtil.\-c}!bl\-Find\-Longest\-Translation@{bl\-Find\-Longest\-Translation}}
+\index{bl\-Find\-Longest\-Translation@{bl\-Find\-Longest\-Translation}!sequtil.c@{sequtil.\-c}}
+\subsubsection[{bl\-Find\-Longest\-Translation}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Find\-Longest\-Translation (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{prot\-Seq, }
+\item[{int $\ast$}]{prot\-Len}
+\end{DoxyParamCaption}
+)}}\label{sequtil_8c_a14243958a63fe950b33751f9fd869bdf}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em prot\-Seq} & Protein sequence with stops indicated \\
+\hline
+\mbox{\tt out}  & {\em prot\-Len} & Length of the longest section of protein starting from the start of the sequence or from a Met \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offset to the start of the longest sequence
+\end{DoxyReturn}
+Finds the longest protein sequence within the long sequence where each section is separated with a $\ast$
+
+
+\begin{DoxyItemize}
+\item 10.\-11.\-17 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 333 of file sequtil.\-c.
+
+\hypertarget{sequtil_8c_adeac6f6b4733e0f90508ef56bb06ff13}{\index{sequtil.\-c@{sequtil.\-c}!bl\-Read\-F\-A\-S\-T\-A@{bl\-Read\-F\-A\-S\-T\-A}}
+\index{bl\-Read\-F\-A\-S\-T\-A@{bl\-Read\-F\-A\-S\-T\-A}!sequtil.c@{sequtil.\-c}}
+\subsubsection[{bl\-Read\-F\-A\-S\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Read\-F\-A\-S\-T\-A (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{in, }
+\item[{char $\ast$}]{header, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}}\label{sequtil_8c_adeac6f6b4733e0f90508ef56bb06ff13}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em in} & Input file pointer \\
+\hline
+\mbox{\tt out}  & {\em header} & The F\-A\-S\-T\-A header \\
+\hline
+\mbox{\tt in}  & {\em size} & The maximum size of the F\-A\-S\-T\-A header \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to allocated memory for sequence
+\end{DoxyReturn}
+Each call reads another sequence from a F\-A\-S\-T\-A file allocating memory for the sequence. Note that this is not re-\/entrant -\/ it uses a static buffer to look ahead to the next line.
+
+
+\begin{DoxyItemize}
+\item 10.\-11.\-17 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 419 of file sequtil.\-c.
+
+\hypertarget{sequtil_8c_a75c219dbcdca061783a26233ad7c0723}{\index{sequtil.\-c@{sequtil.\-c}!bl\-Read\-F\-A\-S\-T\-A\-Ext\-Buffer@{bl\-Read\-F\-A\-S\-T\-A\-Ext\-Buffer}}
+\index{bl\-Read\-F\-A\-S\-T\-A\-Ext\-Buffer@{bl\-Read\-F\-A\-S\-T\-A\-Ext\-Buffer}!sequtil.c@{sequtil.\-c}}
+\subsubsection[{bl\-Read\-F\-A\-S\-T\-A\-Ext\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Read\-F\-A\-S\-T\-A\-Ext\-Buffer (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{in, }
+\item[{char $\ast$}]{header, }
+\item[{int}]{header\-Size, }
+\item[{char $\ast$}]{buffer, }
+\item[{int}]{buffer\-Size}
+\end{DoxyParamCaption}
+)}}\label{sequtil_8c_a75c219dbcdca061783a26233ad7c0723}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em in} & Input file pointer \\
+\hline
+\mbox{\tt out}  & {\em header} & The F\-A\-S\-T\-A header \\
+\hline
+\mbox{\tt in}  & {\em size} & The maximum size of the F\-A\-S\-T\-A header \\
+\hline
+\mbox{\tt in,out}  & {\em buffer} & Buffer to look ahead to next line \\
+\hline
+\mbox{\tt in}  & {\em buffer\-Size} & Size of the lookahead buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to allocated memory for sequence
+\end{DoxyReturn}
+Each call reads another sequence from a F\-A\-S\-T\-A file allocating memory for the sequence.
+
+
+\begin{DoxyItemize}
+\item 10.\-11.\-17 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 444 of file sequtil.\-c.
+
+\hypertarget{sequtil_8c_ac4717c09e6b624508c2a36a9b77b210e}{\index{sequtil.\-c@{sequtil.\-c}!bl\-Reverse\-Complement@{bl\-Reverse\-Complement}}
+\index{bl\-Reverse\-Complement@{bl\-Reverse\-Complement}!sequtil.c@{sequtil.\-c}}
+\subsubsection[{bl\-Reverse\-Complement}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Reverse\-Complement (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{dna}
+\end{DoxyParamCaption}
+)}}\label{sequtil_8c_ac4717c09e6b624508c2a36a9b77b210e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dna} & D\-N\-A sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Malloc'd reverse complement D\-N\-A sequence
+\end{DoxyReturn}
+Malloc's a reverse complement sequence
+
+
+\begin{DoxyItemize}
+\item 10.\-11.\-17 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 195 of file sequtil.\-c.
+
+\hypertarget{sequtil_8c_a35f659dd77c18c95822d35424be303cf}{\index{sequtil.\-c@{sequtil.\-c}!bl\-Six\-F\-T\-Best@{bl\-Six\-F\-T\-Best}}
+\index{bl\-Six\-F\-T\-Best@{bl\-Six\-F\-T\-Best}!sequtil.c@{sequtil.\-c}}
+\subsubsection[{bl\-Six\-F\-T\-Best}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Six\-F\-T\-Best (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{in\-Dna, }
+\item[{char $\ast$}]{orf}
+\end{DoxyParamCaption}
+)}}\label{sequtil_8c_a35f659dd77c18c95822d35424be303cf}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em in\-Dna} & D\-N\-A sequence \\
+\hline
+\mbox{\tt out}  & {\em orf} & D\-N\-A of the O\-R\-F (if N\-U\-L\-L, doesn't provide this) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Malloc'd protein sequence
+\end{DoxyReturn}
+Performs a 6\-F\-T and find the longest translation starting from the beginning of the D\-N\-A or a Met. Returns malloc'd memory for the protein sequence. Optionally outputs the O\-R\-F that was translated.
+
+
+\begin{DoxyItemize}
+\item 10.\-11.\-17 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 119 of file sequtil.\-c.
+
+\hypertarget{sequtil_8c_a1a7fdd4e4f5ba19fa47b1191d2b3f712}{\index{sequtil.\-c@{sequtil.\-c}!bl\-Translate\-Frame@{bl\-Translate\-Frame}}
+\index{bl\-Translate\-Frame@{bl\-Translate\-Frame}!sequtil.c@{sequtil.\-c}}
+\subsubsection[{bl\-Translate\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Translate\-Frame (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{dna, }
+\item[{int}]{frame, }
+\item[{char $\ast$}]{protein}
+\end{DoxyParamCaption}
+)}}\label{sequtil_8c_a1a7fdd4e4f5ba19fa47b1191d2b3f712}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dna} & D\-N\-A sequence \\
+\hline
+\mbox{\tt in}  & {\em frame} & Reading frame (0..2) \\
+\hline
+\mbox{\tt out}  & {\em protein} & Protein sequence with $\ast$ for stop codons\\
+\hline
+\end{DoxyParams}
+Translates a given frame of D\-N\-A filling in the protein sequence for the complete D\-N\-A -\/ stop codons are indicated with $\ast$
+
+
+\begin{DoxyItemize}
+\item 10.\-11.\-17 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 249 of file sequtil.\-c.
+
+\hypertarget{sequtil_8c_ac111bbccdde0b09afd455f7a6fc95130}{\index{sequtil.\-c@{sequtil.\-c}!bl\-Write\-F\-A\-S\-T\-A@{bl\-Write\-F\-A\-S\-T\-A}}
+\index{bl\-Write\-F\-A\-S\-T\-A@{bl\-Write\-F\-A\-S\-T\-A}!sequtil.c@{sequtil.\-c}}
+\subsubsection[{bl\-Write\-F\-A\-S\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-F\-A\-S\-T\-A (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{out, }
+\item[{char $\ast$}]{header, }
+\item[{char $\ast$}]{sequence, }
+\item[{int}]{width, }
+\item[{{\bf B\-O\-O\-L}}]{pad}
+\end{DoxyParamCaption}
+)}}\label{sequtil_8c_ac111bbccdde0b09afd455f7a6fc95130}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em out} & Output file pointer \\
+\hline
+\mbox{\tt in}  & {\em header} & F\-A\-S\-T\-A header \\
+\hline
+\mbox{\tt in}  & {\em sequence} & Sequence to print \\
+\hline
+\mbox{\tt in}  & {\em width} & Width of each line \\
+\hline
+\mbox{\tt in}  & {\em pad} & Print a space every 10 characters\\
+\hline
+\end{DoxyParams}
+Writes a sequence in F\-A\-S\-T\-A format
+
+
+\begin{DoxyItemize}
+\item 10.\-11.\-17 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 377 of file sequtil.\-c.
+

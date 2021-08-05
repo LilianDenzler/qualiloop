@@ -1,0 +1,725 @@
+\hypertarget{hash_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/hash.h File Reference}
+\label{hash_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/hash.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/hash.\-h}}
+}
+
+
+Defines for using hash functions.  
+
+
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__hash_tab}{\-\_\-hash\-Tab}
+\item 
+struct \hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hash_8h_a59c51b033aaff39ebde21db38cc7e6f3}{D\-E\-F\-\_\-\-H\-A\-S\-H\-S\-I\-Z\-E}~1009    /$\ast$ Must be a prime number              $\ast$/
+\item 
+\#define \hyperlink{hash_8h_a24d43b55e99b32371f3d4088be4affb1}{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-S\-T\-R\-I\-N\-G}~0
+\item 
+\#define \hyperlink{hash_8h_a5d68a64877952ce4820b87065af12ac3}{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-I\-N\-T}~1
+\item 
+\#define \hyperlink{hash_8h_af00815115f6f5bc348515d485ffd6f9a}{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-C\-H\-A\-R}~2
+\item 
+\#define \hyperlink{hash_8h_a902c252f9f00c398b0af698dea0caa7f}{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-D\-O\-U\-B\-L\-E}~3
+\item 
+\#define \hyperlink{hash_8h_ac2962fae3fd36fdfc2e56b753d8e021a}{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-P\-O\-I\-N\-T\-E\-R}~4
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct__hash_tab}{\-\_\-hash\-Tab} \hyperlink{hash_8h_a88dcba233ac5cfe9249d0e6309b3178a}{\-\_\-\-H\-A\-S\-H\-E\-N\-T\-R\-Y}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$ \hyperlink{hash_8h_a488624eced413f969a14b4a70e5f61ed}{bl\-Initialize\-Hash} (\hyperlink{_sys_defs_8h_af632da489ebc3708ec3ab6791ee53fa4}{U\-L\-O\-N\-G} hashsize)
+\item 
+void \hyperlink{hash_8h_a3d44b7c155f0ee150a1e22df1f093ac6}{bl\-Free\-Hash} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable)
+\item 
+char $\ast$ \hyperlink{hash_8h_aa78d7f1c3e3e9c611b6ebf61475ed358}{bl\-Strdup} (char $\ast$instr)
+\item 
+void \hyperlink{hash_8h_a4009ec93242c1f1b5663ac3885e9d9f8}{bl\-Free\-Hash\-Key\-List} (char $\ast$$\ast$keylist)
+\item 
+char $\ast$$\ast$ \hyperlink{hash_8h_aca7e169510f7bb87f8a462b80557f75b}{bl\-Get\-Hash\-Key\-List} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{hash_8h_a031d7ec8e0fbf9b3c44bbd024e8c7382}{bl\-Set\-Hash\-Value} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key, int type,...)
+\item 
+\hyperlink{_sys_defs_8h_aa0ecf453c76647df6ba46466b761e4c7}{B\-P\-T\-R} \hyperlink{hash_8h_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key, int $\ast$type)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{hash_8h_a7b5b0f404d2dedd44aaafb0687d216a8}{bl\-Dump\-Hash} (F\-I\-L\-E $\ast$out, \hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{hash_8h_a9a90b6a5dcb4ef2ca2ebbb1cfbeeb65b}{bl\-Set\-Hash\-Value\-String} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key, char $\ast$value)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{hash_8h_a86e24fa6cec7538d295099ec761f40fc}{bl\-Set\-Hash\-Value\-Int} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key, int value)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{hash_8h_adade2513a460bbbe4a8680226b894927}{bl\-Set\-Hash\-Value\-Double} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key, double value)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{hash_8h_a91ff829e21fc02d7a0425b6b7fe33428}{bl\-Set\-Hash\-Value\-Pointer} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key, \hyperlink{_sys_defs_8h_aa0ecf453c76647df6ba46466b761e4c7}{B\-P\-T\-R} ptr)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{hash_8h_a89d6ea94e8f4a1c4f385d29490f4d516}{bl\-Set\-Hash\-Value\-Char} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key, char value)
+\item 
+int \hyperlink{hash_8h_a37ac90d036a845c4b115df925dcf7090}{bl\-Get\-Hash\-Value\-Int} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key)
+\item 
+double \hyperlink{hash_8h_af40ea09b8c44bfb43762dab3aa802502}{bl\-Get\-Hash\-Value\-Double} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key)
+\item 
+char \hyperlink{hash_8h_adfee28c95e93c425df93387b70e5fb36}{bl\-Get\-Hash\-Value\-Char} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key)
+\item 
+char $\ast$ \hyperlink{hash_8h_a8d75315373bc094431948d6421548604}{bl\-Get\-Hash\-Value\-String} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key)
+\item 
+\hyperlink{_sys_defs_8h_aa0ecf453c76647df6ba46466b761e4c7}{B\-P\-T\-R} \hyperlink{hash_8h_a05d5450073761d5885fb138293c2983f}{bl\-Get\-Hash\-Value\-Pointer} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{hash_8h_a7ad162562d0d4f0d67701595b6ca21f4}{bl\-Hash\-Key\-Defined} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key)
+\item 
+void \hyperlink{hash_8h_af8f2913c2050be1150d1d40ae4492f3c}{bl\-Delete\-Hash\-Key} (\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$hashtable, char $\ast$key)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines for using hash functions. \begin{DoxyVersion}{Version}
+V1.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+26.\-11.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 14.\-05.\-15 Original By\-: A\-C\-R\-M
+\item V1.\-1 03.\-06.\-15 Added wrappers to \hyperlink{hash_8c_a031d7ec8e0fbf9b3c44bbd024e8c7382}{bl\-Set\-Hash\-Value()}
+\item V1.\-2 26.\-11.\-15 Added check on {\bfseries H\-A\-S\-H\-\_\-\-H} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{hash_8h_source}{hash.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{hash_8h_a59c51b033aaff39ebde21db38cc7e6f3}{\index{hash.\-h@{hash.\-h}!D\-E\-F\-\_\-\-H\-A\-S\-H\-S\-I\-Z\-E@{D\-E\-F\-\_\-\-H\-A\-S\-H\-S\-I\-Z\-E}}
+\index{D\-E\-F\-\_\-\-H\-A\-S\-H\-S\-I\-Z\-E@{D\-E\-F\-\_\-\-H\-A\-S\-H\-S\-I\-Z\-E}!hash.h@{hash.\-h}}
+\subsubsection[{D\-E\-F\-\_\-\-H\-A\-S\-H\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-F\-\_\-\-H\-A\-S\-H\-S\-I\-Z\-E~1009    /$\ast$ Must be a prime number              $\ast$/}}\label{hash_8h_a59c51b033aaff39ebde21db38cc7e6f3}
+
+
+Definition at line 64 of file hash.\-h.
+
+\hypertarget{hash_8h_af00815115f6f5bc348515d485ffd6f9a}{\index{hash.\-h@{hash.\-h}!H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-C\-H\-A\-R@{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-C\-H\-A\-R}}
+\index{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-C\-H\-A\-R@{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-C\-H\-A\-R}!hash.h@{hash.\-h}}
+\subsubsection[{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-C\-H\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-C\-H\-A\-R~2}}\label{hash_8h_af00815115f6f5bc348515d485ffd6f9a}
+
+
+Definition at line 67 of file hash.\-h.
+
+\hypertarget{hash_8h_a902c252f9f00c398b0af698dea0caa7f}{\index{hash.\-h@{hash.\-h}!H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-D\-O\-U\-B\-L\-E@{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-D\-O\-U\-B\-L\-E}}
+\index{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-D\-O\-U\-B\-L\-E@{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-D\-O\-U\-B\-L\-E}!hash.h@{hash.\-h}}
+\subsubsection[{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-D\-O\-U\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-D\-O\-U\-B\-L\-E~3}}\label{hash_8h_a902c252f9f00c398b0af698dea0caa7f}
+
+
+Definition at line 68 of file hash.\-h.
+
+\hypertarget{hash_8h_a5d68a64877952ce4820b87065af12ac3}{\index{hash.\-h@{hash.\-h}!H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-I\-N\-T@{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-I\-N\-T}}
+\index{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-I\-N\-T@{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-I\-N\-T}!hash.h@{hash.\-h}}
+\subsubsection[{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-I\-N\-T~1}}\label{hash_8h_a5d68a64877952ce4820b87065af12ac3}
+
+
+Definition at line 66 of file hash.\-h.
+
+\hypertarget{hash_8h_ac2962fae3fd36fdfc2e56b753d8e021a}{\index{hash.\-h@{hash.\-h}!H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-P\-O\-I\-N\-T\-E\-R@{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-P\-O\-I\-N\-T\-E\-R}}
+\index{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-P\-O\-I\-N\-T\-E\-R@{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-P\-O\-I\-N\-T\-E\-R}!hash.h@{hash.\-h}}
+\subsubsection[{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-P\-O\-I\-N\-T\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-P\-O\-I\-N\-T\-E\-R~4}}\label{hash_8h_ac2962fae3fd36fdfc2e56b753d8e021a}
+
+
+Definition at line 69 of file hash.\-h.
+
+\hypertarget{hash_8h_a24d43b55e99b32371f3d4088be4affb1}{\index{hash.\-h@{hash.\-h}!H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-S\-T\-R\-I\-N\-G@{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-S\-T\-R\-I\-N\-G}}
+\index{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-S\-T\-R\-I\-N\-G@{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-S\-T\-R\-I\-N\-G}!hash.h@{hash.\-h}}
+\subsubsection[{H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-S\-T\-R\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-S\-T\-R\-I\-N\-G~0}}\label{hash_8h_a24d43b55e99b32371f3d4088be4affb1}
+
+
+Definition at line 65 of file hash.\-h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{hash_8h_a88dcba233ac5cfe9249d0e6309b3178a}{\index{hash.\-h@{hash.\-h}!\-\_\-\-H\-A\-S\-H\-E\-N\-T\-R\-Y@{\-\_\-\-H\-A\-S\-H\-E\-N\-T\-R\-Y}}
+\index{\-\_\-\-H\-A\-S\-H\-E\-N\-T\-R\-Y@{\-\_\-\-H\-A\-S\-H\-E\-N\-T\-R\-Y}!hash.h@{hash.\-h}}
+\subsubsection[{\-\_\-\-H\-A\-S\-H\-E\-N\-T\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \-\_\-hash\-Tab}   {\bf \-\_\-\-H\-A\-S\-H\-E\-N\-T\-R\-Y}}}\label{hash_8h_a88dcba233ac5cfe9249d0e6309b3178a}
+
+
+\subsection{Function Documentation}
+\hypertarget{hash_8h_af8f2913c2050be1150d1d40ae4492f3c}{\index{hash.\-h@{hash.\-h}!bl\-Delete\-Hash\-Key@{bl\-Delete\-Hash\-Key}}
+\index{bl\-Delete\-Hash\-Key@{bl\-Delete\-Hash\-Key}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Delete\-Hash\-Key}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Delete\-Hash\-Key (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_af8f2913c2050be1150d1d40ae4492f3c}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em key} & The hash key\\
+\hline
+\end{DoxyParams}
+Deletes a hash key
+
+
+\begin{DoxyItemize}
+\item 14.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 800 of file hash.\-c.
+
+\hypertarget{hash_8h_a7b5b0f404d2dedd44aaafb0687d216a8}{\index{hash.\-h@{hash.\-h}!bl\-Dump\-Hash@{bl\-Dump\-Hash}}
+\index{bl\-Dump\-Hash@{bl\-Dump\-Hash}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Dump\-Hash}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Dump\-Hash (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{out, }
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a7b5b0f404d2dedd44aaafb0687d216a8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em out} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em hashtable} & The hash table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Dumps the contents of the hash to the specified file pointer
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M
+\item 19.\-08.\-19 Fixed warning about type uninitialized 
+\end{DoxyItemize}
+
+Definition at line 722 of file hash.\-c.
+
+\hypertarget{hash_8h_a3d44b7c155f0ee150a1e22df1f093ac6}{\index{hash.\-h@{hash.\-h}!bl\-Free\-Hash@{bl\-Free\-Hash}}
+\index{bl\-Free\-Hash@{bl\-Free\-Hash}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Free\-Hash}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Free\-Hash (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a3d44b7c155f0ee150a1e22df1f093ac6}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashtable} & The hash table\\
+\hline
+\end{DoxyParams}
+Frees all memory used by the hash
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 294 of file hash.\-c.
+
+\hypertarget{hash_8h_a4009ec93242c1f1b5663ac3885e9d9f8}{\index{hash.\-h@{hash.\-h}!bl\-Free\-Hash\-Key\-List@{bl\-Free\-Hash\-Key\-List}}
+\index{bl\-Free\-Hash\-Key\-List@{bl\-Free\-Hash\-Key\-List}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Free\-Hash\-Key\-List}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Free\-Hash\-Key\-List (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{keylist}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a4009ec93242c1f1b5663ac3885e9d9f8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em keylist} & List of keys returned by \hyperlink{hash_8c_aca7e169510f7bb87f8a462b80557f75b}{bl\-Get\-Hash\-Key\-List()}\\
+\hline
+\end{DoxyParams}
+Frees memory allocated for a list of keys in the hash
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 201 of file hash.\-c.
+
+\hypertarget{hash_8h_aca7e169510f7bb87f8a462b80557f75b}{\index{hash.\-h@{hash.\-h}!bl\-Get\-Hash\-Key\-List@{bl\-Get\-Hash\-Key\-List}}
+\index{bl\-Get\-Hash\-Key\-List@{bl\-Get\-Hash\-Key\-List}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Get\-Hash\-Key\-List}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ bl\-Get\-Hash\-Key\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_aca7e169510f7bb87f8a462b80557f75b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashtable} & The hashtable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array of strings representing hash keys
+\end{DoxyReturn}
+Gets a list of the keys in the hash. Allocates memory which must be freed using \hyperlink{hash_8c_a4009ec93242c1f1b5663ac3885e9d9f8}{bl\-Free\-Hash\-Key\-List()}
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 227 of file hash.\-c.
+
+\hypertarget{hash_8h_a0af910db68a6dc7a052a39f62df76515}{\index{hash.\-h@{hash.\-h}!bl\-Get\-Hash\-Value@{bl\-Get\-Hash\-Value}}
+\index{bl\-Get\-Hash\-Value@{bl\-Get\-Hash\-Value}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Get\-Hash\-Value}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-P\-T\-R} bl\-Get\-Hash\-Value (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key, }
+\item[{int $\ast$}]{type}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a0af910db68a6dc7a052a39f62df76515}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em key} & The hash key \\
+\hline
+\mbox{\tt out}  & {\em type} & The type for that item (or N\-U\-L\-L) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the value
+\end{DoxyReturn}
+Obtain an entry from the hash. Type 'type' parameter can be N\-U\-L\-L if you are sure you know what the type is and don't want to check. The value is returned as a pointer. If the value is itself a pointer or a string then this is what you want, but you will need to cast it appropriately. If it is an int, double or char then you need to cast and dereference this\-:
+
+string\-: (char $\ast$)value pointer\-: (my-\/type $\ast$)value int\-: $\ast$(int $\ast$)value double\-: $\ast$(double $\ast$)value char\-: $\ast$(char $\ast$)value
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 669 of file hash.\-c.
+
+\hypertarget{hash_8h_adfee28c95e93c425df93387b70e5fb36}{\index{hash.\-h@{hash.\-h}!bl\-Get\-Hash\-Value\-Char@{bl\-Get\-Hash\-Value\-Char}}
+\index{bl\-Get\-Hash\-Value\-Char@{bl\-Get\-Hash\-Value\-Char}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Get\-Hash\-Value\-Char}]{\setlength{\rightskip}{0pt plus 5cm}char bl\-Get\-Hash\-Value\-Char (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_adfee28c95e93c425df93387b70e5fb36}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em key} & The hash key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value
+\end{DoxyReturn}
+Simple wrapper to \hyperlink{hash_8c_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value()} for extracting characters
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 600 of file hash.\-c.
+
+\hypertarget{hash_8h_af40ea09b8c44bfb43762dab3aa802502}{\index{hash.\-h@{hash.\-h}!bl\-Get\-Hash\-Value\-Double@{bl\-Get\-Hash\-Value\-Double}}
+\index{bl\-Get\-Hash\-Value\-Double@{bl\-Get\-Hash\-Value\-Double}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Get\-Hash\-Value\-Double}]{\setlength{\rightskip}{0pt plus 5cm}double bl\-Get\-Hash\-Value\-Double (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_af40ea09b8c44bfb43762dab3aa802502}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em key} & The hash key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value
+\end{DoxyReturn}
+Simple wrapper to \hyperlink{hash_8c_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value()} for extracting doubles
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 576 of file hash.\-c.
+
+\hypertarget{hash_8h_a37ac90d036a845c4b115df925dcf7090}{\index{hash.\-h@{hash.\-h}!bl\-Get\-Hash\-Value\-Int@{bl\-Get\-Hash\-Value\-Int}}
+\index{bl\-Get\-Hash\-Value\-Int@{bl\-Get\-Hash\-Value\-Int}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Get\-Hash\-Value\-Int}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Get\-Hash\-Value\-Int (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a37ac90d036a845c4b115df925dcf7090}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em key} & The hash key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value
+\end{DoxyReturn}
+Simple wrapper to \hyperlink{hash_8c_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value()} for extracting integers
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M
+\item 23.\-08.\-15 Added cast of N\-A\-N 
+\end{DoxyItemize}
+
+Definition at line 552 of file hash.\-c.
+
+\hypertarget{hash_8h_a05d5450073761d5885fb138293c2983f}{\index{hash.\-h@{hash.\-h}!bl\-Get\-Hash\-Value\-Pointer@{bl\-Get\-Hash\-Value\-Pointer}}
+\index{bl\-Get\-Hash\-Value\-Pointer@{bl\-Get\-Hash\-Value\-Pointer}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Get\-Hash\-Value\-Pointer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-P\-T\-R} bl\-Get\-Hash\-Value\-Pointer (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a05d5450073761d5885fb138293c2983f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em key} & The hash key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value
+\end{DoxyReturn}
+Simple wrapper to \hyperlink{hash_8c_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value()} for extracting pointers
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 639 of file hash.\-c.
+
+\hypertarget{hash_8h_a8d75315373bc094431948d6421548604}{\index{hash.\-h@{hash.\-h}!bl\-Get\-Hash\-Value\-String@{bl\-Get\-Hash\-Value\-String}}
+\index{bl\-Get\-Hash\-Value\-String@{bl\-Get\-Hash\-Value\-String}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Get\-Hash\-Value\-String}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Get\-Hash\-Value\-String (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a8d75315373bc094431948d6421548604}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em key} & The hash key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value
+\end{DoxyReturn}
+Simple wrapper to \hyperlink{hash_8c_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value()} for extracting strings
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 621 of file hash.\-c.
+
+\hypertarget{hash_8h_a7ad162562d0d4f0d67701595b6ca21f4}{\index{hash.\-h@{hash.\-h}!bl\-Hash\-Key\-Defined@{bl\-Hash\-Key\-Defined}}
+\index{bl\-Hash\-Key\-Defined@{bl\-Hash\-Key\-Defined}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Hash\-Key\-Defined}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Hash\-Key\-Defined (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a7ad162562d0d4f0d67701595b6ca21f4}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em key} & Key for which we are searching \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Key found
+\end{DoxyReturn}
+Checks whether a hash key has been defined
+
+
+\begin{DoxyItemize}
+\item 14.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 777 of file hash.\-c.
+
+\hypertarget{hash_8h_a488624eced413f969a14b4a70e5f61ed}{\index{hash.\-h@{hash.\-h}!bl\-Initialize\-Hash@{bl\-Initialize\-Hash}}
+\index{bl\-Initialize\-Hash@{bl\-Initialize\-Hash}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Initialize\-Hash}]{\setlength{\rightskip}{0pt plus 5cm}{\bf H\-A\-S\-H\-T\-A\-B\-L\-E}$\ast$ bl\-Initialize\-Hash (
+\begin{DoxyParamCaption}
+\item[{{\bf U\-L\-O\-N\-G}}]{hashsize}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a488624eced413f969a14b4a70e5f61ed}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashsize} & An estimate of the size of the hash (or 0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a hashtable structure
+\end{DoxyReturn}
+The size estimate is used to allocate a hash table. If too large you waste memory; if too small lookups will take longer. You can use 0 for the default hash size of 1001
+
+A future version will implement dynamic hashing.
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 164 of file hash.\-c.
+
+\hypertarget{hash_8h_a031d7ec8e0fbf9b3c44bbd024e8c7382}{\index{hash.\-h@{hash.\-h}!bl\-Set\-Hash\-Value@{bl\-Set\-Hash\-Value}}
+\index{bl\-Set\-Hash\-Value@{bl\-Set\-Hash\-Value}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Set\-Hash\-Value}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Set\-Hash\-Value (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key, }
+\item[{int}]{type, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a031d7ec8e0fbf9b3c44bbd024e8c7382}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em key} & The hash key \\
+\hline
+\mbox{\tt in}  & {\em type} & The value type \\
+\hline
+\mbox{\tt in}  & {\em ...} & The value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Sets a value in the hash. 'type' is one of
+\begin{DoxyItemize}
+\item H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-I\-N\-T
+\item H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-S\-T\-R\-I\-N\-G
+\item H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-D\-O\-U\-B\-L\-E
+\item H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-C\-H\-A\-R
+\item H\-A\-S\-H\-T\-Y\-P\-E\-\_\-\-P\-O\-I\-N\-T\-E\-R
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 351 of file hash.\-c.
+
+\hypertarget{hash_8h_a89d6ea94e8f4a1c4f385d29490f4d516}{\index{hash.\-h@{hash.\-h}!bl\-Set\-Hash\-Value\-Char@{bl\-Set\-Hash\-Value\-Char}}
+\index{bl\-Set\-Hash\-Value\-Char@{bl\-Set\-Hash\-Value\-Char}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Set\-Hash\-Value\-Char}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Set\-Hash\-Value\-Char (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key, }
+\item[{char}]{value}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a89d6ea94e8f4a1c4f385d29490f4d516}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em $\ast$key} & The key for the hash entry \\
+\hline
+\mbox{\tt in}  & {\em $\ast$value} & The value for the hash entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Wrapper to \hyperlink{hash_8c_a031d7ec8e0fbf9b3c44bbd024e8c7382}{bl\-Set\-Hash\-Value()}
+
+
+\begin{DoxyItemize}
+\item 03.\-06.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 533 of file hash.\-c.
+
+\hypertarget{hash_8h_adade2513a460bbbe4a8680226b894927}{\index{hash.\-h@{hash.\-h}!bl\-Set\-Hash\-Value\-Double@{bl\-Set\-Hash\-Value\-Double}}
+\index{bl\-Set\-Hash\-Value\-Double@{bl\-Set\-Hash\-Value\-Double}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Set\-Hash\-Value\-Double}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Set\-Hash\-Value\-Double (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_adade2513a460bbbe4a8680226b894927}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em $\ast$key} & The key for the hash entry \\
+\hline
+\mbox{\tt in}  & {\em $\ast$value} & The value for the hash entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Set a double value in a hash Wrapper to \hyperlink{hash_8c_a031d7ec8e0fbf9b3c44bbd024e8c7382}{bl\-Set\-Hash\-Value()}
+
+
+\begin{DoxyItemize}
+\item 03.\-06.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 494 of file hash.\-c.
+
+\hypertarget{hash_8h_a86e24fa6cec7538d295099ec761f40fc}{\index{hash.\-h@{hash.\-h}!bl\-Set\-Hash\-Value\-Int@{bl\-Set\-Hash\-Value\-Int}}
+\index{bl\-Set\-Hash\-Value\-Int@{bl\-Set\-Hash\-Value\-Int}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Set\-Hash\-Value\-Int}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Set\-Hash\-Value\-Int (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a86e24fa6cec7538d295099ec761f40fc}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em $\ast$key} & The key for the hash entry \\
+\hline
+\mbox{\tt in}  & {\em $\ast$value} & The value for the hash entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Set an int value in a hash Wrapper to \hyperlink{hash_8c_a031d7ec8e0fbf9b3c44bbd024e8c7382}{bl\-Set\-Hash\-Value()}
+
+
+\begin{DoxyItemize}
+\item 03.\-06.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 473 of file hash.\-c.
+
+\hypertarget{hash_8h_a91ff829e21fc02d7a0425b6b7fe33428}{\index{hash.\-h@{hash.\-h}!bl\-Set\-Hash\-Value\-Pointer@{bl\-Set\-Hash\-Value\-Pointer}}
+\index{bl\-Set\-Hash\-Value\-Pointer@{bl\-Set\-Hash\-Value\-Pointer}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Set\-Hash\-Value\-Pointer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Set\-Hash\-Value\-Pointer (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key, }
+\item[{{\bf B\-P\-T\-R}}]{ptr}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a91ff829e21fc02d7a0425b6b7fe33428}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em $\ast$key} & The key for the hash entry \\
+\hline
+\mbox{\tt in}  & {\em $\ast$value} & The value for the hash entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Set a general pointer (B\-P\-T\-R) value in a hash Wrapper to \hyperlink{hash_8c_a031d7ec8e0fbf9b3c44bbd024e8c7382}{bl\-Set\-Hash\-Value()}
+
+
+\begin{DoxyItemize}
+\item 03.\-06.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 514 of file hash.\-c.
+
+\hypertarget{hash_8h_a9a90b6a5dcb4ef2ca2ebbb1cfbeeb65b}{\index{hash.\-h@{hash.\-h}!bl\-Set\-Hash\-Value\-String@{bl\-Set\-Hash\-Value\-String}}
+\index{bl\-Set\-Hash\-Value\-String@{bl\-Set\-Hash\-Value\-String}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Set\-Hash\-Value\-String}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Set\-Hash\-Value\-String (
+\begin{DoxyParamCaption}
+\item[{{\bf H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$}]{hashtable, }
+\item[{char $\ast$}]{key, }
+\item[{char $\ast$}]{value}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_a9a90b6a5dcb4ef2ca2ebbb1cfbeeb65b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$hashtable} & The hash table \\
+\hline
+\mbox{\tt in}  & {\em $\ast$key} & The key for the hash entry \\
+\hline
+\mbox{\tt in}  & {\em $\ast$value} & The value for the hash entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Set a string value in a hash Wrapper to \hyperlink{hash_8c_a031d7ec8e0fbf9b3c44bbd024e8c7382}{bl\-Set\-Hash\-Value()}
+
+
+\begin{DoxyItemize}
+\item 03.\-06.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 453 of file hash.\-c.
+
+\hypertarget{hash_8h_aa78d7f1c3e3e9c611b6ebf61475ed358}{\index{hash.\-h@{hash.\-h}!bl\-Strdup@{bl\-Strdup}}
+\index{bl\-Strdup@{bl\-Strdup}!hash.h@{hash.\-h}}
+\subsubsection[{bl\-Strdup}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Strdup (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{instr}
+\end{DoxyParamCaption}
+)}}\label{hash_8h_aa78d7f1c3e3e9c611b6ebf61475ed358}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em instr} & A string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A malloc'd copy of the string
+\end{DoxyReturn}
+An implementation of S\-Vr4, 4.\-3\-B\-S\-D, P\-O\-S\-I\-X.\-1-\/2001 strdup() which is not standard A\-N\-S\-I C
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 159 of file stringutil.\-c.
+

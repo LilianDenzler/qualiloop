@@ -1,0 +1,67 @@
+CSearch f2c port
+================
+
+N.B. cg.inc is only changed for increased portability.
+
+Bugs
+----
+cprint1.c      Should terminate string properly
+clear_atoms.c  Should handle Prolines properly
+
+
+Problems
+--------
+f2c doesn't support %REF() or %VAL() inbuilt functions, thus one
+needs to modify the FORTRAN routines which use these functions:
+	cprint.f
+	fill_grid1.f
+	forprtatm.f
+to remove these calls, then one must edit the C output to create the
+desired result (i.e. for %REF() keep the string pointer, but remove
+the associated length value; for %VAL() dereference the pointer)
+
+Added main.f. Must edit the resulting C to remove the trailing _ from
+the call to csearch_()
+
+Compiling
+---------
+cc -I../../INC -D__LINUX__ -D__FORT_UNDERSCORE__
+
+Reported Errors
+---------------
+pstruct.inc: Common block alignment errors (doesn't appear to cause
+		problems with gcc)
+
+Notes
+-----
+cg.inc		Contains lots of unused junk!
+CongenProto.h	Structures shouldn't have the trialing _ for 
+		__FORT_UNDERSCORE_
+
+Warnings
+--------
+assign_name.c	50/53
+bondl.c		Redefines DIST
+chnclsr_f.c	27
+ephi.c		Redefines TORSION (UtilityProto.h 66)
+fillatom_c.c	srwdbd()
+finclsatm.c	adccargs() cclsngdst()
+finsidchn.c	55
+getparam.c	13
+getparbond.c	mygetparbond()
+hadd.c		121
+initfcgen.c	12
+initfgener.c	xbyind()
+procrmps.c
+pscgncmnd.c
+rdprocons.c
+readpgp.c
+setavdclp.c
+setsddofrs.c
+sidchnengy.c	schnatm()
+sidechain_f.c	sidchnitr()
+srchwd.c	16
+srwdbd.c	24
+typeinres.c	19
+
+

@@ -1,0 +1,787 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!            YOU MUST EDIT IN THE ATOM EXCLUSIONS                
+!                  AND ADD TO NTER TOPOLOGY                      
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!REMARKS TOPH19.PRO ( protein topology )
+!REMARKS ===============================
+!REMARKS Charges and atom order modified for neutral GROUPs.
+!REMARKS Histidine charges set to Del Bene and Cohen sto-3g calculations.
+!REMARKS Amide charges set to match the experimental dipole moment.
+!REMARKS Default for HIStidines is the doubly protonated state 
+!! for use with PARAM19 parameters ( no special hydrogen bonding potential )
+!! donor and acceptor terms just for analysis
+!some empirical rules for the following topologies:
+!
+! 1. angles are taken between all permutations of atoms bonded to
+!    a particular atom. Exception: 2 angles linking the THR double ring
+! 2. each bond with non-terminal atoms creates one dihedral. Exception:
+!    ring bonds in aromatic side chains (but not PRO).
+! 3. each planar atom vertex creates one improper-planar term
+!    execption: ARG head groups.
+! 4. each 1-extended-H carbon atom creates one improper-tetrahedral term
+!    (for chirality)
+! 5. Each bond in an aromatic ring creates one improper-torsion term
+!    (exception: PRO)
+! 6. LYS head groups and methyl head groups create one dihedral for 
+!    each hydrogen
+! 7. all 1:2 and 1:3 nonbonded interactions are assumed to be excluded
+! 8. All 1:4,1:5,... non-bonded interactions in aromatic rings 
+!    (or double rings) are explicitly excluded
+!
+! ---------------------------------------------------------------------
+RESIDUE ALA 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   C    O    +N  "
+ ATOM CB   CH3E   0.00    "C   "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper  CA     N    C  CB  !tetrahedral CA
+ DONOr H    N    X    X
+ ACCEPTOR O
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+!------------------------------------------------------------------
+RESIDUE ARG 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   0.00    "CG   CD   C   "
+ ATOM CG   CH2E   0.00    "CD   NE  "
+ ATOM CD   CH2E   0.10    "NE   HE   CZ  "
+ ATOM NE   NH1   -0.40    "HE   CZ   NH1  NH2 "
+ ATOM HE   H   0.30    "CZ  "
+ ATOM CZ   C   0.50    "NH1  HH11 HH12 NH2  HH21 HH22"
+ ATOM NH1   NC2   -0.45    "HH11 HH12 NH2 "
+ ATOM HH11   HC   0.35    "HH12"
+ ATOM HH12   HC   0.35    "    "
+ ATOM NH2   NC2   -0.45    "HH21 HH22"
+ ATOM HH21   HC   0.35    "HH22"
+ ATOM HH22   HC   0.35    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   CD
+ BOND CD   NE
+ BOND NE   HE
+ BOND NE   CZ
+ BOND CZ   NH1
+ BOND CZ   NH2
+ BOND NH1  HH11
+ BOND NH1  HH12
+ BOND NH2  HH21
+ BOND NH2  HH22
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG
+ TORSION CA   CB   CG   CD
+ TORSION CB   CG   CD   NE
+ TORSION CG   CD   NE   CZ
+ TORSION CD   NE   CZ   NH1
+ TORSION NE   CZ   NH1  HH11 !note: one dehidral for each hydrogen
+ TORSION NE   CZ   NH2  HH21 !
+ TORSION NE   CZ   NH1  HH12 !
+ TORSION NE   CZ   NH2  HH22 !
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB !tetrahedral CA
+ IMPRoper NE   CD   CZ   HE !planar NE
+ IMPRoper CZ   NH1  NH2  NE !planar CZ
+ DONOr H    N    X    X
+ DONOr HE   NE    X    X
+ DONOr HH11 NH1    X    X
+ DONOr HH12 NH1    X    X
+ DONOr HH21 NH2    X    X
+ DONOr HH22 NH2    X    X
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE ASN 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   0.00    "CG   OD1  ND2  C   "
+ ATOM CG   C   0.55    "OD1  ND2  HD21 HD22"
+ ATOM OD1   O   -0.55    "ND2 "
+ ATOM ND2   NH2   -0.60    "HD21 HD22"
+ ATOM HD21   H   0.30    "HD22"
+ ATOM HD22   H   0.30    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   OD1
+ BOND CG   ND2
+ BOND ND2  HD21
+ BOND ND2  HD22
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG
+ TORSION CA   CB   CG   OD1
+ TORSION CB   CG   ND2  HD21
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ IMPRoper CG   OD1  ND2  CB  !planar CG
+ IMPRoper ND2  HD21 HD22 CG  !planar ND2
+ DONOr H    N      X    X
+ DONOr HD21 ND2    X    X
+ DONOr HD22 ND2    X    X
+ ACCEPTOR OD1
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE ASP 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   -0.16    "CG   OD1  OD2  C   "
+ ATOM CG   C   0.36    "OD1  OD2 "
+ ATOM OD1   OC   -0.60    "OD2 "
+ ATOM OD2   OC   -0.60    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   OD1
+ BOND CG   OD2
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG
+ TORSION CA   CB   CG   OD1
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ IMPRoper CG   OD1  OD2  CB  !planar CG
+ DONOr H    N    X    X
+ ACCEPTOR OD1
+ ACCEPTOR OD2
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE CYS 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   SG   C    O    +N  "
+ ATOM CB   CH2E   0.19    "SG   C   "
+ ATOM SG   SH1E   -0.19    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   SG
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   SG
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB   !tetrahedral CA
+ DONOr H    N    X    X
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE GLN 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   0.00    "CG   CD   C   "
+ ATOM CG   CH2E   0.00    "CD   OE1  NE2 "
+ ATOM CD   C   0.55    "OE1  NE2  HE21 HE22"
+ ATOM OE1   O   -0.55    "NE2 "
+ ATOM NE2   NH2   -0.60    "HE21 HE22"
+ ATOM HE21   H   0.30    "HE22"
+ ATOM HE22   H   0.30    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   CD
+ BOND CD   OE1
+ BOND CD   NE2
+ BOND NE2  HE21
+ BOND NE2  HE22
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG
+ TORSION CA   CB   CG   CD 
+ TORSION CB   CG   CD   OE1
+ TORSION CG   CD   NE2  HE21
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB   !tetrahedral CA
+ IMPRoper CD   OE1  NE2  CG   !planar CD
+ IMPRoper NE2  HE21 HE22 CD   !planar NE2
+ DONOr H    N    X    X
+ DONOr HE21 NE2    X    X
+ DONOr HE22 NE2    X    X
+ ACCEPTOR OE1
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE GLU 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   0.00    "CG   CD   C   "
+ ATOM CG   CH2E   -0.16    "CD   OE1  OE2 "
+ ATOM CD   C   0.36    "OE1  OE2 "
+ ATOM OE1   OC   -0.60    "OE2 "
+ ATOM OE2   OC   -0.60    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   CD
+ BOND CD   OE1
+ BOND CD   OE2
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG
+ TORSION CA   CB   CG   CD
+ TORSION CB   CG   CD   OE1  !note: only one dihedral for CG-CD
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ IMPRoper CD   OE1  OE2  CG  !planar CD
+ DONOr H    N    X    X
+ ACCEPTOR OE1
+ ACCEPTOR OE2
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE GLY 0.0
+ ATOM N   NH1   -0.35    "H    CA   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH2E   0.10    "C    O    +N  "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ DONOr H    N    X    X
+ ACCEPTOR O
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+!------------------------------------------------------------------
+RESIDUE HIS 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   0.10    "CG   ND1  CD2  C   "
+ ATOM CG   C   0.15    "ND1  HD1  CD2  CE1  NE2 "
+ ATOM CD2   CR1E   0.20    "CE1  NE2 "
+ ATOM ND1   NH1   -0.30    "HD1  CD2  CE1  NE2 "
+ ATOM HD1   H   0.35    "CE1 "
+ ATOM CE1   CR1E   0.45    "NE2 "
+ ATOM NE2   NH1   -0.30    "    "
+! No exclusions found in reference for this atom
+ ATOM HE2   H   0.35   " "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   ND1
+ BOND CG   CD2
+ BOND ND1  HD1
+ BOND ND1  CE1
+ BOND CD2  NE2
+ BOND CE1  NE2
+ BOND NE2  HE2
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG 
+ TORSION CA   CB   CG   ND1
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ IMPRoper CG   ND1  CD2  CB  !planar CG
+ IMPRoper ND1  CG   CE1  HD1 !planar ND1
+ IMPRoper NE2  CD2  CE1  HE2 !planar NE2
+ IMPRoper CG   ND1  CE1  NE2 !!
+ IMPRoper ND1  CE1  NE2  CD2 !!
+ IMPRoper CE1  NE2  CD2  CG  !! ring torsions
+ IMPRoper NE2  CD2  CG   ND1 !!
+ IMPRoper CD2  CG   ND1  CE1 !!
+ DONOr H    N     X    X
+ DONOr HD1  ND1    X    X
+ DONOr HE2  NE2    X    X
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE ILE 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG1  CG2  C    O    +N  "
+ ATOM CB   CH1E   0.00    "CG1  CG2  CD   C   "
+ ATOM CG2   CH3E   0.00    "    "
+ ATOM CG1   CH2E   0.00    "CG2  CD  "
+ ATOM CD   CH3E   0.00    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG1
+ BOND CB   CG2
+ BOND CG1  CD
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG1  !note: only one dihedral around CA-CB
+ TORSION CA   CB   CG1  CD
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ IMPRoper CB   CG1  CG2  CA  !planar CB
+ DONOr H    N    X    X
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE LEU 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   0.00    "CG   CD1  CD2  C   "
+ ATOM CG   CH1E   0.00    "CD1  CD2 "
+ ATOM CD1   CH3E   0.00    "CD2 "
+ ATOM CD2   CH3E   0.00    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   CD1
+ BOND CG   CD2
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG
+ TORSION CA   CB   CG   CD2  !note: only one dihedral around CB-CG
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ IMPRoper CG   CD2  CD1  CB  !planar CG
+ DONOr H    N    X    X
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE LYS 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   0.00    "CG   CD   C   "
+ ATOM CG   CH2E   0.00    "CD   CE  "
+ ATOM CD   CH2E   0.00    "CE   NZ  "
+ ATOM CE   CH2E   0.25    "NZ   HZ1  HZ2  HZ3 "
+ ATOM NZ   NH3   -0.30    "HZ1  HZ2  HZ3 "
+ ATOM HZ1   HC   0.35    "HZ2  HZ3 "
+ ATOM HZ2   HC   0.35    "HZ3 "
+ ATOM HZ3   HC   0.35    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   CD
+ BOND CD   CE
+ BOND CE   NZ
+ BOND NZ   HZ1
+ BOND NZ   HZ2
+ BOND NZ   HZ3
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG
+ TORSION CA   CB   CG   CD
+ TORSION CB   CG   CD   CE
+ TORSION CG   CD   CE   NZ
+ TORSION CD   CE   NZ   HZ1  !!
+ TORSION CD   CE   NZ   HZ2  !!note: dihedrals for each hydrogen
+ TORSION CD   CE   NZ   HZ3  !!
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ DONOr H    N    X    X
+ DONOr HZ1  NZ    X    X
+ DONOr HZ2  NZ    X    X
+ DONOr HZ3  NZ    X    X
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE MET 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   0.00    "CG   SD   C   "
+ ATOM CG   CH2E   0.06    "SD   CE  "
+ ATOM SD   S   -0.12    "CE  "
+ ATOM CE   CH3E   0.06    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   SD
+ BOND SD   CE
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG
+ TORSION CA   CB   CG   SD
+ TORSION CB   CG   SD   CE
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ DONOr H    N    X    X
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE PHE 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   0.00    "CG   CD1  CD2  C   "
+ ATOM CG   C   0.00    "CD1  CD2  CE1  CE2  CZ  "
+ ATOM CD1   CR1E   0.00    "CD2  CE1  CE2  CZ  "
+ ATOM CD2   CR1E   0.00    "CE1  CE2  CZ  "
+ ATOM CE1   CR1E   0.00    "CE2  CZ  "
+ ATOM CE2   CR1E   0.00    "CZ  "
+ ATOM CZ   CR1E   0.00    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   CD1
+ BOND CG   CD2
+ BOND CD1  CE1
+ BOND CD2  CE2
+ BOND CE1  CZ
+ BOND CE2  CZ
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG
+ TORSION CA   CB   CG   CD1  !note: only one dihedral around CB-CG
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ IMPRoper CG   CD1  CD2  CB  !planar CG
+ IMPRoper CG   CD1  CE1  CZ  !!
+ IMPRoper CD1  CE1  CZ   CE2 !!
+ IMPRoper CE1  CZ   CE2  CD2 !! ring torsions
+ IMPRoper CZ   CE2  CD2  CG  !!
+ IMPRoper CE2  CD2  CG   CD1 !!
+ IMPRoper CD2  CG   CD1  CE1 !!
+ DONOr H    N    X    X
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE PRO 0.0
+ ATOM N   N   -0.20    "CA   CB   CG   CD   C   "
+ ATOM CD   CH2E   0.10    "    "
+ ATOM CA   CH1E   0.10    "CB   CG   CD   C    O    +N  "
+ ATOM CB   CH2E   0.00    "CG   CD   C   "
+ ATOM CG   CH2E   0.00    "CD  "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C 
+ BOND C    O
+ BOND N    CD
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   CD
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG  !! 
+ TORSION CA   CB   CG   CD  !!
+ TORSION CB   CG   CD   N   !! the PROline ring is represented by dihedrals
+ TORSION CG   CD   N    CA  !!
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE SER 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   OG   C    O    +N  "
+ ATOM CB   CH2E   0.25    "OG   HG   C   "
+ ATOM OG   OH1   -0.65    "HG  "
+ ATOM HG   H   0.40    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   OG
+ BOND OG   HG
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   OG
+ TORSION CA   CB   OG   HG
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ DONOr H    N    X    X
+ DONOr HG   OG     X    X
+ ACCEPTOR OG
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE THR 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   OG1  CG2  C    O    +N  "
+ ATOM CB   CH1E   0.25    "OG1  HG1  CG2  C   "
+ ATOM OG1   OH1   -0.65    "HG1  CG2 "
+ ATOM HG1   H   0.40    "    "
+ ATOM CG2   CH3E   0.00    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   OG1
+ BOND CB   CG2
+ BOND OG1  HG1
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   OG1  !note: only one dihedral around CA-CB
+ TORSION CA   CB   OG1  HG1
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ IMPRoper CB   OG1  CG2  CA  !planar CB
+ DONOr H    N    X    X
+ DONOr HG1  OG1    X    X
+ ACCEPTOR OG1
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE TRP 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   0.00    "CG   CD1  CD2  C   "
+ ATOM CG   C   -0.03    "CD1  CD2  NE1  CE2  CE3  CZ2  CZ3  CH2 "
+ ATOM CD2   C   0.10    "NE1  CE2  CE3  CZ2  CZ3  CH2 "
+ ATOM CE2   C   -0.04    "CE3  CZ2  CZ3  CH2 "
+ ATOM CE3   CR1E   -0.03    "CZ2  CZ3  CH2 "
+ ATOM CD1   CR1E   0.06    "CD2  NE1  HE1  CE2  CE3  CZ2  CZ3  CH2 "
+ ATOM NE1   NH1   -0.36    "HE1  CE2  CE3  CZ2  CZ3  CH2 "
+ ATOM HE1   H   0.30    "CE2 "
+ ATOM CZ2   CR1E   0.00    "CZ3  CH2 "
+ ATOM CZ3   CR1E   0.00    "CH2 "
+ ATOM CH2   CR1E   0.00    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   CD1
+ BOND CG   CD2
+ BOND CD1  NE1
+ BOND CD2  CE2
+ BOND NE1  HE1
+ BOND NE1  CE2
+ BOND CD2  CE3
+ BOND CE2  CZ2
+ BOND CE3  CZ3
+ BOND CZ2  CH2
+ BOND CZ3  CH2
+! The ring angles are only assigned for the five and six member rings.
+! The angles CG CD2 CE3  and NE1 CE2 CZ2 are left out to avoid conflicts
+! with the histidine angle parameters and to preserve symmetry.
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG
+ TORSION CA   CB   CG   CD1
+ TORSION CD1  CE2  CD2  CZ3  !!
+ TORSION CD1  CD2  CE2  CH2  !! these dihedrals span the rings and keep
+ TORSION CZ2  CE2  CD2  CG   !! them parallel
+ TORSION CE3  CD2  CE2  NE1  !!
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB   !tetrahedral CA
+ IMPRoper CG   CD1  CD2  CB   !planar CG
+ IMPRoper NE1  CD1  CE2  HE1  !planar NE1
+ IMPRoper CD2  CE2  CZ2  CH2  !!
+ IMPRoper CE2  CZ2  CH2  CZ3  !!
+ IMPRoper CZ2  CH2  CZ3  CE3  !! torsions ring 2
+ IMPRoper CH2  CZ3  CE3  CD2  !!
+ IMPRoper CZ3  CE3  CD2  CE2  !!
+ IMPRoper CE3  CD2  CE2  CZ2  !!
+ IMPRoper CG   CD1  NE1  CE2  !!
+ IMPRoper CD1  NE1  CE2  CD2  !!
+ IMPRoper NE1  CE2  CD2  CG   !! torsions ring 1
+ IMPRoper CE2  CD2  CG   CD1  !!
+ IMPRoper CD2  CG   CD1  NE1  !!
+ DONOr H    N    X    X
+ DONOr HE1  NE1    X    X
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE TYR 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG   C    O    +N  "
+ ATOM CB   CH2E   0.00    "CG   CD1  CD2  C   "
+ ATOM CG   C   0.00    "CD1  CD2  CE1  CE2  CZ  "
+ ATOM CD1   CR1E   0.00    "CD2  CE1  CE2  CZ  "
+ ATOM CE1   CR1E   0.00    "CE2  CZ   OH  "
+ ATOM CD2   CR1E   0.00    "CE1  CE2  CZ  "
+ ATOM CE2   CR1E   0.00    "CZ   OH  "
+ ATOM CZ   C   0.25    "OH   HH  "
+ ATOM OH   OH1   -0.65    "HH  "
+ ATOM HH   H   0.40    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG
+ BOND CG   CD1
+ BOND CG   CD2
+ BOND CD1  CE1
+ BOND CD2  CE2
+ BOND CE1  CZ 
+ BOND CE2  CZ
+ BOND CZ   OH
+ BOND OH   HH
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG
+ TORSION CA   CB   CG   CD1
+ TORSION CE2  CZ   OH   HH
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB !tetrahedral CA
+ IMPRoper CG   CD1  CD2  CB !planar CG
+ IMPRoper CZ   CE1  CE2  OH !planar CZ
+ IMPRoper CG   CD1  CE1  CZ  !!
+ IMPRoper CD1  CE1  CZ   CE2 !!
+ IMPRoper CE1  CZ   CE2  CD2 !! ring torsions
+ IMPRoper CZ   CE2  CD2  CG  !!
+ IMPRoper CE2  CD2  CG   CD1 !!
+ IMPRoper CD2  CG   CD1  CE1 !!
+ DONOr H    N    X    X
+ DONOr HH   OH    X    X
+ ACCEPTOR OH
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE VAL 0.0
+ ATOM N   NH1   -0.35    "H    CA   CB   C   "
+ ATOM H   H   0.25    "CA  "
+ ATOM CA   CH1E   0.10    "CB   CG1  CG2  C    O    +N  "
+ ATOM CB   CH1E   0.00    "CG1  CG2  C   "
+ ATOM CG1   CH3E   0.00    "CG2 "
+ ATOM CG2   CH3E   0.00    "    "
+ ATOM C   C   0.55    "O    +N   +H   +CA "
+ ATOM O   O   -0.55    "+N  "
+ BOND N    CA
+ BOND CA   C
+ BOND C    O
+ BOND N    H
+ BOND CA   CB
+ BOND CB   CG1
+ BOND CB   CG2
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+ TORSION N    CA   CB   CG1  !note: only one dihedral around CA-CB
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ IMPRoper CA   N    C    CB  !tetrahedral CA
+ IMPRoper CB   CG2  CG1  CA  !planar CB
+ DONOr H    N    X    X
+ ACCEPTOR O
+!------------------------------------------------------------------
+RESIDUE CTER 0.0
+ IMPROPER N    -C   CA   H
+ IMPROPER C    CA   +N   O
+ TORSION -C   N    CA   C
+ TORSION N    CA   C    +N
+ TORSION CA   C    +N   +CA
+!------------------------------------------------------------------
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!            YOU MUST EDIT IN THE ATOM EXCLUSIONS                
+!                  AND ADD TO NTER TOPOLOGY                      
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+RESIDUE NTER    0.44900
+ATOM HT1  HC      0.22450     "HT2  +N   +H   +CA "
+ATOM HT2  HC      0.22450     "+N   +H   +CA "
+BOND HT1  +N        
+BOND HT2  +N  
+ANGLE HT1  +N   HT2            
+ANGLE HT2  +N   +H   
+ANGLE HT2  +N   +CA 
+TORSION HT2  +N   +CA  HT1       
+TORSION +H   +N   +CA  HT1 
+DONOR HT1 +N +CA +C
+DONOR HT2 +N +CA +C
+DONOR +HT3 +N +CA +C
+BUILD HT2  +CA  *+NT HT1    0.0000    0.00  120.00    0.00   0.0000
+BUILD +HT3 +CA  *+NT HT2    0.0000    0.00  120.00    0.00   0.0000
+

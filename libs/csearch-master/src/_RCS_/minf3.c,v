@@ -1,0 +1,42 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.04;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Computes minimum of three floating point numbers. */
+ 
+float minf3(
+float x1,
+float x2,
+float x3
+)
+{
+   float m;
+ 
+   m = x1 < x2 ? x1 : x2;
+   m = m < x3 ? m : x3;
+   return m;
+}
+ 
+@

@@ -1,0 +1,188 @@
+/****************************************************************************** 
+ *	    Name: EurekaConsts.h                                              *
+ *  Function: Header file to declare constants used in Eureka routines.       *
+ * Copyright: (C) Oxford Molecular Limited.                                   *
+ *----------------------------------------------------------------------------*
+ *    Author: J.P.Holland, Oxford Molecular Ltd.                              *
+ *      Date: 21-Sep-1990                                                     *
+ *----------------------------------------------------------------------------*
+ * Modification Record                                                        *
+ * Date     Inits   Comments                                                  *
+ * dd/mm/yy                                                                   *
+ * 03/04/91 GCC     Removed extra comma at end of enum list.                  *
+ * 20/12/91 JAW     Added ABM specific keywords for control deck              *
+ * 10/09/92 JAW     Added new ABM keywords for CR 520                         *
+ ******************************************************************************/
+
+#ifndef __EUREKA_CONSTS__
+#define __EUREKA_CONSTS__
+
+#define EURFE_FILENAME_MAX ( PATH_MAX + MAXFILLEN )
+
+   /* Define the file extensions to be used */
+#define EURFE_CONTROL  ".eur"
+#define EURFE_COORD    ".crd"
+#define EURFE_COORDIN  ".cri"
+#define EURFE_COORDOUT ".cro"
+#define EURFE_DATA     ".def"
+#define EURFE_LOG      ".log"
+#define EURFE_POT      ".pot"
+#define EURFE_RESTART  ".rst"
+#define EURFE_RESTRAIN ".frc"
+
+   /* Define the current version of the Eureka files created */
+#define EUR_VERSION "1.0"                 /* Current Eureka version number */
+
+   /* Define pointers to the allowed Control Deck keywords */
+enum { EURCD_REMARK     ,
+       EURCD_DEBUG      ,
+       EURCD_VERSION    ,
+       EURCD_PARAMETER  ,
+       EURCD_NOCROSS    ,
+       EURCD_NO1_4      ,
+       EURCD_NOPLANES   ,
+       EURCD_FULLCELL   ,
+       EURCD_PARTCELL   ,
+       EURCD_NEIGHBOUR  ,
+       EURCD_CALCTYPE   ,
+       EURCD_STEEPEST   ,
+       EURCD_QMIN       ,
+       EURCD_CONJUGATE  ,
+       EURCD_NEWTON     ,
+       EURCD_RANDOM     ,
+       EURCD_GEAR       ,
+       EURCD_E_RESCALE  ,
+       EURCD_T_RESCALE  ,
+       EURCD_1_RESCALE  ,
+       EURCD_CONST_P    ,
+       EURCD_CONST_T    ,
+       EURCD_COORDIN    ,
+       EURCD_COORDOUT   ,
+       EURCD_RESTRAINTS ,
+       EURCD_RESTARTIN  ,
+       EURCD_FORCEFIELD ,
+       EURCD_DATAFILE   ,
+       EURCD_INITDYN    ,
+       EURCD_RESTARTOUT ,
+/* ABM specific keywords follow - OMUPD JAW 20/12/91 */
+       EURCD_ABMMODE ,
+       EURCD_ABMOUTE ,
+       EURCD_ABMOUTS ,
+       EURCD_ABMERROR ,
+       EURCD_ABMCYCLE ,
+       EURCD_SOLVMOD ,
+       EURCD_KEEPCONF ,
+       EURCD_CONFILE ,
+/* New ABM keywords - OMUPD JAW 10/09/92 */
+       EURCD_ABMPDB ,
+       EURCD_ABMATCONV ,
+/* End of ABM specific keywords */
+
+       EURCD_END        ,
+       EURCD_MAX        } ;
+
+   /* Define pointers to allowed Coordinate File keywords */
+enum { EURCF_REMARK     ,
+       EURCF_VERSION    ,
+       EURCF_DATAFILE   ,
+       EURCF_TOTALENG   ,
+       EURCF_INTERENG   ,
+       EURCF_MOLENG     ,
+       EURCF_CELL       ,
+       EURCF_ATOM       ,
+       EURCF_FORMATTED  ,
+       EURCF_UNFORMAT   ,
+       EURCF_COORDSETS  ,
+
+       EURCF_END        ,
+       EURCF_MAX        } ;
+
+   /* Define pointers to allowed Data File keywords */
+enum { EURDF_REMARK     ,
+       EURDF_VERSION    ,
+       EURDF_NOCROSS    ,
+       EURDF_NO1_4      ,
+       EURDF_NOPLANES   ,
+       EURDF_SYMMETRY   ,
+       EURDF_CELL       ,
+       EURDF_FULLCELL   ,
+       EURDF_PARTCELL   ,
+       EURDF_MOLECULE   ,
+       EURDF_RESIDUE    ,
+       EURDF_ATOM       ,
+       EURDF_CONNECT    ,
+       EURDF_STATIONARY ,
+       EURDF_MOLFIX     ,
+       EURDF_RESFIX     ,
+       EURDF_TORSION    ,
+
+       EURDF_END        ,
+       EURDF_MAX        } ;
+
+   /* Define pointers to allowed Restraint File keywords */
+enum { EURRF_REMARK     ,
+       EURRF_VERSION    ,
+       EURRF_MOLFIX     ,
+       EURRF_RESFIX     ,
+       EURRF_TORSION    ,
+
+       EURRF_END        ,
+       EURRF_MAX        } ;
+
+   /* Define pointers to allowed keywords in parameter file */
+enum { EURPF_REMARK       ,
+       EURPF_VERSION      ,
+       EURPF_ATOMTYPE     ,
+       EURPF_ATOMMASS     ,
+       EURPF_ATOMCHARGE   ,
+       EURPF_BOND         ,
+       EURPF_ANGLE        ,
+       EURPF_TORWILD      ,
+       EURPF_TORSION      ,
+       EURPF_PLANE        ,
+       EURPF_ANGLEANGLE   ,
+       EURPF_NONBOND      ,
+       EURPF_NONBOND2     ,
+       EURPF_HB_DIST      ,
+       EURPF_HYDROGENS    ,
+       EURPF_ACCEPTORS    ,
+       EURPF_TORFULL      ,
+
+       EURPF_END          ,
+       EURPF_MAX } ;
+
+   /* Define pointers to allowed types of calculation */
+enum { EURCT_ENERGY       ,               /* Calculate energy */
+       EURCT_MINIMISE     ,               /* Perform minimisation */
+       EURCT_DYNAMICS     ,               /* Perform molecular dynamics */
+
+       EURCT_MAX } ;
+
+   /* Current maximum width of keywords */
+#define EUR_KEYSIZE 10
+   /* Maximum line length to read from files */
+#define EUR_LINESIZE 200
+
+/* Maximum data that can be passed from eureka to pimms */
+/* This is the number of coordinates and energies etc */
+#define EUR_MAXDATA 25
+
+/* Codes passed back from interface and Eureka to Pimms */
+enum { EUR_RUN_WATCH	= 10 ,		/* Watch results of calcn */
+       EUR_RUN_NOWATCH	,		/* Don't watch results */
+       EUR_REDRAW	,		/* Redraw main screen */
+       EUR_READ_COORDS	,		/* Read new coords from eureka */
+       EUR_NUMDATA	,		/* Number of data items to be pased */
+       EUR_FINISH	,		/* Finished calculation */
+       EUR_CREATE_ERROR ,		/* Error creating new process */
+       EUR_MESSAGE			/* Message to be output via DoMessage */
+       } ;
+
+/* Define the data structure used to transfer data between the programs */
+typedef union {
+                char   input [ EUR_MAXDATA * CHAR_PER_FREAL8 ] ;
+                FINT4  idata [ EUR_MAXDATA * FINT4_PER_FREAL8 ]  ;
+                FREAL8 data  [ EUR_MAXDATA ] ;
+              } EurDataTr , * EurDataTrPtr ;
+
+#endif

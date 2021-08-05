@@ -1,0 +1,62 @@
+#include "ProtoTypes.h"
+#include "CongenProto.h"
+#include "values.h"
+ 
+/* Prints the sidechain atoms for one degree of freedom descriptor. */
+ 
+void prtsidchn(
+struct sidechain_d *dp
+)
+{
+   struct sideres *srp,**srpp;
+   struct clump *clp,**clpp;
+   struct atom *atp,**atpp;
+   int iclump,ires,iseg;
+   char buf[21];
+ 
+   fprintf(out,"Sidechain atoms:\n");
+   for (srpp=dp->residues; (srp = *srpp); srpp++)
+   {
+      ires = srp->resno;
+      iseg = getseg(&ires,pstruct.segndx,&values.nsegs);
+      fprintf(out,"Residue %.4s %.4s in %.4s%s\n",pstruct.resnme[ires-1],
+             pstruct.resid[ires-1],pstruct.segid[iseg-1],
+             srp->special ? " is special" : "");
+      if (srp->sgrid == -1.0)
+         fprintf(out,"Sidechain grid is minimum energy.\n");
+      else
+         fprintf(out,"Sidechain grid is %g degrees.\n",srp->sgrid/dtorad);
+      fprintf(out,"MAXEVDW = %g  Van der Waals avoidance is %s.\n",
+             srp->maxevdw,srp->vavoid ? "on" : "off");
+      fprintf(out,"Clump symmetry is %s.\n",srp->clump_symmetry ? "on" : "off");
+      for (clpp = srp->clumps, iclump=1; (clp = *clpp); clpp++, iclump++)
+      {
+         buf[0] = '\0';
+         print_atom1(buf,clp->free_atom->atomno);
+         fprintf(out,"   Clump %d  Symmetry is %d  Free atom is %s\n",
+                iclump,clp->symmetry,buf);
+         if (srp->vavoid)
+         {
+            fprintf(out,"   Avoid: xmin = %g  xmax = %g  rmax = %g\n",
+                   clp->avoidxmin,clp->avoidxmax,clp->avoidrmax);
+            fprintf(out,"          xcenter = %g  extent = %g  vdwrmax = %g\n",
+                   clp->avoidxcenter,clp->avoidextent,clp->avoidvdwrmax);
+         }
+         for (atpp = clp->atoms; (atp = *atpp); atpp++)
+         {
+            buf[0] = '\0';
+            print_atom1(buf,atp->atomno);
+            fprintf(out,"      Atom %s Bond = %g Angle = %g\n",
+                   buf,atp->bond,atp->angle);
+            fprintf(out,"         Torsion = %g  Period = %g  Offset = %g  \
+Cons code = %d\n",atp->torsion,atp->torsion_period,atp->offset,atp->cons_code);
+            if (srp->vavoid)
+            {
+               fprintf(out,"         Avoid x = %g  r = %g  phi = %g\n",
+                      atp->avoidx,atp->avoidr,atp->avoidphi/dtorad);
+            }
+         }
+      }
+   }
+}
+ 

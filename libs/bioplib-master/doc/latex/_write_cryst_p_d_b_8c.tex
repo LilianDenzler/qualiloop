@@ -1,0 +1,93 @@
+\hypertarget{_write_cryst_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Write\-Cryst\-P\-D\-B.c File Reference}
+\label{_write_cryst_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Write\-Cryst\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Write\-Cryst\-P\-D\-B.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_write_cryst_p_d_b_8c_ac7cfad642d8a9287de0b7d46eb1105c7}{bl\-Write\-Cryst\-P\-D\-B} (F\-I\-L\-E $\ast$fp, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} Unit\-Cell, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} Cell\-Angles, char $\ast$spacegroup, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Orig\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Scale\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0\-R 12.\-10.\-05 Original
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_write_cryst_p_d_b_8c_source}{Write\-Cryst\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_write_cryst_p_d_b_8c_ac7cfad642d8a9287de0b7d46eb1105c7}{\index{Write\-Cryst\-P\-D\-B.\-c@{Write\-Cryst\-P\-D\-B.\-c}!bl\-Write\-Cryst\-P\-D\-B@{bl\-Write\-Cryst\-P\-D\-B}}
+\index{bl\-Write\-Cryst\-P\-D\-B@{bl\-Write\-Cryst\-P\-D\-B}!WriteCrystPDB.c@{Write\-Cryst\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Write\-Cryst\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-Cryst\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf V\-E\-C3\-F}}]{Unit\-Cell, }
+\item[{{\bf V\-E\-C3\-F}}]{Cell\-Angles, }
+\item[{char $\ast$}]{spacegroup, }
+\item[{{\bf R\-E\-A\-L}}]{Orig\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{Scale\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{_write_cryst_p_d_b_8c_ac7cfad642d8a9287de0b7d46eb1105c7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & Output file pointet \\
+\hline
+\mbox{\tt in}  & {\em Unit\-Cell} & The unit cell dimensions \\
+\hline
+\mbox{\tt in}  & {\em Cell\-Angles} & The unit cell angles \\
+\hline
+\mbox{\tt in}  & {\em $\ast$spacegroup} & The crystal's space group \\
+\hline
+\mbox{\tt in}  & {\em Orig\-Matrix} & The origin matrix \\
+\hline
+\mbox{\tt in}  & {\em Scale\-Matrix} & The scale matrix\\
+\hline
+\end{DoxyParams}
+Write crystal parameters (unit cell, space group, origin and scale matrices) to a P\-D\-B file.
+
+
+\begin{DoxyItemize}
+\item 12.\-10.\-95 Original By\-: A\-C\-R\-M
+\item 17.\-10.\-95 Corrected lf to f in fprintf()s
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 102 of file Write\-Cryst\-P\-D\-B.\-c.
+

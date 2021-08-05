@@ -1,0 +1,165 @@
+\hypertarget{pldist_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/pldist.c File Reference}
+\label{pldist_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/pldist.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/pldist.\-c}}
+}
+
+
+Calculate distance from a point to a line.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{pldist_8c_ac275668e5c97b25944ee207541dde07b}{C\-R\-O\-S\-S\-P\-R\-O\-D\-U\-C\-T}(p1, p2, p3)
+\item 
+\#define \hyperlink{pldist_8c_a09eb086fb7f57c48abc7a2fbc87994f3}{D\-O\-T\-P\-R\-O\-D\-U\-C\-T}(v1, v2)~((v1).x$\ast$(v2).x + (v1).y$\ast$(v2).y + (v1).z$\ast$(v2).z)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{pldist_8c_aa79ffe75bcb856281d385996098de754}{bl\-Point\-Line\-Distance} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Px, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Py, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Pz, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P1x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P1y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P1z, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P2x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P2y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} P2z, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$Rx, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$Ry, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$Rz, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$frac)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calculate distance from a point to a line. \begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) University of Reading / Dr. Andrew C. R. Martin 1999-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{pldist_8c_source}{pldist.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{pldist_8c_ac275668e5c97b25944ee207541dde07b}{\index{pldist.\-c@{pldist.\-c}!C\-R\-O\-S\-S\-P\-R\-O\-D\-U\-C\-T@{C\-R\-O\-S\-S\-P\-R\-O\-D\-U\-C\-T}}
+\index{C\-R\-O\-S\-S\-P\-R\-O\-D\-U\-C\-T@{C\-R\-O\-S\-S\-P\-R\-O\-D\-U\-C\-T}!pldist.c@{pldist.\-c}}
+\subsubsection[{C\-R\-O\-S\-S\-P\-R\-O\-D\-U\-C\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-O\-S\-S\-P\-R\-O\-D\-U\-C\-T(
+\begin{DoxyParamCaption}
+\item[{}]{p1, }
+\item[{}]{p2, }
+\item[{}]{p3}
+\end{DoxyParamCaption}
+)}}\label{pldist_8c_ac275668e5c97b25944ee207541dde07b}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(p3).x = (p1).y*(p2).z - (p1).z*(p2).y; \(\backslash\)
+        (p3).y = (p1).z*(p2).x - (p1).x*(p2).z; \(\backslash\)
+        (p3).z = (p1).x*(p2).y - (p1).y*(p2).x
+\end{DoxyCode}
+
+
+Definition at line 73 of file pldist.\-c.
+
+\hypertarget{pldist_8c_a09eb086fb7f57c48abc7a2fbc87994f3}{\index{pldist.\-c@{pldist.\-c}!D\-O\-T\-P\-R\-O\-D\-U\-C\-T@{D\-O\-T\-P\-R\-O\-D\-U\-C\-T}}
+\index{D\-O\-T\-P\-R\-O\-D\-U\-C\-T@{D\-O\-T\-P\-R\-O\-D\-U\-C\-T}!pldist.c@{pldist.\-c}}
+\subsubsection[{D\-O\-T\-P\-R\-O\-D\-U\-C\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-O\-T\-P\-R\-O\-D\-U\-C\-T(
+\begin{DoxyParamCaption}
+\item[{}]{v1, }
+\item[{}]{v2}
+\end{DoxyParamCaption}
+)~((v1).x$\ast$(v2).x + (v1).y$\ast$(v2).y + (v1).z$\ast$(v2).z)}}\label{pldist_8c_a09eb086fb7f57c48abc7a2fbc87994f3}
+
+
+Definition at line 77 of file pldist.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{pldist_8c_aa79ffe75bcb856281d385996098de754}{\index{pldist.\-c@{pldist.\-c}!bl\-Point\-Line\-Distance@{bl\-Point\-Line\-Distance}}
+\index{bl\-Point\-Line\-Distance@{bl\-Point\-Line\-Distance}!pldist.c@{pldist.\-c}}
+\subsubsection[{bl\-Point\-Line\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Point\-Line\-Distance (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{Px, }
+\item[{{\bf R\-E\-A\-L}}]{Py, }
+\item[{{\bf R\-E\-A\-L}}]{Pz, }
+\item[{{\bf R\-E\-A\-L}}]{P1x, }
+\item[{{\bf R\-E\-A\-L}}]{P1y, }
+\item[{{\bf R\-E\-A\-L}}]{P1z, }
+\item[{{\bf R\-E\-A\-L}}]{P2x, }
+\item[{{\bf R\-E\-A\-L}}]{P2y, }
+\item[{{\bf R\-E\-A\-L}}]{P2z, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{Rx, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{Ry, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{Rz, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{frac}
+\end{DoxyParamCaption}
+)}}\label{pldist_8c_aa79ffe75bcb856281d385996098de754}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Px} & Point x coordinate \\
+\hline
+\mbox{\tt in}  & {\em Py} & Point y coordinate \\
+\hline
+\mbox{\tt in}  & {\em Pz} & Point z coordinate \\
+\hline
+\mbox{\tt in}  & {\em P1x} & Line start x coordinate \\
+\hline
+\mbox{\tt in}  & {\em P1y} & Line start y coordinate \\
+\hline
+\mbox{\tt in}  & {\em P1z} & Line start z coordinate \\
+\hline
+\mbox{\tt in}  & {\em P2x} & Line end x coordinate \\
+\hline
+\mbox{\tt in}  & {\em P2y} & Line end y coordinate \\
+\hline
+\mbox{\tt in}  & {\em P2z} & Line end z coordinate \\
+\hline
+\mbox{\tt out}  & {\em $\ast$\-Rx} & Nearest point on line x coordinate \\
+\hline
+\mbox{\tt out}  & {\em $\ast$\-Ry} & Nearest point on line y coordinate \\
+\hline
+\mbox{\tt out}  & {\em $\ast$\-Rz} & Nearest point on line z coordinate \\
+\hline
+\mbox{\tt out}  & {\em $\ast$frac} & Fraction along P1-\/\-P2 of R \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance from P to R
+\end{DoxyReturn}
+Calculates the shortest distance from a point P to a line between points P1 and P2. This value is returned.
+
+If the Rx,Ry,Rz pointers are all non-\/\-N\-U\-L\-L, then the point on the line nearest to P is output.
+
+If the frac pointer is non-\/\-N\-U\-L\-L then the fraction of R along the P1-\/\-P2 vector is output. Thus\-: R==P1 ==$>$ frac=0 R==P2 ==$>$ frac=1 Thus if (0$<$=frac$<$=1) then the point R is within the line segment P1-\/\-P2
+
+
+\begin{DoxyItemize}
+\item 16.\-11.\-99 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 126 of file pldist.\-c.
+

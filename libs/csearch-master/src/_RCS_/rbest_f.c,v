@@ -1,0 +1,140 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.14;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Processes the Read Best Conformations degree of freedom. */
+ 
+void rbest_f(
+struct dof *dofp,
+struct rbest_d *desc
+)
+{
+   struct list
+   {
+      float e;
+      struct list *next;
+   };
+   struct list *head,*p;
+   float tote,cutoff,*ees;
+   logical ok,eof,qprtitl;
+   int count,i,nbst,*perm;
+ 
+   qprtitl = dbg.cgen > 1;
+/* Use C version
+//   cgrdinit(&desc->unit,ctitla.titlea,&ctitla.ntitla,&ok,&qprtitl);
+*/
+   cgrdinit(loops_fp,&ok);
+   if (!ok)
+   {
+      fprintf(out,"\nError in RBEST_F -- Congen conformation file \
+inconsistent.\n");
+      die();
+   }
+/* Use C version
+//   cgrdnxt(&desc->unit,desc->consp,&desc->nconsp,&qprtitl,&tote,&eof,
+//                ctitla.titlea,&ctitla.ntitla);
+*/
+   cgrdnxt(loops_fp,desc->consp,desc->nconsp,&tote,&eof);
+   head = null;
+   count = 0;
+   for (;;)
+   {
+/* Use C version
+//      cgrdnxt(&desc->unit,desc->consp,&desc->nconsp,&qprtitl,&tote,&eof,
+//                   ctitla.titlea,&ctitla.ntitla);
+*/
+      cgrdnxt(loops_fp,desc->consp,desc->nconsp,&tote,&eof);
+      if (eof) break;
+      p = (struct list *) alloc(sizeof(struct list));
+      p->e = tote;
+      p->next = head;
+      head = p;
+      count++;
+   }
+   if (dbg.cgen) fprintf(out,"Rbest_f: %d conformations read\n",count);
+   ees = (float *) alloc(count*sizeof(float));
+   perm = (int *) alloc(count*sizeof(int));
+   i = 0;
+   while (head != null)
+   {
+      ees[i++] = head->e;
+      p = head;
+      head = head->next;
+      free(p);
+   }
+ 
+   indexf(count,ees,perm);
+ 
+   nbst = desc->nbest;
+   if (count < nbst) nbst = count;
+   cutoff = count==0 ? -largnum : ees[perm[nbst-1]-1];
+   free(ees);
+   free(perm);
+   if (dbg.cgen) fprintf(out,"Rbest_f: cutoff for selection is %g\n",cutoff);
+/* Use C version
+//   cgrdinit(&desc->unit,ctitla.titlea,&ctitla.ntitla,&ok,&qprtitl);
+*/
+   cgrdinit(loops_fp,&ok);
+   if (!ok)
+   {
+      fprintf(out,"\nError in RBEST_F -- Congen conformation file \
+inconsistent.\n");
+      die();
+   }
+/* Use C version
+//   cgrdnxt(&desc->unit,desc->consp,&desc->nconsp,&qprtitl,&tote,&eof,
+//                ctitla.titlea,&ctitla.ntitla);
+*/
+   cgrdnxt(loops_fp,desc->consp,desc->nconsp,&tote,&eof);
+   dofp->iter = 0;
+   count = 0;
+   for (;;)
+   {
+/* Use C version
+//      cgrdnxt(&desc->unit,desc->consp,&desc->nconsp,&qprtitl,
+//                   &desc->energy,&eof,ctitla.titlea,&ctitla.ntitla);
+*/
+      cgrdnxt(loops_fp,desc->consp,desc->nconsp,&desc->energy,&eof);
+      if (eof) break;
+      count++;
+      if (desc->energy <= cutoff)
+      {
+         if (dbg.cgen > 1)
+            fprintf(out,"Rbest_f: Conformation %d selected. E = %g\n",
+                   count,desc->energy);
+         if (++dofp->iter >= dofp->restart_iter)
+         {
+            if (chkcntcts(dofp->atoms,&desc->maxevdw,dummy_sidehits))
+            {
+               dispatch(dofp->next);
+               delatmsfgrd(dofp->atoms);
+            }
+            dofp->restart_iter = 0;
+         }
+      }
+   }
+}
+ 
+@

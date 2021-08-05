@@ -1,0 +1,10 @@
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C     FORTRACE
+C     ACRM 21.06.91
+C     FORTRAN trace routine (VAX specific)
+      SUBROUTINE FORTRACE
+      CALL CPRINT(' ')
+      CALL CPRINT('A traceback will be generated via lib$signal()')
+C      CALL LIB$SIGNAL(%VAL(2))
+      RETURN
+      END

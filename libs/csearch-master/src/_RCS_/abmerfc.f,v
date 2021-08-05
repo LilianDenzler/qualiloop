@@ -1,0 +1,41 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@c @;
+
+
+1.1
+date	2006.02.17.12.03.43;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+ 
+      FUNCTION ABMERFC(X)
+C              *******
+C     Returns the complementary error function erfc(x)
+C
+ 
+COM OMUPD BNJ
+      REAL X,ABMERFC,GAMMP,GAMMQ
+COM
+      IF (X.LT.0.) THEN
+         ABMERFC = 1. + GAMMP(.5,X**2)
+      ELSE
+         ABMERFC = GAMMQ(.5,X**2)
+      ENDIF
+      RETURN
+      END
+@

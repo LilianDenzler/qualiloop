@@ -1,0 +1,457 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Revision History
+%  ================
+%  20.09.94 Original    By: ACRM
+%  21.09.94 Added IGNORE
+%  22.09.94 Added to abstract, also data preparation and running programs
+%  30.09.94 A couple of corrections and added installation and xpar/xtop
+%  25.10.94 Added RESIDUE potential
+%  10.11.94 Added notes on topology data file and made to V1.2
+%  14.11.94 Added pdborder to command line example to generate coords
+%  22.05.95 Added RELAX stuff for V1.4
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage{a4}
+
+\newcommand{\ecalc}{\mbox{\bf ECalc}}
+\newcommand{\ec}{\mbox{\bf EC}}
+\newcommand{\csearch}{\mbox{\bf CSearch}}
+\newcommand{\bioplib}{\mbox{\bf BiopLib}}
+\newcommand{\degree}{\mbox{${}^\circ$}}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+{\Large\bf ECalc V1.5.1}
+\large
+
+{\bf A protein energy calculation program.}
+\vspace{1em}
+
+(c) 1994-2021, Prof.\ Andrew C.\ R.\ Martin,\\
+Biomolecular Structure and Modelling Unit,\\
+Department of Biochemistry and Molecular Biology,\\
+University College London,\\
+Gower Street,\\
+London WC1E 6BT\\
+\vspace{1em}
+
+22nd May, 1995
+\vspace{2em}
+
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+   \ecalc\ is a program designed to calculate the energy of a protein. It
+may also be used to calculate the energies of a number of conformations 
+of a region within a protein. The calculations may be restricted to
+the region of interest (though non-bonded contacts with other parts of
+the protein will also be considered). In addition, other parts of the
+protein may be specified which should be excluded from consideration
+in the non-bonded contact calculations. Parts of the potential may be
+switched on or off and scaled with respect to one another. This
+allows, for example, the simple calculation of just the van der Waals
+repulsion or just the bond energy.
+
+   The program may be run using a control file (as described below),
+or using an X-windows interface (\ec) on machines equipped with the
+Tcl/Tk package. This interface builds a control file and spawns the
+normal \ecalc\ program to perform the calculations.
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Installation}
+
+
+\subsection{Unpacking}
+\ecalc\ is supplied as a gzipped tar file. To unpack, go to the directory
+in which you want the \ecalc\ directory to be installed and issue the
+command:
+\begin{verbatim}
+   zcat ecalc.tar.gz | tar -xvf -
+\end{verbatim}
+
+This assumes that {\tt ecalc.tar.gz} is in your current directory (if not,
+you must supply the full path) and that {\tt zcat} is the GNU/gzip 
+version. If not, you may have to include the full path to the GNU 
+{\tt zcat} program.
+
+
+
+\subsection{Compiling}
+To compile \ecalc, you must already have installed the \bioplib\
+library. Assuming this has been done, change to the {\tt src}
+subdirectory of the new {\tt ecalc} directory and edit the supplied
+{\tt makefile}. Modify {\tt INCFLAGS} and {\tt LIBFLAGS} to reflect
+the directory in which you have installed \bioplib. Modify {\tt CC}
+and {\tt LINK} for your C compiler. You only need to alter {\tt PROTO}
+if you wish to regenerate prototype files. This will only be necessary
+if you have modified any of the routines.
+
+Having modified the {\tt makefile} as required, type {\tt make} to
+compile the program. Move the resulting {\tt ecalc} executable to
+somewhere in your path (e.g.\ {\tt /usr/local/bin}).
+
+Finally, type {\tt make clean} to remove the object files.
+
+
+
+\subsection{Environment variables}
+One environment variable should be set to specify the directory
+containing the residue topology and parameter data files. Therefore,
+if you are using a csh-like shell, you should add the following to
+your {\tt .cshrc} file:
+\begin{verbatim}
+   setenv ECALCDATA '/usr/local/ecalc/data'
+\end{verbatim}
+where {\tt /usr/local/ecalc/data} is replaced by the name of the
+directory in which your \ecalc\ datafiles are stored. If you are using
+an sh-like shell, add the following to your {\tt .profile} file:
+\begin{verbatim}
+   export ECALCDATA='/usr/local/ecalc/data'
+\end{verbatim}
+
+
+
+\subsection{Customising for your local setup}
+You must now customise the file {\tt local.tcl} for your local system.
+Change to the data directory using the command:
+\begin{verbatim}
+   cd $ECALCDATA
+\end{verbatim}
+
+Now edit the file {\tt local.tcl}. Find the line which starts {\tt set
+ecalc} and change the path to reflect the location of you \ecalc\
+executable. For example:
+\begin{verbatim}
+   set ecalc "/usr/local/bin/ecalc"
+\end{verbatim}
+
+Find the line which starts {\tt set auto\_path} and modify the
+directory specification to reflect your main \ecalc\ directory which
+contains {\tt ecalc.tcl} and the other Tcl files.
+\begin{verbatim}
+   set auto_path "/usr/local/ecalc $auto_path"
+\end{verbatim}
+
+You may also modify the colours to be used for the buttons and the
+maximum number of disulphides, zones and ignores if required.
+
+Now move to the main \ecalc\ directory. Depending on the version of
+Tcl/Tk you have installed, you will require either the {\tt
+tclIndex.old} or {\tt tclIndex.new} file. Copy the appropriate version
+to {\tt tclIndex}. If you have the wrong version, the ecalc interface
+will exit with a message like: {\em format error in library index}.
+
+Finally, make a symbolic link from somewhere in your path to the main
+\ecalc\ Tcl file. For example:
+\begin{verbatim}
+   ln -s /usr/local/ecalc/ecalc.tcl /usr/local/bin/ec
+\end{verbatim}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Utilities}
+\label{sec:util}
+
+Two utilities are provided to help convert XPLOR (CHARMM) parameter and
+topology files to \ecalc\ format. These programs are written in Perl
+and require that you have the Perl interpreter installed on your
+system.
+
+Unfortunately, while the programs will produce valid data files for
+ECalc, the conversion is not complete; some hand editing will also be
+necessary. This is because 
+\begin{enumerate}
+\item \ecalc\ requires all atom parameter data to be provided in the
+parameter file while XPLOR has the atom masses and radii in the
+topology file,
+\item The XPLOR topology file does not contain atom exclusion data.
+\end{enumerate}
+
+Both conversion utilities are run in the same way:
+\begin{verbatim}
+   xpar.perl params.xplor   >params.ecalc
+   xtop.perl topology.xplor >topology.ecalc
+\end{verbatim}
+You should substitute appropriate filenames for the {\tt .xplor} and
+{\tt .ecalc} files sepcified here.
+
+In addition the atom ordering in the residue topology file is critical
+if the program is to be used for conformation screening. The ordering
+must match that used in CSearch. i.e.\ N, H, CA, C, O, sidechain.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preparing input data}
+\label{sec:data}
+
+Generally, \ecalc\ will be run to follow on from a \csearch\
+(CHARMM-free CONGEN) run, in which case all the necessary files will
+have been prepared already. The basic input files are a PDB file with
+hydrogens and CHARMM-style NTER and CTER residues\footnote{All future
+references to a PDB file will imply a PDB file with hydrogens, NTER
+and CTER residues added.} and, optionally, a conformations file in
+\csearch\ format.
+
+A suitable PDB file may be prepared using the following Unix command
+line:
+\begin{verbatim}
+   pdbhadd -c xxxx.pdb | pdbcter -c | renumpdb | pdborder -c > xxxx.pdh
+\end{verbatim}
+where {\tt xxxx.pdb} is a normal PDB file and {\tt xxxx.pdh} has had the
+hydrogens, NTER and CTER residues added. The {\tt pdbhadd -c} command
+adds hydrogens and an NTER residue, the {\tt pdbcter -c} command adds 
+C-terminal oxygens and a CTER residue while {\tt renumpdb} renumbers
+the chains sequentially.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Running the programs}
+
+\subsection{EC}
+\ec\ is the X-windows graphical interface for \ecalc. It is run by
+typing {\tt ec} at the command line prompt.
+
+\subsection{ECalc}
+The command syntax for \ecalc\ is:
+\begin{verbatim}
+   ecalc [-p (xxxx.pdh | -)] [(control.dat | -)]
+\end{verbatim}
+where {\tt xxxx.pdh} is a PDB file (see Section~\ref{sec:data}) and {\tt
+control.dat} is a control file (see Section~\ref{sec:control}). In
+either case, the filename may be replaced by a {\tt -}, in which case,
+the appropriate input will be expected on standard input.
+
+If \ecalc\ is run with a PDB file, but no control file, the
+full-potential energy of the whole structure will be calculated and
+displayed. Normally, \ecalc\ will be run with a control file and the
+PDB filename will be specified within the control file.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The control file}
+\label{sec:control}
+
+\subsection{PDBFILE  {\em filename}}
+Specifies the PDB file to be used for energy calculation. If not
+specified in the file, the PDB file may be specified on the command
+line using the {\tt -p} option.
+
+\subsection{CONFFILE {\em filename}}
+Specifies an optional conformation file. If specified, the energy of
+each conformation in the context of the PDB file will be calculated.
+
+\subsection{OUTFILE  {\em filename}}
+Specifies an optional output file. If not specified, output goes to
+the standrad output stream.
+
+\subsection{POTENTIAL}
+If the {\bf POTENTIAL} keyword is not specified, the standard full
+potential will be calculated. If the keyword is given, it is followed
+by one or more of the commands given in Table~\ref{tab:pot} {\em on
+separate lines}. After all potential options have been specified, the 
+{\bf END} keyword must be given. 
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ll}
+BONDS [{\em scale}]          & Calculate bond energy                  \\
+ANGLES [{\em scale}]         & Calculate angle energy                 \\
+TORSIONS [{\em scale}]       & Calculate torsion angle energy         \\
+IMPROPERS [{\em scale}]      & Calculate improper torsion angle energy\\
+HBONDS [{\em scale}]         & Calculate hydrogen bond energy         \\
+VDWA [{\em scale}]           & Calculate van der Waals attraction     \\
+VDWR [{\em scale}]           & Calculate van der Waals repulsion      \\
+ELECTROSTATICS [{\em scale}] & Calculate electrostatic energy         \\
+RESIDUE [{\em scale}]        & Calculate an empirical residue energy  \\
+\end{tabular}
+\end{center}
+\caption{\label{tab:pot} Keywords specifying parts of the potential to
+be included. In each case, the scale parameter is optional and, if not
+specified, will default to $1.0$}
+\end{table}
+
+\subsection{DISPLAY}
+The {\bf DISPLAY} command controls which components of the energy are
+displayed in the output. By default, only the total energy is
+displayed. The command is followed by keywords from
+Table~\ref{tab:pot}, each of which must be given on a separate line
+and without the {\em scale\/} parameter.
+As with the {\bf POTENTIAL} command, the options are ended with the
+{\bf END} command.
+
+\subsection{CACHE $n$}
+At the end of the run, the conformation numbers and energies of the
+lowest energy conformations are displayed. The {\bf CACHE} command is
+used to control how many conformations should be displayed. The
+default is 1 conformation. A value of 0 is also legal.
+
+\subsection{GRIDCUT $n$}
+\label{sub:gridcut}
+This is a very important optimisation parameter. In order to speed the
+calculation of non-bonded interactions, a `contact grid' is
+constructed at the beginning of the run using the coordinates in the
+parent structure. The grid is not recalculated at any time. This means
+that non-bonded atom contacts are only considered between atoms in the
+grid, thus speeding the calculations for each conformation. However,
+the atoms in each conformation are in different positions, so the grid
+must be larger than the non-bonded cutoff distance by an amount at
+least equal to the greatest movement of any one atom. 
+
+The utility {\tt spancg} reports the greatest movement from the reference
+position for any atom in a CG file. The value reported by this program
+should be added to the non-bonded cutoff distance and used for the
+{\bf GRIDCUT} parameter
+
+See also the REGRID command (Section~\ref{sub:regrid}).
+
+\subsection{NONBONDCUT $n$}
+Cutoff to be used when calculating van der Waals and electrostatic
+energies. Any atom pairs separated by more than this distance will not
+be considered in calculating the energy. Defaults to 8.0\AA.
+
+\subsection{CONSTDIELECTRIC}
+Use a constant dielectric when calculating the electrostatic energy. 
+The value of the dielectric constant is specified using the 
+{\bf ETA} keyword. i.e. $$ E_{el} = C_{el}\frac{q_1 q_2}{d\eta} $$
+
+\subsection{DISTDIELECTRIC}
+Use a distance dependent dielectric when calculating the electrostatic
+energy. i.e. $$ E_{el} = C_{el}\frac{q_1 q_2}{d^2} $$
+
+\subsection{ETA $n$}
+Specifies the dielectric constant to be used when a constant
+dielectric is selected. Default = 50.0
+
+\subsection{CUTOFFHB $n$}
+Specifies the distance above which hydrogen bond energy should not be
+calculated. Atom pairs separated by more than this distance will be
+ignored. Default: 5.0\AA.
+
+\subsection{CUTONHB $n$}
+Specifies a distance at which smoothing of the hydrogen bond energy
+calculations should begin. This prevents discontinuities as a result
+of the hydrogen bond distance cutoff. {\bf CUTONHB} must be $\le$ {\bf
+CUTOFFHB}. Default: 4.0\AA.
+
+\subsection{CUTOFFANG $n$}
+Specifies an angle below which hydrogen bond energy should not be
+calculated. If the angle subtended at the hydrogen by the acceptor and
+the hydrogen's antecedent is less than this value, the hydrogen bond
+will be ignored. Default: 90\degree.
+
+\subsection{CUTONANG $n$}
+Specifies an angle at which smoothing of the hydrogen bond energy
+calculations should begin. This prevents discontinuities as a result
+of the hydrogen bond angle cutoff. {\bf CUTONANG} must be $\ge$ {\bf
+CUTOFFANG}. Default: 90\degree.
+
+\subsection{SHOWPARAMS}
+Causes parameters read from the parameter file to be displayed.
+
+\subsection{SHOWRTOP}
+Causes the residue topology read from the residue topology file to be
+displayed.
+
+\subsection{SHOWTIMINGS}
+Causes timings to be displayed after calculation of the close contacts
+grid and each conformation.
+
+\subsection{PARAMFILE {\em filename}}
+Specifies the parameter file. Defaults to {\tt params.dat}.
+
+\subsection{RTOPFILE {\em filename}}
+Specifies the residue topology file. Defaults to {\tt topology.dat}.
+
+\subsection{DEBUG}
+Switches on certain debugging options. Currently only the routine
+name display with each error message is switched on. This gives a
+simulated trace-back of where the error occurred.
+
+\subsection{DISULPHIDES (OFF $\mid$ {\em firstres lastres})}
+By default, disulphides are found by a distance search; cysteine
+S$\gamma$ atoms separated by less than 2.236\AA\ are considered to be
+bonded. If the {\bf DISULPHIDES} keyword is followed by the word {\bf
+OFF}, no search for disulphides will be performed. Alternatively, the
+{\bf DISULPHIDE} command may be followed by residue pair
+specifications for disulphides to be specified manually. This also
+causes the automatic search for disulphides to be switched off.
+Residues are specified using the chain name (if present) followed
+immediately by the residue number (e.g.\ {\tt L24}). Insertions in the
+numbering are not allowed; numbering is consecutive starting with the
+NTER residue being residue number 1.
+
+
+\subsection{REGRID $n$}
+\label{sub:regrid}
+By default, a close contacts grid is only calculated once, before any
+energies are calculated. If {\bf REGRID} is specified with a parameter
+of 1, the grid will be recalculated before each energy is evaluated.
+Other values may also be used, but this must be done with caution; for
+example, you must know that, for example, every 10 conformations fall
+into a cluster in space. See the GRIDCUT command
+(Section~\ref{sub:gridcut}) for further details on the close contacts
+grid.
+
+
+\subsection{ZONE {\em firstres lastres}}
+Specifies a zone over which calculations should be performed. More
+than one {\bf ZONE} command may be specified. Bonded topology (bonds,
+angles, torsions and impropers) which does not include at least one
+atom in a zone is discarded. Non-bonded contacts (van der Waals,
+electrostatics and hydrogen bonds) are considered between atoms in the
+specified zones and atoms outside the zones.
+
+Residues are specified using the chain name (if present) followed
+immediately by the residue number (e.g.\ {\tt L24}). Insertions in the
+numbering are not allowed; numbering is consecutive starting with the
+NTER residue being residue number 1.
+
+When applying zones to regions included in a conformation file, you
+should make the zones 1 residue wider on either side than the zone
+covered by the conformations. This is because of the way in which
+splicing between conformation and framework is performed by CSearch.
+
+\subsection{IGNORE {\em firstres lastres} [SIDECHAIN]}
+Specifies a zone to be ignored when calculating non-bond contacts. More
+thans one {\bf IGNORE} command may be specified. Any non-bonded 
+interactions (van der Waals, electrostatics and hydrogen bonds) which
+involve atoms in the specified range are ignored.
+
+If the optional {\bf SIDECHAIN} qualifier is specified, only sidechain
+atoms (from the $\gamma$ atom out) are ignored.
+
+Residues are specified using the chain name (if present) followed
+immediately by the residue number (e.g.\ {\tt L24}). Insertions in the
+numbering are not allowed; numbering is consecutive starting with the
+NTER residue being residue number 1.
+
+\subsection{RUN}
+This command is provided only for interactive use and causes the
+actual calculations to begin. And end-of-file also has the same effect.
+
+\subsection{RELAX}
+Performs a relaxation of the worst van der Waals contacts followed by
+the SHAKE algorithm to regularise bond lengths.
+
+\subsection{TOL [SHAKE$\mid$VDW] {\em value}}
+Specifies the tolerence for the SHAKE algorithm (default: 0.001) or
+the allowed fraction VDW clash (default: 0.5). Higher values for VDW
+allow more atoms to clash without taking any action. The value is the
+fraction of the optimum separation squared by which the atoms clash.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Future ideas}
+
+Modify the grid recalculation calls to store the conformation used at grid
+calculation time then, for each conformation, check the atom positions to see if
+any atom has moved outside the current grid. If so recalculate the grid and
+store the new conformation.
+
+
+
+\end{document}

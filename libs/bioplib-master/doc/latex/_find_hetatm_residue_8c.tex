@@ -1,0 +1,101 @@
+\hypertarget{_find_hetatm_residue_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Find\-Hetatm\-Residue.c File Reference}
+\label{_find_hetatm_residue_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Find\-Hetatm\-Residue.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Find\-Hetatm\-Residue.\-c}}
+}
+
+
+Parse a residue specification.  
+
+
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_find_hetatm_residue_8c_a8d42eb344a32e2c7ed5a4a377a50a939}{bl\-Find\-Hetatm\-Residue} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, char $\ast$chain, int resnum, char $\ast$insert)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parse a residue specification. \begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+2011-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 26.\-10.\-11 Original based on \hyperlink{_find_residue_8c}{Find\-Residue.\-c}
+\item V1.\-1 24.\-02.\-14 Added Biop\-Find\-Hetatm\-Residue() By\-: C\-T\-P
+\item V1.\-2 25.\-02.\-14 Added error message for Find\-Hetatm\-Residue(). By\-: C\-T\-P
+\item V1.\-3 07.\-05.\-14 Moved Find\-Hetatm\-Residue() to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_find_hetatm_residue_8c_source}{Find\-Hetatm\-Residue.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_find_hetatm_residue_8c_a8d42eb344a32e2c7ed5a4a377a50a939}{\index{Find\-Hetatm\-Residue.\-c@{Find\-Hetatm\-Residue.\-c}!bl\-Find\-Hetatm\-Residue@{bl\-Find\-Hetatm\-Residue}}
+\index{bl\-Find\-Hetatm\-Residue@{bl\-Find\-Hetatm\-Residue}!FindHetatmResidue.c@{Find\-Hetatm\-Residue.\-c}}
+\subsubsection[{bl\-Find\-Hetatm\-Residue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Find\-Hetatm\-Residue (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{char $\ast$}]{chain, }
+\item[{int}]{resnum, }
+\item[{char $\ast$}]{insert}
+\end{DoxyParamCaption}
+)}}\label{_find_hetatm_residue_8c_a8d42eb344a32e2c7ed5a4a377a50a939}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em chain} & Chain label \\
+\hline
+\mbox{\tt in}  & {\em resnum} & Residue number \\
+\hline
+\mbox{\tt in}  & {\em insert} & Insert code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to start of H\-E\-T residue
+\end{DoxyReturn}
+Finds a pointer to the start of a residue in a P\-D\-B linked list, but requires the residue is a H\-E\-T\-A\-T\-M record Uses string for chain and insert.
+
+
+\begin{DoxyItemize}
+\item 24.\-02.\-14 Original. By\-: C\-T\-P
+\item 07.\-07.\-14 Renamed to Find\-Hetatm\-Residue(). Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 111 of file Find\-Hetatm\-Residue.\-c.
+

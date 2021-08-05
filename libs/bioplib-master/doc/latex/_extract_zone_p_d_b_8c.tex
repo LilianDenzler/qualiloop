@@ -1,0 +1,315 @@
+\hypertarget{_extract_zone_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Extract\-Zone\-P\-D\-B.c File Reference}
+\label{_extract_zone_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Extract\-Zone\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Extract\-Zone\-P\-D\-B.\-c}}
+}
+
+
+P\-D\-B linked list manipulation.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_extract_zone_p_d_b_8c_ae7b035cf5bdabc469f32bebb1f4f1b7c}{bl\-Extract\-Zone\-P\-D\-B\-As\-Copy} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$inpdb, char $\ast$chain1, int resnum1, char $\ast$insert1, char $\ast$chain2, int resnum2, char $\ast$insert2)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_extract_zone_p_d_b_8c_a9878d0bbb6c8c66afc98fcba4b7cda4b}{bl\-Extract\-Zone\-Spec\-P\-D\-B\-As\-Copy} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, char $\ast$first\-Res, char $\ast$last\-Res)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_extract_zone_p_d_b_8c_a843e1fe5700de558f774a40c25b0fa3d}{bl\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$inpdb, char $\ast$chain1, int resnum1, char $\ast$insert1, char $\ast$chain2, int resnum2, char $\ast$insert2)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_extract_zone_p_d_b_8c_ac360be7e19a04c45fb1414d4ed5196b3}{bl\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, char $\ast$first\-Res, char $\ast$last\-Res)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_extract_zone_p_d_b_8c_a38ab1a242a2e2463b3645fe1095ed15a}{bl\-Force\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$inpdb, char $\ast$chain1, int resnum1, char $\ast$insert1, char $\ast$chain2, int resnum2, char $\ast$insert2)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_extract_zone_p_d_b_8c_a592e4f0d8fe93d8283d83942f7eda9f2}{bl\-Force\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, char $\ast$first\-Res, char $\ast$last\-Res)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+P\-D\-B linked list manipulation. \begin{DoxyVersion}{Version}
+V1.\-19 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+17.\-02.\-16 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1992-\/2016 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 22.\-02.\-94 Original release
+\item V1.\-1 23.\-05.\-94 Added Find\-Next\-Chain\-P\-D\-B()
+\item V1.\-2 05.\-10.\-94 Kill\-Sidechain() uses B\-O\-O\-L rather than int
+\item V1.\-3 24.\-07.\-95 Added Term\-P\-D\-B()
+\item V1.\-4 25.\-07.\-95 Added Get\-P\-D\-B\-Chain\-Labels()
+\item V1.\-5 26.\-09.\-95 Fixed bug in Term\-P\-D\-B()
+\item V1.\-6 12.\-10.\-95 Added Dupe\-P\-D\-B(), Copy\-P\-D\-B\-Coords()
+\item V1.\-7 23.\-10.\-95 Moved Find\-Residue\-Spec() to \hyperlink{_parse_res_8c}{Parse\-Res.\-c}
+\item V1.\-8 10.\-01.\-96 Added Extract\-Zone\-P\-D\-B()
+\item V1.\-9 14.\-03.\-96 Added Find\-Atom\-In\-Res()
+\item V1.\-10 08.\-10.\-99 Initialised some variables
+\item V1.\-11 22.\-03.\-05 Extracted range is limited by specified residues
+\item V1.\-12 22.\-03.\-06 Modified Extract\-Zone\-P\-D\-B() to allow non-\/exact ranges
+\item V1.\-13 29.\-10.\-10 Fixed bug when end of zone was last residue in a chain
+\item V1.\-14 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H By\-: C\-T\-P
+\item V1.\-15 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-16 19.\-08.\-14 Renamed function to \hyperlink{_extract_zone_p_d_b_8c_ae7b035cf5bdabc469f32bebb1f4f1b7c}{bl\-Extract\-Zone\-P\-D\-B\-As\-Copy()} By\-: C\-T\-P
+\item V1.\-17 07.\-10.\-15 Added function \hyperlink{_extract_zone_p_d_b_8c_a843e1fe5700de558f774a40c25b0fa3d}{bl\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy()} and \hyperlink{_extract_zone_p_d_b_8c_ac360be7e19a04c45fb1414d4ed5196b3}{bl\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy()} By\-: A\-C\-R\-M
+\item V1.\-18 08.\-12.\-15 Modified bl\-Extract\-Zone\-As\-Copy() to check for exact match first
+\item V1.\-19 26.\-06.\-19 Added \hyperlink{_extract_zone_p_d_b_8c_a38ab1a242a2e2463b3645fe1095ed15a}{bl\-Force\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy()} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_extract_zone_p_d_b_8c_source}{Extract\-Zone\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_extract_zone_p_d_b_8c_a843e1fe5700de558f774a40c25b0fa3d}{\index{Extract\-Zone\-P\-D\-B.\-c@{Extract\-Zone\-P\-D\-B.\-c}!bl\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy@{bl\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy}}
+\index{bl\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy@{bl\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy}!ExtractZonePDB.c@{Extract\-Zone\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{inpdb, }
+\item[{char $\ast$}]{chain1, }
+\item[{int}]{resnum1, }
+\item[{char $\ast$}]{insert1, }
+\item[{char $\ast$}]{chain2, }
+\item[{int}]{resnum2, }
+\item[{char $\ast$}]{insert2}
+\end{DoxyParamCaption}
+)}}\label{_extract_zone_p_d_b_8c_a843e1fe5700de558f774a40c25b0fa3d}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$inpdb} & Input P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain1} & Start residue chain name \\
+\hline
+\mbox{\tt in}  & {\em resnum1} & Start residue number \\
+\hline
+\mbox{\tt in}  & {\em $\ast$insert1} & Start residue insert code \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain2} & End residue chain name \\
+\hline
+\mbox{\tt in}  & {\em resnum2} & End residue number \\
+\hline
+\mbox{\tt in}  & {\em $\ast$insert2} & End residue insert code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P\-D\-B linked list of the region of interest.
+\end{DoxyReturn}
+Reduces a P\-D\-B linked list to those residues outside a specified zone. Note that the P\-D\-B linked list is duplicated before extraction so pointers do not match those in the input P\-D\-B linked list. Excess records in the new P\-D\-B linked list are freed.
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-15 Original By\-: A\-C\-R\-M
+\item 08.\-10.\-15 Fixed return(\-F\-A\-L\-S\-E) to return(\-N\-U\-L\-L) 
+\end{DoxyItemize}
+
+Definition at line 359 of file Extract\-Zone\-P\-D\-B.\-c.
+
+\hypertarget{_extract_zone_p_d_b_8c_ac360be7e19a04c45fb1414d4ed5196b3}{\index{Extract\-Zone\-P\-D\-B.\-c@{Extract\-Zone\-P\-D\-B.\-c}!bl\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy@{bl\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy}}
+\index{bl\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy@{bl\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy}!ExtractZonePDB.c@{Extract\-Zone\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{char $\ast$}]{first\-Res, }
+\item[{char $\ast$}]{last\-Res}
+\end{DoxyParamCaption}
+)}}\label{_extract_zone_p_d_b_8c_ac360be7e19a04c45fb1414d4ed5196b3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em first\-Res} & Residue spec (\mbox{[}chain\mbox{]}resnum\mbox{[}insert\mbox{]}) \\
+\hline
+\mbox{\tt in}  & {\em last\-Res} & Residue spec (\mbox{[}chain\mbox{]}resnum\mbox{[}insert\mbox{]})\\
+\hline
+\end{DoxyParams}
+Extracts atoms outside a zone from a P\-D\-B linked list, making a copy of the original list.
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 435 of file Extract\-Zone\-P\-D\-B.\-c.
+
+\hypertarget{_extract_zone_p_d_b_8c_ae7b035cf5bdabc469f32bebb1f4f1b7c}{\index{Extract\-Zone\-P\-D\-B.\-c@{Extract\-Zone\-P\-D\-B.\-c}!bl\-Extract\-Zone\-P\-D\-B\-As\-Copy@{bl\-Extract\-Zone\-P\-D\-B\-As\-Copy}}
+\index{bl\-Extract\-Zone\-P\-D\-B\-As\-Copy@{bl\-Extract\-Zone\-P\-D\-B\-As\-Copy}!ExtractZonePDB.c@{Extract\-Zone\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Extract\-Zone\-P\-D\-B\-As\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Extract\-Zone\-P\-D\-B\-As\-Copy (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{inpdb, }
+\item[{char $\ast$}]{chain1, }
+\item[{int}]{resnum1, }
+\item[{char $\ast$}]{insert1, }
+\item[{char $\ast$}]{chain2, }
+\item[{int}]{resnum2, }
+\item[{char $\ast$}]{insert2}
+\end{DoxyParamCaption}
+)}}\label{_extract_zone_p_d_b_8c_ae7b035cf5bdabc469f32bebb1f4f1b7c}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$inpdb} & Input P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain1} & Start residue chain name \\
+\hline
+\mbox{\tt in}  & {\em resnum1} & Start residue number \\
+\hline
+\mbox{\tt in}  & {\em $\ast$insert1} & Start residue insert code \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain2} & End residue chain name \\
+\hline
+\mbox{\tt in}  & {\em resnum2} & End residue number \\
+\hline
+\mbox{\tt in}  & {\em $\ast$insert2} & End residue insert code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P\-D\-B linked list of the region of interest.
+\end{DoxyReturn}
+Reduces a P\-D\-B linked list to those residues within a specified zone. Note that the P\-D\-B linked list is duplicated before extraction so pointers do not match those in the input P\-D\-B linked list. Excess records in the new P\-D\-B linked list are freed.
+
+
+\begin{DoxyItemize}
+\item 10.\-01.\-96 Original By\-: A\-C\-R\-M
+\item 22.\-03.\-06 Modified to allow non-\/exact zones. i.\-e. the extracted zone will be the widest subset of the specified zone. So, if you specifiy 30-\/35\-Z and the P\-D\-B file only has 30-\/35\-B then that will be extracted.
+\item 29.\-10.\-10 Fixed extraction where end of zone matched last residue in a chain
+\item 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H By\-: C\-T\-P
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 19.\-08.\-14 Renamed function to \hyperlink{_extract_zone_p_d_b_8c_ae7b035cf5bdabc469f32bebb1f4f1b7c}{bl\-Extract\-Zone\-P\-D\-B\-As\-Copy()} By\-: C\-T\-P
+\item 08.\-12.\-15 Now checks for an exact match first to deal with 6\-I\-N\-S that uses the insert code for something different! By\-: A\-C\-R\-M
+\item 17.\-02.\-16 Added fix on check for exact match -\/ prev wasn't being set correctly if the match was to the first residue in the file
+
+T\-O\-D\-O -\/ This doesn't deal with C\-O\-N\-E\-C\-T information properly! $\ast$$\ast$$\ast$ 
+\end{DoxyItemize}
+
+Definition at line 175 of file Extract\-Zone\-P\-D\-B.\-c.
+
+\hypertarget{_extract_zone_p_d_b_8c_a9878d0bbb6c8c66afc98fcba4b7cda4b}{\index{Extract\-Zone\-P\-D\-B.\-c@{Extract\-Zone\-P\-D\-B.\-c}!bl\-Extract\-Zone\-Spec\-P\-D\-B\-As\-Copy@{bl\-Extract\-Zone\-Spec\-P\-D\-B\-As\-Copy}}
+\index{bl\-Extract\-Zone\-Spec\-P\-D\-B\-As\-Copy@{bl\-Extract\-Zone\-Spec\-P\-D\-B\-As\-Copy}!ExtractZonePDB.c@{Extract\-Zone\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Extract\-Zone\-Spec\-P\-D\-B\-As\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Extract\-Zone\-Spec\-P\-D\-B\-As\-Copy (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{char $\ast$}]{first\-Res, }
+\item[{char $\ast$}]{last\-Res}
+\end{DoxyParamCaption}
+)}}\label{_extract_zone_p_d_b_8c_a9878d0bbb6c8c66afc98fcba4b7cda4b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em first\-Res} & Residue spec (\mbox{[}chain\mbox{]}resnum\mbox{[}insert\mbox{]}) \\
+\hline
+\mbox{\tt in}  & {\em last\-Res} & Residue spec (\mbox{[}chain\mbox{]}resnum\mbox{[}insert\mbox{]})\\
+\hline
+\end{DoxyParams}
+Extracts a zone from a P\-D\-B linked list, making a copy of the original list.
+
+
+\begin{DoxyItemize}
+\item 08.\-10.\-14 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 317 of file Extract\-Zone\-P\-D\-B.\-c.
+
+\hypertarget{_extract_zone_p_d_b_8c_a38ab1a242a2e2463b3645fe1095ed15a}{\index{Extract\-Zone\-P\-D\-B.\-c@{Extract\-Zone\-P\-D\-B.\-c}!bl\-Force\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy@{bl\-Force\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy}}
+\index{bl\-Force\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy@{bl\-Force\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy}!ExtractZonePDB.c@{Extract\-Zone\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Force\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Force\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{inpdb, }
+\item[{char $\ast$}]{chain1, }
+\item[{int}]{resnum1, }
+\item[{char $\ast$}]{insert1, }
+\item[{char $\ast$}]{chain2, }
+\item[{int}]{resnum2, }
+\item[{char $\ast$}]{insert2}
+\end{DoxyParamCaption}
+)}}\label{_extract_zone_p_d_b_8c_a38ab1a242a2e2463b3645fe1095ed15a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$inpdb} & Input P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain1} & Start residue chain name \\
+\hline
+\mbox{\tt in}  & {\em resnum1} & Start residue number \\
+\hline
+\mbox{\tt in}  & {\em $\ast$insert1} & Start residue insert code \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain2} & End residue chain name \\
+\hline
+\mbox{\tt in}  & {\em resnum2} & End residue number \\
+\hline
+\mbox{\tt in}  & {\em $\ast$insert2} & End residue insert code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P\-D\-B linked list of the region of interest.
+\end{DoxyReturn}
+Reduces a P\-D\-B linked list to those residues outside a specified zone. Note that the P\-D\-B linked list is duplicated before extraction so pointers do not match those in the input P\-D\-B linked list. Excess records in the new P\-D\-B linked list are freed.
+
+Forces extraction even if the zone residues are not found
+
+N\-O\-T\-E\-: if neither residue is found, the whole linked list will be returned.
+
+
+\begin{DoxyItemize}
+\item 26.\-06.\-19 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 483 of file Extract\-Zone\-P\-D\-B.\-c.
+
+\hypertarget{_extract_zone_p_d_b_8c_a592e4f0d8fe93d8283d83942f7eda9f2}{\index{Extract\-Zone\-P\-D\-B.\-c@{Extract\-Zone\-P\-D\-B.\-c}!bl\-Force\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy@{bl\-Force\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy}}
+\index{bl\-Force\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy@{bl\-Force\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy}!ExtractZonePDB.c@{Extract\-Zone\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Force\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Force\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{char $\ast$}]{first\-Res, }
+\item[{char $\ast$}]{last\-Res}
+\end{DoxyParamCaption}
+)}}\label{_extract_zone_p_d_b_8c_a592e4f0d8fe93d8283d83942f7eda9f2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em first\-Res} & Residue spec (\mbox{[}chain\mbox{]}resnum\mbox{[}insert\mbox{]}) \\
+\hline
+\mbox{\tt in}  & {\em last\-Res} & Residue spec (\mbox{[}chain\mbox{]}resnum\mbox{[}insert\mbox{]})\\
+\hline
+\end{DoxyParams}
+Extracts atoms outside a zone from a P\-D\-B linked list, making a copy of the original list.
+
+Forces extraction even if the residues are not found
+
+
+\begin{DoxyItemize}
+\item 26.\-06.\-19 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 653 of file Extract\-Zone\-P\-D\-B.\-c.
+

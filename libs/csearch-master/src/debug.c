@@ -1,0 +1,39 @@
+#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Interprets the DEBUG command. The syntax is
+   DEBUG [name value]
+         [PRINT 0   ] */
+ 
+void debug(
+void
+)
+{
+   int val,
+       i;
+ 
+   for(i=0;i<strlen(g_strparam[0]);i++)
+      g_strparam[0][i] = toupper(g_strparam[0][i]);
+ 
+   sscanf(g_strparam[1],"%d",&val);
+ 
+   if(!strncmp(g_strparam[0],"PRIN",4))
+      prtdbgvars();
+   else if(!strncmp(g_strparam[0],"ALLST",5))
+      dbg.allstk = val;
+   else if(!strncmp(g_strparam[0],"ALLOC",5))
+      dbg.alloc = val;
+   else if(!strncmp(g_strparam[0],"ALLHP",5))
+      dbg.allhp = val;
+   else if(!strncmp(g_strparam[0],"CLSC",4))
+      dbg.clschn = val;
+   /* ACRM added CGEN here */
+   else if(!strncmp(g_strparam[0],"CGEN",4))
+      dbg.cgen = val;
+   else
+      fprintf(out,"Warning from DEBUG -- Unrecgnised variable %s\n",
+             g_strparam[0]);
+ 
+   prtdbgvars();
+}
+ 

@@ -1,0 +1,332 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.03.58;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifndef __FORTRANCALLS__
+#define __FORTRANCALLS__
+
+#if defined (__FORT_UNDERSCORE__)
+
+#define acvmol acvmol_
+#define adconn adconn_
+#define addclu addclu_
+#define adddip adddip_
+#define adddmy adddmy_
+#define addhyd addhyd_
+#define addpln addpln_
+#define adlogp adlogp_
+#define adrand adrand_
+#define aemain aemain_
+#define anm2ds anm2ds_
+#define appfrg appfrg_
+#define arcmul arcmul_
+#define arcsum arcsum_
+#define aspadd aspadd_
+#define asprst asprst_
+#define aspwrt aspwrt_
+#define atmcon atmcon_
+#define atmcrd atmcrd_
+#define atmdfl atmdfl_
+#define atmflg atmflg_
+#define atmins atmins_
+#define atmlbl atmlbl_
+#define atmprp atmprp_
+#define augetl augetl_
+#define aupick aupick_
+#define aurdrw aurdrw_
+#define ausetl ausetl_
+#define autcor autcor_
+#define autdrw autdrw_
+#define autini autini_
+#define autrgb autrgb_
+#define bnddrw bnddrw_
+#define c2dto3d c2dto3d_
+#define cenmol cenmol_
+#define cgfcom cgfcom_
+#define chkpln chkpln_
+#define chrge2 chrge2_
+#define clccon clccon_
+#define clgetl clgetl_
+#define clinit clinit_
+#define clinzm clinzm_
+#define clouzm clouzm_
+#define clpick clpick_
+#define clrdrw clrdrw_
+#define clrgb clrgb_
+#define clsetl clsetl_
+#define cmass cmass_
+#define cmsurf cmsurf_
+#define cnfctr cnfctr_
+#define cnfemn cnfemn_
+#define cnfemx cnfemx_
+#define cnfsvr cnfsvr_
+#define con2cl con2cl_
+#define con2di con2di_
+#define concla concla_
+#define connam connam_
+#define conrst conrst_
+#define conwrt conwrt_
+#define cosmol cosmol_
+#define crotat crotat_
+#define denrgb denrgb_
+#define depthq depthq_
+#define disanl disanl_
+#define dnrdrw dnrdrw_
+#define dprstr dprstr_
+#define dpsave dpsave_
+#define dpsdmp dpsdmp_
+#define drag3d drag3d_
+#define drwdsp drwdsp_
+#define dummy  dummy_
+#define eplst eplst_
+#define epsurf epsurf_
+#define erlst erlst_
+#define eurcom eurcom_
+#define eurerr eurerr_
+#define fndtxt fndtxt_
+#define frgatm frgatm_
+#define frgnew frgnew_
+#define frgrot frgrot_
+#define frgsel frgsel_
+#define frgtrl frgtrl_
+#define ftomol ftomol_
+#define gapos gapos_
+#define gares gares_
+#define gasymb gasymb_
+#define gcangl gcangl_
+#define gcapln gcapln_
+#define gcapos gcapos_
+#define gcdist gcdist_
+#define gctors gctors_
+#define getca2 getca2_
+#define getcaf getcaf_
+#define getcan getcan_
+#define getcas getcas_
+#define getch1 getch1_
+#define getch2 getch2_
+#define getcoo getcoo_
+#define getcs getcs_
+#define geteps geteps_
+#define gethn1 gethn1_
+#define gethod gethod_
+#define getn getn_
+#define getn3d getn3d_
+#define getnh2 getnh2_
+#define getnh3 getnh3_
+#define getns getns_
+#define geto3d geto3d_
+#define getpep getpep_
+#define getrgb getrgb_
+#define getrul getrul_
+#define gettol gettol_
+#define gintrs gintrs_
+#define glaidx glaidx_
+#define glosca3d glosca3d_
+#define gmoltt gmoltt_
+#define gnsubs gnsubs_
+#define gnsubs gnsubs_
+#define gpmol gpmol_
+#define gquat gquat_
+#define gtexca gtexca_
+#define gtextc gtextc_
+#define gtmpir gtmpir_
+#define gtresc gtresc_
+#define gtsqin gtsqin_
+#define hdcoff hdcoff_
+#define hicelm hicelm_
+#define hicelr hicelr_
+#define hicolm hicolm_
+#define hicolr hicolr_
+#define hidcli hidcli_
+#define hioff3d hioff3d_
+#define hirowm hirowm_
+#define hirowr hirowr_
+#define icoltxt icoltxt_
+#define iconpy iconpy_
+#define indvar indvar_
+#define inictr inictr_
+#define inisrf inisrf_
+#define init3d init3d_
+#define initat initat_
+#define initco initco_
+#define initdy initdy_
+#define initfg initfg_
+#define initpl initpl_
+#define intcol intcol_
+#define inzm3d inzm3d_
+#define isolst isolst_
+#define join   join_
+#define labval labval_
+#define mammai mammai_
+#define manrot3d manrot3d_
+#define mantra3d mantra3d_
+#define menfoc menfoc_
+#define mevpur mevpur_
+#define mgpsdm mgpsdm_
+#define mgptlab mgptlab_
+#define mgrdrw mgrdrw_
+#define mgrgb mgrgb_
+#define mgstax mgstax_
+#define mkbond mkbond_
+#define mmrdrw mmrdrw_
+#define molcom molcom_
+#define molflg molflg_
+#define molptr molptr_
+#define molttl molttl_
+#define nemcon nemcon_
+#define newatm newatm_
+#define newmol newmol_
+#define omcgnv omcgnv_
+#define onaxpt onaxpt_
+#define onrule onrule_
+#define opnfil opnfil_
+#define opnfrg opnfrg_
+#define opnpir opnpir_
+#define opnres opnres_
+#define opnrss opnrss_
+#define orth3d orth3d_
+#define ouzm3d ouzm3d_
+#define paddh paddh_
+#define pdadml pdadml_
+#define pdadrs pdadrs_
+#define pdatmc pdatmc_
+#define pdcbyr pdcbyr_
+#define pdcgf  pdcgf_
+#define pdcntl pdcntl_
+#define pdexrs pdexrs_
+#define pdgnrs pdgnrs_
+#define pdgrli pdgrli_
+#define pdircl pdircl_
+#define pdirib pdirib_
+#define pdlcgc pdlcgc_
+#define pdmupd pdmupd_
+#define pdocgf pdocgf_
+#define pdsfac pdsfac_
+#define pdsfal pdsfal_
+#define pdsfli pdsfli_
+#define pdsfsi pdsfsi_
+#define pdsfvi pdsfvi_
+#define pdstat pdstat_
+#define pdupdt pdupdt_
+#define planes planes_
+#define plot3d plot3d_
+#define plsanl plsanl_
+#define prosol prosol_
+#define psetc psetc_
+#define ptlab3d ptlab3d_
+#define rdrw3d rdrw3d_
+#define recaco recaco_
+#define recaro recaro_
+#define reset3d reset3d_
+#define resurf resurf_
+#define rfeur  rfeur_
+#define rgb3d rgb3d_
+#define rgbmes rgbmes_
+#define ribbon ribbon_
+#define rmvatm rmvatm_
+#define rmvbnd rmvbnd_
+#define rmvfrg rmvfrg_
+#define rmvmol rmvmol_
+#define rstdis rstdis_
+#define rtyatm rtyatm_
+#define salbl salbl_
+#define satlst satlst_
+#define savfil savfil_
+#define savpir savpir_
+#define scorg3d scorg3d_
+#define shcorl shcorl_
+#define scpcor3d scpcor3d_
+#define setarn setarn_
+#define setcol setcol_
+#define setern setern_
+#define sethlb sethlb_
+#define setirn setirn_
+#define setn3d setn3d_
+#define setnrs setnrs_
+#define seto3d seto3d_
+#define setrgb setrgb_
+#define setrno setrno_
+#define setrul setrul_
+#define shiax3d shiax3d_
+#define shicor shicor_
+#define shides shides_
+#define shipnt shipnt_
+#define shimes shimes_
+#define shimma shimma_
+#define shipic shipic_
+#define shirgb shirgb_
+#define srfcls srfcls_
+#define srfgen srfgen_
+#define srfldm srfldm_
+#define srfopn srfopn_
+#define srfrdc srfrdc_
+#define srfrdp srfrdp_
+#define srfrdr srfrdr_
+#define stax3d stax3d_
+#define stdump stdump_
+#define storco storco_
+#define storro storro_
+#define strget strget_
+#define surfar surfar_
+#define surfcs surfcs_
+#define surfes surfes_
+#define surfrs surfrs_
+#define surfx  surfx_
+#define svhi2d svhi2d_
+#define svhi3d svhi3d_
+#define tabfoc tabfoc_
+#define traro3d traro3d_
+#define tratr3d tratr3d_
+#define unvsts unvsts_
+#define vector vector_
+#define view3d view3d_
+#define vnorm vnorm_
+#define vpvctr vpvctr_
+#define warnqu warnqu_
+#define wholem wholem_
+#define winmsg winmsg_
+#define wrteur wrteur_
+
+/* OMUPD DW 21/12/92 Definitions for the Asp, Cobra and Constrictor interfaces */
+#define getact getact_
+#define getacy getacy_
+#define getat1 getat1_
+#define getat2 getat2_
+#define getat3 getat3_
+#define getbov getbov_
+#define getcal getcal_
+#define getgau getgau_
+#define getinf getinf_
+#define getinr getinr_
+#define getlog getlog_
+#define getonr getonr_
+#define getouf getouf_
+#define getrms getrms_
+#define getmax getmax_
+#define getmes getmes_
+#define getsti getsti_
+#define getmod getmod_
+
+#endif
+
+#endif
+@

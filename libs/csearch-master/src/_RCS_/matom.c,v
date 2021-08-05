@@ -1,0 +1,92 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.02;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Returns the atom number given a residue and atom type
+   '-' refers to nres-1
+   '+' refers to nres+1
+   '#' refers to nres+2 */
+ 
+#define APLS  '+'
+#define AMNS  '-'
+#define QUES  '?'
+#define BLANK ' '
+#define STAR  '*'
+#define APND  '#'
+ 
+int matom(
+int nres,
+char atom[]
+)
+{
+   char  tempc,
+         temp[6];
+   int   ires, istart, istop, i;
+ 
+   ires = abs(nres);
+ 
+   for(;;)
+   {
+      tempc = atom[0];
+ 
+      switch(tempc)
+      {
+      case AMNS:
+         ires--;
+         break;
+      case APLS:
+         ires++;
+         break;
+      case APND:
+         ires+=2;
+         break;
+      case STAR:
+         break;
+      case QUES:
+         return(-99);
+      default:
+         goto jumpout;
+      }
+      atom[0] = atom[1];
+      atom[1] = atom[2];
+      atom[2] = atom[3];
+      atom[3] = ' ';
+   }
+jumpout:
+   if(ires<1) return(-99);
+   istart = pstruct.lstatm[ires-1];
+   istop = pstruct.lstatm[ires];
+   for(i=istart; i<istop; i++)
+      if(!strncmp(atom,pstruct.atmnme[i],4))
+         return(i+1);
+   /* If we get here, we haven't found it */
+   strncpy(temp,atom,4);
+   temp[4] = '\0';
+   fprintf(out,"matom(): Warning==> Atom %4s not found for residue %5d\n\
+                    Execution continuing\n",temp,ires);
+   return(-99);
+}
+ 
+@

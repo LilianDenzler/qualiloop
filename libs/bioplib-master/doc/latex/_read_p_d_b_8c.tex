@@ -1,0 +1,780 @@
+\hypertarget{_read_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Read\-P\-D\-B.c File Reference}
+\label{_read_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Read\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Read\-P\-D\-B.\-c}}
+}
+
+
+Read coordinates from a P\-D\-B file.  
+
+
+{\ttfamily \#include \char`\"{}port.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fsscanf.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_read_p_d_b_8c_a7c2049834b572b318eef04a20dfbfa6f}{R\-E\-A\-D\-P\-D\-B\-\_\-\-M\-A\-I\-N}
+\item 
+\#define \hyperlink{_read_p_d_b_8c_a457cbd80b17488f3be1deea377c79008}{M\-A\-X\-P\-A\-R\-T\-I\-A\-L}~8
+\item 
+\#define \hyperlink{_read_p_d_b_8c_a09c78d2f8feb311dd9fc969a0bf84979}{S\-M\-A\-L\-L}~0.\-000001
+\item 
+\#define \hyperlink{_read_p_d_b_8c_a516526b51408fb9c76e9080a076ce7a9}{X\-M\-L\-\_\-\-B\-U\-F\-F\-E\-R}~1024
+\item 
+\#define \hyperlink{_read_p_d_b_8c_aa3226aff6ea754ae66a7d523b57db4ce}{X\-M\-L\-\_\-\-S\-A\-M\-P\-L\-E}~256
+\item 
+\#define \hyperlink{_read_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~160
+\item 
+\#define \hyperlink{_read_p_d_b_8c_a2cc27c0a815743fee098c0ae1c2799e7}{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-H\-E\-A\-D\-E\-R}~0
+\item 
+\#define \hyperlink{_read_p_d_b_8c_adaa94eb868b56cdfc5dc6f46e66407a0}{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-C\-O\-O\-R\-D\-I\-N\-A\-T\-E\-S}~1
+\item 
+\#define \hyperlink{_read_p_d_b_8c_aa1147d9301741585883343096c5e1d5e}{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-R\-A\-I\-L\-E\-R}~2
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{_read_p_d_b_8c_a31dd4384020447c7d99d0e4aace6f17a}{popen} (const char $\ast$, const char $\ast$)
+\item 
+int \hyperlink{_read_p_d_b_8c_a92e41b535f1505676ed8cbe5896606d5}{pclose} (F\-I\-L\-E $\ast$)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_read_p_d_b_8c_a4027e61f67886772894d7a948a3be2c0}{bl\-Read\-P\-D\-B} (F\-I\-L\-E $\ast$fp, int $\ast$natom)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_read_p_d_b_8c_a23cbc720ce99c3bdaf61d42960df970a}{bl\-Read\-P\-D\-B\-All} (F\-I\-L\-E $\ast$fp, int $\ast$natom)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_read_p_d_b_8c_acd3668492022bd2b8fb630dd2ee250b7}{bl\-Read\-P\-D\-B\-Atoms} (F\-I\-L\-E $\ast$fp, int $\ast$natom)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_read_p_d_b_8c_aa303aa30446e8ca03c7deb6b6a496dc6}{bl\-Read\-P\-D\-B\-Occ\-Rank} (F\-I\-L\-E $\ast$fp, int $\ast$natom, int Occ\-Rank)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_read_p_d_b_8c_aa282352d949c323303ef5323432006f2}{bl\-Read\-P\-D\-B\-Atoms\-Occ\-Rank} (F\-I\-L\-E $\ast$fp, int $\ast$natom, int Occ\-Rank)
+\item 
+\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$ \hyperlink{_read_p_d_b_8c_aa5e2da8a66d45fa7383377f0bc2a96f8}{bl\-Do\-Read\-P\-D\-B} (F\-I\-L\-E $\ast$fpin, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} All\-Atoms, int Occ\-Rank, int Model\-Num, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Do\-Whole)
+\item 
+char $\ast$ \hyperlink{_read_p_d_b_8c_a4beae504260cb072d1807d1e3aaa1982}{bl\-Fix\-Atom\-Name} (char $\ast$name, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} occup)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_read_p_d_b_8c_a10c0ace6d46e2c0a56ce4bea451e76c3}{bl\-Remove\-Alternates} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$ \hyperlink{_read_p_d_b_8c_a68b7fa3f71a70211cfd355204b48d4fc}{bl\-Do\-Read\-P\-D\-B\-M\-L} (F\-I\-L\-E $\ast$fpin, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} All\-Atoms, int Occ\-Rank, int Model\-Num, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Do\-Whole)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_read_p_d_b_8c_a02bf1675328de6d4ce5d398ebd0c4c7a}{bl\-Check\-File\-Format\-P\-D\-B\-M\-L} (F\-I\-L\-E $\ast$fp)
+\item 
+void \hyperlink{_read_p_d_b_8c_aeee33316d776fc479c656a3f9f0c7a84}{bl\-Free\-Whole\-P\-D\-B} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb)
+\item 
+\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$ \hyperlink{_read_p_d_b_8c_aac630c13aff6802b905c10ce97d64761}{bl\-Read\-Whole\-P\-D\-B} (F\-I\-L\-E $\ast$fpin)
+\item 
+\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$ \hyperlink{_read_p_d_b_8c_a56ce69a8cb41874090869c11246e0b0e}{bl\-Read\-Whole\-P\-D\-B\-Atoms} (F\-I\-L\-E $\ast$fpin)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read coordinates from a P\-D\-B file. \begin{DoxyVersion}{Version}
+V3.\-13 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+11.\-12.\-20 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1988-\/2020 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+
+\begin{DoxyCode}
+pdb = ReadPDB(fp,natom)
+\end{DoxyCode}
+
+
+This subroutine will read a .P\-D\-B file of any size and form a linked list of the protein structure. This list is contained in a linked set of structures of type \hyperlink{structpdb__entry}{pdb\-\_\-entry}. The structure is set up by including the file \char`\"{}pdb.\-h\char`\"{}. For details of the structure, see this file.
+
+To free the space created by this routine, call \hyperlink{safemem_8h_a4151f4e24778e7b290ec804c29c91f27}{F\-R\-E\-E\-L\-I\-S\-T(pdb,\-P\-D\-B)}.
+
+The parameters passed to the subroutine are\-:
+
+
+\begin{DoxyItemize}
+\item fp -\/ A pointer to type F\-I\-L\-E in which the .P\-D\-B file is stored.
+\item pdb -\/ A pointer to type P\-D\-B.
+\item natom -\/ A pointer to type integer in which the number of atoms found is stored.
+\end{DoxyItemize}
+
+As of V2.\-3, the routine makes provision for partial occupancies. If the occupancies are 1.\-0 or 0.\-0, the atoms are read verbatim. If not, only the highest occupancy atoms are read and the atom names are corrected to remove alternative labels. This behaviour can be overridden by calling one of the ...Occ\-Rank() routines to read lower occupancy atoms. If any partial occupancy atoms are read the global flag g\-P\-D\-B\-Partial\-Occ is set to T\-R\-U\-E.
+
+The various P\-D\-B reading routines set the following global flags\-: g\-P\-D\-B\-Partial\-Occ -\/ the P\-D\-B file contained multiple occupancies g\-P\-D\-B\-Multi\-N\-M\-R -\/ the P\-D\-B file contained multiple models g\-P\-D\-B\-X\-M\-L -\/ the file was in P\-D\-B\-M\-L (X\-M\-L) format g\-P\-D\-B\-Model\-Not\-Found -\/ the requested model was not found
+
+N\-O\-T\-E\-: Although some of the fields are represented by a single character, they are still stored in character arrays.
+
+B\-U\-G\-S\-: The subroutine cannot read files with V\-A\-X Fortran carriage control! It just sits there and page faults like crazy.
+
+B\-U\-G\-S\-: The multiple occupancy code assumes that all positions for a given atom in consecutive records of the file
+
+B\-U\-G\-S\-: 25.\-01.\-05 Note the multiple occupancy code won't work properly for 3pga where atoms have occupancies of zero and one
+
+\subsection*{Usage\-: }
+
+
+\begin{DoxyCode}
+pdb = \hyperlink{pdb_8h_a4027e61f67886772894d7a948a3be2c0}{blReadPDB}(fp,natom)
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E in which the .P\-D\-B file is stored.\\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\ast$pdb A pointer to the first allocated item of the P\-D\-B linked list
+\end{DoxyReturn}
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 04.\-11.\-88 Original
+\item V1.\-1 07.\-02.\-89 Now ignores any records from the .P\-D\-B file which don't start with A\-T\-O\-M or H\-E\-T\-A\-T\-M.
+\item V1.\-2 28.\-03.\-90 Some fields altered to match the exact specifications of the P\-D\-B. The only differences from the standard are\-:
+\begin{DoxyEnumerate}
+\item The residue name is 4 characters rather than 3 (allowing L\-Y\-S\-H, H\-I\-S\-A, etc.).
+\item The atom name starts one column later than the standard and is four columns wide encompasing the standard's `alternate' field. These two differences from the standard reflect the common usage.
+\end{DoxyEnumerate}
+\item V1.\-2a 28.\-06.\-90 Buffer size increased to 85 chars.
+\item V1.\-2b 15.\-02.\-91 Simply changed comment header to match new standard.
+\item V1.\-3 07.\-01.\-92 Corrected small bug in while() loop. Now ignores blank lines properly
+\item V1.\-4 11.\-05.\-92 Added check on E\-O\-F in while() loop and memset() of buffer. A\-N\-S\-Ified.
+\item V1.\-5 01.\-06.\-92 Documented for autodoc
+\item V1.\-7 01.\-10.\-92 Changed to use fgets()
+\item V1.\-6 19.\-06.\-92 Corrected use of stdlib
+\item V1.\-8 08.\-12.\-92 S\-A\-S/\-C V6 now defines atof() in stdlib
+\item V1.\-9 10.\-06.\-93 Returns T\-R\-U\-E or F\-A\-L\-S\-E rather than exiting on failure
+\item V2.\-0 17.\-06.\-93 Rewritten to use \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()}
+\item V2.\-1 08.\-07.\-93 Modified to give Read\-P\-D\-B() and Read\-P\-D\-B\-Atoms()
+\item V2.\-2 09.\-07.\-93 Modified to return the P\-D\-B pointer rather than a B\-O\-O\-L. There is now no need to initialise the structure first. Rewrote allocation scheme.
+\item V2.\-3 17.\-03.\-94 Handles partial occupancies. If occupancies are not 1.\-0 or 0.\-0, the normal routine now reads only the highest occupancy atoms and corrects the atoms names to remove alternative labels. This behaviour can be overridden by calling one of the ...Occ\-Rank() routines to read lower occupancy atoms. Sets natom to -\/1 if there was an error to distinguish from no atoms. Handles atom names which start in column 13 rather than column 14. This is allowed in the standard, but very rare. Added Read\-P\-D\-B\-Occ\-Rank() \& Read\-P\-D\-B\-Atoms\-Occ\-Rank() Sets g\-P\-D\-B\-Partial\-Occ flag.
+\item V2.\-4 06.\-04.\-94 With atom names which start in column 13, now checks if the first character is a digit. If so, moves it to the end of the atom name. Thus, 1\-H\-H1 becomes H\-H11 and 2\-H\-H1 becomes H\-H12.
+\item V2.\-5 04.\-10.\-94 Fixed partial occ when resnum changes as well as atom name. Fixed bug when M\-A\-X\-P\-A\-R\-T\-I\-A\-L exceeded.
+\item V2.\-6 03.\-11.\-94 Simply Corrected description. No code changes
+\item V2.\-7 06.\-03.\-95 Now reads just the first N\-M\-R model by default do\-Read\-P\-D\-B() no longer static Sets g\-P\-D\-B\-Multi\-N\-M\-R if E\-N\-D\-M\-D\-L records found.
+\item V2.\-8 13.\-01.\-97 Added check on return from fsscanf. Blank lines used to result in duplication of the previous line since \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()} does not reset the variables on receiving a blank line. Also fixed in \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()}.
+\item V2.\-9 25.\-02.\-98 Added transparent reading of gzipped P\-D\-B files if G\-U\-N\-Z\-I\-P\-\_\-\-S\-U\-P\-P\-O\-R\-T is defined
+\item V2.\-10 18.\-08.\-98 Added cast to \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} for Sun\-O\-S
+\item V2.\-11 08.\-10.\-99 Initialised some variables
+\item V2.\-12 15.\-02.\-01 Added atnam\-\_\-raw into P\-D\-B structure
+\item V2.\-13 30.\-05.\-02 Changed P\-D\-B field from 'junk' to 'record\-\_\-type'
+\item V2.\-14 27.\-04.\-05 Fixed bug in atnam\-\_\-raw for multiple occupancies
+\item V2.\-15 03.\-06.\-05 Added altpos field to P\-D\-B structure. The massaged atom name no longer contains the alternate indicator and atnam\-\_\-raw has only the atom name with altpos having the alternate indicator (as it should!)
+\item V2.\-16 14.\-10.\-05 Fixed a problem in Store\-Occ\-Rank\-Atom() when a lower occupancy atom has (erroneously) been set to occupancy of zero and you want to pull out that atom
+\item V2.\-17 25.\-01.\-06 Added calls to Remove\-Alternates()
+\item V2.\-18 03.\-02.\-06 Added prototypes for \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} and \hyperlink{openorpipe_8c_a92e41b535f1505676ed8cbe5896606d5}{pclose()}
+\item V2.\-19 05.\-06.\-07 Added support for Unix compress'd files
+\item V2.\-20 29.\-06.\-07 \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} and \hyperlink{openorpipe_8c_a92e41b535f1505676ed8cbe5896606d5}{pclose()} prototypes now skipped for M\-A\-C O\-S\-X which defines them differently
+\item V2.\-21 17.\-03.\-09 \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} prototype skipped for Windows. By\-: C\-T\-P
+\item V2.\-22 21.\-12.\-11 do\-Read\-P\-D\-B() modified for cases where atoms are single occupancy but occupancy is $<$ 1.\-0
+\item V2.\-23 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H macro. By\-: C\-T\-P
+\item V2.\-24 22.\-04.\-14 Added P\-D\-B\-M\-L parsing with do\-Read\-P\-D\-B\-M\-L() and Check\-File\-Format\-P\-D\-B\-M\-L(). By C\-T\-P
+\item V2.\-25 02.\-06.\-14 Updated do\-Read\-P\-D\-B\-M\-L(). By\-: C\-T\-P
+\item V2.\-26 09.\-06.\-14 Set g\-P\-D\-B\-X\-M\-L flag. By\-: C\-T\-P
+\item V2.\-27 07.\-07.\-14 Renaming of functions with \char`\"{}bl\char`\"{} prefix. By\-: C\-T\-P
+\item V2.\-28 04.\-08.\-14 \hyperlink{pdb_8h_a4027e61f67886772894d7a948a3be2c0}{bl\-Read\-P\-D\-B()} and bl\-Read\-P\-D\-B\-M\-L() get element and charge. Set access and radius to 0.\-0. Set atom\-Type to N\-U\-L\-L. Added bl\-Process\-Element\-Field() and bl\-Process\-Charge\-Field() By\-: C\-T\-P
+\item V2.\-29 15.\-08.\-14 Updated \hyperlink{pdb_8h_a9000383ee976cc74170f8369d15e3543}{bl\-Do\-Read\-P\-D\-B()} and \hyperlink{pdb_8h_acfe34022af3ca82b7a6cb218fae608a8}{bl\-Do\-Read\-P\-D\-B\-M\-L()} to use \hyperlink{pdb_8h_aa060eecccbc29f0bfbbaf442b42d0cdc}{C\-L\-E\-A\-R\-\_\-\-P\-D\-B()}. By\-: C\-T\-P
+\item V2.\-30 16.\-08.\-14 Replaced charge with formal\-\_\-charge and partial\-\_\-charge for P\-D\-B structure. By\-: C\-T\-P
+\item V2.\-31 18.\-08.\-14 Added X\-M\-L\-\_\-\-S\-U\-P\-P\-O\-R\-T option allowing compilation without support for P\-D\-B\-M\-L format. By\-: C\-T\-P
+\item V2.\-32 26.\-08.\-14 \hyperlink{pdb_8h_acfe34022af3ca82b7a6cb218fae608a8}{bl\-Do\-Read\-P\-D\-B\-M\-L()} pads record type to six chars. By\-: C\-T\-P
+\item V2.\-33 29.\-08.\-14 Rewrote \hyperlink{pdb_8h_a02bf1675328de6d4ce5d398ebd0c4c7a}{bl\-Check\-File\-Format\-P\-D\-B\-M\-L()} to take sample from input steam then push sample back on stream. By\-: C\-T\-P
+\item V2.\-34 31.\-08.\-14 Fixed bug in \hyperlink{pdb_8h_a02bf1675328de6d4ce5d398ebd0c4c7a}{bl\-Check\-File\-Format\-P\-D\-B\-M\-L()}. By\-: C\-T\-P
+\item V2.\-35 09.\-09.\-14 Updated \hyperlink{pdb_8h_a02bf1675328de6d4ce5d398ebd0c4c7a}{bl\-Check\-File\-Format\-P\-D\-B\-M\-L()} for non-\/unix systems. Decreased size of X\-M\-L\-\_\-\-S\-A\-M\-P\-L\-E. Reading of gzipped files with gunzip not supported for M\-S Windows. By\-: C\-T\-P
+\item V2.\-36 29.\-09.\-14 Allow single character check for filetype where ungetc() fails after pushback of single character. Updates to \hyperlink{pdb_8h_a02bf1675328de6d4ce5d398ebd0c4c7a}{bl\-Check\-File\-Format\-P\-D\-B\-M\-L()} and \hyperlink{pdb_8h_a9000383ee976cc74170f8369d15e3543}{bl\-Do\-Read\-P\-D\-B()}. By\-: C\-T\-P
+\item V2.\-37 17.\-02.\-15 Added segid support By\-: A\-C\-R\-M
+\item V3.\-0 20.\-02.\-15 Merged functionality of Read\-Whole\-P\-D\-B() into this
+\item V3.\-1 25.\-02.\-15 Enhanced error checking and safety of \hyperlink{pdb_8h_acfe34022af3ca82b7a6cb218fae608a8}{bl\-Do\-Read\-P\-D\-B\-M\-L()}
+\item V3.\-2 05.\-03.\-15 Fixed core dump in Store\-Conect\-Records() when alternates have been deleted so C\-O\-N\-E\-C\-T specifies an atom that doesn't exist any more
+\item V3.\-3 20.\-03.\-15 Fixed reading of whole P\-D\-B when not the first model Now sets g\-P\-D\-B\-Model\-Not\-Found flag if the requested model isn't found
+\item V3.\-4 03.\-04.\-15 Rewind file after reading pdbxml header data. Initialize pdb to N\-U\-L\-L for Read\-P\-D\-B functions. By\-: C\-T\-P
+\item V3.\-5 13.\-05.\-15 Added C\-O\-M\-P\-N\-D and S\-O\-U\-R\-C\-E parsing for P\-D\-B\-M\-L-\/format By\-: C\-T\-P
+\item V3.\-6 23.\-06.\-15 Parse entity\-\_\-id from P\-D\-B\-M\-L files. Parse chain for C\-O\-M\-P\-N\-D records from P\-D\-B\-M\-L files. Restrict compnd type to polymer entries. Parse S\-E\-Q\-R\-E\-S records from P\-D\-B\-M\-L files. By\-: C\-T\-P
+\item V3.\-7 23.\-06.\-15 bl\-Store\-Occ\-Rank\-Atom() properly clears new P\-D\-B items
+\item V3.\-8 24.\-06.\-15 Parse M\-O\-D\-R\-E\-S records from P\-D\-B\-M\-L files. By\-: C\-T\-P
+\item V3.\-9 25.\-06.\-15 Added experimental data support. Fixed some memory leaks. Tidied up comments and formatting. Renamed all static functions so they don't start with bl. Added checks for failed X\-M\-L extractions.
+\item V3.\-10 25.\-06.\-15 Fixed bug for pdbml parsing where residue number is set to 0. By\-: C\-T\-P
+\item V3.\-11 01.\-07.\-15 Added Parse\-Header\-Records\-P\-D\-B\-M\-L(). Parse\-Header\-P\-D\-B\-M\-L() broken into smaller functions\-: Parse\-Title\-P\-D\-B\-M\-L(), Parse\-Compnd\-P\-D\-B\-M\-L(), Parse\-Source\-P\-D\-B\-M\-L(), Parse\-Resol\-P\-D\-B\-M\-L(), Parse\-Seqres\-P\-D\-B\-M\-L() and Parse\-Modres\-P\-D\-B\-M\-L(). By\-: C\-T\-P
+\item V3.\-12 07.\-08.\-18 Increased text buffer sizes to silence gcc 7.\-3.\-1 with -\/\-O2 By\-: A\-C\-R\-M
+\item V3.\-13 11.\-12.\-20 More checks before \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} prototype 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_read_p_d_b_8c_source}{Read\-P\-D\-B.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_read_p_d_b_8c_adaa94eb868b56cdfc5dc6f46e66407a0}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-C\-O\-O\-R\-D\-I\-N\-A\-T\-E\-S@{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-C\-O\-O\-R\-D\-I\-N\-A\-T\-E\-S}}
+\index{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-C\-O\-O\-R\-D\-I\-N\-A\-T\-E\-S@{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-C\-O\-O\-R\-D\-I\-N\-A\-T\-E\-S}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-C\-O\-O\-R\-D\-I\-N\-A\-T\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-C\-O\-O\-R\-D\-I\-N\-A\-T\-E\-S~1}}\label{_read_p_d_b_8c_adaa94eb868b56cdfc5dc6f46e66407a0}
+
+
+Definition at line 343 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a2cc27c0a815743fee098c0ae1c2799e7}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-H\-E\-A\-D\-E\-R@{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-H\-E\-A\-D\-E\-R}}
+\index{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-H\-E\-A\-D\-E\-R@{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-H\-E\-A\-D\-E\-R}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-H\-E\-A\-D\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-H\-E\-A\-D\-E\-R~0}}\label{_read_p_d_b_8c_a2cc27c0a815743fee098c0ae1c2799e7}
+
+
+Definition at line 342 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_aa1147d9301741585883343096c5e1d5e}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-R\-A\-I\-L\-E\-R@{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-R\-A\-I\-L\-E\-R}}
+\index{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-R\-A\-I\-L\-E\-R@{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-R\-A\-I\-L\-E\-R}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-R\-A\-I\-L\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-R\-A\-I\-L\-E\-R~2}}\label{_read_p_d_b_8c_aa1147d9301741585883343096c5e1d5e}
+
+
+Definition at line 344 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~160}}\label{_read_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 340 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a457cbd80b17488f3be1deea377c79008}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!M\-A\-X\-P\-A\-R\-T\-I\-A\-L@{M\-A\-X\-P\-A\-R\-T\-I\-A\-L}}
+\index{M\-A\-X\-P\-A\-R\-T\-I\-A\-L@{M\-A\-X\-P\-A\-R\-T\-I\-A\-L}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{M\-A\-X\-P\-A\-R\-T\-I\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-P\-A\-R\-T\-I\-A\-L~8}}\label{_read_p_d_b_8c_a457cbd80b17488f3be1deea377c79008}
+
+
+Definition at line 336 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a7c2049834b572b318eef04a20dfbfa6f}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!R\-E\-A\-D\-P\-D\-B\-\_\-\-M\-A\-I\-N@{R\-E\-A\-D\-P\-D\-B\-\_\-\-M\-A\-I\-N}}
+\index{R\-E\-A\-D\-P\-D\-B\-\_\-\-M\-A\-I\-N@{R\-E\-A\-D\-P\-D\-B\-\_\-\-M\-A\-I\-N}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{R\-E\-A\-D\-P\-D\-B\-\_\-\-M\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-P\-D\-B\-\_\-\-M\-A\-I\-N}}\label{_read_p_d_b_8c_a7c2049834b572b318eef04a20dfbfa6f}
+
+
+Definition at line 310 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a09c78d2f8feb311dd9fc969a0bf84979}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!S\-M\-A\-L\-L@{S\-M\-A\-L\-L}}
+\index{S\-M\-A\-L\-L@{S\-M\-A\-L\-L}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{S\-M\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-M\-A\-L\-L~0.\-000001}}\label{_read_p_d_b_8c_a09c78d2f8feb311dd9fc969a0bf84979}
+
+
+Definition at line 337 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a516526b51408fb9c76e9080a076ce7a9}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!X\-M\-L\-\_\-\-B\-U\-F\-F\-E\-R@{X\-M\-L\-\_\-\-B\-U\-F\-F\-E\-R}}
+\index{X\-M\-L\-\_\-\-B\-U\-F\-F\-E\-R@{X\-M\-L\-\_\-\-B\-U\-F\-F\-E\-R}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{X\-M\-L\-\_\-\-B\-U\-F\-F\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-L\-\_\-\-B\-U\-F\-F\-E\-R~1024}}\label{_read_p_d_b_8c_a516526b51408fb9c76e9080a076ce7a9}
+
+
+Definition at line 338 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_aa3226aff6ea754ae66a7d523b57db4ce}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!X\-M\-L\-\_\-\-S\-A\-M\-P\-L\-E@{X\-M\-L\-\_\-\-S\-A\-M\-P\-L\-E}}
+\index{X\-M\-L\-\_\-\-S\-A\-M\-P\-L\-E@{X\-M\-L\-\_\-\-S\-A\-M\-P\-L\-E}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{X\-M\-L\-\_\-\-S\-A\-M\-P\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-L\-\_\-\-S\-A\-M\-P\-L\-E~256}}\label{_read_p_d_b_8c_aa3226aff6ea754ae66a7d523b57db4ce}
+
+
+Definition at line 339 of file Read\-P\-D\-B.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_read_p_d_b_8c_a02bf1675328de6d4ce5d398ebd0c4c7a}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Check\-File\-Format\-P\-D\-B\-M\-L@{bl\-Check\-File\-Format\-P\-D\-B\-M\-L}}
+\index{bl\-Check\-File\-Format\-P\-D\-B\-M\-L@{bl\-Check\-File\-Format\-P\-D\-B\-M\-L}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Check\-File\-Format\-P\-D\-B\-M\-L}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Check\-File\-Format\-P\-D\-B\-M\-L (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_a02bf1675328de6d4ce5d398ebd0c4c7a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+File is in P\-D\-B\-M\-L format?
+\end{DoxyReturn}
+Simple test to detect P\-D\-B\-M\-L-\/formatted pdb file.
+
+Todo\-: Consider replacement with general function to detect file format for uncompressed file returning file type (eg pdb/pdbml/unknown).
+
+
+\begin{DoxyItemize}
+\item 22.\-04.\-14 Original By\-: C\-T\-P
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_a02bf1675328de6d4ce5d398ebd0c4c7a}{bl\-Check\-File\-Format\-P\-D\-B\-M\-L()} By\-: C\-T\-P
+\item 29.\-08.\-14 Function re-\/written to take sample from the input stream then reset the stream with ungetc. By\-: C\-T\-P
+\item 31.\-08.\-14 Bugfix\-: Check for 'P\-D\-Bx\-:datablock' tag skipped if blank line before xml tag. By\-: C\-T\-P
+\item 09.\-09.\-14 Use rewind() for D\-O\-S instead of pushing sample back on stream with ungetc(). By\-: C\-T\-P
+\item 29.\-09.\-14 Use single character check for pdbml files for Windows or systems where ungetc() fails after pushback of singe char. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 2164 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_aa5e2da8a66d45fa7383377f0bc2a96f8}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Do\-Read\-P\-D\-B@{bl\-Do\-Read\-P\-D\-B}}
+\index{bl\-Do\-Read\-P\-D\-B@{bl\-Do\-Read\-P\-D\-B}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Do\-Read\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\-H\-O\-L\-E\-P\-D\-B}$\ast$ bl\-Do\-Read\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fpin, }
+\item[{{\bf B\-O\-O\-L}}]{All\-Atoms, }
+\item[{int}]{Occ\-Rank, }
+\item[{int}]{Model\-Num, }
+\item[{{\bf B\-O\-O\-L}}]{Do\-Whole}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_aa5e2da8a66d45fa7383377f0bc2a96f8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fpin} & A pointer to type F\-I\-L\-E in which the .P\-D\-B file is stored. \\
+\hline
+\mbox{\tt in}  & {\em All\-Atoms} & T\-R\-U\-E\-: A\-T\-O\-M \& H\-E\-T\-A\-T\-M records F\-A\-L\-S\-E\-: A\-T\-O\-M records only \\
+\hline
+\mbox{\tt in}  & {\em Occ\-Rank} & Occupancy ranking \\
+\hline
+\mbox{\tt in}  & {\em Model\-Num} & N\-M\-R Model number (0 = all) \\
+\hline
+\mbox{\tt in}  & {\em Do\-Whole} & Read the whole P\-D\-B file rather than just the A\-T\-O\-M/\-H\-E\-T\-A\-T\-M records. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a malloc'd W\-H\-O\-L\-E\-P\-D\-B structure
+\end{DoxyReturn}
+Reads a P\-D\-B file into a P\-D\-B linked list. The Occ\-Rank value indicates occupancy ranking to read for partial occupancy atoms. If any partial occupancy atoms are read the global flag g\-P\-D\-B\-Partial\-Occ is set to T\-R\-U\-E.
+
+
+\begin{DoxyItemize}
+\item 04.\-11.\-88 V1.\-0 Original
+\item 07.\-02.\-89 V1.\-1 Ignore records which aren't A\-T\-O\-M or H\-E\-T\-A\-T\-M
+\item 28.\-03.\-90 V1.\-2 Altered field widths to match P\-D\-B standard better See notes above for deviations
+\item 28.\-06.\-90 V1.\-2a Buffer size increased to 85 chars.
+\item 15.\-02.\-91 V1.\-2b Changed comment header to match new standard.
+\item 07.\-01.\-92 V1.\-3 Ignores blank lines properly
+\item 11.\-05.\-92 V1.\-4 Check on E\-O\-F in while() loop, memset() buffer. A\-N\-S\-Ied.
+\item 01.\-06.\-92 V1.\-5 Documented for autodoc
+\item 19.\-06.\-92 V1.\-6 Corrected use of stdlib
+\item 01.\-10.\-92 V1.\-7 Changed to use fgets()
+\item 10.\-06.\-93 V1.\-9 Returns 0 on failure rather than exiting Replaced S\-I\-Z\-E with sizeof(\-P\-D\-B) directly
+\item 17.\-06.\-93 V2.\-0 Rewritten to use \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()}
+\item 08.\-07.\-93 V2.\-1 Split from Read\-P\-D\-B()
+\item 09.\-07.\-93 V2.\-2 Modified to return pointer to P\-D\-B. Rewrote allocation scheme.
+\item 17.\-03.\-94 V2.\-3 Handles partial occupancies Sets natom to -\/1 if there was an error to distinguish from no atoms. Handles atom names which start in column 13 rather than column 14. This is allowed in the standard, but very rare. Sets flag for partials.
+\item 06.\-04.\-94 V2.\-4 Atom names starting in column 13 have their first character moved to the end if it is a digit.
+\item 03.\-10.\-94 V2.\-5 Check residue number as well as atom name when running through alternative atoms for partial occupancy Moved increment of N\-Partial, so only done if there is space in the array. If Occ\-Rank is 0, all atoms are read regardless of occupancy.
+\item 06.\-03.\-95 V2.\-7 Added value for N\-M\-R model to read (0 = all) No longer static. Sets g\-P\-D\-B\-Multi\-N\-M\-R if E\-N\-D\-M\-D\-L records found.
+\item 13.\-01.\-97 V2.\-8 Added check on return from fsscanf. Blank lines used to result in duplication of the previous line since \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()} does not reset the variables on receiving a blank line. Also fixed in \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()}.
+\item 25.\-02.\-98 V2.\-9 Added code to read gzipped P\-D\-B files transparently when G\-U\-N\-Z\-I\-P\-\_\-\-S\-U\-P\-P\-O\-R\-T is defined
+\item 17.\-08.\-98 V2.\-10 Added case to \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} for Sun\-O\-S
+\item 08.\-10.\-99 V2.\-11 Initialise Cur\-Ins and Cur\-Res
+\item 15.\-02.\-01 V2.\-12 Added atnam\-\_\-raw
+\item 27.\-04.\-05 V2.\-14 Added another atnam\-\_\-raw for multiple occupancies
+\item 03.\-06.\-05 V2.\-15 Added altpos
+\item 14.\-10.\-05 V2.\-16 Modified detection of partial occupancy. handles residues like 1zeh/\-B16 where a lower partial is erroneously set to zero
+\item 05.\-06.\-07 V2.\-19 Added support for Unix compress'd files
+\item 21.\-12.\-11 V2.\-22 Modified for cases of single occupancy $<$ 1.\-0
+\item 22.\-04.\-14 V2.\-24 Call do\-Read\-P\-D\-B\-M\-L() for P\-D\-B\-M\-L-\/formatted P\-D\-B file. By\-: C\-T\-P
+\item 02.\-06.\-14 V2.\-25 Updated do\-Read\-P\-D\-B\-M\-L(). By\-: C\-T\-P
+\item 09.\-06.\-14 V2.\-26 Set g\-P\-D\-B\-X\-M\-L flag. By\-: C\-T\-P
+\item 07.\-07.\-14 V2.\-27 Renamed to \hyperlink{pdb_8h_a9000383ee976cc74170f8369d15e3543}{bl\-Do\-Read\-P\-D\-B()} By\-: C\-T\-P
+\item 15.\-08.\-14 V2.\-29 Use \hyperlink{pdb_8h_aa060eecccbc29f0bfbbaf442b42d0cdc}{C\-L\-E\-A\-R\-\_\-\-P\-D\-B()} to set default values. By\-: C\-T\-P
+\item 16.\-08.\-14 V2.\-30 Replaced charge with formal\-\_\-charge and partial\-\_\-charge for P\-D\-B structure. By\-: C\-T\-P
+\item 18.\-08.\-14 V2.\-31 Added X\-M\-L\-\_\-\-S\-U\-P\-P\-O\-R\-T option allowing Biop\-Lib to be compiled without support for P\-D\-B\-M\-L format. By\-: C\-T\-P
+\item 09.\-09.\-14 V2.\-35 Reading of gzipped files with gunzip not supported for M\-S Windows. By\-: C\-T\-P
+\item 29.\-09.\-14 V2.\-36 Allow single character filetype check for gzipped files. By\-: C\-T\-P
+\item 17.\-02.\-15 V2.\-37 Added segid support By\-: A\-C\-R\-M
+\item 20.\-02.\-15 V3.\-0 N\-O\-T C\-O\-M\-P\-A\-T\-I\-B\-L\-E W\-I\-T\-H P\-R\-E\-V\-I\-O\-U\-S V\-E\-R\-S\-I\-O\-N\-S. The functionality of the old Read\-Whole\-P\-D\-B() is now integrated into this function.
+\item 20.\-03.\-15 V3.\-3 Fixed behaviour with reading other than the first model and now sets a global error flag if the requested model was not found. Uses M\-O\-D\-E\-L records rather than E\-N\-D\-M\-D\-L records in counting models
+\item 02.\-04.\-15 V3.\-4 Rewind file after reading pdbxml header data. By\-: C\-T\-P
+\item 28.\-04.\-15 V3.\-5 Removed rewind. Call to \hyperlink{pdb_8h_acfe34022af3ca82b7a6cb218fae608a8}{bl\-Do\-Read\-P\-D\-B\-M\-L()} returns W\-H\-O\-L\-E\-P\-D\-B instead of P\-D\-B. By\-: C\-T\-P
+\item 21.\-07.\-15 Changed atom\-Type to atom\-Info By\-: A\-C\-R\-M
+
+We need to deal with freeing wpdb if we are returning null. Also need to deal with some sort of error code 
+\end{DoxyItemize}
+
+Definition at line 710 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a68b7fa3f71a70211cfd355204b48d4fc}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Do\-Read\-P\-D\-B\-M\-L@{bl\-Do\-Read\-P\-D\-B\-M\-L}}
+\index{bl\-Do\-Read\-P\-D\-B\-M\-L@{bl\-Do\-Read\-P\-D\-B\-M\-L}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Do\-Read\-P\-D\-B\-M\-L}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\-H\-O\-L\-E\-P\-D\-B}$\ast$ bl\-Do\-Read\-P\-D\-B\-M\-L (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fpin, }
+\item[{{\bf B\-O\-O\-L}}]{All\-Atoms, }
+\item[{int}]{Occ\-Rank, }
+\item[{int}]{Model\-Num, }
+\item[{{\bf B\-O\-O\-L}}]{Do\-Whole}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_a68b7fa3f71a70211cfd355204b48d4fc}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fpin} & A pointer to type F\-I\-L\-E in which the .P\-D\-B file is stored. \\
+\hline
+\mbox{\tt in}  & {\em All\-Atoms} & T\-R\-U\-E\-: A\-T\-O\-M \& H\-E\-T\-A\-T\-M records F\-A\-L\-S\-E\-: A\-T\-O\-M records only \\
+\hline
+\mbox{\tt in}  & {\em Occ\-Rank} & Occupancy ranking \\
+\hline
+\mbox{\tt in}  & {\em Model\-Num} & N\-M\-R Model number (0 = all) \\
+\hline
+\mbox{\tt in}  & {\em Do\-Whole} & Read the whole P\-D\-B file rather than just the A\-T\-O\-M/\-H\-E\-T\-A\-T\-M records. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a malloc'd W\-H\-O\-L\-E\-P\-D\-B structure.
+\end{DoxyReturn}
+Reads a P\-D\-B\-M\-L-\/formatted P\-D\-B file into a P\-D\-B linked list.
+
+The Occ\-Rank value indicates occupancy ranking to read for partial occupancy atoms. If any partial occupancy atoms are read the global flag g\-P\-D\-B\-Partial\-Occ is set to T\-R\-U\-E.
+
+The global multiple-\/models flag is set to true if more than one model is found.
+
+Returns N\-U\-L\-L if memory allocation fails or returns wpdb with wpdb-\/$>$pdb set to N\-U\-L\-L and wpdb-\/$>$natoms set to -\/1.
+
+
+\begin{DoxyItemize}
+\item 22.\-04.\-14 Original By\-: C\-T\-P
+\item 02.\-06.\-14 Updated setting atnam\-\_\-raw and parsing data from P\-D\-B atom site labels (label\-\_\-seq\-\_\-id, etc.) if author-\/defined labels are omitted. By\-: C\-T\-P
+\item 09.\-06.\-14 Set g\-P\-D\-B\-X\-M\-L flag. By\-: C\-T\-P
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_acfe34022af3ca82b7a6cb218fae608a8}{bl\-Do\-Read\-P\-D\-B\-M\-L()} By\-: C\-T\-P
+\item 04.\-08.\-14 Read element and formal charge. By\-: C\-T\-P
+\item 15.\-08.\-14 Use \hyperlink{pdb_8h_aa060eecccbc29f0bfbbaf442b42d0cdc}{C\-L\-E\-A\-R\-\_\-\-P\-D\-B()} to set default values. By\-: C\-T\-P
+\item 16.\-08.\-14 Read formal and partial charges. Use \hyperlink{_copy_p_d_b_8c_a80b3db4e74f9217af845d60f9b0b0204}{bl\-Copy\-P\-D\-B()} to copy data for partial occupancy atoms. By\-: C\-T\-P
+\item 18.\-08.\-14 Added X\-M\-L\-\_\-\-S\-U\-P\-P\-O\-R\-T option. Return error if X\-M\-L\-\_\-\-S\-U\-P\-P\-O\-R\-T not defined By\-: C\-T\-P
+\item 26.\-08.\-14 Pad record\-\_\-type to six characters. By\-: C\-T\-P
+\item 17.\-02.\-15 Added segid support By\-: A\-C\-R\-M
+\item 25.\-02.\-15 Added some checks on potential N\-U\-L\-L pointers Changed all strcpy()s to strncpy()s Initialized numeric content variable before each sscanf() in case it fails Calls \hyperlink{pdb_8h_ae1ff7a56e4d028aef80c0220f59c1358}{bl\-Renum\-Atoms\-P\-D\-B()} at the end since we don't use the atom site I\-Ds for atom numbers
+\item 13.\-03.\-15 Cosmetic changes
+\item 28.\-04.\-15 Set identical input parameters to \hyperlink{pdb_8h_a9000383ee976cc74170f8369d15e3543}{bl\-Do\-Read\-P\-D\-B()}. Added C\-O\-N\-E\-C\-T and header parsing. Return W\-H\-O\-L\-E\-P\-D\-B instead of P\-D\-B. By\-: C\-T\-P
+\item 14.\-06.\-15 Read entity\-\_\-id By\-: C\-T\-P
+\item 25.\-06.\-15 Detect if residue number has been set from auth\-\_\-seq\-\_\-id using flag -\/ fixes bug where auth\-\_\-seq\-\_\-id = 0. By\-: C\-T\-P
+\item 01.\-07.\-15 Replaced Parse\-Header\-P\-D\-B\-M\-L() with Parse\-Header\-Records\-P\-D\-B\-M\-L() By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 1627 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a4beae504260cb072d1807d1e3aaa1982}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Fix\-Atom\-Name@{bl\-Fix\-Atom\-Name}}
+\index{bl\-Fix\-Atom\-Name@{bl\-Fix\-Atom\-Name}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Fix\-Atom\-Name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Fix\-Atom\-Name (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{name, }
+\item[{{\bf R\-E\-A\-L}}]{occup}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_a4beae504260cb072d1807d1e3aaa1982}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$name} & Atom name read from file \\
+\hline
+\mbox{\tt in}  & {\em occup} & Occupancy to allow fixing of partial occupancy atom names \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Fixed atom name (pointer into name)
+\end{DoxyReturn}
+Fixes an atom name by removing leading spaces, or moving a leading digit to the end of the string. Used by do\-Read\-P\-D\-B()
+
+
+\begin{DoxyItemize}
+\item 06.\-04.\-94 Original By\-: A\-C\-R\-M
+\item 01.\-03.\-01 No longer static
+\item 03.\-06.\-05 The name passed in has always contained the column which is officially the alternate atom position indicator, but is used by some programs as part of the atom name. Thus the properly constructed variable coming into the routine should be something like '1\-H\-G1 ' or '1\-H\-G1\-A' for an alternate atom position. However some programs use ' H\-G11'. Therefore we now check for a character in the last position and replace it with a space if there is a space in the preceeding position (e.\-g. ' C\-A A' -\/$>$ ' C\-A ') or if there is a character in the first position (e.\-g. '1\-H\-G1\-A' -\/$>$ '1\-H\-G1 ') or if the occupancy is not zero/one N\-O\-T\-E!!! To support this, the routine now has a second parameter\-: R\-E\-A\-L occup
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_a4beae504260cb072d1807d1e3aaa1982}{bl\-Fix\-Atom\-Name()} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 1294 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_aeee33316d776fc479c656a3f9f0c7a84}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Free\-Whole\-P\-D\-B@{bl\-Free\-Whole\-P\-D\-B}}
+\index{bl\-Free\-Whole\-P\-D\-B@{bl\-Free\-Whole\-P\-D\-B}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Free\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Free\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_aeee33316d776fc479c656a3f9f0c7a84}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & W\-H\-O\-L\-E\-P\-D\-B structure to be freed\\
+\hline
+\end{DoxyParams}
+Frees the header, trailer and atom content from a W\-H\-O\-L\-E\-P\-D\-B structure
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_aeee33316d776fc479c656a3f9f0c7a84}{bl\-Free\-Whole\-P\-D\-B()} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 2296 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a4027e61f67886772894d7a948a3be2c0}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Read\-P\-D\-B@{bl\-Read\-P\-D\-B}}
+\index{bl\-Read\-P\-D\-B@{bl\-Read\-P\-D\-B}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Read\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int $\ast$}]{natom}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_a4027e61f67886772894d7a948a3be2c0}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E in which the .P\-D\-B file is stored. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms read. -\/1 if error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the first allocated item of the P\-D\-B linked list
+\end{DoxyReturn}
+Reads a P\-D\-B file into a P\-D\-B linked list
+
+
+\begin{DoxyItemize}
+\item 08.\-07.\-93 Written as entry for do\-Read\-P\-D\-B()
+\item 09.\-07.\-93 Modified to return pointer to P\-D\-B
+\item 17.\-03.\-94 Modified to handle Occ\-Rank
+\item 06.\-03.\-95 Added value for N\-M\-R model to read (1 = first)
+\item 25.\-01.\-06 Added call to Remove\-Alternates() -\/ this deals with odd cases where alternate atom positions don't appear where they should!
+\item 25.\-01.\-06 Added call to Remove\-Alternates(). This deals with odd uses of multiple occupancies like 3pga and the instance where the alternates are all grouped at the end of the file.
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_a4027e61f67886772894d7a948a3be2c0}{bl\-Read\-P\-D\-B()} By\-: C\-T\-P
+\item 03.\-04.\-15 Initialize pdb to N\-U\-L\-L avoiding returning uninitialized value if \hyperlink{pdb_8h_a9000383ee976cc74170f8369d15e3543}{bl\-Do\-Read\-P\-D\-B()} fails. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 422 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a23cbc720ce99c3bdaf61d42960df970a}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Read\-P\-D\-B\-All@{bl\-Read\-P\-D\-B\-All}}
+\index{bl\-Read\-P\-D\-B\-All@{bl\-Read\-P\-D\-B\-All}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-P\-D\-B\-All}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Read\-P\-D\-B\-All (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int $\ast$}]{natom}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_a23cbc720ce99c3bdaf61d42960df970a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E in which the .P\-D\-B file is stored. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms read. -\/1 if error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the first allocated item of the P\-D\-B linked list
+\end{DoxyReturn}
+Reads a P\-D\-B file into a P\-D\-B linked list. Reads all partial occupancy atoms. Reads both A\-T\-O\-M and H\-E\-T\-A\-T\-M records.
+
+
+\begin{DoxyItemize}
+\item 04.\-10.\-94 Original By\-: A\-C\-R\-M
+\item 06.\-03.\-95 Added value for N\-M\-R model to read (0 = all)
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_a23cbc720ce99c3bdaf61d42960df970a}{bl\-Read\-P\-D\-B\-All()} By\-: C\-T\-P
+\item 03.\-04.\-15 Initialize pdb to N\-U\-L\-L avoiding returning uninitialized value if \hyperlink{pdb_8h_a9000383ee976cc74170f8369d15e3543}{bl\-Do\-Read\-P\-D\-B()} fails. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 463 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_acd3668492022bd2b8fb630dd2ee250b7}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Read\-P\-D\-B\-Atoms@{bl\-Read\-P\-D\-B\-Atoms}}
+\index{bl\-Read\-P\-D\-B\-Atoms@{bl\-Read\-P\-D\-B\-Atoms}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-P\-D\-B\-Atoms}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Read\-P\-D\-B\-Atoms (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int $\ast$}]{natom}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_acd3668492022bd2b8fb630dd2ee250b7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E in which the .P\-D\-B file is stored. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms read. -\/1 if error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the first allocated item of the P\-D\-B linked list
+\end{DoxyReturn}
+Reads a P\-D\-B file into a P\-D\-B linked list. Atoms only (no H\-E\-T\-A\-T\-M cards).
+
+
+\begin{DoxyItemize}
+\item 08.\-07.\-93 Written as entry for do\-Read\-P\-D\-B()
+\item 09.\-07.\-93 Modified to return pointer to P\-D\-B
+\item 17.\-03.\-94 Modified to handle Occ\-Rank
+\item 06.\-03.\-95 Added value for N\-M\-R model to read (1 = first)
+\item 25.\-01.\-06 Added call to Remove\-Alternates(). This deals with odd uses of multiple occupancies like 3pga and the instance where the alternates are all grouped at the end of the file.
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_acd3668492022bd2b8fb630dd2ee250b7}{bl\-Read\-P\-D\-B\-Atoms()} By\-: C\-T\-P
+\item 03.\-04.\-15 Initialize pdb to N\-U\-L\-L avoiding returning uninitialized value if \hyperlink{pdb_8h_a9000383ee976cc74170f8369d15e3543}{bl\-Do\-Read\-P\-D\-B()} fails. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 506 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_aa282352d949c323303ef5323432006f2}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Read\-P\-D\-B\-Atoms\-Occ\-Rank@{bl\-Read\-P\-D\-B\-Atoms\-Occ\-Rank}}
+\index{bl\-Read\-P\-D\-B\-Atoms\-Occ\-Rank@{bl\-Read\-P\-D\-B\-Atoms\-Occ\-Rank}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-P\-D\-B\-Atoms\-Occ\-Rank}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Read\-P\-D\-B\-Atoms\-Occ\-Rank (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int $\ast$}]{natom, }
+\item[{int}]{Occ\-Rank}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_aa282352d949c323303ef5323432006f2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E in which the .P\-D\-B file is stored. \\
+\hline
+\mbox{\tt in}  & {\em Occ\-Rank} & Occupancy ranking ($>$=1) \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms read. -\/1 if error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the first allocated item of the P\-D\-B linked list
+\end{DoxyReturn}
+Reads a P\-D\-B file into a P\-D\-B linked list ignoring H\-E\-T\-A\-T\-M records and selecting the Occ\-Rank'th highest occupancy atoms
+
+
+\begin{DoxyItemize}
+\item 17.\-03.\-94 Original By\-: A\-C\-R\-M
+\item 06.\-03.\-95 Added value for N\-M\-R model to read (1 = first)
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_aa282352d949c323303ef5323432006f2}{bl\-Read\-P\-D\-B\-Atoms\-Occ\-Rank()} By\-: C\-T\-P
+\item 03.\-04.\-15 Initialize pdb to N\-U\-L\-L avoiding returning uninitialized value if \hyperlink{pdb_8h_a9000383ee976cc74170f8369d15e3543}{bl\-Do\-Read\-P\-D\-B()} fails. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 589 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_aa303aa30446e8ca03c7deb6b6a496dc6}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Read\-P\-D\-B\-Occ\-Rank@{bl\-Read\-P\-D\-B\-Occ\-Rank}}
+\index{bl\-Read\-P\-D\-B\-Occ\-Rank@{bl\-Read\-P\-D\-B\-Occ\-Rank}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-P\-D\-B\-Occ\-Rank}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Read\-P\-D\-B\-Occ\-Rank (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int $\ast$}]{natom, }
+\item[{int}]{Occ\-Rank}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_aa303aa30446e8ca03c7deb6b6a496dc6}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E in which the .P\-D\-B file is stored. \\
+\hline
+\mbox{\tt in}  & {\em Occ\-Rank} & Occupancy ranking ($>$=1) \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms read. -\/1 if error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the first allocated item of the P\-D\-B linked list
+\end{DoxyReturn}
+Reads a P\-D\-B file into a P\-D\-B linked list selecting the Occ\-Rank'th highest occupancy atoms
+
+
+\begin{DoxyItemize}
+\item 17.\-03.\-94 Original By\-: A\-C\-R\-M
+\item 06.\-03.\-95 Added value for N\-M\-R model to read (1 = first)
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_a9000383ee976cc74170f8369d15e3543}{bl\-Do\-Read\-P\-D\-B()} By\-: C\-T\-P
+\item 03.\-04.\-15 Initialize pdb to N\-U\-L\-L avoiding returning uninitialized value if \hyperlink{pdb_8h_a9000383ee976cc74170f8369d15e3543}{bl\-Do\-Read\-P\-D\-B()} fails. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 548 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_aac630c13aff6802b905c10ce97d64761}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Read\-Whole\-P\-D\-B@{bl\-Read\-Whole\-P\-D\-B}}
+\index{bl\-Read\-Whole\-P\-D\-B@{bl\-Read\-Whole\-P\-D\-B}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\-H\-O\-L\-E\-P\-D\-B}$\ast$ bl\-Read\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fpin}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_aac630c13aff6802b905c10ce97d64761}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fpin} & File pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whole P\-D\-B structure containing linked list to P\-D\-B coordinate data
+\end{DoxyReturn}
+Reads a P\-D\-B file, storing the header and trailer information as well as the coordinate data. Can read gzipped files as well as uncompressed files.
+
+Coordinate data is accessed as linked list of type P\-D\-B as follows\-:
+
+W\-H\-O\-L\-E\-P\-D\-B $\ast$wpdb; P\-D\-B $\ast$p; wpdb = Read\-Whole\-P\-D\-B(fp); for(p=wpdb-\/$>$pdb; p!=N\-U\-L\-L; p=p-\/$>$next) \{ ... Do something with p ... \}
+
+
+\begin{DoxyItemize}
+\item 07.\-03.\-07 Made into a wrapper to do\-Read\-Whole\-P\-D\-B()
+\item 07.\-07.\-14 Use bl\-Do\-Read\-Whole\-P\-D\-B() Renamed to \hyperlink{pdb_8h_aac630c13aff6802b905c10ce97d64761}{bl\-Read\-Whole\-P\-D\-B()} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 2331 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a56ce69a8cb41874090869c11246e0b0e}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Read\-Whole\-P\-D\-B\-Atoms@{bl\-Read\-Whole\-P\-D\-B\-Atoms}}
+\index{bl\-Read\-Whole\-P\-D\-B\-Atoms@{bl\-Read\-Whole\-P\-D\-B\-Atoms}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-Whole\-P\-D\-B\-Atoms}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\-H\-O\-L\-E\-P\-D\-B}$\ast$ bl\-Read\-Whole\-P\-D\-B\-Atoms (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fpin}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_a56ce69a8cb41874090869c11246e0b0e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fpin} & File pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whole P\-D\-B structure containing linked list to P\-D\-B coordinate data
+\end{DoxyReturn}
+Reads a P\-D\-B file, storing the header and trailer information as well as the coordinate data. Can read gzipped files as well as uncompressed files.
+
+Coordinate data is accessed as linked list of type P\-D\-B as follows\-:
+
+W\-H\-O\-L\-E\-P\-D\-B $\ast$wpdb; P\-D\-B $\ast$p; wpdb = Read\-Whole\-P\-D\-B(fp); for(p=wpdb-\/$>$pdb; p!=N\-U\-L\-L; p=p-\/$>$next) \{ ... Do something with p ... \}
+
+
+\begin{DoxyItemize}
+\item 07.\-03.\-07 Made into a wrapper to do\-Read\-Whole\-P\-D\-B()
+\item 07.\-07.\-14 Use bl\-Do\-Read\-Whole\-P\-D\-B() Renamed to \hyperlink{pdb_8h_a56ce69a8cb41874090869c11246e0b0e}{bl\-Read\-Whole\-P\-D\-B\-Atoms()} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 2366 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a10c0ace6d46e2c0a56ce4bea451e76c3}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!bl\-Remove\-Alternates@{bl\-Remove\-Alternates}}
+\index{bl\-Remove\-Alternates@{bl\-Remove\-Alternates}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Remove\-Alternates}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Remove\-Alternates (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_a10c0ace6d46e2c0a56ce4bea451e76c3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ammended linked list (in case start has changed)
+\end{DoxyReturn}
+Remove alternate atoms -\/ we keep only the highest occupancy or the first if there are more than one the same.
+
+
+\begin{DoxyItemize}
+\item 25.\-01.\-05 Original based on code written for Inpharmatica By\-: A\-C\-R\-M
+\item 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H macro. By\-: C\-T\-P
+\item 07.\-07.\-14 Renamed to \hyperlink{pdb_8h_a10c0ace6d46e2c0a56ce4bea451e76c3}{bl\-Remove\-Alternates()} Use \hyperlink{pdb_8h_ad3bc6ad58dd19e3a2e854404b88b9271}{bl\-Write\-P\-D\-B\-Record()} Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 1365 of file Read\-P\-D\-B.\-c.
+
+\hypertarget{_read_p_d_b_8c_a92e41b535f1505676ed8cbe5896606d5}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!pclose@{pclose}}
+\index{pclose@{pclose}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{pclose}]{\setlength{\rightskip}{0pt plus 5cm}int pclose (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_a92e41b535f1505676ed8cbe5896606d5}
+\hypertarget{_read_p_d_b_8c_a31dd4384020447c7d99d0e4aace6f17a}{\index{Read\-P\-D\-B.\-c@{Read\-P\-D\-B.\-c}!popen@{popen}}
+\index{popen@{popen}!ReadPDB.c@{Read\-P\-D\-B.\-c}}
+\subsubsection[{popen}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ popen (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{, }
+\item[{const char $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{_read_p_d_b_8c_a31dd4384020447c7d99d0e4aace6f17a}

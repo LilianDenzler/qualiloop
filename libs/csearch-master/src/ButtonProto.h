@@ -1,0 +1,118 @@
+/***********************************************************************
+ *      Name: ButtonProtoTypes.h                                       *
+ *  Function: Prototypes for the graphics routines                     *
+ * Copyright: (C) Oxford Molecular Limited                             *
+ *---------------------------------------------------------------------*
+ *    Author: D. Walker, Tessella Support Services plc                 *
+ *      Date: 12/06/89                                                 *
+ *---------------------------------------------------------------------*
+ * Modification Record                                                 *
+ * Date     Inits   Comments                                           *
+ * dd/mm/yy                                                            *
+ * 17/12/90 GCC     Added text type button and some spare fields.      *
+ * 13/03/91 DW      Added new colour members and Slider type members   *
+ * 16/01/92 JAW     Increased size of text array to fit filenames etc  *
+ *                   used in Pimms/Python                              *
+ ***********************************************************************/
+#ifndef __BUTTONPROTO__
+#define __BUTTONPROTO__
+
+/* Flag to indicate inclusion of this file */
+#define BUTTON_DEF
+
+/* Button Structure */
+typedef struct ButtonStruct {
+/*OMUPD JAW 16/01/92   char  Title[80];*/
+   char  Title[300]; /* Text associated with button */
+
+   short OriginX;   /* X position of button origin */
+   short OriginY;   /* Y position of button origin */
+
+   short Length;    /* Length of button */
+   short Height;    /* Height of button */
+
+   short ForeRed;   /* Text colour RGB red value */
+   short ForeGreen; /* Text colour RGB green value */
+   short ForeBlue;  /* Text colour RGB blue value */
+
+   short BordRed;   /* Border colour RGB red value */
+   short BordGreen; /* Border colour RGB green value */
+   short BordBlue;  /* Border colour RGB blue value */
+
+   short InactRed;  /* Inactive background colour RGB red value */
+   short InactGreen;/* Inactive background colour RGB green value */
+   short InactBlue; /* Inactive background colour RGB blue value */
+
+   short ActveRed;  /* Active background colour RGB red value */
+   short ActveGreen;/* Active background colour RGB green value */
+   short ActveBlue; /* Active background colour RGB blue value */
+
+   short Centred;   /* Is the text centred in the button? */
+   short Bordered;  /* Is the button bordered? */
+
+   short Active;    /* Is the button active? */
+   short OnOff;     /* Is the button on or off? */
+
+   short Type;      /* Button type */
+   short Vertical;  /* Vertical or Horizontal text */
+
+   char  *Text;     /* pointer to text for text entry string */
+   int   TextLength;/* length of Text, including space for \0 */
+   int   TextPosition; /* points to first displayed character in string */
+
+   char  *ScrollList;  /* pointer to list of items for scrolled list */
+   int   *ScrollSelection;  /* pointer to list of selected items */
+   int   ScrollLength; /* length of an item in the scrolled list */
+   int   ScrollNitems; /* number of items in the scrolled list */
+   int   ScrollPerpage;/* number of items per page of display */
+   int   ScrollPage;   /* the current page for display */
+
+   /* Pointer to picture drawing routine */
+
+   void (*DrawPicture)(short,short,short,short,short);
+
+   /* OMUPD DW 13/3/91 Slider Button definitions */
+
+   float ValueWidth;      /* Fractional width of value box */
+   short Format;          /* Format specifier */
+   short NDecimal;        /* Number of decimal places */
+   float Min;             /* Minimum value of slider variable */
+   float Max;             /* Maximum value of slider variable */
+   float Position;        /* Current slider position */
+
+   /* Void for future developments */
+   int   Spare1;
+   int   Spare2;
+} ButtonType, *ButtonTypePtr;
+
+/* Button parameter definitions */
+
+#define BUTTON_TEXT_INDENT      0.05  /* Fractional text indentation */
+#define BUTTON_BORDER_WIDTH     0.025 /* Fractional width of button "borders" */
+
+#define BUTTON_SLIDER_NORMAL    0     /* Normal slider type button */
+#define BUTTON_SLIDER_SIMPLE    1     /* Simple slider type button */
+
+#define BUTTON_SQUARE           2     /* Button type: square */
+#define BUTTON_RADIO            3     /* Button type: Radio */
+#define BUTTON_CROSS            4     /* Button type: cross */
+#define BUTTON_LABEL            5     /* Button type: label for a text box */
+
+#define BUTTON_TEXT             6     /* Button type: text entry type */
+#define BUTTON_TEXT_BOX         7     /* Button type: text box */
+#define BUTTON_SCROLL           8     /* Button type: scrolled list */
+#define BUTTON_TITLE            9     /* Button type: label type */
+
+#define BUTTON_ACTIVE_RED     255     /* Active background col (Red gun) */
+#define BUTTON_ACTIVE_GREEN   255     /* Active background col (Green gun) */
+#define BUTTON_ACTIVE_BLUE    255     /* Active background col (Blue gun) */
+
+#define BUTTON_INACTIVE_RED   180     /* Inactive background col (Red gun) */
+#define BUTTON_INACTIVE_GREEN 180     /* Inactive background col (Green gun) */
+#define BUTTON_INACTIVE_BLUE  180     /* Inactive background col (Blue gun) */
+
+#define BUTTON_BORDER_RED       0     /* Border colour red gun value */
+#define BUTTON_BORDER_GREEN     0     /* Border colour red gun value */
+#define BUTTON_BORDER_BLUE      0     /* Border colour red gun value */
+
+#endif

@@ -1,0 +1,946 @@
+\hypertarget{macros_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/macros.h File Reference}
+\label{macros_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/macros.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/macros.\-h}}
+}
+
+
+Useful macros.  
+
+
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{macros_8h_a598a3330b3c21701223ee0ca14316eca}{P\-I}~(4.\-0 $\ast$ atan(1.\-0))
+\item 
+\#define \hyperlink{macros_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~1
+\item 
+\#define \hyperlink{macros_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~0
+\item 
+\#define \hyperlink{macros_8h_a1f257cea576b885c9a24e42009e95467}{R\-A\-N\-G\-E\-C\-H\-E\-C\-K}(x, y, z)~((x)$<$(y)) ? (y) \-: ((x)$>$(z)) ? (z) \-: (x)
+\item 
+\#define \hyperlink{macros_8h_a1ef8a3a51c1e57293c07c2e72a59d51e}{D\-I\-S\-T\-S\-Q}(a, b)
+\item 
+\#define \hyperlink{macros_8h_ae733a5a3a9e9a85474da2105655a0dc4}{D\-I\-S\-T}(a, b)
+\item 
+\#define \hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S}(x)~(((x)$<$0)   ? (-\/(x)) \-: (x))
+\item 
+\#define \hyperlink{macros_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{M\-A\-X}(a, b)~(((a)$>$(b)) ? (a)    \-: (b))
+\item 
+\#define \hyperlink{macros_8h_a3acffbd305ee72dcd4593c0d8af64a4f}{M\-I\-N}(a, b)~(((a)$<$(b)) ? (a)    \-: (b))
+\item 
+\#define \hyperlink{macros_8h_aa167d4937e9a8d9a33c3e93bbcad8a35}{I\-N\-I\-T}(x, y)
+\item 
+\#define \hyperlink{macros_8h_ad48f627b78d63b7af972e819978664ff}{I\-N\-I\-T\-P\-R\-E\-V}(x, y)
+\item 
+\#define \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{N\-E\-X\-T}(x)~(x)=(x)-\/$>$next
+\item 
+\#define \hyperlink{macros_8h_a7355421c23b2dd22cec3c1ef5bc380e1}{P\-R\-E\-V}(x)~(x)=(x)-\/$>$prev
+\item 
+\#define \hyperlink{macros_8h_ae0a46a92b4865dd29e1ea9e0a4d64772}{A\-L\-L\-O\-C\-N\-E\-X\-T}(x, y)
+\item 
+\#define \hyperlink{macros_8h_a98b4aca4c6194e23c34b1a94cfdd3901}{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}(x, y)
+\item 
+\#define \hyperlink{macros_8h_a49dd722216353daa94f49c2dbb53e0cb}{L\-A\-S\-T}(x)~while(((x)!=\hyperlink{array3_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\-U\-L\-L}) \&\& ((x)-\/$>$next != \hyperlink{array3_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\-U\-L\-L})) \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{N\-E\-X\-T}(x)
+\item 
+\#define \hyperlink{macros_8h_a4151f4e24778e7b290ec804c29c91f27}{F\-R\-E\-E\-L\-I\-S\-T}(y, z)
+\item 
+\#define \hyperlink{macros_8h_a25875003b43b81a4302256caa4a13599}{F\-R\-E\-E}(x)~if((x)!=\hyperlink{array3_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\-U\-L\-L}) free(x); (x) = \hyperlink{array3_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\-U\-L\-L}
+\item 
+\#define \hyperlink{macros_8h_ab866ee223048678a3d417c2e786576e4}{D\-E\-L\-E\-T\-E}(x, y, z)
+\item 
+\#define \hyperlink{macros_8h_a8e958d33c605063f02c1363d93f4edf8}{D\-E\-L\-E\-T\-E\-D\-O\-U\-B\-L\-E}(s, x, y)
+\item 
+\#define \hyperlink{macros_8h_a6c3072dd343ca017f0697dd842a9d757}{F\-I\-N\-D\-P\-R\-E\-V}(p, s, l)
+\item 
+\#define \hyperlink{macros_8h_a806511f4930171733227c99101dc0606}{N\-E\-W\-L\-I\-N\-E}~printf(\char`\"{}\textbackslash{}n\char`\"{})
+\item 
+\#define \hyperlink{macros_8h_a10801dd855e20334cd83cace96616de6}{T\-O\-G\-G\-L\-E}(x)~(x) = (x) ? \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E} \-: \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}
+\item 
+\#define \hyperlink{macros_8h_aacb586bd2f3f322f647a94819e1315c5}{T\-E\-R\-M\-I\-N\-A\-T\-E}(x)
+\item 
+\#define \hyperlink{macros_8h_acfea63fa7db66757bc17d1dce48f80fb}{T\-E\-R\-M\-I\-N\-A\-T\-E\-C\-R}(x)
+\item 
+\#define \hyperlink{macros_8h_a33cbc27128739739a766304271838628}{T\-E\-R\-M\-A\-T}(x, y)
+\item 
+\#define \hyperlink{macros_8h_a8ce7aa85856d9abe74e8f6080cd97740}{U\-P\-P\-E\-R}(x)
+\item 
+\#define \hyperlink{macros_8h_a7c84c2a411c6ca224eb95a0e9438e9ca}{L\-O\-W\-E\-R}(x)
+\item 
+\#define \hyperlink{macros_8h_a1b8cbb77f6df1b328324b217ea7eebd3}{K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S}(y, x)
+\item 
+\#define \hyperlink{macros_8h_a01c5f3b95fb9aa9efbdaf1f2b77cd900}{K\-I\-L\-L\-T\-R\-A\-I\-L\-S\-P\-A\-C\-E\-S}(x)
+\item 
+\#define \hyperlink{macros_8h_a0af07934c7ed745d41434d2b7d0b1d65}{T\-E\-S\-T\-I\-N\-A\-R\-R\-A\-Y}(x, l, y, r)
+\item 
+\#define \hyperlink{macros_8h_a81b8341e8468f5883b4487072409c9bc}{F\-I\-N\-D\-I\-N\-A\-R\-R\-A\-Y}(x, l, y, r)
+\item 
+\#define \hyperlink{macros_8h_a8db1217a164f5997e33c5fa121f93ccf}{P\-A\-D\-M\-I\-N\-T\-E\-R\-M}(string, len)
+\item 
+\#define \hyperlink{macros_8h_ae40c354ba544d11cc47fe6cc74b4e966}{P\-A\-D\-C\-H\-A\-R\-M\-I\-N\-T\-E\-R\-M}(s, c, l)
+\item 
+\#define \hyperlink{macros_8h_ab7e50c0e4b5fb79a9490a9946139761d}{D\-O\-T\-I\-F\-Y}(str)
+\item 
+\#define \hyperlink{macros_8h_aaaae083fd26ba0d19105f05510a2009d}{D\-E\-D\-O\-T\-I\-F\-Y}(str)
+\item 
+\#define \hyperlink{macros_8h_a6ac26f1f12b5ad1f4adc92825cd64e94}{S\-U\-B\-S\-C\-H\-A\-R}(s, x, y)
+\item 
+\#define \hyperlink{macros_8h_adf782f359235d2bab86224421b186e27}{S\-T\-R\-N\-C\-P\-Y\-N\-O\-S\-P\-A\-C\-E\-S}(out, in, mx)
+\item 
+\#define \hyperlink{macros_8h_a4c7a0b25a3e3f49dbb53268ccbb2ffe4}{S\-E\-T}(x, y)~(x) $|$= (y)
+\item 
+\#define \hyperlink{macros_8h_a6d57407eac46b22a85510405f2370d64}{U\-N\-S\-E\-T}(x, y)~(x) \&= ($\sim$(y))
+\item 
+\#define \hyperlink{macros_8h_a307d2122f7c72a7f479498fa945596c6}{I\-S\-S\-E\-T}(x, y)~((\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L})((x)\&(y)))
+\item 
+\#define \hyperlink{macros_8h_a734fdddfd354177d67337218bc963d67}{F\-C\-L\-O\-S\-E}(x)
+\item 
+\#define \hyperlink{macros_8h_a62e0f7e259f149c4e32b37eca4c0bd29}{D}(B\-U\-G)
+\item 
+\#define \hyperlink{macros_8h_acc487f163f8274ce4a0546d6d68eb035}{P\-R\-O\-M\-P\-T}(in, x)~printf(\char`\"{}\%s\char`\"{},(x))
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Useful macros. \begin{DoxyVersion}{Version}
+V2.\-26 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-12.\-16 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C.\-R. Martin / U\-C\-L 1991-\/2016 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+If not Amiga defines abs(). Defines max(), min() and P\-I if not done. Defines list handling macros. Defines newline() and toggle() macros.
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 06.\-02.\-91 Original
+\item V1.\-1 15.\-02.\-91 Moved P\-I definition to non-\/\-Amiga's only
+\item V1.\-2 21.\-03.\-91 Added R\-A\-N\-G\-E\-C\-H\-E\-C\-K
+\item V1.\-3 06.\-09.\-91 Added D\-I\-S\-T, D\-I\-S\-T\-S\-Q and Vec3f
+\item V1.\-4 09.\-09.\-91 Fixed multi-\/command macros with \{\}
+\item V1.\-5 24.\-01.\-92 Fixed for 32 bit addresses and added malloc checks.
+\item V1.\-6 03.\-04.\-92 Small change to A\-L\-L\-O\-C\-N\-E\-X\-T and A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V, so will do a \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{N\-E\-X\-T()} even if malloc() fails.
+\item V1.\-7 06.\-05.\-92 Added \hyperlink{macros_8h_aacb586bd2f3f322f647a94819e1315c5}{T\-E\-R\-M\-I\-N\-A\-T\-E()}
+\item V1.\-8 06.\-07.\-92 Added \hyperlink{macros_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{M\-A\-X()}, \hyperlink{macros_8h_a3acffbd305ee72dcd4593c0d8af64a4f}{M\-I\-N()} and \hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S()}
+\item V1.\-9 22.\-07.\-92 Fixed \hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S()}
+\item V1.\-10 28.\-09.\-92 Added T\-R\-U\-E \& F\-A\-L\-S\-E and \hyperlink{macros_8h_a8ce7aa85856d9abe74e8f6080cd97740}{U\-P\-P\-E\-R()}
+\item V1.\-11 03.\-11.\-92 Changed T\-O\-G\-G\-L\-E and newline is now upper case.
+\item V1.\-12 16.\-11.\-92 Added \hyperlink{macros_8h_a1b8cbb77f6df1b328324b217ea7eebd3}{K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S()}
+\item V1.\-13 18.\-11.\-92 Fixed \hyperlink{macros_8h_a8ce7aa85856d9abe74e8f6080cd97740}{U\-P\-P\-E\-R()} for Microsoft\-C which returns strlen() as unsigned
+\item V1.\-14 20.\-11.\-92 \hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S()} now uses 0 rather than 0.\-0, so we don't try to use floats with ints...
+\item V2.\-0 24.\-11.\-92 Removed all small letter macros
+\item V2.\-1 12.\-07.\-93 Added double include check, moved math definitions to \hyperlink{_math_type_8h}{Math\-Type.\-h} and added \hyperlink{macros_8h_a7c84c2a411c6ca224eb95a0e9438e9ca}{L\-O\-W\-E\-R()}
+\item V2.\-2 07.\-10.\-93 \hyperlink{macros_8h_a8ce7aa85856d9abe74e8f6080cd97740}{U\-P\-P\-E\-R()} and \hyperlink{macros_8h_a7c84c2a411c6ca224eb95a0e9438e9ca}{L\-O\-W\-E\-R()} check case first for E\-S\-V compatibility
+\item V2.\-3 23.\-05.\-94 Added \hyperlink{macros_8h_a62e0f7e259f149c4e32b37eca4c0bd29}{D(\-B\-U\-G)}
+\item V2.\-4 14.\-07.\-94 Added do\{\}while(0) bracketing of all multi-\/line macros
+\item V2.\-5 21.\-11.\-94 A\-B\-S, M\-A\-X and M\-I\-N check that they're not already defined
+\item V2.\-6 16.\-02.\-95 Added \hyperlink{macros_8h_ab866ee223048678a3d417c2e786576e4}{D\-E\-L\-E\-T\-E()}
+\item V2.\-7 21.\-02.\-95 Updated some internal variable names
+\item V2.\-8 02.\-08.\-95 Added \hyperlink{macros_8h_a0af07934c7ed745d41434d2b7d0b1d65}{T\-E\-S\-T\-I\-N\-A\-R\-R\-A\-Y()}, \hyperlink{macros_8h_a81b8341e8468f5883b4487072409c9bc}{F\-I\-N\-D\-I\-N\-A\-R\-R\-A\-Y()}, \hyperlink{macros_8h_a4c7a0b25a3e3f49dbb53268ccbb2ffe4}{S\-E\-T()}, \hyperlink{macros_8h_a6d57407eac46b22a85510405f2370d64}{U\-N\-S\-E\-T()} and \hyperlink{macros_8h_a307d2122f7c72a7f479498fa945596c6}{I\-S\-S\-E\-T()}
+\item V2.\-9 20.\-11.\-95 Added \hyperlink{macros_8h_a33cbc27128739739a766304271838628}{T\-E\-R\-M\-A\-T()}
+\item V2.\-10 06.\-02.\-96 Added \hyperlink{macros_8h_a01c5f3b95fb9aa9efbdaf1f2b77cd900}{K\-I\-L\-L\-T\-R\-A\-I\-L\-S\-P\-A\-C\-E\-S()}
+\item V2.\-11 14.\-06.\-96 Added \hyperlink{macros_8h_acc487f163f8274ce4a0546d6d68eb035}{P\-R\-O\-M\-P\-T()}
+\item V2.\-12 23.\-07.\-96 Added \hyperlink{macros_8h_a8db1217a164f5997e33c5fa121f93ccf}{P\-A\-D\-M\-I\-N\-T\-E\-R\-M()}
+\item V2.\-13 19.\-09.\-96 Include ctype for \hyperlink{macros_8h_a8ce7aa85856d9abe74e8f6080cd97740}{U\-P\-P\-E\-R()} etc
+\item V2.\-14 13.\-03.\-99 Added \hyperlink{macros_8h_a8e958d33c605063f02c1363d93f4edf8}{D\-E\-L\-E\-T\-E\-D\-O\-U\-B\-L\-E()}
+\item V2.\-15 01.\-03.\-01 Added \hyperlink{macros_8h_ab7e50c0e4b5fb79a9490a9946139761d}{D\-O\-T\-I\-F\-Y()} \hyperlink{macros_8h_aaaae083fd26ba0d19105f05510a2009d}{D\-E\-D\-O\-T\-I\-F\-Y()} \hyperlink{macros_8h_ae40c354ba544d11cc47fe6cc74b4e966}{P\-A\-D\-C\-H\-A\-R\-M\-I\-N\-T\-E\-R\-M()} \hyperlink{macros_8h_a6ac26f1f12b5ad1f4adc92825cd64e94}{S\-U\-B\-S\-C\-H\-A\-R()}
+\item V2.\-16 25.\-01.\-06 Added \hyperlink{macros_8h_a6c3072dd343ca017f0697dd842a9d757}{F\-I\-N\-D\-P\-R\-E\-V()}
+\item V2.\-17 10.\-04.\-08 Fixed bug in \hyperlink{macros_8h_ab866ee223048678a3d417c2e786576e4}{D\-E\-L\-E\-T\-E()} -\/ the break was not properly stopping prev from being changed
+\item V2.\-18 29.\-04.\-14 Added \hyperlink{deprecated_8h_a92972db70eea7d7a0b81198fb4b2d156}{D\-E\-P\-R\-E\-C\-A\-T\-E\-D()} By\-: C\-T\-P
+\item V2.\-19 07.\-05.\-14 Moved \hyperlink{deprecated_8h_a92972db70eea7d7a0b81198fb4b2d156}{D\-E\-P\-R\-E\-C\-A\-T\-E\-D()} to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P
+\item V2.\-20 07.\-07.\-14 Use bl prefix for functions -\/ change padterm() to \hyperlink{general_8h_af3e38629eb9182b36af7bf960d3758d8}{bl\-Padterm()} By\-: C\-T\-P
+\item V2.\-21 24.\-07.\-14 Initialize list pointers for D\-E\-L\-E\-T\-E macro. By\-: C\-T\-P
+\item V2.\-22 25.\-02.\-15 \hyperlink{macros_8h_a49dd722216353daa94f49c2dbb53e0cb}{L\-A\-S\-T()} is now safe if the pointer is N\-U\-L\-L
+\item V2.\-23 26.\-06.\-15 Added \hyperlink{macros_8h_adf782f359235d2bab86224421b186e27}{S\-T\-R\-N\-C\-P\-Y\-N\-O\-S\-P\-A\-C\-E\-S(out, in, mx)}
+\item V2.\-24 28.\-08.\-15 Added \hyperlink{macros_8h_a25875003b43b81a4302256caa4a13599}{F\-R\-E\-E()}
+\item V2.\-25 04.\-11.\-15 Added \hyperlink{macros_8h_a734fdddfd354177d67337218bc963d67}{F\-C\-L\-O\-S\-E()}
+\item V2.\-26 14.\-12.\-16 Added \hyperlink{macros_8h_acfea63fa7db66757bc17d1dce48f80fb}{T\-E\-R\-M\-I\-N\-A\-T\-E\-C\-R()} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{macros_8h_source}{macros.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{\index{macros.\-h@{macros.\-h}!A\-B\-S@{A\-B\-S}}
+\index{A\-B\-S@{A\-B\-S}!macros.h@{macros.\-h}}
+\subsubsection[{A\-B\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-B\-S(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(((x)$<$0)   ? (-\/(x)) \-: (x))}}\label{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}
+
+
+Definition at line 235 of file macros.\-h.
+
+\hypertarget{macros_8h_ae0a46a92b4865dd29e1ea9e0a4d64772}{\index{macros.\-h@{macros.\-h}!A\-L\-L\-O\-C\-N\-E\-X\-T@{A\-L\-L\-O\-C\-N\-E\-X\-T}}
+\index{A\-L\-L\-O\-C\-N\-E\-X\-T@{A\-L\-L\-O\-C\-N\-E\-X\-T}!macros.h@{macros.\-h}}
+\subsubsection[{A\-L\-L\-O\-C\-N\-E\-X\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-L\-O\-C\-N\-E\-X\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_ae0a46a92b4865dd29e1ea9e0a4d64772}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}=(y *)malloc(\textcolor{keyword}{sizeof}(y));\(\backslash\)
+                         if((x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next} != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) \{ (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}=
+      \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; \}\hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{\(\backslash\)}
+\hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{                         NEXT}(x); \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 251 of file macros.\-h.
+
+\hypertarget{macros_8h_a98b4aca4c6194e23c34b1a94cfdd3901}{\index{macros.\-h@{macros.\-h}!A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V@{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}}
+\index{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V@{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}!macros.h@{macros.\-h}}
+\subsubsection[{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a98b4aca4c6194e23c34b1a94cfdd3901}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}=(y *)malloc(\textcolor{keyword}{sizeof}(y));\(\backslash\)
+                             if((x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next} != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})\(\backslash\)
+                             \{ (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}->\hyperlink{struct__memlist_ad18781e89269318ca9b53b1f673056c3}{prev} = (x); \(\backslash\)
+                               (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; \}\hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{\(\backslash\)}
+\hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{                               NEXT}(x);\} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 254 of file macros.\-h.
+
+\hypertarget{macros_8h_a62e0f7e259f149c4e32b37eca4c0bd29}{\index{macros.\-h@{macros.\-h}!D@{D}}
+\index{D@{D}!macros.h@{macros.\-h}}
+\subsubsection[{D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D(
+\begin{DoxyParamCaption}
+\item[{}]{B\-U\-G}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a62e0f7e259f149c4e32b37eca4c0bd29}
+
+
+Definition at line 576 of file macros.\-h.
+
+\hypertarget{macros_8h_aaaae083fd26ba0d19105f05510a2009d}{\index{macros.\-h@{macros.\-h}!D\-E\-D\-O\-T\-I\-F\-Y@{D\-E\-D\-O\-T\-I\-F\-Y}}
+\index{D\-E\-D\-O\-T\-I\-F\-Y@{D\-E\-D\-O\-T\-I\-F\-Y}!macros.h@{macros.\-h}}
+\subsubsection[{D\-E\-D\-O\-T\-I\-F\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-D\-O\-T\-I\-F\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{str}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_aaaae083fd26ba0d19105f05510a2009d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                                     \(\backslash\)
+   char *\_dedotify\_macro\_chp;                                            \(\backslash\)
+   \_dedotify\_macro\_chp = str;                                            \(\backslash\)
+   while(*\_dedotify\_macro\_chp) \{                                         \(\backslash\)
+      if(*\_dedotify\_macro\_chp==\textcolor{charliteral}{'.'}) *\_dedotify\_macro\_chp = \textcolor{charliteral}{' '};          \(\backslash\)
+      \_dedotify\_macro\_chp++;                                             \(\backslash\)
+\}  \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+Macro to replace '.' in a string with ' '
+
+
+\begin{DoxyItemize}
+\item 21.\-04.\-99 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 512 of file macros.\-h.
+
+\hypertarget{macros_8h_ab866ee223048678a3d417c2e786576e4}{\index{macros.\-h@{macros.\-h}!D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}}
+\index{D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}!macros.h@{macros.\-h}}
+\subsubsection[{D\-E\-L\-E\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-L\-E\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_ab866ee223048678a3d417c2e786576e4}
+
+
+Definition at line 284 of file macros.\-h.
+
+\hypertarget{macros_8h_a8e958d33c605063f02c1363d93f4edf8}{\index{macros.\-h@{macros.\-h}!D\-E\-L\-E\-T\-E\-D\-O\-U\-B\-L\-E@{D\-E\-L\-E\-T\-E\-D\-O\-U\-B\-L\-E}}
+\index{D\-E\-L\-E\-T\-E\-D\-O\-U\-B\-L\-E@{D\-E\-L\-E\-T\-E\-D\-O\-U\-B\-L\-E}!macros.h@{macros.\-h}}
+\subsubsection[{D\-E\-L\-E\-T\-E\-D\-O\-U\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-L\-E\-T\-E\-D\-O\-U\-B\-L\-E(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a8e958d33c605063f02c1363d93f4edf8}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ y *\_deleteandnext\_macro\_temp;                               \(\backslash\)
+             if(((s)!=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) && ((x)!=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}))                              \(\backslash\)
+             \{  \textcolor{keywordflow}{if}((x)==(s)) (s) = (x)->next;                            \(\backslash\)
+                \_deleteandnext\_macro\_temp = (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next};                   \(\backslash\)
+                if((x)->\hyperlink{struct__memlist_ad18781e89269318ca9b53b1f673056c3}{prev} != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) (x)->\hyperlink{struct__memlist_ad18781e89269318ca9b53b1f673056c3}{prev}->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next} = (x)->
+      \hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next};       \(\backslash\)
+                if((x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next} != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}->\hyperlink{struct__memlist_ad18781e89269318ca9b53b1f673056c3}{prev} = (x)->
+      \hyperlink{struct__memlist_ad18781e89269318ca9b53b1f673056c3}{prev};       \(\backslash\)
+                free(x);                                                 \(\backslash\)
+                (x) = \_deleteandnext\_macro\_temp;                         \(\backslash\)
+        \}  \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 329 of file macros.\-h.
+
+\hypertarget{macros_8h_ae733a5a3a9e9a85474da2105655a0dc4}{\index{macros.\-h@{macros.\-h}!D\-I\-S\-T@{D\-I\-S\-T}}
+\index{D\-I\-S\-T@{D\-I\-S\-T}!macros.h@{macros.\-h}}
+\subsubsection[{D\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-I\-S\-T(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_ae733a5a3a9e9a85474da2105655a0dc4}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+sqrt(((a)->x - (b)->x) * ((a)->x - (b)->x) + \(\backslash\)
+                       ((a)->y - (b)->y) * ((a)->y - (b)->y) + \(\backslash\)
+                       ((a)->z - (b)->z) * ((a)->z - (b)->z))
+\end{DoxyCode}
+
+
+Definition at line 231 of file macros.\-h.
+
+\hypertarget{macros_8h_a1ef8a3a51c1e57293c07c2e72a59d51e}{\index{macros.\-h@{macros.\-h}!D\-I\-S\-T\-S\-Q@{D\-I\-S\-T\-S\-Q}}
+\index{D\-I\-S\-T\-S\-Q@{D\-I\-S\-T\-S\-Q}!macros.h@{macros.\-h}}
+\subsubsection[{D\-I\-S\-T\-S\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-I\-S\-T\-S\-Q(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a1ef8a3a51c1e57293c07c2e72a59d51e}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(((a)->x - (b)->x) * ((a)->x - (b)->x) + \(\backslash\)
+                     ((a)->y - (b)->y) * ((a)->y - (b)->y) + \(\backslash\)
+                     ((a)->z - (b)->z) * ((a)->z - (b)->z))
+\end{DoxyCode}
+
+
+Definition at line 228 of file macros.\-h.
+
+\hypertarget{macros_8h_ab7e50c0e4b5fb79a9490a9946139761d}{\index{macros.\-h@{macros.\-h}!D\-O\-T\-I\-F\-Y@{D\-O\-T\-I\-F\-Y}}
+\index{D\-O\-T\-I\-F\-Y@{D\-O\-T\-I\-F\-Y}!macros.h@{macros.\-h}}
+\subsubsection[{D\-O\-T\-I\-F\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-O\-T\-I\-F\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{str}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_ab7e50c0e4b5fb79a9490a9946139761d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                                     \(\backslash\)
+   char *\_dotify\_macro\_chp;                                              \(\backslash\)
+   \_dotify\_macro\_chp = str;                                              \(\backslash\)
+   while(*\_dotify\_macro\_chp) \{                                           \(\backslash\)
+      if(*\_dotify\_macro\_chp==\textcolor{charliteral}{' '}) *\_dotify\_macro\_chp = \textcolor{charliteral}{'.'};              \(\backslash\)
+      \_dotify\_macro\_chp++;                                               \(\backslash\)
+\}  \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+Macro to replace ' ' in a string with '.'
+
+
+\begin{DoxyItemize}
+\item 21.\-04.\-99 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 494 of file macros.\-h.
+
+\hypertarget{macros_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{macros.\-h@{macros.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!macros.h@{macros.\-h}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~0}}\label{macros_8h_aa93f0eb578d23995850d61f7d61c55c1}
+
+
+Definition at line 223 of file macros.\-h.
+
+\hypertarget{macros_8h_a734fdddfd354177d67337218bc963d67}{\index{macros.\-h@{macros.\-h}!F\-C\-L\-O\-S\-E@{F\-C\-L\-O\-S\-E}}
+\index{F\-C\-L\-O\-S\-E@{F\-C\-L\-O\-S\-E}!macros.h@{macros.\-h}}
+\subsubsection[{F\-C\-L\-O\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-C\-L\-O\-S\-E(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a734fdddfd354177d67337218bc963d67}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                                  \(\backslash\)
+      if(((x) != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) && ((x) != stdin) &&                              \(\backslash\)
+         ((x) != stdout) && ((x) != stderr)) \{                           \(\backslash\)
+         fclose((x));                                                    \(\backslash\)
+         (x) = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL};                                                     \(\backslash\)
+      \}                                                                  \(\backslash\)
+   \} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+
+
+Definition at line 564 of file macros.\-h.
+
+\hypertarget{macros_8h_a81b8341e8468f5883b4487072409c9bc}{\index{macros.\-h@{macros.\-h}!F\-I\-N\-D\-I\-N\-A\-R\-R\-A\-Y@{F\-I\-N\-D\-I\-N\-A\-R\-R\-A\-Y}}
+\index{F\-I\-N\-D\-I\-N\-A\-R\-R\-A\-Y@{F\-I\-N\-D\-I\-N\-A\-R\-R\-A\-Y}!macros.h@{macros.\-h}}
+\subsubsection[{F\-I\-N\-D\-I\-N\-A\-R\-R\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-I\-N\-D\-I\-N\-A\-R\-R\-A\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{l, }
+\item[{}]{y, }
+\item[{}]{r}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a81b8341e8468f5883b4487072409c9bc}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                                     \(\backslash\)
+   int \_inarray\_macro\_i;                                                 \(\backslash\)
+   (r) = (-1);                                                           \(\backslash\)
+   if((x)==\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) break;                                                  \(\backslash\)
+   for(\_inarray\_macro\_i=0; \_inarray\_macro\_i<(l); \_inarray\_macro\_i++)     \(\backslash\)
+   \{  \textcolor{keywordflow}{if}((x)[\_inarray\_macro\_i] == (y))                                   \(\backslash\)
+      \{  (r) = \_inarray\_macro\_i;                                         \(\backslash\)
+         break;                                                          \(\backslash\)
+\}  \}  \} \textcolor{keywordflow}{while}(\hyperlink{macros_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE})
+\end{DoxyCode}
+
+
+Definition at line 444 of file macros.\-h.
+
+\hypertarget{macros_8h_a6c3072dd343ca017f0697dd842a9d757}{\index{macros.\-h@{macros.\-h}!F\-I\-N\-D\-P\-R\-E\-V@{F\-I\-N\-D\-P\-R\-E\-V}}
+\index{F\-I\-N\-D\-P\-R\-E\-V@{F\-I\-N\-D\-P\-R\-E\-V}!macros.h@{macros.\-h}}
+\subsubsection[{F\-I\-N\-D\-P\-R\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-I\-N\-D\-P\-R\-E\-V(
+\begin{DoxyParamCaption}
+\item[{}]{p, }
+\item[{}]{s, }
+\item[{}]{l}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a6c3072dd343ca017f0697dd842a9d757}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ p = (s);                                                    \(\backslash\)
+             if((s)==(l))                                                \(\backslash\)
+             \{ p = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; \} \textcolor{keywordflow}{else}                                          \(\backslash\)
+             \{                                                           \(\backslash\)
+               while((p != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) && (p->next != (l)))                    \(\backslash\)
+               \{  p = p->next;                                           \(\backslash\)
+           \} \} \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 351 of file macros.\-h.
+
+\hypertarget{macros_8h_a25875003b43b81a4302256caa4a13599}{\index{macros.\-h@{macros.\-h}!F\-R\-E\-E@{F\-R\-E\-E}}
+\index{F\-R\-E\-E@{F\-R\-E\-E}!macros.h@{macros.\-h}}
+\subsubsection[{F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-E(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~if((x)!={\bf N\-U\-L\-L}) free(x); (x) = {\bf N\-U\-L\-L}}}\label{macros_8h_a25875003b43b81a4302256caa4a13599}
+
+
+Definition at line 270 of file macros.\-h.
+
+\hypertarget{macros_8h_a4151f4e24778e7b290ec804c29c91f27}{\index{macros.\-h@{macros.\-h}!F\-R\-E\-E\-L\-I\-S\-T@{F\-R\-E\-E\-L\-I\-S\-T}}
+\index{F\-R\-E\-E\-L\-I\-S\-T@{F\-R\-E\-E\-L\-I\-S\-T}!macros.h@{macros.\-h}}
+\subsubsection[{F\-R\-E\-E\-L\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-E\-L\-I\-S\-T(
+\begin{DoxyParamCaption}
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a4151f4e24778e7b290ec804c29c91f27}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{while}((y)!=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) \(\backslash\)
+                        \{  z *\_freelist\_macro\_q; \(\backslash\)
+                           \_freelist\_macro\_q = (y)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}; \(\backslash\)
+                           free((\textcolor{keywordtype}{char} *)(y)); \(\backslash\)
+                           (y) = \_freelist\_macro\_q; \(\backslash\)
+                        \}
+\end{DoxyCode}
+
+
+Definition at line 264 of file macros.\-h.
+
+\hypertarget{macros_8h_aa167d4937e9a8d9a33c3e93bbcad8a35}{\index{macros.\-h@{macros.\-h}!I\-N\-I\-T@{I\-N\-I\-T}}
+\index{I\-N\-I\-T@{I\-N\-I\-T}!macros.h@{macros.\-h}}
+\subsubsection[{I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-I\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_aa167d4937e9a8d9a33c3e93bbcad8a35}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ x=(y *)malloc(\textcolor{keyword}{sizeof}(y)); \(\backslash\)
+                    if(x != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) x->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next} = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; \} while(0)
+\end{DoxyCode}
+
+
+Definition at line 244 of file macros.\-h.
+
+\hypertarget{macros_8h_ad48f627b78d63b7af972e819978664ff}{\index{macros.\-h@{macros.\-h}!I\-N\-I\-T\-P\-R\-E\-V@{I\-N\-I\-T\-P\-R\-E\-V}}
+\index{I\-N\-I\-T\-P\-R\-E\-V@{I\-N\-I\-T\-P\-R\-E\-V}!macros.h@{macros.\-h}}
+\subsubsection[{I\-N\-I\-T\-P\-R\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-I\-T\-P\-R\-E\-V(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_ad48f627b78d63b7af972e819978664ff}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ x=(y *)malloc(\textcolor{keyword}{sizeof}(y));\(\backslash\)
+                        if(x != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) \{x->next=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; x->prev=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL};\} \} \(\backslash\)
+                      while(0)
+\end{DoxyCode}
+
+
+Definition at line 246 of file macros.\-h.
+
+\hypertarget{macros_8h_a307d2122f7c72a7f479498fa945596c6}{\index{macros.\-h@{macros.\-h}!I\-S\-S\-E\-T@{I\-S\-S\-E\-T}}
+\index{I\-S\-S\-E\-T@{I\-S\-S\-E\-T}!macros.h@{macros.\-h}}
+\subsubsection[{I\-S\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-S\-S\-E\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~(({\bf B\-O\-O\-L})((x)\&(y)))}}\label{macros_8h_a307d2122f7c72a7f479498fa945596c6}
+
+
+Definition at line 557 of file macros.\-h.
+
+\hypertarget{macros_8h_a1b8cbb77f6df1b328324b217ea7eebd3}{\index{macros.\-h@{macros.\-h}!K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S@{K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S}}
+\index{K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S@{K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S}!macros.h@{macros.\-h}}
+\subsubsection[{K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S(
+\begin{DoxyParamCaption}
+\item[{}]{y, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a1b8cbb77f6df1b328324b217ea7eebd3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \(\backslash\)
+                 \{  \textcolor{keywordflow}{for}((y)=(x); *(y) == \textcolor{charliteral}{' '} || *(y) == \textcolor{charliteral}{'\(\backslash\)t'}; (y)++) ; \} \(\backslash\)
+                 while(0)
+\end{DoxyCode}
+
+
+Definition at line 408 of file macros.\-h.
+
+\hypertarget{macros_8h_a01c5f3b95fb9aa9efbdaf1f2b77cd900}{\index{macros.\-h@{macros.\-h}!K\-I\-L\-L\-T\-R\-A\-I\-L\-S\-P\-A\-C\-E\-S@{K\-I\-L\-L\-T\-R\-A\-I\-L\-S\-P\-A\-C\-E\-S}}
+\index{K\-I\-L\-L\-T\-R\-A\-I\-L\-S\-P\-A\-C\-E\-S@{K\-I\-L\-L\-T\-R\-A\-I\-L\-S\-P\-A\-C\-E\-S}!macros.h@{macros.\-h}}
+\subsubsection[{K\-I\-L\-L\-T\-R\-A\-I\-L\-S\-P\-A\-C\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\-I\-L\-L\-T\-R\-A\-I\-L\-S\-P\-A\-C\-E\-S(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a01c5f3b95fb9aa9efbdaf1f2b77cd900}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{  \textcolor{keywordtype}{int} \_kts\_macro\_i;                                                 \(\backslash\)
+      \_kts\_macro\_i = strlen(x) - 1;                                     \(\backslash\)
+      while(((x)[\_kts\_macro\_i] == \textcolor{charliteral}{' '} ||                                \(\backslash\)
+             (x)[\_kts\_macro\_i] == \textcolor{charliteral}{'\(\backslash\)t'}) &&                              \(\backslash\)
+            \_kts\_macro\_i>=0)                                            \(\backslash\)
+         (\_kts\_macro\_i)--;                                              \(\backslash\)
+      (x)[++(\_kts\_macro\_i)] = \textcolor{charliteral}{'\(\backslash\)0'};                                     \(\backslash\)
+   \}  \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 414 of file macros.\-h.
+
+\hypertarget{macros_8h_a49dd722216353daa94f49c2dbb53e0cb}{\index{macros.\-h@{macros.\-h}!L\-A\-S\-T@{L\-A\-S\-T}}
+\index{L\-A\-S\-T@{L\-A\-S\-T}!macros.h@{macros.\-h}}
+\subsubsection[{L\-A\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-A\-S\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~while(((x)!={\bf N\-U\-L\-L}) \&\& ((x)-\/$>$next != {\bf N\-U\-L\-L})) {\bf N\-E\-X\-T}(x)}}\label{macros_8h_a49dd722216353daa94f49c2dbb53e0cb}
+
+
+Definition at line 259 of file macros.\-h.
+
+\hypertarget{macros_8h_a7c84c2a411c6ca224eb95a0e9438e9ca}{\index{macros.\-h@{macros.\-h}!L\-O\-W\-E\-R@{L\-O\-W\-E\-R}}
+\index{L\-O\-W\-E\-R@{L\-O\-W\-E\-R}!macros.h@{macros.\-h}}
+\subsubsection[{L\-O\-W\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-W\-E\-R(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a7c84c2a411c6ca224eb95a0e9438e9ca}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{  \textcolor{keywordtype}{int} \_lower\_macro\_i;                            \(\backslash\)
+                    for(\_lower\_macro\_i=0;                             \(\backslash\)
+                        \_lower\_macro\_i<(int)strlen(x) &&              \(\backslash\)
+                           (x)[\_lower\_macro\_i];                       \(\backslash\)
+                        \_lower\_macro\_i++)                             \(\backslash\)
+                           \textcolor{keywordflow}{if}(isupper((x)[\_lower\_macro\_i]))           \(\backslash\)
+                              (x)[\_lower\_macro\_i] =                   \(\backslash\)
+                                 (\textcolor{keywordtype}{char})tolower((x)[\_lower\_macro\_i]);  \(\backslash\)
+                    \}  \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 399 of file macros.\-h.
+
+\hypertarget{macros_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{\index{macros.\-h@{macros.\-h}!M\-A\-X@{M\-A\-X}}
+\index{M\-A\-X@{M\-A\-X}!macros.h@{macros.\-h}}
+\subsubsection[{M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~(((a)$>$(b)) ? (a)    \-: (b))}}\label{macros_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}
+
+
+Definition at line 239 of file macros.\-h.
+
+\hypertarget{macros_8h_a3acffbd305ee72dcd4593c0d8af64a4f}{\index{macros.\-h@{macros.\-h}!M\-I\-N@{M\-I\-N}}
+\index{M\-I\-N@{M\-I\-N}!macros.h@{macros.\-h}}
+\subsubsection[{M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-N(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~(((a)$<$(b)) ? (a)    \-: (b))}}\label{macros_8h_a3acffbd305ee72dcd4593c0d8af64a4f}
+
+
+Definition at line 240 of file macros.\-h.
+
+\hypertarget{macros_8h_a806511f4930171733227c99101dc0606}{\index{macros.\-h@{macros.\-h}!N\-E\-W\-L\-I\-N\-E@{N\-E\-W\-L\-I\-N\-E}}
+\index{N\-E\-W\-L\-I\-N\-E@{N\-E\-W\-L\-I\-N\-E}!macros.h@{macros.\-h}}
+\subsubsection[{N\-E\-W\-L\-I\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-W\-L\-I\-N\-E~printf(\char`\"{}\textbackslash{}n\char`\"{})}}\label{macros_8h_a806511f4930171733227c99101dc0606}
+
+
+Definition at line 362 of file macros.\-h.
+
+\hypertarget{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{\index{macros.\-h@{macros.\-h}!N\-E\-X\-T@{N\-E\-X\-T}}
+\index{N\-E\-X\-T@{N\-E\-X\-T}!macros.h@{macros.\-h}}
+\subsubsection[{N\-E\-X\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-X\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(x)=(x)-\/$>$next}}\label{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}
+
+
+Definition at line 249 of file macros.\-h.
+
+\hypertarget{macros_8h_ae40c354ba544d11cc47fe6cc74b4e966}{\index{macros.\-h@{macros.\-h}!P\-A\-D\-C\-H\-A\-R\-M\-I\-N\-T\-E\-R\-M@{P\-A\-D\-C\-H\-A\-R\-M\-I\-N\-T\-E\-R\-M}}
+\index{P\-A\-D\-C\-H\-A\-R\-M\-I\-N\-T\-E\-R\-M@{P\-A\-D\-C\-H\-A\-R\-M\-I\-N\-T\-E\-R\-M}!macros.h@{macros.\-h}}
+\subsubsection[{P\-A\-D\-C\-H\-A\-R\-M\-I\-N\-T\-E\-R\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-D\-C\-H\-A\-R\-M\-I\-N\-T\-E\-R\-M(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{c, }
+\item[{}]{l}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_ae40c354ba544d11cc47fe6cc74b4e966}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{  \textcolor{keywordtype}{int} \_padminterm\_macro\_i;                                           \(\backslash\)
+      if(strlen((s)) < (l))                                              \(\backslash\)
+      \{  \textcolor{keywordflow}{for}(\_padminterm\_macro\_i=strlen((s));                            \(\backslash\)
+             \_padminterm\_macro\_i<(l);                                    \(\backslash\)
+             \_padminterm\_macro\_i++)                                      \(\backslash\)
+            (s)[\_padminterm\_macro\_i] = (c);                              \(\backslash\)
+         (s)[(l)] = \textcolor{charliteral}{'\(\backslash\)0'};                                                \(\backslash\)
+      \}  \}  \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+Pads a string to a specified length using char and terminates at that point
+
+
+\begin{DoxyItemize}
+\item 13.\-03.\-99 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 474 of file macros.\-h.
+
+\hypertarget{macros_8h_a8db1217a164f5997e33c5fa121f93ccf}{\index{macros.\-h@{macros.\-h}!P\-A\-D\-M\-I\-N\-T\-E\-R\-M@{P\-A\-D\-M\-I\-N\-T\-E\-R\-M}}
+\index{P\-A\-D\-M\-I\-N\-T\-E\-R\-M@{P\-A\-D\-M\-I\-N\-T\-E\-R\-M}!macros.h@{macros.\-h}}
+\subsubsection[{P\-A\-D\-M\-I\-N\-T\-E\-R\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-D\-M\-I\-N\-T\-E\-R\-M(
+\begin{DoxyParamCaption}
+\item[{}]{string, }
+\item[{}]{len}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a8db1217a164f5997e33c5fa121f93ccf}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                     \(\backslash\)
+        if(strlen((\textcolor{keywordtype}{string})) < (len)) \hyperlink{general_8h_af3e38629eb9182b36af7bf960d3758d8}{blPadterm}((\textcolor{keywordtype}{string}), (len)); \(\backslash\)
+        \} while(0)
+\end{DoxyCode}
+
+
+Definition at line 459 of file macros.\-h.
+
+\hypertarget{macros_8h_a598a3330b3c21701223ee0ca14316eca}{\index{macros.\-h@{macros.\-h}!P\-I@{P\-I}}
+\index{P\-I@{P\-I}!macros.h@{macros.\-h}}
+\subsubsection[{P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I~(4.\-0 $\ast$ atan(1.\-0))}}\label{macros_8h_a598a3330b3c21701223ee0ca14316eca}
+
+
+Definition at line 215 of file macros.\-h.
+
+\hypertarget{macros_8h_a7355421c23b2dd22cec3c1ef5bc380e1}{\index{macros.\-h@{macros.\-h}!P\-R\-E\-V@{P\-R\-E\-V}}
+\index{P\-R\-E\-V@{P\-R\-E\-V}!macros.h@{macros.\-h}}
+\subsubsection[{P\-R\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-V(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(x)=(x)-\/$>$prev}}\label{macros_8h_a7355421c23b2dd22cec3c1ef5bc380e1}
+
+
+Definition at line 250 of file macros.\-h.
+
+\hypertarget{macros_8h_acc487f163f8274ce4a0546d6d68eb035}{\index{macros.\-h@{macros.\-h}!P\-R\-O\-M\-P\-T@{P\-R\-O\-M\-P\-T}}
+\index{P\-R\-O\-M\-P\-T@{P\-R\-O\-M\-P\-T}!macros.h@{macros.\-h}}
+\subsubsection[{P\-R\-O\-M\-P\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-O\-M\-P\-T(
+\begin{DoxyParamCaption}
+\item[{}]{in, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~printf(\char`\"{}\%s\char`\"{},(x))}}\label{macros_8h_acc487f163f8274ce4a0546d6d68eb035}
+
+
+Definition at line 589 of file macros.\-h.
+
+\hypertarget{macros_8h_a1f257cea576b885c9a24e42009e95467}{\index{macros.\-h@{macros.\-h}!R\-A\-N\-G\-E\-C\-H\-E\-C\-K@{R\-A\-N\-G\-E\-C\-H\-E\-C\-K}}
+\index{R\-A\-N\-G\-E\-C\-H\-E\-C\-K@{R\-A\-N\-G\-E\-C\-H\-E\-C\-K}!macros.h@{macros.\-h}}
+\subsubsection[{R\-A\-N\-G\-E\-C\-H\-E\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-A\-N\-G\-E\-C\-H\-E\-C\-K(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~((x)$<$(y)) ? (y) \-: ((x)$>$(z)) ? (z) \-: (x)}}\label{macros_8h_a1f257cea576b885c9a24e42009e95467}
+
+
+Definition at line 227 of file macros.\-h.
+
+\hypertarget{macros_8h_a4c7a0b25a3e3f49dbb53268ccbb2ffe4}{\index{macros.\-h@{macros.\-h}!S\-E\-T@{S\-E\-T}}
+\index{S\-E\-T@{S\-E\-T}!macros.h@{macros.\-h}}
+\subsubsection[{S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~(x) $|$= (y)}}\label{macros_8h_a4c7a0b25a3e3f49dbb53268ccbb2ffe4}
+
+
+Definition at line 555 of file macros.\-h.
+
+\hypertarget{macros_8h_adf782f359235d2bab86224421b186e27}{\index{macros.\-h@{macros.\-h}!S\-T\-R\-N\-C\-P\-Y\-N\-O\-S\-P\-A\-C\-E\-S@{S\-T\-R\-N\-C\-P\-Y\-N\-O\-S\-P\-A\-C\-E\-S}}
+\index{S\-T\-R\-N\-C\-P\-Y\-N\-O\-S\-P\-A\-C\-E\-S@{S\-T\-R\-N\-C\-P\-Y\-N\-O\-S\-P\-A\-C\-E\-S}!macros.h@{macros.\-h}}
+\subsubsection[{S\-T\-R\-N\-C\-P\-Y\-N\-O\-S\-P\-A\-C\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-R\-N\-C\-P\-Y\-N\-O\-S\-P\-A\-C\-E\-S(
+\begin{DoxyParamCaption}
+\item[{}]{out, }
+\item[{}]{in, }
+\item[{}]{mx}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_adf782f359235d2bab86224421b186e27}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{  \textcolor{keywordtype}{char} *\_chp;                                                      \(\backslash\)
+      int \_pos = 0;                                                    \(\backslash\)
+      for(\_chp=(in); *\_chp != \textcolor{charliteral}{'\(\backslash\)0'}; \_chp++)                            \(\backslash\)
+      \{  \textcolor{keywordflow}{if}(*\_chp != \textcolor{charliteral}{' '})                                              \(\backslash\)
+         \{   buffer[\_pos++] = *\_chp;                                   \(\backslash\)
+            if(\_pos >= (mx)) break;                                    \(\backslash\)
+      \}  \}                                                             \(\backslash\)
+      if(\_pos < (mx)) buffer[\_pos] = '\(\backslash\)0';                             \(\backslash\)
+   \} while(0)
+\end{DoxyCode}
+
+
+Definition at line 540 of file macros.\-h.
+
+\hypertarget{macros_8h_a6ac26f1f12b5ad1f4adc92825cd64e94}{\index{macros.\-h@{macros.\-h}!S\-U\-B\-S\-C\-H\-A\-R@{S\-U\-B\-S\-C\-H\-A\-R}}
+\index{S\-U\-B\-S\-C\-H\-A\-R@{S\-U\-B\-S\-C\-H\-A\-R}!macros.h@{macros.\-h}}
+\subsubsection[{S\-U\-B\-S\-C\-H\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-B\-S\-C\-H\-A\-R(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a6ac26f1f12b5ad1f4adc92825cd64e94}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{  \textcolor{keywordtype}{char} *\_subschar\_macro\_ch = (s);                                    \(\backslash\)
+      while(*\_subschar\_macro\_ch != \textcolor{charliteral}{'\(\backslash\)0'})                                 \(\backslash\)
+      \{  \textcolor{keywordflow}{if}(*\_subschar\_macro\_ch == (x)) *\_subschar\_macro\_ch = (y);       \(\backslash\)
+         \_subschar\_macro\_ch++;                                           \(\backslash\)
+   \}  \}  \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+Substitute character x by character y in string s
+
+
+\begin{DoxyItemize}
+\item 21.\-05.\-99 Original 
+\end{DoxyItemize}
+
+Definition at line 531 of file macros.\-h.
+
+\hypertarget{macros_8h_a33cbc27128739739a766304271838628}{\index{macros.\-h@{macros.\-h}!T\-E\-R\-M\-A\-T@{T\-E\-R\-M\-A\-T}}
+\index{T\-E\-R\-M\-A\-T@{T\-E\-R\-M\-A\-T}!macros.h@{macros.\-h}}
+\subsubsection[{T\-E\-R\-M\-A\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-R\-M\-A\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a33cbc27128739739a766304271838628}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{  \textcolor{keywordtype}{int} \_termat\_macro\_j=0;                     \(\backslash\)
+                        for(\_termat\_macro\_j=0;                        \(\backslash\)
+                            (x)[\_termat\_macro\_j];                     \(\backslash\)
+                            \_termat\_macro\_j++)                        \(\backslash\)
+                        \{  \textcolor{keywordflow}{if}((x)[\_termat\_macro\_j] == (y))            \(\backslash\)
+                           \{  (x)[\_termat\_macro\_j] = \textcolor{charliteral}{'\(\backslash\)0'};            \(\backslash\)
+                              break;                                  \(\backslash\)
+                     \}  \}  \}  \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 382 of file macros.\-h.
+
+\hypertarget{macros_8h_aacb586bd2f3f322f647a94819e1315c5}{\index{macros.\-h@{macros.\-h}!T\-E\-R\-M\-I\-N\-A\-T\-E@{T\-E\-R\-M\-I\-N\-A\-T\-E}}
+\index{T\-E\-R\-M\-I\-N\-A\-T\-E@{T\-E\-R\-M\-I\-N\-A\-T\-E}!macros.h@{macros.\-h}}
+\subsubsection[{T\-E\-R\-M\-I\-N\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-R\-M\-I\-N\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_aacb586bd2f3f322f647a94819e1315c5}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{  \textcolor{keywordtype}{int} \_terminate\_macro\_j;                    \(\backslash\)
+                        for(\_terminate\_macro\_j=0;                     \(\backslash\)
+                            (x)[\_terminate\_macro\_j];                  \(\backslash\)
+                            \_terminate\_macro\_j++)                     \(\backslash\)
+                        \{  \textcolor{keywordflow}{if}((x)[\_terminate\_macro\_j] == \textcolor{charliteral}{'\(\backslash\)n'})        \(\backslash\)
+                           \{  (x)[\_terminate\_macro\_j] = \textcolor{charliteral}{'\(\backslash\)0'};         \(\backslash\)
+                              break;                                  \(\backslash\)
+                     \}  \}  \}  \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 366 of file macros.\-h.
+
+\hypertarget{macros_8h_acfea63fa7db66757bc17d1dce48f80fb}{\index{macros.\-h@{macros.\-h}!T\-E\-R\-M\-I\-N\-A\-T\-E\-C\-R@{T\-E\-R\-M\-I\-N\-A\-T\-E\-C\-R}}
+\index{T\-E\-R\-M\-I\-N\-A\-T\-E\-C\-R@{T\-E\-R\-M\-I\-N\-A\-T\-E\-C\-R}!macros.h@{macros.\-h}}
+\subsubsection[{T\-E\-R\-M\-I\-N\-A\-T\-E\-C\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-R\-M\-I\-N\-A\-T\-E\-C\-R(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_acfea63fa7db66757bc17d1dce48f80fb}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{  \textcolor{keywordtype}{int} \_terminate\_macro\_j;                  \(\backslash\)
+                          for(\_terminate\_macro\_j=0;                   \(\backslash\)
+                              (x)[\_terminate\_macro\_j];                \(\backslash\)
+                              \_terminate\_macro\_j++)                   \(\backslash\)
+                          \{  \textcolor{keywordflow}{if}((x)[\_terminate\_macro\_j] == \textcolor{charliteral}{'\(\backslash\)r'})      \(\backslash\)
+                             \{  (x)[\_terminate\_macro\_j] = \textcolor{charliteral}{'\(\backslash\)0'};       \(\backslash\)
+                                break;                                \(\backslash\)
+                       \}  \}  \}  \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 374 of file macros.\-h.
+
+\hypertarget{macros_8h_a0af07934c7ed745d41434d2b7d0b1d65}{\index{macros.\-h@{macros.\-h}!T\-E\-S\-T\-I\-N\-A\-R\-R\-A\-Y@{T\-E\-S\-T\-I\-N\-A\-R\-R\-A\-Y}}
+\index{T\-E\-S\-T\-I\-N\-A\-R\-R\-A\-Y@{T\-E\-S\-T\-I\-N\-A\-R\-R\-A\-Y}!macros.h@{macros.\-h}}
+\subsubsection[{T\-E\-S\-T\-I\-N\-A\-R\-R\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-S\-T\-I\-N\-A\-R\-R\-A\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{l, }
+\item[{}]{y, }
+\item[{}]{r}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a0af07934c7ed745d41434d2b7d0b1d65}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                                     \(\backslash\)
+   int \_inarray\_macro\_i;                                                 \(\backslash\)
+   (r) = \hyperlink{macros_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE};                                                          \(\backslash\)
+   if((x)==\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) break;                                                  \(\backslash\)
+   for(\_inarray\_macro\_i=0; \_inarray\_macro\_i<(l); \_inarray\_macro\_i++)     \(\backslash\)
+   \{  \textcolor{keywordflow}{if}((x)[\_inarray\_macro\_i] == (y))                                   \(\backslash\)
+      \{  (r) = \hyperlink{macros_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE};                                                     \(\backslash\)
+         break;                                                          \(\backslash\)
+\}  \}  \} \textcolor{keywordflow}{while}(\hyperlink{macros_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE})
+\end{DoxyCode}
+
+
+Definition at line 429 of file macros.\-h.
+
+\hypertarget{macros_8h_a10801dd855e20334cd83cace96616de6}{\index{macros.\-h@{macros.\-h}!T\-O\-G\-G\-L\-E@{T\-O\-G\-G\-L\-E}}
+\index{T\-O\-G\-G\-L\-E@{T\-O\-G\-G\-L\-E}!macros.h@{macros.\-h}}
+\subsubsection[{T\-O\-G\-G\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-O\-G\-G\-L\-E(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(x) = (x) ? {\bf F\-A\-L\-S\-E} \-: {\bf T\-R\-U\-E}}}\label{macros_8h_a10801dd855e20334cd83cace96616de6}
+
+
+Definition at line 364 of file macros.\-h.
+
+\hypertarget{macros_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{macros.\-h@{macros.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!macros.h@{macros.\-h}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~1}}\label{macros_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+Definition at line 219 of file macros.\-h.
+
+\hypertarget{macros_8h_a6d57407eac46b22a85510405f2370d64}{\index{macros.\-h@{macros.\-h}!U\-N\-S\-E\-T@{U\-N\-S\-E\-T}}
+\index{U\-N\-S\-E\-T@{U\-N\-S\-E\-T}!macros.h@{macros.\-h}}
+\subsubsection[{U\-N\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-N\-S\-E\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~(x) \&= ($\sim$(y))}}\label{macros_8h_a6d57407eac46b22a85510405f2370d64}
+
+
+Definition at line 556 of file macros.\-h.
+
+\hypertarget{macros_8h_a8ce7aa85856d9abe74e8f6080cd97740}{\index{macros.\-h@{macros.\-h}!U\-P\-P\-E\-R@{U\-P\-P\-E\-R}}
+\index{U\-P\-P\-E\-R@{U\-P\-P\-E\-R}!macros.h@{macros.\-h}}
+\subsubsection[{U\-P\-P\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-P\-P\-E\-R(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}}\label{macros_8h_a8ce7aa85856d9abe74e8f6080cd97740}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{  \textcolor{keywordtype}{int} \_upper\_macro\_i;                            \(\backslash\)
+                    for(\_upper\_macro\_i=0;                             \(\backslash\)
+                        \_upper\_macro\_i<(int)strlen(x) &&              \(\backslash\)
+                           (x)[\_upper\_macro\_i];                       \(\backslash\)
+                        \_upper\_macro\_i++)                             \(\backslash\)
+                           \textcolor{keywordflow}{if}(islower((x)[\_upper\_macro\_i]))           \(\backslash\)
+                              (x)[\_upper\_macro\_i] =                   \(\backslash\)
+                                 (\textcolor{keywordtype}{char})toupper((x)[\_upper\_macro\_i]);  \(\backslash\)
+                    \}  \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 390 of file macros.\-h.
+

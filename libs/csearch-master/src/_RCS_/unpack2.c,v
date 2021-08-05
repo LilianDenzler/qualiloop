@@ -1,0 +1,37 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.58;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+void unpack2(
+unsigned long int i4,
+unsigned short int *i2,
+unsigned short int *j2
+)
+{
+   *i2 = (i4+(1<<15))/(1<<16);
+   *j2 = i4 - *i2*(1<<16);
+}
+ 
+@

@@ -1,0 +1,88 @@
+\hypertarget{_strip_waters_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Strip\-Waters\-P\-D\-B.c File Reference}
+\label{_strip_waters_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Strip\-Waters\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Strip\-Waters\-P\-D\-B.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_strip_waters_p_d_b_8c_a01c758ef91cf12033273f524c87a0617}{bl\-Strip\-Waters\-P\-D\-B\-As\-Copy} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdbin, int $\ast$natom)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-08.\-18 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, U\-C\-L, 2008-\/2018 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 30.\-04.\-08 Original based on Strip\-H\-P\-D\-B() By\-: A\-C\-R\-M
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-2 19.\-08.\-14 Renamed function bl\-Strip\-Waters\-P\-D\-B() to \hyperlink{pdb_8h_a01c758ef91cf12033273f524c87a0617}{bl\-Strip\-Waters\-P\-D\-B\-As\-Copy()} By\-: C\-T\-P
+\item V1.\-3 19.\-04.\-15 Added call to bl\-Copy\-Conect() By\-: A\-C\-R\-M
+\item V1.\-4 07.\-08.\-18 Initialized variable to silence gcc 7.\-3.\-1 with -\/\-O2 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_strip_waters_p_d_b_8c_source}{Strip\-Waters\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_strip_waters_p_d_b_8c_a01c758ef91cf12033273f524c87a0617}{\index{Strip\-Waters\-P\-D\-B.\-c@{Strip\-Waters\-P\-D\-B.\-c}!bl\-Strip\-Waters\-P\-D\-B\-As\-Copy@{bl\-Strip\-Waters\-P\-D\-B\-As\-Copy}}
+\index{bl\-Strip\-Waters\-P\-D\-B\-As\-Copy@{bl\-Strip\-Waters\-P\-D\-B\-As\-Copy}!StripWatersPDB.c@{Strip\-Waters\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Strip\-Waters\-P\-D\-B\-As\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Strip\-Waters\-P\-D\-B\-As\-Copy (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdbin, }
+\item[{int $\ast$}]{natom}
+\end{DoxyParamCaption}
+)}}\label{_strip_waters_p_d_b_8c_a01c758ef91cf12033273f524c87a0617}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdbin} & Input list \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms kept \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Output list
+\end{DoxyReturn}
+Take a P\-D\-B linked list and returns the P\-D\-B list minus waters
+
+
+\begin{DoxyItemize}
+\item 30.\-04.\-08 Original based on Strip\-H\-P\-D\-B() By\-: A\-C\-R\-M
+\item 19.\-08.\-14 Renamed function to \hyperlink{pdb_8h_a01c758ef91cf12033273f524c87a0617}{bl\-Strip\-Waters\-P\-D\-B\-As\-Copy()} By\-: C\-T\-P
+\item 12.\-04.\-15 Added rebuild of C\-O\-N\-E\-C\-T data
+\item 07.\-08.\-18 Initialized q to silence gcc 7.\-3.\-1 with -\/\-O2 
+\end{DoxyItemize}
+
+Definition at line 101 of file Strip\-Waters\-P\-D\-B.\-c.
+

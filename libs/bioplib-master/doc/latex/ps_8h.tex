@@ -1,0 +1,615 @@
+\hypertarget{ps_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/ps.h File Reference}
+\label{ps_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/ps.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/ps.\-h}}
+}
+
+
+Include file for Post\-Script routine.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ps_8h_ac0af864a7506aa77d9ca1c16dd49b3a9}{\-\_\-\-P\-S\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{ps_8h_ad788f19f0d7f1717404690c50e0f2edf}{bl\-P\-S\-Init} (char $\ast$F\-Name, char $\ast$creator, char $\ast$Alt\-Font)
+\item 
+void \hyperlink{ps_8h_a92271e485b9c4be0bdc3e632a506e090}{bl\-P\-S\-Thick} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} thickness)
+\item 
+void \hyperlink{ps_8h_abb3f40999331b890f2015ce976b773e3}{bl\-P\-S\-Move} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} X, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Y)
+\item 
+void \hyperlink{ps_8h_a86d363d40c83b86541ec7b2f54a986e4}{bl\-P\-S\-Draw} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} X, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Y)
+\item 
+void \hyperlink{ps_8h_a504120eff8dcea68e5d53c6799418df3}{bl\-P\-S\-Set\-Dash} (char $\ast$linepatt)
+\item 
+void \hyperlink{ps_8h_ad49ff55fbd6be532c541cba2e7988b3b}{bl\-P\-S\-Clear\-Dash} (void)
+\item 
+void \hyperlink{ps_8h_a25a2f7abeb3112ab8d9587faaee884c9}{bl\-P\-S\-Stroke} (void)
+\item 
+void \hyperlink{ps_8h_aa19bba7a14d304e4c2a3e10ad86a6842}{bl\-P\-S\-Font} (char $\ast$fontname, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} size)
+\item 
+void \hyperlink{ps_8h_a0d50760c5dbef6223bca1e031ad1859e}{bl\-P\-S\-L\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} X, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Y, char $\ast$label)
+\item 
+void \hyperlink{ps_8h_ab05b586a42f786be51c5d36d41f7cb3c}{bl\-P\-S\-C\-B\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} X, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Offset, char $\ast$label)
+\item 
+void \hyperlink{ps_8h_a11f0c0c7cb0b957efd91710af757ddb6}{bl\-P\-S\-R\-Off\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} X, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} offset, char $\ast$label)
+\item 
+void \hyperlink{ps_8h_a1f78f95f1baea85f3f6ef1ff6319f1cb}{bl\-P\-S\-L\-C\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} X, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Y, char $\ast$label)
+\item 
+void \hyperlink{ps_8h_af2c63afacbd6d47924bbb37724dee9e0}{bl\-P\-S\-C\-T\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} X, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Offset, char $\ast$label)
+\item 
+void \hyperlink{ps_8h_a0f3539a3142cccad90210db5ded98f3e}{bl\-P\-S\-V\-Text} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} xoff, char $\ast$text, char $\ast$font, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} size, char $\ast$label, char $\ast$lfont, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} lsize)
+\item 
+void \hyperlink{ps_8h_aa6663929221f535885fba918295e9432}{bl\-P\-S\-Show\-Text} (char $\ast$text)
+\item 
+void \hyperlink{ps_8h_a6c3a0f38cfad943f106bdcfc68c8d834}{bl\-P\-S\-End} (void)
+\item 
+char $\ast$ \hyperlink{ps_8h_a7593cf7ac25f517c2c7345fb9eb6c8b1}{bl\-P\-S\-Correct\-Case} (char $\ast$font)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{ps_8h_a3ebfc02d82fe79d8eaf31bbae4a3a2b0}{P\-Sxpicsize}
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{ps_8h_a50d5ea2eb0b0437bf3541262a408080d}{P\-Sypicsize}
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{ps_8h_ab84df6bf0dd42f4f7af86efcc1a666a5}{P\-Sxoffset}
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{ps_8h_a76c6c88c272493da754e4e18cafe291e}{P\-Syoffset}
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{ps_8h_afc42f21843e08c306b6bbac14b6008ab}{g\-P\-S\-File}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Include file for Post\-Script routine. \begin{DoxyVersion}{Version}
+V1.\-14 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Include file for using with P\-S\-Routines.\-c
+
+Variables are defined only from the main program. Otherwise they are referenced as external.
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 06.\-02.\-91 Original
+\item V1.\-7 25.\-02.\-91 Fixed prototypes and definition of P\-S\-File.
+\item V1.\-10 07.\-05.\-92 Changed all prototypes to doubles
+\item V1.\-11 23.\-06.\-94 Made g\-P\-S\-File a global
+\item V1.\-12 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-13 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-14 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{ps_8h_source}{ps.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ps_8h_ac0af864a7506aa77d9ca1c16dd49b3a9}{\index{ps.\-h@{ps.\-h}!\-\_\-\-P\-S\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-P\-S\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-P\-S\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-P\-S\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!ps.h@{ps.\-h}}
+\subsubsection[{\-\_\-\-P\-S\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-P\-S\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{ps_8h_ac0af864a7506aa77d9ca1c16dd49b3a9}
+
+
+Definition at line 116 of file ps.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{ps_8h_ab05b586a42f786be51c5d36d41f7cb3c}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-C\-B\-Text@{bl\-P\-S\-C\-B\-Text}}
+\index{bl\-P\-S\-C\-B\-Text@{bl\-P\-S\-C\-B\-Text}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-C\-B\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-C\-B\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{X, }
+\item[{{\bf R\-E\-A\-L}}]{Y, }
+\item[{{\bf R\-E\-A\-L}}]{Offset, }
+\item[{char $\ast$}]{label}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_ab05b586a42f786be51c5d36d41f7cb3c}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em X} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em Y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em Offset} & Y offset -\/ multiple of font height. Moves up by this quantity \\
+\hline
+\mbox{\tt in}  & {\em $\ast$label} & Text to be printed\\
+\hline
+\end{DoxyParams}
+Centers a piece of text with X,Y being the Coords of the B\-O\-T\-T\-O\-M centre point
+
+
+\begin{DoxyItemize}
+\item 30.\-06.\-92 Removed redundant sprintf()'s
+\item 15.\-09.\-92 Multiply string width by 0.\-65
+\item 27.\-07.\-93 Floating point precision -\/$>$ double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 490 of file ps.\-c.
+
+\hypertarget{ps_8h_ad49ff55fbd6be532c541cba2e7988b3b}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-Clear\-Dash@{bl\-P\-S\-Clear\-Dash}}
+\index{bl\-P\-S\-Clear\-Dash@{bl\-P\-S\-Clear\-Dash}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-Clear\-Dash}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-Clear\-Dash (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_ad49ff55fbd6be532c541cba2e7988b3b}
+Clear the dash pattern to a full line
+
+
+\begin{DoxyItemize}
+\item 30.\-06.\-92 Removed redundant sprintf()'s
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 382 of file ps.\-c.
+
+\hypertarget{ps_8h_a7593cf7ac25f517c2c7345fb9eb6c8b1}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-Correct\-Case@{bl\-P\-S\-Correct\-Case}}
+\index{bl\-P\-S\-Correct\-Case@{bl\-P\-S\-Correct\-Case}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-Correct\-Case}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-P\-S\-Correct\-Case (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{font}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_a7593cf7ac25f517c2c7345fb9eb6c8b1}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$font} & Input fontname \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Case-\/fixed fontname
+\end{DoxyReturn}
+Goes through a fontname and fixes case to match the required standard.
+
+
+\begin{DoxyItemize}
+\item 08.\-05.\-92 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 861 of file ps.\-c.
+
+\hypertarget{ps_8h_af2c63afacbd6d47924bbb37724dee9e0}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-C\-T\-Text@{bl\-P\-S\-C\-T\-Text}}
+\index{bl\-P\-S\-C\-T\-Text@{bl\-P\-S\-C\-T\-Text}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-C\-T\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-C\-T\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{X, }
+\item[{{\bf R\-E\-A\-L}}]{Y, }
+\item[{{\bf R\-E\-A\-L}}]{Offset, }
+\item[{char $\ast$}]{label}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_af2c63afacbd6d47924bbb37724dee9e0}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em X} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em Y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em Offset} & Y offset in points. Moves down by this quantity \\
+\hline
+\mbox{\tt in}  & {\em $\ast$label} & Text to be printed\\
+\hline
+\end{DoxyParams}
+Centers a piece of text with X,Y being the Coords of the T\-O\-P centre point
+
+
+\begin{DoxyItemize}
+\item 26.\-06.\-92 Changed strlen() to use Simplify\-Text()
+\item 30.\-06.\-92 Removed redundant sprintf()'s
+\item 01.\-07.\-92 Changed Offset to be in pts rather than a multiplier of font size.
+\item 27.\-07.\-92 Changed update limits to account better for descenders.
+\item 15.\-09.\-92 Multiply string width by 0.\-65
+\item 27.\-07.\-93 Floating point precision -\/$>$ double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 620 of file ps.\-c.
+
+\hypertarget{ps_8h_a86d363d40c83b86541ec7b2f54a986e4}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-Draw@{bl\-P\-S\-Draw}}
+\index{bl\-P\-S\-Draw@{bl\-P\-S\-Draw}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-Draw}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-Draw (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{X, }
+\item[{{\bf R\-E\-A\-L}}]{Y}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_a86d363d40c83b86541ec7b2f54a986e4}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em X} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em Y} & Y coordinate\\
+\hline
+\end{DoxyParams}
+Draw to X,Y
+
+
+\begin{DoxyItemize}
+\item 27.\-07.\-93 Floating point precision -\/$>$ double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 348 of file ps.\-c.
+
+\hypertarget{ps_8h_a6c3a0f38cfad943f106bdcfc68c8d834}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-End@{bl\-P\-S\-End}}
+\index{bl\-P\-S\-End@{bl\-P\-S\-End}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-End}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-End (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_a6c3a0f38cfad943f106bdcfc68c8d834}
+End of page
+
+
+\begin{DoxyItemize}
+\item 08.\-05.\-92 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 840 of file ps.\-c.
+
+\hypertarget{ps_8h_aa19bba7a14d304e4c2a3e10ad86a6842}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-Font@{bl\-P\-S\-Font}}
+\index{bl\-P\-S\-Font@{bl\-P\-S\-Font}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-Font}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-Font (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{fontname, }
+\item[{{\bf R\-E\-A\-L}}]{size}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_aa19bba7a14d304e4c2a3e10ad86a6842}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fontname} & Font to set \\
+\hline
+\mbox{\tt in}  & {\em size} & Point size of font\\
+\hline
+\end{DoxyParams}
+Set the font and size
+\begin{DoxyItemize}
+\item 08.\-05.\-92 Changed to support raise and lower
+\item 23.\-06.\-92 Set s\-Text\-Height
+\item 15.\-09.\-92 Changed to support Amiga reencoding
+\item 06.\-07.\-93 Removed Amiga reecncoding for general distribution
+\item 27.\-07.\-93 Floating point precision -\/$>$ double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 418 of file ps.\-c.
+
+\hypertarget{ps_8h_ad788f19f0d7f1717404690c50e0f2edf}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-Init@{bl\-P\-S\-Init}}
+\index{bl\-P\-S\-Init@{bl\-P\-S\-Init}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-Init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-P\-S\-Init (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{F\-Name, }
+\item[{char $\ast$}]{creator, }
+\item[{char $\ast$}]{Alt\-Font}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_ad788f19f0d7f1717404690c50e0f2edf}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$\-F\-Name} & Post\-Script filename \\
+\hline
+\mbox{\tt in}  & {\em $\ast$creator} & Creator string \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Alt\-Font} & Alternate font (normall greek style) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Initialises the file writing the Prologue. The filename and creator are written into the Prologue and E\-P\-S\-Fxoff and E\-P\-S\-Fyoff are used to calculate the bounding box size for E\-P\-S\-F plots.
+
+
+\begin{DoxyItemize}
+\item 08.\-05.\-92 Added definitions of raise, lower and greek. New parameter to specify name of alternate font.
+\item 23.\-06.\-92 Padded Bounding\-Box with spaces and setting of P\-S\-X\-Min, etc.
+\item 26.\-07.\-92 Correctly divide E\-P\-S\-Fxoff and E\-P\-S\-Fyoff by 72 when writing offsets in prologue.
+\item 15.\-09.\-92 Added support for Amiga reencoding. Starting dimensions for Bounding\-Box set to dimensions set by Paper.
+\item 06.\-07.\-93 Opens the file
+\item 27.\-07.\-93 Floating point precision -\/$>$ double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 189 of file ps.\-c.
+
+\hypertarget{ps_8h_a1f78f95f1baea85f3f6ef1ff6319f1cb}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-L\-C\-Text@{bl\-P\-S\-L\-C\-Text}}
+\index{bl\-P\-S\-L\-C\-Text@{bl\-P\-S\-L\-C\-Text}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-L\-C\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-L\-C\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{X, }
+\item[{{\bf R\-E\-A\-L}}]{Y, }
+\item[{char $\ast$}]{label}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_a1f78f95f1baea85f3f6ef1ff6319f1cb}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em X} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em Y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em $\ast$label} & Text to be printed\\
+\hline
+\end{DoxyParams}
+Left justify text, centred on Y
+
+
+\begin{DoxyItemize}
+\item 08.\-05.\-92 Original
+\item 30.\-06.\-92 Removed redundant sprintf()'s
+\item 15.\-09.\-92 Multiply string width by 0.\-65
+\item 27.\-07.\-93 Floating point precision -\/$>$ double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 583 of file ps.\-c.
+
+\hypertarget{ps_8h_a0d50760c5dbef6223bca1e031ad1859e}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-L\-Text@{bl\-P\-S\-L\-Text}}
+\index{bl\-P\-S\-L\-Text@{bl\-P\-S\-L\-Text}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-L\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-L\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{X, }
+\item[{{\bf R\-E\-A\-L}}]{Y, }
+\item[{char $\ast$}]{label}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_a0d50760c5dbef6223bca1e031ad1859e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em X} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em Y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em $\ast$label} & Text to be printed\\
+\hline
+\end{DoxyParams}
+Left justify text
+
+
+\begin{DoxyItemize}
+\item 30.\-06.\-92 Removed redundant sprintf()'s
+\item 15.\-09.\-92 Multiply string width by 0.\-65
+\item 27.\-07.\-93 Floating point precision -\/$>$ double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 457 of file ps.\-c.
+
+\hypertarget{ps_8h_abb3f40999331b890f2015ce976b773e3}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-Move@{bl\-P\-S\-Move}}
+\index{bl\-P\-S\-Move@{bl\-P\-S\-Move}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-Move}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-Move (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{X, }
+\item[{{\bf R\-E\-A\-L}}]{Y}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_abb3f40999331b890f2015ce976b773e3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em X} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em Y} & Y coordinate\\
+\hline
+\end{DoxyParams}
+Move to X,Y
+
+
+\begin{DoxyItemize}
+\item 27.\-07.\-93 Floating point precision -\/$>$ double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 328 of file ps.\-c.
+
+\hypertarget{ps_8h_a11f0c0c7cb0b957efd91710af757ddb6}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-R\-Off\-Text@{bl\-P\-S\-R\-Off\-Text}}
+\index{bl\-P\-S\-R\-Off\-Text@{bl\-P\-S\-R\-Off\-Text}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-R\-Off\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-R\-Off\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{X, }
+\item[{{\bf R\-E\-A\-L}}]{Y, }
+\item[{{\bf R\-E\-A\-L}}]{offset, }
+\item[{char $\ast$}]{label}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_a11f0c0c7cb0b957efd91710af757ddb6}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em X} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em Y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em offset} & X offset in points; text moved to the left by this amount \\
+\hline
+\mbox{\tt in}  & {\em $\ast$label} & Text to be printed\\
+\hline
+\end{DoxyParams}
+Right justify text with offset in device coordinates (points).
+
+
+\begin{DoxyItemize}
+\item 07.\-05.\-92 Original
+\item 30.\-06.\-92 Removed use of P\-S\-Show\-Text(). This can't be used with the current right\-Justify\-Text
+\item 15.\-09.\-92 Multiply string width by 0.\-65
+\item 27.\-07.\-93 Floating point precision -\/$>$ double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 548 of file ps.\-c.
+
+\hypertarget{ps_8h_a504120eff8dcea68e5d53c6799418df3}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-Set\-Dash@{bl\-P\-S\-Set\-Dash}}
+\index{bl\-P\-S\-Set\-Dash@{bl\-P\-S\-Set\-Dash}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-Set\-Dash}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-Set\-Dash (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{linepatt}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_a504120eff8dcea68e5d53c6799418df3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$linepatt} & Line pattern (a string of numbers)\\
+\hline
+\end{DoxyParams}
+Set a line dash pattern which must be supplied as a string
+
+
+\begin{DoxyItemize}
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 366 of file ps.\-c.
+
+\hypertarget{ps_8h_aa6663929221f535885fba918295e9432}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-Show\-Text@{bl\-P\-S\-Show\-Text}}
+\index{bl\-P\-S\-Show\-Text@{bl\-P\-S\-Show\-Text}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-Show\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-Show\-Text (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_aa6663929221f535885fba918295e9432}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$text} & Text to be written\\
+\hline
+\end{DoxyParams}
+Displays text, processing it first if any control codes are found. Used by the various text positioning routines.
+
+
+\begin{DoxyItemize}
+\item 08.\-05.\-92 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 739 of file ps.\-c.
+
+\hypertarget{ps_8h_a25a2f7abeb3112ab8d9587faaee884c9}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-Stroke@{bl\-P\-S\-Stroke}}
+\index{bl\-P\-S\-Stroke@{bl\-P\-S\-Stroke}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-Stroke}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-Stroke (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_a25a2f7abeb3112ab8d9587faaee884c9}
+Actually draw what you've just done onto the paper
+
+
+\begin{DoxyItemize}
+\item 30.\-06.\-92 Removed redundant sprintf()'s
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 397 of file ps.\-c.
+
+\hypertarget{ps_8h_a92271e485b9c4be0bdc3e632a506e090}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-Thick@{bl\-P\-S\-Thick}}
+\index{bl\-P\-S\-Thick@{bl\-P\-S\-Thick}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-Thick}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-Thick (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{thickness}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_a92271e485b9c4be0bdc3e632a506e090}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em thickness} & Line thickness\\
+\hline
+\end{DoxyParams}
+Set the line thickness
+
+
+\begin{DoxyItemize}
+\item 27.\-07.\-93 Floating point precision -\/$>$ double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 309 of file ps.\-c.
+
+\hypertarget{ps_8h_a0f3539a3142cccad90210db5ded98f3e}{\index{ps.\-h@{ps.\-h}!bl\-P\-S\-V\-Text@{bl\-P\-S\-V\-Text}}
+\index{bl\-P\-S\-V\-Text@{bl\-P\-S\-V\-Text}!ps.h@{ps.\-h}}
+\subsubsection[{bl\-P\-S\-V\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-P\-S\-V\-Text (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{{\bf R\-E\-A\-L}}]{xoff, }
+\item[{char $\ast$}]{text, }
+\item[{char $\ast$}]{font, }
+\item[{{\bf R\-E\-A\-L}}]{size, }
+\item[{char $\ast$}]{label, }
+\item[{char $\ast$}]{lfont, }
+\item[{{\bf R\-E\-A\-L}}]{lsize}
+\end{DoxyParamCaption}
+)}}\label{ps_8h_a0f3539a3142cccad90210db5ded98f3e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & X coordinate (in data units) \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate (in data units) \\
+\hline
+\mbox{\tt in}  & {\em xoff} & X-\/offset in pts \\
+\hline
+\mbox{\tt in}  & {\em $\ast$text} & Text to be written \\
+\hline
+\mbox{\tt in}  & {\em $\ast$font} & Font in which to write it \\
+\hline
+\mbox{\tt in}  & {\em size} & Size of font \\
+\hline
+\mbox{\tt in}  & {\em $\ast$label} & Label to be used to calc x offset \\
+\hline
+\mbox{\tt in}  & {\em $\ast$lfont} & Font of this label \\
+\hline
+\mbox{\tt in}  & {\em lsize} & Size of this label\\
+\hline
+\end{DoxyParams}
+Write vertical text centred on x,y offset back along x by the size of label and by xoff in pts. Used, for example, to title the y-\/axis of a graph. The `label' specification is used to calculate an amount by which to move the text back. Typically this would be the longest data label on the graph's Y-\/axis.
+
+
+\begin{DoxyItemize}
+\item 08.\-05.\-92 Original
+\item 30.\-06.\-92 Removed redundant sprintf()'s
+\item 15.\-09.\-92 Multiply string width by 0.\-65
+\item 27.\-07.\-93 Floating point precision -\/$>$ double
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 688 of file ps.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{ps_8h_afc42f21843e08c306b6bbac14b6008ab}{\index{ps.\-h@{ps.\-h}!g\-P\-S\-File@{g\-P\-S\-File}}
+\index{g\-P\-S\-File@{g\-P\-S\-File}!ps.h@{ps.\-h}}
+\subsubsection[{g\-P\-S\-File}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ g\-P\-S\-File}}\label{ps_8h_afc42f21843e08c306b6bbac14b6008ab}
+\hypertarget{ps_8h_ab84df6bf0dd42f4f7af86efcc1a666a5}{\index{ps.\-h@{ps.\-h}!P\-Sxoffset@{P\-Sxoffset}}
+\index{P\-Sxoffset@{P\-Sxoffset}!ps.h@{ps.\-h}}
+\subsubsection[{P\-Sxoffset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} P\-Sxoffset}}\label{ps_8h_ab84df6bf0dd42f4f7af86efcc1a666a5}
+\hypertarget{ps_8h_a3ebfc02d82fe79d8eaf31bbae4a3a2b0}{\index{ps.\-h@{ps.\-h}!P\-Sxpicsize@{P\-Sxpicsize}}
+\index{P\-Sxpicsize@{P\-Sxpicsize}!ps.h@{ps.\-h}}
+\subsubsection[{P\-Sxpicsize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} P\-Sxpicsize}}\label{ps_8h_a3ebfc02d82fe79d8eaf31bbae4a3a2b0}
+\hypertarget{ps_8h_a76c6c88c272493da754e4e18cafe291e}{\index{ps.\-h@{ps.\-h}!P\-Syoffset@{P\-Syoffset}}
+\index{P\-Syoffset@{P\-Syoffset}!ps.h@{ps.\-h}}
+\subsubsection[{P\-Syoffset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} P\-Syoffset}}\label{ps_8h_a76c6c88c272493da754e4e18cafe291e}
+\hypertarget{ps_8h_a50d5ea2eb0b0437bf3541262a408080d}{\index{ps.\-h@{ps.\-h}!P\-Sypicsize@{P\-Sypicsize}}
+\index{P\-Sypicsize@{P\-Sypicsize}!ps.h@{ps.\-h}}
+\subsubsection[{P\-Sypicsize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} P\-Sypicsize}}\label{ps_8h_a50d5ea2eb0b0437bf3541262a408080d}

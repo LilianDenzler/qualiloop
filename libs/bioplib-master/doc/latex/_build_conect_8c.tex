@@ -1,0 +1,410 @@
+\hypertarget{_build_conect_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Build\-Conect.c File Reference}
+\label{_build_conect_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Build\-Conect.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Build\-Conect.\-c}}
+}
+
+
+Build connectivity information in P\-D\-B linked list.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__covalentradii}{\-\_\-covalentradii}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_build_conect_8c_a6830d532b565e142a67b45032253076b}{bl\-Add\-Conect} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$p, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$q)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_build_conect_8c_a648e43949ef1add4b7436652134cec43}{bl\-Add\-One\-Direction\-Conect} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$p, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$q)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_build_conect_8c_a644691ff7319bbf54367489a9e91661b}{bl\-Build\-Conect\-Data} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} tol)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_build_conect_8c_a3b284b864280268928f5fc7944026a7d}{bl\-Is\-Bonded} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$p, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$q, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} tol)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_build_conect_8c_a83cca08fa117ae88809bb7c30d2a79a2}{bl\-Are\-Residues\-Bonded} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, char $\ast$chain1, int resnum1, char $\ast$insert1, char $\ast$chain2, int resnum2, char $\ast$insert2, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} tol)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_build_conect_8c_a45bfcd436408cda8fed0292f729fc0a8}{bl\-Are\-Residue\-Pointers\-Bonded} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$res1, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$res2, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} tol)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_build_conect_8c_abd54e33bfb576571519fc3401f33130d}{bl\-Delete\-A\-Conect} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$p, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$q)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_build_conect_8c_a3d570db9fecbdfeeb93c1fa3e8bff7be}{bl\-Delete\-A\-Conect\-By\-Num} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, int c\-Num)
+\item 
+void \hyperlink{_build_conect_8c_a281d38064920101079573bae40110db2}{bl\-Delete\-Atom\-Conects} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_build_conect_8c_ad267806fc8e84f90103c1a4034bf3fc1}{bl\-Copy\-Conects} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$out, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$in)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_build_conect_8c_aad98df699dfad286bf64dfa139f05bdf}{bl\-Is\-Conected} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$p, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$q)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Build connectivity information in P\-D\-B linked list. \begin{DoxyVersion}{Version}
+V1.\-6 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+29.\-08.\-18 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 2002-\/2018 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 19.\-02.\-15 Original
+\item V1.\-1 16.\-03.\-15 Added \hyperlink{_build_conect_8c_abd54e33bfb576571519fc3401f33130d}{bl\-Delete\-A\-Conect()} and \hyperlink{_build_conect_8c_a3d570db9fecbdfeeb93c1fa3e8bff7be}{bl\-Delete\-A\-Conect\-By\-Num()}
+\item V1.\-2 12.\-05.\-15 Fixed to add conects between C and N if either is a H\-E\-T\-A\-T\-M
+\item V1.\-3 23.\-06.\-15 Added \hyperlink{_build_conect_8c_a83cca08fa117ae88809bb7c30d2a79a2}{bl\-Are\-Residues\-Bonded()} and \hyperlink{_build_conect_8c_a45bfcd436408cda8fed0292f729fc0a8}{bl\-Are\-Residue\-Pointers\-Bonded()}
+\item V1.\-4 22.\-07.\-15 Added bl\-Is\-Connected()
+\item V1.\-5 03.\-10.\-16 Added $<$stdlib.\-h$>$
+\item V1.\-6 29.\-08.\-18 Added check on M\-A\-X\-C\-O\-N\-E\-C\-T in \hyperlink{_build_conect_8c_a3d570db9fecbdfeeb93c1fa3e8bff7be}{bl\-Delete\-A\-Conect\-By\-Num()} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_build_conect_8c_source}{Build\-Conect.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_build_conect_8c_a6830d532b565e142a67b45032253076b}{\index{Build\-Conect.\-c@{Build\-Conect.\-c}!bl\-Add\-Conect@{bl\-Add\-Conect}}
+\index{bl\-Add\-Conect@{bl\-Add\-Conect}!BuildConect.c@{Build\-Conect.\-c}}
+\subsubsection[{bl\-Add\-Conect}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Add\-Conect (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{p, }
+\item[{{\bf P\-D\-B} $\ast$}]{q}
+\end{DoxyParamCaption}
+)}}\label{_build_conect_8c_a6830d532b565e142a67b45032253076b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$p} & First P\-D\-B item \\
+\hline
+\mbox{\tt in,out}  & {\em $\ast$q} & Second P\-D\-B item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Adds a conect bteween p and q (i.\-e. in both directions) Fails if there are too many C\-O\-N\-E\-C\-Ts
+
+
+\begin{DoxyItemize}
+\item 19.\-02.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 174 of file Build\-Conect.\-c.
+
+\hypertarget{_build_conect_8c_a648e43949ef1add4b7436652134cec43}{\index{Build\-Conect.\-c@{Build\-Conect.\-c}!bl\-Add\-One\-Direction\-Conect@{bl\-Add\-One\-Direction\-Conect}}
+\index{bl\-Add\-One\-Direction\-Conect@{bl\-Add\-One\-Direction\-Conect}!BuildConect.c@{Build\-Conect.\-c}}
+\subsubsection[{bl\-Add\-One\-Direction\-Conect}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Add\-One\-Direction\-Conect (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{p, }
+\item[{{\bf P\-D\-B} $\ast$}]{q}
+\end{DoxyParamCaption}
+)}}\label{_build_conect_8c_a648e43949ef1add4b7436652134cec43}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$p} & First P\-D\-B item \\
+\hline
+\mbox{\tt in,out}  & {\em $\ast$q} & Second P\-D\-B item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Adds a conect from p to q (i.\-e. one direction only) Fails if there are too many C\-O\-N\-E\-C\-Ts
+
+
+\begin{DoxyItemize}
+\item 19.\-02.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 201 of file Build\-Conect.\-c.
+
+\hypertarget{_build_conect_8c_a45bfcd436408cda8fed0292f729fc0a8}{\index{Build\-Conect.\-c@{Build\-Conect.\-c}!bl\-Are\-Residue\-Pointers\-Bonded@{bl\-Are\-Residue\-Pointers\-Bonded}}
+\index{bl\-Are\-Residue\-Pointers\-Bonded@{bl\-Are\-Residue\-Pointers\-Bonded}!BuildConect.c@{Build\-Conect.\-c}}
+\subsubsection[{bl\-Are\-Residue\-Pointers\-Bonded}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Are\-Residue\-Pointers\-Bonded (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{res1, }
+\item[{{\bf P\-D\-B} $\ast$}]{res2, }
+\item[{{\bf R\-E\-A\-L}}]{tol}
+\end{DoxyParamCaption}
+)}}\label{_build_conect_8c_a45bfcd436408cda8fed0292f729fc0a8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$res1} & Start of first residue \\
+\hline
+\mbox{\tt in}  & {\em $\ast$res2} & Start of second residue \\
+\hline
+\mbox{\tt in}  & {\em tol} & Tolerance for distances \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Are they bonded
+\end{DoxyReturn}
+Tests whether two residue are bonded using pointers to start of residues
+
+
+\begin{DoxyItemize}
+\item 23.\-06.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 395 of file Build\-Conect.\-c.
+
+\hypertarget{_build_conect_8c_a83cca08fa117ae88809bb7c30d2a79a2}{\index{Build\-Conect.\-c@{Build\-Conect.\-c}!bl\-Are\-Residues\-Bonded@{bl\-Are\-Residues\-Bonded}}
+\index{bl\-Are\-Residues\-Bonded@{bl\-Are\-Residues\-Bonded}!BuildConect.c@{Build\-Conect.\-c}}
+\subsubsection[{bl\-Are\-Residues\-Bonded}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Are\-Residues\-Bonded (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{char $\ast$}]{chain1, }
+\item[{int}]{resnum1, }
+\item[{char $\ast$}]{insert1, }
+\item[{char $\ast$}]{chain2, }
+\item[{int}]{resnum2, }
+\item[{char $\ast$}]{insert2, }
+\item[{{\bf R\-E\-A\-L}}]{tol}
+\end{DoxyParamCaption}
+)}}\label{_build_conect_8c_a83cca08fa117ae88809bb7c30d2a79a2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain1} & First chain label \\
+\hline
+\mbox{\tt in}  & {\em resnum1} & First residue number \\
+\hline
+\mbox{\tt in}  & {\em $\ast$insert1} & First insert code \\
+\hline
+\mbox{\tt in}  & {\em $\ast$chain2} & Second chain label \\
+\hline
+\mbox{\tt in}  & {\em resnum2} & Second residue number \\
+\hline
+\mbox{\tt in}  & {\em $\ast$insert2} & Second insert code \\
+\hline
+\mbox{\tt in}  & {\em tol} & Tolerance for distances \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Are they bonded
+\end{DoxyReturn}
+Tests whether two residue are bonded
+
+
+\begin{DoxyItemize}
+\item 23.\-06.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 361 of file Build\-Conect.\-c.
+
+\hypertarget{_build_conect_8c_a644691ff7319bbf54367489a9e91661b}{\index{Build\-Conect.\-c@{Build\-Conect.\-c}!bl\-Build\-Conect\-Data@{bl\-Build\-Conect\-Data}}
+\index{bl\-Build\-Conect\-Data@{bl\-Build\-Conect\-Data}!BuildConect.c@{Build\-Conect.\-c}}
+\subsubsection[{bl\-Build\-Conect\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Build\-Conect\-Data (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf R\-E\-A\-L}}]{tol}
+\end{DoxyParamCaption}
+)}}\label{_build_conect_8c_a644691ff7319bbf54367489a9e91661b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em tol} & Tolerence for distance between atoms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Were all C\-O\-N\-E\-C\-Ts added O\-K
+\end{DoxyReturn}
+Deletes all current connectivity data and rebuilds it using covalent radii data. A return of F\-A\-L\-S\-E indicates that there were too many connections for an atom. If this happens, M\-A\-X\-C\-O\-N\-E\-C\-T needs to be increased in \hyperlink{pdb_8h}{pdb.\-h}
+
+
+\begin{DoxyItemize}
+\item 19.\-02.\-15 Original By\-: A\-C\-R\-M
+\item 26.\-02.\-15 Added tol paramater
+\item 12.\-05.\-15 Conects are built involving backbone C and N if either atom is a H\-E\-T\-A\-T\-M 
+\end{DoxyItemize}
+
+Definition at line 252 of file Build\-Conect.\-c.
+
+\hypertarget{_build_conect_8c_ad267806fc8e84f90103c1a4034bf3fc1}{\index{Build\-Conect.\-c@{Build\-Conect.\-c}!bl\-Copy\-Conects@{bl\-Copy\-Conects}}
+\index{bl\-Copy\-Conects@{bl\-Copy\-Conects}!BuildConect.c@{Build\-Conect.\-c}}
+\subsubsection[{bl\-Copy\-Conects}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Copy\-Conects (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{out, }
+\item[{{\bf P\-D\-B} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{_build_conect_8c_ad267806fc8e84f90103c1a4034bf3fc1}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em $\ast$out} & P\-D\-B linked list containing new C\-O\-N\-E\-C\-T records \\
+\hline
+\mbox{\tt in}  & {\em $\ast$in} & P\-D\-B linked list containing original C\-O\-N\-E\-C\-T records \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Updates the C\-O\-N\-E\-C\-T information in the out P\-D\-B linked list based on those in the in linked list. This is used when we have copied a P\-D\-B linked list (e.\-g. in the bl...As\-Copy() routines) to make sure the C\-O\-N\-E\-C\-T data points to records in the new linked list instead of the old one.
+
+
+\begin{DoxyItemize}
+\item 17.\-04.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 577 of file Build\-Conect.\-c.
+
+\hypertarget{_build_conect_8c_abd54e33bfb576571519fc3401f33130d}{\index{Build\-Conect.\-c@{Build\-Conect.\-c}!bl\-Delete\-A\-Conect@{bl\-Delete\-A\-Conect}}
+\index{bl\-Delete\-A\-Conect@{bl\-Delete\-A\-Conect}!BuildConect.c@{Build\-Conect.\-c}}
+\subsubsection[{bl\-Delete\-A\-Conect}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Delete\-A\-Conect (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{p, }
+\item[{{\bf P\-D\-B} $\ast$}]{q}
+\end{DoxyParamCaption}
+)}}\label{_build_conect_8c_abd54e33bfb576571519fc3401f33130d}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$p} & First P\-D\-B pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$q} & Second P\-D\-B pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Deletes the C\-O\-N\-E\-C\-T information between the two specified atoms
+
+
+\begin{DoxyItemize}
+\item 16.\-03.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 459 of file Build\-Conect.\-c.
+
+\hypertarget{_build_conect_8c_a3d570db9fecbdfeeb93c1fa3e8bff7be}{\index{Build\-Conect.\-c@{Build\-Conect.\-c}!bl\-Delete\-A\-Conect\-By\-Num@{bl\-Delete\-A\-Conect\-By\-Num}}
+\index{bl\-Delete\-A\-Conect\-By\-Num@{bl\-Delete\-A\-Conect\-By\-Num}!BuildConect.c@{Build\-Conect.\-c}}
+\subsubsection[{bl\-Delete\-A\-Conect\-By\-Num}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Delete\-A\-Conect\-By\-Num (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{int}]{c\-Num}
+\end{DoxyParamCaption}
+)}}\label{_build_conect_8c_a3d570db9fecbdfeeb93c1fa3e8bff7be}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B pointer \\
+\hline
+\mbox{\tt in}  & {\em c\-Num} & Index into the -\/$>$conect\mbox{[}\mbox{]} array for the C\-O\-N\-E\-C\-T to be deleted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Deletes the link for the specified C\-O\-N\-E\-C\-T. Other C\-O\-N\-E\-C\-Ts are shuffled down.
+
+
+\begin{DoxyItemize}
+\item 16.\-03.\-15 Original By\-: A\-C\-R\-M
+\item 29.\-08.\-18 Added check on M\-A\-X\-C\-O\-N\-E\-C\-T 
+\end{DoxyItemize}
+
+Definition at line 502 of file Build\-Conect.\-c.
+
+\hypertarget{_build_conect_8c_a281d38064920101079573bae40110db2}{\index{Build\-Conect.\-c@{Build\-Conect.\-c}!bl\-Delete\-Atom\-Conects@{bl\-Delete\-Atom\-Conects}}
+\index{bl\-Delete\-Atom\-Conects@{bl\-Delete\-Atom\-Conects}!BuildConect.c@{Build\-Conect.\-c}}
+\subsubsection[{bl\-Delete\-Atom\-Conects}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Delete\-Atom\-Conects (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_build_conect_8c_a281d38064920101079573bae40110db2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B pointer\\
+\hline
+\end{DoxyParams}
+Deletes all C\-O\-N\-E\-C\-T information associated with a P\-D\-B pointer. Also deletes the relevant C\-O\-N\-E\-C\-Ts (back to this atom) from the partner atoms
+
+
+\begin{DoxyItemize}
+\item 17.\-03.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 539 of file Build\-Conect.\-c.
+
+\hypertarget{_build_conect_8c_a3b284b864280268928f5fc7944026a7d}{\index{Build\-Conect.\-c@{Build\-Conect.\-c}!bl\-Is\-Bonded@{bl\-Is\-Bonded}}
+\index{bl\-Is\-Bonded@{bl\-Is\-Bonded}!BuildConect.c@{Build\-Conect.\-c}}
+\subsubsection[{bl\-Is\-Bonded}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Is\-Bonded (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{p, }
+\item[{{\bf P\-D\-B} $\ast$}]{q, }
+\item[{{\bf R\-E\-A\-L}}]{tol}
+\end{DoxyParamCaption}
+)}}\label{_build_conect_8c_a3b284b864280268928f5fc7944026a7d}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$p} & First P\-D\-B atom \\
+\hline
+\mbox{\tt in}  & {\em $\ast$q} & Second P\-D\-B atom \\
+\hline
+\mbox{\tt in}  & {\em tol} & Telerance for separation between atoms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bonded?
+\end{DoxyReturn}
+Test whether two atoms are bonded
+
+
+\begin{DoxyItemize}
+\item 19.\-02.\-15 Original By\-: A\-C\-R\-M
+\item 26.\-02.\-15 Added tol parameter. Changed to used squared distances 
+\end{DoxyItemize}
+
+Definition at line 327 of file Build\-Conect.\-c.
+
+\hypertarget{_build_conect_8c_aad98df699dfad286bf64dfa139f05bdf}{\index{Build\-Conect.\-c@{Build\-Conect.\-c}!bl\-Is\-Conected@{bl\-Is\-Conected}}
+\index{bl\-Is\-Conected@{bl\-Is\-Conected}!BuildConect.c@{Build\-Conect.\-c}}
+\subsubsection[{bl\-Is\-Conected}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Is\-Conected (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{p, }
+\item[{{\bf P\-D\-B} $\ast$}]{q}
+\end{DoxyParamCaption}
+)}}\label{_build_conect_8c_aad98df699dfad286bf64dfa139f05bdf}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$p} & First atom \\
+\hline
+\mbox{\tt in}  & {\em $\ast$q} & Second atom \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Connected?
+\end{DoxyReturn}
+Tests whether there is a link between the specified atoms in the C\-O\-N\-E\-C\-T list
+
+
+\begin{DoxyItemize}
+\item 07.\-06.\-99 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 632 of file Build\-Conect.\-c.
+

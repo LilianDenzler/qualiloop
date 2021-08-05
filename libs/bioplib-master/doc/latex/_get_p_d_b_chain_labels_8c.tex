@@ -1,0 +1,97 @@
+\hypertarget{_get_p_d_b_chain_labels_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-P\-D\-B\-Chain\-Labels.c File Reference}
+\label{_get_p_d_b_chain_labels_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-P\-D\-B\-Chain\-Labels.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-P\-D\-B\-Chain\-Labels.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \hyperlink{_get_p_d_b_chain_labels_8c_a194b4eb40e29c5ee194b7e2cd2485fda}{bl\-Get\-P\-D\-B\-Chain\-Labels} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, int $\ast$n\-Chains)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-13 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+26.\-03.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1992-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 22.\-02.\-94 Original release
+\item V1.\-1 23.\-05.\-94 Added Find\-Next\-Chain\-P\-D\-B()
+\item V1.\-2 05.\-10.\-94 Kill\-Sidechain() uses B\-O\-O\-L rather than int
+\item V1.\-3 24.\-07.\-95 Added Term\-P\-D\-B()
+\item V1.\-4 25.\-07.\-95 Added Get\-P\-D\-B\-Chain\-Labels()
+\item V1.\-5 26.\-09.\-95 Fixed bug in Term\-P\-D\-B()
+\item V1.\-6 12.\-10.\-95 Added Dupe\-P\-D\-B(), Copy\-P\-D\-B\-Coords()
+\item V1.\-7 23.\-10.\-95 Moved Find\-Residue\-Spec() to \hyperlink{_parse_res_8c}{Parse\-Res.\-c}
+\item V1.\-8 10.\-01.\-96 Added Extract\-Zone\-P\-D\-B()
+\item V1.\-9 14.\-03.\-96 Added Find\-Atom\-In\-Res()
+\item V1.\-10 08.\-10.\-99 Initialised some variables
+\item V1.\-11 25.\-03.\-14 Deprecated Get\-P\-D\-B\-Chain\-Labels() and added replacement function \hyperlink{_get_p_d_b_chain_labels_8c_a194b4eb40e29c5ee194b7e2cd2485fda}{bl\-Get\-P\-D\-B\-Chain\-Labels()} By\-: C\-T\-P
+\item V1.\-12 31.\-07.\-14 Moved Get\-P\-D\-B\-Chain\-Labels() to dperecated.\-c By\-: C\-T\-P
+\item V1.\-13 26.\-03.\-15 \hyperlink{_get_p_d_b_chain_labels_8c_a194b4eb40e29c5ee194b7e2cd2485fda}{bl\-Get\-P\-D\-B\-Chain\-Labels()} no longer assumes all instances of one label occur together By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_get_p_d_b_chain_labels_8c_source}{Get\-P\-D\-B\-Chain\-Labels.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_get_p_d_b_chain_labels_8c_a194b4eb40e29c5ee194b7e2cd2485fda}{\index{Get\-P\-D\-B\-Chain\-Labels.\-c@{Get\-P\-D\-B\-Chain\-Labels.\-c}!bl\-Get\-P\-D\-B\-Chain\-Labels@{bl\-Get\-P\-D\-B\-Chain\-Labels}}
+\index{bl\-Get\-P\-D\-B\-Chain\-Labels@{bl\-Get\-P\-D\-B\-Chain\-Labels}!GetPDBChainLabels.c@{Get\-P\-D\-B\-Chain\-Labels.\-c}}
+\subsubsection[{bl\-Get\-P\-D\-B\-Chain\-Labels}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ bl\-Get\-P\-D\-B\-Chain\-Labels (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{int $\ast$}]{n\-Chains}
+\end{DoxyParamCaption}
+)}}\label{_get_p_d_b_chain_labels_8c_a194b4eb40e29c5ee194b7e2cd2485fda}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt out}  & {\em n\-Chains} & Number of chains found. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Allocated array of strings containing chain labels. N\-U\-L\-L if unable to allocate memory.
+\end{DoxyReturn}
+Scans a P\-D\-B linked list for chain names. Allocates memory for an array of strings containing these labels which is returned together with the number of chains found.
+
+N.\-B. You must free the allocated memory for both the array of chains and for each individual chain label when you've finished with it!
+
+
+\begin{DoxyItemize}
+\item 25.\-03.\-14 Original based on Get\-P\-D\-B\-Chain\-Labels(). By\-: C\-T\-P
+\item 26.\-03.\-15 No longer assumes chain labels do not appear again later (i.\-e. chains L,H,Y,L only returns L,H,Y) By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 118 of file Get\-P\-D\-B\-Chain\-Labels.\-c.
+

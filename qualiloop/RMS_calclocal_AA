@@ -1,0 +1,14 @@
+
+#total quality excluding loop (use as feature later), doesnt work with DELZONE
+#do additive zones
+#res to file
+
+#local atom-atom
+ZONE H95-H102
+IGNOREMISSING
+FIT
+
+#local atom-atom by residue
+RESIDUE
+ZONE CLEAR
+

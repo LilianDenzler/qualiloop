@@ -1,0 +1,321 @@
+/** 
+\page page_08 Handling PDB Data
+\brief
+  BiopLib - Handling PDB Data
+
+
+
+
+
+
+
+Analyzing structures
+--------------------
+
+- blCalcAccess() - Allocates arrays and calls routines to populate them, do the access calculations and populate into the PDB linked list 
+- blCalcResAccess() - Calculates and populates the residue totals and relative values using standards stored in resrad
+- blCalcSecStrucPDB() - Calculate secondary structure populating the secstr field of the PDB structure.
+- blIsHBonded() - Determines whether 2 residues are H-bonded 
+- blIsMCAcceptorHBonded() - Determines whether 2 residues are H-bonded with the first residue being a mainchain acceptor 
+- blIsMCDonorHBonded() - Determines whether 2 residues are H-bonded with the first residue being a mainchain donor 
+- blListAllHBonds() - Finds all HBonds between two specified residues 
+- blSetAtomRadii() - Set atom radii from the radius file in the PDB linked list Returns the radius lookup information since it also contains the standard accessibilities 
+- blSetMaxProteinHBondDADistance() - Overrides the default maximum distance between donor and acceptor. NOTE THIS IS NOT THREAD-SAFE 
+- blValidHBond() - Determines whether a set of atoms form a valid H-bond 
+
+
+Atom names and elements
+-----------------------
+
+- blFixAtomName() - Fixes an atom name by removing leading spaces, or moving a leading digit to the end of the string. 
+- blLegalAtomSpec() - Partner routine for AtomNameMatch(). Checks whether a wildcard specfication is legal (i.e. will not return an error when used with AtomNameMatch()).
+
+
+Calculations
+------------
+
+- blCalcCellTrans() - Calculates the offsets to apply in X, Y and Z directions for creating a crystal lattice from the unit cell parameters.
+- blCalcChi() - Calculates a sidechain torsion angle from a pdb linked list. Returns 9999.0 if any atoms not found
+- blCalcCterCoords() - Calculates CTER OT2 coordinates
+- blCalcRMSPDB() - Calculate the RMS deviation between two pre-fitted PDB linked lists.
+- blCalcTetraHCoords() - Calculates coordinates for extra hydrogens.
+- blGetCofGPDB() - Finds the CofG of a PDB linked list, ignoring NULL coordinates.
+- blGetCofGPDBRange() - Find CofG of a range in a PDB linked list, ignoring NULL coordinates
+- blGetCofGPDBSCRange() - Find CofG of a range in a PDB linked list, ignoring NULL coordinates Looks only at the sidechain atoms
+
+
+Conversions
+-----------
+
+- blDoPDB2Seq() - malloc()'s an array containing the 1-letter sequence corresponding to an input PDB linked list. 
+- blDoPDB2SeqByChain() - Creates a hash indexed by chain label containing the 1-letter code sequence from an input PDB linked list.
+
+
+Extracting data
+---------------
+
+- blGetPDBChainAsCopy() - Extracts a specified chain from a PDB linked list allocating a new list containing only that chain. The original list is unchanged.
+- blGetPDBChainLabels() - Scans a PDB linked list for chain names. Allocates memory for an array of strings containing these labels which is returned together with the number of chains found.
+- blGetPDBCoor() - Get the coordinates out of a PDB linked list into an array of type COOR The COOR array is allocated for you
+
+
+File IO
+-------
+
+
+
+
+BiopLib provides functions for reading and writing PDB and PDBML (XML)
+files.  The functions blReadPDB() and blWritePDB() will read and write
+the ATOM/HETATM records only.  The functions blReadWholePDB() and
+blWriteWholePDB() will include the header and trailer information from
+the PDB file. There are also functions to extract data from these headers
+of directly from the headers in a PDB file.
+
+If the BiopLib library has been compiled with XML support then the
+above functions will also read and write PDBML formatted files.
+
+
+
+
+####Key functions
+
+- blFreeWholePDB() - Frees the header, trailer and atom content from a WHOLEPDB structure 
+- blReadPDB() - Main way of reading a PDB file into a linked list, reading just the highest occupancy atoms 
+- blReadWholePDB() - Reads a PDB file, storing the header and trailer information as well as the coordinate data. Can read gzipped files as well as uncompressed files. 
+- blWritePDB() - Main entry point to write a PDB linked list to a file 
+- blWritePDBRecord() - Writes a single PDB record in PDB format 
+- blWriteWholePDB() - Writes a PDB file including header and trailer information. Output in PDBML-format if flags set. 
+
+
+####Other functions
+
+- blCheckFileFormatPDBML() - A simple test to detect whether a file is a PDBML-formatted PDB file. 
+- blDoReadPDB() - A lower level routine giving full control over reading all or only ATOM records, occupancy rankings and model numbers. 
+- blDoReadPDBML() - A lower level routine giving full control over reading all or only ATOM records, occupancy rankings and model numbers from a PDBML XML file. 
+- blFNam2PDB() - Attempts to extract a PDB code from a filename
+- blFindMolID() - Finds the MOL_ID for a specified chain 
+- blFindOriginalResType() - Find the original residue type for a modified residue from MODRES data 
+- blFormatCheckWritePDB() - Checks that a PDB linked list can be written as a standard PDB file (i.e. chain labels are no more than one character) 
+- blFreeBiomolecule() - Free the biomolecule data
+- blGetBiomoleculeWholePDB() - Obtain the biomolecule data 
+- blGetCompoundWholePDBCMolID() - Obtains the compound data for a specified MOL_ID from WHOLEPDB info 
+- blGetCompoundWholePDBChain() - Obtains the compound data for a specified chain from WHOLEPDB info 
+- blGetCrystPDB() - Read the crystal parameters (unit cell, spacegroup, origin and scale matrices) out of a PDB file. 
+- blGetCrystWholePDB() - Read the crystal parameters (unit cell, spacegroup, origin and scale matrices) out of a PDB file.
+- blGetExptlPDB() - This routine attempts to obtain resolution, R-factor, R-Free and experiment type information out of a PDB file. 
+- blGetExptlWholePDB() - This routine attempts to obtain resolution, R-factor, R-Free and experiment type information out of PDB headers stored in a WHOLEPDB structure. 
+- blGetHeaderWholePDB() - Obtains the data in the HEADER record from WHOLEPDB info 
+- blGetModresWholePDB() - Obtain the MODRES data 
+- blGetResolPDB() - Attempts to obtain resolution and R-factor information out of a PDB file. Does not provide R-free - use of blGetExptlPDB() is recommended. 
+- blGetResolWholePDB() - Attempts to obtain resolution and R-factor information out of the headers stored in a WHOLEPDB structure. Does not provide R-free - use of blGetExptlWholePDB() is recommended. 
+- blGetSeqresAsStringWholePDB() - Obtain the sequence from the SEQRES records storing it as a single string with *s to separate chains 
+- blGetSeqresByChainWholePDB() - Obtain the sequence from the SEQRES records storing it in a hash indexed by chain label 
+- blGetSpeciesWholePDBChain() - Obtains the species data for a specified chain from WHOLEPDB info 
+- blGetSpeciesWholePDBMolID() - Obtains the species data for a specified MOL_ID from WHOLEPDB info 
+- blGetTitleWholePDB() - Obtains the title information from WHOLEPDB info 
+- blReadDisulphidesPDB() - Searches a PDB file for SSBOND records and constructs a linked list of information from these records. 
+- blReadDisulphidesWholePDB() - Builds a linked list of SSBOND record data from the header stored in a WHOLEPDB structure 
+- blReadPDBAll() - Reads a PDB file into a linked list, reading all multiple occupancy atoms 
+- blReadPDBAtoms() - Reads only ATOM records from a PDB file into a linked list, reading just the highest occupancy atoms 
+- blReadPDBAtomsOccRank() - Reads only the ATOM records for the specified ranking of occupancy (e.g. the second most populated coordinates) from a PDB file into a linked list 
+- blReadPDBOccRank() - Reads the specified ranking of occupancy (e.g. the second most populated coordinates) from a PDB file into a linked list 
+- blReadSecPDB() - Reads secondary structure information from the header of a PDB file. 
+- blReadSecWholePDB() - Reads secondary structure information from the header information stored in a WHOLEPDB structure.
+- blReadSeqresPDB() - Reads the sequence from the SEQRES records of a PDB file 
+- blReadSeqresWholePDB() - Reads the sequence from the SEQRES records from header data stored in a WHOLEPDB structure
+- blReadWholePDBAtoms() - Reads a PDB file, storing the header and trailer information as well as the coordinate data. Only reads the ATOM record for coordinates 
+- blReportStructureType() - Returns structure type description from a numeric representation   
+- blSetElementSymbolFromAtomName() - Sets the element field based on the content of the atom name stored in atnam_raw 
+- blWriteCrystPDB() - Write crystal parameters (unit cell, space group, origin and scale matrices) to a PDB file.
+- blWriteGromosPDB() - Write a PDB linked list by calling blWritePDBAsPDBorGromos() 
+- blWriteGromosPDBRecord() - Write a GROMOS PDB record 
+- blWritePDBAsPDBML() - Write a PDB linked list to a file in PDBML XML format 
+- blWritePDBAsPDBorGromos() - Writes a PDB linked list to a file in PDB format or the modified GROMOS version 
+- blWritePDBRecordAtnam() - Writes a single PDB record in PDB format using atom data from the atnam field rather than the atnam_raw field 
+- blWriteTerCard() - Prints a complete new PDB format TER card
+- blWriteWholePDBHeader() - Writes the header of a PDB file 
+- blWriteWholePDBHeaderNoRes() - Writes the header of a PDB file, but skips any records associated with residue numbers 
+- blWriteWholePDBTrailer() - Writes the trailer of a PDB file 
+
+
+
+The reading functions will create a linked list of PDB data structures. With
+each node in the list corresponding to an ATOM or HETATM record and
+containing all the data for the record. BiopLib also provides functions
+to search, manipulate and perform calculations on the list as well as
+functions to write PDB and PDBML files.
+
+By default, the format of the file read (pdb/pdbml) is the format for
+output. Set format for output files with the macros: FORCEPDB or
+FORCEXML
+
+
+
+
+
+Fitting
+-------
+
+
+
+####Key functions
+
+- blFitPDB() - Fits two PDB linked lists. Actually fits fit_pdb onto ref_pdb and also returns the rotation matrix. This may be NULL if these data are not required.
+
+
+####Other functions
+
+- blFitCaCbPDB() - Does a weighted fitting of 2 PDB linked lists. The CA and CB are given a weight of 1.0 while the other atoms are given a weight of 1.0/natom in the residue. Thus for N,CA,C,CB backbone only, this will be N and C with weights of 0.25
+- blFitCaPDB() - Fits two PDB linked lists using only the CA atoms.
+- blFitNCaCPDB() - Fits two PDB linked lists using only the N, CA, C atoms.
+
+
+Manipulating the PDB linked list
+--------------------------------
+
+
+
+ATOM records within the PDB linked list can be manipulated with the
+following functions and macros.
+
+Macros for the creation and deletion of PDB linked lists include:
+ 
+- INIT() - Initiate a new linked lis
+- ALLOCNEXT() - Add a record to the linked list.
+- DELETE() - Deletes a record form the linked list.
+- FREELIST() Free memory for whole linked list.
+- NEXT() Finds next record in linked list allowing construction of a for loop to step through a linked list. (eg for(p=pdb; p != NULL; NEXT(p)){})
+- LAST() finds last record in linked list.
+
+The contents of PDB linked lists can be manipulated with the following
+functions:
+
+
+- blAllocPDBStructure() - Takes a PDB linked list and converts it into a hierarchical structure of chains, residues and atoms 
+- blAppendPDB() - Appends one PDB linked list onto another.
+- blBuildAtomNeighbourPDBListAsCopy() - Builds a PDB linked list of atoms neighbouring those in a specified residue.
+- blCopyPDB() - Copy a PDB record, except that the ->next is set to NULL;
+- blDeleteAtomPDB() - Delete an atom from the linked list re-linking the list and returning the new start of the list (in case the first atom has been deleted) 
+- blDeleteAtomRangePDB() - Deletes a range of atoms from the linked list re-linking the list and returning the new start of the list (in case the first atom has been deleted) 
+- blDeleteResiduePDB() - Deletes a residue from the linked list re-linking the list. Returns a pointer to the next residue and updates the start of the list if it's the first residue that's been deleted
+- blDupePDB() - Duplicates a PDB linked list. CONECT data are updated to point within the new list.
+- blDupeResiduePDB() - Makes a duplicate PDB linked list of just one residue Note that CONECT data will not be preserved since it would not be valid.
+- blFindNextChain() - Takes a PDB linked list and find the start of the next chain. This is similar to another Bioplib routine (blFindNextChainPDB()) which terminates the first chain, but this routines doesn't terminate.
+- blFixOrderPDB() - Runs through a PDB linked list and corrects the atom order to match the N,CA,C,O,s/c standard. 
+- blFreePDBStructure() - Frees memory used by the hierarchical description of a PDB structure. Note this does not free the underlying PDB linked list 
+- blGetAtomTypes() - Obtain a list of the atom types for a given residue. 
+- blGetPDBByN() - Gets a pointer to Nth item in a PDB linked list
+- blIndexPDB() - Creates an array of pointers to PDB from a linked list. This is used to allow array style access to items in the linked list: e.g. (indx[23])->x will give the x coordinate of the 23rd item 
+- blKillPDB() - Remove an item in the PDB linked list and re-link correctly. Generally better to use blDeleteAtomPDB() 
+- blMovePDB() - Moves a PDB record from one linked list to another. from and to should
+- blRemoveAlternates() - Removes alternate occupancy atoms. This may be useful after blReadPDBAll()
+- blRenumAtomsPDB() - Renumber the atoms throughout a PDB linked list
+- blSelectAtomsPDBAsCopy() - Take a PDB linked list and returns a list containing only those atom types specified in the sel array.
+- blSelectCaPDB() - Reduce a PDB linked list to CA atoms only discarding other atoms
+- blSetResnam() - Change the residue name, number, insert and chain for an amino acid.
+- blShuffleBB() - Shuffles the PDB list to match the standard of N,CA,C,O,CB,other.
+- blShuffleResPDB() - Shuffle atoms within a residue into the standard order 
+- blTermPDB() - Terminate a PDB linked list after length residues, returning a pointer to the next residue.
+
+
+Miscellaneous functions
+-----------------------
+
+- blAddConect() - Adds a CONECT in both directions between two specified atoms 
+- blAddOneDirectionConect() - Adds a CONECT in one direction between two specified atoms 
+- blAreResiduePointersBonded() - Tests whether residues specified by pointers to the start of the residues 
+- blAreResiduesBonded() - Tests whether residues specified by chain, number and insert are bonded 
+- blAtomNameMatch() - Tests whether an atom name matches an atom name specification. ? or % is used to match a single character * is used to match any trailing characters; it may not be used for leading characters or in the middle of a specification (e.g. *B*, C*2 are both illegal). Wildcards may be escaped with a backslash. 
+- blAtomNameRawMatch() - Tests whether an atom name matches an atom name specification having been given a 'raw' atom name rather than the massaged one. i.e. " CA " is C-alpha, "CA  " is Calcium Normally it checks against the second character onwards unless the spec starts with a < in which case it checks from the beginning of the string.
+- blBuildConectData() - Rebuild all CONECT data using covalent radii of the atoms 
+- blBuildResSpec() - Creates a residue specification string
+- blCopyConects() - Updates the CONECT information in the out PDB linked list based on those in the in linked list. This is used when we have copied a PDB linked list (e.g. in the bl...AsCopy() routines) to make sure the CONECT data points to records in the new linked list instead of the old one. 
+- blDeleteAConect() - Deletes a CONECT between two specified atoms 
+- blDeleteAConectByNum() - Deletes a specified CONECT from an atom 
+- blDeleteAtomConects() - Deletes all CONECT information associated with a PDB pointer. Also deletes the relevant CONECTs (back to this atom) from the partner atoms 
+- blDoParseResSpec() - Splits up a residue specification of the form [c][.]num[i] into chain, resnum and insert. Gives control over up-casing 
+- blIsBonded() - Test whether two atoms are bonded 
+- blIsConected() - Tests whether two atoms are listed as connected in the CONECT records
+- blParseResSpec() - Splits up a residue specification of the form [c][.]num[i] into chain, resnum and insert. Chain and insert code are not up-cased 
+- blPrintResSpecHelp() - Prints a help message on the residue specfication format to make help messages more consistent 
+
+
+Modifying the structure
+-----------------------
+
+- blAddCBtoAllGly() - Adds a CB atom to all glycines in a PDB linked list. This is used when one needs to orientate a residue in a common frame of reference which makes use of the CB. 
+- blAddCBtoGly() - Adds a CB atom to a glycine. This is used when one needs to orientate a residue in a common frame of reference which makes use of the CB. 
+- blAddNTerHs() - Adds hydrogens onto the N-termini
+- blEndRepSChain() - Cleans up open files and memory used by the sidechain replacement routines.
+- blFixCterPDB() - Renames C-ter atoms in required style and calls CalcCterCoords() as required to calculate coordinates ans splices them in. The input PDB linked list may have standard, CHARMM or GROMOS style.
+- blHAddPDB() - This routine adds hydrogens to a PDB linked list. Performs all necessary functions. 
+- blKillSidechain() - Remove sidechain atoms, optionally removing the CBeta
+- blOpenPGPFile() - Open the PGP file
+- blReadPGP() - Read a proton generation parameter file 
+- blRepOneSChain() - Replace a single sidechain. 
+- blRepOneSChainForce() - Replace a single sidechain - even if the sidechain was correct already. 
+- blRepSChain() - Replace sidechains. 
+- blSetChi() - Sets a sidechain torsion angle in a pdb linked list. The routine assumes standard atom ordering: N,CA,C,O,s/c with standard order in the s/c.
+- blStripGlyCB() - Removes all Glycine CB pseudo-atoms added by AddGlyCB()
+- blStripHPDBAsCopy() - Take a PDB linked list and returns the PDB list minus hydrogens
+- blStripWatersPDBAsCopy() - Take a PDB linked list and returns the PDB list minus waters
+
+
+Moving the structure
+--------------------
+
+- blApplyMatrixPDB() - Apply a rotation matrix to a PDB linked list.
+- blOriginPDB() - Moves a PDB linked list to the origin, ignoring NULL coordinates.
+- blRotatePDB() - Rotates a PDB linked list using ApplyMatrixPDB() which ignores coordinates of 9999.0. The structure is moved to the origin, the matrix is applied and the structure is moved back.
+- blTranslatePDB() - Translates a PDB linked list, ignoring null (9999.0) coordinates.
+
+
+Searching the PDB linked list
+-----------------------------
+
+
+
+The following functions allow you to search and walk through the PDB linked list.
+
+
+- blExtractNotZonePDBAsCopy() - Reduces a PDB linked list to those residues outside a specified zone forming a new linked list. Uses separate chain, residue number and insert rather than residue specifications. 
+- blExtractNotZoneSpecPDBAsCopy() - Reduces a PDB linked list to those residues outside a specified zone forming a new linked list. Uses residue specifications ([c]nnn[i]) rather than separate chain, residue number and insert. 
+- blExtractZonePDBAsCopy() - Reduces a PDB linked list to those residues within a specified zone forming a new linked list. Uses separate chain, residue number and insert rather than residue specifications. 
+- blExtractZoneSpecPDBAsCopy() - Reduces a PDB linked list to those residues within a specified zone forming a new linked list. Uses residue specifications ([c]nnn[i]) rather than separate chain, residue number and insert. 
+- blFindAtomInRes() - Finds an atom within a residue
+- blFindAtomWildcardInRes() - Finds an atom within the residue given as a PDB pointer. Allows single character wildcards. Thus ?G? maybe used for any atom at the gamma position.
+- blFindHetatmResidue() - Finds a pointer to the start of a residue in a PDB linked list, but requires the residue is a HETATM record
+- blFindHetatmResidueSpec() - Search a PDB linked list for a specified residue (given as [chain[.]]num[[.]insert]) but limits search to HETATM residues
+- blFindNextChainPDB() - Terminates the linked list at the end of the current chain and returns a pointer to the start of the next chain. See blFindNextChain() for a routine which does not terminate the linked list.
+- blFindNextResidue() - Finds a pointer to the the start of the next residue in a PDB linked list.
+- blFindRawAtomInRes() - Searches the raw atom name (atnam_raw) field of the current residue for the specified atom name
+- blFindResidue() - Finds a pointer to the start of a residue in a PDB linked list.
+- blFindResidueSpec() - Search a PDB linked list for a specified residue (given as [chain][.]num[insert])
+- blForceExtractNotZonePDBAsCopy() - The same as blExtractNotZonePDBAsCopy(), but works if either of the specified residues are not found. Uses separate chain, residue number and insert rather than residue specifications. Note that if neither residue is found, a copy of the whole linked list is returned. 
+- blForceExtractNotZoneSpecPDBAsCopy() - The same as blExtractNotZoneSpecPDBAsCopy(), but works if either of the specified residues are not found. Uses residue specifications ([c]nnn[i]) rather than separate chain, residue number and insert. Note that if neither residue is found, a copy of the whole linked list is returned. 
+- blInPDBZone() - Checks that atom stored in PDB pointer p is within the specified residue range.
+- blInPDBZoneSpec() - Determines whether a PDB pointer is within a residue range specified using standard format: [c]nnn[i] or within a specified chain
+
+
+
+Residue specification string
+----------------------------
+
+Some of the above functions will parse a residue specification
+string. The residue specification string is in the form, [c][.]num[i]
+where 'c' is the chain label 'num' is the residue number and 'i' is
+the insertion code. The chain label and insert code are optional. The
+chain label can be separated from the residue number with a period
+allowing of numerical or multi-letter chain ids. For example:
+
+      A10
+      A.10A
+      1.10
+      Light.10
+
+
+
+
+*/
+

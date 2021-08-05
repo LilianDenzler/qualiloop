@@ -1,0 +1,78 @@
+\hypertarget{deprecated_gen_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/deprecated\-Gen.c File Reference}
+\label{deprecated_gen_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/deprecated\-Gen.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/deprecated\-Gen.\-c}}
+}
+
+
+Source code for all deprecated functions.  
+
+
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Buff\-Inp.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Err\-Stack.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Util.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Wind\-I\-O.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}angle.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}array.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}help.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hpgl.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}matrix.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parse.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}plotting.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ps.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}safemem.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}eigen.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}regression.\-h\char`\"{}}\\*
+
+
+\subsection{Detailed Description}
+Source code for all deprecated functions. \begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+20.\-07.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 2014-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Allows code utilising Biop\-Lib to compile without modification to use function names with the 'bl' prefix.(The 'bl' prefix was introduced in July 2014.)
+
+\subsection*{Usage\-: }
+
+Code using deprecated functions can be compiled without modification, however, all deprecated functions use the D\-E\-P\-R\-E\-C\-A\-T\-E\-D macro which prints a warning message to stderr when a deprecated function is called.
+
+The warning message can be suppressed as either an option at the compilation of the library or by setting an environment variable at runtime.
+
+\begin{DoxyParagraph}{Documentation}
+Doxygen is not set to document deprecated functions. To document deprecated functions, add \char`\"{}deprecated\char`\"{} to the E\-N\-A\-B\-L\-E\-D S\-E\-C\-T\-I\-O\-N\-S tag in the Doxygen config file\-: bioplib/doc/doxygen/\-Doxyfile
+\end{DoxyParagraph}
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 31.\-07.\-14 Original By\-: C\-T\-P
+\item V1.\-1 08.\-08.\-14 Separated Biop and Gen deprecation By\-: A\-C\-R\-M
+\item V1.\-2 14.\-08.\-14 Removed unnecessary includes. Corrected \hyperlink{safemem_8h}{safemem.\-h} function names By\-: C\-T\-P
+\item V1.\-3 24.\-10.\-14 Added regression and eigen By\-: A\-C\-R\-M
+\item V1.\-4 20.\-07.\-15 Deprecated bl\-Dist\-Pt\-Vect() 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{deprecated_gen_8c_source}{deprecated\-Gen.\-c}.
+

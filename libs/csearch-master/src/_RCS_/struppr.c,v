@@ -1,0 +1,39 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.56;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+void struppr(
+char string1[],
+char string2[]
+)
+{
+int i;
+ 
+   for(i=0;i<strlen(string1);i++)
+      string2[i] = toupper(string1[i]);
+   string2[i] = '\0';
+}
+ 
+@

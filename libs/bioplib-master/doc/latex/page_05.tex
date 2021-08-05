@@ -1,0 +1,234 @@
+Biop\-Lib -\/ General Programming
+
+These are general programming routines, not related to proteins or D\-N\-A in any way. They are all in the libgen library so this can be used without libbiop. However, many of the libbiop routines rely on libgen.
+
+\subsection*{Array handling }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{macros_8h_a81b8341e8468f5883b4487072409c9bc}{F\-I\-N\-D\-I\-N\-A\-R\-R\-A\-Y(x,l,y,r)} -\/ Macro\-: Finds value (y) is in array (x) if length (l) returning the offset in (r). Offset is -\/1 if not found
+\item \hyperlink{macros_8h_a0af07934c7ed745d41434d2b7d0b1d65}{T\-E\-S\-T\-I\-N\-A\-R\-R\-A\-Y(x,l,y,r)} -\/ Macro\-: Tests whether value (y) is in array (x) if length (l) returning the result in (r)
+\item \hyperlink{array_8h_a39af89e09b89710340b965e39cc7ac90}{bl\-Array2\-D()} -\/ Create a 2\-D array of elements of size `size' with dimensions `dim1' rows by `dim2' columns.
+\item \hyperlink{array_8h_a36eab413bdc4c6528833e2cadd426c6a}{bl\-Array3\-D()} -\/ Create a 3\-D array of elements of size `size' with dimensions `dim1' rows by `dim2' columns by `dim3' planes
+\item \hyperlink{array_8h_a84d0e26dfc099f32311a7e21256e24b2}{bl\-Free\-Array2\-D()} -\/ Frees a 2\-D array with dimensions `dim1' rows by `dim2' columns.
+\item \hyperlink{array_8h_ae6221c1d22d4ba567ef07f44594d051a}{bl\-Free\-Array3\-D()} -\/ Frees a 3\-D array with dimensions `dim1' rows by `dim2' columns by `dim3' planes.
+\end{DoxyItemize}
+
+\subsection*{Debugging }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{macros_8h_a62e0f7e259f149c4e32b37eca4c0bd29}{D(\-B\-U\-G)} -\/ Macro\-: Prints the B\-U\-G string if D\-E\-B\-U\-G is defined first
+\end{DoxyItemize}
+
+\subsection*{File I\-O }
+
+
+\begin{DoxyItemize}
+\item Find\-Next\-Number() -\/ Find the next number which occurs in a file within a specified number of lines.
+\item \hyperlink{_check_extn_8c_a7f77cdab603f1f33435df9e1584d701a}{bl\-Check\-Extn()} -\/ Check the extension of a filename. Case insensitive!
+\item \hyperlink{general_8h_a1273c967c46a56b7ba0b928b421aff40}{bl\-Close\-Or\-Pipe()} -\/ Attempts to close a file pointer as a pipe.
+\item \hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany()} -\/ \hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany()} provides a routine like fgets() for reading strings from a file, but does not require you to impose a limit on the length of string which may be read.
+\item \hyperlink{general_8h_ae5fb53bf91cc5152904110964f053262}{bl\-Get\-Filestem()} -\/ Extracts the filestem from a complete filename. Should work under Unix, V\-M\-S, M\-S-\/\-D\-O\-S, Amiga\-D\-O\-S, etc.
+\item \hyperlink{general_8h_a6cfc94e83ff4825e293a29ade5317d88}{bl\-Kill\-Line()} -\/ This routine reads characters from a file till it reaches a return character or the end of file.
+\item \hyperlink{_buff_inp_8c_a9ec25032825fb56fe71a253208df0823}{bl\-Open\-Buffered\-File()} -\/ Open a file for buffered input. This allows probe-\/ahead to look at the contents of the next line without removing it from the input stream.
+\item \hyperlink{general_8h_a1d4ddefb8433489fe4d855938943c4b7}{bl\-Open\-File()} -\/ Attempts to open a filename as specified. Returns a file pointer. If this fails looks in a directory specified using an environment variable or assign.
+\item \hyperlink{general_8h_ac89a4227e0a95ce3865e21fa60b66ca3}{bl\-Open\-Or\-Pipe()} -\/ Opens a file for writing unless the filename begins with a $|$ in which case it is opened as a pipe.
+\item \hyperlink{general_8h_a1f4aab78fc238d3315311d816e756592}{bl\-Open\-Std\-Files()} -\/ Open the files if specified. Does not modify the file handles if files are not specified. Typically used to open files for input and output using stdin and stdout if files not given.
+\item \hyperlink{_buff_inp_8c_af2f8ac1768c69aa27b560682db7edd21}{bl\-Probe\-Buffered\-File()} -\/ Read the next line from a buffered file without removing it from the input stream. Repeated calls will thus return the same string. The next call to Read\-Buffered\-File will also output the same string, but will remove the line from the input stream. Blank lines in the file will be skipped.
+\item \hyperlink{_buff_inp_8c_a864c0d980dc89905ca299967b0fd8f48}{bl\-Read\-Buffered\-File()} -\/ Reads a line from a buffered file (like fgets()). Blank lines in the file will be skipped.
+\item \hyperlink{general_8h_ae5bf7680943b697923bc16e550896d1a}{bl\-Set\-Extn()} -\/ Force a filename extension. Modifies the input filename to have the specified extension.
+\item \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()} -\/ A F\-O\-R\-T\-R\-A\-N-\/style rigid-\/column formatted version of sscanf()
+\end{DoxyItemize}
+
+\subsection*{File handling }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{macros_8h_a734fdddfd354177d67337218bc963d67}{F\-C\-L\-O\-S\-E(fp)} -\/ Macro\-: close a file pointer if it is non-\/\-N\-U\-L\-L and not stdin/out/err. Set the file pointer to N\-U\-L\-L afterwards
+\end{DoxyItemize}
+
+\subsection*{Filenames }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{filename_8c_ae1a090231e92e19926215f1d7feecbed}{bl\-Check\-Prog\-Name()} -\/ Tests if a program name matches the specified name
+\end{DoxyItemize}
+
+\subsection*{Flags and bitwise operations }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{macros_8h_a307d2122f7c72a7f479498fa945596c6}{I\-S\-S\-E\-T(x,y)} -\/ Macro\-: Tests bit y (a hex value) in variable x
+\item \hyperlink{macros_8h_a4c7a0b25a3e3f49dbb53268ccbb2ffe4}{S\-E\-T(x,y)} -\/ Macro\-: Sets bit y (a hex value) in variable x
+\item \hyperlink{macros_8h_a10801dd855e20334cd83cace96616de6}{T\-O\-G\-G\-L\-E(x)} -\/ Macro\-: Toggle a flag
+\item \hyperlink{macros_8h_a6d57407eac46b22a85510405f2370d64}{U\-N\-S\-E\-T(x,y)} -\/ Macro\-: Clears bit y (a hex value) in variable x
+\end{DoxyItemize}
+
+\subsection*{Handling errors }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_err_stack_8c_a42ec3c99acc8e5f9e3300876521f4c00}{bl\-Show\-Errors()} -\/ Display the error stack using the supplied print routine or the simple default one if N\-U\-L\-L is given.
+\item \hyperlink{_err_stack_8c_a1760e9ed0da602c2b3c9ab6935ce758d}{bl\-Store\-Error()} -\/ Stores an error on the error stack.
+\end{DoxyItemize}
+
+\subsection*{Handling linked lists }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{safemem_8h_ae0a46a92b4865dd29e1ea9e0a4d64772}{A\-L\-L\-O\-C\-N\-E\-X\-T(x,y)} -\/ Macro\-: Allocate next item in list and step on
+\item \hyperlink{safemem_8h_a98b4aca4c6194e23c34b1a94cfdd3901}{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V(x,y)} -\/ Macro\-: Allocate next item in doubly linked list and step on.
+\item \hyperlink{safemem_8h_ab866ee223048678a3d417c2e786576e4}{D\-E\-L\-E\-T\-E(lst,itm,type)} -\/ Macro\-: Deletes (itm) from linked list (lst) of type (type)
+\item \hyperlink{macros_8h_a8e958d33c605063f02c1363d93f4edf8}{D\-E\-L\-E\-T\-E\-D\-O\-U\-B\-L\-E(lst,itm,type)} -\/ Macro\-: Deletes (itm) from a doubly linked list (lst) of type (type)
+\item \hyperlink{macros_8h_a6c3072dd343ca017f0697dd842a9d757}{F\-I\-N\-D\-P\-R\-E\-V(p, start, q)} -\/ Set p to item in linked list start before q
+\item \hyperlink{macros_8h_a25875003b43b81a4302256caa4a13599}{F\-R\-E\-E(x)} -\/ Macro\-: Free memory if non-\/\-N\-U\-L\-L and set the variable to N\-U\-L\-L
+\item \hyperlink{safemem_8h_a4151f4e24778e7b290ec804c29c91f27}{F\-R\-E\-E\-L\-I\-S\-T(y,z)} -\/ Macro\-: Free list y of type z
+\item \hyperlink{safemem_8h_aa167d4937e9a8d9a33c3e93bbcad8a35}{I\-N\-I\-T(x,y)} -\/ Macro\-: Initialise list of name x and type y. Set x-\/$>$next to N\-U\-L\-L
+\item \hyperlink{safemem_8h_ad48f627b78d63b7af972e819978664ff}{I\-N\-I\-T\-P\-R\-E\-V(x,y)} -\/ Macro\-: Initialise list of name x and type y. Set x-\/$>$next and x-\/$>$prev to N\-U\-L\-L
+\item \hyperlink{macros_8h_a49dd722216353daa94f49c2dbb53e0cb}{L\-A\-S\-T(x)} -\/ Macro\-: Move to end of list
+\item \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{N\-E\-X\-T(x)} -\/ Macro\-: Step on in linked list
+\item \hyperlink{macros_8h_a7355421c23b2dd22cec3c1ef5bc380e1}{P\-R\-E\-V(x)} -\/ Macro\-: Step back in doubly linked list
+\end{DoxyItemize}
+
+\subsection*{Hashes / Dictionaries }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{hash_8c_af8f2913c2050be1150d1d40ae4492f3c}{bl\-Delete\-Hash\-Key()} -\/ Deletes an entry from the hash
+\item \hyperlink{hash_8c_a7b5b0f404d2dedd44aaafb0687d216a8}{bl\-Dump\-Hash()} -\/ Utility function to dump a hash to a file
+\item \hyperlink{hash_8c_a3d44b7c155f0ee150a1e22df1f093ac6}{bl\-Free\-Hash()} -\/ Frees all memory associated with a hash
+\item \hyperlink{hash_8c_a4009ec93242c1f1b5663ac3885e9d9f8}{bl\-Free\-Hash\-Key\-List()} -\/ Frees a list of hash keys from \hyperlink{hash_8c_aca7e169510f7bb87f8a462b80557f75b}{bl\-Get\-Hash\-Key\-List()}
+\item \hyperlink{hash_8c_aca7e169510f7bb87f8a462b80557f75b}{bl\-Get\-Hash\-Key\-List()} -\/ Allocates an array containing the hash keys
+\item \hyperlink{hash_8c_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value()} -\/ Gets a hash value for a specified key
+\item \hyperlink{hash_8c_adfee28c95e93c425df93387b70e5fb36}{bl\-Get\-Hash\-Value\-Char()} -\/ Wrapper to \hyperlink{hash_8c_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value()} specifically for chars
+\item \hyperlink{hash_8c_af40ea09b8c44bfb43762dab3aa802502}{bl\-Get\-Hash\-Value\-Double()} -\/ Wrapper to \hyperlink{hash_8c_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value()} specifically for doubles
+\item \hyperlink{hash_8c_a37ac90d036a845c4b115df925dcf7090}{bl\-Get\-Hash\-Value\-Int()} -\/ Wrapper to \hyperlink{hash_8c_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value()} specifically for ints
+\item \hyperlink{hash_8c_a05d5450073761d5885fb138293c2983f}{bl\-Get\-Hash\-Value\-Pointer()} -\/ Wrapper to \hyperlink{hash_8c_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value()} specifically for pointers
+\item \hyperlink{hash_8c_a8d75315373bc094431948d6421548604}{bl\-Get\-Hash\-Value\-String()} -\/ Wrapper to \hyperlink{hash_8c_a0af910db68a6dc7a052a39f62df76515}{bl\-Get\-Hash\-Value()} specifically for strings
+\item \hyperlink{hash_8c_a7ad162562d0d4f0d67701595b6ca21f4}{bl\-Hash\-Key\-Defined()} -\/ Tests if a key is defined in the hash
+\item \hyperlink{hash_8c_a488624eced413f969a14b4a70e5f61ed}{bl\-Initialize\-Hash()} -\/ Initializes a hash structure
+\item \hyperlink{hash_8c_a031d7ec8e0fbf9b3c44bbd024e8c7382}{bl\-Set\-Hash\-Value()} -\/ Sets a hash key\-:value pair
+\item \hyperlink{hash_8c_a89d6ea94e8f4a1c4f385d29490f4d516}{bl\-Set\-Hash\-Value\-Char()} -\/ Sets a hash key\-:value pair for a char value
+\item \hyperlink{hash_8c_adade2513a460bbbe4a8680226b894927}{bl\-Set\-Hash\-Value\-Double()} -\/ Sets a hash key\-:value pair for a double value
+\item \hyperlink{hash_8c_a86e24fa6cec7538d295099ec761f40fc}{bl\-Set\-Hash\-Value\-Int()} -\/ Sets a hash key\-:value pair for an int value
+\item \hyperlink{hash_8c_a91ff829e21fc02d7a0425b6b7fe33428}{bl\-Set\-Hash\-Value\-Pointer()} -\/ Sets a hash key\-:value pair for a general pointer (B\-P\-T\-R) value
+\item \hyperlink{hash_8c_a9a90b6a5dcb4ef2ca2ebbb1cfbeeb65b}{bl\-Set\-Hash\-Value\-String()} -\/ Sets a hash key\-:value pair for a string value
+\end{DoxyItemize}
+
+\subsection*{Lists of strings }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_free_string_list_8c_a5a7f5b9d2713c87a595340f5c2c9590f}{bl\-Free\-String\-List()} -\/ Frees memory allocated for a string list.
+\item \hyperlink{general_8h_a318621be88adcea6523add25a804f438}{bl\-In\-String\-List()} -\/ Searches a string list for an {\itshape exact match} with the specified string.
+\item \hyperlink{general_8h_a6729e97bc8fa920ae9391a6fb91dc5be}{bl\-Store\-String()} -\/ Stores strings (of any length) in a linked list of type S\-T\-R\-I\-N\-G\-L\-I\-S\-T. Return a pointer to the start of the linked list which is used on the first call to access the newly allocated memory.
+\end{DoxyItemize}
+
+\subsection*{Maths }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{macros_8h_a996f7be338ccb40d1a2a5abc1ad61759}{A\-B\-S(x,y)} -\/ Macro\-: abs() as macro
+\item \hyperlink{macros_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{M\-A\-X(x,y)} -\/ Macro\-: max() as macro
+\item \hyperlink{macros_8h_a3acffbd305ee72dcd4593c0d8af64a4f}{M\-I\-N(x,y)} -\/ Macro\-: min() as macro
+\item \hyperlink{_math_util_8h_a1f7a32478dd010effe9291ad8b9ff5ef}{bl\-Find\-Next\-Prime()} -\/ Finds the next prime
+\item \hyperlink{_math_util_8h_a8710dcd15377c24eb078a9621f872fff}{bl\-Is\-Prime()} -\/ Tests whether a number is prime
+\end{DoxyItemize}
+
+\subsection*{Memory management }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{safemem_8c_a75e4d6982f7cc802621dbc4f776446df}{bl\-Safefree()} -\/ Debugging version of free() which checks protection buffers each side of the requested memory block.
+\item \hyperlink{safemem_8c_a32aa9f6dc5a258fd19c0523385d0f33a}{bl\-Safeleaks()} -\/ Prints a list of any safemalloc()'d memory which was not freed
+\item \hyperlink{safemem_8c_a6fb1420daf9aae70c83e9cd558bce4f7}{bl\-Safemalloc()} -\/ Debugging version of malloc() which creates protection buffers each side of the requested memory block.
+\end{DoxyItemize}
+
+\subsection*{Miscellaneous }
+
+
+\begin{DoxyItemize}
+\item N\-E\-W\-L\-I\-N\-E -\/ Macro\-: Print a newline character to stdout
+\item \hyperlink{macros_8h_a1f257cea576b885c9a24e42009e95467}{R\-A\-N\-G\-E\-C\-H\-E\-C\-K(x,y,z)} -\/ Macro\-: Return x constrained to range y to z
+\end{DoxyItemize}
+
+\subsection*{Sorting }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{general_8h_ab497c8d98d541e0bb843b002439641d4}{bl\-Index\-Real()} -\/ Index an array by Heapsort.
+\end{DoxyItemize}
+
+\subsection*{String handling }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{macros_8h_aaaae083fd26ba0d19105f05510a2009d}{D\-E\-D\-O\-T\-I\-F\-Y(str)} -\/ Macro\-: Replace '.' with ' ' in string
+\item \hyperlink{macros_8h_ab7e50c0e4b5fb79a9490a9946139761d}{D\-O\-T\-I\-F\-Y(str)} -\/ Macro\-: Replace ' ' with '.' in string
+\item \hyperlink{macros_8h_a1b8cbb77f6df1b328324b217ea7eebd3}{K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S(x,y)} -\/ Macro\-: Makes x a pointer into string y after any spaces or tabs.
+\item \hyperlink{macros_8h_a01c5f3b95fb9aa9efbdaf1f2b77cd900}{K\-I\-L\-L\-T\-R\-A\-I\-L\-S\-P\-A\-C\-E\-S(x)} -\/ Macro\-: Terminate string to remove any trailing white space
+\item \hyperlink{macros_8h_ae40c354ba544d11cc47fe6cc74b4e966}{P\-A\-D\-C\-H\-A\-R\-M\-I\-N\-T\-E\-R\-M(str,char,len)} -\/ Macro\-: Pads a string to len chars with specified character only if it is shorter
+\item \hyperlink{macros_8h_a8db1217a164f5997e33c5fa121f93ccf}{P\-A\-D\-M\-I\-N\-T\-E\-R\-M(str,len)} -\/ Macro\-: Pads a string to len chars only if it is shorter
+\item \hyperlink{macros_8h_adf782f359235d2bab86224421b186e27}{S\-T\-R\-N\-C\-P\-Y\-N\-O\-S\-P\-A\-C\-E\-S(out, in, maxlen)} -\/ Macro\-: Like strncpy() but skips spaces
+\item \hyperlink{macros_8h_a33cbc27128739739a766304271838628}{T\-E\-R\-M\-A\-T(x,y)} -\/ Macro\-: Terminates character string x at first character y
+\item \hyperlink{macros_8h_aacb586bd2f3f322f647a94819e1315c5}{T\-E\-R\-M\-I\-N\-A\-T\-E(x)} -\/ Macro\-: Terminate a string at the first \par
+
+\item \hyperlink{macros_8h_acfea63fa7db66757bc17d1dce48f80fb}{T\-E\-R\-M\-I\-N\-A\-T\-E\-C\-R(x)} -\/ Macro\-: Terminate a string at the first 
+\item \hyperlink{macros_8h_a8ce7aa85856d9abe74e8f6080cd97740}{U\-P\-P\-E\-R(x)} -\/ Macro\-: Converts a string to upper case
+\item \hyperlink{chindex_8c_a2a6525116fbb20bd7232197f58da5cb3}{bl\-Chindex()} -\/ Returns the offset of a character in a string. -\/1 if not found. This is used in a similar manner to strchr(), but gives an offset in the string rather than a pointer to the character.
+\item \hyperlink{general_8h_a2f9caac3ea9d130adfb79dc3d8dd44f7}{bl\-Collapse\-Spaces()} -\/ Takes a string and collapses multiple spaces down to a single space Equivalent of perl 's/+/ /g'
+\item \hyperlink{countchar_8c_a954ee779da9b59fcbb2065ac61e21c91}{bl\-Countchar()} -\/ Counts occurrences of a charcater in a string
+\item \hyperlink{ftostr_8c_adf14ae6edb2230b1198bf3e7bbe87da2}{bl\-Ftostr()} -\/ Convert a R\-E\-A\-L to a string using precision decimal places. If precision is negative, use e-\/form, otherwise use f-\/form. This is used to generate precisely formatted string versions of numbers for applications where the appearance of a numeric value is important.
+\item \hyperlink{parse_8c_a8b2804199a5cb9ee4afc116eae9061dc}{bl\-Get\-Param()} -\/ Extracts the first space-\/delimited number from a character string.
+\item \hyperlink{parse_8c_af033f70cf7105d7542d8479f74273a5f}{bl\-Get\-String()} -\/ Returns the first space-\/delimited group of characters from a character string
+\item \hyperlink{general_8h_ae5bab9f31883eae5ccf5a0a33bda73c2}{bl\-Get\-Word()} -\/ Reads a whitespace/comma delimited word out of buffer into word.
+\item \hyperlink{general_8h_a2a5476282817a78d1532407c76a095d1}{bl\-Get\-Word\-N\-C()} -\/ Reads a whitespace delimited word out of buffer into word. Commas are treated just like normal characters.
+\item \hyperlink{general_8h_ac8793089a43729df92f62854914dd11a}{bl\-Getfield()} -\/ Reads a column out of a buffer. If the specfied column extends beyond the size of the buffer, then it will be padded with spaces.
+\item \hyperlink{general_8h_a343dd1cffc43f451113e38dc681f8868}{bl\-Kill\-Lead\-Spaces()} -\/ This routine strips leading spaces and tabs from a string returning a pointer to the first non-\/whitespace character. The macro \hyperlink{macros_8h_a1b8cbb77f6df1b328324b217ea7eebd3}{K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S()} in \hyperlink{macros_8h}{macros.\-h} is now a recommended replacement
+\item \hyperlink{parse_8c_af4d52eae06ff069484ebd98143722134}{bl\-Match()} -\/ Matches two strings, but stops the comparison as soon as a space or N\-U\-L\-L is found in either string. The returned value
+\item \hyperlink{general_8h_a3d51946e1ce17558766a0984c5d77914}{bl\-Padchar()} -\/ Pads a string with a specified character to length characters, then terminates it. Note that \hyperlink{macros_8h_ae40c354ba544d11cc47fe6cc74b4e966}{P\-A\-D\-C\-H\-A\-R\-M\-I\-N\-T\-E\-R\-M()} in \hyperlink{macros_8h}{macros.\-h} is a replacement for this
+\item \hyperlink{general_8h_af3e38629eb9182b36af7bf960d3758d8}{bl\-Padterm()} -\/ Pads a string with spaces to length characters, then terminates it. Note that the \hyperlink{macros_8h_a8db1217a164f5997e33c5fa121f93ccf}{P\-A\-D\-M\-I\-N\-T\-E\-R\-M()} macro in \hyperlink{macros_8h}{macros.\-h} is a replacement for this
+\item \hyperlink{general_8h_acdc27ff9b62a98ded5d9c714f0e444e7}{bl\-Query\-Str\-Str()} -\/ This is like strstr() but allows a ? character in the substring which matches any character.
+\item \hyperlink{general_8h_adfc7bbb71e472cb8edba7bbcd0f3e772}{bl\-Remove\-Spaces()} -\/ Strips all whitespace out of a string. Allocates a new string.
+\item \hyperlink{general_8h_ad1ba646ac012e961c10d1fe26cd4cce7}{bl\-Right\-Justify()} -\/ Right justifies a string in place
+\item \hyperlink{general_8h_a62e1ec6a65252619dd1060bdd68bc7a5}{bl\-Split\-String\-On\-Chars()} -\/ Split a string into an array of individual characters, but each stored as a string. Mallocs a 2\-D array
+\item \hyperlink{general_8h_a78bedd3b9e96196fe6eb9fe9bcd1e19b}{bl\-Split\-String\-On\-Commas()} -\/ Split a comma-\/separated string into an array of items. Mallocs a 2\-D array
+\item \hyperlink{general_8h_afcb923c739bf3a71e89e724e42a23af3}{bl\-Strcatalloc()} -\/ Like strcat() but uses a realloc() on instr to make space available.
+\item \hyperlink{hash_8h_aa78d7f1c3e3e9c611b6ebf61475ed358}{bl\-Strdup()} -\/ Duplicates a string, allocating memory for it. An implementation of S\-Vr4, 4.\-3\-B\-S\-D, P\-O\-S\-I\-X.\-1-\/2001 strdup() which is not standard A\-N\-S\-I C
+\item \hyperlink{general_8h_a4ba273766cb8e3f5b32eaa226c3e0fc7}{bl\-String\-To\-Lower()} -\/ Converts a lower or mixed case string to lower case. The \hyperlink{macros_8h_a7c84c2a411c6ca224eb95a0e9438e9ca}{L\-O\-W\-E\-R()} macro from \hyperlink{macros_8h}{macros.\-h} is now preferred
+\item \hyperlink{general_8h_aedf1772a9e444145f5f692f8d7827015}{bl\-String\-To\-Upper()} -\/ Converts a lower or mixed case string to upper case. The \hyperlink{macros_8h_a8ce7aa85856d9abe74e8f6080cd97740}{U\-P\-P\-E\-R()} macro from \hyperlink{macros_8h}{macros.\-h} is now preferred
+\item \hyperlink{general_8h_a6b5045229f8ad05a80f24126203cc2d8}{bl\-Strncat()} -\/ Like strncat() but takes the max number of characters that the output string can hold rather than the maximum number of characterss to be appended.
+\item \hyperlink{general_8h_ab7da15f8d8ceef1b0f8d599c22eb5469}{bl\-Upstrcmp()} -\/ Like strcmp(), but upcases each character before comparison
+\item \hyperlink{general_8h_a6408a18d4fe862bb0c2051de495b2456}{bl\-Upstrncmp()} -\/ Like strncmp(), but upcases each character before comparison
+\item \hyperlink{general_8h_a38df4250c9dac963202207bd6e37f204}{bl\-Word()} -\/ Removes leading spaces and extracts a space/tab delimited word. string2 must have the same amount of space as string1.
+\item \hyperlink{general_8h_a6a91862f4f4ccfc0f6a73631c0aa5726}{bl\-Word\-N()} -\/ Removes leading spaces and extracts a space/tab delimited word. A maximum of Max\-Char characters will be copied into the word.
+\item \hyperlink{general_8h_af558d2efeb2ba23931396882d32f3fe9}{bl\-Wrap\-Print()} -\/ Wraps a string with double inverted commas if it contains spaces and escapes any contained double inverted commas with a backslash. Then prints the string
+\item \hyperlink{general_8h_acccb9091b4202013b48322965cb19dcf}{bl\-Wrap\-String()} -\/ Wraps a string with double inverted commas if it contains spaces and escapes any contained double inverted commas with a backslash.
+\end{DoxyItemize}
+
+\subsection*{Text window handling -\/ experimental }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_wind_i_o_8c_a2287dad2ad5b0cc2da7febccbb381883}{bl\-Get\-Kybd\-String()} -\/ Reads a string from the keyboard
+\item \hyperlink{_wind_i_o_8c_a9cb4c1f0af3d1a43344ea43e7afc06d6}{bl\-Paging\-Off()} -\/ Switches off screen paging.
+\item \hyperlink{_wind_i_o_8c_adf5e91712535d73909121b7b676b5af8}{bl\-Paging\-On()} -\/ Switches on screen paging.
+\item \hyperlink{_wind_i_o_8c_ad7d9c635098851044f5e311e73c70ead}{bl\-Prompt()} -\/ Sets a prompt for input. If windowing is on, this simply sets the prompt variable (the actual prompt is issued by the Get\-Kybd\-String() function). If no windowing is used, the actual string is printed. If the prompt ends with a . it is simply printed; if not, a $>$ is appended.
+\item \hyperlink{_wind_i_o_8c_a64719533d3bc93c3763afe7461a22844}{bl\-Re\-Prompt()} -\/ Reissue the current prompt. Only has any effect when windowing is not in use. Normally only used by Read\-Buffered\-File() and Probe\-Buffered\-File() to re-\/issue prompts while eating blank lines.
+\item \hyperlink{_wind_i_o_8c_a47350d0b7190f1755a8bd73455fec94e}{bl\-Screen()} -\/ Writes information to the screen. Handles any windows as appropriate.
+\item \hyperlink{_wind_i_o_8c_a25b25603f56047b205c78b6621becf5e}{bl\-Window\-Interactive()} -\/ Switch interactive mode on or off. If switched off, calls Window\-Mode(\-F\-A\-L\-S\-E) to switch off windowing
+\item \hyperlink{_wind_i_o_8c_a8303a84d835d5e3a39eba81632d95e5f}{bl\-Window\-Mode()} -\/ Switch window mode on or off.
+\item \hyperlink{_wind_i_o_8c_a9acc08a644bc6780948eb6b1e962efdb}{bl\-Yor\-N()} -\/ Get a yes or no response from the keyboard
+\end{DoxyItemize}
+
+\subsection*{User interaction }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{macros_8h_acc487f163f8274ce4a0546d6d68eb035}{P\-R\-O\-M\-P\-T(fp,x)} -\/ Macro\-: Issue a prompt to stdout if fp is a terminal
+\item \hyperlink{help_8c_ad508d3cae25ca4b71bc9f7a92daa97ee}{bl\-Do\-Help()} -\/ Handles help facility. This is the normal entry point.
+\item \hyperlink{help_8c_a3ff43d9a155129038cde38442c4dee23}{bl\-Help()} -\/ Generates help from a help file on the topic named by string. If this is `help' or `?', available topics will be listed.
+\item \hyperlink{parse_8c_afd91c119f7409f2c2f14151ca7bd6973}{bl\-Mparse()} -\/ As \hyperlink{parse_8c_ac9aa602f7562ba794b53e6ffbc75115c}{bl\-Parse()}, but allows variable number of parameters to each keyword.
+\item \hyperlink{parse_8c_ac9aa602f7562ba794b53e6ffbc75115c}{bl\-Parse()} -\/ Keyword-\/based command parser using a fixed number of parameters per command 
+\end{DoxyItemize}

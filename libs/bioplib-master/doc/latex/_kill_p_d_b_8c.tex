@@ -1,0 +1,188 @@
+\hypertarget{_kill_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Kill\-P\-D\-B.c File Reference}
+\label{_kill_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Kill\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Kill\-P\-D\-B.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_kill_p_d_b_8c_af87967ff3e2de0c55ab347087321dcb1}{bl\-Delete\-Atom\-Range\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$start, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$stop)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_kill_p_d_b_8c_afa0e25249e5978f1ae19b5d8bebb6835}{bl\-Delete\-Atom\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$atom)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_kill_p_d_b_8c_af9c2f29c87607425d514dfbd710648b7}{bl\-Kill\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$prev)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_kill_p_d_b_8c_aaf1072ac9f0a3c591c0673d6499f4e51}{bl\-Delete\-Residue\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$$\ast$p\-P\-D\-B, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$res)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-12 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+30.\-09.\-17 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1992-\/2017 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 22.\-02.\-94 Original release
+\item V1.\-1 23.\-05.\-94 Added Find\-Next\-Chain\-P\-D\-B()
+\item V1.\-2 05.\-10.\-94 Kill\-Sidechain() uses B\-O\-O\-L rather than int
+\item V1.\-3 24.\-07.\-95 Added Term\-P\-D\-B()
+\item V1.\-4 25.\-07.\-95 Added Get\-P\-D\-B\-Chain\-Labels()
+\item V1.\-5 26.\-09.\-95 Fixed bug in Term\-P\-D\-B()
+\item V1.\-6 12.\-10.\-95 Added Dupe\-P\-D\-B(), Copy\-P\-D\-B\-Coords()
+\item V1.\-7 23.\-10.\-95 Moved Find\-Residue\-Spec() to \hyperlink{_parse_res_8c}{Parse\-Res.\-c}
+\item V1.\-8 10.\-01.\-96 Added Extract\-Zone\-P\-D\-B()
+\item V1.\-9 14.\-03.\-96 Added Find\-Atom\-In\-Res()
+\item V1.\-10 08.\-10.\-99 Initialised some variables
+\item V1.\-11 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-12 30.\-09.\-17 Added vl\-Delete\-Residue\-P\-D\-B() By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_kill_p_d_b_8c_source}{Kill\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_kill_p_d_b_8c_afa0e25249e5978f1ae19b5d8bebb6835}{\index{Kill\-P\-D\-B.\-c@{Kill\-P\-D\-B.\-c}!bl\-Delete\-Atom\-P\-D\-B@{bl\-Delete\-Atom\-P\-D\-B}}
+\index{bl\-Delete\-Atom\-P\-D\-B@{bl\-Delete\-Atom\-P\-D\-B}!KillPDB.c@{Kill\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Delete\-Atom\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Delete\-Atom\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf P\-D\-B} $\ast$}]{atom}
+\end{DoxyParamCaption}
+)}}\label{_kill_p_d_b_8c_afa0e25249e5978f1ae19b5d8bebb6835}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & Start of P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$atom} & Atom to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New start of P\-D\-B linked list
+\end{DoxyReturn}
+Deletes an atom from the P\-D\-B linked list. Should be called as pdb=bl\-Delete\-Atom\-P\-D\-B(pdb, atom); to allow for the first atom in the linked list being deleted.
+
+Returns N\-U\-L\-L of all atoms have been deleted. Returns the input pdb linked list unmodified if the atom isn't found.
+
+
+\begin{DoxyItemize}
+\item 17.\-03.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 173 of file Kill\-P\-D\-B.\-c.
+
+\hypertarget{_kill_p_d_b_8c_af87967ff3e2de0c55ab347087321dcb1}{\index{Kill\-P\-D\-B.\-c@{Kill\-P\-D\-B.\-c}!bl\-Delete\-Atom\-Range\-P\-D\-B@{bl\-Delete\-Atom\-Range\-P\-D\-B}}
+\index{bl\-Delete\-Atom\-Range\-P\-D\-B@{bl\-Delete\-Atom\-Range\-P\-D\-B}!KillPDB.c@{Kill\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Delete\-Atom\-Range\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Delete\-Atom\-Range\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf P\-D\-B} $\ast$}]{start, }
+\item[{{\bf P\-D\-B} $\ast$}]{stop}
+\end{DoxyParamCaption}
+)}}\label{_kill_p_d_b_8c_af87967ff3e2de0c55ab347087321dcb1}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & Start of P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$start} & First atom to delete \\
+\hline
+\mbox{\tt in}  & {\em $\ast$stop} & Atom after the one to be deleted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New start of linked list
+\end{DoxyReturn}
+Deletes a range of atoms from the linked list re-\/linking the list and returning the new start of the list (in case the first atom has been deleted)
+
+
+\begin{DoxyItemize}
+\item 17.\-03.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 122 of file Kill\-P\-D\-B.\-c.
+
+\hypertarget{_kill_p_d_b_8c_aaf1072ac9f0a3c591c0673d6499f4e51}{\index{Kill\-P\-D\-B.\-c@{Kill\-P\-D\-B.\-c}!bl\-Delete\-Residue\-P\-D\-B@{bl\-Delete\-Residue\-P\-D\-B}}
+\index{bl\-Delete\-Residue\-P\-D\-B@{bl\-Delete\-Residue\-P\-D\-B}!KillPDB.c@{Kill\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Delete\-Residue\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Delete\-Residue\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$$\ast$}]{p\-P\-D\-B, }
+\item[{{\bf P\-D\-B} $\ast$}]{res}
+\end{DoxyParamCaption}
+)}}\label{_kill_p_d_b_8c_aaf1072ac9f0a3c591c0673d6499f4e51}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$p\-P\-D\-B} & Pointer to pointer to start of P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$res} & Pointer to residue to be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next residue in P\-D\-B linked list
+\end{DoxyReturn}
+Remove a residue from the P\-D\-B linked list and re-\/link correctly. Returns the next item in the list, so will be N\-U\-L\-L when the last residue has been deleted.
+
+
+\begin{DoxyItemize}
+\item 30.\-09.\-17 Original 
+\end{DoxyItemize}
+
+Definition at line 245 of file Kill\-P\-D\-B.\-c.
+
+\hypertarget{_kill_p_d_b_8c_af9c2f29c87607425d514dfbd710648b7}{\index{Kill\-P\-D\-B.\-c@{Kill\-P\-D\-B.\-c}!bl\-Kill\-P\-D\-B@{bl\-Kill\-P\-D\-B}}
+\index{bl\-Kill\-P\-D\-B@{bl\-Kill\-P\-D\-B}!KillPDB.c@{Kill\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Kill\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Kill\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf P\-D\-B} $\ast$}]{prev}
+\end{DoxyParamCaption}
+)}}\label{_kill_p_d_b_8c_af9c2f29c87607425d514dfbd710648b7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & Pointer to item in P\-D\-B linked list to be removed \\
+\hline
+\mbox{\tt in}  & {\em $\ast$prev} & Pointer to previous item in linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next item in P\-D\-B linked list
+\end{DoxyReturn}
+Kill an item in the P\-D\-B linked list and re-\/link correctly. Returns the next item in the list, so will be N\-U\-L\-L when the last item in the list is killed.
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-92 Original
+\item 11.\-03.\-94 Now handles prev==N\-U\-L\-L to delete first item in a list
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 16.\-03.\-15 Checks and removes any C\-O\-N\-E\-C\-T data By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 214 of file Kill\-P\-D\-B.\-c.
+

@@ -1,0 +1,206 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.03;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifndef __OMLIBSH_H__
+#define __OMLIBSH_H__
+
+/*****************************************************************************
+ *      Name: OMLIBsh.h                                                      *
+ *  Function: Header definitions for OMLIB C binding to Screen Handler       *
+ * Copyright: (C) OXFORD MOLECULAR LTD, 1993                                 *
+ *---------------------------------------------------------------------------*
+ *    Author: Dr. D. Walker, Oxford Molecular Ltd                            *
+ *      Date: 07/01/93                                                       *
+ *---------------------------------------------------------------------------*
+ * MODIFICATION RECORD:                                                      *
+ * DD/MM/YY   Initials   Comments                                            *
+ * 01/11/93   RKW        Added new functions: fwrtl2, SHSysInt, SHSysBat,    *
+ *                       SHDrawArea, SHWrtTtl2, shfeed.                      *
+ *****************************************************************************/
+
+#include <stdio.h>
+#include <string.h>
+
+/* Append underscores on the end of the names of FORTRAN functions called from
+   C, if appropriate */
+
+#ifdef __FORT_UNDERSCORE__
+
+#define shbell 	shbell_
+#define shcldt 	shcldt_
+#define shclfk 	shclfk_
+#define shclmg 	shclmg_
+#define shclpt 	shclpt_
+#define shcltl 	shcltl_
+#define shclr  	shclr_
+#define shcon 	shcon_
+#define shcoff 	shcoff_
+#define shend 	shend_
+#define shentr 	shentr_
+#define shinit 	shinit_
+#define shnorm 	shnorm_
+#define shfsmg	shfsmg_
+#define shwrfk 	shwrfk_
+#define shwrpt 	shwrpt_
+#define shscdt  shscdt_
+#define shszdt  shszdt_
+#define shnrdt  shnrdt_
+#define shsdts  shsdts_
+#define shcdts  shcdts_
+#define shstcu  shstcu_
+#define shcuup  shcuup_
+#define shcudn  shcudn_
+#define shculf  shculf_
+#define shcurt  shcurt_
+#define shgtcu  shgtcu_
+#define shscwi  shscwi_
+#define shdtdp  shdtdp_
+#define shinvr  shinvr_
+#define shuinv  shuinv_
+#define shpgon  shpgon_
+#define shpgof  shpgof_
+#define shfeed  shfeed_
+
+#define fwrtl2  fwrtl2_
+#define fwrdpt	fwrdpt_
+#define fwspwn	fwspwn_
+#define fwwrdt	fwwrdt_
+#define fwwrmg	fwwrmg_
+#define fwwrtl	fwwrtl_
+#define fwscdt  fwscdt_
+#define fwrkey  fwrkey_
+#define fwwrup  fwwrup_
+#define fwwndt  fwwndt_
+
+#define sysint  sysint_
+#define sysbat  sysbat_
+
+#endif
+
+
+/* Special key definitions */
+
+#define SHUPARROW    -1
+#define SHDOWNARROW  -2
+#define SHLEFTARROW  -3
+#define SHRIGHTARROW -4
+#define SHRETURN     -5
+
+/* Prototypes for the FORTRAN screen handler functions */
+
+void  shbell(void);
+void  shcldt(void);
+void  shclfk(void);
+void  shclmg(void);
+void  shclpt(void);
+void  shcltl(void);
+void  shclr(void);
+void  shcon(void);
+void  shcoff(void);
+void  shend(void);
+void  shentr(void);
+void  shinit(void);
+void  shnorm(void);
+void  shfsmg(void);
+void  shwrfk(void);
+void  shwrpt(void);
+void  shscdt(void);
+void  shszdt(void);
+void  shnrdt(void);
+void  shsdts(int *top, int *bottom);
+void  shcdts(void);
+void  shstcu(int *x, int *y);
+void  shcuup(int *numRows);
+void  shcudn(int *numRows);
+void  shculf(int *numCols);
+void  shcurt(int *numCols);
+void  shgtcu(int *x,int *y);
+short shscwi(void);
+short shdtdp(void);
+void  shinvr(int *xleft, int *ytop, int *xright, int *ybottom);
+void  shuinv(int *xleft, int *ytop, int *xright, int *ybottom);
+void  shpgon(int *numLines);
+void  shpgof(void);
+void  shfeed(int *nlfeed);
+
+/* OMLIB SH C binding Function prototypes */
+
+void  SHClear (void);
+void  SHClearData (void);
+void  SHClearFunction (void);
+void  SHClearMessage (void);
+void  SHClearPrompt (void);
+void  SHClearTitle (void);
+void  SHClearDTScrl(void);
+void  SHCursorDown(int numRows);
+void  SHCursorLeft(int numCols);
+void  SHCursorRight(int numCols);
+void  SHCursorOff (void);
+void  SHCursorOn (void);
+void  SHCursorUp(int numRows);
+short SHDataDepth(void);
+void  SHEnter (void);
+void  SHFullScreenMsg (void);
+void  SHGetCursor(int *x,int *y);
+void  SHInitialise (void);
+void  SHInvertBox(int xleft, int ytop, int xright, int ybottom);
+void  SHNormalMsg (void);
+void  SHPageOff(void);
+void  SHPageOn(int NumberOfLines);
+short SHReadKey(int CaseSensitive);
+void  SHReadPrompt (char cretrn[]);
+void  SHRingBell (void);
+short SHScreenWidth(void);
+void  SHScrollData(char *text);
+void  SHSetCursor(int x,int y);
+void  SHSetDataScroll(int top, int bottom);
+void  SHShutdown (void);
+void  SHSpawnProcess (char *command);
+void  SHSysBat(void);
+void  SHSysInt(void);
+void  SHUnInvert(int xleft, int ytop, int xright, int ybottom);
+void  SHWriteData (char dataStrings[16][80]);
+void  SHWriteFunction (void);
+void  SHWriteMessage (char msgLines[4][80]);
+void  SHWritePrompt (void);
+void  SHWriteTitle (char *titleStr);
+void  SHWrtTitle2 (char *titleStr);
+void  SHWriteDTLine(int i, char *text);
+void  SHWrtUserPrmpt(char *promptStr);
+void  SHDrawArea(int Top, int Bottom, int Left, int Right, int Code);
+
+void  fwrdpt(char *cretrn);
+void  fwspwn(char *command, int *lenCommand);
+void  fwwrmg(char *, char *, char *, char *, int *, int *, int *, int *);
+void  fwwrtl(char *titleStr, int *lenTitle);
+void  fwrtl2(char *titleStr, int *lenTitle);
+void  fwscdt(char *text, int *lenText);
+void  fwrkey(int *caseSensitive,int *ASCIIValue);
+void  fwwrup(char *promptStr, int *lenPrompt);
+void  fwwndt(int *line,char *text, int *lenText);
+
+void  sysint(void);
+void  sysbat(void);
+
+#endif
+@

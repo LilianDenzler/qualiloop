@@ -1,0 +1,363 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.55;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+
+#define MAXCOM 200
+#define STNCOMM 6
+
+void stread(
+FILE *stunit
+)
+{
+   char comlyn[MAXCOM];          /* Command line buffer                  */
+   char title[10][80];           /* Title array, currently unused        */
+   int  ntitle;                  /* number of title lines, unused        */
+ 
+   /* For the command parser */
+   KeyWd keywords[STNCOMM];      /* Array to store keywords              */
+   char  *strparam[MAXSTRPARAM]; /* Array for returned strings           */
+   int   key;                    /* Return value from parse()            */
+   float numparam[MAXNUMPARAM];  /* Array for returned numbers           */
+   int   i;                      /* Counter                              */
+ 
+   UCHAR eof,                    /* End of file                          */
+         prnflg;                 /* Print flag --- doesn't do a lot!     */
+ 
+   int   errcnt;                 /* Error count                          */
+   char  name[8];                /* Temp residue name storage            */
+ 
+   /* Check the file */
+   if(!stunit) prdie("stread() fails: Sidetop file not open.\n");
+ 
+   /* Initialise returned string array */
+   for(i=0; i<MAXSTRPARAM; i++)
+      strparam[i] = (char *)alloc(MAXSTRLEN * sizeof(char));
+ 
+   /* Construct the keywords */
+   MAKEKEY(keywords[0],"RESIDUE",  STRING,1);
+   MAKEKEY(keywords[1],"CLUMP",    NUMBER,1);
+   MAKEKEY(keywords[2],"ATOM",     STRING,8);
+   MAKEKEY(keywords[3],"PRINT",    STRING,1);
+   MAKEKEY(keywords[4],"END",      NUMBER,0);
+   MAKEKEY(keywords[5],"SPECIAL",  NUMBER,0);
+ 
+   /* Initialise counters from the sidetop structure */
+   sidetop.nscres           = 0;
+   sidetop.nsclmp           = 0;
+   sidetop.nscatm           = 0;
+   sidetop.sc_atom_part[0]  = 0;
+   sidetop.sc_clump_part[0] = 0;
+ 
+   /* Initialise flags and local counters */
+   prnflg                   = FALSE;
+   eof                      = FALSE;
+   errcnt                   = 0;
+
+/* COM OMUPD BNJ 
+   rewind(stunit);
+*/
+ 
+/* Reading and writing of title done in one routine
+//   rdtitl(title,ntitle,stunit);
+//   prtitl(title,ntitle,6);
+*/
+   rdprtitle(stunit);
+ 
+/* While we're not at the end of the file read commands and process them. */
+   while(!feof(stunit) && !eof)
+   {
+      /* Prompt */
+/*    fprintf(out,"SIDETOP> ");
+*/
+      /* Get string, checking for eof and terminate it properly */
+      if(!fgets(comlyn,MAXCOM-1,stunit)) eof = TRUE;
+      terminate(comlyn);
+      /* If it wasn't eof, then parse the command line and process */
+      if(!eof)
+      {
+         key = parse(comlyn,STNCOMM,keywords,numparam,strparam);
+ 
+         /* Big switch statement to handle each command */
+         switch(key)
+         {
+/* >>>>>>>> Command error from parser
+*/
+            case PARSE_ERRC :
+               fprintf(out,"Error in STREAD -- Unrecognized command:\n%s\n",
+                      comlyn);
+               errcnt++;
+               break;
+/* >>>>>>>> Parameter error from parser
+*/
+            case PARSE_ERRP :
+               fprintf(out,"Error in STREAD -- Incorrect parameters:\n%s\n",
+                      comlyn);
+               errcnt++;
+               break;
+/* >>>>>>>> Process a residue
+            Syntax: RESIDUE name
+ 
+            The original CONGEN version had an optional tag, SPECIAL,
+            which is treated here as a separate keyword
+*/
+            case 0:
+               /* Check and finish current residue and clump */
+               if(sidetop.nscres > 0)
+               {
+                  /* Finish current residue */
+                  sidetop.sc_clump_part[sidetop.nscres] = sidetop.nsclmp;
+                  /* Finish current clump */
+                  if(sidetop.nsclmp > 0 &&
+                     sidetop.sc_atom_part[sidetop.nsclmp] != sidetop.nscatm)
+                  {
+                     sidetop.sc_atom_part[sidetop.nsclmp] = sidetop.nscatm;
+                     if(sidetop.sc_free_atom[sidetop.nsclmp-1][0] == '\0' &&
+                        !(sidetop.sc_special[sidetop.nscres-1]))
+                     {
+                        fprintf(out,"Error in STREAD -- A clump with no \
+free atoms was detected.\n");
+                        errcnt++;
+                     }
+ 
+                  }
+               }
+ 
+               strncpy(name,strparam[0],4);
+               abmpad(name,4);
+               if(++(sidetop.nscres) > mxsres)
+               {
+                  fprintf(out,"Error in STREAD -- MXSTRES exceeded.\n");
+                  die();
+               }
+               strncpy(sidetop.sc_resname[sidetop.nscres-1],name,4);
+ 
+               /* Check the name isn't duplicated */
+               if(sidetop.nscres-1 > 0)
+               {
+                  for(i=0; i<sidetop.nscres-1; i++)
+                     if(!strncmp(name,sidetop.sc_resname[i],4))
+                     {
+                        fprintf(out,"Error in STREAD -- Duplicate residue name.\n");
+                        errcnt++;
+                     }
+               }
+               break;
+/* >>>>>>>> Handle the special option for residues
+            Syntax: SPECIAL
+*/
+            case 5:
+               sidetop.sc_special[sidetop.nscres-1] = TRUE;
+               break;
+ 
+/* >>>>>>>> Process clump information
+            Syntax: CLUMP symmetry
+*/
+            case 1:
+               if(sidetop.nscres == 0)
+               {
+                  errcnt++;
+                  fprintf(out,"Error in STREAD -- Clump specified before \
+any residues\n");
+               }
+               else
+               {
+                  if(sidetop.nsclmp > 0)
+                  {
+                     /* Finish the current clump */
+                     if(sidetop.sc_atom_part[sidetop.nsclmp] !=
+                        sidetop.nscatm)
+                     {
+                        sidetop.sc_atom_part[sidetop.nsclmp] =
+                           sidetop.nscatm;
+                        if(sidetop.sc_free_atom[sidetop.nsclmp-1][0] == '\0'
+                           && !(sidetop.sc_special[sidetop.nscres-1]))
+                        {
+                           fprintf(out,"Error in STREAD -- A clump with no free \
+atoms was detected.\n");
+                           errcnt++;
+                        }
+                     }
+                  }
+                  sidetop.nsclmp++;
+                  if(sidetop.nsclmp > mxclmp)
+                  {
+                     fprintf(out,"Error in STREAD -- MXSTCLUMP exceeded.\n");
+                     die();
+                  }
+                  sidetop.sc_symmetry[sidetop.nsclmp-1] = (int)numparam[0];
+                  if(sidetop.sc_symmetry[sidetop.nsclmp-1] < 1)
+                  {
+                     fprintf(out,"Error in STREAD -- Illegal clump symmetry \
+%d specified.\n",sidetop.sc_symmetry[sidetop.nsclmp-1]);
+                     errcnt++;
+                     sidetop.sc_symmetry[sidetop.nsclmp-1] = 1;
+                  }
+                  sidetop.sc_free_atom[sidetop.nsclmp-1] [0] = '\0';
+               }
+               break;
+/* >>>>>>>> Process atom information
+                                                           { TORSION torsion }
+            Syntax: ATOM ante3 ante2 ante1 atom bond angle { FREE 0.0        }
+                                                           { ADD offset      }
+*/
+            case 2:
+               if(sidetop.nsclmp == 0)
+               {
+                  errcnt++;
+                  fprintf(out,"Error in STREAD -- Atom specified before any \
+clumps.\n");
+               }
+               else
+               {
+                  if(++(sidetop.nscatm) > mxscat)
+                  {
+                     fprintf(out,"Error in STREAD -- MXSTATOM exceeded.\n");
+                     die();
+                  }
+ 
+                  strncpy(sidetop.sc_ante3_bld[sidetop.nscatm-1],
+                          strparam[0],4);
+                  abmpad(sidetop.sc_ante3_bld[sidetop.nscatm-1],4);
+ 
+                  strncpy(sidetop.sc_ante2_bld[sidetop.nscatm-1],
+                          strparam[1],4);
+                  abmpad(sidetop.sc_ante2_bld[sidetop.nscatm-1],4);
+ 
+                  strncpy(sidetop.sc_ante1_bld[sidetop.nscatm-1],
+                          strparam[2],4);
+                  abmpad(sidetop.sc_ante1_bld[sidetop.nscatm-1],4);
+ 
+                  strncpy(sidetop.sc_atom_bld[sidetop.nscatm-1],
+                          strparam[3],4);
+                  abmpad(sidetop.sc_atom_bld[sidetop.nscatm-1],4);
+ 
+                  sscanf(strparam[4],"%f",
+                         &(sidetop.sc_bond_bld[sidetop.nscatm-1]));
+                  sscanf(strparam[5],"%f",
+                         &(sidetop.sc_angle_bld[sidetop.nscatm-1]));
+                  sidetop.sc_angle_bld[sidetop.nscatm-1] *= dtorad;
+ 
+                  for(i=0;i<3;i++) strparam[6][i] = toupper(strparam[6][i]);
+                  if(!strncmp(strparam[6],"FRE",3))
+                  {
+                     /* Parameter 7 is ignored... */
+                     if(sidetop.sc_free_atom[sidetop.nsclmp-1][0] != '\0')
+                     {
+                        fprintf(out,"Error in STREAD -- Multiple atoms defined \
+as FREE within a clump.\n");
+                        errcnt++;
+                     }
+                     strncpy(sidetop.sc_free_atom[sidetop.nsclmp-1],
+                            sidetop.sc_atom_bld[sidetop.nscatm-1],4);
+                     sidetop.sc_code_bld[sidetop.nscatm-1] = st_free;
+                  }
+                  else if(!strncmp(strparam[6],"ADD",3))
+                  {
+                     sidetop.sc_code_bld[sidetop.nscatm-1] = st_add;
+                     sscanf(strparam[7],"%f",
+                            &(sidetop.sc_offset[sidetop.nscatm-1]));
+                     sidetop.sc_offset[sidetop.nscatm-1] *= dtorad;
+                  }
+                  else if(!strncmp(strparam[6],"TOR",3))
+                  {
+                     sidetop.sc_code_bld[sidetop.nscatm-1] = st_fixed;
+                     sscanf(strparam[7],"%f",
+                            &(sidetop.sc_tors_bld[sidetop.nscatm-1]));
+                     sidetop.sc_tors_bld[sidetop.nscatm-1] *= dtorad;
+                  }
+               }
+               break;
+ 
+/* >>>>>>>> Process print information
+            Syntax: PRINT { ON  }
+                          { OFF }
+*/
+            case 3:
+               for(i=0;i<3;i++) strparam[0][i] = toupper(strparam[0][i]);
+               if(!strncmp(strparam[0],"ON",2))
+               {
+                  prnflg = TRUE;
+               }
+               else if(!strncmp(strparam[0],"OFF",3))
+               {
+                  prnflg = FALSE;
+               }
+               else
+               {
+                  fprintf(out,"Error in STREAD -- Bad print option ==> %s",
+                         strparam[0]);
+                  errcnt++;
+               }
+               break;
+ 
+/* >>>>>>>> Process END command
+            Syntax: END
+*/
+            case 4:
+               eof = TRUE;
+               break;
+ 
+/* >>>>>>>> Anything else, do nothing */
+            default:
+               break;
+         }  /* End of switch() statement */
+      }  /* End of if(!eof) */
+   }  /* End of while() */
+ 
+   /* We've hit the end of the file, so Finish the current residue */
+   if(sidetop.nscres != 0)
+      sidetop.sc_clump_part[sidetop.nscres] = sidetop.nsclmp;
+ 
+   /* and finish the current clump */
+   if(sidetop.nsclmp > 0 &&
+      sidetop.sc_atom_part[sidetop.nsclmp] != sidetop.nscatm)
+   {
+      sidetop.sc_atom_part[sidetop.nsclmp] = sidetop.nscatm;
+      if(sidetop.sc_free_atom[sidetop.nsclmp-1][0] == '\0' &&
+         !(sidetop.sc_special[sidetop.nscres-1]))
+      {
+         fprintf(out,"Error in STREAD -- A clump with no free atoms was \
+detected.\n");
+         errcnt++;
+      }
+   }
+ 
+   /* If errors were encountered, print a message and die */
+   if(errcnt)
+   {
+      fprintf(out,"Message from STREAD -- %3d errors were encountered.\n\
+Execution is being terminated.\n",errcnt);
+      die();
+   }
+ 
+   /* Free returned string array */
+   for(i=0; i<MAXSTRPARAM; i++) free(strparam[i]);
+ 
+   /* The file won't be needed again, so close it */
+   fclose(stunit);
+   stunit = NULL;
+}
+ 
+@

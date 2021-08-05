@@ -1,0 +1,97 @@
+\hypertarget{_calc_cell_trans_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Cell\-Trans.c File Reference}
+\label{_calc_cell_trans_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Cell\-Trans.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Cell\-Trans.\-c}}
+}
+
+
+Calculate offsets for creating a crystal lattice.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fsscanf.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_calc_cell_trans_8c_a96f7337e43ae22e9d8dddf64bfeb1171}{bl\-Calc\-Cell\-Trans} (\hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} Unit\-Cell, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} Cell\-Angles, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$xtrans, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$ytrans, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$ztrans)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calculate offsets for creating a crystal lattice. \begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/1995 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0\-R 12.\-10.\-05 Original
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_calc_cell_trans_8c_source}{Calc\-Cell\-Trans.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_calc_cell_trans_8c_a96f7337e43ae22e9d8dddf64bfeb1171}{\index{Calc\-Cell\-Trans.\-c@{Calc\-Cell\-Trans.\-c}!bl\-Calc\-Cell\-Trans@{bl\-Calc\-Cell\-Trans}}
+\index{bl\-Calc\-Cell\-Trans@{bl\-Calc\-Cell\-Trans}!CalcCellTrans.c@{Calc\-Cell\-Trans.\-c}}
+\subsubsection[{bl\-Calc\-Cell\-Trans}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Calc\-Cell\-Trans (
+\begin{DoxyParamCaption}
+\item[{{\bf V\-E\-C3\-F}}]{Unit\-Cell, }
+\item[{{\bf V\-E\-C3\-F}}]{Cell\-Angles, }
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{xtrans, }
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{ytrans, }
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{ztrans}
+\end{DoxyParamCaption}
+)}}\label{_calc_cell_trans_8c_a96f7337e43ae22e9d8dddf64bfeb1171}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Unit\-Cell} & The unit cell dimensions \\
+\hline
+\mbox{\tt in}  & {\em Cell\-Angles} & The unit cell angles \\
+\hline
+\mbox{\tt out}  & {\em $\ast$xtrans} & Translation to apply along X axis \\
+\hline
+\mbox{\tt out}  & {\em $\ast$ytrans} & Translation to apply along Y axis \\
+\hline
+\mbox{\tt out}  & {\em $\ast$ztrans} & Translation to apply along Z axis\\
+\hline
+\end{DoxyParams}
+Calculates the offsets to apply in X, Y and Z directions for creating a crystal lattice from the unit cell parameters.
+
+
+\begin{DoxyItemize}
+\item 11.\-10.\-95 Original By\-: A\-C\-R\-M, Based losely on code from Rasmol
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 102 of file Calc\-Cell\-Trans.\-c.
+

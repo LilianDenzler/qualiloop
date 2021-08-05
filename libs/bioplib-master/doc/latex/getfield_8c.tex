@@ -1,0 +1,87 @@
+\hypertarget{getfield_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/getfield.c File Reference}
+\label{getfield_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/getfield.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/getfield.\-c}}
+}
+{\ttfamily \#include $<$string.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{getfield_8c_ac8793089a43729df92f62854914dd11a}{bl\-Getfield} (char $\ast$buffer, int start, int width, char $\ast$str)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, University of Reading, 2002-\/14 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 30.\-05.\-02 Original
+\item V1.\-1 18.\-06.\-02 Added string.\-h
+\item V1.\-2 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{getfield_8c_source}{getfield.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{getfield_8c_ac8793089a43729df92f62854914dd11a}{\index{getfield.\-c@{getfield.\-c}!bl\-Getfield@{bl\-Getfield}}
+\index{bl\-Getfield@{bl\-Getfield}!getfield.c@{getfield.\-c}}
+\subsubsection[{bl\-Getfield}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Getfield (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{int}]{start, }
+\item[{int}]{width, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{getfield_8c_ac8793089a43729df92f62854914dd11a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$buffer} & Buffer from which to read a field \\
+\hline
+\mbox{\tt in}  & {\em start} & Starting column (count from 0) \\
+\hline
+\mbox{\tt in}  & {\em width} & Width of field to read \\
+\hline
+\mbox{\tt out}  & {\em $\ast$str} & Field read from buffer\\
+\hline
+\end{DoxyParams}
+Reads a column out of a buffer. If the specfied column extends beyond the size of the buffer, then it will be padded with spaces.
+
+Note that the output string must be of at lease width+1 characters to store the field read from the buffer plus the terminating character.
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 99 of file getfield.\-c.
+

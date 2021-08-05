@@ -1,0 +1,133 @@
+\hypertarget{_rd_s_s_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rd\-S\-S\-P\-D\-B.c File Reference}
+\label{_rd_s_s_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rd\-S\-S\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Rd\-S\-S\-P\-D\-B.\-c}}
+}
+
+
+Read disulphide information from header records of a P\-D\-B file.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fsscanf.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_rd_s_s_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~160
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_adc165a511e8de995b79f8ae155ddc78a}{D\-I\-S\-U\-L\-P\-H\-I\-D\-E} $\ast$ \hyperlink{_rd_s_s_p_d_b_8c_a276c10597c8d0404d380466286f45f0e}{bl\-Read\-Disulphides\-P\-D\-B} (F\-I\-L\-E $\ast$fp, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} $\ast$error)
+\item 
+\hyperlink{pdb_8h_adc165a511e8de995b79f8ae155ddc78a}{D\-I\-S\-U\-L\-P\-H\-I\-D\-E} $\ast$ \hyperlink{_rd_s_s_p_d_b_8c_a625b0cfdb07d179234c2399a02f035c5}{bl\-Read\-Disulphides\-Whole\-P\-D\-B} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} $\ast$error)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read disulphide information from header records of a P\-D\-B file. \begin{DoxyVersion}{Version}
+V1.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+26.\-02.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Read the header records of a P\-D\-B file to find disulphide information. Builds a linked list of type D\-I\-S\-U\-L\-P\-H\-I\-D\-E.
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+V1.\-0 14.\-10.\-93 Original By\-: A\-C\-R\-M V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P V1.\-2 26.\-02.\-15 Added \hyperlink{pdb_8h_a625b0cfdb07d179234c2399a02f035c5}{bl\-Read\-Disulphides\-Whole\-P\-D\-B()} 
+
+Definition in file \hyperlink{_rd_s_s_p_d_b_8c_source}{Rd\-S\-S\-P\-D\-B.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_rd_s_s_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{Rd\-S\-S\-P\-D\-B.\-c@{Rd\-S\-S\-P\-D\-B.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!RdSSPDB.c@{Rd\-S\-S\-P\-D\-B.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~160}}\label{_rd_s_s_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 85 of file Rd\-S\-S\-P\-D\-B.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_rd_s_s_p_d_b_8c_a276c10597c8d0404d380466286f45f0e}{\index{Rd\-S\-S\-P\-D\-B.\-c@{Rd\-S\-S\-P\-D\-B.\-c}!bl\-Read\-Disulphides\-P\-D\-B@{bl\-Read\-Disulphides\-P\-D\-B}}
+\index{bl\-Read\-Disulphides\-P\-D\-B@{bl\-Read\-Disulphides\-P\-D\-B}!RdSSPDB.c@{Rd\-S\-S\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-Disulphides\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\-I\-S\-U\-L\-P\-H\-I\-D\-E}$\ast$ bl\-Read\-Disulphides\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf B\-O\-O\-L} $\ast$}]{error}
+\end{DoxyParamCaption}
+)}}\label{_rd_s_s_p_d_b_8c_a276c10597c8d0404d380466286f45f0e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & P\-D\-B file pointer \\
+\hline
+\mbox{\tt out}  & {\em $\ast$error} & Success \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked list of disulphide information. N\-U\-L\-L if none found or error (Check flag)
+\end{DoxyReturn}
+Searches a P\-D\-B file for S\-S\-B\-O\-N\-D records and constructs a linked list of information from these records. Returns N\-U\-L\-L if no disulphide information found. If memory allocation fails, the D\-I\-S\-U\-L\-P\-H\-I\-D\-E linked list formed thus far is returned and the error flag is set to T\-R\-U\-E
+
+
+\begin{DoxyItemize}
+\item 14.\-10.\-93 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 114 of file Rd\-S\-S\-P\-D\-B.\-c.
+
+\hypertarget{_rd_s_s_p_d_b_8c_a625b0cfdb07d179234c2399a02f035c5}{\index{Rd\-S\-S\-P\-D\-B.\-c@{Rd\-S\-S\-P\-D\-B.\-c}!bl\-Read\-Disulphides\-Whole\-P\-D\-B@{bl\-Read\-Disulphides\-Whole\-P\-D\-B}}
+\index{bl\-Read\-Disulphides\-Whole\-P\-D\-B@{bl\-Read\-Disulphides\-Whole\-P\-D\-B}!RdSSPDB.c@{Rd\-S\-S\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-Disulphides\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\-I\-S\-U\-L\-P\-H\-I\-D\-E}$\ast$ bl\-Read\-Disulphides\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{{\bf B\-O\-O\-L} $\ast$}]{error}
+\end{DoxyParamCaption}
+)}}\label{_rd_s_s_p_d_b_8c_a625b0cfdb07d179234c2399a02f035c5}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & Whole P\-D\-B structure \\
+\hline
+\mbox{\tt out}  & {\em $\ast$error} & Success \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked list of disulphide information. N\-U\-L\-L if none found or error (Check flag)
+\end{DoxyReturn}
+Searches the headers in a W\-H\-O\-L\-E\-P\-D\-B structure for S\-S\-B\-O\-N\-D records and constructs a linked list of information from these records. Returns N\-U\-L\-L if no disulphide information found. If memory allocation fails, the D\-I\-S\-U\-L\-P\-H\-I\-D\-E linked list formed thus far is returned and the error flag is set to T\-R\-U\-E
+
+
+\begin{DoxyItemize}
+\item 26.\-02.\-15 Original based on \hyperlink{pdb_8h_a276c10597c8d0404d380466286f45f0e}{bl\-Read\-Disulphides\-P\-D\-B()} By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 174 of file Rd\-S\-S\-P\-D\-B.\-c.
+

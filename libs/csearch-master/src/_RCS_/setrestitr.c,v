@@ -1,0 +1,61 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.45;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Parses the restart string, and loads the degrees of freedom with
+   the values found. 
+   24.05.94 Corrected sscanf() call    By: ACRM
+*/
+ 
+void  setrestitr(
+void
+)
+{
+   struct dof *p;
+#define WDMAX 80
+   char wd[WDMAX];
+   int wdmax = WDMAX;
+#undef WDMAX
+   char *cp;
+ 
+   cp = cg.restart_st;
+   cp[cg.restart_stlen] = '\0';
+
+
+   for (p=dof_head; p; p = p->next)
+   {
+      mynextwd(&cp,wd);
+      p->restart_iter = 0;
+      if (strlen(wd) > 0)
+      {
+/* ACRM 24.05.94
+//        sscanf(wd,"%d",p->restart_iter);
+*/
+          sscanf(wd,"%d",&(p->restart_iter));
+      }
+   }
+}
+ 
+@

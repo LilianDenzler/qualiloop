@@ -1,0 +1,360 @@
+\hypertarget{cssr_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/cssr.h File Reference}
+\label{cssr_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/cssr.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/cssr.\-h}}
+}
+
+
+Defines for C\-S\-S\-R handling.  
+
+
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcssr__entry}{cssr\-\_\-entry}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cssr_8h_aa01429654ebef50d3f2db3a8553612b0}{C\-L\-E\-A\-R\-\_\-\-C\-S\-S\-R}(p)
+\item 
+\#define \hyperlink{cssr_8h_a1155ace9485ce678833f96a2352db1b1}{\-\_\-\-C\-S\-S\-R\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structcssr__entry}{cssr\-\_\-entry} \hyperlink{cssr_8h_abe57ac43ae0fa2b9edd3eb628ed0cc38}{C\-S\-S\-R}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{cssr_8h_abe57ac43ae0fa2b9edd3eb628ed0cc38}{C\-S\-S\-R} $\ast$ \hyperlink{cssr_8h_abe0c4e2d63f57318b309a5ae55b6aec3}{bl\-Read\-C\-S\-S\-R} (F\-I\-L\-E $\ast$fp, int $\ast$natom, char $\ast$name, char $\ast$title)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{cssr_8h_aee7acce9da0fc46eab7f6251890b06a7}{bl\-Read\-C\-S\-S\-Ras\-P\-D\-B} (F\-I\-L\-E $\ast$fp, int $\ast$natom)
+\item 
+void \hyperlink{cssr_8h_a68debd234d6b82467b7f86d07957fb8b}{bl\-Normalise\-C\-S\-S\-R} (\hyperlink{cssr_8h_abe57ac43ae0fa2b9edd3eb628ed0cc38}{C\-S\-S\-R} $\ast$cssr, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} cell\mbox{[}3\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} alpha, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} beta, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} gamma)
+\item 
+void \hyperlink{cssr_8h_a647b405d5b4a6ef77dd4ca7278e7f282}{bl\-Normalise\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} cell\mbox{[}3\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} alpha, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} beta, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} gamma)
+\item 
+void \hyperlink{cssr_8h_a8266255c8dd56c4c05d5268107b4d97a}{bl\-Ortho} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} cell\mbox{[}3\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} alpha, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} beta, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} gamma, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} amatrx\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, int isw, int ncode)
+\item 
+void \hyperlink{cssr_8h_aa2c2a7075b5bd05bb631d47a7582ca0b}{bl\-Write\-C\-S\-S\-R} (F\-I\-L\-E $\ast$fp, \hyperlink{cssr_8h_abe57ac43ae0fa2b9edd3eb628ed0cc38}{C\-S\-S\-R} $\ast$cssr, char $\ast$name, char $\ast$title)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines for C\-S\-S\-R handling. \begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Sci\-Tech Software 1991-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Structure definitions for Read\-C\-S\-S\-R()
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-2 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-3 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{cssr_8h_source}{cssr.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{cssr_8h_a1155ace9485ce678833f96a2352db1b1}{\index{cssr.\-h@{cssr.\-h}!\-\_\-\-C\-S\-S\-R\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-C\-S\-S\-R\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-C\-S\-S\-R\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-C\-S\-S\-R\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!cssr.h@{cssr.\-h}}
+\subsubsection[{\-\_\-\-C\-S\-S\-R\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-C\-S\-S\-R\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{cssr_8h_a1155ace9485ce678833f96a2352db1b1}
+
+
+Definition at line 101 of file cssr.\-h.
+
+\hypertarget{cssr_8h_aa01429654ebef50d3f2db3a8553612b0}{\index{cssr.\-h@{cssr.\-h}!C\-L\-E\-A\-R\-\_\-\-C\-S\-S\-R@{C\-L\-E\-A\-R\-\_\-\-C\-S\-S\-R}}
+\index{C\-L\-E\-A\-R\-\_\-\-C\-S\-S\-R@{C\-L\-E\-A\-R\-\_\-\-C\-S\-S\-R}!cssr.h@{cssr.\-h}}
+\subsubsection[{C\-L\-E\-A\-R\-\_\-\-C\-S\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-L\-E\-A\-R\-\_\-\-C\-S\-S\-R(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)}}\label{cssr_8h_aa01429654ebef50d3f2db3a8553612b0}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+p->atnum=0; \(\backslash\)
+                      strcpy(p->atnam,\textcolor{stringliteral}{"    "}); \(\backslash\)
+                      p->group=0; \(\backslash\)
+                      p->x = 0.0; p->y = 0.0; p->z = 0.0; \(\backslash\)
+                      p->charge = 0.0; \(\backslash\)
+                      p->link[0] = p->link[1] = p->link[2] = p->link[3] = 0; \(\backslash\)
+                      p->link[4] = p->link[5] = p->link[6] = p->link[7] = 0; \(\backslash\)
+                      p->next = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}
+\end{DoxyCode}
+
+
+Definition at line 76 of file cssr.\-h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{cssr_8h_abe57ac43ae0fa2b9edd3eb628ed0cc38}{\index{cssr.\-h@{cssr.\-h}!C\-S\-S\-R@{C\-S\-S\-R}}
+\index{C\-S\-S\-R@{C\-S\-S\-R}!cssr.h@{cssr.\-h}}
+\subsubsection[{C\-S\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf cssr\-\_\-entry} {\bf C\-S\-S\-R}}}\label{cssr_8h_abe57ac43ae0fa2b9edd3eb628ed0cc38}
+
+
+Definition at line 74 of file cssr.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{cssr_8h_a68debd234d6b82467b7f86d07957fb8b}{\index{cssr.\-h@{cssr.\-h}!bl\-Normalise\-C\-S\-S\-R@{bl\-Normalise\-C\-S\-S\-R}}
+\index{bl\-Normalise\-C\-S\-S\-R@{bl\-Normalise\-C\-S\-S\-R}!cssr.h@{cssr.\-h}}
+\subsubsection[{bl\-Normalise\-C\-S\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Normalise\-C\-S\-S\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-S\-S\-R} $\ast$}]{cssr, }
+\item[{{\bf R\-E\-A\-L}}]{cell\mbox{[}3\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{alpha, }
+\item[{{\bf R\-E\-A\-L}}]{beta, }
+\item[{{\bf R\-E\-A\-L}}]{gamma}
+\end{DoxyParamCaption}
+)}}\label{cssr_8h_a68debd234d6b82467b7f86d07957fb8b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$cssr} & Pointer to C\-S\-S\-R linked list \\
+\hline
+\mbox{\tt in}  & {\em cell} & Unit cell dimensions \\
+\hline
+\mbox{\tt in}  & {\em alpha} & Unit cell angles \\
+\hline
+\mbox{\tt in}  & {\em beta} & \\
+\hline
+\mbox{\tt in}  & {\em gamma} & Convert a C\-S\-S\-R linked list in fractional coordinates to orthonormal\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original
+\item 01.\-06.\-92 Documented
+\item 10.\-06.\-93 void return
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 513 of file Read\-C\-S\-S\-R.\-c.
+
+\hypertarget{cssr_8h_a647b405d5b4a6ef77dd4ca7278e7f282}{\index{cssr.\-h@{cssr.\-h}!bl\-Normalise\-P\-D\-B@{bl\-Normalise\-P\-D\-B}}
+\index{bl\-Normalise\-P\-D\-B@{bl\-Normalise\-P\-D\-B}!cssr.h@{cssr.\-h}}
+\subsubsection[{bl\-Normalise\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Normalise\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf R\-E\-A\-L}}]{cell\mbox{[}3\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{alpha, }
+\item[{{\bf R\-E\-A\-L}}]{beta, }
+\item[{{\bf R\-E\-A\-L}}]{gamma}
+\end{DoxyParamCaption}
+)}}\label{cssr_8h_a647b405d5b4a6ef77dd4ca7278e7f282}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & Pointer to P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em cell} & Unit cell dimensions \\
+\hline
+\mbox{\tt in}  & {\em alpha} & Unit cell angles \\
+\hline
+\mbox{\tt in}  & {\em beta} & \\
+\hline
+\mbox{\tt in}  & {\em gamma} & Convert a P\-D\-B linked list in fractional cooridinates to orthonormal\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original
+\item 01.\-06.\-92 Documented
+\item 10.\-06.\-93 void return
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 574 of file Read\-C\-S\-S\-R.\-c.
+
+\hypertarget{cssr_8h_a8266255c8dd56c4c05d5268107b4d97a}{\index{cssr.\-h@{cssr.\-h}!bl\-Ortho@{bl\-Ortho}}
+\index{bl\-Ortho@{bl\-Ortho}!cssr.h@{cssr.\-h}}
+\subsubsection[{bl\-Ortho}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Ortho (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{cell\mbox{[}3\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{alpha, }
+\item[{{\bf R\-E\-A\-L}}]{beta, }
+\item[{{\bf R\-E\-A\-L}}]{gamma, }
+\item[{{\bf R\-E\-A\-L}}]{amatrx\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, }
+\item[{int}]{isw, }
+\item[{int}]{ncode}
+\end{DoxyParamCaption}
+)}}\label{cssr_8h_a8266255c8dd56c4c05d5268107b4d97a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cell} & Unit cell dimensions \\
+\hline
+\mbox{\tt in}  & {\em alpha} & Unit cell angles \\
+\hline
+\mbox{\tt in}  & {\em beta} & \\
+\hline
+\mbox{\tt in}  & {\em gamma} & \\
+\hline
+\mbox{\tt out}  & {\em amatrx} & Returned conversion matrix \\
+\hline
+\mbox{\tt in}  & {\em isw} & 0\-: Frac--$>$Ortho, 1\-: Ortho--$>$Frac \\
+\hline
+\mbox{\tt in}  & {\em ncode} & Orientation of reciprocal axes wrt true axes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyVerb}   ncode    Orientation of reciprocal axes wrt true axes.
+
+                              1: a || xo,          c* || zo
+                              2: b || xo,          a* || zo
+                              3: c || xo,          b* || zo
+                              4: hex a & b || xo,  c* || zo
+                              5: a* || xo,         c  || zo
+\end{DoxyVerb}
+
+
+Function to calculate a matrix which will convert between fractional and orthonormal coordinates given unit cell dimensions and angles. ncode defines the orientation of the reciprocal axes wrt the real axes.
+
+See Rollett `\-Computing Methods in Crystallography' p.\-23
+
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original
+\item 01.\-06.\-92 Documented
+\item 10.\-06.\-93 void return
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 643 of file Read\-C\-S\-S\-R.\-c.
+
+\hypertarget{cssr_8h_abe0c4e2d63f57318b309a5ae55b6aec3}{\index{cssr.\-h@{cssr.\-h}!bl\-Read\-C\-S\-S\-R@{bl\-Read\-C\-S\-S\-R}}
+\index{bl\-Read\-C\-S\-S\-R@{bl\-Read\-C\-S\-S\-R}!cssr.h@{cssr.\-h}}
+\subsubsection[{bl\-Read\-C\-S\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-S\-S\-R}$\ast$ bl\-Read\-C\-S\-S\-R (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int $\ast$}]{natom, }
+\item[{char $\ast$}]{name, }
+\item[{char $\ast$}]{title}
+\end{DoxyParamCaption}
+)}}\label{cssr_8h_abe0c4e2d63f57318b309a5ae55b6aec3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E in which the C\-S\-S\-R file is stored. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms read. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$name} & The molecule's name. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$title} & Title on the molecule.\\
+\hline
+\end{DoxyParams}
+Read a C\-S\-S\-R file into a C\-S\-S\-R linked list
+
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original
+\item 24.\-01.\-92 Fixed for blank link columns (V1.\-1)
+\item 01.\-06.\-92 Documented
+\item 10.\-06.\-93 Returns T\-R\-U\-E or F\-A\-L\-S\-E to indicate success
+\item 09.\-07.\-93 Changed allocation scheme. Now returns pointer to start of list. No need to call init\-\_\-cssr
+\item 13.\-07.\-93 Returns N\-U\-L\-L if allocation failed
+\item 27.\-07.\-93 Changed I/\-O to double precision
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 224 of file Read\-C\-S\-S\-R.\-c.
+
+\hypertarget{cssr_8h_aee7acce9da0fc46eab7f6251890b06a7}{\index{cssr.\-h@{cssr.\-h}!bl\-Read\-C\-S\-S\-Ras\-P\-D\-B@{bl\-Read\-C\-S\-S\-Ras\-P\-D\-B}}
+\index{bl\-Read\-C\-S\-S\-Ras\-P\-D\-B@{bl\-Read\-C\-S\-S\-Ras\-P\-D\-B}!cssr.h@{cssr.\-h}}
+\subsubsection[{bl\-Read\-C\-S\-S\-Ras\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Read\-C\-S\-S\-Ras\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int $\ast$}]{natom}
+\end{DoxyParamCaption}
+)}}\label{cssr_8h_aee7acce9da0fc46eab7f6251890b06a7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E in which the C\-S\-S\-R file is stored. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the first allocated item of the P\-D\-B linked list
+\end{DoxyReturn}
+Read a C\-S\-S\-R file into a P\-D\-B linked list
+
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original
+\item 01.\-06.\-92 Documented
+\item 10.\-06.\-93 Returns T\-R\-U\-E or F\-A\-L\-S\-E to indicate success
+\item 09.\-07.\-93 Changed allocation scheme. Now returns pointer to start of list. No need to call init\-\_\-pdb
+\item 13.\-07.\-93 Returns N\-U\-L\-L if allocation failed
+\item 27.\-07.\-93 Changed I/\-O to double precision
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 15.\-08.\-14 Use \hyperlink{pdb_8h_aa060eecccbc29f0bfbbaf442b42d0cdc}{C\-L\-E\-A\-R\-\_\-\-P\-D\-B()} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 368 of file Read\-C\-S\-S\-R.\-c.
+
+\hypertarget{cssr_8h_aa2c2a7075b5bd05bb631d47a7582ca0b}{\index{cssr.\-h@{cssr.\-h}!bl\-Write\-C\-S\-S\-R@{bl\-Write\-C\-S\-S\-R}}
+\index{bl\-Write\-C\-S\-S\-R@{bl\-Write\-C\-S\-S\-R}!cssr.h@{cssr.\-h}}
+\subsubsection[{bl\-Write\-C\-S\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-C\-S\-S\-R (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf C\-S\-S\-R} $\ast$}]{cssr, }
+\item[{char $\ast$}]{name, }
+\item[{char $\ast$}]{title}
+\end{DoxyParamCaption}
+)}}\label{cssr_8h_aa2c2a7075b5bd05bb631d47a7582ca0b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E in which the C\-S\-S\-R file is stored. \\
+\hline
+\mbox{\tt in}  & {\em $\ast$cssr} & A pointer to the first allocated item of the C\-S\-S\-R linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$name} & The molecule's name. \\
+\hline
+\mbox{\tt in}  & {\em $\ast$title} & Title on the molecule.\\
+\hline
+\end{DoxyParams}
+Write a C\-S\-S\-R file from a C\-S\-S\-R linked list.
+
+
+\begin{DoxyItemize}
+\item 22.\-09.\-91 Original
+\item 01.\-06.\-92 Autodoc'd
+\item 10.\-06.\-93 void return; float-\/$>$R\-E\-A\-L
+\item 27.\-07.\-93 f -\/$>$ lf
+\item 01.\-03.\-94 lf -\/$>$ f (!)
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 130 of file Wrt\-C\-S\-S\-R.\-c.
+

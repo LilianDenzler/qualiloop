@@ -1,0 +1,170 @@
+\hypertarget{_gly_c_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Gly\-C\-B.c File Reference}
+\label{_gly_c_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Gly\-C\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Gly\-C\-B.\-c}}
+}
+
+
+Add C-\/beta atoms to glycines as pseudo-\/atoms for use in orientating residues.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_gly_c_b_8c_a27c6425589c781b8bf07c69089f9203b}{B\-O\-N\-D\-L\-E\-N}~1.\-524
+\item 
+\#define \hyperlink{_gly_c_b_8c_af5abd28c44c29b7397c84f1fec4b1d84}{A\-L\-P\-H\-A}~54.\-7
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_gly_c_b_8c_a28b7203795311090e0943b009e73d02f}{bl\-Add\-C\-Bto\-Gly} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_gly_c_b_8c_a7b43af52eac87cfb119df424f5decf09}{bl\-Add\-C\-Bto\-All\-Gly} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_gly_c_b_8c_adfc62e26d10e79cb158c96b78b3abbdc}{bl\-Strip\-Gly\-C\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Add C-\/beta atoms to glycines as pseudo-\/atoms for use in orientating residues. \begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, U\-C\-L, 2006-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Based on the code from \hyperlink{_h_add_p_d_b_8c}{H\-Add\-P\-D\-B.\-c} adds a C-\/beta to one or all glycine residues.
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item 04.\-01.\-06 V1.\-0 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 V1.\-1 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_gly_c_b_8c_source}{Gly\-C\-B.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_gly_c_b_8c_af5abd28c44c29b7397c84f1fec4b1d84}{\index{Gly\-C\-B.\-c@{Gly\-C\-B.\-c}!A\-L\-P\-H\-A@{A\-L\-P\-H\-A}}
+\index{A\-L\-P\-H\-A@{A\-L\-P\-H\-A}!GlyCB.c@{Gly\-C\-B.\-c}}
+\subsubsection[{A\-L\-P\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-P\-H\-A~54.\-7}}\label{_gly_c_b_8c_af5abd28c44c29b7397c84f1fec4b1d84}
+
+
+Definition at line 88 of file Gly\-C\-B.\-c.
+
+\hypertarget{_gly_c_b_8c_a27c6425589c781b8bf07c69089f9203b}{\index{Gly\-C\-B.\-c@{Gly\-C\-B.\-c}!B\-O\-N\-D\-L\-E\-N@{B\-O\-N\-D\-L\-E\-N}}
+\index{B\-O\-N\-D\-L\-E\-N@{B\-O\-N\-D\-L\-E\-N}!GlyCB.c@{Gly\-C\-B.\-c}}
+\subsubsection[{B\-O\-N\-D\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-O\-N\-D\-L\-E\-N~1.\-524}}\label{_gly_c_b_8c_a27c6425589c781b8bf07c69089f9203b}
+
+
+Definition at line 87 of file Gly\-C\-B.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_gly_c_b_8c_a7b43af52eac87cfb119df424f5decf09}{\index{Gly\-C\-B.\-c@{Gly\-C\-B.\-c}!bl\-Add\-C\-Bto\-All\-Gly@{bl\-Add\-C\-Bto\-All\-Gly}}
+\index{bl\-Add\-C\-Bto\-All\-Gly@{bl\-Add\-C\-Bto\-All\-Gly}!GlyCB.c@{Gly\-C\-B.\-c}}
+\subsubsection[{bl\-Add\-C\-Bto\-All\-Gly}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Add\-C\-Bto\-All\-Gly (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_gly_c_b_8c_a7b43af52eac87cfb119df424f5decf09}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & The P\-D\-B linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Adds a C\-B atom to all glycines in a P\-D\-B linked list. This is used when one needs to orientate a residue in a common frame of reference which makes use of the C\-B.
+
+
+\begin{DoxyItemize}
+\item 04.\-01.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 239 of file Gly\-C\-B.\-c.
+
+\hypertarget{_gly_c_b_8c_a28b7203795311090e0943b009e73d02f}{\index{Gly\-C\-B.\-c@{Gly\-C\-B.\-c}!bl\-Add\-C\-Bto\-Gly@{bl\-Add\-C\-Bto\-Gly}}
+\index{bl\-Add\-C\-Bto\-Gly@{bl\-Add\-C\-Bto\-Gly}!GlyCB.c@{Gly\-C\-B.\-c}}
+\subsubsection[{bl\-Add\-C\-Bto\-Gly}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Add\-C\-Bto\-Gly (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_gly_c_b_8c_a28b7203795311090e0943b009e73d02f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & The P\-D\-B linked list for a Glycine \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Adds a C\-B atom to a glycine. This is used when one needs to orientate a residue in a common frame of reference which makes use of the C\-B.
+
+
+\begin{DoxyItemize}
+\item 04.\-01.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 112 of file Gly\-C\-B.\-c.
+
+\hypertarget{_gly_c_b_8c_adfc62e26d10e79cb158c96b78b3abbdc}{\index{Gly\-C\-B.\-c@{Gly\-C\-B.\-c}!bl\-Strip\-Gly\-C\-B@{bl\-Strip\-Gly\-C\-B}}
+\index{bl\-Strip\-Gly\-C\-B@{bl\-Strip\-Gly\-C\-B}!GlyCB.c@{Gly\-C\-B.\-c}}
+\subsubsection[{bl\-Strip\-Gly\-C\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Strip\-Gly\-C\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_gly_c_b_8c_adfc62e26d10e79cb158c96b78b3abbdc}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & The P\-D\-B linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified linked list
+\end{DoxyReturn}
+Removes all Glycine C\-B pseudo-\/atoms added by Add\-Gly\-C\-B() The linked list is modified in-\/place, but the return value should be used in case the very first item in the linked list is a Gly-\/\-C\-B which will be removed by the code.
+
+
+\begin{DoxyItemize}
+\item 04.\-01.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 271 of file Gly\-C\-B.\-c.
+

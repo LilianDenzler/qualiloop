@@ -1,0 +1,103 @@
+\hypertarget{_calc_chi_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Chi\-P\-D\-B.c File Reference}
+\label{_calc_chi_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Chi\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Chi\-P\-D\-B.\-c}}
+}
+
+
+Perform calculations on P\-D\-B linked list.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}angle.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{_calc_chi_p_d_b_8c_a48531e2570264f5426ebdee25154843c}{bl\-Calc\-Chi} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, int type)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Perform calculations on P\-D\-B linked list. \begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-12.\-16 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2016 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 22.\-02.\-94 Original
+\item V1.\-1 27.\-02.\-98 Removed unreachable break from switch()
+\item V1.\-2 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-3 14.\-12.\-16 \hyperlink{_calc_chi_p_d_b_8c_a48531e2570264f5426ebdee25154843c}{bl\-Calc\-Chi()} now checks that all atoms found By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_calc_chi_p_d_b_8c_source}{Calc\-Chi\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_calc_chi_p_d_b_8c_a48531e2570264f5426ebdee25154843c}{\index{Calc\-Chi\-P\-D\-B.\-c@{Calc\-Chi\-P\-D\-B.\-c}!bl\-Calc\-Chi@{bl\-Calc\-Chi}}
+\index{bl\-Calc\-Chi@{bl\-Calc\-Chi}!CalcChiPDB.c@{Calc\-Chi\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Calc\-Chi}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Calc\-Chi (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{_calc_chi_p_d_b_8c_a48531e2570264f5426ebdee25154843c}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em type} & Torsion type (see below) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Torsion angle
+\end{DoxyReturn}
+Calculates a sidechain torsion angle from a pdb linked list. The atoms to be included in the calculation are specified by type.
+
+\begin{DoxyVerb}     type     Atom names        Sequential atom numbers
+     --------------------------------------------------
+     0        N,  CA, CB, XG    (0 - 1 - 4 - 5)
+     1        CA, CB, XG, XD    (1 - 4 - 5 - 6)
+     2        CB, XG, XD, XE    (4 - 5 - 6 - 7)
+     3        XG, XD, XE, XZ    (5 - 6 - 7 - 8)
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item 13.\-05.\-92 Original
+\item 27.\-02.\-98 Removed unreachable break from switch()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 14.\-12.\-16 Added check that all atoms are found Returns 9999.\-0 if any atom not found By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 111 of file Calc\-Chi\-P\-D\-B.\-c.
+

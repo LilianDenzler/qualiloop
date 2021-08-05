@@ -1,0 +1,162 @@
+\hypertarget{_buff_inp_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Buff\-Inp.c File Reference}
+\label{_buff_inp_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Buff\-Inp.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Buff\-Inp.\-c}}
+}
+
+
+Read from a file a line at a time, allowing one to probe ahead and look at the contants of the next line without removing it from the input stream.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Buff\-Inp.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Wind\-I\-O.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_i_n_b_u_f_f_e_r}{I\-N\-B\-U\-F\-F\-E\-R} $\ast$ \hyperlink{_buff_inp_8c_a9ec25032825fb56fe71a253208df0823}{bl\-Open\-Buffered\-File} (char $\ast$filename, int maxstr)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_buff_inp_8c_a864c0d980dc89905ca299967b0fd8f48}{bl\-Read\-Buffered\-File} (\hyperlink{struct_i_n_b_u_f_f_e_r}{I\-N\-B\-U\-F\-F\-E\-R} $\ast$bfp, char $\ast$string, int length)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_buff_inp_8c_af2f8ac1768c69aa27b560682db7edd21}{bl\-Probe\-Buffered\-File} (\hyperlink{struct_i_n_b_u_f_f_e_r}{I\-N\-B\-U\-F\-F\-E\-R} $\ast$bfp, char $\ast$string, int length)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read from a file a line at a time, allowing one to probe ahead and look at the contants of the next line without removing it from the input stream. \begin{DoxyVersion}{Version}
+V1.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1994-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 08.\-03.\-94 Original
+\item V1.\-1 11.\-03.\-94 Changes to Read\-Buffered\-File() and Probe\-Buffered\-File() to Re\-Prompt() if reading from stdin when we get a blank line
+\item V1.\-2 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_buff_inp_8c_source}{Buff\-Inp.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_buff_inp_8c_a9ec25032825fb56fe71a253208df0823}{\index{Buff\-Inp.\-c@{Buff\-Inp.\-c}!bl\-Open\-Buffered\-File@{bl\-Open\-Buffered\-File}}
+\index{bl\-Open\-Buffered\-File@{bl\-Open\-Buffered\-File}!BuffInp.c@{Buff\-Inp.\-c}}
+\subsubsection[{bl\-Open\-Buffered\-File}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-N\-B\-U\-F\-F\-E\-R}$\ast$ bl\-Open\-Buffered\-File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{int}]{maxstr}
+\end{DoxyParamCaption}
+)}}\label{_buff_inp_8c_a9ec25032825fb56fe71a253208df0823}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$filename} & File name \\
+\hline
+\mbox{\tt in}  & {\em maxstr} & Max string length in file for buffering \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a buffered file
+\end{DoxyReturn}
+Open a file for buffered input. This allows probe-\/ahead to look at the contents of the next line without removing it from the input stream.
+
+
+\begin{DoxyItemize}
+\item 28.\-02.\-94 Original By\-: A\-C\-R\-M
+\item 03.\-03.\-94 If filename is N\-U\-L\-L, make file stdin
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 115 of file Buff\-Inp.\-c.
+
+\hypertarget{_buff_inp_8c_af2f8ac1768c69aa27b560682db7edd21}{\index{Buff\-Inp.\-c@{Buff\-Inp.\-c}!bl\-Probe\-Buffered\-File@{bl\-Probe\-Buffered\-File}}
+\index{bl\-Probe\-Buffered\-File@{bl\-Probe\-Buffered\-File}!BuffInp.c@{Buff\-Inp.\-c}}
+\subsubsection[{bl\-Probe\-Buffered\-File}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Probe\-Buffered\-File (
+\begin{DoxyParamCaption}
+\item[{{\bf I\-N\-B\-U\-F\-F\-E\-R} $\ast$}]{bfp, }
+\item[{char $\ast$}]{string, }
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}}\label{_buff_inp_8c_af2f8ac1768c69aa27b560682db7edd21}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$bfp} & Pointer to a buffered file structure \\
+\hline
+\mbox{\tt in}  & {\em length} & Size of output string \\
+\hline
+\mbox{\tt out}  & {\em $\ast$string} & Output string read from file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\-R\-U\-E\-: Successful read F\-A\-L\-S\-E\-: End of file (or error)
+\end{DoxyReturn}
+Read the next line from a buffered file without removing it from the input stream. Repeated calls will thus return the same string. The next call to Read\-Buffered\-File will also output the same string, but will remove the line from the input stream. Blank lines in the file will be skipped.
+
+
+\begin{DoxyItemize}
+\item 28.\-02.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-03.\-94 Added code to skip blank lines
+\item 10.\-03.\-94 Added call to Re\-Prompt() after blank line
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 217 of file Buff\-Inp.\-c.
+
+\hypertarget{_buff_inp_8c_a864c0d980dc89905ca299967b0fd8f48}{\index{Buff\-Inp.\-c@{Buff\-Inp.\-c}!bl\-Read\-Buffered\-File@{bl\-Read\-Buffered\-File}}
+\index{bl\-Read\-Buffered\-File@{bl\-Read\-Buffered\-File}!BuffInp.c@{Buff\-Inp.\-c}}
+\subsubsection[{bl\-Read\-Buffered\-File}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Read\-Buffered\-File (
+\begin{DoxyParamCaption}
+\item[{{\bf I\-N\-B\-U\-F\-F\-E\-R} $\ast$}]{bfp, }
+\item[{char $\ast$}]{string, }
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}}\label{_buff_inp_8c_a864c0d980dc89905ca299967b0fd8f48}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$bfp} & Pointer to a buffered file structure \\
+\hline
+\mbox{\tt in}  & {\em length} & Size of output string \\
+\hline
+\mbox{\tt out}  & {\em $\ast$string} & Output string read from file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\-R\-U\-E\-: Successful read F\-A\-L\-S\-E\-: End of file (or error)
+\end{DoxyReturn}
+Reads a line from a buffered file (like fgets()). Blank lines in the file will be skipped.
+
+
+\begin{DoxyItemize}
+\item 28.\-02.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-03.\-94 Added code to skip blank lines
+\item 10.\-03.\-94 Added call to Re\-Prompt() if we're reading from stdin and we get a blank line
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 161 of file Buff\-Inp.\-c.
+

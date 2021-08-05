@@ -1,0 +1,151 @@
+\hypertarget{stringutil_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/stringutil.c File Reference}
+\label{stringutil_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/stringutil.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/stringutil.\-c}}
+}
+
+
+String utilities.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stringutil_8c_abdf813ae969421add7c4be8f806be018}{M\-A\-X\-W\-O\-R\-D}~8
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{stringutil_8c_a2f9caac3ea9d130adfb79dc3d8dd44f7}{bl\-Collapse\-Spaces} (char $\ast$in\-Text)
+\item 
+char $\ast$ \hyperlink{stringutil_8c_aa78d7f1c3e3e9c611b6ebf61475ed358}{bl\-Strdup} (char $\ast$instr)
+\item 
+char $\ast$ \hyperlink{stringutil_8c_adfc7bbb71e472cb8edba7bbcd0f3e772}{bl\-Remove\-Spaces} (char $\ast$in\-Text)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+String utilities. \begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+10.\-11.\-17 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C.\-R. Martin, 2015-\/2017 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+See documentation for details
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 28.\-04.\-15 Original
+\item V1.\-1 10.\-11.\-17 Added \hyperlink{general_8h_adfc7bbb71e472cb8edba7bbcd0f3e772}{bl\-Remove\-Spaces()} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{stringutil_8c_source}{stringutil.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{stringutil_8c_abdf813ae969421add7c4be8f806be018}{\index{stringutil.\-c@{stringutil.\-c}!M\-A\-X\-W\-O\-R\-D@{M\-A\-X\-W\-O\-R\-D}}
+\index{M\-A\-X\-W\-O\-R\-D@{M\-A\-X\-W\-O\-R\-D}!stringutil.c@{stringutil.\-c}}
+\subsubsection[{M\-A\-X\-W\-O\-R\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-W\-O\-R\-D~8}}\label{stringutil_8c_abdf813ae969421add7c4be8f806be018}
+
+
+Definition at line 85 of file stringutil.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{stringutil_8c_a2f9caac3ea9d130adfb79dc3d8dd44f7}{\index{stringutil.\-c@{stringutil.\-c}!bl\-Collapse\-Spaces@{bl\-Collapse\-Spaces}}
+\index{bl\-Collapse\-Spaces@{bl\-Collapse\-Spaces}!stringutil.c@{stringutil.\-c}}
+\subsubsection[{bl\-Collapse\-Spaces}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Collapse\-Spaces (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{in\-Text}
+\end{DoxyParamCaption}
+)}}\label{stringutil_8c_a2f9caac3ea9d130adfb79dc3d8dd44f7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$in\-Text} & Input text string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+malloc()'d string with multiple spaces collapsed
+\end{DoxyReturn}
+Takes a string and collapses multiple spaces down to a single space Equivalent of perl 's/+/ /g' The input string is unmodified and malloc()s the output.
+
+28.\-04.\-15 Original By\-: A\-C\-R\-M 
+
+Definition at line 110 of file stringutil.\-c.
+
+\hypertarget{stringutil_8c_adfc7bbb71e472cb8edba7bbcd0f3e772}{\index{stringutil.\-c@{stringutil.\-c}!bl\-Remove\-Spaces@{bl\-Remove\-Spaces}}
+\index{bl\-Remove\-Spaces@{bl\-Remove\-Spaces}!stringutil.c@{stringutil.\-c}}
+\subsubsection[{bl\-Remove\-Spaces}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Remove\-Spaces (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{in\-Text}
+\end{DoxyParamCaption}
+)}}\label{stringutil_8c_adfc7bbb71e472cb8edba7bbcd0f3e772}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em in\-Text} & Input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Malloc'd string without spaces
+\end{DoxyReturn}
+Allocates a string and copies the input to it skipping whitespace.
+
+
+\begin{DoxyItemize}
+\item 10.\-11.\-17 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 182 of file stringutil.\-c.
+
+\hypertarget{stringutil_8c_aa78d7f1c3e3e9c611b6ebf61475ed358}{\index{stringutil.\-c@{stringutil.\-c}!bl\-Strdup@{bl\-Strdup}}
+\index{bl\-Strdup@{bl\-Strdup}!stringutil.c@{stringutil.\-c}}
+\subsubsection[{bl\-Strdup}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Strdup (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{instr}
+\end{DoxyParamCaption}
+)}}\label{stringutil_8c_aa78d7f1c3e3e9c611b6ebf61475ed358}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em instr} & A string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A malloc'd copy of the string
+\end{DoxyReturn}
+An implementation of S\-Vr4, 4.\-3\-B\-S\-D, P\-O\-S\-I\-X.\-1-\/2001 strdup() which is not standard A\-N\-S\-I C
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 159 of file stringutil.\-c.
+

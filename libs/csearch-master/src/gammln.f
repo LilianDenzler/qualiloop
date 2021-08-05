@@ -1,0 +1,30 @@
+ 
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+      FUNCTION GAMMLN(XX)
+C              **********
+C     Returns ln(gamma(xx)) for xx>0. Full accuracy at xx>1.
+ 
+COM OMUPD BNJ 2/9/91
+ 
+      INTEGER J
+      REAL*8 XX,GAMMLN
+ 
+COM
+ 
+      REAL*8 COF(6), STP, HALF, ONE, FPF, X, TMP, SER
+      DATA COF, STP/76.18009173D0, -86.50532033D0, 24.01409822D0,
+     +     -1.231739516D0, .120858003D-2, -.536382D-5, 2.50662827465D0/
+      DATA HALF, ONE, FPF/0.5D0, 1.0D0, 5.5D0/
+      X = XX - ONE
+      TMP = X + FPF
+      TMP = (X+HALF)*LOG(TMP) - TMP
+      SER = ONE
+      DO 100 J = 1, 6
+         X = X + ONE
+         SER = SER + COF(J)/X
+  100 CONTINUE
+      GAMMLN = TMP + LOG(STP*SER)
+ 
+      RETURN
+      END
+ 

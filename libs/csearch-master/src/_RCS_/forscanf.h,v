@@ -1,0 +1,47 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.20;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifndef __FORSCANF_H__
+#define __FORSCANF_H__
+
+struct flist
+{
+    struct flist *next;
+    int   type;
+    int   retd;
+    float retf;
+    char  *rets;
+    char  retc;
+}   ;
+typedef struct flist FLIST;
+ 
+#define FREEFORSCANFLIST(y)   while((y)) \
+                              {  FLIST *q; \
+                                 if((y)->type == 3 && (y)->rets) free((y)->rets); \
+                                 q = (y)->next; \
+                                 free(y); \
+                                 (y) = q; \
+                              }
+
+#endif
+@

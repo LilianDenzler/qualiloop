@@ -1,0 +1,102 @@
+\hypertarget{_copy_p_d_b_coords_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Copy\-P\-D\-B\-Coords.c File Reference}
+\label{_copy_p_d_b_coords_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Copy\-P\-D\-B\-Coords.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Copy\-P\-D\-B\-Coords.\-c}}
+}
+
+
+P\-D\-B linked list manipulation.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_copy_p_d_b_coords_8c_a8d1d424da7b3a77f81e26932de157396}{bl\-Copy\-P\-D\-B\-Coords} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$out, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$in)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+P\-D\-B linked list manipulation. \begin{DoxyVersion}{Version}
+V1.\-11 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1992-\/6 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 22.\-02.\-94 Original release
+\item V1.\-1 23.\-05.\-94 Added Find\-Next\-Chain\-P\-D\-B()
+\item V1.\-2 05.\-10.\-94 Kill\-Sidechain() uses B\-O\-O\-L rather than int
+\item V1.\-3 24.\-07.\-95 Added Term\-P\-D\-B()
+\item V1.\-4 25.\-07.\-95 Added Get\-P\-D\-B\-Chain\-Labels()
+\item V1.\-5 26.\-09.\-95 Fixed bug in Term\-P\-D\-B()
+\item V1.\-6 12.\-10.\-95 Added Dupe\-P\-D\-B(), Copy\-P\-D\-B\-Coords()
+\item V1.\-7 23.\-10.\-95 Moved Find\-Residue\-Spec() to \hyperlink{_parse_res_8c}{Parse\-Res.\-c}
+\item V1.\-8 10.\-01.\-96 Added Extract\-Zone\-P\-D\-B()
+\item V1.\-9 14.\-03.\-96 Added Find\-Atom\-In\-Res()
+\item V1.\-10 08.\-10.\-99 Initialised some variables
+\item V1.\-11 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_copy_p_d_b_coords_8c_source}{Copy\-P\-D\-B\-Coords.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_copy_p_d_b_coords_8c_a8d1d424da7b3a77f81e26932de157396}{\index{Copy\-P\-D\-B\-Coords.\-c@{Copy\-P\-D\-B\-Coords.\-c}!bl\-Copy\-P\-D\-B\-Coords@{bl\-Copy\-P\-D\-B\-Coords}}
+\index{bl\-Copy\-P\-D\-B\-Coords@{bl\-Copy\-P\-D\-B\-Coords}!CopyPDBCoords.c@{Copy\-P\-D\-B\-Coords.\-c}}
+\subsubsection[{bl\-Copy\-P\-D\-B\-Coords}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Copy\-P\-D\-B\-Coords (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{out, }
+\item[{{\bf P\-D\-B} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{_copy_p_d_b_coords_8c_a8d1d424da7b3a77f81e26932de157396}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$in} & Input P\-D\-B linked list \\
+\hline
+\mbox{\tt out}  & {\em $\ast$out} & Output P\-D\-B linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Applies the coordinates of `in' to `out'. Assumes that the structures are equivalent with identical atom ordering. Makes a simple check on resnam and atnam at each position.
+
+
+\begin{DoxyItemize}
+\item 11.\-10.\-95 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 112 of file Copy\-P\-D\-B\-Coords.\-c.
+

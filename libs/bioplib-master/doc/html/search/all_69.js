@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['inbuffer',['INBUFFER',['../struct_i_n_b_u_f_f_e_r.html',1,'']]],
+  ['incomplete',['Incomplete',['../struct_s_e_q_i_n_f_o.html#aa7fc41044d8f4c5818020b2b9e67d059',1,'SEQINFO']]],
+  ['indexpdb_2ec',['IndexPDB.c',['../_index_p_d_b_8c.html',1,'']]],
+  ['indxreal_2ec',['IndxReal.c',['../_indx_real_8c.html',1,'']]],
+  ['init',['INIT',['../macros_8h.html#aa167d4937e9a8d9a33c3e93bbcad8a35',1,'INIT():&#160;macros.h'],['../safemem_8h.html#aa167d4937e9a8d9a33c3e93bbcad8a35',1,'INIT():&#160;safemem.h']]],
+  ['initprev',['INITPREV',['../macros_8h.html#ad48f627b78d63b7af972e819978664ff',1,'INITPREV():&#160;macros.h'],['../safemem_8h.html#ad48f627b78d63b7af972e819978664ff',1,'INITPREV():&#160;safemem.h']]],
+  ['inpdbzone_2ec',['InPDBZone.c',['../_in_p_d_b_zone_8c.html',1,'']]],
+  ['inpdbzonespec_2ec',['InPDBZoneSpec.c',['../_in_p_d_b_zone_spec_8c.html',1,'']]],
+  ['insert',['insert',['../struct__resaccess.html#a8cc72faf0908e6fff29637c614e608ed',1,'_resaccess::insert()'],['../structpdb__entry.html#a8cc72faf0908e6fff29637c614e608ed',1,'pdb_entry::insert()'],['../structpdbresidue.html#a8cc72faf0908e6fff29637c614e608ed',1,'pdbresidue::insert()']]],
+  ['insert1',['insert1',['../structsec__entry.html#a40813cb2e390608ac9828d857950ffd1',1,'sec_entry::insert1()'],['../struct__disulphide.html#a40813cb2e390608ac9828d857950ffd1',1,'_disulphide::insert1()']]],
+  ['insert2',['insert2',['../structsec__entry.html#aa36703384eb0aaa384cc934ddfee1882',1,'sec_entry::insert2()'],['../struct__disulphide.html#aa36703384eb0aaa384cc934ddfee1882',1,'_disulphide::insert2()']]],
+  ['insertmatch',['INSERTMATCH',['../pdb_8h.html#abe495ac3c89bd81c0872ba7bf941b739',1,'pdb.h']]],
+  ['instringlist_2ec',['InStringList.c',['../_in_string_list_8c.html',1,'']]],
+  ['intvalue',['intValue',['../struct__hash_tab.html#a23b7c31b2f6c188e1c281f7be7473f23',1,'_hashTab']]],
+  ['invert33_2ec',['invert33.c',['../invert33_8c.html',1,'']]],
+  ['isset',['ISSET',['../macros_8h.html#a307d2122f7c72a7f479498fa945596c6',1,'macros.h']]],
+  ['iswater',['ISWATER',['../pdb_8h.html#a50c2e672ce0d0b60a3741a7d7771b846',1,'pdb.h']]]
+];

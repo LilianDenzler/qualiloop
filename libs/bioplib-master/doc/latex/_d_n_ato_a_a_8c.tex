@@ -1,0 +1,115 @@
+\hypertarget{_d_n_ato_a_a_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-D\-N\-Ato\-A\-A.c File Reference}
+\label{_d_n_ato_a_a_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-D\-N\-Ato\-A\-A.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-D\-N\-Ato\-A\-A.\-c}}
+}
+
+
+Convert D\-N\-A codons to amino acid 1-\/letter code.  
+
+
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_d_n_ato_a_a_8c_a2a5305dfc36e991a90038b1abddf05e0}{N\-U\-C\-I\-N\-D\-E\-X}(x)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{_d_n_ato_a_a_8c_ae68acfc61d30bed5ecfdaf4422c70f87}{bl\-D\-N\-Ato\-A\-A} (char $\ast$dna)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Convert D\-N\-A codons to amino acid 1-\/letter code. \begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1994-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\begin{DoxyVerb}  #include "bioplib/seq.h" to define prototype
+\end{DoxyVerb}
+
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_d_n_ato_a_a_8c_source}{D\-N\-Ato\-A\-A.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_d_n_ato_a_a_8c_a2a5305dfc36e991a90038b1abddf05e0}{\index{D\-N\-Ato\-A\-A.\-c@{D\-N\-Ato\-A\-A.\-c}!N\-U\-C\-I\-N\-D\-E\-X@{N\-U\-C\-I\-N\-D\-E\-X}}
+\index{N\-U\-C\-I\-N\-D\-E\-X@{N\-U\-C\-I\-N\-D\-E\-X}!DNAtoAA.c@{D\-N\-Ato\-A\-A.\-c}}
+\subsubsection[{N\-U\-C\-I\-N\-D\-E\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-C\-I\-N\-D\-E\-X(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}}\label{_d_n_ato_a_a_8c_a2a5305dfc36e991a90038b1abddf05e0}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+((x)==\textcolor{charliteral}{'T'} ? (0) : \(\backslash\)
+                    ((x)==\textcolor{charliteral}{'U'} ? (0) : \(\backslash\)
+                    ((x)==\textcolor{charliteral}{'C'} ? (1) : \(\backslash\)
+                    ((x)==\textcolor{charliteral}{'A'} ? (2) : \(\backslash\)
+                     (3)))))
+\end{DoxyCode}
+
+
+Definition at line 75 of file D\-N\-Ato\-A\-A.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_d_n_ato_a_a_8c_ae68acfc61d30bed5ecfdaf4422c70f87}{\index{D\-N\-Ato\-A\-A.\-c@{D\-N\-Ato\-A\-A.\-c}!bl\-D\-N\-Ato\-A\-A@{bl\-D\-N\-Ato\-A\-A}}
+\index{bl\-D\-N\-Ato\-A\-A@{bl\-D\-N\-Ato\-A\-A}!DNAtoAA.c@{D\-N\-Ato\-A\-A.\-c}}
+\subsubsection[{bl\-D\-N\-Ato\-A\-A}]{\setlength{\rightskip}{0pt plus 5cm}char bl\-D\-N\-Ato\-A\-A (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{dna}
+\end{DoxyParamCaption}
+)}}\label{_d_n_ato_a_a_8c_ae68acfc61d30bed5ecfdaf4422c70f87}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$dna} & D\-N\-A/\-R\-N\-A codon \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1-\/letter amino acid code (X=termination)
+\end{DoxyReturn}
+Converts a nucleic acid codon to the 1-\/letter amino acid equivalent. Termination codons are returned as X. No special action is taken for initiation codons.
+
+
+\begin{DoxyItemize}
+\item 18.\-04.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 110 of file D\-N\-Ato\-A\-A.\-c.
+

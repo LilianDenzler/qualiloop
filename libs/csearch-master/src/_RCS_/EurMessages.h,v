@@ -1,0 +1,47 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.03.56;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/****************************************************************************** 
+ *      Name: EurMessages.h                                                   *
+ *  Function: Header file to declare constants for the message routines used  *
+ *            by EUREKA. These constants must map onto the FORTRAN parametsrs *
+ *            stored in 'MESSAGES.INS'.                                       *
+ * Copyright: (C) Oxford Molecular Limited.                                   *
+ *----------------------------------------------------------------------------*
+ *    Author: J.P.Holland, Oxford Molecular Ltd.                              *
+ *      Date: 24-Oct-1990                                                     *
+ *----------------------------------------------------------------------------*
+ * Modification Record                                                        *
+ * Date     Inits   Comments                                                  *
+ ******************************************************************************/
+#ifndef __EURMESSAGES__
+#define __EURMESSAGES__
+
+#define MSGTXT  0
+#define MSGWRN  1
+#define MSGERR  2
+#define MSGINF -1
+#define MSGCON -2
+
+#endif
+@

@@ -1,0 +1,44 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.03.57;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/******************************************************************************
+ *      Name: EurekaInc.h                                                     *
+ *  Function: All eureka include files.                                       *
+ *----------------------------------------------------------------------------*
+ *    Author: J.P.Holland, Oxford Molecular Ltd.                              *
+ *      Date: 26-Jul-1991                                                     *
+ *----------------------------------------------------------------------------*
+ * Modification Record                                                        *
+ * Date     Inits   Comments                                                  *
+ * dd/mm/yy                                                                   *
+ ******************************************************************************/
+
+#ifndef __EUREKAINC__
+#define __EUREKAINC__
+
+#include "EurekaConsts.h"
+#include "EurMessages.h"
+#include "EUREKACalls.h"
+
+#endif
+@

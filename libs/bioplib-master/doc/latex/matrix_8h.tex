@@ -1,0 +1,227 @@
+\hypertarget{matrix_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/matrix.h File Reference}
+\label{matrix_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/matrix.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/matrix.\-h}}
+}
+
+
+Include file for matrix operations.  
+
+
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{matrix_8h_aaad8564ad3532f76b04b27a8224f1932}{\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{matrix_8h_a38c36311ce82e6d103c7a8d4ae398fd1}{bl\-Mat\-Mult3\-\_\-33} (\hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} vecin, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} matin\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$vecout)
+\item 
+void \hyperlink{matrix_8h_a022074db4fea512661f861a76ff61649}{bl\-Mat\-Mult33\-\_\-33} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} a\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} b\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} out\mbox{[}3\mbox{]}\mbox{[}3\mbox{]})
+\item 
+void \hyperlink{matrix_8h_ac6636fdfdbd575b5c1309f5fe5ce11c2}{bl\-Invert33} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} s\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} ss\mbox{[}3\mbox{]}\mbox{[}3\mbox{]})
+\item 
+void \hyperlink{matrix_8h_a889ddf79e2c922e8c6d2905ee8ae163b}{bl\-Create\-Rot\-Mat} (char direction, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} angle, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} matrix\mbox{[}3\mbox{]}\mbox{[}3\mbox{]})
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{matrix_8h_ae6f8645556041bca6707f172ecb2c4cc}{bl\-Vec\-Dist} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$a, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$b, int len)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Include file for matrix operations. \begin{DoxyVersion}{Version}
+V1.\-9 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1995-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-7 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-8 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-9 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{matrix_8h_source}{matrix.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{matrix_8h_aaad8564ad3532f76b04b27a8224f1932}{\index{matrix.\-h@{matrix.\-h}!\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!matrix.h@{matrix.\-h}}
+\subsubsection[{\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{matrix_8h_aaad8564ad3532f76b04b27a8224f1932}
+
+
+Definition at line 87 of file matrix.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{matrix_8h_a889ddf79e2c922e8c6d2905ee8ae163b}{\index{matrix.\-h@{matrix.\-h}!bl\-Create\-Rot\-Mat@{bl\-Create\-Rot\-Mat}}
+\index{bl\-Create\-Rot\-Mat@{bl\-Create\-Rot\-Mat}!matrix.h@{matrix.\-h}}
+\subsubsection[{bl\-Create\-Rot\-Mat}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Create\-Rot\-Mat (
+\begin{DoxyParamCaption}
+\item[{char}]{direction, }
+\item[{{\bf R\-E\-A\-L}}]{angle, }
+\item[{{\bf R\-E\-A\-L}}]{matrix\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{matrix_8h_a889ddf79e2c922e8c6d2905ee8ae163b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em direction} & Axis about which to rotate \\
+\hline
+\mbox{\tt in}  & {\em angle} & Angle (in rads) to rotate \\
+\hline
+\mbox{\tt out}  & {\em matrix} & Rotation matrix\\
+\hline
+\end{DoxyParams}
+Create a 3x3 rotation matrix. Takes a direction as a single character ('x', 'y', or 'z'), an angle (in rads) and outputs a rotation matrix
+
+
+\begin{DoxyItemize}
+\item 22.\-07.\-93 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 101 of file Create\-Rot\-Mat.\-c.
+
+\hypertarget{matrix_8h_ac6636fdfdbd575b5c1309f5fe5ce11c2}{\index{matrix.\-h@{matrix.\-h}!bl\-Invert33@{bl\-Invert33}}
+\index{bl\-Invert33@{bl\-Invert33}!matrix.h@{matrix.\-h}}
+\subsubsection[{bl\-Invert33}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Invert33 (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{s\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{ss\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{matrix_8h_ac6636fdfdbd575b5c1309f5fe5ce11c2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & Input matrix \\
+\hline
+\mbox{\tt out}  & {\em ss} & Ouput inverted matrix\\
+\hline
+\end{DoxyParams}
+Invert a 3x3 matrix
+
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original
+\item 01.\-06.\-92 Documented
+\item 10.\-06.\-93 void return
+\item 12.\-09.\-02 Fixed S\-E\-R\-I\-O\-U\-S bug! Was basically rubbish before!
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 102 of file invert33.\-c.
+
+\hypertarget{matrix_8h_a022074db4fea512661f861a76ff61649}{\index{matrix.\-h@{matrix.\-h}!bl\-Mat\-Mult33\-\_\-33@{bl\-Mat\-Mult33\-\_\-33}}
+\index{bl\-Mat\-Mult33\-\_\-33@{bl\-Mat\-Mult33\-\_\-33}!matrix.h@{matrix.\-h}}
+\subsubsection[{bl\-Mat\-Mult33\-\_\-33}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Mat\-Mult33\-\_\-33 (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{a\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{b\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{out\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{matrix_8h_a022074db4fea512661f861a76ff61649}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & Matrix to be multiplied \\
+\hline
+\mbox{\tt in}  & {\em b} & Matrix to be multiplied \\
+\hline
+\mbox{\tt out}  & {\em out} & Output matrix\\
+\hline
+\end{DoxyParams}
+Multiply two 3x3 matrices
+
+
+\begin{DoxyItemize}
+\item 27.\-09.\-95 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 99 of file Mat\-Mult33\-\_\-33.\-c.
+
+\hypertarget{matrix_8h_a38c36311ce82e6d103c7a8d4ae398fd1}{\index{matrix.\-h@{matrix.\-h}!bl\-Mat\-Mult3\-\_\-33@{bl\-Mat\-Mult3\-\_\-33}}
+\index{bl\-Mat\-Mult3\-\_\-33@{bl\-Mat\-Mult3\-\_\-33}!matrix.h@{matrix.\-h}}
+\subsubsection[{bl\-Mat\-Mult3\-\_\-33}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Mat\-Mult3\-\_\-33 (
+\begin{DoxyParamCaption}
+\item[{{\bf V\-E\-C3\-F}}]{vecin, }
+\item[{{\bf R\-E\-A\-L}}]{matin\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, }
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{vecout}
+\end{DoxyParamCaption}
+)}}\label{matrix_8h_a38c36311ce82e6d103c7a8d4ae398fd1}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em vecin} & Vector to be multiplied \\
+\hline
+\mbox{\tt in}  & {\em matin} & Rotation matrix \\
+\hline
+\mbox{\tt out}  & {\em $\ast$vecout} & Output multiplied vector\\
+\hline
+\end{DoxyParams}
+Multiply a 3-\/vector by a 3x3 matrix
+
+
+\begin{DoxyItemize}
+\item 30.\-09.\-92 Original
+\item 03.\-08.\-93 Changed multiplication to standard direction
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 100 of file Mat\-Mult3\-\_\-33.\-c.
+
+\hypertarget{matrix_8h_ae6f8645556041bca6707f172ecb2c4cc}{\index{matrix.\-h@{matrix.\-h}!bl\-Vec\-Dist@{bl\-Vec\-Dist}}
+\index{bl\-Vec\-Dist@{bl\-Vec\-Dist}!matrix.h@{matrix.\-h}}
+\subsubsection[{bl\-Vec\-Dist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Vec\-Dist (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$}]{a, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{b, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}}\label{matrix_8h_ae6f8645556041bca6707f172ecb2c4cc}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$a} & An arbitrary length vector (as an array) \\
+\hline
+\mbox{\tt in}  & {\em $\ast$b} & An arbitrary length vector (as an array) \\
+\hline
+\mbox{\tt in}  & {\em len} & The dimensionality of the vectors (array length) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between the points described by the two vectors
+\end{DoxyReturn}
+Finds the distance between two vectors of arbitrary length
+
+
+\begin{DoxyItemize}
+\item 28.\-07.\-95 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 98 of file Vec\-Dist.\-c.
+

@@ -1,0 +1,314 @@
+\hypertarget{_h_add_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-H\-Add\-P\-D\-B.c File Reference}
+\label{_h_add_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-H\-Add\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-H\-Add\-P\-D\-B.\-c}}
+}
+
+
+Add hydrogens to a P\-D\-B linked list.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fsscanf.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_h_add_p_d_b_8c_afa3b7bd558114ea80d4a13d732b53dde}{M\-A\-X\-T\-Y\-P\-E}~300     /$\ast$ Max number of H definitions in P\-G\-P file   $\ast$/
+\item 
+\#define \hyperlink{_h_add_p_d_b_8c_a57ef44e89326a371a47cfd186bf1f6a8}{M\-A\-X\-L\-A\-B\-E\-L}~8     /$\ast$ Max chars in a label                      $\ast$/
+\item 
+\#define \hyperlink{_h_add_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~160     /$\ast$ Buffer size                               $\ast$/
+\item 
+\#define \hyperlink{_h_add_p_d_b_8c_a182088d18407b75db67d5185b9ac0bfa}{D\-A\-T\-A\-E\-N\-V}~\char`\"{}D\-A\-T\-A\-D\-I\-R\char`\"{}         /$\ast$ Unix environment variable for data $\ast$/
+\item 
+\#define \hyperlink{_h_add_p_d_b_8c_a17897dbbc6ff46c90212d087f60f38c4}{D\-A\-T\-A\-D\-I\-R}~\char`\"{}A\-M\-D\-A\-T\-A\-:\char`\"{}         /$\ast$ V\-M\-S/A\-Miga\-D\-O\-S assign for data       $\ast$/
+\item 
+\#define \hyperlink{_h_add_p_d_b_8c_ab6251b650e6eba9718806875dd2fdd78}{E\-X\-P\-L\-P\-G\-P}~\char`\"{}Explicit.\-pgp\char`\"{}    /$\ast$ The P\-G\-P filename                   $\ast$/
+\item 
+\#define \hyperlink{_h_add_p_d_b_8c_ad85ca845c3ddf9ed2ad1a1d136193e88}{A\-L\-L\-H\-P\-G\-P}~\char`\"{}All\-H.\-pgp\char`\"{}        /$\ast$ The P\-G\-P filename                   $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_h_add_p_d_b_8c_adb102327d8ccb3318e08d1cfc853e687}{bl\-H\-Add\-P\-D\-B} (F\-I\-L\-E $\ast$fp, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+int \hyperlink{_h_add_p_d_b_8c_abee3ca151f4112a486c688d6ef4293e8}{bl\-Read\-P\-G\-P} (F\-I\-L\-E $\ast$fp)
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{_h_add_p_d_b_8c_a57f9337f4b73c4461b9d5a8cb46a9f72}{bl\-Open\-P\-G\-P\-File} (char $\ast$pgpfile, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} All\-Hyd)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_h_a_d_d_i_n_f_o}{H\-A\-D\-D\-I\-N\-F\-O} \hyperlink{_h_add_p_d_b_8c_a903434d7cd0b66c8b2e4dff10dc423e4}{g\-Hadd\-Info}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Add hydrogens to a P\-D\-B linked list. \begin{DoxyVersion}{Version}
+V2.\-24 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+13.\-03.\-19 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1990-\/2019 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Routine to add hydrogens to a protein linked list of type P\-D\-B. The routine allocates space for the new atoms and inserts them into the list at the appropriate positions within the residues.
+
+N.\-B. Because of the variation in styles required for N-\/terminal Hs, this routine adds {\itshape no} hydrogens to the N-\/terminal residue. Fix\-P\-D\-B() may be used for this purpose if C\-H\-A\-R\-M\-M/\-C\-O\-N\-G\-E\-N style hydrogens are required.
+
+\subsection*{Usage\-: }
+
+
+\begin{DoxyCode}
+nhyd = \hyperlink{_h_add_p_d_b_8c_adb102327d8ccb3318e08d1cfc853e687}{blHAddPDB}(fp,pdb)
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File containing proton generation parameters. \\
+\hline
+\mbox{\tt in,out}  & {\em $\ast$pdb} & Linked list of protein structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of hydrogens added.
+\end{DoxyReturn}
+The globally defined structure g\-Hadd\-Info gives information on the number of each hydrogen type created. This structure is defined as follows\-:
+
+
+\begin{DoxyCode}
+typdef \textcolor{keyword}{struct}
+\{
+   \textcolor{keywordtype}{int}   Total,      Total hydrogens
+         T1,         Type 1 C-H\textcolor{stringliteral}{'s}
+\textcolor{stringliteral}{         T2,         Type 2 C-H2'}s
+         T3,         Type 3 C-H3\textcolor{stringliteral}{'s}
+\textcolor{stringliteral}{         T4,         Type 4 sp2 C-H'}s,>N-H
+         T5;         Type 5 O-H\textcolor{stringliteral}{'s =N-H'}s
+\}  \hyperlink{struct_h_a_d_d_i_n_f_o}{HADDINFO};
+\end{DoxyCode}
+
+
+To examine these values in your code, reference the structure as\-: extern \hyperlink{struct_h_a_d_d_i_n_f_o}{H\-A\-D\-D\-I\-N\-F\-O} g\-Hadd\-Info;
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V2.\-0 16.\-05.\-90 Add\-H is changed to insert each set of atoms for each P\-G\-P, on the fly, rather than building a complete list of hydrogens and then merging the two lists. This allows us to get round the problem of missing atoms, since there will be no merging error.
+\item V2.\-1 24.\-05.\-90 Returns the number fo hydrogens added. Also fixes bug relating to number of type 2 and type 3 H's added. Doesn't work under U\-N\-I\-X!
+\item V2.\-2 15.\-07.\-91 A few bits of tidying up\-: $>$ Now uses \hyperlink{macros_8h}{macros.\-h} rather than defining macros itself. $>$ Arrays now changed so should fix alignment problems under U\-N\-I\-X. $>$ Now correctly checks return from forscanf() and no longer reads characters to check E\-O\-F itself. $>$ Improves treatment of N\-T\-E\-R residues where it now generates H's on the first true residue. Residues labelled N\-T\-E\-R will be ignored. Calling Fix\-Nter\-H() will move the H coords into the N\-T\-E\-R residue if required. $>$ Fixes reading of P\-G\-P files with blank lines $>$ Bug fix for type 3's Currently untested under U\-N\-I\-X.
+\item V2.\-3 27.\-07.\-93 Changed to use \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()} and I/\-O precision is double
+\item V2.\-4 08.\-03.\-94 Changed static variable names and added casts on maths functions. Added Dummy atom handling in makeh(). A few other bits of tidying.
+\item V2.\-5 23.\-08.\-94 Added Open\-P\-G\-P\-File() routine
+\item V2.\-6 01.\-09.\-94 Fixed bug in some compilers in Read\-P\-G\-P()
+\item V2.\-7 26.\-01.\-96 Wasn't handling insert codes in P\-D\-B.
+\item V2.\-8 24.\-05.\-99 Fixed two memory leaks in makeh() Also skips H\-E\-T\-A\-T\-Ms in Gen\-H()
+\item V2.\-9 30.\-05.\-02 Changed P\-D\-B field from 'junk' to 'record\-\_\-type'
+\item V2.\-10 05.\-12.\-02 Correctly sets the atnam\-\_\-raw field
+\item V2.\-11 27.\-03.\-03 Fixed severe memory leak in Add\-H()
+\item V2.\-12 03.\-06.\-05 Added altpos
+\item V2.\-13 28.\-07.\-05 Added conditionals for msdos and Mac O\-S/\-X
+\item V2.\-14 28.\-11.\-05 No longer exits if previous C is missing
+\item V2.\-15 24.\-01.\-06 Fixed error message in Gen\-H() which could try to print from N\-U\-L\-L pointer
+\item V2.\-16 20.\-03.\-14 Updated error message in Gen\-H(). By\-: C\-T\-P
+\item V2.\-17 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V2.\-18 26.\-08.\-14 Moved use of ok variable into \#ifdef S\-C\-R\-E\-E\-N\-\_\-\-I\-N\-F\-O and cleaned up use of n and nt variables instead of literal strings
+\item V2.\-19 13.\-02.\-15 Handles elements By\-: A\-C\-R\-M
+\item V2.\-20 17.\-02.\-15 Handles segid and formal charge
+\item V2.\-21 23.\-02.\-15 Uses new \hyperlink{pdb_8h_ae1ff7a56e4d028aef80c0220f59c1358}{bl\-Renum\-Atoms\-P\-D\-B()}
+\item V2.\-22 23.\-06.\-15 Various calls to \hyperlink{pdb_8h_aa060eecccbc29f0bfbbaf442b42d0cdc}{C\-L\-E\-A\-R\-\_\-\-P\-D\-B()} to fix problems with uninitialized C\-O\-N\-E\-C\-T data
+\item V2.\-23 07.\-08.\-18 initialized and foce-\/terminated variables to silence gcc 7.\-3.\-1 with -\/\-O2
+\item V2.\-24 13.\-03.\-19 Fixed buffer sizes for sprintf() 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_h_add_p_d_b_8c_source}{H\-Add\-P\-D\-B.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_h_add_p_d_b_8c_ad85ca845c3ddf9ed2ad1a1d136193e88}{\index{H\-Add\-P\-D\-B.\-c@{H\-Add\-P\-D\-B.\-c}!A\-L\-L\-H\-P\-G\-P@{A\-L\-L\-H\-P\-G\-P}}
+\index{A\-L\-L\-H\-P\-G\-P@{A\-L\-L\-H\-P\-G\-P}!HAddPDB.c@{H\-Add\-P\-D\-B.\-c}}
+\subsubsection[{A\-L\-L\-H\-P\-G\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-L\-H\-P\-G\-P~\char`\"{}All\-H.\-pgp\char`\"{}        /$\ast$ The P\-G\-P filename                   $\ast$/}}\label{_h_add_p_d_b_8c_ad85ca845c3ddf9ed2ad1a1d136193e88}
+
+
+Definition at line 180 of file H\-Add\-P\-D\-B.\-c.
+
+\hypertarget{_h_add_p_d_b_8c_a17897dbbc6ff46c90212d087f60f38c4}{\index{H\-Add\-P\-D\-B.\-c@{H\-Add\-P\-D\-B.\-c}!D\-A\-T\-A\-D\-I\-R@{D\-A\-T\-A\-D\-I\-R}}
+\index{D\-A\-T\-A\-D\-I\-R@{D\-A\-T\-A\-D\-I\-R}!HAddPDB.c@{H\-Add\-P\-D\-B.\-c}}
+\subsubsection[{D\-A\-T\-A\-D\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-D\-I\-R~\char`\"{}A\-M\-D\-A\-T\-A\-:\char`\"{}         /$\ast$ V\-M\-S/A\-Miga\-D\-O\-S assign for data       $\ast$/}}\label{_h_add_p_d_b_8c_a17897dbbc6ff46c90212d087f60f38c4}
+
+
+Definition at line 178 of file H\-Add\-P\-D\-B.\-c.
+
+\hypertarget{_h_add_p_d_b_8c_a182088d18407b75db67d5185b9ac0bfa}{\index{H\-Add\-P\-D\-B.\-c@{H\-Add\-P\-D\-B.\-c}!D\-A\-T\-A\-E\-N\-V@{D\-A\-T\-A\-E\-N\-V}}
+\index{D\-A\-T\-A\-E\-N\-V@{D\-A\-T\-A\-E\-N\-V}!HAddPDB.c@{H\-Add\-P\-D\-B.\-c}}
+\subsubsection[{D\-A\-T\-A\-E\-N\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-E\-N\-V~\char`\"{}D\-A\-T\-A\-D\-I\-R\char`\"{}         /$\ast$ Unix environment variable for data $\ast$/}}\label{_h_add_p_d_b_8c_a182088d18407b75db67d5185b9ac0bfa}
+
+
+Definition at line 177 of file H\-Add\-P\-D\-B.\-c.
+
+\hypertarget{_h_add_p_d_b_8c_ab6251b650e6eba9718806875dd2fdd78}{\index{H\-Add\-P\-D\-B.\-c@{H\-Add\-P\-D\-B.\-c}!E\-X\-P\-L\-P\-G\-P@{E\-X\-P\-L\-P\-G\-P}}
+\index{E\-X\-P\-L\-P\-G\-P@{E\-X\-P\-L\-P\-G\-P}!HAddPDB.c@{H\-Add\-P\-D\-B.\-c}}
+\subsubsection[{E\-X\-P\-L\-P\-G\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-X\-P\-L\-P\-G\-P~\char`\"{}Explicit.\-pgp\char`\"{}    /$\ast$ The P\-G\-P filename                   $\ast$/}}\label{_h_add_p_d_b_8c_ab6251b650e6eba9718806875dd2fdd78}
+
+
+Definition at line 179 of file H\-Add\-P\-D\-B.\-c.
+
+\hypertarget{_h_add_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{H\-Add\-P\-D\-B.\-c@{H\-Add\-P\-D\-B.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!HAddPDB.c@{H\-Add\-P\-D\-B.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~160     /$\ast$ Buffer size                               $\ast$/}}\label{_h_add_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 176 of file H\-Add\-P\-D\-B.\-c.
+
+\hypertarget{_h_add_p_d_b_8c_a57ef44e89326a371a47cfd186bf1f6a8}{\index{H\-Add\-P\-D\-B.\-c@{H\-Add\-P\-D\-B.\-c}!M\-A\-X\-L\-A\-B\-E\-L@{M\-A\-X\-L\-A\-B\-E\-L}}
+\index{M\-A\-X\-L\-A\-B\-E\-L@{M\-A\-X\-L\-A\-B\-E\-L}!HAddPDB.c@{H\-Add\-P\-D\-B.\-c}}
+\subsubsection[{M\-A\-X\-L\-A\-B\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-L\-A\-B\-E\-L~8     /$\ast$ Max chars in a label                      $\ast$/}}\label{_h_add_p_d_b_8c_a57ef44e89326a371a47cfd186bf1f6a8}
+
+
+Definition at line 175 of file H\-Add\-P\-D\-B.\-c.
+
+\hypertarget{_h_add_p_d_b_8c_afa3b7bd558114ea80d4a13d732b53dde}{\index{H\-Add\-P\-D\-B.\-c@{H\-Add\-P\-D\-B.\-c}!M\-A\-X\-T\-Y\-P\-E@{M\-A\-X\-T\-Y\-P\-E}}
+\index{M\-A\-X\-T\-Y\-P\-E@{M\-A\-X\-T\-Y\-P\-E}!HAddPDB.c@{H\-Add\-P\-D\-B.\-c}}
+\subsubsection[{M\-A\-X\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-T\-Y\-P\-E~300     /$\ast$ Max number of H definitions in P\-G\-P file   $\ast$/}}\label{_h_add_p_d_b_8c_afa3b7bd558114ea80d4a13d732b53dde}
+
+
+Definition at line 174 of file H\-Add\-P\-D\-B.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_h_add_p_d_b_8c_adb102327d8ccb3318e08d1cfc853e687}{\index{H\-Add\-P\-D\-B.\-c@{H\-Add\-P\-D\-B.\-c}!bl\-H\-Add\-P\-D\-B@{bl\-H\-Add\-P\-D\-B}}
+\index{bl\-H\-Add\-P\-D\-B@{bl\-H\-Add\-P\-D\-B}!HAddPDB.c@{H\-Add\-P\-D\-B.\-c}}
+\subsubsection[{bl\-H\-Add\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-H\-Add\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_h_add_p_d_b_8c_adb102327d8ccb3318e08d1cfc853e687}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer to P\-G\-P file \\
+\hline
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B Linked list to which Hs are added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of Hs added. -\/1 on error.
+\end{DoxyReturn}
+Globals\-: \hyperlink{struct_h_a_d_d_i_n_f_o}{H\-A\-D\-D\-I\-N\-F\-O} g\-Hadd\-Info Information on Hs added
+
+This routine adds hydrogens to a P\-D\-B linked list. Performs all necessary functions.
+
+N.\-B. Because of the variation in styles required for N-\/terminal Hs, this routine adds {\itshape no} hydrogens to the N-\/terminal residue. Fix\-P\-D\-B() may be used for this purpose if C\-H\-A\-R\-M\-M/\-C\-O\-N\-G\-E\-N style hydrogens are required.
+
+
+\begin{DoxyItemize}
+\item 16.\-05.\-90 Original By\-: A\-C\-R\-M
+\item 04.\-01.\-94 Changed check on return=N\-U\-L\-L to 0
+\item 08.\-03.\-94 Only reads P\-G\-P on first call. err\-\_\-flag changed to B\-O\-O\-L.
+\item 28.\-11.\-05 Removes any dummy hydrogens added because there were missing atoms
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 23.\-02.\-15 Uses \hyperlink{pdb_8h_ae1ff7a56e4d028aef80c0220f59c1358}{bl\-Renum\-Atoms\-P\-D\-B()} By\-: A\-C\-R\-M
+\item 20.\-03.\-15 Returns -\/1 on error since zero hydrogens may be valid 
+\end{DoxyItemize}
+
+Definition at line 253 of file H\-Add\-P\-D\-B.\-c.
+
+\hypertarget{_h_add_p_d_b_8c_a57f9337f4b73c4461b9d5a8cb46a9f72}{\index{H\-Add\-P\-D\-B.\-c@{H\-Add\-P\-D\-B.\-c}!bl\-Open\-P\-G\-P\-File@{bl\-Open\-P\-G\-P\-File}}
+\index{bl\-Open\-P\-G\-P\-File@{bl\-Open\-P\-G\-P\-File}!HAddPDB.c@{H\-Add\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Open\-P\-G\-P\-File}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ bl\-Open\-P\-G\-P\-File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{pgpfile, }
+\item[{{\bf B\-O\-O\-L}}]{All\-Hyd}
+\end{DoxyParamCaption}
+)}}\label{_h_add_p_d_b_8c_a57f9337f4b73c4461b9d5a8cb46a9f72}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pgpfile} & Name of a P\-G\-P file or N\-U\-L\-L \\
+\hline
+\mbox{\tt in}  & {\em All\-Hyd} & If name of P\-G\-P not specified, this flag specified whether all or explicit hydrogen file required \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+File pointer
+\end{DoxyReturn}
+Open the P\-G\-P file
+
+
+\begin{DoxyItemize}
+\item 23.\-08.\-94 Original By\-: A\-C\-R\-M
+\item 28.\-07.\-05 Added conditionals for msdos and Mac O\-S/\-X
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 18.\-03.\-15 Changed to use M\-A\-X\-B\-U\-F\-F By\-: A\-C\-R\-M
+\item 13.\-03.\-19 Doubled size of buffer\mbox{[}\mbox{]} 
+\end{DoxyItemize}
+
+Definition at line 1356 of file H\-Add\-P\-D\-B.\-c.
+
+\hypertarget{_h_add_p_d_b_8c_abee3ca151f4112a486c688d6ef4293e8}{\index{H\-Add\-P\-D\-B.\-c@{H\-Add\-P\-D\-B.\-c}!bl\-Read\-P\-G\-P@{bl\-Read\-P\-G\-P}}
+\index{bl\-Read\-P\-G\-P@{bl\-Read\-P\-G\-P}!HAddPDB.c@{H\-Add\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Read\-P\-G\-P}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Read\-P\-G\-P (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}}\label{_h_add_p_d_b_8c_abee3ca151f4112a486c688d6ef4293e8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & Pointer to P\-G\-P file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of parameters read. (0 on error)
+\end{DoxyReturn}
+Read a proton generation parameter file. All data are placed in static arrays used by the hydrogen adding routines. Normally this routine is only called by the first call to H\-Add\-P\-D\-B(). It is only necessary to call this routine explicitly if the P\-G\-P file is changed between calls to H\-Add\-P\-D\-B() and thus needs re-\/reading.
+
+
+\begin{DoxyItemize}
+\item 16.\-05.\-90 Original By\-: A\-C\-R\-M
+\item 27.\-07.\-93 Changed to use \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()}
+\item 01.\-03.\-94 Changed static variable names
+\item 01.\-09.\-94 Moved n++ out of the \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()}
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 19.\-03.\-15 Skips comments
+\item 20.\-03.\-15 Returns 0 on error (M\-A\-X\-T\-Y\-P\-E exceeded) 
+\end{DoxyItemize}
+
+Definition at line 304 of file H\-Add\-P\-D\-B.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{_h_add_p_d_b_8c_a903434d7cd0b66c8b2e4dff10dc423e4}{\index{H\-Add\-P\-D\-B.\-c@{H\-Add\-P\-D\-B.\-c}!g\-Hadd\-Info@{g\-Hadd\-Info}}
+\index{g\-Hadd\-Info@{g\-Hadd\-Info}!HAddPDB.c@{H\-Add\-P\-D\-B.\-c}}
+\subsubsection[{g\-Hadd\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf H\-A\-D\-D\-I\-N\-F\-O} g\-Hadd\-Info}}\label{_h_add_p_d_b_8c_a903434d7cd0b66c8b2e4dff10dc423e4}
+
+
+Definition at line 213 of file H\-Add\-P\-D\-B.\-c.
+

@@ -1,0 +1,38 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.51;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Free the range list, rp. */
+ 
+void free_range(
+struct range_list *rp
+)
+{
+   free(rp->low);
+   free(rp->high);
+   free(rp);
+}
+ 
+@

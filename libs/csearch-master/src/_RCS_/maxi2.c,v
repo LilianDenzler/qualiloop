@@ -1,0 +1,37 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.03;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Computes maximum of two floating point numbers. */
+ 
+int maxi2(
+int x1,
+int x2
+)
+{
+   return x1 > x2 ? x1 : x2;
+}
+ 
+@

@@ -1,0 +1,21 @@
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1

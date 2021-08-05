@@ -1,0 +1,12 @@
+**!!MDGRPM.INS
+C
+C -- ????
+      INTEGER NORDR1
+      COMMON /MDGRPM/ NORDR1
+C
+C -- ????
+      DOUBLE PRECISION GRCRTR
+      COMMON /MDGRPM/  GRCRTR ( 6 )
+C
+      SAVE /MDGRPM/
+C

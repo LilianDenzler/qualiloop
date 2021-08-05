@@ -1,0 +1,94 @@
+Bioplib -\/ The P\-D\-B Data Structure and Linked Lists.
+
+\subsection*{The P\-D\-B Data Structure }
+
+The main data structure used by bioplib is the P\-D\-B linked list.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{typedef} \textcolor{keyword}{struct }\hyperlink{structpdb__entry}{pdb\_entry}
+\{
+   \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL} \hyperlink{structpdb__entry_ad14343030eb6dd7eb6a9c8b4c52fecb0}{x}, \hyperlink{structpdb__entry_a1aa467ce26c2e3301d0b78836e30cab0}{y}, \hyperlink{structpdb__entry_a9195b0e2ec564479b8a02cc3357410b7}{z},             \textcolor{comment}{/* Coordinates                             */}
+        \hyperlink{structpdb__entry_aa16670bec839ae64c16b12fa90810973}{occ}, \hyperlink{structpdb__entry_ae02a474aa89a746f306e1fbd46bb8402}{bval},           \textcolor{comment}{/* Occupancy and B-value                   */}
+        \hyperlink{structpdb__entry_a67301a56812fccd8b3aa6a172dd1e9d8}{access}, \hyperlink{structpdb__entry_adbb0a693780e69d9de0f58378fc1eb23}{radius},      \textcolor{comment}{/* Accessibility and radius - populated by}
+\textcolor{comment}{                                Bioplib routines                        */}
+        \hyperlink{structpdb__entry_a0b6d4737223c265ff150250aa2f3cd9c}{partial\_charge};      \textcolor{comment}{/* Reserved for future use                 */}
+   \hyperlink{_sys_defs_8h_a201013872f88d6f535b12e644d7f4d5a}{APTR} \hyperlink{structpdb__entry_a65eaf0a41f0a5ac660c5fecad6d247b9}{extras};              \textcolor{comment}{/* Pointer for users to add information    */}
+   blATOMTYPE *atomType;     \textcolor{comment}{/* Reserved for future use                 */}
+   \textcolor{keyword}{struct }\hyperlink{structpdb__entry}{pdb\_entry} *\hyperlink{structpdb__entry_a9cc124a622ed031128bab9aac13f9145}{next};   \textcolor{comment}{/* Forward linked list                     */}
+   \textcolor{keywordtype}{int}  \hyperlink{structpdb__entry_af0f05b6c256a3631c9735a45190bc2ae}{atnum};               \textcolor{comment}{/* Atom number                             */}
+   \textcolor{keywordtype}{int}  \hyperlink{structpdb__entry_a7503a437042b8ae030eefb90decd7ceb}{resnum};              \textcolor{comment}{/* Residue number                          */}
+   \textcolor{keywordtype}{int}  \hyperlink{structpdb__entry_a71dd94abbd2bc0399815e99bd3d42565}{formal\_charge};       \textcolor{comment}{/* Formal charge - used in XML files       */}
+   \textcolor{keywordtype}{char} \hyperlink{structpdb__entry_ac3b9b5be75a753a35e50eaf08be8e77e}{record\_type}[8];      \textcolor{comment}{/* ATOM / HETATM                           */}
+   \textcolor{keywordtype}{char} \hyperlink{structpdb__entry_a0982e141e36a2d4299d6555e0a1496cb}{atnam}[8];            \textcolor{comment}{/* Atom name, left justified               */}
+   \textcolor{keywordtype}{char} \hyperlink{structpdb__entry_a2dd38672a2991bc568e105a24b3c936b}{atnam\_raw}[8];        \textcolor{comment}{/* Atom name as it appears in the PDB file */}
+   \textcolor{keywordtype}{char} \hyperlink{structpdb__entry_a6f47476bfe0dd0abc0ade4a21127dfc2}{resnam}[8];           \textcolor{comment}{/* Residue name                            */}
+   \textcolor{keywordtype}{char} \hyperlink{structpdb__entry_a8cc72faf0908e6fff29637c614e608ed}{insert}[8];           \textcolor{comment}{/* Numbering insert code                   */}
+   \textcolor{keywordtype}{char} \hyperlink{structpdb__entry_abe96afafc1017db40e25d4183a058bc5}{chain}[8];            \textcolor{comment}{/* Chain label                             */}
+   \textcolor{keywordtype}{char} \hyperlink{structpdb__entry_a780be116469a48c4b1d531bafb335f99}{element}[8];          \textcolor{comment}{/* Element type                            */}
+   \textcolor{keywordtype}{char} \hyperlink{structpdb__entry_aac30c1bea908a7bb889d5e09d60279e8}{altpos};              \textcolor{comment}{/* Alternate position indicator            */}
+\}  \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{PDB};
+\end{DoxyCode}
+
+
+The P\-D\-B data structure contains the data for each A\-T\-O\-M or H\-E\-T\-A\-T\-M record in the P\-D\-B file. The structure contains a link to the next atom in the list and the following data corresponding to the fields in the A\-T\-O\-M/\-H\-E\-T\-A\-T\-M record in a P\-D\-B file\-:
+
+
+\begin{DoxyItemize}
+\item record\-\_\-type -\/ Record Type (A\-T\-O\-M/\-H\-E\-T\-A\-T\-M)
+\item atnum -\/ Atom serial number.
+\item atnam -\/ Atom name.
+\item altpos -\/ Alternate location indicator.
+\item resnam -\/ Residue name.
+\item chain -\/ Chain identifier.
+\item resnum -\/ Residue sequence number.
+\item insert -\/ Code for insertion of residues.
+\item x -\/ X Coordinate in Angstroms.
+\item y -\/ Y Coordinate in Angstroms.
+\item z -\/ Z Coordinate in Angstroms.
+\item occ -\/ Occupancy.
+\item bval -\/ Temperature factor.
+\item element -\/ Element symbol.
+\item formal\-\_\-charge -\/ Charge on the atom.
+\end{DoxyItemize}
+
+The structure contains a link to the next node in the linked list\-:
+
+
+\begin{DoxyItemize}
+\item next -\/ Next A\-T\-O\-M/\-H\-E\-T\-A\-T\-M record in list.
+\end{DoxyItemize}
+
+Additionally the following values are included\-:
+
+
+\begin{DoxyItemize}
+\item access -\/ Solvent accessibility.
+\item radius -\/ Atom radius for solvent accessibility calculations.
+\item partial\-\_\-charge -\/ Partial charge
+\end{DoxyItemize}
+
+The extras field is used to attach additional data structure or array to each atom record. For example\-:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{typedef} \textcolor{keyword}{struct}
+\{
+   \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL} angle;
+   \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{BOOL} flag;
+\}  EXTRAS;
+\hyperlink{structpdb__entry}{PDB} *p;
+
+\textcolor{keywordflow}{for}(p=pdb; p!=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{NEXT}(p))
+\{
+   \textcolor{keywordflow}{if}((p->\hyperlink{structpdb__entry_a65eaf0a41f0a5ac660c5fecad6d247b9}{extras} = (\hyperlink{_sys_defs_8h_a201013872f88d6f535b12e644d7f4d5a}{APTR})malloc(\textcolor{keyword}{sizeof}(EXTRAS)))==\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})
+      \textcolor{keywordflow}{return}(\hyperlink{macros_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE});
+\}
+
+\textcolor{keywordflow}{for}(p=pdb; p!=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{NEXT}(p))
+\{
+   ((EXTRAS *)p->\hyperlink{structpdb__entry_a65eaf0a41f0a5ac660c5fecad6d247b9}{extras})->flag = \hyperlink{macros_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE};
+   ((EXTRAS *)p->\hyperlink{structpdb__entry_a65eaf0a41f0a5ac660c5fecad6d247b9}{extras})->angle = (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{REAL})0.0;
+\}
+\end{DoxyCode}
+ 

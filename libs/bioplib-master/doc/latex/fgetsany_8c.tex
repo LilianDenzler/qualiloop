@@ -1,0 +1,142 @@
+\hypertarget{fgetsany_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/fgetsany.c File Reference}
+\label{fgetsany_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/fgetsany.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/fgetsany.\-c}}
+}
+
+
+Like fgets(), but allocates memory and returns pointer to memory block.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{fgetsany_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~80   /$\ast$ Memory allocated in chunks of this size         $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany} (F\-I\-L\-E $\ast$fp)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{fgetsany_8c_ad65a8842cc674e3ddf69355898c0ecbf}{errno}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Like fgets(), but allocates memory and returns pointer to memory block. \begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1995-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany()} provides a routine like fgets() for reading strings from a file, but does not require you to impose a limit on the length of string which may be read. fgetsany() allocates memory to store a string of any length and returns a pointer to that allocated memory. After use, this memory must be freed by the calling routine.
+
+\subsection*{Usage\-: }
+
+\hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany()} returns N\-U\-L\-L on end-\/of-\/file and if memory allocation failed. It uses the global `errno' variable to indicate a memory allocation failure (errno==E\-N\-O\-M\-E\-M).
+
+Typical usage is as follows\-:
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "bioplib/general.h"}
+
+\hyperlink{test_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}()
+\{
+   \textcolor{keywordtype}{char} *ptr;
+   FILE *fp;
+
+   fp = fopen(\textcolor{stringliteral}{"test.txt"},\textcolor{stringliteral}{"r"});
+
+   \textcolor{keywordflow}{while}((ptr=\hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{blFgetsany}(fp))!=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})
+   \{
+      printf(\textcolor{stringliteral}{"%s"},ptr);
+      free(ptr);
+   \}
+
+   \textcolor{keywordflow}{if}(\hyperlink{fgetsany_8c_ad65a8842cc674e3ddf69355898c0ecbf}{errno})
+      perror(\textcolor{stringliteral}{"SYSTEM ERROR"});
+\}
+\end{DoxyCode}
+
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 11.\-09.\-95 Original By\-: A\-C\-R\-M
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{fgetsany_8c_source}{fgetsany.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{fgetsany_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{fgetsany.\-c@{fgetsany.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!fgetsany.c@{fgetsany.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~80   /$\ast$ Memory allocated in chunks of this size         $\ast$/}}\label{fgetsany_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 109 of file fgetsany.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{\index{fgetsany.\-c@{fgetsany.\-c}!bl\-Fgetsany@{bl\-Fgetsany}}
+\index{bl\-Fgetsany@{bl\-Fgetsany}!fgetsany.c@{fgetsany.\-c}}
+\subsubsection[{bl\-Fgetsany}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Fgetsany (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}}\label{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer open for reading \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Allocated string or N\-U\-L\-L on E\-O\-F and no memory (errno==E\-N\-O\-M\-E\-M)
+\end{DoxyReturn}
+\hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany()} provides a routine like fgets() for reading strings from a file, but does not require you to impose a limit on the length of string which may be read. \hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany()} allocates memory to store a string of any length and returns a pointer to that allocated memory. After use, this memory must be freed by the calling routine.
+
+\hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany()} returns N\-U\-L\-L on end-\/of-\/file and if memory allocation failed. It uses the global `errno' variable to indicate a memory allocation failure (errno==E\-N\-O\-M\-E\-M).
+
+
+\begin{DoxyItemize}
+\item 11.\-09.\-95 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 143 of file fgetsany.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{fgetsany_8c_ad65a8842cc674e3ddf69355898c0ecbf}{\index{fgetsany.\-c@{fgetsany.\-c}!errno@{errno}}
+\index{errno@{errno}!fgetsany.c@{fgetsany.\-c}}
+\subsubsection[{errno}]{\setlength{\rightskip}{0pt plus 5cm}int errno}}\label{fgetsany_8c_ad65a8842cc674e3ddf69355898c0ecbf}

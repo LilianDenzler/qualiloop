@@ -1,0 +1,101 @@
+\hypertarget{padchar_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/padchar.c File Reference}
+\label{padchar_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/padchar.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/padchar.\-c}}
+}
+{\ttfamily \#include $<$string.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{padchar_8c_a3d51946e1ce17558766a0984c5d77914}{bl\-Padchar} (char $\ast$string, int length, char ch)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-22 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1991-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-1 08.\-02.\-91 Added Kill\-Line()
+\item V1.\-2 10.\-02.\-91 Added setextn() and index()
+\item V1.\-3 20.\-03.\-91 Added Word()
+\item V1.\-4 28.\-05.\-92 A\-N\-S\-Ied
+\item V1.\-5 22.\-06.\-92 Added tab check to Word(). Improved setextn(). Added Word\-N(). Documented other routines.
+\item V1.\-6 27.\-07.\-93 Corrected \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()} for double precision
+\item V1.\-7 07.\-10.\-93 Checks made on case before toupper()/tolower() for Sys\-V compatibility. Also index() becomes chindex()
+\item V1.\-8 18.\-03.\-94 getc() -\/$>$ fgetc()
+\item V1.\-9 11.\-05.\-94 Added Get\-Filestem(), upstrcmp(), upstrncmp() \& Get\-Word()
+\item V1.\-10 24.\-08.\-94 Added Open\-Std\-Files()
+\item V1.\-11 08.\-03.\-95 Corrected Open\-File() for non-\/\-U\-N\-I\-X
+\item V1.\-12 09.\-03.\-95 Added check on non-\/\-N\-U\-L\-L filename in Open\-File()
+\item V1.\-13 17.\-07.\-95 Added countchar()
+\item V1.\-14 18.\-10.\-95 Moved Yor\-N() to \hyperlink{_wind_i_o_8c}{Wind\-I\-O.\-c}
+\item V1.\-15 06.\-11.\-95 Added Store\-String(), In\-String\-List() and Free\-String\-List()
+\item V1.\-16 22.\-11.\-95 Moved ftostr() to generam.\-c
+\item V1.\-17 15.\-12.\-95 Added Query\-Str\-Str()
+\item V1.\-18 18.\-12.\-95 Open\-Std\-Files() treats filename of -\/ as stdin/stdout
+\item V1.\-19 05.\-02.\-96 Open\-Std\-Files() allows N\-U\-L\-L pointers instead if filenames
+\item V1.\-20 18.\-09.\-96 Added padchar()
+\item V1.\-21 18.\-06.\-02 Added string.\-h
+\item V1.\-22 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{padchar_8c_source}{padchar.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{padchar_8c_a3d51946e1ce17558766a0984c5d77914}{\index{padchar.\-c@{padchar.\-c}!bl\-Padchar@{bl\-Padchar}}
+\index{bl\-Padchar@{bl\-Padchar}!padchar.c@{padchar.\-c}}
+\subsubsection[{bl\-Padchar}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Padchar (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{int}]{length, }
+\item[{char}]{ch}
+\end{DoxyParamCaption}
+)}}\label{padchar_8c_a3d51946e1ce17558766a0984c5d77914}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$string} & String to be padded with spaces \\
+\hline
+\mbox{\tt in}  & {\em length} & Required size for string \\
+\hline
+\mbox{\tt in}  & {\em ch} & Character with which to pad\\
+\hline
+\end{DoxyParams}
+Pads a string with a specified character to length characters, then terminates it.
+
+
+\begin{DoxyItemize}
+\item 18.\-09.\-96 Original based on padterm() By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 119 of file padchar.\-c.
+

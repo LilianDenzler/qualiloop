@@ -1,0 +1,42 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.36;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+void clear_atom(
+struct atom *p
+)
+{
+   int j;
+ 
+   for (j=0; j<=2; j++) p->ante[j] = 0;
+   p->bond = 0.0;
+   p->angle = 0.0;
+   p->torsion = 0.0;
+   p->torsion_period = 0.0;
+   p->offset = 0.0;
+   p->cons_code = 0;
+}
+ 
+@

@@ -1,0 +1,877 @@
+#$
+
+
+   $ command
+   
+   Any command preceeded by a $ is passed to the operating system.
+   This is useful for directory listings, typing or editing files,
+   etc.
+#REFERENCE
+
+
+   REFERENCE filename
+
+   Reads a reference PDB structure. Reading a structure will cause
+   any zones or atoms specified for RMS calculation to be reset.
+   By default, HETATM records will be ignored. (Use the HETATOM 
+   command to change this, or start ProFit with -h.) You can specify
+   a MODEL number within the PDB file by appending %n to the
+   filename (where n is the model number).
+#MOBILE
+
+
+   MOBILE filename
+
+   Reads a mobile PDB structure. This will be fitted to the Reference
+   structure. Reading a structure will cause any zones or atoms 
+   specified for RMS calculation to be reset. By default, HETATM
+   records will be ignored. (Use the HETATOM command to change this,
+   or start ProFit with -h.)  You can specify a MODEL number within
+   the PDB file by appending %n to the filename (where n is the model
+   number).
+#FIT
+
+
+   FIT
+
+   Performs the actual fitting. Returns the RMS deviation over the
+   atoms included in the fit. Any zones or atoms specified for RMS 
+   calculation will be reset to those specified for fitting. Should
+   RMS deviations be required over different areas of structure or
+   groups of atoms, the RZONE and RATOMS commands should be used to
+   specify the appropriate atoms. The RMS over these atoms will be
+   displayed immediately.
+#ATOMS
+
+
+   ATOMS atm[,atm]...
+
+   Specifies the atom subset to fit. * fits all atoms. A ~ or ^ may
+   be used to inverse the selection. If specified, it must be placed
+   at the start of the atom list.
+
+   Wildcards are also allowed. A % or a ? may be used to match a
+   single letter at any point in the specification while a * may be
+   used to match all remaining characters (thus C* is allowed,
+   but *G is not). The special characters may be escaped by 
+   preceding them with a \. 
+
+   The PDB atom name field is 4 characters wide followed by a space. 
+   The first two characters are the right-justified element type, so
+   for normal protein and DNA atoms consist of a space followed by a N, 
+   C, O, S or P. Thus the atom name field for a C-alpha contains
+   " CA ". HETATMs such as calcium will contain the two characters
+   CA in the first two fields. i.e. "CA  ". When you specify an atom
+   type it is matched against the atom name field from the SECOND 
+   CHARACTER ONWARDS, unless you preceed it with a <. Thus to match
+   a C-alpha you use "CA", but to match Calcium, you use "<CA".
+
+   If atom names contain spaces (e.g. in heme groups) the whole atom
+   specification must be enclosed in double inverted commas.
+   
+   Examples:
+   ATOMS CA             Fit only C-alphas
+   ATOMS <CA            Fit only calcium atoms
+   ATOMS <CA,CA         Fit calciums and C-alphas
+   ATOMS N,CA,C,O       Fit N, C-alpha, C and O
+   ATOMS *              Fit all atoms
+   ATOMS ~N,CA,C,O      Fit all atoms except N, C-alpha, C and O
+   ATOMS C*             Fit all carbon atoms
+   ATOMS ?G*            Match all atoms at the gamma position
+   ATOMS C4\*           Match the C4* atoms in DNA
+   ATOMS "N A,N B,N C"  Fit atoms with names containing spaces
+#ZONE
+
+
+   ZONE CLEAR|((*|(X...[,n][/m])|(j-k))[:(*|(X...[,n][/m])|(j-k))])
+   where X...      is an amino acid sequence
+         n         is a number of residues
+         m         is the occurrence number
+         j and k   are residue specifications of the form
+                   [chain][.]renum[insert]
+         Optional items are in square brackets
+         Alternatives are marked by a | and grouped in parentheses
+
+   Specifies residue zones to be fitted. Each zone is added to those
+   currently active. To clear all zones (i.e. fit all residues), the
+   ZONE CLEAR command may be given. ZONE * has the same effect.
+
+   In Residue Number mode, the residue numbers may be preceded by a 
+   chain name. In Sequential Number mode, chain names will be ignored.
+
+   Optionally, the chain name may be separated from the residue number 
+   by a full stop. Using the full stop also makes the statement case-
+   sensitive. In practice, the full stop separator is used with either 
+   numeric or lowercase chain names. 
+
+   Insertion codes may follow a residue number in Residue Number
+   mode.
+
+   Negative residue numbers must be escaped with a \
+
+   Note that sequence-specified zones automatically imply sequential
+   numbering.
+   
+   Examples:
+   ZONE 24-34           Fits 24-34 in Reference with 24-34 in Mobile
+   ZONE H5-H10          Fits 5-10 in chain H of Reference with the
+                        same region in Mobile
+   ZONE H*              Fits just the H chains
+   ZONE 24-34:25-35     Fits 24-34 in Reference with 25-35 in Mobile
+   ZONE L25A-L30        Fits residues 25A-30 in the L chain
+   ZONE -10:50-59       Fits up to 10 in Reference with 50-59 in Mobile
+   ZONE \-4-10:\-1-13   Fits residues -4 to 10 with -1 to 13 in Mobile
+   ZONE *:1-100         Fits all in Reference with 1-100 in Mobile
+   ZONE CAR:VNS         Fits first occurence of CAR in Reference with
+                        first occurence of VNS in Mobile
+   ZONE CAR,10:VNS,10   Fits 10 residues from first occurence of CAR 
+                        in Reference with first occurence of VNS in 
+                        Mobile
+   ZONE CAR,5/2         Fits 5 residues from second occurence of CAR
+                        in both structures
+   ZONE 24-34:EIR,11    Fits 24-34 in Reference with 11 residues from
+                        first occurence of EIR in Mobile
+   ZONE b.1-b.60:4.*    Fits 1-60 of chain b in Reference with all of
+                        chain 4 in Mobile.
+#ALIGN_OLD
+
+
+   ALIGN
+
+   Performs Needleman and Wunsch sequence alignment on the sequences
+   of the two structures and displays the alignment. Any fitting zones
+   are automatically cleared and replaced with zones derived from the
+   equivalent regions in the alignment.
+   
+   It will normally be necessary to use the ATOMS command to specify
+   that only backbone or C-alpha atoms are included in the fitting
+   calculations.
+#READALIGNMENT
+
+
+   READALIGNMENT filename
+
+   Reads an alignment in PIR sequence file format and sets zones based
+   on that alignment. Any previously defined fitting zones are 
+   automatically cleared first.
+
+   The file format is standard PIR with the two sequences represented
+   by separate entries  i.e. each must have a header of the form:
+
+   >P1;xxxxx
+   title text .......
+
+   If the PIR file contains multiple chains, it will be rejected. The
+   alignment is specified by introducing dash (-) signs into the
+   sequence.
+
+   The first sequence will be assumed to be that of the reference
+   structure and the second is that of the mobile structure. Any other
+   sequences in the file are ignored.
+   
+   It will normally be necessary to use the ATOMS command to specify
+   that only backbone or C-alpha atoms are included in the fitting
+   calculations.
+#RATOMS
+
+
+   RATOMS atm[,atm]...
+
+   Specifies atoms over which to calculate the RMS. Fitting must 
+   already have been performed. Any RZONE specifications which have 
+   been given will be considered in the calculation. The RMS over 
+   the specified atoms is displayed. * includes all atoms. A ~ 
+   or ^ may be used to inverse the selection. If specified, it must 
+   be placed at the start of the atom list.
+
+   Wildcards are also allowed. A % or a ? may be used to match a
+   single letter at any point in the specification while a * may be
+   used to match all remaining characters (thus C* is allowed,
+   but *G is not). The special characters may be escaped by 
+   preceding them with a \. 
+
+   The PDB atom name field is 4 characters wide followed by a space. 
+   The first two characters are the right-justified element type, so
+   for normal protein and DNA atoms consist of a space followed by a N, 
+   C, O, S or P. Thus the atom name field for a C-alpha contains
+   " CA ". HETATMs such as calcium will contain the two characters
+   CA in the first two fields. i.e. "CA  ". When you specify an atom
+   type it is matched against the atom name field from the SECOND 
+   CHARACTER ONWARDS, unless you preceed it with a <. Thus to match
+   a C-alpha you use "CA", but to match Calcium, you use "<CA".
+
+   If atom names contain spaces (e.g. in heme groups) the whole atom
+   specification must be enclosed in double inverted commas.
+   
+   Examples:
+   RATOMS CA            RMS over C-alphas
+   RATOMS <CA           RMS over calcium atoms
+   RATOMS <CA,CA        RMS over calciums and C-alphas
+   RATOMS N,CA,C,O      RMS over N, C-alpha, C and O
+   RATOMS *             RMS over all atoms
+   RATOMS ~N,CA,C,O     RMS over all atoms except N, C-alpha, C and O
+   RATOMS C*            RMS over all carbon atoms
+   RATOMS ?G*           RMS over all atoms at the gamma position
+   RATOMS C4\*          RMS over the C4* atoms in DNA
+   ATOMS "N A,N B,N C"  RMS over atoms with names containing spaces
+#RZONE
+
+
+   RZONE CLEAR|((*|(X...[,n][/m])|(j-k))[:(*|(X...[,n][/m])|(j-k))])
+   where X...      is an amino acid sequence
+         n         is a number of residues
+         m         is the occurrence number
+         j and k   are residue specifications of the form
+                   [chain][.]renum[insert]
+         Optional items are in square brackets
+         Alternatives are marked by a | and grouped in parentheses
+
+   Specifies residue zones over which to calculate the RMS. Each zone 
+   is added to those currently active. The RZONE CLEAR command will
+   cancel any RMS calculation zones that have been specified causing
+   the RMS to be calculated over the same zones used for fitting.
+   RZONE * has the same effect. Any RATOMS specifications which have 
+   been given will be considered in the calculation.
+   
+   In Residue Number mode, the residue numbers may be preceded by a 
+   chain name. In Sequential Number mode, chain names will be ignored.
+
+   Optionally, the chain name may be separated from the residue number 
+   by a full stop. Using the full stop also makes the statement case-
+   sensitive. In practice, the full stop separator is used with either 
+   numeric or lowercase chain names. 
+
+   Insertion codes may follow a residue number in Residue Number
+   mode.
+
+   Negative residue numbers must be escaped with a \
+
+   Note that sequence-specified zones automatically imply sequential
+   numbering.
+   
+   Examples:
+   RZONE 24-34          RMS of 24-34 in Reference with 24-34 in Mobile
+   RZONE L25A-L30       RMS of residues 25A-30 in the L chain
+   RZONE 24-34:25-35    RMS of 24-34 in Reference with 25-35 in Mobile
+   RZONE -10:50-59      RMS of up to 10 in Reference with 50-59 in Mobile
+   RZONE \-4-10:\-1-13  RMS of -4 to 10 with -1 to 13 in Mobile
+   RZONE *:1-100        RMS of all in Reference with 1-100 in Mobile
+   RZONE H*             RMS over just the H chain
+   RZONE CAR:VNS        RMS of first occurence of CAR in Reference with
+                        first occurence of VNS in Mobile
+   RZONE CAR,10:VNS,10  RMS of 10 residues from first occurence of CAR 
+                        in Reference with first occurence of VNS in 
+                        Mobile
+   RZONE CAR,5/2        RMS of 5 residues from second occurence of CAR
+                        in both structures
+   RZONE 24-34:EIR,11   RMS of 24-34 in Reference with 11 residues from
+                        first occurence of EIR in Mobile
+   RZONE b.1-b.60:4.*   Fits 1-60 of chain b in Reference with all of
+                        chain 4 in Mobile.
+#RMS
+
+
+   RMS
+   
+   Recalculate the RMS deviation over the zones and atoms currently 
+   defined with RZONE and RATOMS.
+#WRITE
+
+
+   WRITE [REFerence] filename
+
+   Writes the fitted structure to a PDB file. If the filename begins
+   with a pipe character (|), the coordinates are piped into the
+   specified program.
+
+   If the REFERENCE parameter is given then the reference set will be
+   written. This is only useful if the CENTRE command has been used!
+#MATRIX
+
+
+   MATRIX
+
+   Displays the centres of geometry, rotation matrix and translation
+   vector. The translation vector is the vector between the centres
+   of geometry. Thus to superimpose the mobile structure on the 
+   reference structure using these data, you should translate the
+   mobile to the origin, apply the rotation matrix, translate back to
+   the original centre of geometry and finally apply the translation 
+   vector.
+#STATUS
+
+
+   STATUS [filename]
+
+   Reports current program status.
+
+   If the optional filename parameter is given, output is directed to
+   the specified file. If the file cannot be opened or a filename is
+   not specified, output appears on the screen. If the filename begins
+   with a pipe character (|), the results are piped into the
+   specified program.
+#QUIT
+
+
+   QUIT
+
+   Exits from the program.
+#NUMBER
+
+
+   NUMBER (RESIDUE|SEQUENTIAL)
+
+   Specifies whether numeric zones are based on residue numbers in the
+   PDB file or on sequential numbering (running through all chains).
+
+   In Residue Number mode, the residue numbers may be preceeded by a 
+   chain name. In Sequential Number mode, chain names will be ignored.
+#RESIDUE
+
+
+   RESIDUE [filename]
+
+   Gives a by-residue RMS on the currently specified RATOMS (or ATOMS
+   if RATOMS has not been specified) over the currently specified
+   RZONE (or ZONE if RZONE has not been specified).
+
+   If a distance cutoff is set (using DISTCUTOFF) then residues fully 
+   outside the distance cutoff are flagged with "**" and residues 
+   partially outside distance cutoff are flagged with "*".
+
+   If the optional filename parameter is given, output is directed to
+   the specified file. If the file cannot be opened or a filename is
+   not specified, output appears on the screen. If the filename begins
+   with a pipe character (|), the results are piped into the
+   specified program.
+#HETATOMS
+
+
+   HETATOMS
+
+   Read HETATM records with subsequent MOBILE and REFERENCE commands.
+   This is the default if the -h flag has been given on starting
+   ProFit.
+#NOHETATOMS
+
+
+   NOHETATOMS
+
+   Do not read HETATM records with subsequent MOBILE and REFERENCE 
+   commands. This is the default unless the -h flag has been given 
+   on starting ProFit.
+#WEIGHT
+
+
+   WEIGHT
+
+   Weight the fitting by the mean of the B-values in the equivalent
+   atoms. Normally, you wouldn't use this with real B-values, but
+   with some other weight parameter (e.g. SSAP scores).
+#BWEIGHT
+
+
+   BWEIGHT
+
+   Weight the fitting by the inverse of the mean of the B-values in 
+   the equivalent atoms. This is useful for genuine weighting by
+   B-values (i.e. mobile atoms will be less heavily weighted).
+#NOWEIGHT
+
+
+   NOWEIGHT
+
+   Normal, non-weighted fitting.
+#GAPPEN
+
+
+   GAPPEN val [val]
+
+   Allows you to specify an integer gap penalty and gap extension penalty 
+   for the sequence alignment performed by the ALIGN command.
+   The default values for the gap penalty and gap extension penalty are 
+   10 and 2 resp.
+#BVALUE
+
+
+   BVALUE cutoff [REF|MOB]
+
+   Allows you to specify a B-value cutoff. Any atoms with B-values
+   greater than this value will be ignored completely in both the
+   fitting and RMS calculations. The B-value may not be higher than
+   this value in either the reference or the mobile structure.
+   For example, if you specify 10, then atoms with B-values greater
+   than 10 will be ignored.
+
+   If the cutoff you supply is negative, any atoms with B-values
+   less than the absolute value you specify will be ignored.
+   For example, if you specify -10, then atoms with B-values less
+   than 10 will be ignored.
+
+   The optional REF or MOB parameter restricts checking of B-values
+   to the specified structure.
+
+   Specify BVALUE * to allow all BValues
+#IGNOREMISSING
+
+
+   IGNOREMISSING
+
+   By default, atom mismatches during fitting caused by atoms 
+   missing in one of the two structures causes the program to report 
+   an error. This command causes the program to issue a warning,
+   but to proceed with the fitting, ignoring the mismatched atom(s).
+   (See NOIGNOREMISSING.)
+#NOIGNOREMISSING
+
+
+   NOIGNOREMISSING
+
+   Restores the default behaviour of reporting an error and stopping
+   the fitting procedure if atom mismatches occur during fitting.
+   (See IGNOREMISSING.)
+#NFITTED
+
+
+   NFITTED
+
+   Reported the number of atom pairs fitted in the last fitting
+   operation. Note that this is not the number of residues fitted
+   unless you are only fitting on CA atoms.
+#ITERATE
+
+
+   ITERATE [limit | OFF]
+
+   Iterates the fitting zones during future FIT commands. 
+
+   Note that this immediately does an "ATOMS CA" since iteration of
+   zones is only performed on C-alpha atoms. See notes below if you
+   want to calculate an RMSD over other atoms.
+
+   After the initial fit on the specified zones, the zones are updated
+   such that residue pairs with C-alpha atoms within 'limit' Angstroms
+   (default 3.0A) are included and those more distant are excluded. 
+   The optimum set of equivalences is obtained using a dynamic 
+   programming method.
+
+   After updating the zones, the structures are refitted and the
+   procedure iterates to convergence (typically 3 or 4 cycles). The
+   RMSD on C-alpha atoms is shown after each cycle unless the QUIET 
+   command is given.
+
+   As stated above, the ITERATE command implies ATOMS CA. Having
+   fitted on C-alpha atoms, you can of course display the RMSD over
+   other atom sets in the usual way using the RATOMS command (e.g.
+   RATOMS N,CA,C,O will display the backbone RMSD).
+
+   Should you wish to refit on another atom set using the iterated 
+   zones, simply use ITERATE OFF to switch off iteration, select the
+   atom set required using the ATOMS command and use FIT to refit the
+   structures in the usual way. For example, to fit on backbone atoms:
+
+   ITERATE OFF
+   ATOMS N,CA,C,O
+   FIT
+#MULTI
+
+
+   MULTI filename
+
+   Fits multiple structures. 'filename' contains a list of structure 
+   files to be fitted.
+
+   MULTI causes a set of structure files to be read in. The filenames
+   are given within the file specified in the command. The first
+   structure file is used as a reference set for the first fitting
+   stage but the coordinates are averaged after each fitting stage
+   to derive an averaged template used for subsequent fitting.
+
+   Filenames may specify a MODEL number within the PDB file by
+   appending %n to the filename (where n is the model number).
+
+   i.e. Given N files to fit, file 2 is fitted to file 1 and an
+   averaged structure, A, is calculated, file 3 is then fitted to A
+   and a new average, A' is calculated. This continues until all N
+   structures have been fitted. The whole procedure iterates until
+   convergence (typically 3 or 4 cycles).
+
+   The resulting fitted files are written with the MWRITE command.
+   Note that there is no "reference" set in the sense used for
+   2-structure fitting; fitted versions of all N files will be written
+   since the reference set is actually an averaged template.
+
+   Progress and RMSDs are reported at each iteration unless the QUIET
+   command is used.
+#QUIET
+
+
+   QUIET [OFF]
+
+   Switches off all warning and informational messages
+#MWRITE
+
+
+   MWRITE [ext]
+
+   Writes multiple fitting results.
+
+   The filenames are the same as the input file but with the extension
+   replaced by that specified in the command. If no extension is
+   specified then '.fit' will be used. If the input file contained no
+   extension, then the extension specified will be appended to the
+   filename.
+
+   If input filenames specify a MODEL number then this will be appended
+   to the filename as %n (where n is the model number).
+
+   Note that since only the extension is changed when writing back the
+   fitted files, you must have permission to write to the directory
+   from which the original files were read.
+#LIMIT
+
+
+   LIMIT (start stop | OFF)
+
+   When obtaining fit zones from a sequence alignment, using READALIGNMENT,
+   limit the zones to use residues between the specified positions in the 
+   alignment.
+
+   For example, if the alignment were:
+
+                          1         2         3
+                 123456789012345678901234567890123
+                 ASAHSTGEHNM--PLELLGHISLAM---NPRTY
+                 ---HSTADHNLRTPLEVLG--SLAMEDRQPRTY
+
+   the zones would normally be taken from the following positions
+   in the alignment:
+         4-11, 14-19, 22-25, 29-33
+
+   By using the command:
+         LIMIT 20 28
+   only the zone from 22-25 would be included.
+
+   This is particularly useful in conjunction with the ITERATE command
+   and fitting of multiple structures.
+#CENTRE
+
+
+   CENTRE [OFF]
+
+   Causes coordinates to be written centred about the centre of 
+   geometry of the fitted region rather than translated back to the 
+   reference set's location. If only fitting 2 structures, the 
+   WRITE REFERENCE command is required to write the reference set
+   in the same coordinate frame. (With multiple structure, MWRITE
+   will write the reference set in any case.)
+#CENTER
+
+
+   CENTER [OFF]
+
+   See CENTRE
+#DELZONE
+
+
+   DELZONE ALL|((*|(X...[,n][/m])|(j-k))[:(*|(X...[,n][/m])|(j-k))])
+   where X...      is an amino acid sequence
+         n         is a number of residues
+         m         is the occurrence number
+         j and k   are residue specifications of the form
+                   [chain][.]renum[insert]
+         Optional items are in square brackets
+         Alternatives are marked by a | and grouped in parentheses
+
+   Specifies zones to be deleted from the user-defined list of fit zones. 
+   The DELZONE command uses the same syntax as the ZONE command. The command
+   matches the specified zone with a zone in the user-defined list of fitting
+   zones and deletes the matching zone from the list. Entering either 
+   DELZONE ALL or DELZONE * will delete all user-defined zones.
+#DELRZONE
+
+
+   DELRZONE ALL|((*|(X...[,n][/m])|(j-k))[:(*|(X...[,n][/m])|(j-k))])
+   where X...      is an amino acid sequence
+         n         is a number of residues
+         m         is the occurrence number
+         j and k   are residue specifications of the form
+                   [chain][.]renum[insert]
+         Optional items are in square brackets
+         Alternatives are marked by a | and grouped in parentheses
+
+   Specifies zones to be deleted from the list of user-defined zones
+   for calculating the RMSd. The DELRZONE command uses the same syntax
+   as the ZONE command. The command matches the specified zone with a
+   zone in the user-defined list of RMSd calculation zones and deletes
+   the matching zone from the list. Unlike the RZONE command, entering
+   either DELRZONE ALL or DELRZONE * will delete all user-defined RMSd
+   calculation zones rather than returning to the default condition where
+   the RMSd calculation zones are set to the user-defined fitting zones.
+#BZONE
+
+
+   BZONE
+
+   Sets fitting zones based on markers in the temperature factor (B value) 
+   column Zones are marked using a positive whole numbers while zeros are 
+   ignored. Multiple zones can be marked using additional numbers. 
+
+   Assignment of zones is carried out in two possible ways. If only the 
+   reference structure is marked then the marked section will be added as a 
+   fitting zone in both the reference and mobile structure. If both the 
+   refernece and the mobile structure are marked then fitting zones are 
+   assigned by scanning through and setting zones for coressponding 
+   continious stretches of flagged residues in either the reference or mobile 
+   structures. 
+#SETCENTRE
+
+
+   SETCENTRE CLEAR|(*|i[:j])
+
+   where i and j are residue specifications of the form [chain]resnum[insert]
+         Optional items are in square brackets
+         Alternatives are marked by a | and grouped in parentheses
+
+   Specifies a single residue as the centre of fitting. Entering 
+   SETCENTRE CLEAR or SETCENTRE * will clear the centre residue.
+#SETCENTER
+
+
+   SETCENTER 
+
+   See SETCENTRE
+#SCRIPT
+
+
+   SCRIPT filename
+
+   Executes a script file. When a script file is run, messages
+   indicating the start and end of the script are sent to stdout if quiet
+   mode is off. A comment marker (#) at the beginning of a line will echo
+   the line to stdout, a useful method for annotating output.
+
+   It is possible to run a script from within a script using the
+   SCRIPT command. ProFit tracks the number of open/nested scripts and
+   will allow up to 1000 nested scripts to be open. The assumption is
+   that if over a thousand scripts are open then ProFit has been sent
+   into an infinite loop (for instance by having a script call itself).
+#DISTCUTOFF
+
+
+   DISTCUTOFF [cutoff|ON|OFF]
+
+   Specifies a distance cutoff for ignoring atom pairs outside a
+   specified distance. Entering "DISTCUTOFF ON" or "DISTCUTOFF OFF" will
+   turn the distance cutoff on or off. Entering "DISTCUTOFF 2.5" will set
+   the value of the distance cutoff to 2.5 Angstroms and turn the
+   distance cutoff on. A warning is displayed if the distance cutoff is
+   set to zero and turned on.
+#PAIRDIST
+
+
+   PAIRDIST
+
+   Prints the pairwise distances between equivalent atom pairs in the 
+   reference and mobile structure. If the distance cutoff is set then 
+   residues outside the distance cutoff are flagged with "*".
+#HEADER
+
+
+   HEADER [ON | OFF]
+
+   Include PDB header and trailer records when writing structures.
+   By default, only the coordinate section of a file is output when a
+   structure is written.
+#OCCRANK
+
+
+  OCCRANK n
+
+  Sets ProFit to read the nth ranked highest occupancy atom position for 
+  alternative atom positions.
+
+  For structure files containing partial occupancies, lower occupancy atoms 
+  can be read using by setting the occupancy rank parameter to read 
+  alternative atom positions.
+
+  By default, OCCRANK is set to 1 and reads the highest ranked atom position,
+  a setting of 2 will read the second most occupied position and a setting of
+  3 will read the third most occupied position, etc.
+##
+
+
+   # comment
+
+   Any comment preceeded by the comment marker, #, is echoed to to stdout.
+   This is useful for including comments from scripts. 
+#ALLVSALL
+
+
+   ALLVSALL [filename]
+
+   Performs an all versus all comparison of the mobile structures when using
+   MULTI. Results are presented as tab-delimited text suitable for loading 
+   into a spreadsheet. 
+
+   If the optional filename parameter is given, output is directed to
+   the specified file. If the file cannot be opened or a filename is
+   not specified, output appears on the screen. If the filename begins
+   with a pipe character (|), the results are piped into the
+   specified program.
+
+   ALLVSALL outputs the RMSD for each pair of mobile structures. Followed by
+   a tab-delimited grid of all the results suitable for importing into a 
+   speadsheet. As the output grid fills screen when comparing large numbers 
+   of structures, the tab-delimited section of the output can be turned off 
+   using the QUIET command.
+
+   ALLVSALL calls TRIMZONES command. 
+#SETREF
+
+
+   SETREF [n]
+   where n is the number of the mobile structure.
+
+   Sets the reference structure to the nth mobile structure when using MULTI.
+
+   If no structure number is given then the reference is automatically set 
+   by performing an all versus all comparison of the mobile structures then
+   selecting the structure with the lowest overall RMSD to the other mobile 
+   structures.
+#TRIMZONES
+
+
+   TRIMZONES
+
+   This command is used primarily with fitting zones derived using ALIGN. 
+   With pairwise alignments, the lengths of the aligned regions may vary and
+   there may be gaps in the alignments from one structure to another. The 
+   TRIMZONES command trims the ends of the aligned zones and adds gaps 
+   allowing for a like versus like comparison by using fitting zones that are
+   common to all the structures.
+
+   TRIMZONES is automatically called by the ALLVSALL and SETREF commands. 
+   This command is only used with MULTI.
+#ORDERFIT
+
+
+   ORDERFIT
+
+   Performs a fit of all mobile structures to the reference structure. The 
+   most similar structures are fitted first.
+
+#PRINTALIGN
+
+
+   PRINTALIGN [FASTA|PIR] [filename]
+
+   Prints current fitting zones as a sequence alignment.
+
+   The default output is a (user-friendly) pairwise alignment with the 
+   reference and mobile sequences printed as pairs of 60-character wide 
+   lines. The optional FASTA or PIR parameters sets the printout to 
+   (machine-friendly) FASTA or formatting. 
+
+   If the first character of the (optional) filename is a pipe character,
+   then the results will be piped into the specified program.
+
+   ProFit can read PIR-formatted files using the READALIGN command.
+#ALIGN
+
+
+   ALIGN [[WHOLE|*]|[zone [APPEND]]]
+   where zone = a standard zone definition.
+
+   Performs Needleman and Wunsch sequence alignment on the sequences
+   and displays the alignment. Any fitting zones are automatically 
+   cleared and replaced with zones derived from the equivalent regions 
+   in the alignment.
+   
+   It will normally be necessary to use the ATOMS command to specify
+   that only backbone or C-alpha atoms are included in the fitting
+   calculations.
+
+   There is a choice of three alignment options:
+
+   1. A default chain-by-chain alignment: 
+      Chain A in the mobile is aligned with chain A in the reference, 
+      chain B with chain B, etc...
+      If the number of chains doesn't match then a warning is issued.
+
+   2. The WHOLE option gives a whole sequence alignment.
+      The whole sequence (regardless of chain ID) is aligned. Breaks
+      between chains are introduced at the appropriate positions.
+
+   3. Align Zones
+      Allows the user to define a zone to be aligned. 
+      Also, it is possible to append new zones onto the end of the zone
+      list rather than overwrite the current zone list when using this 
+      option.
+
+      For example one could use following commands: 
+
+      align a*:b*
+      align b*:a* append
+
+      to align chain A with chain B and then B with A. 
+
+      When doing multiple fitting, it is not possible to define regions 
+      using the colon notation to define regions on both the reference
+      and mobile structures. (This is the same restriction as the ZONE
+      command.)
+#WTAVERAGE
+
+
+   WTAVERAGE [ON|OFF]
+
+   Sets the weighting system for the averaged reference structure to the 
+   default weighting system where the change in the coordinates of the 
+   reference structure is inversely proportional to the number of mobile 
+   strucures. The weighted averaging scheme was introduced to lower the 
+   effect that outlying structures have on the averaged reference.
+
+   The alternative weighting scheme sets the coordinates of the 
+   reference stucture to the average of the reference and the mobile 
+   structures. This was the scheme used by ProFit prior to version 3.0. 
+#MULTREF
+
+
+   MULTREF [OFF]
+
+   Sets RMSd calculations to give values to the averaged reference rather 
+   than the first mobile structure.
+#NOFIT 
+
+
+   NOFIT
+
+   Sets the fitted flag in profit allowing the user to calculate the RMSD 
+   on a structure without fitting.
+#SYMMATOMS
+
+
+   SYMMATOMS [[OFF|ON|ALL]|xxx [OFF|ON]]
+
+   where xxx is a three-letter amino acid code.
+
+   Enabes the auto-matching of symmetrical atoms (eg CD1 - CD2 and 
+   CE1 - CE2 of tyrosine) in ProFit
+
+   SYMMATOMS matches charged oxygens and nitrogens on arginine, aspartate 
+   and glutamate residues and the delta and epsilon carbons of phenylalanine
+   and tyrosine residues.
+
+   It is also possible to match the nitrogen and oxygen atoms of the amide 
+   sidechains of asparagine and glutamine residues and the prochiral methyl 
+   groups of valine and leucine.
+
+   Typing SYMMATOMS will display the pairs of atoms currently matched by 
+   ProFit. Typing SYMMATOMS ON or SYMMATOMS OFF will turn symmetrical atom 
+   matching on or off.
+
+   Individual residue types, for example ASP, can be turned-on or off by 
+   typing SYMMATOMS ASP ON or SYMMATOMS ASP OFF, respectively. Alternatively, 
+   SYMMATOMS ALL ON will turn all atom pairs on.
+
+   By default, the the matching of symmetrical atoms is turned-off

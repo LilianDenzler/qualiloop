@@ -1,0 +1,53 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.05;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/***********************************************************************
+ *      Name: PimmsTypes.h                                             *
+ *  Function: Declares some types                                      *
+ * Copyright: (C) Oxford Molecular Limited                             *
+ *---------------------------------------------------------------------*
+ *    Author: J.P.Holland, Oxford Molecular Ltd.                       *
+ *      Date: 22-Jul-1991                                              *
+ *---------------------------------------------------------------------*
+ * Modification Record                                                 *
+ * Date     Inits   Comments                                           *
+ ***********************************************************************/
+
+#ifndef __PIMMSTYPES__
+#define __PIMMSTYPES__
+
+/* Define some sizes for the atom coordinates, charges etc */
+#ifndef AtomCoordType
+ typedef float AtomCoordType ;
+#endif
+
+#ifndef AtomChargeType
+ typedef float AtomChargeType ;
+#endif
+
+#ifndef AtomPtrType
+ typedef short AtomPtrType ;
+#endif
+
+#endif
+@

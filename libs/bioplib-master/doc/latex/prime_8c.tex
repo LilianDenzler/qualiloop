@@ -1,0 +1,115 @@
+\hypertarget{prime_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/prime.c File Reference}
+\label{prime_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/prime.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/prime.\-c}}
+}
+
+
+Routines to identify prime numbers.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$limits.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Util.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_af632da489ebc3708ec3ab6791ee53fa4}{U\-L\-O\-N\-G} \hyperlink{prime_8c_ae1d9a4577e1cde916b859285f19732f0}{bl\-Find\-Next\-Prime} (\hyperlink{_sys_defs_8h_af632da489ebc3708ec3ab6791ee53fa4}{U\-L\-O\-N\-G} prime\-Num, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} above)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{prime_8c_a8710dcd15377c24eb078a9621f872fff}{bl\-Is\-Prime} (\hyperlink{_sys_defs_8h_af632da489ebc3708ec3ab6791ee53fa4}{U\-L\-O\-N\-G} input)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Routines to identify prime numbers. \begin{DoxyVersion}{Version}
+V1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+15.\-05.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, U\-C\-L, 2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 15.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{prime_8c_source}{prime.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{prime_8c_ae1d9a4577e1cde916b859285f19732f0}{\index{prime.\-c@{prime.\-c}!bl\-Find\-Next\-Prime@{bl\-Find\-Next\-Prime}}
+\index{bl\-Find\-Next\-Prime@{bl\-Find\-Next\-Prime}!prime.c@{prime.\-c}}
+\subsubsection[{bl\-Find\-Next\-Prime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-L\-O\-N\-G} bl\-Find\-Next\-Prime (
+\begin{DoxyParamCaption}
+\item[{{\bf U\-L\-O\-N\-G}}]{prime\-Num, }
+\item[{{\bf B\-O\-O\-L}}]{above}
+\end{DoxyParamCaption}
+)}}\label{prime_8c_ae1d9a4577e1cde916b859285f19732f0}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em prime\-Num} & Input number (prime or not) \\
+\hline
+\mbox{\tt in}  & {\em above} & Always return a number above the input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The next prime
+\end{DoxyReturn}
+Returns a prime above (or equal to if 'above' is F\-A\-L\-S\-E) the input number
+
+
+\begin{DoxyItemize}
+\item 15.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 97 of file prime.\-c.
+
+\hypertarget{prime_8c_a8710dcd15377c24eb078a9621f872fff}{\index{prime.\-c@{prime.\-c}!bl\-Is\-Prime@{bl\-Is\-Prime}}
+\index{bl\-Is\-Prime@{bl\-Is\-Prime}!prime.c@{prime.\-c}}
+\subsubsection[{bl\-Is\-Prime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Is\-Prime (
+\begin{DoxyParamCaption}
+\item[{{\bf U\-L\-O\-N\-G}}]{input}
+\end{DoxyParamCaption}
+)}}\label{prime_8c_a8710dcd15377c24eb078a9621f872fff}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em input} & Number to test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Is this number a prime?
+\end{DoxyReturn}
+Tests whether the input number is a prime
+
+
+\begin{DoxyItemize}
+\item 15.\-05.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 142 of file prime.\-c.
+

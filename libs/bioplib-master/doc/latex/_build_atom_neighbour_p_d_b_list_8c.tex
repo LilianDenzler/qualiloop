@@ -1,0 +1,97 @@
+\hypertarget{_build_atom_neighbour_p_d_b_list_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Build\-Atom\-Neighbour\-P\-D\-B\-List.c File Reference}
+\label{_build_atom_neighbour_p_d_b_list_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Build\-Atom\-Neighbour\-P\-D\-B\-List.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Build\-Atom\-Neighbour\-P\-D\-B\-List.\-c}}
+}
+
+
+Build a new P\-D\-B linked list containing atos within a given distance of a specified residue.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_build_atom_neighbour_p_d_b_list_8c_aba006f200a7ed9bf0c67a54f404a5c0e}{bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List\-As\-Copy} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$p\-Res, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Neighb\-Dist)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Build a new P\-D\-B linked list containing atos within a given distance of a specified residue. \begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+19.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, U\-C\-L, 1996-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 27.\-08.\-96 Original By\-: A\-C\-R\-M
+\item V1.\-1 17.\-11.\-05 Fixed freed memory access
+\item V1.\-2 08.\-11.\-07 Moved out of mutmodel. Added check on memory allocation. Uses occ rather than B\-Val as a flag
+\item V1.\-3 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-4 19.\-08.\-14 Renamed bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List\-As\-Copy to \hyperlink{_build_atom_neighbour_p_d_b_list_8c_aba006f200a7ed9bf0c67a54f404a5c0e}{bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List\-As\-Copy()} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_build_atom_neighbour_p_d_b_list_8c_source}{Build\-Atom\-Neighbour\-P\-D\-B\-List.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_build_atom_neighbour_p_d_b_list_8c_aba006f200a7ed9bf0c67a54f404a5c0e}{\index{Build\-Atom\-Neighbour\-P\-D\-B\-List.\-c@{Build\-Atom\-Neighbour\-P\-D\-B\-List.\-c}!bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List\-As\-Copy@{bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List\-As\-Copy}}
+\index{bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List\-As\-Copy@{bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List\-As\-Copy}!BuildAtomNeighbourPDBList.c@{Build\-Atom\-Neighbour\-P\-D\-B\-List.\-c}}
+\subsubsection[{bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List\-As\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List\-As\-Copy (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf P\-D\-B} $\ast$}]{p\-Res, }
+\item[{{\bf R\-E\-A\-L}}]{Neighb\-Dist}
+\end{DoxyParamCaption}
+)}}\label{_build_atom_neighbour_p_d_b_list_8c_aba006f200a7ed9bf0c67a54f404a5c0e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list of whole structure \\
+\hline
+\mbox{\tt in}  & {\em $\ast$p\-Res} & Pointer to start of residue of interest (may be in a separate linked list providing it's in the same coordinate frame) \\
+\hline
+\mbox{\tt in}  & {\em Neighb\-Dist} & Cutoff neighbour distance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+P\-D\-B linked list of atoms within cutoff distance of the residue of interest. (N\-U\-L\-L if allocations failed)
+\end{DoxyReturn}
+Builds a P\-D\-B linked list of atoms neighbouring those in a specified residue. The input list is unmodified.
+
+
+\begin{DoxyItemize}
+\item 27.\-08.\-96 Original By\-: A\-C\-R\-M
+\item 17.\-11.\-05 Fixed freed memory access
+\item 08.\-11.\-07 Moved out of mutmodel. Added check on memory allocation. Uses occ rather than B\-Val as a flag M\-O\-V\-E\-D F\-R\-O\-M M\-U\-T\-M\-O\-D\-E\-L
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 19.\-08.\-14 Renamed function to \hyperlink{_build_atom_neighbour_p_d_b_list_8c_aba006f200a7ed9bf0c67a54f404a5c0e}{bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List\-As\-Copy()} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 113 of file Build\-Atom\-Neighbour\-P\-D\-B\-List.\-c.
+

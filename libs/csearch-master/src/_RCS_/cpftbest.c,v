@@ -1,0 +1,54 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.39;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Copies between entries in the best coordinate arrays. */
+ 
+void cpftbest(
+struct sideres *srp,
+int fromind,
+int toind
+)
+{
+   int *ip;
+   float *oxp,*nxp;
+   float *oyp,*nyp;
+   float *ozp,*nzp;
+ 
+   oxp = srp->bestxpp[fromind];
+   oyp = srp->bestypp[fromind];
+   ozp = srp->bestzpp[fromind];
+   nxp = srp->bestxpp[toind];
+   nyp = srp->bestypp[toind];
+   nzp = srp->bestzpp[toind];
+   for (ip = srp->atomp; *ip; ip++)
+   {
+      *nxp++ = *oxp++;
+      *nyp++ = *oyp++;
+      *nzp++ = *ozp++;
+   }
+}
+ 
+@

@@ -1,0 +1,177 @@
+\hypertarget{_get_cryst_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-Cryst\-P\-D\-B.c File Reference}
+\label{_get_cryst_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-Cryst\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-Cryst\-P\-D\-B.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fsscanf.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_get_cryst_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~160
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_get_cryst_p_d_b_8c_a90c4fb4940b44cb6c8c30a5ce94011e5}{bl\-Get\-Cryst\-P\-D\-B} (F\-I\-L\-E $\ast$fp, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$Unit\-Cell, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$Cell\-Angles, char $\ast$spacegroup, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Orig\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Scale\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]})
+\item 
+int \hyperlink{_get_cryst_p_d_b_8c_ab2a47c0fab81e876b383555dd37ca942}{bl\-Get\-Cryst\-Whole\-P\-D\-B} (\hyperlink{pdb_8h_af81d935f76d79bf5a92ed72a1db6ebd8}{W\-H\-O\-L\-E\-P\-D\-B} $\ast$wpdb, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$Unit\-Cell, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$Cell\-Angles, char $\ast$spacegroup, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Orig\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Scale\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0\-R 12.\-10.\-05 Original
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_get_cryst_p_d_b_8c_source}{Get\-Cryst\-P\-D\-B.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_get_cryst_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{Get\-Cryst\-P\-D\-B.\-c@{Get\-Cryst\-P\-D\-B.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!GetCrystPDB.c@{Get\-Cryst\-P\-D\-B.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~160}}\label{_get_cryst_p_d_b_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 78 of file Get\-Cryst\-P\-D\-B.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_get_cryst_p_d_b_8c_a90c4fb4940b44cb6c8c30a5ce94011e5}{\index{Get\-Cryst\-P\-D\-B.\-c@{Get\-Cryst\-P\-D\-B.\-c}!bl\-Get\-Cryst\-P\-D\-B@{bl\-Get\-Cryst\-P\-D\-B}}
+\index{bl\-Get\-Cryst\-P\-D\-B@{bl\-Get\-Cryst\-P\-D\-B}!GetCrystPDB.c@{Get\-Cryst\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Get\-Cryst\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Get\-Cryst\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{Unit\-Cell, }
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{Cell\-Angles, }
+\item[{char $\ast$}]{spacegroup, }
+\item[{{\bf R\-E\-A\-L}}]{Orig\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{Scale\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{_get_cryst_p_d_b_8c_a90c4fb4940b44cb6c8c30a5ce94011e5}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & Input file pointer \\
+\hline
+\mbox{\tt out}  & {\em $\ast$\-Unit\-Cell} & The unit cell dimensions \\
+\hline
+\mbox{\tt out}  & {\em $\ast$\-Cell\-Angles} & The unit cell angles \\
+\hline
+\mbox{\tt out}  & {\em $\ast$spacegroup} & The spacegroup \\
+\hline
+\mbox{\tt out}  & {\em Orig\-Matrix} & The origin matrix \\
+\hline
+\mbox{\tt out}  & {\em Scale\-Matrix} & The scale matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Flags for elements read.
+\end{DoxyReturn}
+\begin{DoxyVerb}                                Flags for elements read:
+                                    0: Nothing at all
+                                    XTAL_DATA_CRYST: Unit cell
+                                    XTAL_DATA_ORIGX: Origin matrix
+                                    XTAL_DATA_SCALE: Scale matrix
+                                    (These are ORed together)
+\end{DoxyVerb}
+
+
+Read the crystal parameters (unit cell, spacegroup, origin and scale matrices) out of a P\-D\-B file.
+
+Stops searching as soon as an A\-T\-O\-M or H\-E\-T\-A\-T\-M record is hit and leaves the file in a state ready for Read\-P\-D\-B() to do it's stuff (i.\-e. with the current file pointer at the first A\-T\-O\-M or H\-E\-T\-A\-T\-M record).
+
+
+\begin{DoxyItemize}
+\item 12.\-10.\-95 Original By\-: A\-C\-R\-M
+\item 17.\-10.\-95 Correctly returns retval if no A\-T\-O\-M/\-H\-E\-T\-A\-T\-M records not found
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 122 of file Get\-Cryst\-P\-D\-B.\-c.
+
+\hypertarget{_get_cryst_p_d_b_8c_ab2a47c0fab81e876b383555dd37ca942}{\index{Get\-Cryst\-P\-D\-B.\-c@{Get\-Cryst\-P\-D\-B.\-c}!bl\-Get\-Cryst\-Whole\-P\-D\-B@{bl\-Get\-Cryst\-Whole\-P\-D\-B}}
+\index{bl\-Get\-Cryst\-Whole\-P\-D\-B@{bl\-Get\-Cryst\-Whole\-P\-D\-B}!GetCrystPDB.c@{Get\-Cryst\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Get\-Cryst\-Whole\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Get\-Cryst\-Whole\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf W\-H\-O\-L\-E\-P\-D\-B} $\ast$}]{wpdb, }
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{Unit\-Cell, }
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{Cell\-Angles, }
+\item[{char $\ast$}]{spacegroup, }
+\item[{{\bf R\-E\-A\-L}}]{Orig\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{Scale\-Matrix\mbox{[}3\mbox{]}\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{_get_cryst_p_d_b_8c_ab2a47c0fab81e876b383555dd37ca942}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$wpdb} & Whole P\-D\-B pointer \\
+\hline
+\mbox{\tt out}  & {\em $\ast$\-Unit\-Cell} & The unit cell dimensions \\
+\hline
+\mbox{\tt out}  & {\em $\ast$\-Cell\-Angles} & The unit cell angles \\
+\hline
+\mbox{\tt out}  & {\em $\ast$spacegroup} & The spacegroup \\
+\hline
+\mbox{\tt out}  & {\em Orig\-Matrix} & The origin matrix \\
+\hline
+\mbox{\tt out}  & {\em Scale\-Matrix} & The scale matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Flags for elements read.
+\end{DoxyReturn}
+\begin{DoxyVerb}                                Flags for elements read:
+                                    0: Nothing at all
+                                    XTAL_DATA_CRYST: Unit cell
+                                    XTAL_DATA_ORIGX: Origin matrix
+                                    XTAL_DATA_SCALE: Scale matrix
+                                    (These are ORed together)
+\end{DoxyVerb}
+
+
+Read the crystal parameters (unit cell, spacegroup, origin and scale matrices) out of a P\-D\-B file.
+
+Stops searching as soon as an A\-T\-O\-M or H\-E\-T\-A\-T\-M record is hit and leaves the file in a state ready for Read\-P\-D\-B() to do it's stuff (i.\-e. with the current file pointer at the first A\-T\-O\-M or H\-E\-T\-A\-T\-M record).
+
+
+\begin{DoxyItemize}
+\item 16.\-03.\-15 Original based on \hyperlink{_get_cryst_p_d_b_8c_a90c4fb4940b44cb6c8c30a5ce94011e5}{bl\-Get\-Cryst\-P\-D\-B()} By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 293 of file Get\-Cryst\-P\-D\-B.\-c.
+

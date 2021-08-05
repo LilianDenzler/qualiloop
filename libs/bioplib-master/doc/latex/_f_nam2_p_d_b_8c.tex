@@ -1,0 +1,111 @@
+\hypertarget{_f_nam2_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-F\-Nam2\-P\-D\-B.c File Reference}
+\label{_f_nam2_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-F\-Nam2\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-F\-Nam2\-P\-D\-B.\-c}}
+}
+
+
+Extract a P\-D\-B code from a filename.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{_f_nam2_p_d_b_8c_aacdc4e74b6ceab09f8f19a09a0820b26}{bl\-F\-Nam2\-P\-D\-B} (char $\ast$filename)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Extract a P\-D\-B code from a filename. \begin{DoxyVersion}{Version}
+V1.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin 1995 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 24.\-07.\-95 Original
+\item V1.\-1 26.\-07.\-95 Fixed a N\-U\-L\-L to '\textbackslash{}0'
+\item V1.\-2 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_f_nam2_p_d_b_8c_source}{F\-Nam2\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_f_nam2_p_d_b_8c_aacdc4e74b6ceab09f8f19a09a0820b26}{\index{F\-Nam2\-P\-D\-B.\-c@{F\-Nam2\-P\-D\-B.\-c}!bl\-F\-Nam2\-P\-D\-B@{bl\-F\-Nam2\-P\-D\-B}}
+\index{bl\-F\-Nam2\-P\-D\-B@{bl\-F\-Nam2\-P\-D\-B}!FNam2PDB.c@{F\-Nam2\-P\-D\-B.\-c}}
+\subsubsection[{bl\-F\-Nam2\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-F\-Nam2\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}}\label{_f_nam2_p_d_b_8c_aacdc4e74b6ceab09f8f19a09a0820b26}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$filename} & A P\-D\-B filename containing a P\-D\-B code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The P\-D\-B code (lower case) N\-U\-L\-L if memory allocation fails X\-X\-X\-X if filename blank or N\-U\-L\-L or if unable to find P\-D\-B code
+\end{DoxyReturn}
+This routine attempts to convert a filename stem to a P\-D\-B code.
+
+All the following inputs should produce the same output of 1fbj\-:
+
+\begin{DoxyVerb}  $A:[PDB]PDB1FBJ.ENT
+  C:\P1FBJ.PDB
+  /pdb/p1fbj.pdb
+  /pdb/pdb1fbj.pdb
+  1fbj.pdb
+  1fbjL
+\end{DoxyVerb}
+
+
+The routine first removes characters from the start of the filename up to the last \-: \mbox{]} / or . It then searches for the following possible patterns (where N is a digit and X is an alphanumeric)
+
+\begin{DoxyVerb}  pdbNXXX
+  pNXXX
+  NXXX
+  XXXX.pdb
+  XXXX.ent
+\end{DoxyVerb}
+
+
+This should cover just about any filename which includes a legal P\-D\-B code.
+
+
+\begin{DoxyItemize}
+\item 24.\-07.\-95 Original By\-: A\-C\-R\-M
+\item 26.\-07.\-95 Corrected a N\-U\-L\-L to '\textbackslash{}0'
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 123 of file F\-Nam2\-P\-D\-B.\-c.
+

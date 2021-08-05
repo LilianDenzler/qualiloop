@@ -1,0 +1,84 @@
+\hypertarget{_renum_atoms_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Renum\-Atoms\-P\-D\-B.c File Reference}
+\label{_renum_atoms_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Renum\-Atoms\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Renum\-Atoms\-P\-D\-B.\-c}}
+}
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_renum_atoms_p_d_b_8c_ae1ff7a56e4d028aef80c0220f59c1358}{bl\-Renum\-Atoms\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, int offset)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+29.\-04.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-1 01.\-03.\-94 Original
+\item V1.\-2 27.\-02.\-98 Removed unreachable break from switch()
+\item V1.\-3 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-4 23.\-02.\-15 Properly handled T\-E\-R card numbering and now takes an additional parameter -\/ an offset for the start of numbering
+\item V1.\-5 29.\-04.\-15 Increment atom number at start of H\-E\-T\-A\-T\-M records. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_renum_atoms_p_d_b_8c_source}{Renum\-Atoms\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_renum_atoms_p_d_b_8c_ae1ff7a56e4d028aef80c0220f59c1358}{\index{Renum\-Atoms\-P\-D\-B.\-c@{Renum\-Atoms\-P\-D\-B.\-c}!bl\-Renum\-Atoms\-P\-D\-B@{bl\-Renum\-Atoms\-P\-D\-B}}
+\index{bl\-Renum\-Atoms\-P\-D\-B@{bl\-Renum\-Atoms\-P\-D\-B}!RenumAtomsPDB.c@{Renum\-Atoms\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Renum\-Atoms\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Renum\-Atoms\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{int}]{offset}
+\end{DoxyParamCaption}
+)}}\label{_renum_atoms_p_d_b_8c_ae1ff7a56e4d028aef80c0220f59c1358}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list to renumber \\
+\hline
+\mbox{\tt in}  & {\em offset} & Number for the first atom\\
+\hline
+\end{DoxyParams}
+Renumber the atoms throughout a P\-D\-B linked list
+
+
+\begin{DoxyItemize}
+\item 01.\-08.\-93 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 23.\-02.\-15 More intelligent version that allows for T\-E\-R records which are also numbered. Added offset parameter.
+\item 29.\-04.\-15 Increment atom number at start of H\-E\-T\-A\-T\-M records. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 100 of file Renum\-Atoms\-P\-D\-B.\-c.
+

@@ -1,0 +1,51 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@c @;
+
+
+1.1
+date	2006.02.17.12.03.48;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+ 
+      FUNCTION GAMMP(A,X)
+ 
+COM OMUPD BNJ 2/9/91
+ 
+      IMPLICIT NONE
+ 
+      REAL GAMMP,X,A,GLN,GAMSER,GAMCFN,GAMMCF
+ 
+COM
+ 
+ 
+C     Returns the incomplete gamma function P(a,x)
+      IF (X .LT. 0.0   .OR.   A .LE. 0.0) THEN
+         PRINT *, 'Error in GAMMP'
+         CALL DIE
+      ENDIF
+      IF (X .LT. A+1.0) THEN
+         CALL GSER(GAMSER,A,X,GLN)
+         GAMMP = GAMSER
+      ELSE
+         CALL GCF(GAMMCF,A,X,GLN)
+         GAMMP = 1.0 - GAMMCF
+      ENDIF
+      RETURN
+      END
+@

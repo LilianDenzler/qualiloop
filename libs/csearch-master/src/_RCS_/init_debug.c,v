@@ -1,0 +1,40 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.58;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Initializes the debugger variables to reasonable value. */
+ 
+void init_debug(
+void
+)
+{
+   dbg.alloc = 0;	    /* No initialization of alloc returned space */
+   dbg.allhp = 1;	    /* Initialize HEAP to 'HEAP' */
+   dbg.allstk = 1;	    /* Initialize STACK to 'STCK' */
+   dbg.cgen = 0;
+   dbg.clschn = 0;
+}
+ 
+@

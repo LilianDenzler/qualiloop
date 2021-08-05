@@ -1,0 +1,181 @@
+\hypertarget{throne_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/throne.c File Reference}
+\label{throne_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/throne.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/throne.\-c}}
+}
+
+
+Convert between 1 and 3 letter aa codes.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{throne_8c_afeca2ef8834e8e7c67beb77d154c2224}{N\-U\-M\-A\-A\-K\-N\-O\-W\-N}~39
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{throne_8c_a29e50e2e8ab3aa15ab9e05e81d2274ab}{bl\-Throne} (char $\ast$three)
+\item 
+char \hyperlink{throne_8c_ad5f101649d4acff71295dd407310d194}{bl\-Thronex} (char $\ast$three)
+\item 
+char $\ast$ \hyperlink{throne_8c_ae549d85acf85ad5233ec378101033e8b}{bl\-Onethr} (char one)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{throne_8c_ae6e0b2b3fc8612b06187c1f5be8458ac}{g\-Bioplib\-Seq\-Nucleic\-Acid} = \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Convert between 1 and 3 letter aa codes. \begin{DoxyVersion}{Version}
+V1.\-9 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 29.\-09.\-92 Original By\-: A\-C\-R\-M
+\item V1.\-1 11.\-03.\-94 Added P\-C\-A, A\-S\-X and G\-L\-X to translation table. P\-C\-A translates to E Added routines to handle asx/glx
+\item V1.\-2 25.\-07.\-95 handles nucleic acids Sets the g\-Bioplib\-Seq\-Nucleic\-Acid flag if it's a nucleic acid.
+\item V1.\-3 08.\-03.\-07 Added P\-G\-A (Pyroglutamate) to translation table (same as P\-C\-A\-: pyrrolidone carboxylic acid). Note that it isn't clear whether this should translate to Glu or Gln
+\item V1.\-4 21.\-07.\-08 Added C\-G\-N (5-\/\-O\-X\-O-\/\-P\-Y\-R\-R\-O\-L\-I\-D\-I\-N\-E-\/2-\/\-C\-A\-R\-B\-A\-L\-D\-E\-H\-Y\-D\-E) which is again the same as P\-C\-A
+\item V1.\-5 19.\-12.\-08 Corrected N\-U\-M\-A\-A\-K\-N\-O\-W\-N -\/ wasn't looking at U or X as these were $>$ N\-U\-M\-A\-A\-K\-N\-O\-W\-N!
+\item V1.\-6 04.\-02.\-09 onethr() was not properly working from end of list for nucleic acids
+\item V1.\-7 18.\-02.\-09 Fixed for new P\-D\-B files which have \char`\"{}  D\-T\char`\"{} etc for D\-N\-A sequences
+\item V1.\-8 30.\-01.\-14 Added pyrrolysine and selenocysteine to translation table. By\-: C\-T\-P P\-Y\-L translates to O, S\-E\-C translates to U.
+\item V1.\-9 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{throne_8c_source}{throne.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{throne_8c_afeca2ef8834e8e7c67beb77d154c2224}{\index{throne.\-c@{throne.\-c}!N\-U\-M\-A\-A\-K\-N\-O\-W\-N@{N\-U\-M\-A\-A\-K\-N\-O\-W\-N}}
+\index{N\-U\-M\-A\-A\-K\-N\-O\-W\-N@{N\-U\-M\-A\-A\-K\-N\-O\-W\-N}!throne.c@{throne.\-c}}
+\subsubsection[{N\-U\-M\-A\-A\-K\-N\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-A\-A\-K\-N\-O\-W\-N~39}}\label{throne_8c_afeca2ef8834e8e7c67beb77d154c2224}
+
+
+Definition at line 98 of file throne.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{throne_8c_ae549d85acf85ad5233ec378101033e8b}{\index{throne.\-c@{throne.\-c}!bl\-Onethr@{bl\-Onethr}}
+\index{bl\-Onethr@{bl\-Onethr}!throne.c@{throne.\-c}}
+\subsubsection[{bl\-Onethr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Onethr (
+\begin{DoxyParamCaption}
+\item[{char}]{one}
+\end{DoxyParamCaption}
+)}}\label{throne_8c_ae549d85acf85ad5233ec378101033e8b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em one} & One letter code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Three letter code (padded to 4 chars with a space)
+\end{DoxyReturn}
+Converts 1-\/letter code to 3-\/letter code (actually as 4 chars).
+
+
+\begin{DoxyItemize}
+\item 07.\-06.\-93 Original By\-: A\-C\-R\-M
+\item 25.\-07.\-95 If the g\-Bioplib\-Seq\-Nucleic\-Acid flag is set, assumes nucleic acids rather than amino acids
+\item 03.\-02.\-09 Fixed nucleic search -\/ j was incrementing instead of decrementing!
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 223 of file throne.\-c.
+
+\hypertarget{throne_8c_a29e50e2e8ab3aa15ab9e05e81d2274ab}{\index{throne.\-c@{throne.\-c}!bl\-Throne@{bl\-Throne}}
+\index{bl\-Throne@{bl\-Throne}!throne.c@{throne.\-c}}
+\subsubsection[{bl\-Throne}]{\setlength{\rightskip}{0pt plus 5cm}char bl\-Throne (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{three}
+\end{DoxyParamCaption}
+)}}\label{throne_8c_a29e50e2e8ab3aa15ab9e05e81d2274ab}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$three} & Three letter code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One letter code
+\end{DoxyReturn}
+Converts 3-\/letter code to 1-\/letter code. Handles A\-S\-X and G\-L\-X as X
+
+
+\begin{DoxyItemize}
+\item 29.\-09.\-92 Original By\-: A\-C\-R\-M
+\item 11.\-03.\-94 Modified to handle A\-S\-X and G\-L\-X in the tables
+\item 25.\-07.\-95 Added handling of g\-Bioplib\-Seq\-Nucleic\-Acid
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 153 of file throne.\-c.
+
+\hypertarget{throne_8c_ad5f101649d4acff71295dd407310d194}{\index{throne.\-c@{throne.\-c}!bl\-Thronex@{bl\-Thronex}}
+\index{bl\-Thronex@{bl\-Thronex}!throne.c@{throne.\-c}}
+\subsubsection[{bl\-Thronex}]{\setlength{\rightskip}{0pt plus 5cm}char bl\-Thronex (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{three}
+\end{DoxyParamCaption}
+)}}\label{throne_8c_ad5f101649d4acff71295dd407310d194}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$three} & Three letter code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One letter code
+\end{DoxyReturn}
+Converts 3-\/letter code to 1-\/letter code. Handles A\-S\-X and G\-L\-X as B and Z.
+
+
+\begin{DoxyItemize}
+\item 29.\-09.\-92 Original By\-: A\-C\-R\-M
+\item 25.\-07.\-95 Added handling of g\-Bioplib\-Seq\-Nucleic\-Acid
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 188 of file throne.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{throne_8c_ae6e0b2b3fc8612b06187c1f5be8458ac}{\index{throne.\-c@{throne.\-c}!g\-Bioplib\-Seq\-Nucleic\-Acid@{g\-Bioplib\-Seq\-Nucleic\-Acid}}
+\index{g\-Bioplib\-Seq\-Nucleic\-Acid@{g\-Bioplib\-Seq\-Nucleic\-Acid}!throne.c@{throne.\-c}}
+\subsubsection[{g\-Bioplib\-Seq\-Nucleic\-Acid}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} g\-Bioplib\-Seq\-Nucleic\-Acid = {\bf F\-A\-L\-S\-E}}}\label{throne_8c_ae6e0b2b3fc8612b06187c1f5be8458ac}
+
+
+Definition at line 130 of file throne.\-c.
+

@@ -1,0 +1,81 @@
+#ifndef __ABM_PDBIO_H__
+#define __ABM_PDBIO_H__
+/*****************************************************************************
+ *      Name: abm_pdbio.h                                                    *
+ *  Function: Variable definitions for the AbM PDB read/write routines       *
+ * Copyright: (C) OXFORD MOLECULAR LTD, 1993                                 *
+ *---------------------------------------------------------------------------*
+ *    Author: Robert Williams                                                *
+ *      Date: 15/10/93                                                       *
+ *---------------------------------------------------------------------------*
+ * MODIFICATION RECORD:                                                      *
+ * DD/MM/YY   Initials   Comments                                            *
+ *****************************************************************************/
+
+#define MAX_PDB_LINE     100     /* Maximum line length */
+#define PDB_FILE_LEN     240     /* Length of PDB file specification */
+#define READ_OKAY          1     /* PDB line read successful */
+#define READ_ERROR         2     /* PDB line read error */
+#define WRITE_OKAY         4     /* PDB file written successfully */
+#define WRITE_ERROR        5     /* PDB line write error */
+#define ADD_BEFORE         6     /* Code to insert a residue before another*/
+#define ADD_AFTER          7     /* Code to insert a residue after another*/
+#define PDB_SEQ_OKAY       8     /* Aligned sequence matches ATOM residues */
+#define PDB_SEQ_END_ERROR  9     /* Aligned sequence ends prematurely */
+#define PDB_CHN_END_ERROR 10     /* Chains do not match ATOM chains in No. */
+#define PDB_NO_RES_MATCH  11     /* Sequence does not match ATOM residues */
+
+#ifndef TRUE
+#define TRUE 1
+#endif
+
+#ifndef FALSE
+#define FALSE 0
+#endif
+
+typedef struct PDBdata PDBdata; /* Structure type for PDB data */
+typedef struct ChnData ChnData; /* Structure type for chain data */
+typedef struct ResData ResData; /* Structure type for residue data */
+typedef struct AtmData AtmData; /* Structure type for atom data */
+
+struct PDBdata
+{
+   char     FileName[PDB_FILE_LEN+1]; /* The name of the file read */
+   char    *AlignSeq;                 /* Pointer to aligned sequence */
+   int      Nchains;                  /* Number of chains */
+   ChnData *TopChain;                 /* Pointer to chain linked list */
+};
+
+struct ChnData
+{
+   ChnData *next;      /* Pointer to next chain in linked list */
+   ChnData *last;      /* Pointer to previous chain in linked list */
+   char     ChainID;   /* The chain ID character code */
+   int      Nresidues; /* The residue count in this chain */
+   ResData *TopRes;    /* Pointer to residue linked list */
+};
+
+struct ResData
+{
+   ResData  *next;      /* Pointer to next residue in linked list */
+   ResData  *last;      /* Pointer to previous residue in linked list */
+   char      ResNam[5]; /* The residue name */
+   char      AAcode;    /* The amino acide single letter code */
+   char      Insert;    /* A possible residue insert code */
+   int       ResNum;    /* Residue number read from file */
+   int       Natoms;    /* Atom count for this residue */
+   AtmData  *TopAtom;   /* Pointer to the atom linked list */
+};
+
+struct AtmData
+{
+   AtmData *next;      /* Pointer to next atom in linked list */
+   AtmData *last;      /* Pointer to previous atom in linked list */
+   int      AtmNum;    /* Atom number read from file */
+   char     AtmNam[5]; /* The atom name */
+   float    Xcart;     /* X cartesian coordinate */
+   float    Ycart;     /* Y cartesian coordinate */
+   float    Zcart;     /* Z cartesian coordinate */
+};
+   
+#endif

@@ -1,0 +1,51 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.08;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/******************************************************************************
+ *      Name: RingDef.h                                                       *
+ *  Function: Declarations of ring definitions and structures.                *
+ * Copyright: (C) Oxford Molecular Limited                                    *
+ *----------------------------------------------------------------------------*
+ *    Author: J.P.Holland, Oxford Molecular Ltd.                              *
+ *      Date:  4-Feb-1991                                                     *
+ *----------------------------------------------------------------------------*
+ * Modification Record                                                        *
+ * Date     Inits   Comments                                                  *
+ * dd/mm/yy                                                                   *
+ ******************************************************************************/
+
+#ifndef __RINGDEF__
+#define __RINGDEF__
+
+typedef struct ringdat * RingDataPtr ;
+typedef struct ringdat {	/* Structure for linked list of ring data */
+	AtomPtrType   Molecule ;
+	AtomPtrType   RingSize ;
+	AtomPtrType * RingAtoms ;
+	RingDataPtr   NextRing ;
+	RingDataPtr   PrevRing ;
+	RingDataPtr   LastRing ;
+		} RingData ;
+
+#endif
+@

@@ -1,0 +1,55 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.52;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/*****************************************************************************
+ *      Name: fwerf                                                          *
+ *  Function: to call system erf routine and typecast output                 *
+ * Copyright: (C) OXFORD MOLECULAR LTD, 1992                                 *
+ *---------------------------------------------------------------------------*
+ *    Author: Brian Jamieson                                                 *
+ *      Date: 16/03/92                                                       *
+ *---------------------------------------------------------------------------*
+ *    Inputs: *xx, *xtemp                                                    *
+ *   Outputs:                                                                *
+ *   Returns:                                                                *
+ * Externals:                                                                *
+ *---------------------------------------------------------------------------*
+ * MODIFICATION RECORD:                                                      *
+ * DD/MM/YY   Initials   Comments                                            *
+ *****************************************************************************/
+
+#include "ProtoTypes.h"
+#include "CongenProto.h"
+
+void fwerf(float *xx, float *xtemp)
+{
+double dxx,dxtemp;
+
+   dxx = (double) (*xx);
+
+   dxtemp = erf(dxx);
+   /* printf("erf of %f is %f\n",dxx,dxtemp); */
+
+   *xtemp = (float) dxtemp;
+}
+@

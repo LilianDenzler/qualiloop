@@ -1,0 +1,256 @@
+   V0.1   25.09.92 Original
+   V0.2   02.10.92 Added CURSES support
+   V0.3   07.10.92 Added Amiga windows and paging support
+   V0.4   09.10.92 Added N&W alignment support & fixed bug in multi-zones
+   V0.5   08.10.93 Various tidying for Unix & chaned for booklib 
+   V0.6   05.01.94 Modified MDMFILE for Unix getenv()
+                   More tidying
+                   Reads HELPDIR and DATADIR environment variables under 
+   V0.7   24.11.94 Uses ReadPDBAtoms()
+                   The DATAENV environment variable is now handled by code
+                   in bioplib/align.c/ReadMDM; Checks the return from 
+                   ReadMDM(). Fixed bug in multi-zone align.
+                   Some ammendments to ProFit.help to explain the use
+                   of chain names in ZONE specifications.
+   V0.8   17.07.95 Fixed bugs in multi-chain fitting. Chain name must
+                   come *before* residue number. Removed windowing code.
+   V1.0   19.07.95 Allows inserts in structures including insert names
+                   in zones. Allows HETATM records to be included.
+                   HETATMs are not read by default. However, by putting
+                   a -h on the command line, or giving the HETATOM
+                   command you may get ProFit to read HETATM
+                   records. The extraction of sequence now ignores
+                   HETATM records, so the problem with the ALIGN
+                   command when there were HETATMs should have gone
+                   away.  There is now a RESIDUE command which gives a
+                   by-residue RMS over the current RATOMS and RZONE
+                   (ATOMS/ZONE if RATOMS/RZONE unspecified).  If you
+                   are reading commands into ProFit from a file rather
+                   than from the keyboard, you no longer get loads of
+                   ProFit> prompts appearing in your output which
+                   tidies things up a bit. An end of file also ends the
+                   ProFit program, so you no longer *need* to put QUIT
+                   in the command file.
+   V1.1   20.07.95 Added WEIGHT/NOWEIGHT commands
+                   Added translation to MATRIX output
+   V1.1a  21.07.95 Fixed core dump when trying to write unfitted file
+   V1.2   22.07.95 Added GAPPEN command
+          25.07.95 Added printing of chain labels in Status
+                   Bioplib's three->one translation now handles nucleic 
+                   acids.
+                   RESIDUE command takes optional filename parameter to
+                   direct output to a file.
+   V1.3   31.07.95 Fixed bug in ZONE command when end of zone=end of chain
+                   which was not the last chain.
+                   Prints number of residues in zones when a mismatch
+                   occurs.
+                   Potential out-of-bounds memory access fixed in weights
+                   array.
+   V1.4   14.08.95 Fixed printing by residue which was not printing the 
+                   last residue.
+   V1.5   21.08.95 Fixed bug in creating zones from NW alignment when last
+                   zone != end of chain. Also fixed bug in Bioplib/align.c
+                   which was messing up the end of an alignment.
+          24.08.95 Fixed a bug in Bioplib/align.c which caused potential
+                   core dumps when an amino acid type not in the MDM matrix
+                   was found. This should never cause a problem in ProFit
+                   since these junk characters are never generated.
+-------- 
+          27.09.95 Updated profit.hlp which still said insert codes are
+                   not allowed in ZONEs
+   V1.5a  02.10.95 Added centre of geometry data to output of the MATRIX
+                   command and updated profit.hlp with this information.
+   V1.5b  15.11.95 Prints score normalised by shorter sequence length
+                   as well as matrix maximum score.
+                   Updated profit.hlp which said numeric zones could be 
+                   specified as a single residue.
+   V1.6   20.11.95 Added READALIGNMENT command.
+--------
+   V1.6a  21.11.95 Fixed a couple of warnings under gcc
+   V1.6b  22.11.95 Modified code in SetNWZones() such that deletions at
+                   the same position in both sequences don't cause a 
+                   problem. This was only a problem if an alignment was
+                   read using READALIGNMENT which had a deletion in both
+                   sequences.
+   V1.6c  13.12.95 Fix 1.6b wasn't working if a double deletion occurred
+                   in the middle of a long run of deletions
+   V1.6d  24.01.96 Fixed bug in STATUS command when atom names contain
+                   spaces. Modifications to docs.
+                   Error reporting improved: no atoms read from PDB files
+                   distinguished from no memory.
+                   Fixed bioplib bug in converting an all HETATM file to
+                   sequence.
+   V1.6e  31.05.96 Added BVALUE command
+   V1.6f  13.06.96 Added BWEIGHT command
+   V1.6g  18.06.96 Internal changes only --- replaced FindZone() by
+                   FindZonePDB() in Bioplib
+   V1.7   23.07.96 Some tidying of comments
+                   Fixed potential out-of-bounds array errors in atom 
+                      specifications
+                   Added atom wildcard specifications
+                   Various internal tidying and reorganisation of code
+                   Bugs and potential crashes fixed:
+                     a) When setting zones from a PIR alignment file, used 
+                        to fail if there were deletions in both sequence.
+                     b) STATUS command didn't work properly if atom names 
+                        contained spaces.
+                     c) Used to crash if you tried to use ALIGN on a file 
+                        which contained no amino acids.
+                     d) Used to crash if you specified atom names of more 
+                        than 7 characters or more than 50 atom names
+                  Error reporting improved: no atoms read from PDB files 
+                     distinguished from no memory.
+                  New features:
+                     a) BVALUE command: Allows a cutoff to be applied to 
+                        B-values; atom pairs where the atoms from either 
+                        structure has a B-value above this value are ignored
+                     b) BWEIGHT command: Weights the fitting by the inverse 
+                        of the B-value such that mobile atoms are less 
+                        heavily weighted.
+                     c) Atom name specifications may now include wildcards
+--------
+   V1.7a  06.11.96 Added -ve values for BVALUE
+                   Added IGNORE/NOIGNORE
+   V1.7b  11.11.96 Added REF and MOB options to BVALUE keyword to allow
+                   only one to be examined rather than an average
+   V1.7c  18.11.96 Added IGNOREMISSING option
+   V1.7d  20.12.96 Added NFITTED command
+                   Fixed a bug in bioplib/ReadPDB() which would cause
+                   completely blank lines in a PDB file to produce data 
+                   from the previous line.
+   V1.7e  27.06.97 Added ability to output from RESIDUE and WRITE to
+                   a pipe.
+   V1.7f  03.07.97 Added break into CreateFitArrays() to fix core dump
+                   on bad multiple-occupancy PDB files. If the 'same'
+                   atoms don't appear immediately next to eachother
+                   (they should), then all are read by ReadPDB() and
+                   this routine was then comparing all with all.
+                   Also warns of multiple occupancies on reading file.
+                   Changed to use CD1 for ILE rather than CD.
+   V1.7g  06.05.98 Complete rewrite of NWAlign/SetNWZones(). The new
+                   version is much simpler; it also fixes a bug which
+                   occurred following 1-residue zones.
+   V1.8   07.05.98 Release of V1.7g
+                   1. New features:
+                      a) The BVALUE command now takes a negative value
+                         to reverse the sense of the cutoff and can
+                         also be restructed to reference or mobile
+                         structures rather than using an average 
+                      b) New option to ignore missing atoms
+                      c) Added NFITTED command to show number of fitted atoms
+                      d) RESIDUE and WRITE commands can now output to a pipe
+                   2. Bug fixes:
+                      a) Completely blank lines in a PDB file caused
+                         the previous line to be repeated
+                      b) Multiple-occupancy PDB files where the 'same'
+                         atoms didn't appear next to eachother in the
+                         file caused a core dump 
+                      c) ILE C-delta correctly written as CD1 rather than CD
+                      d) Zone setting from sequence alignment had a
+                         bug with single residue zones
+                   3. Internal changes:
+                      a) Complete rewrite of the zone setting based on
+                         sequence alignment. 
+--------
+   V2.0   01.03.01 Added support for multiple structure fitting and 
+                   iterative zone updating. Output atom names now exactly
+                   match input names. Can write coordinates with centre
+                   of geometry of fitted region at the origin. Added QUIET
+                   option. Added LIMIT command to restrict region read from
+                   an alignment to create fitting zones.
+                   (not publicly released)
+   V2.1   28.03.01 Added cutoff parameter for ITERATE and added CENTRE
+                   command
+                   (not publicly released)
+   V2.2   20.12.01 Fixed some Bioplib problems related to raw atom names
+                   and multiple occupancies
+                   1. New features:
+                      a) Now supports fitting of multiple
+                         structures. Each structure is fitted to the
+                         reference and the average coordinates are
+                         calculated. All structures are fitted to the
+                         average and the process iterates to convergence. 
+                      b) Now supports iterative zone updating. After
+                         an initial fit, atom pairs more distant than
+                         a cutoff are discarded and atom pairs closer
+                         than the cutoff are pulled in. The fitting
+                         iterates to convergence  
+                      c) Coordinates can be written with centre of
+                         geometry of fitted region at the origin
+                         instead of translated to the reference set 
+                      d) Added QUIET option to switch off warning and
+                         informational messages
+                      e) Added LIMIT command to restrict the region
+                         read from an alignment to create fitting zones
+                   2. Internal changes:
+                      a) Code now writes the atom names exactly as
+                         they were read instead of cleaning them up.
+                      b) Some fairly major rewrites to support the
+                         multiple structure fitting.
+   V2.3   01.12.04 Fixed a bug in reading sequence alignment with multiple
+                   structures. Was core-dumping if there were double
+                   deletions
+   V2.4   03.06.05 Fixed some more Bioplib problems related to raw atom
+                   names and multiple occupancies
+                   V2.3 and 2.4 are bug fix releases.
+                   Bugs fixed were:
+                   1. handling of multiple occupancy atoms with new
+                      Bioplib code for writing atom names back
+                      properly after reading them     
+                   2. a core dump on reading alignment files with
+                      'double deletions' (i.e. a deletion in both
+                      sequences at the same position - when an
+                      alignment is grabbed from a multiple alignment file) 
+   V2.5   08.06.05 Fixed more related bugs
+   V2.5.1 10.06.05 Fixed bug in Bioplib related to getting the sequence from
+                   a CA-only chain
+   V2.5.2 14.10.05 Enhanced Bioplib/ReadPDB() to cope with corrupt multiple
+                   occupancies such as 1zeh/B13
+   V2.5.3 06.07.06 Fixed bug in correcting ILE-CD to ILE-CD1 - was writing
+                   an extra space.
+   V2.5.3.1        Fixed a distribution bug - a file was missing from the
+                   V2.5.3 distribution
+   V2.5.4 29.06.07 Prototypes in bioplib functions are now conditional
+                   for MAC OSX to allow the code to compile
+   V2.6   16.06.08 Can centre the fitting on the CofG of a
+                   user-specified residue rather than on the fitting
+                   zones (SETCENTRE)  
+                   Can write the whole of a PDB file instead of just
+                   the ATOM/HETATM records (HEADER)
+                   Can delete zones (DELZONE/DELRZONE)
+                   Can run scripts (SCRIPT)
+                   Can specify zones using the B-value column (BZONE)
+                   Can print distances between equivalenced atoms (PAIRDIST)
+                   Can ignore atom pairs where distance is greater
+                   than a cutoff in calculating RMSD (DISTCUTOFF)
+                   Can read lower occupancy atoms (OCCRANK)
+                   RESIDUE command now indicates atoms either wholly
+                   or partly outside any cutoff specified by DISTCUTOFF
+                   Handles lower-case chain names
+                   Checks for overlapping zones
+                   Checks sequences read with READALIGNMENT
+   V3.0   28.01.09 Multiple structure fitting now gives RMSD to first mobile
+                   structure by default.(SETREF)
+                   Calculation of the averaged reference structure for 
+                   multiple structure fitting is now weighted by the number of
+                   mobile structures.(WTAVERAGE)
+                   Can fit multiple structures in order of RMSD.(ORDERFIT)
+                   Can run an all vs all comparison of mobile structures.
+                   (ALLVSALL)
+                   Can match symmetrical atoms.(SYMMATM)
+                   Can perform iterative fitting on structures with more than 
+                   one chain.
+                   Can read PIR alignments with more than one chain.(READALIGN)
+                   Can align structures with more than one chain.(ALIGN)
+                   Can output fitting zones as an alignment.(PRINTALIGN)
+                   Added support for GNU Readline library. 
+   V3.1   02.04.09 Windows support
+                   Some fixes for NOFIT (clear structures on reading new
+                   structure).
+                   Added temporary fix to remove padding of input atom names
+                   This fixes problems with specifying 3-letter atom names,
+                   but still needs some further investigation
+   V3.1.1 10.04.13 Improved error message when zone not found
+   V3.2   12.10.17 Updated for new version of BiopLib
+   V3.3   28.04.20 Added support for model numbers
+--------

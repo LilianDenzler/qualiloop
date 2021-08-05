@@ -1,0 +1,50 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.03;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/******************************************************************************
+ *      Name: PGLInclude.h                                                    *
+ *  Function: All PGL include files.                                          *
+ *----------------------------------------------------------------------------*
+ *    Author: J.P.Holland, Oxford Molecular Ltd.                              *
+ *      Date: 26-Jul-1991                                                     *
+ *----------------------------------------------------------------------------*
+ * Modification Record                                                        *
+ * Date     Inits   Comments                                                  *
+ * dd/mm/yy                                                                   *
+ ******************************************************************************/
+
+#ifndef __PGLINCLUDE__
+#define __PGLINCLUDE__
+
+#include "ButtonProto.h"
+#include "Colours.h"
+#include "HPGraph.h"
+#include "GLGraph.h"
+#include "LayoutProto.h"
+#include "Men.h"
+#include "PGLProto.h"
+#include "PopupProto.h"
+#include "SliderProto.h"
+
+#endif
+@

@@ -1,0 +1,284 @@
+Biop\-Lib -\/ Handling P\-D\-B Data
+
+\subsection*{Analyzing structures }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{access_8c_a25e95868bba0491487408f2a04f018cf}{bl\-Calc\-Access()} -\/ Allocates arrays and calls routines to populate them, do the access calculations and populate into the P\-D\-B linked list
+\item \hyperlink{access_8c_a8665f8aad4742be11492028cfc816902}{bl\-Calc\-Res\-Access()} -\/ Calculates and populates the residue totals and relative values using standards stored in resrad
+\item \hyperlink{secstr_8c_aca5046643e5b5b54b6c5732816ee2b5a}{bl\-Calc\-Sec\-Struc\-P\-D\-B()} -\/ Calculate secondary structure populating the secstr field of the P\-D\-B structure.
+\item \hyperlink{hbond_8c_a0bbd4cd865d5a39fc21ab4bdfe1695e9}{bl\-Is\-H\-Bonded()} -\/ Determines whether 2 residues are H-\/bonded
+\item \hyperlink{hbond_8c_af010eb27ce05f9682aab3fce3f20dea2}{bl\-Is\-M\-C\-Acceptor\-H\-Bonded()} -\/ Determines whether 2 residues are H-\/bonded with the first residue being a mainchain acceptor
+\item \hyperlink{hbond_8c_ab479299672142677530f65463f2517d7}{bl\-Is\-M\-C\-Donor\-H\-Bonded()} -\/ Determines whether 2 residues are H-\/bonded with the first residue being a mainchain donor
+\item \hyperlink{hbond_8c_a5c79884810e9b46ccf3e2e5fe4042125}{bl\-List\-All\-H\-Bonds()} -\/ Finds all H\-Bonds between two specified residues
+\item \hyperlink{access_8c_ae697c1552c8004b355d84f2f72a4c6f9}{bl\-Set\-Atom\-Radii()} -\/ Set atom radii from the radius file in the P\-D\-B linked list Returns the radius lookup information since it also contains the standard accessibilities
+\item \hyperlink{hbond_8c_a7d0d2bbcecd3cf7b6bc6fc0a19664e41}{bl\-Set\-Max\-Protein\-H\-Bond\-D\-A\-Distance()} -\/ Overrides the default maximum distance between donor and acceptor. N\-O\-T\-E T\-H\-I\-S I\-S N\-O\-T T\-H\-R\-E\-A\-D-\/\-S\-A\-F\-E
+\item \hyperlink{hbond_8c_a2fdd1489eaa0df30d50ac2f222dc8f45}{bl\-Valid\-H\-Bond()} -\/ Determines whether a set of atoms form a valid H-\/bond
+\end{DoxyItemize}
+
+\subsection*{Atom names and elements }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{pdb_8h_a4beae504260cb072d1807d1e3aaa1982}{bl\-Fix\-Atom\-Name()} -\/ Fixes an atom name by removing leading spaces, or moving a leading digit to the end of the string.
+\item \hyperlink{_legal_atom_spec_8c_ada6348597286455a167d0fb1e79310f4}{bl\-Legal\-Atom\-Spec()} -\/ Partner routine for Atom\-Name\-Match(). Checks whether a wildcard specfication is legal (i.\-e. will not return an error when used with Atom\-Name\-Match()).
+\end{DoxyItemize}
+
+\subsection*{Calculations }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_calc_cell_trans_8c_a96f7337e43ae22e9d8dddf64bfeb1171}{bl\-Calc\-Cell\-Trans()} -\/ Calculates the offsets to apply in X, Y and Z directions for creating a crystal lattice from the unit cell parameters.
+\item \hyperlink{_calc_chi_p_d_b_8c_a48531e2570264f5426ebdee25154843c}{bl\-Calc\-Chi()} -\/ Calculates a sidechain torsion angle from a pdb linked list. Returns 9999.\-0 if any atoms not found
+\item \hyperlink{_calc_cter_coords_8c_a01bc2dbda82c87a23615923cd34ef7f4}{bl\-Calc\-Cter\-Coords()} -\/ Calculates C\-T\-E\-R O\-T2 coordinates
+\item \hyperlink{_calc_r_m_s_p_d_b_8c_a97af087139626cc883393fdfa81a25a8}{bl\-Calc\-R\-M\-S\-P\-D\-B()} -\/ Calculate the R\-M\-S deviation between two pre-\/fitted P\-D\-B linked lists.
+\item \hyperlink{_calc_tetra_h_coords_8c_a2041d75d15d5eb5eaee7a3dcf4485b60}{bl\-Calc\-Tetra\-H\-Coords()} -\/ Calculates coordinates for extra hydrogens.
+\item \hyperlink{_get_c_g_p_d_b_8c_a8044f4c9cc4e72b145b22fb6aa7cff96}{bl\-Get\-Cof\-G\-P\-D\-B()} -\/ Finds the Cof\-G of a P\-D\-B linked list, ignoring N\-U\-L\-L coordinates.
+\item \hyperlink{_get_cof_g_p_d_b_range_8c_ad37a13c06cc7a2387d94d31aedaa70d6}{bl\-Get\-Cof\-G\-P\-D\-B\-Range()} -\/ Find Cof\-G of a range in a P\-D\-B linked list, ignoring N\-U\-L\-L coordinates
+\item \hyperlink{_get_cof_g_p_d_b_s_c_range_8c_af87dc9da7f0178f35af4e70410da4a2b}{bl\-Get\-Cof\-G\-P\-D\-B\-S\-C\-Range()} -\/ Find Cof\-G of a range in a P\-D\-B linked list, ignoring N\-U\-L\-L coordinates Looks only at the sidechain atoms
+\end{DoxyItemize}
+
+\subsection*{Conversions }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_p_d_b2_seq_8c_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq()} -\/ malloc()'s an array containing the 1-\/letter sequence corresponding to an input P\-D\-B linked list.
+\item \hyperlink{_p_d_b2_seq_8c_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain()} -\/ Creates a hash indexed by chain label containing the 1-\/letter code sequence from an input P\-D\-B linked list.
+\end{DoxyItemize}
+
+\subsection*{Extracting data }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_get_p_d_b_chain_as_copy_8c_a28ae20b6b67825c2ae27c06f9a2181f9}{bl\-Get\-P\-D\-B\-Chain\-As\-Copy()} -\/ Extracts a specified chain from a P\-D\-B linked list allocating a new list containing only that chain. The original list is unchanged.
+\item \hyperlink{_get_p_d_b_chain_labels_8c_a194b4eb40e29c5ee194b7e2cd2485fda}{bl\-Get\-P\-D\-B\-Chain\-Labels()} -\/ Scans a P\-D\-B linked list for chain names. Allocates memory for an array of strings containing these labels which is returned together with the number of chains found.
+\item \hyperlink{_get_p_d_b_coor_8c_a5ffc3606c858d7c4151905728cf7e30d}{bl\-Get\-P\-D\-B\-Coor()} -\/ Get the coordinates out of a P\-D\-B linked list into an array of type C\-O\-O\-R The C\-O\-O\-R array is allocated for you
+\end{DoxyItemize}
+
+\subsection*{File I\-O }
+
+Biop\-Lib provides functions for reading and writing P\-D\-B and P\-D\-B\-M\-L (X\-M\-L) files. The functions \hyperlink{pdb_8h_a4027e61f67886772894d7a948a3be2c0}{bl\-Read\-P\-D\-B()} and \hyperlink{pdb_8h_a55086bc1125dc7baa000bf42ddcf5930}{bl\-Write\-P\-D\-B()} will read and write the A\-T\-O\-M/\-H\-E\-T\-A\-T\-M records only. The functions \hyperlink{pdb_8h_aac630c13aff6802b905c10ce97d64761}{bl\-Read\-Whole\-P\-D\-B()} and \hyperlink{pdb_8h_a41023286849e00cae2fbe0a6c89118f2}{bl\-Write\-Whole\-P\-D\-B()} will include the header and trailer information from the P\-D\-B file. There are also functions to extract data from these headers of directly from the headers in a P\-D\-B file.
+
+If the Biop\-Lib library has been compiled with X\-M\-L support then the above functions will also read and write P\-D\-B\-M\-L formatted files.
+
+\paragraph*{Key functions}
+
+
+\begin{DoxyItemize}
+\item \hyperlink{pdb_8h_aeee33316d776fc479c656a3f9f0c7a84}{bl\-Free\-Whole\-P\-D\-B()} -\/ Frees the header, trailer and atom content from a W\-H\-O\-L\-E\-P\-D\-B structure
+\item \hyperlink{pdb_8h_a4027e61f67886772894d7a948a3be2c0}{bl\-Read\-P\-D\-B()} -\/ Main way of reading a P\-D\-B file into a linked list, reading just the highest occupancy atoms
+\item \hyperlink{pdb_8h_aac630c13aff6802b905c10ce97d64761}{bl\-Read\-Whole\-P\-D\-B()} -\/ Reads a P\-D\-B file, storing the header and trailer information as well as the coordinate data. Can read gzipped files as well as uncompressed files.
+\item \hyperlink{pdb_8h_a55086bc1125dc7baa000bf42ddcf5930}{bl\-Write\-P\-D\-B()} -\/ Main entry point to write a P\-D\-B linked list to a file
+\item \hyperlink{pdb_8h_ad3bc6ad58dd19e3a2e854404b88b9271}{bl\-Write\-P\-D\-B\-Record()} -\/ Writes a single P\-D\-B record in P\-D\-B format
+\item \hyperlink{pdb_8h_a41023286849e00cae2fbe0a6c89118f2}{bl\-Write\-Whole\-P\-D\-B()} -\/ Writes a P\-D\-B file including header and trailer information. Output in P\-D\-B\-M\-L-\/format if flags set.
+\end{DoxyItemize}
+
+\paragraph*{Other functions}
+
+
+\begin{DoxyItemize}
+\item \hyperlink{pdb_8h_a02bf1675328de6d4ce5d398ebd0c4c7a}{bl\-Check\-File\-Format\-P\-D\-B\-M\-L()} -\/ A simple test to detect whether a file is a P\-D\-B\-M\-L-\/formatted P\-D\-B file.
+\item \hyperlink{pdb_8h_a9000383ee976cc74170f8369d15e3543}{bl\-Do\-Read\-P\-D\-B()} -\/ A lower level routine giving full control over reading all or only A\-T\-O\-M records, occupancy rankings and model numbers.
+\item \hyperlink{pdb_8h_acfe34022af3ca82b7a6cb218fae608a8}{bl\-Do\-Read\-P\-D\-B\-M\-L()} -\/ A lower level routine giving full control over reading all or only A\-T\-O\-M records, occupancy rankings and model numbers from a P\-D\-B\-M\-L X\-M\-L file.
+\item \hyperlink{_f_nam2_p_d_b_8c_aacdc4e74b6ceab09f8f19a09a0820b26}{bl\-F\-Nam2\-P\-D\-B()} -\/ Attempts to extract a P\-D\-B code from a filename
+\item \hyperlink{pdb_8h_aac641dc33109c5b0dfb9772182799df6}{bl\-Find\-Mol\-I\-D()} -\/ Finds the M\-O\-L\-\_\-\-I\-D for a specified chain
+\item \hyperlink{pdb_8h_a28d6880822e08963736837b82ca79f92}{bl\-Find\-Original\-Res\-Type()} -\/ Find the original residue type for a modified residue from M\-O\-D\-R\-E\-S data
+\item \hyperlink{pdb_8h_a44f443f6e0f780f7c292b797e8257ac2}{bl\-Format\-Check\-Write\-P\-D\-B()} -\/ Checks that a P\-D\-B linked list can be written as a standard P\-D\-B file (i.\-e. chain labels are no more than one character)
+\item \hyperlink{pdb_8h_afa45c9ef1af2e0ebc263f73e57d1c29e}{bl\-Free\-Biomolecule()} -\/ Free the biomolecule data
+\item \hyperlink{pdb_8h_a92e5b91f6d1c9fce21d9f2b0060c36b0}{bl\-Get\-Biomolecule\-Whole\-P\-D\-B()} -\/ Obtain the biomolecule data
+\item bl\-Get\-Compound\-Whole\-P\-D\-B\-C\-Mol\-I\-D() -\/ Obtains the compound data for a specified M\-O\-L\-\_\-\-I\-D from W\-H\-O\-L\-E\-P\-D\-B info
+\item \hyperlink{pdb_8h_a417c7df4ac8fb7dd31f2a09d79464f10}{bl\-Get\-Compound\-Whole\-P\-D\-B\-Chain()} -\/ Obtains the compound data for a specified chain from W\-H\-O\-L\-E\-P\-D\-B info
+\item \hyperlink{_get_cryst_p_d_b_8c_a90c4fb4940b44cb6c8c30a5ce94011e5}{bl\-Get\-Cryst\-P\-D\-B()} -\/ Read the crystal parameters (unit cell, spacegroup, origin and scale matrices) out of a P\-D\-B file.
+\item \hyperlink{_get_cryst_p_d_b_8c_ab2a47c0fab81e876b383555dd37ca942}{bl\-Get\-Cryst\-Whole\-P\-D\-B()} -\/ Read the crystal parameters (unit cell, spacegroup, origin and scale matrices) out of a P\-D\-B file.
+\item \hyperlink{pdb_8h_a80f6538fb3e9116b484a44993c62a1a6}{bl\-Get\-Exptl\-P\-D\-B()} -\/ This routine attempts to obtain resolution, R-\/factor, R-\/\-Free and experiment type information out of a P\-D\-B file.
+\item \hyperlink{pdb_8h_ae30274ef986cfdd010792451a61ae96b}{bl\-Get\-Exptl\-Whole\-P\-D\-B()} -\/ This routine attempts to obtain resolution, R-\/factor, R-\/\-Free and experiment type information out of P\-D\-B headers stored in a W\-H\-O\-L\-E\-P\-D\-B structure.
+\item \hyperlink{pdb_8h_a020709b8b0f9cc91850067b206f79bf2}{bl\-Get\-Header\-Whole\-P\-D\-B()} -\/ Obtains the data in the H\-E\-A\-D\-E\-R record from W\-H\-O\-L\-E\-P\-D\-B info
+\item \hyperlink{pdb_8h_a1962f92f359a1015ca08ebe5efcb51fc}{bl\-Get\-Modres\-Whole\-P\-D\-B()} -\/ Obtain the M\-O\-D\-R\-E\-S data
+\item \hyperlink{pdb_8h_a35c8f98e52940966707d8004ed8a5826}{bl\-Get\-Resol\-P\-D\-B()} -\/ Attempts to obtain resolution and R-\/factor information out of a P\-D\-B file. Does not provide R-\/free -\/ use of \hyperlink{pdb_8h_a80f6538fb3e9116b484a44993c62a1a6}{bl\-Get\-Exptl\-P\-D\-B()} is recommended.
+\item \hyperlink{pdb_8h_a4d5b4d6154f9efed0b1bf00dcb5aa16b}{bl\-Get\-Resol\-Whole\-P\-D\-B()} -\/ Attempts to obtain resolution and R-\/factor information out of the headers stored in a W\-H\-O\-L\-E\-P\-D\-B structure. Does not provide R-\/free -\/ use of \hyperlink{pdb_8h_ae30274ef986cfdd010792451a61ae96b}{bl\-Get\-Exptl\-Whole\-P\-D\-B()} is recommended.
+\item \hyperlink{pdb_8h_afe803b05ac022d530cd887ffa0c4834d}{bl\-Get\-Seqres\-As\-String\-Whole\-P\-D\-B()} -\/ Obtain the sequence from the S\-E\-Q\-R\-E\-S records storing it as a single string with $\ast$s to separate chains
+\item \hyperlink{pdb_8h_a20dfcd6d2107bffd2d3b92e19b286066}{bl\-Get\-Seqres\-By\-Chain\-Whole\-P\-D\-B()} -\/ Obtain the sequence from the S\-E\-Q\-R\-E\-S records storing it in a hash indexed by chain label
+\item \hyperlink{pdb_8h_aa3dde006c07b1fff09030126a6e99d4d}{bl\-Get\-Species\-Whole\-P\-D\-B\-Chain()} -\/ Obtains the species data for a specified chain from W\-H\-O\-L\-E\-P\-D\-B info
+\item \hyperlink{pdb_8h_a33415e6d8ecd4bf670f8b3846a9fb90d}{bl\-Get\-Species\-Whole\-P\-D\-B\-Mol\-I\-D()} -\/ Obtains the species data for a specified M\-O\-L\-\_\-\-I\-D from W\-H\-O\-L\-E\-P\-D\-B info
+\item \hyperlink{pdb_8h_a8f59413f497349ebcefb4ba1ab6184ee}{bl\-Get\-Title\-Whole\-P\-D\-B()} -\/ Obtains the title information from W\-H\-O\-L\-E\-P\-D\-B info
+\item \hyperlink{pdb_8h_a276c10597c8d0404d380466286f45f0e}{bl\-Read\-Disulphides\-P\-D\-B()} -\/ Searches a P\-D\-B file for S\-S\-B\-O\-N\-D records and constructs a linked list of information from these records.
+\item \hyperlink{pdb_8h_a625b0cfdb07d179234c2399a02f035c5}{bl\-Read\-Disulphides\-Whole\-P\-D\-B()} -\/ Builds a linked list of S\-S\-B\-O\-N\-D record data from the header stored in a W\-H\-O\-L\-E\-P\-D\-B structure
+\item \hyperlink{pdb_8h_a23cbc720ce99c3bdaf61d42960df970a}{bl\-Read\-P\-D\-B\-All()} -\/ Reads a P\-D\-B file into a linked list, reading all multiple occupancy atoms
+\item \hyperlink{pdb_8h_acd3668492022bd2b8fb630dd2ee250b7}{bl\-Read\-P\-D\-B\-Atoms()} -\/ Reads only A\-T\-O\-M records from a P\-D\-B file into a linked list, reading just the highest occupancy atoms
+\item \hyperlink{pdb_8h_aa282352d949c323303ef5323432006f2}{bl\-Read\-P\-D\-B\-Atoms\-Occ\-Rank()} -\/ Reads only the A\-T\-O\-M records for the specified ranking of occupancy (e.\-g. the second most populated coordinates) from a P\-D\-B file into a linked list
+\item \hyperlink{pdb_8h_aa303aa30446e8ca03c7deb6b6a496dc6}{bl\-Read\-P\-D\-B\-Occ\-Rank()} -\/ Reads the specified ranking of occupancy (e.\-g. the second most populated coordinates) from a P\-D\-B file into a linked list
+\item \hyperlink{pdb_8h_a301c5031ec640bcc41cdca87818ac50c}{bl\-Read\-Sec\-P\-D\-B()} -\/ Reads secondary structure information from the header of a P\-D\-B file.
+\item \hyperlink{pdb_8h_a33509dcd8e1c9d239a31adecd138aeff}{bl\-Read\-Sec\-Whole\-P\-D\-B()} -\/ Reads secondary structure information from the header information stored in a W\-H\-O\-L\-E\-P\-D\-B structure.
+\item \hyperlink{pdb_8h_a48d84abb9adcd40bacbfaeeaf0f7b1b2}{bl\-Read\-Seqres\-P\-D\-B()} -\/ Reads the sequence from the S\-E\-Q\-R\-E\-S records of a P\-D\-B file
+\item \hyperlink{pdb_8h_a05140d6cdf11bff4e029ec0e9b307e0d}{bl\-Read\-Seqres\-Whole\-P\-D\-B()} -\/ Reads the sequence from the S\-E\-Q\-R\-E\-S records from header data stored in a W\-H\-O\-L\-E\-P\-D\-B structure
+\item \hyperlink{pdb_8h_a56ce69a8cb41874090869c11246e0b0e}{bl\-Read\-Whole\-P\-D\-B\-Atoms()} -\/ Reads a P\-D\-B file, storing the header and trailer information as well as the coordinate data. Only reads the A\-T\-O\-M record for coordinates
+\item \hyperlink{pdb_8h_a5675f476756f02a9ccdca4143dc3f8bc}{bl\-Report\-Structure\-Type()} -\/ Returns structure type description from a numeric representation
+\item \hyperlink{pdb_8h_ad1ac8c9e80a90772fadb3db213dcb091}{bl\-Set\-Element\-Symbol\-From\-Atom\-Name()} -\/ Sets the element field based on the content of the atom name stored in atnam\-\_\-raw
+\item \hyperlink{pdb_8h_ac7cfad642d8a9287de0b7d46eb1105c7}{bl\-Write\-Cryst\-P\-D\-B()} -\/ Write crystal parameters (unit cell, space group, origin and scale matrices) to a P\-D\-B file.
+\item \hyperlink{pdb_8h_ab9293b4f3ac5e09a01ba3efe31c88561}{bl\-Write\-Gromos\-P\-D\-B()} -\/ Write a P\-D\-B linked list by calling \hyperlink{pdb_8h_a9dfc0bf16ae99ffe8d06f85f0570c214}{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos()}
+\item \hyperlink{pdb_8h_aed0b487e0e0e60cdcd54fb5efe3d605b}{bl\-Write\-Gromos\-P\-D\-B\-Record()} -\/ Write a G\-R\-O\-M\-O\-S P\-D\-B record
+\item \hyperlink{pdb_8h_a61af7bbe63cb7d61c90190dc64365200}{bl\-Write\-P\-D\-B\-As\-P\-D\-B\-M\-L()} -\/ Write a P\-D\-B linked list to a file in P\-D\-B\-M\-L X\-M\-L format
+\item \hyperlink{pdb_8h_a9dfc0bf16ae99ffe8d06f85f0570c214}{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos()} -\/ Writes a P\-D\-B linked list to a file in P\-D\-B format or the modified G\-R\-O\-M\-O\-S version
+\item \hyperlink{pdb_8h_aea39909935b5431a822bfc8109827aa3}{bl\-Write\-P\-D\-B\-Record\-Atnam()} -\/ Writes a single P\-D\-B record in P\-D\-B format using atom data from the atnam field rather than the atnam\-\_\-raw field
+\item \hyperlink{pdb_8h_a38074f8c79f2c5580917416cb2acdd8e}{bl\-Write\-Ter\-Card()} -\/ Prints a complete new P\-D\-B format T\-E\-R card
+\item \hyperlink{pdb_8h_ad26e70b41f8f5de74c3943a903087294}{bl\-Write\-Whole\-P\-D\-B\-Header()} -\/ Writes the header of a P\-D\-B file
+\item \hyperlink{pdb_8h_aa27fe4cbc1362b181b308c8f1eeff85d}{bl\-Write\-Whole\-P\-D\-B\-Header\-No\-Res()} -\/ Writes the header of a P\-D\-B file, but skips any records associated with residue numbers
+\item \hyperlink{pdb_8h_a0fba06c6fec28f13118fd7900f1cf01f}{bl\-Write\-Whole\-P\-D\-B\-Trailer()} -\/ Writes the trailer of a P\-D\-B file
+\end{DoxyItemize}
+
+The reading functions will create a linked list of P\-D\-B data structures. With each node in the list corresponding to an A\-T\-O\-M or H\-E\-T\-A\-T\-M record and containing all the data for the record. Biop\-Lib also provides functions to search, manipulate and perform calculations on the list as well as functions to write P\-D\-B and P\-D\-B\-M\-L files.
+
+By default, the format of the file read (pdb/pdbml) is the format for output. Set format for output files with the macros\-: F\-O\-R\-C\-E\-P\-D\-B or F\-O\-R\-C\-E\-X\-M\-L
+
+\subsection*{Fitting }
+
+\paragraph*{Key functions}
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_fit_p_d_b_8c_a243aa3ef51f227971f3304b48e9841c6}{bl\-Fit\-P\-D\-B()} -\/ Fits two P\-D\-B linked lists. Actually fits fit\-\_\-pdb onto ref\-\_\-pdb and also returns the rotation matrix. This may be N\-U\-L\-L if these data are not required.
+\end{DoxyItemize}
+
+\paragraph*{Other functions}
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_fit_ca_cb_p_d_b_8c_a2b00875ef3b9aa1f9f771eaac42e9074}{bl\-Fit\-Ca\-Cb\-P\-D\-B()} -\/ Does a weighted fitting of 2 P\-D\-B linked lists. The C\-A and C\-B are given a weight of 1.\-0 while the other atoms are given a weight of 1.\-0/natom in the residue. Thus for N,C\-A,C,C\-B backbone only, this will be N and C with weights of 0.\-25
+\item \hyperlink{_fit_ca_p_d_b_8c_a59c30ad497d5030a376260e860d1ecec}{bl\-Fit\-Ca\-P\-D\-B()} -\/ Fits two P\-D\-B linked lists using only the C\-A atoms.
+\item \hyperlink{_fit_n_ca_c_p_d_b_8c_ad83bbf1040dda7d31cc2b8a662d0c845}{bl\-Fit\-N\-Ca\-C\-P\-D\-B()} -\/ Fits two P\-D\-B linked lists using only the N, C\-A, C atoms.
+\end{DoxyItemize}
+
+\subsection*{Manipulating the P\-D\-B linked list }
+
+A\-T\-O\-M records within the P\-D\-B linked list can be manipulated with the following functions and macros.
+
+Macros for the creation and deletion of P\-D\-B linked lists include\-:
+
+
+\begin{DoxyItemize}
+\item \hyperlink{macros_8h_aa167d4937e9a8d9a33c3e93bbcad8a35}{I\-N\-I\-T()} -\/ Initiate a new linked lis
+\item \hyperlink{macros_8h_ae0a46a92b4865dd29e1ea9e0a4d64772}{A\-L\-L\-O\-C\-N\-E\-X\-T()} -\/ Add a record to the linked list.
+\item \hyperlink{macros_8h_ab866ee223048678a3d417c2e786576e4}{D\-E\-L\-E\-T\-E()} -\/ Deletes a record form the linked list.
+\item \hyperlink{macros_8h_a4151f4e24778e7b290ec804c29c91f27}{F\-R\-E\-E\-L\-I\-S\-T()} Free memory for whole linked list.
+\item \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{N\-E\-X\-T()} Finds next record in linked list allowing construction of a for loop to step through a linked list. (eg for(p=pdb; p != N\-U\-L\-L; \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{N\-E\-X\-T(p)})\{\})
+\item \hyperlink{macros_8h_a49dd722216353daa94f49c2dbb53e0cb}{L\-A\-S\-T()} finds last record in linked list.
+\end{DoxyItemize}
+
+The contents of P\-D\-B linked lists can be manipulated with the following functions\-:
+
+
+\begin{DoxyItemize}
+\item \hyperlink{pdb_8h_a39096516fa57de5431f60ff082ebcc55}{bl\-Alloc\-P\-D\-B\-Structure()} -\/ Takes a P\-D\-B linked list and converts it into a hierarchical structure of chains, residues and atoms
+\item \hyperlink{_append_p_d_b_8c_aa860ec58117bba9e94990820e0b54c09}{bl\-Append\-P\-D\-B()} -\/ Appends one P\-D\-B linked list onto another.
+\item \hyperlink{_build_atom_neighbour_p_d_b_list_8c_aba006f200a7ed9bf0c67a54f404a5c0e}{bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List\-As\-Copy()} -\/ Builds a P\-D\-B linked list of atoms neighbouring those in a specified residue.
+\item \hyperlink{_copy_p_d_b_8c_a80b3db4e74f9217af845d60f9b0b0204}{bl\-Copy\-P\-D\-B()} -\/ Copy a P\-D\-B record, except that the -\/$>$next is set to N\-U\-L\-L;
+\item \hyperlink{_kill_p_d_b_8c_afa0e25249e5978f1ae19b5d8bebb6835}{bl\-Delete\-Atom\-P\-D\-B()} -\/ Delete an atom from the linked list re-\/linking the list and returning the new start of the list (in case the first atom has been deleted)
+\item \hyperlink{_kill_p_d_b_8c_af87967ff3e2de0c55ab347087321dcb1}{bl\-Delete\-Atom\-Range\-P\-D\-B()} -\/ Deletes a range of atoms from the linked list re-\/linking the list and returning the new start of the list (in case the first atom has been deleted)
+\item \hyperlink{_kill_p_d_b_8c_aaf1072ac9f0a3c591c0673d6499f4e51}{bl\-Delete\-Residue\-P\-D\-B()} -\/ Deletes a residue from the linked list re-\/linking the list. Returns a pointer to the next residue and updates the start of the list if it's the first residue that's been deleted
+\item \hyperlink{_dupe_p_d_b_8c_ae2e1ff23efe21d11065a0950e525f2f3}{bl\-Dupe\-P\-D\-B()} -\/ Duplicates a P\-D\-B linked list. C\-O\-N\-E\-C\-T data are updated to point within the new list.
+\item \hyperlink{_dupe_residue_p_d_b_8c_a962182369bc2bc6e2618bae8d913a610}{bl\-Dupe\-Residue\-P\-D\-B()} -\/ Makes a duplicate P\-D\-B linked list of just one residue Note that C\-O\-N\-E\-C\-T data will not be preserved since it would not be valid.
+\item \hyperlink{pdb_8h_a5601ab36cb8d8fe8c012821a6e178e02}{bl\-Find\-Next\-Chain()} -\/ Takes a P\-D\-B linked list and find the start of the next chain. This is similar to another Bioplib routine (\hyperlink{_find_next_chain_p_d_b_8c_aee19617cd3ae67b737737a3aaf850484}{bl\-Find\-Next\-Chain\-P\-D\-B()}) which terminates the first chain, but this routines doesn't terminate.
+\item \hyperlink{_order_p_d_b_8c_a906f5c2c60e2384016857f256b060bca}{bl\-Fix\-Order\-P\-D\-B()} -\/ Runs through a P\-D\-B linked list and corrects the atom order to match the N,C\-A,C,O,s/c standard.
+\item \hyperlink{pdb_8h_a20dac3f334345da4302df5b1f21b4d6b}{bl\-Free\-P\-D\-B\-Structure()} -\/ Frees memory used by the hierarchical description of a P\-D\-B structure. Note this does not free the underlying P\-D\-B linked list
+\item \hyperlink{_order_p_d_b_8c_ad57e5fc3d8794aec833bb5a28b692d0e}{bl\-Get\-Atom\-Types()} -\/ Obtain a list of the atom types for a given residue.
+\item \hyperlink{_get_p_d_b_by_n_8c_a38721669b90999a2d5497849b75f3a67}{bl\-Get\-P\-D\-B\-By\-N()} -\/ Gets a pointer to Nth item in a P\-D\-B linked list
+\item \hyperlink{_index_p_d_b_8c_a95ee48f286d0f89b7829d832f69d09ca}{bl\-Index\-P\-D\-B()} -\/ Creates an array of pointers to P\-D\-B from a linked list. This is used to allow array style access to items in the linked list\-: e.\-g. (indx\mbox{[}23\mbox{]})-\/$>$x will give the x coordinate of the 23rd item
+\item \hyperlink{_kill_p_d_b_8c_af9c2f29c87607425d514dfbd710648b7}{bl\-Kill\-P\-D\-B()} -\/ Remove an item in the P\-D\-B linked list and re-\/link correctly. Generally better to use \hyperlink{_kill_p_d_b_8c_afa0e25249e5978f1ae19b5d8bebb6835}{bl\-Delete\-Atom\-P\-D\-B()}
+\item \hyperlink{_move_p_d_b_8c_acae4ff251013238bde8c341d5ff97c46}{bl\-Move\-P\-D\-B()} -\/ Moves a P\-D\-B record from one linked list to another. from and to should
+\item \hyperlink{pdb_8h_a10c0ace6d46e2c0a56ce4bea451e76c3}{bl\-Remove\-Alternates()} -\/ Removes alternate occupancy atoms. This may be useful after \hyperlink{pdb_8h_a23cbc720ce99c3bdaf61d42960df970a}{bl\-Read\-P\-D\-B\-All()}
+\item \hyperlink{pdb_8h_ae1ff7a56e4d028aef80c0220f59c1358}{bl\-Renum\-Atoms\-P\-D\-B()} -\/ Renumber the atoms throughout a P\-D\-B linked list
+\item \hyperlink{pdb_8h_ab6752fd043cf86fcc57fef437f68f758}{bl\-Select\-Atoms\-P\-D\-B\-As\-Copy()} -\/ Take a P\-D\-B linked list and returns a list containing only those atom types specified in the sel array.
+\item \hyperlink{pdb_8h_a803184a2bdeaf7ba9096dab94a479bbd}{bl\-Select\-Ca\-P\-D\-B()} -\/ Reduce a P\-D\-B linked list to C\-A atoms only discarding other atoms
+\item \hyperlink{pdb_8h_af2e18bf5be3353bd3642856e8ce9aca0}{bl\-Set\-Resnam()} -\/ Change the residue name, number, insert and chain for an amino acid.
+\item \hyperlink{_order_p_d_b_8c_af1352d0bc00942103c48bed332fdc24b}{bl\-Shuffle\-B\-B()} -\/ Shuffles the P\-D\-B list to match the standard of N,C\-A,C,O,C\-B,other.
+\item \hyperlink{_order_p_d_b_8c_aaf020a54833d9c54ee8bec709714f87f}{bl\-Shuffle\-Res\-P\-D\-B()} -\/ Shuffle atoms within a residue into the standard order
+\item \hyperlink{pdb_8h_a23a6468a99e28990a7ee9c6838d72fe0}{bl\-Term\-P\-D\-B()} -\/ Terminate a P\-D\-B linked list after length residues, returning a pointer to the next residue.
+\end{DoxyItemize}
+
+\subsection*{Miscellaneous functions }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_build_conect_8c_a6830d532b565e142a67b45032253076b}{bl\-Add\-Conect()} -\/ Adds a C\-O\-N\-E\-C\-T in both directions between two specified atoms
+\item \hyperlink{_build_conect_8c_a648e43949ef1add4b7436652134cec43}{bl\-Add\-One\-Direction\-Conect()} -\/ Adds a C\-O\-N\-E\-C\-T in one direction between two specified atoms
+\item \hyperlink{_build_conect_8c_a45bfcd436408cda8fed0292f729fc0a8}{bl\-Are\-Residue\-Pointers\-Bonded()} -\/ Tests whether residues specified by pointers to the start of the residues
+\item \hyperlink{_build_conect_8c_a83cca08fa117ae88809bb7c30d2a79a2}{bl\-Are\-Residues\-Bonded()} -\/ Tests whether residues specified by chain, number and insert are bonded
+\item \hyperlink{_atom_name_match_8c_ad77422fc2b983565a6a18f7637b90ccb}{bl\-Atom\-Name\-Match()} -\/ Tests whether an atom name matches an atom name specification. ? or \% is used to match a single character $\ast$ is used to match any trailing characters; it may not be used for leading characters or in the middle of a specification (e.\-g. {\itshape B}, C$\ast$2 are both illegal). Wildcards may be escaped with a backslash.
+\item \hyperlink{_atom_name_match_8c_ad421ee2a06f5464d432a05ca77f3816e}{bl\-Atom\-Name\-Raw\-Match()} -\/ Tests whether an atom name matches an atom name specification having been given a 'raw' atom name rather than the massaged one. i.\-e. \char`\"{} C\-A \char`\"{} is C-\/alpha, \char`\"{}\-C\-A  \char`\"{} is Calcium Normally it checks against the second character onwards unless the spec starts with a $<$ in which case it checks from the beginning of the string.
+\item \hyperlink{_build_conect_8c_a644691ff7319bbf54367489a9e91661b}{bl\-Build\-Conect\-Data()} -\/ Rebuild all C\-O\-N\-E\-C\-T data using covalent radii of the atoms
+\item \hyperlink{_parse_res_8c_affffca92bfb08dff092d96c87cc12d61}{bl\-Build\-Res\-Spec()} -\/ Creates a residue specification string
+\item \hyperlink{_build_conect_8c_ad267806fc8e84f90103c1a4034bf3fc1}{bl\-Copy\-Conects()} -\/ Updates the C\-O\-N\-E\-C\-T information in the out P\-D\-B linked list based on those in the in linked list. This is used when we have copied a P\-D\-B linked list (e.\-g. in the bl...As\-Copy() routines) to make sure the C\-O\-N\-E\-C\-T data points to records in the new linked list instead of the old one.
+\item \hyperlink{_build_conect_8c_abd54e33bfb576571519fc3401f33130d}{bl\-Delete\-A\-Conect()} -\/ Deletes a C\-O\-N\-E\-C\-T between two specified atoms
+\item \hyperlink{_build_conect_8c_a3d570db9fecbdfeeb93c1fa3e8bff7be}{bl\-Delete\-A\-Conect\-By\-Num()} -\/ Deletes a specified C\-O\-N\-E\-C\-T from an atom
+\item \hyperlink{_build_conect_8c_a281d38064920101079573bae40110db2}{bl\-Delete\-Atom\-Conects()} -\/ Deletes all C\-O\-N\-E\-C\-T information associated with a P\-D\-B pointer. Also deletes the relevant C\-O\-N\-E\-C\-Ts (back to this atom) from the partner atoms
+\item \hyperlink{_parse_res_8c_abe7cc01e0efdffe4123714245c470d5c}{bl\-Do\-Parse\-Res\-Spec()} -\/ Splits up a residue specification of the form \mbox{[}c\mbox{]}\mbox{[}.\mbox{]}num\mbox{[}i\mbox{]} into chain, resnum and insert. Gives control over up-\/casing
+\item \hyperlink{_build_conect_8c_a3b284b864280268928f5fc7944026a7d}{bl\-Is\-Bonded()} -\/ Test whether two atoms are bonded
+\item \hyperlink{_build_conect_8c_aad98df699dfad286bf64dfa139f05bdf}{bl\-Is\-Conected()} -\/ Tests whether two atoms are listed as connected in the C\-O\-N\-E\-C\-T records
+\item \hyperlink{_parse_res_8c_ae13d973e92945be6cc5de8fad4bccc3a}{bl\-Parse\-Res\-Spec()} -\/ Splits up a residue specification of the form \mbox{[}c\mbox{]}\mbox{[}.\mbox{]}num\mbox{[}i\mbox{]} into chain, resnum and insert. Chain and insert code are not up-\/cased
+\item \hyperlink{_parse_res_8c_a5a60170067d646a00d722d4be6a33fa6}{bl\-Print\-Res\-Spec\-Help()} -\/ Prints a help message on the residue specfication format to make help messages more consistent
+\end{DoxyItemize}
+
+\subsection*{Modifying the structure }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_gly_c_b_8c_a7b43af52eac87cfb119df424f5decf09}{bl\-Add\-C\-Bto\-All\-Gly()} -\/ Adds a C\-B atom to all glycines in a P\-D\-B linked list. This is used when one needs to orientate a residue in a common frame of reference which makes use of the C\-B.
+\item \hyperlink{_gly_c_b_8c_a28b7203795311090e0943b009e73d02f}{bl\-Add\-C\-Bto\-Gly()} -\/ Adds a C\-B atom to a glycine. This is used when one needs to orientate a residue in a common frame of reference which makes use of the C\-B.
+\item \hyperlink{_add_n_ter_hs_8c_ad8723c1844a4ac8e92bf2282e3fd871d}{bl\-Add\-N\-Ter\-Hs()} -\/ Adds hydrogens onto the N-\/termini
+\item \hyperlink{pdb_8h_ae04f2604d73e1c2574f8fb5e461cf0cb}{bl\-End\-Rep\-S\-Chain()} -\/ Cleans up open files and memory used by the sidechain replacement routines.
+\item \hyperlink{_fix_cter_p_d_b_8c_a4f1d9e2e442f9b23a3673832737041b6}{bl\-Fix\-Cter\-P\-D\-B()} -\/ Renames C-\/ter atoms in required style and calls Calc\-Cter\-Coords() as required to calculate coordinates ans splices them in. The input P\-D\-B linked list may have standard, C\-H\-A\-R\-M\-M or G\-R\-O\-M\-O\-S style.
+\item \hyperlink{_h_add_p_d_b_8c_adb102327d8ccb3318e08d1cfc853e687}{bl\-H\-Add\-P\-D\-B()} -\/ This routine adds hydrogens to a P\-D\-B linked list. Performs all necessary functions.
+\item \hyperlink{_kill_sidechain_8c_a5e86b571e603a0d4d0a8850f8db6f195}{bl\-Kill\-Sidechain()} -\/ Remove sidechain atoms, optionally removing the C\-Beta
+\item \hyperlink{_h_add_p_d_b_8c_a57f9337f4b73c4461b9d5a8cb46a9f72}{bl\-Open\-P\-G\-P\-File()} -\/ Open the P\-G\-P file
+\item \hyperlink{_h_add_p_d_b_8c_abee3ca151f4112a486c688d6ef4293e8}{bl\-Read\-P\-G\-P()} -\/ Read a proton generation parameter file
+\item \hyperlink{pdb_8h_af900f21c1a37ba63496962ab1ffec576}{bl\-Rep\-One\-S\-Chain()} -\/ Replace a single sidechain.
+\item \hyperlink{pdb_8h_a69e7e47bf272bd9f3f3f46443071dfb0}{bl\-Rep\-One\-S\-Chain\-Force()} -\/ Replace a single sidechain -\/ even if the sidechain was correct already.
+\item \hyperlink{pdb_8h_a50cfdbb56896226d5eac2dd5438dbc13}{bl\-Rep\-S\-Chain()} -\/ Replace sidechains.
+\item \hyperlink{pdb_8h_afe0ac1870975612e3fe9f731e038425f}{bl\-Set\-Chi()} -\/ Sets a sidechain torsion angle in a pdb linked list. The routine assumes standard atom ordering\-: N,C\-A,C,O,s/c with standard order in the s/c.
+\item \hyperlink{_gly_c_b_8c_adfc62e26d10e79cb158c96b78b3abbdc}{bl\-Strip\-Gly\-C\-B()} -\/ Removes all Glycine C\-B pseudo-\/atoms added by Add\-Gly\-C\-B()
+\item \hyperlink{pdb_8h_afd543872026cab5d575c5b6400e7a630}{bl\-Strip\-H\-P\-D\-B\-As\-Copy()} -\/ Take a P\-D\-B linked list and returns the P\-D\-B list minus hydrogens
+\item \hyperlink{pdb_8h_a01c758ef91cf12033273f524c87a0617}{bl\-Strip\-Waters\-P\-D\-B\-As\-Copy()} -\/ Take a P\-D\-B linked list and returns the P\-D\-B list minus waters
+\end{DoxyItemize}
+
+\subsection*{Moving the structure }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_ap_mat_p_d_b_8c_a43bfc4564d1d1530d0d04817835bfa39}{bl\-Apply\-Matrix\-P\-D\-B()} -\/ Apply a rotation matrix to a P\-D\-B linked list.
+\item \hyperlink{_origin_p_d_b_8c_a00841413b2f8e980c82051f6ad393b17}{bl\-Origin\-P\-D\-B()} -\/ Moves a P\-D\-B linked list to the origin, ignoring N\-U\-L\-L coordinates.
+\item \hyperlink{pdb_8h_a0f422dbe39a51ccb3271f2c017aaebc7}{bl\-Rotate\-P\-D\-B()} -\/ Rotates a P\-D\-B linked list using Apply\-Matrix\-P\-D\-B() which ignores coordinates of 9999.\-0. The structure is moved to the origin, the matrix is applied and the structure is moved back.
+\item \hyperlink{pdb_8h_af6517bcd8c81d7f086e0d9f4273e3e2c}{bl\-Translate\-P\-D\-B()} -\/ Translates a P\-D\-B linked list, ignoring null (9999.\-0) coordinates.
+\end{DoxyItemize}
+
+\subsection*{Searching the P\-D\-B linked list }
+
+The following functions allow you to search and walk through the P\-D\-B linked list.
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_extract_zone_p_d_b_8c_a843e1fe5700de558f774a40c25b0fa3d}{bl\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy()} -\/ Reduces a P\-D\-B linked list to those residues outside a specified zone forming a new linked list. Uses separate chain, residue number and insert rather than residue specifications.
+\item \hyperlink{_extract_zone_p_d_b_8c_ac360be7e19a04c45fb1414d4ed5196b3}{bl\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy()} -\/ Reduces a P\-D\-B linked list to those residues outside a specified zone forming a new linked list. Uses residue specifications (\mbox{[}c\mbox{]}nnn\mbox{[}i\mbox{]}) rather than separate chain, residue number and insert.
+\item \hyperlink{_extract_zone_p_d_b_8c_ae7b035cf5bdabc469f32bebb1f4f1b7c}{bl\-Extract\-Zone\-P\-D\-B\-As\-Copy()} -\/ Reduces a P\-D\-B linked list to those residues within a specified zone forming a new linked list. Uses separate chain, residue number and insert rather than residue specifications.
+\item \hyperlink{_extract_zone_p_d_b_8c_a9878d0bbb6c8c66afc98fcba4b7cda4b}{bl\-Extract\-Zone\-Spec\-P\-D\-B\-As\-Copy()} -\/ Reduces a P\-D\-B linked list to those residues within a specified zone forming a new linked list. Uses residue specifications (\mbox{[}c\mbox{]}nnn\mbox{[}i\mbox{]}) rather than separate chain, residue number and insert.
+\item \hyperlink{_find_atom_in_res_8c_a4ff18b29ee8e6e193250e6acaae6e630}{bl\-Find\-Atom\-In\-Res()} -\/ Finds an atom within a residue
+\item \hyperlink{_find_atom_wildcard_in_res_8c_a943790f7ffac1bde621b19cb89758b72}{bl\-Find\-Atom\-Wildcard\-In\-Res()} -\/ Finds an atom within the residue given as a P\-D\-B pointer. Allows single character wildcards. Thus ?G? maybe used for any atom at the gamma position.
+\item \hyperlink{_find_hetatm_residue_8c_a8d42eb344a32e2c7ed5a4a377a50a939}{bl\-Find\-Hetatm\-Residue()} -\/ Finds a pointer to the start of a residue in a P\-D\-B linked list, but requires the residue is a H\-E\-T\-A\-T\-M record
+\item \hyperlink{_find_hetatm_residue_spec_8c_a192ca18214526a19859f6bf1b7b1b81e}{bl\-Find\-Hetatm\-Residue\-Spec()} -\/ Search a P\-D\-B linked list for a specified residue (given as \mbox{[}chain\mbox{[}.\mbox{]}\mbox{]}num\mbox{[}\mbox{[}.\mbox{]}insert\mbox{]}) but limits search to H\-E\-T\-A\-T\-M residues
+\item \hyperlink{_find_next_chain_p_d_b_8c_aee19617cd3ae67b737737a3aaf850484}{bl\-Find\-Next\-Chain\-P\-D\-B()} -\/ Terminates the linked list at the end of the current chain and returns a pointer to the start of the next chain. See \hyperlink{pdb_8h_a5601ab36cb8d8fe8c012821a6e178e02}{bl\-Find\-Next\-Chain()} for a routine which does not terminate the linked list.
+\item \hyperlink{_find_next_residue_8c_ae76e39017432838cc6dd70d5ac50f6cf}{bl\-Find\-Next\-Residue()} -\/ Finds a pointer to the the start of the next residue in a P\-D\-B linked list.
+\item \hyperlink{_find_raw_atom_in_res_8c_ae0f58a30c8731cbb63b4ba021175c54f}{bl\-Find\-Raw\-Atom\-In\-Res()} -\/ Searches the raw atom name (atnam\-\_\-raw) field of the current residue for the specified atom name
+\item \hyperlink{_find_residue_8c_a781ea7a8b1ce623d1f7df8c97a542e38}{bl\-Find\-Residue()} -\/ Finds a pointer to the start of a residue in a P\-D\-B linked list.
+\item \hyperlink{_find_residue_spec_8c_a1ce9f52d435f05159b42b5368240f175}{bl\-Find\-Residue\-Spec()} -\/ Search a P\-D\-B linked list for a specified residue (given as \mbox{[}chain\mbox{]}\mbox{[}.\mbox{]}num\mbox{[}insert\mbox{]})
+\item \hyperlink{_extract_zone_p_d_b_8c_a38ab1a242a2e2463b3645fe1095ed15a}{bl\-Force\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy()} -\/ The same as \hyperlink{_extract_zone_p_d_b_8c_a843e1fe5700de558f774a40c25b0fa3d}{bl\-Extract\-Not\-Zone\-P\-D\-B\-As\-Copy()}, but works if either of the specified residues are not found. Uses separate chain, residue number and insert rather than residue specifications. Note that if neither residue is found, a copy of the whole linked list is returned.
+\item \hyperlink{_extract_zone_p_d_b_8c_a592e4f0d8fe93d8283d83942f7eda9f2}{bl\-Force\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy()} -\/ The same as \hyperlink{_extract_zone_p_d_b_8c_ac360be7e19a04c45fb1414d4ed5196b3}{bl\-Extract\-Not\-Zone\-Spec\-P\-D\-B\-As\-Copy()}, but works if either of the specified residues are not found. Uses residue specifications (\mbox{[}c\mbox{]}nnn\mbox{[}i\mbox{]}) rather than separate chain, residue number and insert. Note that if neither residue is found, a copy of the whole linked list is returned.
+\item \hyperlink{_in_p_d_b_zone_8c_ad1651a4f6bca1953cfe08aa364fe1b1f}{bl\-In\-P\-D\-B\-Zone()} -\/ Checks that atom stored in P\-D\-B pointer p is within the specified residue range.
+\item \hyperlink{_in_p_d_b_zone_spec_8c_a090b7822e5901cbf4d30b5acab163d37}{bl\-In\-P\-D\-B\-Zone\-Spec()} -\/ Determines whether a P\-D\-B pointer is within a residue range specified using standard format\-: \mbox{[}c\mbox{]}nnn\mbox{[}i\mbox{]} or within a specified chain
+\end{DoxyItemize}
+
+\subsection*{Residue specification string }
+
+Some of the above functions will parse a residue specification string. The residue specification string is in the form, \mbox{[}c\mbox{]}\mbox{[}.\mbox{]}num\mbox{[}i\mbox{]} where 'c' is the chain label 'num' is the residue number and 'i' is the insertion code. The chain label and insert code are optional. The chain label can be separated from the residue number with a period allowing of numerical or multi-\/letter chain ids. For example\-: \begin{DoxyVerb}  A10
+  A.10A
+  1.10
+  Light.10\end{DoxyVerb}
+ 

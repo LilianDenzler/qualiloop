@@ -1,0 +1,16 @@
+
+#total quality excluding loop (use as feature later), doesnt work with DELZONE
+#do additive zones
+#res to file
+
+#global Ca-Ca
+ATOMS CA
+ZONE H2-H5
+ZONE H7-H25
+ZONE H36-H49
+ZONE H66-H94
+FIT
+RZONE H95-H102
+
+#global Ca-Ca by residue
+RESIDUE

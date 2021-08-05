@@ -1,0 +1,40 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.16;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifndef __CGEN_H__
+#define __CGEN_H__
+
+/*
+*   CGEN -- Conformation Generator for polypeptides
+*
+*   Copyright (c) 1987 Robert E. Bruccoleri
+*   Copying of this software, in whole or in part, is permitted
+*   provided that the copies are not made for commercial purposes,
+*   appropriate credit for the use of the software is given, this
+*   copyright notice appears, and notice is given that the copying
+*   is by permission of Robert E. Bruccoleri. Any other copying
+*   requires specific permission.
+*/
+
+#endif
+@

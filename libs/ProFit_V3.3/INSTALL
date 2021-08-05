@@ -1,0 +1,258 @@
+                            ProFit V3.3
+                            ===========
+
+             (c) Dr. Andrew C.R. Martin, SciTech Software,
+                    abYinformatics, UCL, 1992-2020
+
+To install ProFit, unpack the tar file. This will create a ProFit
+directory with a src subdirectory.
+
+Compiling under UNIX-like operating systems
+-------------------------------------------
+
+After unpacking the tar file, go into the src subdirectory of the
+ProFit directory. It is possible to edit the Makefile to allow the
+(optional) support for the XMAS library, the GNU Readline library or
+decompression of gzipped PDB files.
+
+Type:
+      make
+to create an executable file called 'profit'. 
+
+Under recent Linux installations, GNU Readline support should just
+work. Uncomment the two lines in the Makefile:
+
+      READLINE    = -DREADLINE_SUPPORT
+      READLINELIB = -lreadline -lcurses
+
+and compile as normal. You may need to install the readline development
+libraries first, which is done with a command like:
+
+      yum install readline-devel         (RPM-based systems)
+      apt-get install libreadline5-dev   (Debian-based systems)
+
+On other systems, you will need to obtain and install readline. See:
+http://directory.fsf.org/project/readline/
+
+If you need to install GNU readline manually, some notes are appended
+at the end of this document.
+
+
+Installing under UNIX-like operating systems
+--------------------------------------------
+
+Move the profit executable to somewhere in your path (e.g. ~/bin/ or
+/usr/local/bin)
+
+You should now create the environment variables HELPDIR and
+DATADIR. These should both point to the top ProFit directory where the
+files ProFit.help and mdm78.mat are stored. e.g.
+
+(csh)   setenv HELPDIR /home/andrew/ProFitV3.1
+        setenv DATADIR /home/andrew/ProFitV3.1
+(sh)    export HELPDIR=/home/andrew/ProFitV3.1
+        export DATADIR=/home/andrew/ProFitV3.1
+
+Alternatively, you may wish to store these files elsewhere, or have
+all help files and data files in a single directory.
+
+Under VAX/VMS-like operating systems, these should be ASSIGNs. e.g.
+
+      ASSIGN $A:[ANDREW.PROFIT] DATADIR
+      ASSIGN $A:[ANDREW.PROFIT] HELPDIR
+
+Compiling under DOS/Windows operating systems
+---------------------------------------------
+
+ProFit V3.1 compiles under Windows using the open source mingw
+compiler. See the mingw web site for details:
+http://www.mingw.org/wiki/HOWTO_Install_the_MinGW_GCC_Compiler_Suite
+
+It should also compile cleanly using commercial compilers such as the
+Microsoft, Intel or Borland compilers (though this has not been tested). 
+
+To compile with mingw, first open a DOS shell and ensure that the
+mingw binary directory from your installation of mingw is in your
+path. For example:
+
+      PATH=%PATH%;C:\Qt\2009.01\mingw\bin
+
+Now change to the ProFit source directory:
+
+      cd ProFitVx.y\src
+
+Now run make by doing:
+
+      mingw32-make -f Makefile_dos
+
+That will create the executable profit.exe
+
+
+
+Installing under DOS/Windows operating systems
+---------------------------------------------
+
+If you only wish to run ProFit from the DOS prompt command line, or 
+you are using Windows 95/98/ME, you can edit C:\autoexec.bat and 
+add the lines
+
+      PATH=%PATH%;C:\My Documents\ProFitV3.1\src
+      SET HELPDIR=C:\My Documents\ProFitV3.1
+      SET DATADIR=C:\My Documents\ProFitV3.1
+
+(Note no double-inverted commas or escaping is required for spaces in
+directory names.)
+
+This will put the profit executable in your path and set the two
+environment variables. Of course you can move the files anywhere you
+want and modify the above commands as required.
+
+If you are using Windows NT/2000/XP or later, you must set environment
+variables as follows:
+
+   1. Open Control Panel
+   2. Click the System icon
+   3. Go to the Advanced pane
+   4. Click the "Environment Variables" button 
+   5. Select the "new" button to create a new environment variable
+   6. Enter the variable name and value in the appropriate boxes,
+      creating HELPDIR and DATADIR as above.
+   7. Edit the "PATH" variable, such that the directory in which you
+      have saved profit.exe is added to your path (or move profit.exe
+      to a directory already in your path).
+
+Alternatively, if you only plan to run ProFit by double-clicking its
+icon, simply ensure that
+
+      profit.exe
+      mdm78.mat
+      ProFit.help
+      
+are all in the same directory. Double clicking the ProFit icon will
+then find the required files automatically.
+
+Running ProFit
+--------------
+
+You are now ready to run ProFit. You may specify the PDB files on the
+command line and may use a -h flag to include HETATM records.  If you
+do not specify the files, you may read them in with the REFERENCE and
+MOBILE commands. The HETATOM and NOHETATOM commands toggle the reading
+of HETATM records.
+
+Once in ProFit, type HELP for further information or read the
+documentation!
+
+
+WARNING
+-------
+
+There is a known (but rarely seen) bug with ProFit where a fitted
+structure may be fitted 180 degrees away from its optimum fit. This
+only seems to affect fitting of identical structures. This appears to
+result from a saddle point in the RMSD surface resulting in apparent
+convergence. While the effort to correct the bug is ongoing we have
+taken steps to fix the effect of the bug.
+
+Compiling with GCC with optimization on (-O3) seems to hide the
+bug. Alternatively, editing the Makefile and uncommenting the line
+
+      ROTATEREFIT = -DROTATE_REFIT
+
+will result in ProFit rotating a fitted structure (42 degrees, Z axis), 
+refitting the structure then selecting the better fit. 
+
+
+Installing the GNU Readline library
+-----------------------------------
+
+As noted above, most Linux installations will have the readline
+library installed already and all you need to do is uncomment the two
+lines in the Makefile:
+
+      READLINE    = -DREADLINE_SUPPORT
+      READLINELIB = -lreadline -lcurses
+
+On recent versions of Linux, if this doesn't work, then you may have
+to install the readline development libraries with a command like:
+
+      yum install readline-devel         (RPM-based systems)
+      apt-get install libreadline5-dev   (Debian-based systems)
+
+If this doesn't work, or you are using another Unix system then
+proceed as follows:
+
+Download the latest version of GNU readline from
+http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html 
+At the time of writing, this is readline-6.0.tar.gz
+
+Unpack the gzipped tar file under /tmp
+
+      cd /tmp
+      tar -zxvf readline-6.0.tar.gz
+
+Change to the directory this creates and run configure:
+
+      cd readline-6.0
+      ./configure
+
+If you do not have write access to the /usr/local/ hierarchy,
+then you can install the files somewhere else:
+
+      ./configure --prefix=/home/my-user-name/packages
+
+Now build the readline library
+
+      make
+
+and install (become superuser first if installing under /usr/local)
+
+      make install
+
+Now, ensure that the directory where the library has been installed
+(/usr/local/lib/ by default) is in the search path. You can do this
+by setting the environment variable LD_LIBRARY_PATH
+
+(csh)   setenv LD_LIBRARY_PATH /usr/local/lib
+(sh)    export LD_LIBRARY_PATH=/usr/local/lib
+
+Alternatively, if you have root access, you can edit the file
+/etc/ld.so.conf to add the directory in which the library has been
+installed. Under recent Linux installations, there is another
+alternative which is to create a file /etc/ld.so.conf.d/readline.conf
+just containing a single line with the directory where the library has
+been installed. In either case, you must now (as root) type the
+command:
+
+      /sbin/ldconfig
+
+Now, modify the Makefile, such that this directory is in the linker's
+library path. Change:
+
+      READLINELIB = -lreadline -lcurses
+to:
+      READLINELIB = -L/usr/local/lib -lreadline -lcurses
+
+Now build with 'make' as usual, but endure that LD_LIBRARY_PATH is 
+set whenever you want to run the program. Alternatively, install
+with
+
+      ./configure --prefix=/usr/lib
+
+to install in the main system directories and then it will be in the
+default search path. This isn't recommended unless you know what you
+are doing!
+
+You can also link the readline library statically to ensure
+portability to machines with Linux machines having different versions
+of the readline library installed. In this case you will not need the
+LD_LIBRARY_PATH or changes to /etc/ld.so.conf. To do this, edit the
+Makefile and change:
+
+      READLINELIB = -lreadline -lcurses
+to
+      READLINELIB = /usr/lib/libreadline.a -lcurses
+
+(changing '/usr/lib/' as required to point to wherever libreadline has
+been installed).
+

@@ -1,0 +1,202 @@
+#include "ProtoTypes.h"
+#include "CongenProto.h"
+#include "values.h"
+
+ 
+void makinb(
+int mode
+)
+{
+   unsigned long int *wrkbas,
+                     *wrkptr,
+                     *nwork;
+   unsigned short int i2=0, j2=0;
+   int i, j, ilast, jlast, npair, natx, iatom;
+   if(mode==0)
+      return;
+   wrkbas = (unsigned long int *)malloc((values.nbonds + 
+                                         values.nangs  +
+                                         values.nptors + 
+                                         values.nitors + 
+                                         values.nnbs)*sizeof(long int));
+   if(!wrkbas)
+   {
+      fprintf(out,"Failed to allocate non-bond workspace\n");
+      die();
+   }
+   nwork = wrkbas;
+ 
+   if(mode>0)
+   {
+      ilast = 0;
+      for(i=0;i<values.natoms;i++)
+      {
+         if(pstruct.lstexc[i]>ilast)
+         {
+            for(j=ilast;j<pstruct.lstexc[i];j++)
+            {
+               i2 = minf2(i+1,pstruct.nbexcl[j]);
+               j2 = maxf2(i+1,pstruct.nbexcl[j]);
+               if(i2>0)
+               {
+                  pack2(nwork++,i2,j2);
+               }
+            }
+            ilast = pstruct.lstexc[i];
+         }
+      }
+   }
+ 
+   /* Compile a list of all the specified interactions, packing the pair
+      into one long entry in our work array
+   */
+   if(abs(mode) > 0)
+   {
+      for(i=0;i<values.nbonds;i++)
+      {
+         i2=minf2(pstruct.atbnd1[i],pstruct.atbnd2[i]);
+         j2=maxf2(pstruct.atbnd1[i],pstruct.atbnd2[i]);
+         if(i2>0)
+         {
+            pack2(nwork++,i2,j2);
+         }
+      }
+   }
+ 
+   if(abs(mode)>1)
+   {
+      for(i=0;i<values.nangs;i++)
+      {
+         i2=minf2(pstruct.atang1[i],pstruct.atang3[i]);
+         j2=maxf2(pstruct.atang1[i],pstruct.atang3[i]);
+         if(i2>0)
+         {
+            pack2(nwork++,i2,j2);
+         }
+      }
+   }
+ 
+   if(abs(mode)>2)
+   {
+      for(i=0;i<values.nitors;i++)    /* Original code said nphi! */
+      {
+         i2=minf2(pstruct.atimp1[i],pstruct.atimp3[i]);
+         j2=maxf2(pstruct.atimp1[i],pstruct.atimp4[i]);
+         if(i2>0)
+         {
+            pack2(nwork++,i2,j2);
+         }
+      }
+   }
+ 
+   if(abs(mode)>3)
+   {
+      for(i=0;i<values.nptors;i++)
+      {
+         i2=minf2(pstruct.attor1[i],pstruct.attor4[i]);
+         j2=maxf2(pstruct.attor1[i],pstruct.attor4[i]);
+         if(i2>0)
+         {
+            pack2(nwork++,i2,j2);
+         }
+      }
+   }
+ 
+   /* Sort the pair list */
+   npair = nwork-wrkbas;
+ 
+   sort_ui(wrkbas,npair);
+ 
+   /* Unpack the sorted pair list to make inb.
+      Check for multiple entries.
+      Check each atom has at least one entry, 0 if there are no exclusions
+   */
+   values.nnbs=0;
+   natx=0;
+   jlast=0;
+   iatom=1;
+   for(wrkptr=wrkbas;wrkptr<=nwork;wrkptr++)
+   {
+      unpack2(*wrkptr,&i2,&j2);
+      if(j2>0 && i2>0)
+      {
+         if(j2!=jlast || i2!=iatom)
+         {
+            if(i2>iatom)
+            {
+               if(natx==0)
+               {
+                  values.nnbs++;
+                  if(values.nnbs>maxnb)
+                  {
+                     fprintf(out,"makinb(): Exceeded maximum size of non-bond \
+exclusion list\n");
+                     die();
+                  }
+                  pstruct.nbexcl[values.nnbs-1] = 0;
+               }
+               pstruct.lstexc[iatom-1]=values.nnbs;
+               if(i2>iatom+1)
+               {
+                  for(j=iatom;j<i2-1;j++)
+                  {
+                     values.nnbs++;
+                     if(values.nnbs>maxnb)
+                     {
+                        fprintf(out,"makinb(): Exceeded maximum size of \
+non-bond exclusion list\n");
+                        die();
+                     }
+                     pstruct.nbexcl[values.nnbs-1]=0;
+                     pstruct.lstexc[j]=values.nnbs;
+                  }
+               }
+               natx=0;
+               iatom=i2;
+            }
+            natx++;
+            values.nnbs++;
+            if(values.nnbs>maxnb)
+            {
+               fprintf(out,"makinb(): Exceeded maximum size of non-bond \
+exclusion list\n");
+               die();
+            }
+            pstruct.nbexcl[values.nnbs-1]=j2;
+            jlast=j2;
+         }
+      }
+   }
+   if(natx==0)
+   {
+      values.nnbs++;
+      if(values.nnbs>maxnb)
+      {
+         fprintf(out,"makinb(): Exceeded maximum size of non-bond \
+exclusion list\n");
+         die();
+      }
+      pstruct.nbexcl[values.nnbs-1] = 0;
+   }
+   pstruct.lstexc[iatom-1]=values.nnbs;
+   if(values.natoms>iatom)
+   {
+      for(j=iatom;j<values.natoms;j++)
+      {
+         values.nnbs++;
+         if(values.nnbs>maxnb)
+         {
+            fprintf(out,"makinb(): Exceeded maximum size of non-bond \
+exclusion list\n");
+            die();
+         }
+         pstruct.nbexcl[values.nnbs-1] = 0;
+         pstruct.lstexc[j]=values.nnbs;
+      }
+   }
+ 
+   free(wrkbas);
+ 
+   return;
+}
+ 

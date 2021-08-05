@@ -1,0 +1,133 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.44;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Sets the data fields necessary for implementing van der Waals repulsion
+   avoidance in the clump, clp, and the atoms under it. */
+ 
+void setavdclp(
+struct sideres *srp,
+struct clump *clp
+)
+{
+   float *x,*y,*z,b,t,phiat;
+   int *atomind,i,i1,i2,i3,i4,nat3,iitc;
+   struct atom *free_atp,**atpp,*atp;
+   short int s1,s2,s3,s4;
+ 
+   nat3 = clp->natom + 3;
+   x = (float *) alloc(sizeof(float) * nat3);
+   y = (float *) alloc(sizeof(float) * nat3);
+   z = (float *) alloc(sizeof(float) * nat3);
+   atomind = (int *) alloc(sizeof(int) * nat3);
+   free_atp = clp->free_atom;
+   atomind[0] = free_atp->ante[0];
+   atomind[1] = free_atp->ante[1];
+   atomind[2] = free_atp->ante[2];
+   for (i=3,atpp=clp->atoms; atp = *atpp; atpp++)
+      atomind[i++] = atp->atomno;
+   x[2] = y[2] = z[2] = 0.0;
+   x[1] = -getparbond2(atomind[1],atomind[2]);
+   y[1] = z[1] = 0.0;
+   b = getparbond2(atomind[0],atomind[1]);
+   t = gtprangl2(atomind[0],atomind[1],atomind[2]);
+   x[0] = x[1] - b*(float)cos((double)(pi-t));
+   y[0] = b*(float)sin((double)(pi-t));
+   z[0] = 0.0;
+   for (i=0,atpp = clp->atoms; atp = *atpp; atpp++)
+   {
+      switch (atp->cons_code)
+      {
+      case st_free:
+         phiat = 0.0;
+         break;
+      case st_add:
+         phiat = atp->offset;
+         break;
+      case st_fixed:
+         phiat = atp->torsion;
+         break;
+      default:
+         fprintf(out,"\nError in setavdclp -- Bad cons_code = %d\n",
+                atp->cons_code);
+         die();
+      }
+/* ACRM Changed to use C version of srchwd for int arrays
+//      i1 = srchwd(atomind,&nat3,&atp->ante[0]);
+//      i2 = srchwd(atomind,&nat3,&atp->ante[1]);
+//      i3 = srchwd(atomind,&nat3,&atp->ante[2]);
+//      i4 = srchwd(atomind,&nat3,&atp->atomno);
+*/
+      i1 = srchint(atomind,nat3,atp->ante[0]);
+      i2 = srchint(atomind,nat3,atp->ante[1]);
+      i3 = srchint(atomind,nat3,atp->ante[2]);
+      i4 = srchint(atomind,nat3,atp->atomno);
+ 
+      if (i1*i2*i3*i4 == 0)
+      {
+         char buf[21];
+         buf[0] = '\0';
+         print_atom1(buf,atp->atomno);
+         fprintf(out,"Error in setavdclp -- \n");
+         fprintf(out,"Unable to find atom %d (%s) in atomind\n",
+                    atp->atomno,buf);
+         die();
+      }
+      cartx2(x,y,z,&i1,&i2,&i3,&i4,&atp->bond,&atp->angle,&phiat);
+      atp->avoidx = x[i4-1];
+      atp->avoidr = sqrt(square(y[i4-1])+square(z[i4-1]));
+      /* ACRM added casts */
+/* And removed them again, since they seem to screw things up!
+//      phia((s1=(short)1,&s1),(s2=(short)2,&s2),(s3=(short)3,&s3),
+//           (s4=(short)i4,&s4),&atp->avoidphi,&one,x,y,z);
+*/
+      phia((s1=1,&s1),(s2=2,&s2),(s3=3,&s3),
+           (s4=i4,&s4),&atp->avoidphi,&one,x,y,z);
+      atp->avoidphi *= dtorad;
+      iitc = engpar.atflag[pstruct.atcode[atp->atomno-1]-1];
+      if (++i == 1)
+      {
+         clp->avoidxmin = clp->avoidxmax = atp->avoidx;
+         clp->avoidrmax = atp->avoidr;
+         clp->avoidvdwrmax = engpar.vdwrad[iitc-1];
+      }
+      else
+      {
+         clp->avoidxmin = minf2(clp->avoidxmin,atp->avoidx);
+         clp->avoidxmax = maxf2(clp->avoidxmax,atp->avoidx);
+         clp->avoidrmax = maxf2(clp->avoidrmax,atp->avoidr);
+         clp->avoidvdwrmax = maxf2(clp->avoidvdwrmax,engpar.vdwrad[iitc-1]);
+      }
+      setrcntcts(atp,srp->maxevdw,cg.parm_no);
+   }
+   clp->avoidxcenter = (clp->avoidxmax + clp->avoidxmin) / 2.0;
+   clp->avoidextent = clp->avoidxcenter - clp->avoidxmin;
+   free(x);
+   free(y);
+   free(z);
+   free(atomind);
+}
+ 
+@

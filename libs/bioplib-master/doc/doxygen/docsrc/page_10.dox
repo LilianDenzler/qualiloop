@@ -1,0 +1,66 @@
+/** 
+\page page_10 Maths
+\brief
+  BiopLib - Maths
+
+
+
+
+
+
+
+Geometry
+--------
+
+- blAngle() - Calculates the angle between three sets of coordinates
+- blCalculateBestFitLine() - Calculates a best fit line through a set of coordinates in 3D. Results are returned as a vector and a point through which the vector must pass. 
+- blDistPtLine() - Calculate the distance from a point to a line vector described by two vector end points. See also blPointLineDistance()
+- blFindCentroid() - Calculates the centroid of an array of points. (Like blGetCofGPDB() but for a coordinate array instead of a PDB linked list)
+- blPhi() - Calculates the torsion angle described by 4 sets of coordinates.
+- blPointLineDistance() - Calculates the shortest distance from a point P to a line between points P1 and P2. This value is returned and the point on the line can also be returned. See also blDistPtLine() 
+- blSimpleangle() - Simplifies a signed angle to an unsigned angle <=2*PI
+- blTorToCoor() - Calculates cartesian coordinates for an atom given the coordinates of three antecedant atoms and the bond length, angle and torsion angle
+- blTrueAngle() - Return the +ve angle between 0 and 2PI given the opp and adj values.
+
+
+Matrices
+--------
+
+- blCalculateCovarianceMatrix() - Find the covariance matrix for a given matrix 
+- blCreateRotMat() - Create a 3x3 rotation matrix. Takes a direction as a single character ('x', 'y', or 'z'), an angle (in rads) and outputs a rotation matrix
+- blEigen() - Calculates the eigenvalues and eigenvectors of a REAL symmetric matrix Note that this routine destroys the values above the diagonal of the matrix.
+- blInvert33() - Invert a 3x3 matrix
+- blMatMult33_33() - Multiply two 3x3 matrices
+- blMatMult3_33() - Multiply a 3-vector by a 3x3 matrix
+
+
+Miscellaneous
+-------------
+
+- blFactdiv() - Calculates the factorial of one number divided by the factorial of another (smaller) number.
+- blFactorial() - Calculates the factorial of an integer.
+- blNComb() - Calculates number of combinations of n items in r groups
+- blNPerm() - Calculates number of permutations of n items in r groups
+
+
+Statistics
+----------
+
+- blCalcExtSD() - Calculate the mean and standard deviation from a set of numbers. The routine is called with each value to be sampled and then again to obtain the results. This is the same as blCalcSD() except that the variables used to accumulate totals are kept outside the function instead of being static within the function
+- blCalcSD() - Calculate the mean and standard deviation from a set of numbers. The routine is called with each value to be sampled and then called again to extract the results
+- blPearson() - Calculates the Pearson correlation coefficient making two passes through the data
+- blPearson1() - Calculates the Pearson correlation coefficient making a single pass through the data
+
+
+Vectors
+-------
+
+- blCrossProd3() - Calculate the cross product of 2 3-vectors
+- blVecAdd3() - Add 2 vectors
+- blVecDist() - Finds the distance between two vectors of arbitrary length
+- blVecLen3() - Calculate the length of a vector
+- blVecSub3() - Subtract 2 vectors
+
+
+*/
+

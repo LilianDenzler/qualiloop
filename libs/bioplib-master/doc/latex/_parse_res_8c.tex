@@ -1,0 +1,202 @@
+\hypertarget{_parse_res_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Parse\-Res.c File Reference}
+\label{_parse_res_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Parse\-Res.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Parse\-Res.\-c}}
+}
+
+
+Parse a residue specification.  
+
+
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_parse_res_8c_ae13d973e92945be6cc5de8fad4bccc3a}{bl\-Parse\-Res\-Spec} (char $\ast$spec, char $\ast$chain, int $\ast$resnum, char $\ast$insert)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_parse_res_8c_abe7cc01e0efdffe4123714245c470d5c}{bl\-Do\-Parse\-Res\-Spec} (char $\ast$in\-Spec, char $\ast$chain, int $\ast$resnum, char $\ast$insert, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} uppercaseresspec)
+\item 
+void \hyperlink{_parse_res_8c_a5a60170067d646a00d722d4be6a33fa6}{bl\-Print\-Res\-Spec\-Help} (F\-I\-L\-E $\ast$fp)
+\item 
+void \hyperlink{_parse_res_8c_affffca92bfb08dff092d96c87cc12d61}{bl\-Build\-Res\-Spec} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$p, char $\ast$resspec)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parse a residue specification. \begin{DoxyVersion}{Version}
+V1.\-15 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+11.\-08.\-16 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2016 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-03.\-94 Original
+\item V1.\-1 07.\-07.\-95 Now non-\/destructive
+\item V1.\-2 17.\-07.\-95 Now checks that a number was specified as part of the spec. and returns a B\-O\-O\-L
+\item V1.\-3 23.\-10.\-95 Moved Find\-Residue\-Spec() from P\-D\-B\-List.\-c
+\item V1.\-4 08.\-02.\-96 Added Find\-Residue() and changed Find\-Residue\-Spec() to use it
+\item V1.\-5 23.\-07.\-96 Added Atom\-Name\-Match() and Legal\-Atom\-Spec()
+\item V1.\-6 18.\-03.\-98 Added option to include a . to separate chain and residue number so numeric chain names can be used
+\item V1.\-7 11.\-10.\-99 Allow a . to be used to start a number (such that the default blank chain name is used). Allows negative residue numbers
+\item V1.\-8 29.\-09.\-05 Moved Parse\-Res\-Spec() into Do\-Parse\-Res\-Spec() with extra param and added wrappers for Parse\-Res\-Spec() and Parse\-Res\-Spec\-No\-Upper() (Changes by Tony Lewis) By\-: T\-L
+\item V1.\-9 05.\-01.\-12 Default behaviour of Parse\-Res\-Spec() is now not to upcase the chain label -\/ there are now too many P\-D\-B entries with lower case chain names for this to be sensible. By\-: A\-C\-R\-M
+\item V1.\-10 12.\-10.\-12 insert is now a properly terminated string when there is no insert
+\item V1.\-11 28.\-08.\-13 chain is now a properly terminated string
+\item V1.\-12 26.\-02.\-14 Parsing handles multi-\/letter chains. By\-: C\-T\-P
+\item V1.\-13 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-14 10.\-03.\-15 Added \hyperlink{_parse_res_8c_a5a60170067d646a00d722d4be6a33fa6}{bl\-Print\-Res\-Spec\-Help()} By\-: A\-C\-R\-M Removed bl\-Parse\-Res\-Spec\-No\-Upper() since \hyperlink{_parse_res_8c_ae13d973e92945be6cc5de8fad4bccc3a}{bl\-Parse\-Res\-Spec()} now does this
+\item V1.\-15 11.\-08.\-16 Added \hyperlink{_parse_res_8c_affffca92bfb08dff092d96c87cc12d61}{bl\-Build\-Res\-Spec()} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_parse_res_8c_source}{Parse\-Res.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_parse_res_8c_affffca92bfb08dff092d96c87cc12d61}{\index{Parse\-Res.\-c@{Parse\-Res.\-c}!bl\-Build\-Res\-Spec@{bl\-Build\-Res\-Spec}}
+\index{bl\-Build\-Res\-Spec@{bl\-Build\-Res\-Spec}!ParseRes.c@{Parse\-Res.\-c}}
+\subsubsection[{bl\-Build\-Res\-Spec}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Build\-Res\-Spec (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{p, }
+\item[{char $\ast$}]{resspec}
+\end{DoxyParamCaption}
+)}}\label{_parse_res_8c_affffca92bfb08dff092d96c87cc12d61}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$p} & P\-D\-B record pointer\\
+\hline
+\end{DoxyParams}
+Builds a residue specification string for a P\-D\-B record
+
+
+\begin{DoxyItemize}
+\item 11.\-08.\-16 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 352 of file Parse\-Res.\-c.
+
+\hypertarget{_parse_res_8c_abe7cc01e0efdffe4123714245c470d5c}{\index{Parse\-Res.\-c@{Parse\-Res.\-c}!bl\-Do\-Parse\-Res\-Spec@{bl\-Do\-Parse\-Res\-Spec}}
+\index{bl\-Do\-Parse\-Res\-Spec@{bl\-Do\-Parse\-Res\-Spec}!ParseRes.c@{Parse\-Res.\-c}}
+\subsubsection[{bl\-Do\-Parse\-Res\-Spec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Do\-Parse\-Res\-Spec (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{in\-Spec, }
+\item[{char $\ast$}]{chain, }
+\item[{int $\ast$}]{resnum, }
+\item[{char $\ast$}]{insert, }
+\item[{{\bf B\-O\-O\-L}}]{uppercaseresspec}
+\end{DoxyParamCaption}
+)}}\label{_parse_res_8c_abe7cc01e0efdffe4123714245c470d5c}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$in\-Spec} & Residue specification \\
+\hline
+\mbox{\tt out}  & {\em $\ast$chain} & Chain label \\
+\hline
+\mbox{\tt out}  & {\em $\ast$resnum} & Residue number \\
+\hline
+\mbox{\tt out}  & {\em $\ast$insert} & Insert label \\
+\hline
+\mbox{\tt in}  & {\em uppercaseresspec} & Convert spec to upper case. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Note that chain and insert must be arrays of at least 2 characters, not character pointers
+
+Splits up a residue specification of the form \mbox{[}c\mbox{]}\mbox{[}.\mbox{]}num\mbox{[}i\mbox{]} into chain, resnum and insert. Chain and insert are optional and will be set to spaces if not specified. If uppercaseresspec equals T\-R\-U\-E, the spec is upper cased before processing
+
+Multi-\/letter chain I\-Ds can be parsed. Additionally, chain I\-Ds with numerical characters can be parsed if a period is used to separate the chain from the residue number.
+
+
+\begin{DoxyItemize}
+\item 21.\-07.\-93 Original By\-: A\-C\-R\-M
+\item 17.\-07.\-95 Added B\-O\-O\-L return
+\item 18.\-03.\-98 Added option to include a . to separate chain and residue number so numeric chain names can be used
+\item 29.\-09.\-05 Moved this code to from Parse\-Res\-Spec() to Do\-Parse\-Res\-Spec() and made that function just call this new function. This move is to allow this underlying function to have an extra parameter to specify whether or not the residue specification should be upper cased (without affecting code that calls the old function). By\-: T\-L
+\item 12.\-10.\-12 insert is now a properly terminated string when there is no insert
+\item 28.\-08.\-12 chain is now a properly terminated string The input specification is now copied so that actual strings can be passed into the routine as opposed to string delimited variables. This also removes the need for restoring the string which has now been removed
+\item 26.\-02.\-14 Parsing handles multi-\/letter chains and numerical chain I\-Ds. The \char`\"{}\-Extract chain from spec\char`\"{} section was re-\/written. If the period separator between the chain id and the residue number is absent then the chain id is set from any non-\/numeric lead characters. By\-: C\-T\-P
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 214 of file Parse\-Res.\-c.
+
+\hypertarget{_parse_res_8c_ae13d973e92945be6cc5de8fad4bccc3a}{\index{Parse\-Res.\-c@{Parse\-Res.\-c}!bl\-Parse\-Res\-Spec@{bl\-Parse\-Res\-Spec}}
+\index{bl\-Parse\-Res\-Spec@{bl\-Parse\-Res\-Spec}!ParseRes.c@{Parse\-Res.\-c}}
+\subsubsection[{bl\-Parse\-Res\-Spec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Parse\-Res\-Spec (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{spec, }
+\item[{char $\ast$}]{chain, }
+\item[{int $\ast$}]{resnum, }
+\item[{char $\ast$}]{insert}
+\end{DoxyParamCaption}
+)}}\label{_parse_res_8c_ae13d973e92945be6cc5de8fad4bccc3a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$spec} & Residue specification \\
+\hline
+\mbox{\tt out}  & {\em $\ast$chain} & Chain label \\
+\hline
+\mbox{\tt out}  & {\em $\ast$resnum} & Residue number \\
+\hline
+\mbox{\tt out}  & {\em $\ast$insert} & Insert label \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Note that chain and insert must be arrays of at least 2 characters, not character pointers
+
+Splits up a residue specification of the form \mbox{[}c\mbox{]}\mbox{[}.\mbox{]}num\mbox{[}i\mbox{]} into chain, resnum and insert. Chain and insert are optional and will be set to spaces if not specified. Converts the resiude specification to upper case before processing.
+
+Moved the code that was here to a new function, Do\-Parse\-Res\-Spec() and made this function just call that new function. See Do\-Parse\-Res\-Spec()'s comments for notes on previous changes. This move is to allow the underlying function to have an extra parameter to specify whether or not the residue specification should be upper cased (without affecting code that calls this function).
+
+
+\begin{DoxyItemize}
+\item 29.\-09.\-05 Original By\-: T\-L
+\item 05.\-01.\-12 Now behaves the same as Parse\-Res\-Spec\-No\-Upper(). There are now too many P\-D\-B files with lower case chain names (e.\-g. 1gav, 3n9r, etc.) for the old default behaviour or up-\/casing everything. By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 158 of file Parse\-Res.\-c.
+
+\hypertarget{_parse_res_8c_a5a60170067d646a00d722d4be6a33fa6}{\index{Parse\-Res.\-c@{Parse\-Res.\-c}!bl\-Print\-Res\-Spec\-Help@{bl\-Print\-Res\-Spec\-Help}}
+\index{bl\-Print\-Res\-Spec\-Help@{bl\-Print\-Res\-Spec\-Help}!ParseRes.c@{Parse\-Res.\-c}}
+\subsubsection[{bl\-Print\-Res\-Spec\-Help}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Print\-Res\-Spec\-Help (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}}\label{_parse_res_8c_a5a60170067d646a00d722d4be6a33fa6}
+
+
+Definition at line 330 of file Parse\-Res.\-c.
+

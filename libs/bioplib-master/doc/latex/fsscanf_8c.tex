@@ -1,0 +1,158 @@
+\hypertarget{fsscanf_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/fsscanf.c File Reference}
+\label{fsscanf_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/fsscanf.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/fsscanf.\-c}}
+}
+
+
+Read from a string using F\-O\-R\-T\-R\-A\-N-\/like rigid formatting.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf} (char $\ast$buffer, char $\ast$format,...)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read from a string using F\-O\-R\-T\-R\-A\-N-\/like rigid formatting. \begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Hard formatted version of sscanf(). Implements F\-O\-R\-T\-R\-A\-N-\/like file reading.
+
+The only parsing characters recognised are\-:
+
+\begin{DoxyVerb}  %<n>f    A single precision floating point number of width <n>
+  %<n>lf   A double precision floating point number of width <n>
+  %<n>d    An integer of width <n>
+  %<n>ld   A long integer of width <n>
+  %<n>u    An unsigned of width <n>
+  %<n>lu   An unsigned long of width <n>
+  %<n>s    A string of width <n>
+  %c       A character (of width 1)
+  %<n>x    <n> spaces (like FORTRAN).
+\end{DoxyVerb}
+
+
+With the exception of the c parser, the column width, $<$n$>$, must$\ast$ be specified.
+
+Blank fields read as numbers are given a value of zero.
+
+Returns\-: The number of arguments filled in (E\-O\-F if blank string or no specifiers found in format string).
+
+\subsection*{Usage\-: }
+
+For example\-:
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{double}   DoubVar;
+\textcolor{keywordtype}{int}      IntVar;
+\textcolor{keywordtype}{char}     CharVar,
+         StringVar[16];
+
+\hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf}(buffer,\textcolor{stringliteral}{"%8lf%5x%3d%c%3x%8s"},
+        &DoubVar,&IntVar,&CharVar,StringVar);
+\end{DoxyCode}
+
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 17.\-06.\-93 Original By\-: A\-C\-R\-M
+\item V1.\-1 12.\-07.\-93 Added u and lu. Corrected s and c to blank rather than N\-U\-L\-L strings if buffer runs out. Pads string if buffer ran out in the middle. Takes \par
+ in buffer as end of string.
+\item V1.\-2 24.\-11.\-95 `value' was a fixed 40 character buffer. Now changed to allocate a suitable number of characters as required.
+\item V1.\-3 13.\-01.\-97 Now does the E\-O\-F return at the end of the routine rather than at the beginning so that all the variable get set to blank or zero first.
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{fsscanf_8c_source}{fsscanf.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{\index{fsscanf.\-c@{fsscanf.\-c}!fsscanf@{fsscanf}}
+\index{fsscanf@{fsscanf}!fsscanf.c@{fsscanf.\-c}}
+\subsubsection[{fsscanf}]{\setlength{\rightskip}{0pt plus 5cm}int fsscanf (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{char $\ast$}]{format, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$buffer} & Buffer from which to read information \\
+\hline
+\mbox{\tt in}  & {\em $\ast$format} & Format string (like scanf() et al., but see restrictions below) \\
+\hline
+\mbox{\tt out}  & {\em ...} & Scanned output variables \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of values read (E\-O\-F if end of file or no specifiers found in format string)
+\end{DoxyReturn}
+Hard formatted version of sscanf(). Implements F\-O\-R\-T\-R\-A\-N-\/like rigid column reading out of a string.
+
+The only parsing characters recognised are\-:
+
+\begin{DoxyVerb}  %<n>f    A single precision floating point number of width <n>
+  %<n>lf   A double precision floating point number of width <n>
+  %<n>d    An integer of width <n>
+  %<n>ld   A long integer of width <n>
+  %<n>u    An unsigned of width <n>
+  %<n>lu   An unsigned long of width <n>
+  %<n>s    A string of width <n>
+  %c       A character (of width 1)
+  %<n>x    <n> spaces (like FORTRAN).
+\end{DoxyVerb}
+
+
+With the exception of the c parser, the column width, $<$n$>$, must$\ast$ be specified.
+
+Blank fields read as numbers are given a value of zero.
+
+
+\begin{DoxyItemize}
+\item 17.\-06.\-93 Original By\-: A\-C\-R\-M
+\item 12.\-07.\-93 Added u and lu. Corrected s and c to blank rather than N\-U\-L\-L strings if buffer runs out. Pads string if buffer ran out in the middle. Takes \par
+ in buffer as end of string.
+\item 24.\-11.\-95 `value' was a fixed 40 character buffer. Now changed to allocate a suitable number of characters as required.
+\item 13.\-01.\-97 Previously if reading from a blank line the output variables were unmodified since an E\-O\-F return was done immediately. Now the immediate E\-O\-F return only happens if the input buffer is a N\-U\-L\-L variable and the E\-O\-F on blank string is moved to the end such that all output variables are set to zero or blank before the E\-O\-F return.
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 177 of file fsscanf.\-c.
+

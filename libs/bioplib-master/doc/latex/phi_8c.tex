@@ -1,0 +1,119 @@
+\hypertarget{phi_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/phi.c File Reference}
+\label{phi_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/phi.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/phi.\-c}}
+}
+
+
+Calculate a torsion angle.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} \hyperlink{phi_8c_a87538c775599e78844390780df3b0653}{bl\-Phi} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} xi, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} yi, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} zi, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} xj, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} yj, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} zj, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} xk, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} yk, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} zk, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} xl, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} yl, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} zl)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calculate a torsion angle. \begin{DoxyVersion}{Version}
+V1.\-8 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+17.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-7 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-8 17.\-07.\-14 Removed unused varables By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{phi_8c_source}{phi.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{phi_8c_a87538c775599e78844390780df3b0653}{\index{phi.\-c@{phi.\-c}!bl\-Phi@{bl\-Phi}}
+\index{bl\-Phi@{bl\-Phi}!phi.c@{phi.\-c}}
+\subsubsection[{bl\-Phi}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-A\-L} bl\-Phi (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{xi, }
+\item[{{\bf R\-E\-A\-L}}]{yi, }
+\item[{{\bf R\-E\-A\-L}}]{zi, }
+\item[{{\bf R\-E\-A\-L}}]{xj, }
+\item[{{\bf R\-E\-A\-L}}]{yj, }
+\item[{{\bf R\-E\-A\-L}}]{zj, }
+\item[{{\bf R\-E\-A\-L}}]{xk, }
+\item[{{\bf R\-E\-A\-L}}]{yk, }
+\item[{{\bf R\-E\-A\-L}}]{zk, }
+\item[{{\bf R\-E\-A\-L}}]{xl, }
+\item[{{\bf R\-E\-A\-L}}]{yl, }
+\item[{{\bf R\-E\-A\-L}}]{zl}
+\end{DoxyParamCaption}
+)}}\label{phi_8c_a87538c775599e78844390780df3b0653}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em xi} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em yi} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em zi} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em xj} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em yj} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em zj} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em xk} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em yk} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em zk} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em xl} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em yl} & Input coordinate \\
+\hline
+\mbox{\tt in}  & {\em zl} & Input coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The torsion angle between the 4 atoms
+\end{DoxyReturn}
+Calculates the torsion angle described by 4 sets of coordinates.
+
+
+\begin{DoxyItemize}
+\item 04.\-03.\-91 Original By\-: A\-C\-R\-M
+\item 16.\-06.\-93 Changed float to R\-E\-A\-L
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 17.\-07.\-14 Removed unused variables By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 107 of file phi.\-c.
+

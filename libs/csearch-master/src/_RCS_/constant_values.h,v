@@ -1,0 +1,40 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.13.40.55;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@Extracted from values.h
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifndef __CONSTANTS_H__
+#define __CONSTANTS_H__
+
+/*
+static float pi = 3.141592653589794;
+*/
+static double pid = 3.141592653589794;
+static float rad120 = (120.0/180.0*3.141592653589794);
+static float dtorad = (3.141592653589794/180.0);
+static float largnum = 1.7e38;
+static float anum = 9999.0;
+static float eps1 = 1.0e-6;
+static int largint = 2147483647;
+
+#endif
+@

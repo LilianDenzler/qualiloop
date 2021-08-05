@@ -1,0 +1,72 @@
+#include "ProtoTypes.h"
+#include "CongenProto.h"
+#include "values.h"
+ 
+#define MAXBUFF 200
+ 
+extern int info_level;
+
+/* This routine processes Bond commands.
+   04.08.92 Some rewriting.   By:   ACRM.
+*/
+ 
+void ProcessBonds(
+FILE *fp,
+short IndxTab[100][100]
+)
+{
+   char  buff1[MAXBUFF+1],
+         buff2[MAXBUFF+1],
+         *buffp,
+         Atom1[8],
+         Atom2[8];
+   float ForceConst,
+         OptBond;
+   int   i, j, k;
+ 
+   if(info_level)
+      fprintf(out,"         BOND PARAMETERS\n         ===============\n\n\
+        #   BOND        CODE        KB        BO\n\n");
+ 
+   while(fgets(buff1,MAXBUFF,fp))
+   {
+      terminate(buff1);
+      struppr(buff1,buff2);
+      buffp = killspcs(buff2);
+      if(!strncmp(buffp,"END",3)) break;
+ 
+      sscanf(buffp,"%s %s %f %f",Atom1,Atom2,&ForceConst,&OptBond);
+      ljustpad(Atom1);
+      ljustpad(Atom2);
+
+      i = j = -1;
+      for(k=0; k<values.natyps; k++)
+      {
+         if(!strncmp(restop.acodes[k],Atom1,4)) i = k;
+         if(!strncmp(restop.acodes[k],Atom2,4)) j = k;
+      }
+      
+      if(i == -1 || j == -1)
+      {
+         fprintf(out,"Warning: Atoms in bond %4s %4s %10.5f %10.5f don't \
+exist in residue topology.\n",Atom1,Atom2,ForceConst,OptBond);
+      }
+      else
+      {
+         char temp1[8],
+              temp2[8];
+ 
+         engpar.bndkey[values.nbpar] = (int)IndxTab[i][j];
+         engpar.bndcon[values.nbpar] = ForceConst;
+         engpar.eqbdis[values.nbpar] = OptBond;
+         strncpy(temp1,restop.acodes[i],4); temp1[4] = '\0';
+         strncpy(temp2,restop.acodes[j],4); temp2[4] = '\0';
+         if(info_level)     
+            fprintf(out,"      %3d  %4s - %4s%9d%10.1f%10.3f\n",
+                    values.nbpar+1,temp1,temp2,engpar.bndkey[values.nbpar],
+                    ForceConst,OptBond);
+         values.nbpar++;
+      }
+   }
+}
+ 

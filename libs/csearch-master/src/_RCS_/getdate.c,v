@@ -1,0 +1,36 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.54;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+
+/* OMUPD JAW 11/08/92 Added ProtoTypes.h as part of CR318 */
+ 
+void GetDate(
+char day[]
+)
+{
+   day[0] = '\0';
+}
+ 
+@

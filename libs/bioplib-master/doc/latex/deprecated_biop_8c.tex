@@ -1,0 +1,77 @@
+\hypertarget{deprecated_biop_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/deprecated\-Biop.c File Reference}
+\label{deprecated_biop_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/deprecated\-Biop.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/deprecated\-Biop.\-c}}
+}
+
+
+Source code for Biop deprecated functions.  
+
+
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aalist.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}cssr.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fit.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hbond.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}seq.\-h\char`\"{}}\\*
+
+
+\subsection{Detailed Description}
+Source code for Biop deprecated functions. \begin{DoxyVersion}{Version}
+V1.\-11 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+24.\-08.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 2014-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Allows code utilising Biop\-Lib to compile without modification to use function names with the 'bl' prefix.(The 'bl' prefix was introduced in July 2014.)
+
+Allows use of deprecated functions that take a single character for the P\-D\-B chain identifier or insert value.
+
+\subsection*{Usage\-: }
+
+Code using deprecated functions can be compiled without modification, however, all deprecated functions use the D\-E\-P\-R\-E\-C\-A\-T\-E\-D macro which prints a warning message to stderr when a deprecated function is called.
+
+The warning message can be suppressed as either an option at the compilation of the library or by setting an environment variable at runtime.
+
+\begin{DoxyParagraph}{Documentation}
+Doxygen is not set to document deprecated functions. To document deprecated functions, add \char`\"{}deprecated\char`\"{} to the E\-N\-A\-B\-L\-E\-D S\-E\-C\-T\-I\-O\-N\-S tag in the Doxygen config file\-: bioplib/doc/doxygen/\-Doxyfile
+\end{DoxyParagraph}
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 31.\-07.\-14 Original By\-: C\-T\-P
+\item V1.\-1 08.\-08.\-14 Separated Biop and Gen deprecation By\-: A\-C\-R\-M
+\item V1.\-2 14.\-08.\-14 Removed unnecessary includes. By\-: C\-T\-P
+\item V1.\-3 19.\-08.\-14 Renamed functions\-: bl\-Build\-Atom\-Neighbour\-P\-D\-B\-List(), bl\-Extract\-Zone\-P\-D\-B(), bl\-Select\-Atoms\-P\-D\-B(), bl\-Strip\-H\-P\-D\-B(), bl\-Strip\-Waters\-P\-D\-B() with As\-Copy suffix. By\-: C\-T\-P
+\item V1.\-4 26.\-08.\-14 Added \hyperlink{align_8c_a543c1d8afe579c1d3ebf03c4522f8554}{bl\-Set\-M\-D\-M\-Score\-Weight()} By\-: A\-C\-R\-M
+\item V1.\-5 24.\-10.\-14 Added \hyperlink{_extract_zone_p_d_b_8c_a9878d0bbb6c8c66afc98fcba4b7cda4b}{bl\-Extract\-Zone\-Spec\-P\-D\-B\-As\-Copy()}
+\item V1.\-6 23.\-02.\-15 bl\-Write\-P\-D\-B\-Trailier() and \hyperlink{pdb_8h_ae1ff7a56e4d028aef80c0220f59c1358}{bl\-Renum\-Atoms\-P\-D\-B()} now take additional parameters
+\item V1.\-7 24.\-02.\-15 Write\-P\-D\-B() points to \hyperlink{pdb_8h_a55086bc1125dc7baa000bf42ddcf5930}{bl\-Write\-P\-D\-B()} instead of bl\-Write\-As\-P\-D\-B() (which is now \hyperlink{pdb_8h_a9dfc0bf16ae99ffe8d06f85f0570c214}{bl\-Write\-P\-D\-B\-As\-P\-D\-Bor\-Gromos()})
+\item V1.\-8 02.\-03.\-15 bl\-Get\-Exptl() is now called \hyperlink{pdb_8h_a80f6538fb3e9116b484a44993c62a1a6}{bl\-Get\-Exptl\-P\-D\-B()}
+\item V1.\-9 05.\-03.\-15 Removed \hyperlink{pdb_8h_a6aa61ec8fe75fe36706c29beac74ef59}{bl\-Find\-End\-P\-D\-B()} as Find\-End\-P\-D\-B() is deprecated and replaced by Find\-Next\-Residure()/bl\-Find\-Next\-Residue()
+\item V1.\-10 28.\-04.\-15 Updated do\-Read\-P\-D\-B\-M\-L() for latest version of \hyperlink{pdb_8h_acfe34022af3ca82b7a6cb218fae608a8}{bl\-Do\-Read\-P\-D\-B\-M\-L()}. By\-: C\-T\-P
+\item V1.\-11 24.\-08.\-15 Is\-H\-Bonded() wasn't deprecated properly 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{deprecated_biop_8c_source}{deprecated\-Biop.\-c}.
+

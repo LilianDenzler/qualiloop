@@ -1,0 +1,299 @@
+\hypertarget{rsc_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/rsc.c File Reference}
+\label{rsc_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/rsc.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/rsc.\-c}}
+}
+
+
+Modify sequence of a P\-D\-B linked list.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}seq.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}array.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}angle.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{rsc_8c_ac44f17231587ea9f3790f05b42f8708e}{R\-S\-C\-\_\-\-M\-A\-I\-N}
+\item 
+\#define \hyperlink{rsc_8c_afeca2ef8834e8e7c67beb77d154c2224}{N\-U\-M\-A\-A\-K\-N\-O\-W\-N}~20
+\item 
+\#define \hyperlink{rsc_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~80   /$\ast$ Used by Read\-Ref\-Coords()                  $\ast$/
+\item 
+\#define \hyperlink{rsc_8c_af71150c123488664ae92c6759b48af4d}{E\-R\-R\-O\-R\-\_\-\-O\-K}~0
+\item 
+\#define \hyperlink{rsc_8c_a6a24fbb8516a67c00ceb454e189be4ac}{E\-R\-R\-O\-R\-\_\-\-N\-O\-M\-E\-M}~1
+\item 
+\#define \hyperlink{rsc_8c_a102858b5a0644bb9491589bf425b5d3e}{E\-R\-R\-O\-R\-\_\-\-A\-T\-O\-M\-S}~2
+\item 
+\#define \hyperlink{rsc_8c_a8454fbc503efb0c968ab12a130dfb75f}{E\-R\-R\-O\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N\-A\-A}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{rsc_8c_a50cfdbb56896226d5eac2dd5438dbc13}{bl\-Rep\-S\-Chain} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, char $\ast$sequence, char $\ast$Chi\-Table, char $\ast$Ref\-Coords)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{rsc_8c_af900f21c1a37ba63496962ab1ffec576}{bl\-Rep\-One\-S\-Chain} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, char $\ast$Res\-Spec, char \hyperlink{structaa}{aa}, char $\ast$Chi\-Table, char $\ast$Ref\-Coords)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{rsc_8c_a69e7e47bf272bd9f3f3f46443071dfb0}{bl\-Rep\-One\-S\-Chain\-Force} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, char $\ast$Res\-Spec, char \hyperlink{structaa}{aa}, char $\ast$Chi\-Table, char $\ast$Ref\-Coords)
+\item 
+void \hyperlink{rsc_8c_ae04f2604d73e1c2574f8fb5e461cf0cb}{bl\-End\-Rep\-S\-Chain} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Modify sequence of a P\-D\-B linked list. \begin{DoxyVersion}{Version}
+V1.\-17 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+23.\-03.\-17 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1992-\/2017 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Takes a P\-D\-B linked list and replaces sidechains
+
+\subsection*{Usage\-: }
+
+The main entry point is Rep\-S\-Chain() which takes a P\-D\-B linked list, the sequence, and names of the equivalent chi table and the reference coordinate file. These files are only opened on the first call.
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 12.\-05.\-92 Original
+\item V1.\-1 09.\-07.\-93 Simplified and improved memory allocation checking
+\item V1.\-2 11.\-03.\-94 Rep\-S\-Chain() now returns B\-O\-O\-L
+\item V1.\-3 14.\-03.\-94 Rep\-S\-Chain() now returns T\-R\-U\-E for success and F\-A\-L\-S\-E for failure. T\-H\-I\-S I\-S I\-N\-C\-O\-M\-P\-A\-T\-I\-B\-L\-E W\-I\-T\-H P\-R\-E\-V\-I\-O\-U\-S V\-E\-R\-S\-I\-O\-N\-S which returned 0 for success. Error messages are now placed in g\-R\-S\-C\-Error rather than being printed.
+\item V1.\-4 19.\-05.\-94 Fixed bug resulting from change in Rotate\-P\-D\-B(); now calls Apply\-Matrix\-P\-D\-B() instead
+\item V1.\-5 05.\-10.\-94 Modified for Kill\-Sidechain() returning B\-O\-O\-L
+\item V1.\-6 09.\-11.\-94 Modified to use Open\-File() fo open the data files
+\item V1.\-7 12.\-08.\-96 Added Rep\-One\-S\-Chain() and End\-Rep\-S\-Chain() and a few internal changes to Rep\-S\-Chain()
+\item V1.\-8 15.\-08.\-96 Removed unused variables from Rep\-One\-S\-Chain()
+\item V1.\-9 30.\-05.\-02 Changed P\-D\-B field from 'junk' to 'record\-\_\-type'
+\item V1.\-10 09.\-02.\-05 Fixed to handle atnam\-\_\-raw and sensible defaults for occ/bval
+\item V1.\-11 03.\-06.\-05 Added altpos
+\item V1.\-12 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-13 15.\-08.\-14 Updated Read\-Ref\-Coords() to use \hyperlink{pdb_8h_aa060eecccbc29f0bfbbaf442b42d0cdc}{C\-L\-E\-A\-R\-\_\-\-P\-D\-B()} By\-: C\-T\-P
+\item V1.\-14 23.\-02.\-15 Modified for new \hyperlink{pdb_8h_ae1ff7a56e4d028aef80c0220f59c1358}{bl\-Renum\-Atoms\-P\-D\-B()} which takes an offset By\-: A\-C\-R\-M
+\item V1.\-15 25.\-02.\-15 Sets the element type for new atoms
+\item V1.\-16 14.\-12.\-16 Fix\-Torsions() checks return from \hyperlink{_calc_chi_p_d_b_8c_a48531e2570264f5426ebdee25154843c}{bl\-Calc\-Chi()}
+\item V1.\-17 23.\-03.\-17 Better handling of missing atoms in the P\-D\-B file 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{rsc_8c_source}{rsc.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{rsc_8c_a102858b5a0644bb9491589bf425b5d3e}{\index{rsc.\-c@{rsc.\-c}!E\-R\-R\-O\-R\-\_\-\-A\-T\-O\-M\-S@{E\-R\-R\-O\-R\-\_\-\-A\-T\-O\-M\-S}}
+\index{E\-R\-R\-O\-R\-\_\-\-A\-T\-O\-M\-S@{E\-R\-R\-O\-R\-\_\-\-A\-T\-O\-M\-S}!rsc.c@{rsc.\-c}}
+\subsubsection[{E\-R\-R\-O\-R\-\_\-\-A\-T\-O\-M\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-R\-R\-O\-R\-\_\-\-A\-T\-O\-M\-S~2}}\label{rsc_8c_a102858b5a0644bb9491589bf425b5d3e}
+
+
+Definition at line 129 of file rsc.\-c.
+
+\hypertarget{rsc_8c_a6a24fbb8516a67c00ceb454e189be4ac}{\index{rsc.\-c@{rsc.\-c}!E\-R\-R\-O\-R\-\_\-\-N\-O\-M\-E\-M@{E\-R\-R\-O\-R\-\_\-\-N\-O\-M\-E\-M}}
+\index{E\-R\-R\-O\-R\-\_\-\-N\-O\-M\-E\-M@{E\-R\-R\-O\-R\-\_\-\-N\-O\-M\-E\-M}!rsc.c@{rsc.\-c}}
+\subsubsection[{E\-R\-R\-O\-R\-\_\-\-N\-O\-M\-E\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-R\-R\-O\-R\-\_\-\-N\-O\-M\-E\-M~1}}\label{rsc_8c_a6a24fbb8516a67c00ceb454e189be4ac}
+
+
+Definition at line 128 of file rsc.\-c.
+
+\hypertarget{rsc_8c_af71150c123488664ae92c6759b48af4d}{\index{rsc.\-c@{rsc.\-c}!E\-R\-R\-O\-R\-\_\-\-O\-K@{E\-R\-R\-O\-R\-\_\-\-O\-K}}
+\index{E\-R\-R\-O\-R\-\_\-\-O\-K@{E\-R\-R\-O\-R\-\_\-\-O\-K}!rsc.c@{rsc.\-c}}
+\subsubsection[{E\-R\-R\-O\-R\-\_\-\-O\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-R\-R\-O\-R\-\_\-\-O\-K~0}}\label{rsc_8c_af71150c123488664ae92c6759b48af4d}
+
+
+Definition at line 127 of file rsc.\-c.
+
+\hypertarget{rsc_8c_a8454fbc503efb0c968ab12a130dfb75f}{\index{rsc.\-c@{rsc.\-c}!E\-R\-R\-O\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N\-A\-A@{E\-R\-R\-O\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N\-A\-A}}
+\index{E\-R\-R\-O\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N\-A\-A@{E\-R\-R\-O\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N\-A\-A}!rsc.c@{rsc.\-c}}
+\subsubsection[{E\-R\-R\-O\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N\-A\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-R\-R\-O\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N\-A\-A~3}}\label{rsc_8c_a8454fbc503efb0c968ab12a130dfb75f}
+
+
+Definition at line 130 of file rsc.\-c.
+
+\hypertarget{rsc_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{rsc.\-c@{rsc.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!rsc.c@{rsc.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~80   /$\ast$ Used by Read\-Ref\-Coords()                  $\ast$/}}\label{rsc_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 126 of file rsc.\-c.
+
+\hypertarget{rsc_8c_afeca2ef8834e8e7c67beb77d154c2224}{\index{rsc.\-c@{rsc.\-c}!N\-U\-M\-A\-A\-K\-N\-O\-W\-N@{N\-U\-M\-A\-A\-K\-N\-O\-W\-N}}
+\index{N\-U\-M\-A\-A\-K\-N\-O\-W\-N@{N\-U\-M\-A\-A\-K\-N\-O\-W\-N}!rsc.c@{rsc.\-c}}
+\subsubsection[{N\-U\-M\-A\-A\-K\-N\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-A\-A\-K\-N\-O\-W\-N~20}}\label{rsc_8c_afeca2ef8834e8e7c67beb77d154c2224}
+
+
+Definition at line 125 of file rsc.\-c.
+
+\hypertarget{rsc_8c_ac44f17231587ea9f3790f05b42f8708e}{\index{rsc.\-c@{rsc.\-c}!R\-S\-C\-\_\-\-M\-A\-I\-N@{R\-S\-C\-\_\-\-M\-A\-I\-N}}
+\index{R\-S\-C\-\_\-\-M\-A\-I\-N@{R\-S\-C\-\_\-\-M\-A\-I\-N}!rsc.c@{rsc.\-c}}
+\subsubsection[{R\-S\-C\-\_\-\-M\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-S\-C\-\_\-\-M\-A\-I\-N}}\label{rsc_8c_ac44f17231587ea9f3790f05b42f8708e}
+
+
+Definition at line 83 of file rsc.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{rsc_8c_ae04f2604d73e1c2574f8fb5e461cf0cb}{\index{rsc.\-c@{rsc.\-c}!bl\-End\-Rep\-S\-Chain@{bl\-End\-Rep\-S\-Chain}}
+\index{bl\-End\-Rep\-S\-Chain@{bl\-End\-Rep\-S\-Chain}!rsc.c@{rsc.\-c}}
+\subsubsection[{bl\-End\-Rep\-S\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-End\-Rep\-S\-Chain (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{rsc_8c_ae04f2604d73e1c2574f8fb5e461cf0cb}
+Cleans up open files and memory used by the sidechain replacement routines.
+
+
+\begin{DoxyItemize}
+\item 12.\-08.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 479 of file rsc.\-c.
+
+\hypertarget{rsc_8c_af900f21c1a37ba63496962ab1ffec576}{\index{rsc.\-c@{rsc.\-c}!bl\-Rep\-One\-S\-Chain@{bl\-Rep\-One\-S\-Chain}}
+\index{bl\-Rep\-One\-S\-Chain@{bl\-Rep\-One\-S\-Chain}!rsc.c@{rsc.\-c}}
+\subsubsection[{bl\-Rep\-One\-S\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Rep\-One\-S\-Chain (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{char $\ast$}]{Res\-Spec, }
+\item[{char}]{aa, }
+\item[{char $\ast$}]{Chi\-Table, }
+\item[{char $\ast$}]{Ref\-Coords}
+\end{DoxyParamCaption}
+)}}\label{rsc_8c_af900f21c1a37ba63496962ab1ffec576}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list to modify \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Res\-Spec} & Residue spec for residue to replace in the format \mbox{[}c\mbox{]}nnn\mbox{[}i\mbox{]} \\
+\hline
+\mbox{\tt in}  & {\em aa} & The 1-\/letter code for the new sidechain \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Chi\-Table} & The equivalent Chi table \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Ref\-Coords} & The reference coordinates file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Replace a single sidechain. Takes a P\-D\-B linked list, a residues specfication (in the form \mbox{[}c\mbox{]}nnn\mbox{[}i\mbox{]} where \mbox{[}c\mbox{]} is an optional chain name, nnn is a residue number and \mbox{[}i\mbox{]} is an optional insert code) and a 1-\/letter code of the required sidechain and does a simple maximum overlap replacement of the sidechain. Also requires filenames of the two datafiles.
+
+
+\begin{DoxyItemize}
+\item 12.\-08.\-96 Original based on Rep\-S\-Chain()
+\item 15.\-08.\-96 Removed unused variables
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 23.\-02.\-15 Modified for new \hyperlink{pdb_8h_ae1ff7a56e4d028aef80c0220f59c1358}{bl\-Renum\-Atoms\-P\-D\-B()} which takes an offset
+\item 29.\-09.\-15 Now just a wrapper to do\-Rep\-One\-S\-Chain() 
+\end{DoxyItemize}
+
+Definition at line 319 of file rsc.\-c.
+
+\hypertarget{rsc_8c_a69e7e47bf272bd9f3f3f46443071dfb0}{\index{rsc.\-c@{rsc.\-c}!bl\-Rep\-One\-S\-Chain\-Force@{bl\-Rep\-One\-S\-Chain\-Force}}
+\index{bl\-Rep\-One\-S\-Chain\-Force@{bl\-Rep\-One\-S\-Chain\-Force}!rsc.c@{rsc.\-c}}
+\subsubsection[{bl\-Rep\-One\-S\-Chain\-Force}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Rep\-One\-S\-Chain\-Force (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{char $\ast$}]{Res\-Spec, }
+\item[{char}]{aa, }
+\item[{char $\ast$}]{Chi\-Table, }
+\item[{char $\ast$}]{Ref\-Coords}
+\end{DoxyParamCaption}
+)}}\label{rsc_8c_a69e7e47bf272bd9f3f3f46443071dfb0}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list to modify \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Res\-Spec} & Residue spec for residue to replace in the format \mbox{[}c\mbox{]}nnn\mbox{[}i\mbox{]} \\
+\hline
+\mbox{\tt in}  & {\em aa} & The 1-\/letter code for the new sidechain \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Chi\-Table} & The equivalent Chi table \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Ref\-Coords} & The reference coordinates file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Replace a single sidechain. Takes a P\-D\-B linked list, a residues specfication (in the form \mbox{[}c\mbox{]}nnn\mbox{[}i\mbox{]} where \mbox{[}c\mbox{]} is an optional chain name, nnn is a residue number and \mbox{[}i\mbox{]} is an optional insert code) and a 1-\/letter code of the required sidechain and does a simple maximum overlap replacement of the sidechain. Also requires filenames of the two datafiles.
+
+Replaces even if the sidechain was coorect already
+
+
+\begin{DoxyItemize}
+\item 29.\-09.\-15 Original -\/ wrapper to do\-Rep\-One\-S\-Chain() 
+\end{DoxyItemize}
+
+Definition at line 350 of file rsc.\-c.
+
+\hypertarget{rsc_8c_a50cfdbb56896226d5eac2dd5438dbc13}{\index{rsc.\-c@{rsc.\-c}!bl\-Rep\-S\-Chain@{bl\-Rep\-S\-Chain}}
+\index{bl\-Rep\-S\-Chain@{bl\-Rep\-S\-Chain}!rsc.c@{rsc.\-c}}
+\subsubsection[{bl\-Rep\-S\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Rep\-S\-Chain (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{char $\ast$}]{sequence, }
+\item[{char $\ast$}]{Chi\-Table, }
+\item[{char $\ast$}]{Ref\-Coords}
+\end{DoxyParamCaption}
+)}}\label{rsc_8c_a50cfdbb56896226d5eac2dd5438dbc13}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list to modify \\
+\hline
+\mbox{\tt in}  & {\em $\ast$sequence} & The 1-\/letter code required for the structure \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Chi\-Table} & The equivalent Chi table \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Ref\-Coords} & The reference coordinates file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Replace sidechains. Takes a P\-D\-B linked list and a 1-\/letter code sequence and replaces the sidechains. Also requires filenames of the two datafiles. D\-E\-L residues in the pdb linked list will be skipped as will -\/'s in the sequence
+
+
+\begin{DoxyItemize}
+\item 12.\-05.\-92 Original
+\item 14.\-05.\-92 Corrected handling of matching D\-E\-L and -\/
+\item 21.\-06.\-93 Changed to allocate chitab using Array2\-D
+\item 14.\-03.\-94 Changed logic of return value. Now places error messages in g\-R\-S\-C\-Error.
+\item 09.\-11.\-94 Uses Open\-File() to look in /home/amartin/data is the file wasn't found as specified.
+\item 12.\-08.\-96 Made static variables external to this routine as they are shared by Rep\-One\-S\-Chain(). s\-Chi\-Tab was being allocated on every call instead of just the first one.
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 23.\-02.\-15 Modified for new \hyperlink{pdb_8h_ae1ff7a56e4d028aef80c0220f59c1358}{bl\-Renum\-Atoms\-P\-D\-B()} which takes an offset 
+\end{DoxyItemize}
+
+Definition at line 193 of file rsc.\-c.
+

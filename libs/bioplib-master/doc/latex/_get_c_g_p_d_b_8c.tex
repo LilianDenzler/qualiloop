@@ -1,0 +1,88 @@
+\hypertarget{_get_c_g_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-C\-G\-P\-D\-B.c File Reference}
+\label{_get_c_g_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-C\-G\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Get\-C\-G\-P\-D\-B.\-c}}
+}
+
+
+Find Cof\-G of a P\-D\-B linked list.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_get_c_g_p_d_b_8c_a8044f4c9cc4e72b145b22fb6aa7cff96}{bl\-Get\-Cof\-G\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{struct_v_e_c3_f}{V\-E\-C3\-F} $\ast$cg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Find Cof\-G of a P\-D\-B linked list. \begin{DoxyVersion}{Version}
+V1.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1992-\/4 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-10.\-92 Original
+\item V1.\-1 03.\-10.\-94 Added Get\-Cof\-G\-P\-D\-B\-Range(), Find\-Cof\-G\-P\-D\-B\-S\-C\-Range() and fixed N\-U\-L\-L coord search in Get\-Cof\-G\-P\-D\-B()
+\item V1.\-2 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_get_c_g_p_d_b_8c_source}{Get\-C\-G\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_get_c_g_p_d_b_8c_a8044f4c9cc4e72b145b22fb6aa7cff96}{\index{Get\-C\-G\-P\-D\-B.\-c@{Get\-C\-G\-P\-D\-B.\-c}!bl\-Get\-Cof\-G\-P\-D\-B@{bl\-Get\-Cof\-G\-P\-D\-B}}
+\index{bl\-Get\-Cof\-G\-P\-D\-B@{bl\-Get\-Cof\-G\-P\-D\-B}!GetCGPDB.c@{Get\-C\-G\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Get\-Cof\-G\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Get\-Cof\-G\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf V\-E\-C3\-F} $\ast$}]{cg}
+\end{DoxyParamCaption}
+)}}\label{_get_c_g_p_d_b_8c_a8044f4c9cc4e72b145b22fb6aa7cff96}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & Start of P\-D\-B linked list \\
+\hline
+\mbox{\tt out}  & {\em $\ast$cg} & Centre of geometry of specified region\\
+\hline
+\end{DoxyParams}
+Finds the Cof\-G of a P\-D\-B linked list, ignoring N\-U\-L\-L coordinates.
+
+
+\begin{DoxyItemize}
+\item 01.\-10.\-92 Original
+\item 03.\-10.\-94 Fixed N\-U\-L\-L coordinate ignoring
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 98 of file Get\-C\-G\-P\-D\-B.\-c.
+

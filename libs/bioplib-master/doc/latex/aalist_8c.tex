@@ -1,0 +1,393 @@
+\hypertarget{aalist_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/aalist.c File Reference}
+\label{aalist_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/aalist.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/aalist.\-c}}
+}
+
+
+Amino acid linked lists.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aalist.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$ \hyperlink{aalist_8c_adf719a32ce8680d302c3bad7990e6700}{bl\-Insert\-Next\-Residues\-In\-A\-A\-List} (\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$a, char res, int nres)
+\item 
+\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$ \hyperlink{aalist_8c_a2384edcb4138647570dffa05649e5431}{bl\-Insert\-Next\-Residue\-In\-A\-A\-List} (\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$a, char res)
+\item 
+char $\ast$ \hyperlink{aalist_8c_a2f3ba11a61d656da739551a52c2836a7}{bl\-Build\-Seq\-From\-A\-A\-List} (\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$\hyperlink{structaa}{aa})
+\item 
+\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$ \hyperlink{aalist_8c_a3f39f73cc5f6a94b40865651dbe87d31}{bl\-Insert\-Residue\-In\-A\-A\-List\-At} (\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$\hyperlink{structaa}{aa}, char res, int pos)
+\item 
+\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$ \hyperlink{aalist_8c_a830167609ac35df9a6950f4c09c5fc0e}{bl\-Insert\-Residues\-In\-A\-A\-List\-At} (\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$\hyperlink{structaa}{aa}, char res, int nres, int pos)
+\item 
+\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$ \hyperlink{aalist_8c_a4a942e598ffec1ffa3662effbe6853c0}{bl\-Build\-A\-A\-List} (char $\ast$seq)
+\item 
+int \hyperlink{aalist_8c_a61021fd3b8916301d750cefce6a6d092}{bl\-Find\-A\-A\-List\-Offset\-By\-Resnum} (\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$\hyperlink{structaa}{aa}, int resnum)
+\item 
+\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$ \hyperlink{aalist_8c_a800ee85e449ffdadc29e7691e7295b12}{bl\-Find\-A\-A\-List\-Item\-By\-Resnum} (\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$\hyperlink{structaa}{aa}, int resnum)
+\item 
+void \hyperlink{aalist_8c_aa3085ff05d331b03a7f0aad5684f48bc}{bl\-Set\-A\-A\-List\-Flag\-By\-Resnum} (\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$\hyperlink{structaa}{aa}, int resnum)
+\item 
+char $\ast$ \hyperlink{aalist_8c_affdffc769319fbf9d122fa753bb4b513}{bl\-Build\-Flag\-Seq\-From\-A\-A\-List} (\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$\hyperlink{structaa}{aa}, char ch)
+\item 
+int \hyperlink{aalist_8c_a56c0686a9a0be7f118b83de2fbc68c17}{bl\-Get\-A\-A\-List\-Len} (\hyperlink{aalist_8h_a850db5a42e001d1e02bae5b4dffba436}{A\-A} $\ast$\hyperlink{structaa}{aa})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Amino acid linked lists. \begin{DoxyVersion}{Version}
+V3.\-1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C.\-R. Martin 2006-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C.\-R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\#include \char`\"{}bioplib/aalist.\-h\char`\"{} to define A\-A datatype.
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item V3.\-0 06.\-11.\-08 Incorporated into Pro\-Fit V3 By\-: C\-T\-P
+\item V3.\-0 18.\-02.\-09 Moved to bioplib. By\-: C\-T\-P
+\item V3.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{aalist_8c_source}{aalist.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{aalist_8c_a4a942e598ffec1ffa3662effbe6853c0}{\index{aalist.\-c@{aalist.\-c}!bl\-Build\-A\-A\-List@{bl\-Build\-A\-A\-List}}
+\index{bl\-Build\-A\-A\-List@{bl\-Build\-A\-A\-List}!aalist.c@{aalist.\-c}}
+\subsubsection[{bl\-Build\-A\-A\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf A\-A}$\ast$ bl\-Build\-A\-A\-List (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{seq}
+\end{DoxyParamCaption}
+)}}\label{aalist_8c_a4a942e598ffec1ffa3662effbe6853c0}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$seq} & The sequence as a string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A linked list representation
+\end{DoxyReturn}
+Converts a sequence string into a linked list
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 359 of file aalist.\-c.
+
+\hypertarget{aalist_8c_affdffc769319fbf9d122fa753bb4b513}{\index{aalist.\-c@{aalist.\-c}!bl\-Build\-Flag\-Seq\-From\-A\-A\-List@{bl\-Build\-Flag\-Seq\-From\-A\-A\-List}}
+\index{bl\-Build\-Flag\-Seq\-From\-A\-A\-List@{bl\-Build\-Flag\-Seq\-From\-A\-A\-List}!aalist.c@{aalist.\-c}}
+\subsubsection[{bl\-Build\-Flag\-Seq\-From\-A\-A\-List}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Build\-Flag\-Seq\-From\-A\-A\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf A\-A} $\ast$}]{aa, }
+\item[{char}]{ch}
+\end{DoxyParamCaption}
+)}}\label{aalist_8c_affdffc769319fbf9d122fa753bb4b513}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$aa} & Sequence linked list \\
+\hline
+\mbox{\tt in}  & {\em ch} & Character to use in the sequence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sequence string (malloc'd)
+\end{DoxyReturn}
+Builds a sequence string with blanks except where the flag in the sequence structure is set. At these positions the character specified in ch is used instead.
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 494 of file aalist.\-c.
+
+\hypertarget{aalist_8c_a2f3ba11a61d656da739551a52c2836a7}{\index{aalist.\-c@{aalist.\-c}!bl\-Build\-Seq\-From\-A\-A\-List@{bl\-Build\-Seq\-From\-A\-A\-List}}
+\index{bl\-Build\-Seq\-From\-A\-A\-List@{bl\-Build\-Seq\-From\-A\-A\-List}!aalist.c@{aalist.\-c}}
+\subsubsection[{bl\-Build\-Seq\-From\-A\-A\-List}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Build\-Seq\-From\-A\-A\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf A\-A} $\ast$}]{aa}
+\end{DoxyParamCaption}
+)}}\label{aalist_8c_a2f3ba11a61d656da739551a52c2836a7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$aa} & Sequence linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sequence as a string (malloc'd)
+\end{DoxyReturn}
+Converts the linked list back into a string which is malloc'd
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 221 of file aalist.\-c.
+
+\hypertarget{aalist_8c_a800ee85e449ffdadc29e7691e7295b12}{\index{aalist.\-c@{aalist.\-c}!bl\-Find\-A\-A\-List\-Item\-By\-Resnum@{bl\-Find\-A\-A\-List\-Item\-By\-Resnum}}
+\index{bl\-Find\-A\-A\-List\-Item\-By\-Resnum@{bl\-Find\-A\-A\-List\-Item\-By\-Resnum}!aalist.c@{aalist.\-c}}
+\subsubsection[{bl\-Find\-A\-A\-List\-Item\-By\-Resnum}]{\setlength{\rightskip}{0pt plus 5cm}{\bf A\-A}$\ast$ bl\-Find\-A\-A\-List\-Item\-By\-Resnum (
+\begin{DoxyParamCaption}
+\item[{{\bf A\-A} $\ast$}]{aa, }
+\item[{int}]{resnum}
+\end{DoxyParamCaption}
+)}}\label{aalist_8c_a800ee85e449ffdadc29e7691e7295b12}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$aa} & Sequence linked list \\
+\hline
+\mbox{\tt in}  & {\em resnum} & Residue number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked list item
+\end{DoxyReturn}
+Searches the linked list of the specified resnum (i.\-e. the original residue number in the sequence before any insertions were made) and returns a pointer to that item in the list.
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 441 of file aalist.\-c.
+
+\hypertarget{aalist_8c_a61021fd3b8916301d750cefce6a6d092}{\index{aalist.\-c@{aalist.\-c}!bl\-Find\-A\-A\-List\-Offset\-By\-Resnum@{bl\-Find\-A\-A\-List\-Offset\-By\-Resnum}}
+\index{bl\-Find\-A\-A\-List\-Offset\-By\-Resnum@{bl\-Find\-A\-A\-List\-Offset\-By\-Resnum}!aalist.c@{aalist.\-c}}
+\subsubsection[{bl\-Find\-A\-A\-List\-Offset\-By\-Resnum}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Find\-A\-A\-List\-Offset\-By\-Resnum (
+\begin{DoxyParamCaption}
+\item[{{\bf A\-A} $\ast$}]{aa, }
+\item[{int}]{resnum}
+\end{DoxyParamCaption}
+)}}\label{aalist_8c_a61021fd3b8916301d750cefce6a6d092}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$aa} & Sequence linked list \\
+\hline
+\mbox{\tt in}  & {\em resnum} & Residue number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked list offset
+\end{DoxyReturn}
+Searches the linked list of the specified resnum (i.\-e. the original residue number in the sequence before any insertions were made) and returns the position of that residue in the list (numbered from 1)
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 406 of file aalist.\-c.
+
+\hypertarget{aalist_8c_a56c0686a9a0be7f118b83de2fbc68c17}{\index{aalist.\-c@{aalist.\-c}!bl\-Get\-A\-A\-List\-Len@{bl\-Get\-A\-A\-List\-Len}}
+\index{bl\-Get\-A\-A\-List\-Len@{bl\-Get\-A\-A\-List\-Len}!aalist.c@{aalist.\-c}}
+\subsubsection[{bl\-Get\-A\-A\-List\-Len}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Get\-A\-A\-List\-Len (
+\begin{DoxyParamCaption}
+\item[{{\bf A\-A} $\ast$}]{aa}
+\end{DoxyParamCaption}
+)}}\label{aalist_8c_a56c0686a9a0be7f118b83de2fbc68c17}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$aa} & Sequence linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Length of sequence linked list
+\end{DoxyReturn}
+Returns the number of items in the linked list
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 527 of file aalist.\-c.
+
+\hypertarget{aalist_8c_a2384edcb4138647570dffa05649e5431}{\index{aalist.\-c@{aalist.\-c}!bl\-Insert\-Next\-Residue\-In\-A\-A\-List@{bl\-Insert\-Next\-Residue\-In\-A\-A\-List}}
+\index{bl\-Insert\-Next\-Residue\-In\-A\-A\-List@{bl\-Insert\-Next\-Residue\-In\-A\-A\-List}!aalist.c@{aalist.\-c}}
+\subsubsection[{bl\-Insert\-Next\-Residue\-In\-A\-A\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf A\-A}$\ast$ bl\-Insert\-Next\-Residue\-In\-A\-A\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf A\-A} $\ast$}]{a, }
+\item[{char}]{res}
+\end{DoxyParamCaption}
+)}}\label{aalist_8c_a2384edcb4138647570dffa05649e5431}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$a} & Sequence linked list \\
+\hline
+\mbox{\tt in}  & {\em res} & Residue to insert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the residue that has just been inserted
+\end{DoxyReturn}
+Inserts a residues after the current position in the linked list. The returned value is the residue which has been inserted so this can be called again on the returned aa to insert another aa
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 182 of file aalist.\-c.
+
+\hypertarget{aalist_8c_adf719a32ce8680d302c3bad7990e6700}{\index{aalist.\-c@{aalist.\-c}!bl\-Insert\-Next\-Residues\-In\-A\-A\-List@{bl\-Insert\-Next\-Residues\-In\-A\-A\-List}}
+\index{bl\-Insert\-Next\-Residues\-In\-A\-A\-List@{bl\-Insert\-Next\-Residues\-In\-A\-A\-List}!aalist.c@{aalist.\-c}}
+\subsubsection[{bl\-Insert\-Next\-Residues\-In\-A\-A\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf A\-A}$\ast$ bl\-Insert\-Next\-Residues\-In\-A\-A\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf A\-A} $\ast$}]{a, }
+\item[{char}]{res, }
+\item[{int}]{nres}
+\end{DoxyParamCaption}
+)}}\label{aalist_8c_adf719a32ce8680d302c3bad7990e6700}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$a} & Sequence linked list \\
+\hline
+\mbox{\tt in}  & {\em res} & Residue to insert \\
+\hline
+\mbox{\tt in}  & {\em nres} & Number of residues to insert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the residue that has just been inserted
+\end{DoxyReturn}
+Inserts a set of identical residues after the current position in the linked list. The returned value is the last residue which has been inserted so this can be called again on the returned aa to insert another aa
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 154 of file aalist.\-c.
+
+\hypertarget{aalist_8c_a3f39f73cc5f6a94b40865651dbe87d31}{\index{aalist.\-c@{aalist.\-c}!bl\-Insert\-Residue\-In\-A\-A\-List\-At@{bl\-Insert\-Residue\-In\-A\-A\-List\-At}}
+\index{bl\-Insert\-Residue\-In\-A\-A\-List\-At@{bl\-Insert\-Residue\-In\-A\-A\-List\-At}!aalist.c@{aalist.\-c}}
+\subsubsection[{bl\-Insert\-Residue\-In\-A\-A\-List\-At}]{\setlength{\rightskip}{0pt plus 5cm}{\bf A\-A}$\ast$ bl\-Insert\-Residue\-In\-A\-A\-List\-At (
+\begin{DoxyParamCaption}
+\item[{{\bf A\-A} $\ast$}]{aa, }
+\item[{char}]{res, }
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}}\label{aalist_8c_a3f39f73cc5f6a94b40865651dbe87d31}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$aa} & Sequence linked list \\
+\hline
+\mbox{\tt in}  & {\em res} & Residue to insert \\
+\hline
+\mbox{\tt in}  & {\em pos} & Position at which to insert (from 1...) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Updated sequence linked list
+\end{DoxyReturn}
+Inserts a residue after the specified position in the list. Residues are numbered from 1. If the position is $>$ length of the list then the residue will be added at the end. If the position is zero, it will be at the start of the list in which case the return value for the list will be different from the input value.
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item 18.\-06.\-08 Set inserted residue's flag to F\-A\-L\-S\-E. By\-: C\-T\-P
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 261 of file aalist.\-c.
+
+\hypertarget{aalist_8c_a830167609ac35df9a6950f4c09c5fc0e}{\index{aalist.\-c@{aalist.\-c}!bl\-Insert\-Residues\-In\-A\-A\-List\-At@{bl\-Insert\-Residues\-In\-A\-A\-List\-At}}
+\index{bl\-Insert\-Residues\-In\-A\-A\-List\-At@{bl\-Insert\-Residues\-In\-A\-A\-List\-At}!aalist.c@{aalist.\-c}}
+\subsubsection[{bl\-Insert\-Residues\-In\-A\-A\-List\-At}]{\setlength{\rightskip}{0pt plus 5cm}{\bf A\-A}$\ast$ bl\-Insert\-Residues\-In\-A\-A\-List\-At (
+\begin{DoxyParamCaption}
+\item[{{\bf A\-A} $\ast$}]{aa, }
+\item[{char}]{res, }
+\item[{int}]{nres, }
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}}\label{aalist_8c_a830167609ac35df9a6950f4c09c5fc0e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$aa} & Sequence linked list \\
+\hline
+\mbox{\tt in}  & {\em res} & Residue to insert \\
+\hline
+\mbox{\tt in}  & {\em nres} & Number of residues to insert \\
+\hline
+\mbox{\tt in}  & {\em pos} & Position at which to insert (from 1...) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Updated sequence linked list
+\end{DoxyReturn}
+Inserts a set of residues after the specified position in the list. Residues are numbered from 1. If the position is $>$ length of the list then the residue will be added at the end. If the position is zero, it will be at the start of the list in which case the return value for the list will be different from the input value.
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 335 of file aalist.\-c.
+
+\hypertarget{aalist_8c_aa3085ff05d331b03a7f0aad5684f48bc}{\index{aalist.\-c@{aalist.\-c}!bl\-Set\-A\-A\-List\-Flag\-By\-Resnum@{bl\-Set\-A\-A\-List\-Flag\-By\-Resnum}}
+\index{bl\-Set\-A\-A\-List\-Flag\-By\-Resnum@{bl\-Set\-A\-A\-List\-Flag\-By\-Resnum}!aalist.c@{aalist.\-c}}
+\subsubsection[{bl\-Set\-A\-A\-List\-Flag\-By\-Resnum}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Set\-A\-A\-List\-Flag\-By\-Resnum (
+\begin{DoxyParamCaption}
+\item[{{\bf A\-A} $\ast$}]{aa, }
+\item[{int}]{resnum}
+\end{DoxyParamCaption}
+)}}\label{aalist_8c_aa3085ff05d331b03a7f0aad5684f48bc}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$aa} & Sequence linked list \\
+\hline
+\mbox{\tt in}  & {\em resnum} & Residue number\\
+\hline
+\end{DoxyParams}
+Searches the linked list of the specified resnum (i.\-e. the original residue number in the sequence before any insertions were made) and sets the flag in that item in the linked list
+
+
+\begin{DoxyItemize}
+\item 21.\-08.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 470 of file aalist.\-c.
+

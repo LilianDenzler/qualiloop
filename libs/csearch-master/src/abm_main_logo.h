@@ -1,0 +1,32 @@
+#ifndef __ABM_MAIN_LOGO_H__
+#define __ABM_MAIN_LOGO_H__
+
+/*****************************************************************************
+ *      Name: abm_main_logo.h                                                *
+ *  Function: AbM main logo screen information                               *
+ * Copyright: (C) OXFORD MOLECULAR LTD, 1993                                 *
+ *---------------------------------------------------------------------------*
+ *    Author: Robert Williams                                                *
+ *      Date: 07/09/93                                                       *
+ *---------------------------------------------------------------------------*
+ *    Inputs: NONE                                                           *
+ *   Outputs: NONE                                                           *
+ *   Returns: NONE                                                           *
+ * Externals: LG_PROG_NAME - Program name string                             *
+ *            LG_PROG_DESC - Program description string                      *
+ *            LG_PROG_VER  - Program version number                          *
+ *            LG_PROG_EXT1 - Extra logo screen text line 1                   *
+ *            LG_PROG_EXT2 - Extra logo screen text line 2                   *
+ *---------------------------------------------------------------------------*
+ * MODIFICATION RECORD:                                                      *
+ * DD/MM/YY   Initials   Comments                                            *
+ *****************************************************************************/
+
+#define LG_PROG_NAME    "ABM"
+#define LG_PROG_DESC    "AbM Antibody Modelling Package"
+#define LG_PROG_VER     "2.0"
+#define LG_PROG_EXT1    "This program uses CHARMM-free CONGEN v.1 Copyright (c) 1987 Robert E."
+#define LG_PROG_EXT2    "Bruccoleri."
+#define LG_PROG_CRIGHT  "1991-1993"
+
+#endif

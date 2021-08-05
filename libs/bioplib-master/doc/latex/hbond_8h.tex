@@ -1,0 +1,393 @@
+\hypertarget{hbond_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/hbond.h File Reference}
+\label{hbond_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/hbond.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/hbond.\-h}}
+}
+
+
+Header file for hbond determining code.  
+
+
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__hblist}{\-\_\-hblist}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hbond_8h_a4ff5388cda09d201737c1dc104c76762}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1}~0x01
+\item 
+\#define \hyperlink{hbond_8h_ab0a2aef567ef246107ff575d35229498}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2}~0x02
+\item 
+\#define \hyperlink{hbond_8h_a6e6787161eb1faee035582184dce014a}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1}~0x04
+\item 
+\#define \hyperlink{hbond_8h_a2dc01393d6d02fd805166eaa8f3867fd}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2}~0x08
+\item 
+\#define \hyperlink{hbond_8h_ac7802c000d3df6b205b893cd6e785b9f}{H\-B\-O\-N\-D\-\_\-\-B\-B}~(\hyperlink{hbond_8h_a4ff5388cda09d201737c1dc104c76762}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1} $|$ \hyperlink{hbond_8h_ab0a2aef567ef246107ff575d35229498}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2})
+\item 
+\#define \hyperlink{hbond_8h_a1f1cdc8eee368a628615e036c14a37d6}{H\-B\-O\-N\-D\-\_\-\-B\-S}~(\hyperlink{hbond_8h_a4ff5388cda09d201737c1dc104c76762}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1} $|$ \hyperlink{hbond_8h_a2dc01393d6d02fd805166eaa8f3867fd}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2})
+\item 
+\#define \hyperlink{hbond_8h_a1adea7b077e6d03f04831f953c7d1a71}{H\-B\-O\-N\-D\-\_\-\-S\-S}~(\hyperlink{hbond_8h_a6e6787161eb1faee035582184dce014a}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1} $|$ \hyperlink{hbond_8h_a2dc01393d6d02fd805166eaa8f3867fd}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2})
+\item 
+\#define \hyperlink{hbond_8h_a3ee6f2cc5e40b43e8a4a7c8e9812cbed}{H\-B\-O\-N\-D\-\_\-\-S\-B}~(\hyperlink{hbond_8h_a6e6787161eb1faee035582184dce014a}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1} $|$ \hyperlink{hbond_8h_ab0a2aef567ef246107ff575d35229498}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2})
+\item 
+\#define \hyperlink{hbond_8h_a00faf7a219d2b1815f01265613e22e87}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E\-C\-H\-A\-I\-N}~(\hyperlink{hbond_8h_a6e6787161eb1faee035582184dce014a}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1} $|$ \hyperlink{hbond_8h_a2dc01393d6d02fd805166eaa8f3867fd}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2} $|$ \hyperlink{hbond_8h_ab0a2aef567ef246107ff575d35229498}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2})
+\item 
+\#define \hyperlink{hbond_8h_aad0839a17b2e8adc933558337d28e8e1}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K\-B\-O\-N\-E}~(\hyperlink{hbond_8h_a4ff5388cda09d201737c1dc104c76762}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1} $|$ \hyperlink{hbond_8h_a2dc01393d6d02fd805166eaa8f3867fd}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2} $|$ \hyperlink{hbond_8h_ab0a2aef567ef246107ff575d35229498}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2})
+\item 
+\#define \hyperlink{hbond_8h_aa739c54c83440e404bcbc5c1c95c57fa}{H\-B\-O\-N\-D\-\_\-\-A\-N\-Y}~(\hyperlink{hbond_8h_a4ff5388cda09d201737c1dc104c76762}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1} $|$ \hyperlink{hbond_8h_ab0a2aef567ef246107ff575d35229498}{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2} $|$ \hyperlink{hbond_8h_a6e6787161eb1faee035582184dce014a}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1} $|$ \hyperlink{hbond_8h_a2dc01393d6d02fd805166eaa8f3867fd}{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2})
+\item 
+\#define \hyperlink{hbond_8h_a069bd8f27a359a97f8159c08b98a2742}{\-\_\-\-H\-B\-O\-N\-D\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct__hblist}{\-\_\-hblist} \hyperlink{hbond_8h_ab0cf0805263a422faf6516b98e0f7a71}{H\-B\-L\-I\-S\-T}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{hbond_8h_a0bbd4cd865d5a39fc21ab4bdfe1695e9}{bl\-Is\-H\-Bonded} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$res1, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$res2, int type)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{hbond_8h_a2fdd1489eaa0df30d50ac2f222dc8f45}{bl\-Valid\-H\-Bond} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$Atom\-H, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$Atom\-D, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$Atom\-A, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$Atom\-P)
+\item 
+int \hyperlink{hbond_8h_ab479299672142677530f65463f2517d7}{bl\-Is\-M\-C\-Donor\-H\-Bonded} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$res1, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$res2, int type)
+\item 
+int \hyperlink{hbond_8h_af010eb27ce05f9682aab3fce3f20dea2}{bl\-Is\-M\-C\-Acceptor\-H\-Bonded} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$res1, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$res2, int type)
+\item 
+void \hyperlink{hbond_8h_a7d0d2bbcecd3cf7b6bc6fc0a19664e41}{bl\-Set\-Max\-Protein\-H\-Bond\-D\-A\-Distance} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} dist)
+\item 
+\hyperlink{hbond_8h_ab0cf0805263a422faf6516b98e0f7a71}{H\-B\-L\-I\-S\-T} $\ast$ \hyperlink{hbond_8h_a1cb407f50e467cefedb8504bdb20e298}{bl\-List\-All\-H\-Bonds} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$p, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$q)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for hbond determining code. \begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+20.\-07.\-15 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1996-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 26.\-01.\-96 Original By\-: A\-C\-R\-M
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-2 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-3 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P
+\item V1.\-4 20.\-07.\-15 Added \hyperlink{hbond_8c_a5c79884810e9b46ccf3e2e5fe4042125}{bl\-List\-All\-H\-Bonds()} By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{hbond_8h_source}{hbond.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{hbond_8h_a069bd8f27a359a97f8159c08b98a2742}{\index{hbond.\-h@{hbond.\-h}!\-\_\-\-H\-B\-O\-N\-D\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-H\-B\-O\-N\-D\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-H\-B\-O\-N\-D\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-H\-B\-O\-N\-D\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!hbond.h@{hbond.\-h}}
+\subsubsection[{\-\_\-\-H\-B\-O\-N\-D\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-H\-B\-O\-N\-D\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{hbond_8h_a069bd8f27a359a97f8159c08b98a2742}
+
+
+Definition at line 98 of file hbond.\-h.
+
+\hypertarget{hbond_8h_aa739c54c83440e404bcbc5c1c95c57fa}{\index{hbond.\-h@{hbond.\-h}!H\-B\-O\-N\-D\-\_\-\-A\-N\-Y@{H\-B\-O\-N\-D\-\_\-\-A\-N\-Y}}
+\index{H\-B\-O\-N\-D\-\_\-\-A\-N\-Y@{H\-B\-O\-N\-D\-\_\-\-A\-N\-Y}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-A\-N\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-A\-N\-Y~({\bf H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1} $|$ {\bf H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2} $|$ {\bf H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1} $|$ {\bf H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2})}}\label{hbond_8h_aa739c54c83440e404bcbc5c1c95c57fa}
+
+
+Definition at line 76 of file hbond.\-h.
+
+\hypertarget{hbond_8h_a4ff5388cda09d201737c1dc104c76762}{\index{hbond.\-h@{hbond.\-h}!H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1@{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1}}
+\index{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1@{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1~0x01}}\label{hbond_8h_a4ff5388cda09d201737c1dc104c76762}
+
+
+Definition at line 64 of file hbond.\-h.
+
+\hypertarget{hbond_8h_ab0a2aef567ef246107ff575d35229498}{\index{hbond.\-h@{hbond.\-h}!H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2@{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2}}
+\index{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2@{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2~0x02}}\label{hbond_8h_ab0a2aef567ef246107ff575d35229498}
+
+
+Definition at line 65 of file hbond.\-h.
+
+\hypertarget{hbond_8h_aad0839a17b2e8adc933558337d28e8e1}{\index{hbond.\-h@{hbond.\-h}!H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K\-B\-O\-N\-E@{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K\-B\-O\-N\-E}}
+\index{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K\-B\-O\-N\-E@{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K\-B\-O\-N\-E}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K\-B\-O\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K\-B\-O\-N\-E~({\bf H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1} $|$ {\bf H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2} $|$ {\bf H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2})}}\label{hbond_8h_aad0839a17b2e8adc933558337d28e8e1}
+
+
+Definition at line 74 of file hbond.\-h.
+
+\hypertarget{hbond_8h_ac7802c000d3df6b205b893cd6e785b9f}{\index{hbond.\-h@{hbond.\-h}!H\-B\-O\-N\-D\-\_\-\-B\-B@{H\-B\-O\-N\-D\-\_\-\-B\-B}}
+\index{H\-B\-O\-N\-D\-\_\-\-B\-B@{H\-B\-O\-N\-D\-\_\-\-B\-B}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-B\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-B\-B~({\bf H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1} $|$ {\bf H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2})}}\label{hbond_8h_ac7802c000d3df6b205b893cd6e785b9f}
+
+
+Definition at line 69 of file hbond.\-h.
+
+\hypertarget{hbond_8h_a1f1cdc8eee368a628615e036c14a37d6}{\index{hbond.\-h@{hbond.\-h}!H\-B\-O\-N\-D\-\_\-\-B\-S@{H\-B\-O\-N\-D\-\_\-\-B\-S}}
+\index{H\-B\-O\-N\-D\-\_\-\-B\-S@{H\-B\-O\-N\-D\-\_\-\-B\-S}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-B\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-B\-S~({\bf H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1} $|$ {\bf H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2})}}\label{hbond_8h_a1f1cdc8eee368a628615e036c14a37d6}
+
+
+Definition at line 70 of file hbond.\-h.
+
+\hypertarget{hbond_8h_a3ee6f2cc5e40b43e8a4a7c8e9812cbed}{\index{hbond.\-h@{hbond.\-h}!H\-B\-O\-N\-D\-\_\-\-S\-B@{H\-B\-O\-N\-D\-\_\-\-S\-B}}
+\index{H\-B\-O\-N\-D\-\_\-\-S\-B@{H\-B\-O\-N\-D\-\_\-\-S\-B}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-S\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-S\-B~({\bf H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1} $|$ {\bf H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2})}}\label{hbond_8h_a3ee6f2cc5e40b43e8a4a7c8e9812cbed}
+
+
+Definition at line 72 of file hbond.\-h.
+
+\hypertarget{hbond_8h_a6e6787161eb1faee035582184dce014a}{\index{hbond.\-h@{hbond.\-h}!H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1@{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1}}
+\index{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1@{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1~0x04}}\label{hbond_8h_a6e6787161eb1faee035582184dce014a}
+
+
+Definition at line 66 of file hbond.\-h.
+
+\hypertarget{hbond_8h_a2dc01393d6d02fd805166eaa8f3867fd}{\index{hbond.\-h@{hbond.\-h}!H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2@{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2}}
+\index{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2@{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2~0x08}}\label{hbond_8h_a2dc01393d6d02fd805166eaa8f3867fd}
+
+
+Definition at line 67 of file hbond.\-h.
+
+\hypertarget{hbond_8h_a00faf7a219d2b1815f01265613e22e87}{\index{hbond.\-h@{hbond.\-h}!H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E\-C\-H\-A\-I\-N@{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E\-C\-H\-A\-I\-N}}
+\index{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E\-C\-H\-A\-I\-N@{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E\-C\-H\-A\-I\-N}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E\-C\-H\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E\-C\-H\-A\-I\-N~({\bf H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1} $|$ {\bf H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2} $|$ {\bf H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2})}}\label{hbond_8h_a00faf7a219d2b1815f01265613e22e87}
+
+
+Definition at line 73 of file hbond.\-h.
+
+\hypertarget{hbond_8h_a1adea7b077e6d03f04831f953c7d1a71}{\index{hbond.\-h@{hbond.\-h}!H\-B\-O\-N\-D\-\_\-\-S\-S@{H\-B\-O\-N\-D\-\_\-\-S\-S}}
+\index{H\-B\-O\-N\-D\-\_\-\-S\-S@{H\-B\-O\-N\-D\-\_\-\-S\-S}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-O\-N\-D\-\_\-\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-B\-O\-N\-D\-\_\-\-S\-S~({\bf H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1} $|$ {\bf H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2})}}\label{hbond_8h_a1adea7b077e6d03f04831f953c7d1a71}
+
+
+Definition at line 71 of file hbond.\-h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{hbond_8h_ab0cf0805263a422faf6516b98e0f7a71}{\index{hbond.\-h@{hbond.\-h}!H\-B\-L\-I\-S\-T@{H\-B\-L\-I\-S\-T}}
+\index{H\-B\-L\-I\-S\-T@{H\-B\-L\-I\-S\-T}!hbond.h@{hbond.\-h}}
+\subsubsection[{H\-B\-L\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \-\_\-hblist}   {\bf H\-B\-L\-I\-S\-T}}}\label{hbond_8h_ab0cf0805263a422faf6516b98e0f7a71}
+
+
+\subsection{Function Documentation}
+\hypertarget{hbond_8h_a0bbd4cd865d5a39fc21ab4bdfe1695e9}{\index{hbond.\-h@{hbond.\-h}!bl\-Is\-H\-Bonded@{bl\-Is\-H\-Bonded}}
+\index{bl\-Is\-H\-Bonded@{bl\-Is\-H\-Bonded}!hbond.h@{hbond.\-h}}
+\subsubsection[{bl\-Is\-H\-Bonded}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Is\-H\-Bonded (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{res1, }
+\item[{{\bf P\-D\-B} $\ast$}]{res2, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{hbond_8h_a0bbd4cd865d5a39fc21ab4bdfe1695e9}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$res1} & First residue \\
+\hline
+\mbox{\tt in}  & {\em $\ast$res2} & Second residue \\
+\hline
+\mbox{\tt in}  & {\em type} & H\-Bond type to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+H\-Bond type found or 0 if none
+\end{DoxyReturn}
+Determines whether 2 residues are H-\/bonded using the crude criteria of Baker \& Hubbard, 1984 (Prog. Biophys. \& Mol. Biol, 44, 97-\/179)
+
+N.\-B. Explicit hydrogens must be added to the P\-D\-B linked list before calling this routine!
+
+Searches may be made for any H-\/bond, or just for those involving backbone or sidechain. These requirements may be combined in any way for the two residues by O\-Ring the appropriate flags in the type variable.
+
+The flags are\-: H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K1 (res1 b/b) H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2 (res2 b/b) H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E1 (res1 s/c) H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2 (res2 s/c)
+
+The most common flag combinations are already provided\-: H\-B\-O\-N\-D\-\_\-\-B\-B (b/b -- b/b) H\-B\-O\-N\-D\-\_\-\-B\-S (b/b -- s/c) H\-B\-O\-N\-D\-\_\-\-S\-S (s/c -- s/c) H\-B\-O\-N\-D\-\_\-\-S\-B (s/c -- b/b) H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E\-C\-H\-A\-I\-N (s/c -- any) H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K\-B\-O\-N\-E (b/b -- any) H\-B\-O\-N\-D\-\_\-\-A\-N\-Y (any -- any)
+
+
+\begin{DoxyItemize}
+\item 25.\-01.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 188 of file hbond.\-c.
+
+\hypertarget{hbond_8h_af010eb27ce05f9682aab3fce3f20dea2}{\index{hbond.\-h@{hbond.\-h}!bl\-Is\-M\-C\-Acceptor\-H\-Bonded@{bl\-Is\-M\-C\-Acceptor\-H\-Bonded}}
+\index{bl\-Is\-M\-C\-Acceptor\-H\-Bonded@{bl\-Is\-M\-C\-Acceptor\-H\-Bonded}!hbond.h@{hbond.\-h}}
+\subsubsection[{bl\-Is\-M\-C\-Acceptor\-H\-Bonded}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Is\-M\-C\-Acceptor\-H\-Bonded (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{res1, }
+\item[{{\bf P\-D\-B} $\ast$}]{res2, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{hbond_8h_af010eb27ce05f9682aab3fce3f20dea2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$res1} & First residue \\
+\hline
+\mbox{\tt in}  & {\em $\ast$res2} & Second residue \\
+\hline
+\mbox{\tt in}  & {\em type} & H\-Bond type to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+H\-Bond type found or 0 if none
+\end{DoxyReturn}
+Determines whether 2 residues are H-\/bonded using the crude criteria of Baker \& Hubbard, 1984 (Prog. Biophys. \& Mol. Biol, 44, 97-\/179)
+
+N.\-B. Explicit hydrogens must be added to the P\-D\-B linked list before calling this routine!
+
+Searches for H\-Bonds, in which the first residue is a mainchain acceptor and the second residue is a donor. Type should be H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2 or H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2 depending whether the second residue (the acceptor) is backbond or sidechain
+
+
+\begin{DoxyItemize}
+\item 17.\-01.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 734 of file hbond.\-c.
+
+\hypertarget{hbond_8h_ab479299672142677530f65463f2517d7}{\index{hbond.\-h@{hbond.\-h}!bl\-Is\-M\-C\-Donor\-H\-Bonded@{bl\-Is\-M\-C\-Donor\-H\-Bonded}}
+\index{bl\-Is\-M\-C\-Donor\-H\-Bonded@{bl\-Is\-M\-C\-Donor\-H\-Bonded}!hbond.h@{hbond.\-h}}
+\subsubsection[{bl\-Is\-M\-C\-Donor\-H\-Bonded}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Is\-M\-C\-Donor\-H\-Bonded (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{res1, }
+\item[{{\bf P\-D\-B} $\ast$}]{res2, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{hbond_8h_ab479299672142677530f65463f2517d7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$res1} & First residue \\
+\hline
+\mbox{\tt in}  & {\em $\ast$res2} & Second residue \\
+\hline
+\mbox{\tt in}  & {\em type} & H\-Bond type to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+H\-Bond type found or 0 if none
+\end{DoxyReturn}
+Determines whether 2 residues are H-\/bonded using the crude criteria of Baker \& Hubbard, 1984 (Prog. Biophys. \& Mol. Biol, 44, 97-\/179)
+
+N.\-B. Explicit hydrogens must be added to the P\-D\-B linked list before calling this routine!
+
+Searches for H\-Bonds, in which the first residue is a mainchain donor and the second residue is an acceptor. Type should be H\-B\-O\-N\-D\-\_\-\-B\-A\-C\-K2 or H\-B\-O\-N\-D\-\_\-\-S\-I\-D\-E2 depending whether the second residue (the acceptor) is backbond or sidechain
+
+
+\begin{DoxyItemize}
+\item 17.\-01.\-06 Original modified from Is\-Hbonded() By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 676 of file hbond.\-c.
+
+\hypertarget{hbond_8h_a1cb407f50e467cefedb8504bdb20e298}{\index{hbond.\-h@{hbond.\-h}!bl\-List\-All\-H\-Bonds@{bl\-List\-All\-H\-Bonds}}
+\index{bl\-List\-All\-H\-Bonds@{bl\-List\-All\-H\-Bonds}!hbond.h@{hbond.\-h}}
+\subsubsection[{bl\-List\-All\-H\-Bonds}]{\setlength{\rightskip}{0pt plus 5cm}{\bf H\-B\-L\-I\-S\-T}$\ast$ bl\-List\-All\-H\-Bonds (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{res1, }
+\item[{{\bf P\-D\-B} $\ast$}]{res2}
+\end{DoxyParamCaption}
+)}}\label{hbond_8h_a1cb407f50e467cefedb8504bdb20e298}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$res1} & Pointer to first residue \\
+\hline
+\mbox{\tt in}  & {\em $\ast$res2} & Pointer to second residue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked list of hydrogen bonds
+\end{DoxyReturn}
+Finds all H\-Bonds between two specified residues
+
+
+\begin{DoxyItemize}
+\item 20.\-07.\-15 Original By\-: A\-C\-R\-M
+\item 21.\-07.\-15 Corrected to \hyperlink{hbond_8c_a2fdd1489eaa0df30d50ac2f222dc8f45}{bl\-Valid\-H\-Bond()}
+\item 14.\-08.\-18 This was just returning one H\-Bond rather than creating a list! Fixed... 
+\end{DoxyItemize}
+
+Definition at line 800 of file hbond.\-c.
+
+\hypertarget{hbond_8h_a7d0d2bbcecd3cf7b6bc6fc0a19664e41}{\index{hbond.\-h@{hbond.\-h}!bl\-Set\-Max\-Protein\-H\-Bond\-D\-A\-Distance@{bl\-Set\-Max\-Protein\-H\-Bond\-D\-A\-Distance}}
+\index{bl\-Set\-Max\-Protein\-H\-Bond\-D\-A\-Distance@{bl\-Set\-Max\-Protein\-H\-Bond\-D\-A\-Distance}!hbond.h@{hbond.\-h}}
+\subsubsection[{bl\-Set\-Max\-Protein\-H\-Bond\-D\-A\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Set\-Max\-Protein\-H\-Bond\-D\-A\-Distance (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{dist}
+\end{DoxyParamCaption}
+)}}\label{hbond_8h_a7d0d2bbcecd3cf7b6bc6fc0a19664e41}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dist} & Distance\\
+\hline
+\end{DoxyParams}
+Wrapper to set the static variable for maximum D-\/\-A distance
+
+16.\-06.\-99 Original By\-: A\-C\-R\-M 
+
+Definition at line 778 of file hbond.\-c.
+
+\hypertarget{hbond_8h_a2fdd1489eaa0df30d50ac2f222dc8f45}{\index{hbond.\-h@{hbond.\-h}!bl\-Valid\-H\-Bond@{bl\-Valid\-H\-Bond}}
+\index{bl\-Valid\-H\-Bond@{bl\-Valid\-H\-Bond}!hbond.h@{hbond.\-h}}
+\subsubsection[{bl\-Valid\-H\-Bond}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Valid\-H\-Bond (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{Atom\-H, }
+\item[{{\bf P\-D\-B} $\ast$}]{Atom\-D, }
+\item[{{\bf P\-D\-B} $\ast$}]{Atom\-A, }
+\item[{{\bf P\-D\-B} $\ast$}]{Atom\-P}
+\end{DoxyParamCaption}
+)}}\label{hbond_8h_a2fdd1489eaa0df30d50ac2f222dc8f45}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$\-Atom\-H} & The hydrogen \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Atom\-D} & The donor (to which the H is attached) \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Atom\-A} & The acceptor \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Atom\-P} & The antecedent to the acceptor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valid?
+\end{DoxyReturn}
+Determines whether a set of atoms form a valid H-\/bond using the Baker and Hubbard criteria
+
+
+\begin{DoxyItemize}
+\item 25.\-01.\-96 Original By\-: A\-C\-R\-M
+\item 02.\-06.\-99 Added N\-U\-L\-L antecedent handling to allow calculation of H\-Bonds with missing antecedents. Previously Atom\-P==N\-U\-L\-L was handled as an invalid H\-Bond.
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 20.\-07.\-15 Changed D\-A\-D\-I\-S\-T\-S\-Q to s\-D\-A\-Dist\-Sq By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 318 of file hbond.\-c.
+

@@ -1,0 +1,123 @@
+\hypertarget{eigen_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/eigen.c File Reference}
+\label{eigen_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/eigen.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/eigen.\-c}}
+}
+
+
+Calculates Eigen values and Eigen vectors for a symmetric matrix.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}array.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}eigen.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{eigen_8c_aba3fc4bef2cd97076b467c9a45294ebf}{M\-A\-X\-I\-T\-E\-R\-A\-T\-I\-O\-N}~50  /$\ast$ Maximum number of iterations                $\ast$/
+\item 
+\#define \hyperlink{eigen_8c_a89d6d0a4854b3ce2187b2bafe3c9679f}{T\-E\-S\-T\-S\-M\-A\-L\-L}(x, y)~((fabs(y)+(x)) == fabs(y))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{eigen_8c_aff275dac2e154d79b964066c31fd1be1}{bl\-Eigen} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$$\ast$matrix, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$$\ast$eigen\-Vectors, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$eigen\-Values, int matrix\-Size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calculates Eigen values and Eigen vectors for a symmetric matrix. \begin{DoxyVersion}{Version}
+V1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+03.\-10.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, U\-C\-L, 2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 03.\-10.\-14 Original 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{eigen_8c_source}{eigen.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{eigen_8c_aba3fc4bef2cd97076b467c9a45294ebf}{\index{eigen.\-c@{eigen.\-c}!M\-A\-X\-I\-T\-E\-R\-A\-T\-I\-O\-N@{M\-A\-X\-I\-T\-E\-R\-A\-T\-I\-O\-N}}
+\index{M\-A\-X\-I\-T\-E\-R\-A\-T\-I\-O\-N@{M\-A\-X\-I\-T\-E\-R\-A\-T\-I\-O\-N}!eigen.c@{eigen.\-c}}
+\subsubsection[{M\-A\-X\-I\-T\-E\-R\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-I\-T\-E\-R\-A\-T\-I\-O\-N~50  /$\ast$ Maximum number of iterations                $\ast$/}}\label{eigen_8c_aba3fc4bef2cd97076b467c9a45294ebf}
+
+
+Definition at line 74 of file eigen.\-c.
+
+\hypertarget{eigen_8c_a89d6d0a4854b3ce2187b2bafe3c9679f}{\index{eigen.\-c@{eigen.\-c}!T\-E\-S\-T\-S\-M\-A\-L\-L@{T\-E\-S\-T\-S\-M\-A\-L\-L}}
+\index{T\-E\-S\-T\-S\-M\-A\-L\-L@{T\-E\-S\-T\-S\-M\-A\-L\-L}!eigen.c@{eigen.\-c}}
+\subsubsection[{T\-E\-S\-T\-S\-M\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-S\-T\-S\-M\-A\-L\-L(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~((fabs(y)+(x)) == fabs(y))}}\label{eigen_8c_a89d6d0a4854b3ce2187b2bafe3c9679f}
+
+
+Definition at line 79 of file eigen.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{eigen_8c_aff275dac2e154d79b964066c31fd1be1}{\index{eigen.\-c@{eigen.\-c}!bl\-Eigen@{bl\-Eigen}}
+\index{bl\-Eigen@{bl\-Eigen}!eigen.c@{eigen.\-c}}
+\subsubsection[{bl\-Eigen}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Eigen (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$$\ast$}]{matrix, }
+\item[{{\bf R\-E\-A\-L} $\ast$$\ast$}]{eigen\-Vectors, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{eigen\-Values, }
+\item[{int}]{matrix\-Size}
+\end{DoxyParamCaption}
+)}}\label{eigen_8c_aff275dac2e154d79b964066c31fd1be1}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$$\ast$matrix} & Symmetric matrix \\
+\hline
+\mbox{\tt in}  & {\em matrix\-Size} & Dimension of the matrix \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$eigen\-Vectors} & The eigen vectors \\
+\hline
+\mbox{\tt out}  & {\em $\ast$eigen\-Values} & The eigen values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If $>$0, the number of Jacobi rotations performed If $<$0, error\-: E\-I\-G\-E\-N\-\_\-\-N\-O\-M\-E\-M\-O\-R\-Y -\/ memory allocation E\-I\-G\-E\-N\-\_\-\-N\-O\-C\-O\-N\-V\-E\-R\-G\-E -\/ didn't converge in 50 iterations
+\end{DoxyReturn}
+Calculates the eigenvalues and eigenvectors of a R\-E\-A\-L symmetric matrix Note that this routine destroys the values above the diagonal of the matrix.
+
+
+\begin{DoxyItemize}
+\item 02.\-10.\-14 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 115 of file eigen.\-c.
+

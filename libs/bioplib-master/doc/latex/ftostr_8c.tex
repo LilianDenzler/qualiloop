@@ -1,0 +1,113 @@
+\hypertarget{ftostr_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/ftostr.c File Reference}
+\label{ftostr_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/ftostr.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/ftostr.\-c}}
+}
+
+
+Convert a R\-E\-A\-L to a string.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{ftostr_8c_adf14ae6edb2230b1198bf3e7bbe87da2}{bl\-Ftostr} (char $\ast$str, int maxlen, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, int precision)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Convert a R\-E\-A\-L to a string. \begin{DoxyVersion}{Version}
+V1.\-5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-08.\-18 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1991-\/2018 E\-Mail\-: \href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk}
+\end{DoxyCopyright}
+This program is not in the public domain, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Convert a R\-E\-A\-L to a string
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 22.\-11.\-95 Original -\/ Routines from general.\-c
+\item V1.\-1 09.\-10.\-97 Fixed inconsistent handling of \%.0f between C libs
+\item V1.\-2 14.\-11.\-97 Another fix to same
+\item V1.\-3 03.\-06.\-05 Tidied up to stop warnings under G\-C\-C 3.\-2.\-2
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-5 07.\-08.\-18 fmt\mbox{[}\mbox{]} changed from 8 to 16 to silence gcc 7.\-3.\-1 with -\/\-O2 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{ftostr_8c_source}{ftostr.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{ftostr_8c_adf14ae6edb2230b1198bf3e7bbe87da2}{\index{ftostr.\-c@{ftostr.\-c}!bl\-Ftostr@{bl\-Ftostr}}
+\index{bl\-Ftostr@{bl\-Ftostr}!ftostr.c@{ftostr.\-c}}
+\subsubsection[{bl\-Ftostr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Ftostr (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{int}]{maxlen, }
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{int}]{precision}
+\end{DoxyParamCaption}
+)}}\label{ftostr_8c_adf14ae6edb2230b1198bf3e7bbe87da2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em $\ast$str} & String version of number \\
+\hline
+\mbox{\tt in}  & {\em maxlen} & Max length for f-\/form. Switches to e-\/form if exceeded \\
+\hline
+\mbox{\tt in}  & {\em x} & Number to convert \\
+\hline
+\mbox{\tt in}  & {\em precision} & Number of decimal places If negative, use e-\/form rather than f-\/form \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Same as str
+\end{DoxyReturn}
+Convert a R\-E\-A\-L to a string using precision decimal places. If precision is negative, use e-\/form, otherwise use f-\/form. This is used to generate precisely formatted string versions of numbers for applications where the appearance of a numeric value is important.
+
+
+\begin{DoxyItemize}
+\item 01.\-07.\-92 Original
+\item 07.\-07.\-92 Changed to stop value of -\/0.\-0
+\item 24.\-07.\-92 Added maxlen parameter. If the f-\/form will exceed this number of characters we switch to e-\/form autmatically
+\item 28.\-07.\-92 If precision -\/ve, is never $<$ maxlen-\/5
+\item 27.\-07.\-93 Changed to double precision I/\-O
+\item 09.\-10.\-97 If precision is 0 prints as an integer since C libraries handle \char`\"{}\%.\-0f\char`\"{} inconsistently
+\item 14.\-11.\-97 Oops, had forgotten to fix this in the check for e-\/form
+\item 03.\-06.\-05 Tidied up some loops to stop warnings under G\-C\-C 3.\-2.\-2
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 07.\-08.\-18 fmt\mbox{[}\mbox{]} changed from 8 to 16 to silence gcc 7.\-3.\-1 with -\/\-O2 
+\end{DoxyItemize}
+
+Definition at line 135 of file ftostr.\-c.
+

@@ -1,0 +1,41 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.59;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+ 
+void initfcgen (
+void
+)
+{
+   dof_head = null;
+   dof_tail = null;
+   cg.parm_no = (short int *) alloc(sizeof(short int)*10000);
+   setup_parmno(cg.parm_no);
+   confnum = 0;
+   leafnum = 0;
+   cg.maxdt_def = 5.0;
+}
+ 
+@

@@ -1,0 +1,121 @@
+\hypertarget{_calc_cter_coords_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Cter\-Coords.c File Reference}
+\label{_calc_cter_coords_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Cter\-Coords.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Cter\-Coords.\-c}}
+}
+
+
+Calculates C-\/terminal oxygen coordinates.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_calc_cter_coords_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~160
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_calc_cter_coords_8c_a01bc2dbda82c87a23615923cd34ef7f4}{bl\-Calc\-Cter\-Coords} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$p, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ca\-\_\-p, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$c\-\_\-p, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$o\-\_\-p)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calculates C-\/terminal oxygen coordinates. \begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1994-\/6 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+B\-O\-O\-L Calc\-Cter\-Coords(\-P\-D\-B $\ast$p, P\-D\-B $\ast$ca\-\_\-p, P\-D\-B $\ast$c\-\_\-p, P\-D\-B $\ast$o\-\_\-p)
+
+Calculates the coordinates for a second oxygen (p) given the 3 antecedent atoms. Normally called from Fix\-Cter\-P\-D\-B()
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 24.\-08.\-94 Original By\-: A\-C\-R\-M
+\item V1.\-1 05.\-10.\-94 Removed unused variables
+\item V1.\-2 12.\-11.\-96 If any of the antecedant coordinates are undefined, set the terminal oxygen to N\-U\-L\-L coordinates
+\item V1.\-3 13.\-11.\-96 Also checks for missing C\-A,C and O1 records
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_calc_cter_coords_8c_source}{Calc\-Cter\-Coords.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_calc_cter_coords_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{Calc\-Cter\-Coords.\-c@{Calc\-Cter\-Coords.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!CalcCterCoords.c@{Calc\-Cter\-Coords.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~160}}\label{_calc_cter_coords_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 84 of file Calc\-Cter\-Coords.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_calc_cter_coords_8c_a01bc2dbda82c87a23615923cd34ef7f4}{\index{Calc\-Cter\-Coords.\-c@{Calc\-Cter\-Coords.\-c}!bl\-Calc\-Cter\-Coords@{bl\-Calc\-Cter\-Coords}}
+\index{bl\-Calc\-Cter\-Coords@{bl\-Calc\-Cter\-Coords}!CalcCterCoords.c@{Calc\-Cter\-Coords.\-c}}
+\subsubsection[{bl\-Calc\-Cter\-Coords}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Calc\-Cter\-Coords (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{p, }
+\item[{{\bf P\-D\-B} $\ast$}]{ca\-\_\-p, }
+\item[{{\bf P\-D\-B} $\ast$}]{c\-\_\-p, }
+\item[{{\bf P\-D\-B} $\ast$}]{o\-\_\-p}
+\end{DoxyParamCaption}
+)}}\label{_calc_cter_coords_8c_a01bc2dbda82c87a23615923cd34ef7f4}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$p} & O\-T2 P\-D\-B record whose coords are to be fixed \\
+\hline
+\mbox{\tt in}  & {\em $\ast$ca\-\_\-p} & Antecedent C\-A P\-D\-B pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$c\-\_\-p} & Antecedent C P\-D\-B pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$o\-\_\-p} & Antecedent O P\-D\-B pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Calculates the C\-T\-E\-R O\-T2 coords
+
+
+\begin{DoxyItemize}
+\item 15.\-07.\-90 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 26.\-08.\-14 Removed unused d23 By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 111 of file Calc\-Cter\-Coords.\-c.
+

@@ -1,0 +1,14 @@
+**!!SAVITR.INS
+C
+C -- ????
+      INTEGER ITR
+      COMMON /SAVITR/ ITR
+C
+C -- ????
+      DOUBLE PRECISION ENS
+C -- ????
+      DOUBLE PRECISION STP
+      COMMON /SAVITR/  ENS ( MXITR ) , STP ( MXITR )
+C
+      SAVE /SAVITR/
+C

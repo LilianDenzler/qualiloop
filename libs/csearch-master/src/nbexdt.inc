@@ -1,0 +1,12 @@
+**!!NBEXDT.INS
+C
+C -- ????
+      INTEGER*2 IBNDED
+C -- ????
+      INTEGER*2 IBONDF
+C -- ????
+      INTEGER*2 IBONDL
+      COMMON /NBEXDT/ IBNDED (MXECL) , IBONDF (MXTATM) , IBONDL (MXTATM)
+C
+      SAVE /NBEXDT/
+C

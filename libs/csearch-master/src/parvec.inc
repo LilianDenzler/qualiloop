@@ -1,0 +1,13 @@
+**!!PARVEC.INS
+C
+C -- ????
+      DOUBLE PRECISION CNBAT
+C -- ????
+      DOUBLE PRECISION CNBBT
+C -- ????
+      DOUBLE PRECISION CRGATM
+      COMMON /PARVEC/  CNBAT ( MXTATM ) , CNBBT ( MXTATM ) ,
+     +                 CRGATM ( MXTATM )
+C
+      SAVE /PARVEC/
+C

@@ -1,0 +1,31 @@
+**!!MDKONS.INS
+C
+C -- ????
+      DOUBLE PRECISION ATMAS
+C -- ????
+      DOUBLE PRECISION TIMCNV
+C -- ????
+      DOUBLE PRECISION TMPCNV
+C -- ????
+      DOUBLE PRECISION EKCNVT
+C -- ????
+      DOUBLE PRECISION EKACNV
+C -- ????
+      DOUBLE PRECISION RATMAS
+C -- ????
+      DOUBLE PRECISION TIMSTP
+C -- ????
+      DOUBLE PRECISION ATMPVL
+C -- ????
+      DOUBLE PRECISION H2
+C -- ????
+      DOUBLE PRECISION H2D2
+C -- ????
+      DOUBLE PRECISION RH2D2
+      COMMON /MDKONS/  ATMAS ( MXATYP )   , TIMCNV , TMPCNV , EKCNVT ,
+     +                 EKACNV , RATMAS ( MXATYP )  , TIMSTP , ATMPVL ,
+     +                 H2 , H2D2 , RH2D2
+C
+      SAVE /MDKONS/
+C
+C

@@ -1,0 +1,44 @@
+**!!MDPASS.INS
+C
+C -- ????
+      DOUBLE PRECISION RAVTOT
+C -- ????
+      DOUBLE PRECISION RAVTP
+C -- ????
+      DOUBLE PRECISION RAVTK
+C -- ????
+      DOUBLE PRECISION RAVTEM
+C -- ????
+      DOUBLE PRECISION RAVPRS
+C -- ????
+      DOUBLE PRECISION RAVPRM
+C -- ????
+      DOUBLE PRECISION RAVPRT
+C -- ????
+      DOUBLE PRECISION RAVETK
+C -- ????
+      DOUBLE PRECISION RAVIRL
+C -- ????
+      DOUBLE PRECISION RAVPTM
+C -- ????
+      DOUBLE PRECISION RAVETM
+C -- ????
+      DOUBLE PRECISION RAVIRM
+C -- ????
+      DOUBLE PRECISION RAVVOL
+      COMMON /MDPASS/  RAVTOT , RAVTP , RAVTK , RAVTEM , RAVPRS ,
+     +                 RAVPRM , RAVPRT ( NXYZ , NXYZ ) ,
+     +                 RAVETK ( NXYZ , NXYZ ) , RAVIRL ( NXYZ , NXYZ ) ,
+     +                 RAVPTM ( NXYZ , NXYZ ) , RAVETM ( NXYZ , NXYZ ) ,
+     +                 RAVIRM ( NXYZ , NXYZ ) , RAVVOL
+C
+C -- ????
+      REAL TIMTOK
+      COMMON /MDPASS/ TIMTOK
+C
+C -- ????
+      INTEGER JSTEPS
+      COMMON /MDPASS/ JSTEPS
+C
+      SAVE /MDPASS/
+C

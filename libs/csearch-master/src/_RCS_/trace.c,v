@@ -1,0 +1,51 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.57;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+#ifdef VAX
+#include descrip
+#endif
+ 
+void trace(
+void
+)
+{
+#ifdef VAX
+#ifdef CTRACE
+/* Why won't this work??? */
+   $DESCRIPTOR(string1," ");
+   $DESCRIPTOR(string2,"A traceback will be generated");
+   lib$put_output(&string1);
+   lib$put_output(&string2);
+   lib$signal((ULONG)2);
+#else
+   fortrace();
+#endif
+#else
+   fprintf(out,"Trace called...\n");
+#endif
+}
+ 
+@

@@ -1,0 +1,118 @@
+head	1.2;
+access;
+symbols;
+locks
+	martin:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2006.02.17.13.41.59;	author martin;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2006.02.17.12.04.26;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@Put the contants into constant_values.h
+Did this properly so that the extern actually gets defined somewhere!
+@
+text
+@/***********************************************************************
+ *      NAME: VALUES                                                   *
+ *  FUNCTION: To declare the most frequently used system values        *
+ * COPYRIGHT: (C) OXFORD MOLECULAR LIMITED, 1992                       *
+ *---------------------------------------------------------------------*
+ *    AUTHOR: Robert Williams                                          *
+ *      DATE: 05/10/92                                                 *
+ *---------------------------------------------------------------------*
+ *    INPUTS:                                                          *
+ *   OUTPUTS:                                                          *
+ *    LOCALS:                                                          *
+ *   GLOBALS:                                                          *
+ *     CALLS:                                                          *
+ *---------------------------------------------------------------------*
+ * MODIFICATION RECORD                                                 *
+ * DD/MM/YY   INITS   COMMENTS                                         *
+ ***********************************************************************
+     Variable              Description
+     --------              -----------
+ 
+      NATOMS        The number of atoms in the system
+      NRES          The number of residues
+      NSEGS         The number of segments
+      NBONDS        The number of bonds in the system
+      NANGS         The number of bond angles in the system
+      NPTORS        The number of proper torsion angles
+      NITORS        The number of improper torsion angles
+      NHBS          The number of hydrogen bonds
+      NNBS          The number of non-bond pairs
+      NDONAT        The number of hydrogen bond donor atoms
+      NACCAT        The number of hydrogen bond acceptor atoms
+      NBPAR         The number of bond parameters
+      NAPAR         The number of angle parameters
+      NPTPAR        The number of proper torsion parameters
+      NITPAR        The number of improper torsion parameters
+      NHBPAR        The number of hydrogen parameters
+      NATYPS        The number of atom types
+      NBAUTO        Flag to generate non-bonded exclusions
+*/
+ 
+#ifdef __MAIN__
+struct {
+
+      int natoms, nres, nsegs, nbonds, nangs, nptors, nitors, nhbs,
+          nnbs, ndonat, naccat, nbpar, napar, nptpar, nitpar,
+          nhbpar, natyps, nbauto;
+
+      } values;
+#else
+extern struct {
+
+      int natoms, nres, nsegs, nbonds, nangs, nptors, nitors, nhbs,
+          nnbs, ndonat, naccat, nbpar, napar, nptpar, nitpar,
+          nhbpar, natyps, nbauto;
+
+      } values;
+
+#endif
+
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d41 2
+a42 2
+#ifndef __VALUES_H__
+#define __VALUES_H__
+d44 6
+a59 15
+#ifndef __CONSTANTS_H__
+#define __CONSTANTS_H__
+
+/*
+static float pi = 3.141592653589794;
+*/
+static double pid = 3.141592653589794;
+static float rad120 = (120.0/180.0*3.141592653589794);
+static float dtorad = (3.141592653589794/180.0);
+static float largnum = 1.7e38;
+static float anum = 9999.0;
+static float eps1 = 1.0e-6;
+static int largint = 2147483647;
+
+#endif
+@

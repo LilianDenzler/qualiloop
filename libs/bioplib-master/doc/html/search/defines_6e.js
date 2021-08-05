@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['newline',['NEWLINE',['../macros_8h.html#a806511f4930171733227c99101dc0606',1,'macros.h']]],
+  ['next',['NEXT',['../macros_8h.html#a184eb1eeb21deade2e180823b4a0e04c',1,'macros.h']]],
+  ['nrules',['NRULES',['../secstr_8c.html#a70525a7291d99902dbaebb6eb4ba0609',1,'secstr.c']]],
+  ['nst',['NST',['../secstr_8c.html#aba99514484a1d6388a800285ffa8677a',1,'secstr.c']]],
+  ['nucindex',['NUCINDEX',['../_d_n_ato_a_a_8c.html#a2a5305dfc36e991a90038b1abddf05e0',1,'DNAtoAA.c']]],
+  ['null',['NULL',['../array2_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4',1,'NULL():&#160;array2.c'],['../array3_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4',1,'NULL():&#160;array3.c']]],
+  ['nullval',['NULLVAL',['../secstr_8c.html#a9f7b0cc105833e943ed1dd8fd0abf90d',1,'secstr.c']]],
+  ['num_5fbridge',['NUM_BRIDGE',['../secstr_8c.html#af95f4a1eb28ecf65ebaaaeecd9976891',1,'secstr.c']]],
+  ['num_5fbridge_5fpair',['NUM_BRIDGE_PAIR',['../secstr_8c.html#a94cfb3c54560b7f2df52a995ff009727',1,'secstr.c']]],
+  ['num_5fdihed_5fdata',['NUM_DIHED_DATA',['../secstr_8c.html#ac19a7bcd5758a81f15f0e352abb6fcea',1,'secstr.c']]],
+  ['num_5fhelix_5ftype',['NUM_HELIX_TYPE',['../secstr_8c.html#aa32ffc695d6031884256b17b1d8a7f2f',1,'secstr.c']]],
+  ['num_5fmc_5fatom_5ftypes',['NUM_MC_ATOM_TYPES',['../secstr_8c.html#aa6dd2d855c50cdbf76e514fcf3b49b53',1,'secstr.c']]],
+  ['num_5fstandard_5fdihedrals',['NUM_STANDARD_DIHEDRALS',['../secstr_8c.html#acbf15571c485e8d416cff02199d5c8f3',1,'secstr.c']]],
+  ['num_5fstrand_5fchars',['NUM_STRAND_CHARS',['../secstr_8c.html#a3caf3bf9455cf620f077ae1d08f4ef52',1,'secstr.c']]],
+  ['num_5fstrand_5fpair',['NUM_STRAND_PAIR',['../secstr_8c.html#a9b81a790123d01bf5b4e33adcf457fab',1,'secstr.c']]],
+  ['num_5fstruc_5fsyms',['NUM_STRUC_SYMS',['../secstr_8c.html#a2cd8b0f85b10d06f41e390d997f29c4f',1,'secstr.c']]],
+  ['num_5fturn_5ftype',['NUM_TURN_TYPE',['../secstr_8c.html#a63f60d3300872e3ff3a785290a329a0b',1,'secstr.c']]],
+  ['numaaknown',['NUMAAKNOWN',['../rsc_8c.html#afeca2ef8834e8e7c67beb77d154c2224',1,'NUMAAKNOWN():&#160;rsc.c'],['../throne_8c.html#afeca2ef8834e8e7c67beb77d154c2224',1,'NUMAAKNOWN():&#160;throne.c']]],
+  ['number',['NUMBER',['../parse_8h.html#abc544a4ed22112e62773c113652c5063',1,'parse.h']]]
+];

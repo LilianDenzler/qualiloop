@@ -1,0 +1,123 @@
+\hypertarget{_open_file_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Open\-File.c File Reference}
+\label{_open_file_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Open\-File.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Open\-File.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}port.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{_open_file_8c_a1d4ddefb8433489fe4d855938943c4b7}{bl\-Open\-File} (char $\ast$filename, char $\ast$envvar, char $\ast$mode, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} $\ast$noenv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-23 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1991-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-1 08.\-02.\-91 Added Kill\-Line()
+\item V1.\-2 10.\-02.\-91 Added setextn() and index()
+\item V1.\-3 20.\-03.\-91 Added Word()
+\item V1.\-4 28.\-05.\-92 A\-N\-S\-Ied
+\item V1.\-5 22.\-06.\-92 Added tab check to Word(). Improved setextn(). Added Word\-N(). Documented other routines.
+\item V1.\-6 27.\-07.\-93 Corrected \hyperlink{fsscanf_8c_aa785b0c5d909efffc6b0a82a79a0ec50}{fsscanf()} for double precision
+\item V1.\-7 07.\-10.\-93 Checks made on case before toupper()/tolower() for Sys\-V compatibility. Also index() becomes chindex()
+\item V1.\-8 18.\-03.\-94 getc() -\/$>$ fgetc()
+\item V1.\-9 11.\-05.\-94 Added Get\-Filestem(), upstrcmp(), upstrncmp() \& Get\-Word()
+\item V1.\-10 24.\-08.\-94 Added Open\-Std\-Files()
+\item V1.\-11 08.\-03.\-95 Corrected Open\-File() for non-\/\-U\-N\-I\-X
+\item V1.\-12 09.\-03.\-95 Added check on non-\/\-N\-U\-L\-L filename in Open\-File()
+\item V1.\-13 17.\-07.\-95 Added countchar()
+\item V1.\-14 18.\-10.\-95 Moved Yor\-N() to \hyperlink{_wind_i_o_8c}{Wind\-I\-O.\-c}
+\item V1.\-15 06.\-11.\-95 Added Store\-String(), In\-String\-List() and Free\-String\-List()
+\item V1.\-16 22.\-11.\-95 Moved ftostr() to generam.\-c
+\item V1.\-17 15.\-12.\-95 Added Query\-Str\-Str()
+\item V1.\-18 18.\-12.\-95 Open\-Std\-Files() treats filename of -\/ as stdin/stdout
+\item V1.\-19 05.\-02.\-96 Open\-Std\-Files() allows N\-U\-L\-L pointers instead if filenames
+\item V1.\-20 18.\-09.\-96 Added padchar()
+\item V1.\-21 18.\-06.\-02 Added string.\-h
+\item V1.\-22 28.\-07.\-05 Added conditionals for Mac O\-S/\-X
+\item V1.\-23 07.\-07.\-14 Include \hyperlink{general_8h}{general.\-h} Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_open_file_8c_source}{Open\-File.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_open_file_8c_a1d4ddefb8433489fe4d855938943c4b7}{\index{Open\-File.\-c@{Open\-File.\-c}!bl\-Open\-File@{bl\-Open\-File}}
+\index{bl\-Open\-File@{bl\-Open\-File}!OpenFile.c@{Open\-File.\-c}}
+\subsubsection[{bl\-Open\-File}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ bl\-Open\-File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{char $\ast$}]{envvar, }
+\item[{char $\ast$}]{mode, }
+\item[{{\bf B\-O\-O\-L} $\ast$}]{noenv}
+\end{DoxyParamCaption}
+)}}\label{_open_file_8c_a1d4ddefb8433489fe4d855938943c4b7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$filename} & Filename to be opened \\
+\hline
+\mbox{\tt in}  & {\em $\ast$envvar} & Unix/\-M\-S-\/\-D\-O\-S environment variable Other O\-S assign name (with \-:) \\
+\hline
+\mbox{\tt in}  & {\em $\ast$mode} & Mode in which to open file (r, w, etc) \\
+\hline
+\mbox{\tt out}  & {\em $\ast$noenv} & Set to T\-R\-U\-E under Unix/\-M\-S-\/\-D\-O\-S if the reason for failure was that the environment variable was not set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+File pointer or N\-U\-L\-L on failure
+\end{DoxyReturn}
+Attempts to open a filename as specified. Returns a file pointer. If this fails\-:
+
+Under U\-N\-I\-X/\-M\-S-\/\-D\-O\-S\-: gets the contents of the envvar environment variable and prepends that to the filename and tries again. If envvar was not set, noenv is set to T\-R\-U\-E and the routine returns a N\-U\-L\-L pointer.
+
+Under other O\-Ss\-: prepends the envvar string onto the filename and tries to open the file again.
+
+Returns the pointer returned by the open() command after all this.
+
+
+\begin{DoxyItemize}
+\item 22.\-09.\-94 Original By\-: A\-C\-R\-M
+\item 11.\-09.\-94 Puts a \-: in for the assign type.
+\item 24.\-11.\-94 Added {\bfseries unix define. Checks for trailing / in environment variable}
+\item {\bfseries  08.\-03.\-95 Corrected basename to filename in non-\/unix version}
+\item {\bfseries  09.\-03.\-95 Checks that filename is not a N\-U\-L\-L or blank string}
+\item {\bfseries  28.\-07.\-05 Added conditionals for Mac O\-S/\-X\-: \-\_\-\-\_\-\-M\-A\-C\-H} and {\bfseries A\-P\-P\-L\-E}
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 146 of file Open\-File.\-c.
+

@@ -1,0 +1,224 @@
+/****************************************************************************
+ 
+    A routine to perform a FORTRAN like fscanf() function i.e. It can
+    cope with empty columns in a datafile.
+ 
+    Input:      fp       *FILE    Pointer to file to be read
+                string   *char    A string containing scanf()-like
+                                  parsing information (see below)
+    Output:     list     *FLIST   Pointer to a linked list containing
+                                  returned data
+    Notes:
+    1. list must be initialised before calling the routine:
+       list = (FLIST *)malloc(sizeof(FLIST));
+    2. The only parsing characters recognised are:
+       %<n>f    A floating point number of width <n>. The form <n>.<m>
+                will correctly read a column of width <n>, but the
+                required floating precision will be ignored
+       %<n>d    An integer of width <n>.
+       %<n>s    A string of width <s>.
+       %c       A character (of width 1).
+       %<n>x    <n> spaces (like FORTRAN).
+       Other types could be added if there is a demand for them.
+    3. With the exception of the %c parser, the column width, <n>,
+       *must* be specified.
+    4. The list of type FLIST which is returned is of the following form:
+       struct flist
+       {
+          struct flist *next;  Next item in the list
+          int   type;          1 Integer; 2 Float; 3 String; 4 Character
+          int   retd;          Returned integer
+          float retf;          Returned float
+          char  *rets;         Returned string
+          char  retc;          Returned character
+       };
+    5. atof() doesn't seem to work on the VAX, so define VAX to call
+       sscanf instead.
+    6. Tested and working on the SUN, but doesn't like completely blank
+       lines.
+****************************************************************************/
+#include "ProtoTypes.h"
+#include "CongenProto.h"
+
+/* OMUPD JAW 11/08/92 Added ProtoTypes.h - not previously included
+ - as part of CR 318 */
+ 
+#define MAXBUF 160
+ 
+int forscanf(
+FILE *fp,
+char string[],
+FLIST *list
+)
+{
+    int   c,i,ii,num,buff_used,buff_pos,out_of_buff,retval=0;
+    char  *buffer,
+          *strptr,
+          type,
+          numbuf[10],temp[80];
+    FLIST *p,*last;
+    short allocmem;
+#ifdef UNIX
+    char  bufstr[MAXBUF+1];
+#endif
+ 
+    list->type = 0;
+    list->retd = 0;
+    list->retf = 0.0;
+    list->rets = NULL;
+    list->retc = '\0';
+    list->next = NULL;
+ 
+#ifdef UNIX
+    buffer = bufstr;
+#else
+    buffer = (char *)malloc((MAXBUF+1)*sizeof(char));
+#endif
+ 
+    c=getc(fp);
+    if(c==EOF || feof(fp)) return(EOF);
+    ungetc(c,fp);
+    c = 0; /* So while does at least one read if c was LF */
+ 
+    p = list;
+ 
+    /* Read a line into the buffer */
+    i=0;
+    while((c != LF)&&(c != CR)&&(c!=EOF)&&(!feof(fp)))
+    {
+       c=getc(fp);
+       buffer[i++] = (char)c;
+    }
+    buff_used = i;
+    if(c==EOF || feof(fp)) retval = EOF;
+ 
+    for(ii=i;ii<MAXBUF;ii++) buffer[ii]=' ';
+    buffer[MAXBUF]='\0';
+ 
+#ifdef DEBUG
+    printf("Buffer: %s\n",buffer);
+#endif
+ 
+    buff_pos = 0;
+    out_of_buff = 0;
+    strptr = string;
+ 
+    /* Now parse the string passed to the routine and read the
+       respective characters from the buffer */
+    while(*strptr)
+    {
+       allocmem = 1;                    /* Default to freeing space    */
+       while(*strptr != '%') strptr++;  /* Find a % sign in the string */
+       strptr++;                        /* Step on to the next char    */
+       for(i=0; isdigit(*strptr); numbuf[i++] = *(strptr++));
+                                        /* Copy number into buffer     */
+       numbuf[i]='\0';
+ 
+       type = *(strptr++);
+ 
+       if((i==0)&&(type != 'c'))
+       {
+          printf("forscanf() error: A column width must be specified\n");
+          exit(1);
+       }
+ 
+       if(type=='c')
+       {
+          num=1;
+       }
+       else
+       {
+          num = atoi(numbuf);
+       }
+ 
+       if(buff_pos >= buff_used) out_of_buff = 1;
+ 
+       buff_pos += num;
+ 
+       switch(type)
+       {
+          case 's':   p->type = 3;
+                      p->rets = (char *)malloc((num+1)*sizeof(char));
+                      memset(p->rets,'\0',num+1);
+                      strncpy(p->rets,buffer,num);
+                      buffer += num;
+#ifdef DEBUG
+    printf("String: %s\n",p->rets);
+#endif
+                      break;
+          case 'f':   p->type = 2;
+                      memset(temp,'\0',80);
+                      strncpy(temp,buffer,num);
+#ifdef VAX
+                      if(out_of_buff)
+                      {
+                        p->retf = 0.0;
+                      }
+                      else
+                      {
+                        sscanf(temp,"%f",&(p->retf));
+                      }
+#else
+                      if(out_of_buff)
+                      {
+                        p->retf = 0.0;
+                      }
+                      else
+                      {
+                        p->retf = atof(temp);
+                      }
+#endif
+                      buffer += num;
+#ifdef DEBUG
+    printf("Float : %f\n",p->retf);
+#endif
+                      break;
+          case 'd':   p->type = 1;
+                      memset(temp,'\0',80);
+                      strncpy(temp,buffer,num);
+                      if(out_of_buff)
+                      {
+                        p->retd = 0;
+                      }
+                      else
+                      {
+                        p->retd = atoi(temp);
+                      }
+                      buffer += num;
+#ifdef DEBUG
+    printf("Int   : %d\n",p->retd);
+#endif
+                      break;
+          case 'x':   p->type = 0;
+                      buffer += num;
+                      allocmem = 0;  /* We don't want to make space */
+                      break;
+          case 'c':   p->type = 4;
+                      p->retc = *(buffer++);
+                      break;
+          default:    printf("forscanf() error: Unknown type\n");
+                      exit(1);
+       }
+ 
+       if(allocmem)
+       {
+          p->next = (FLIST *)malloc(sizeof(FLIST));
+          last = p;
+          p = p->next;
+ 
+          p->type = 0;
+          p->retd = 0;
+          p->retf = 0.0;
+          p->rets = NULL;
+          p->retc = '\0';
+          p->next = NULL;
+       }
+    }  /* End of string */
+ 
+ 
+    /* Free the extra space */
+/*    free(p);  */
+    last->next = NULL;
+    return(retval);
+}
+ 

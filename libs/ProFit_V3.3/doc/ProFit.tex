@@ -1,0 +1,1642 @@
+\documentclass{article}
+\usepackage{a4}
+
+\newcommand{\pf}{\mbox{\bfseries ProFit}}
+\title{ProFit Version 3.3}
+\author{Dr.\ Andrew C.R.\ Martin, Dr.\ Craig T.\ Porter\\ University College London}
+\date{Document First Written: 25th July, 1996 (University College %
+London)\\%
+Updated while at University of Reading\\%
+Last updated: 27th April, 2020}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction and Methodology}
+
+\pf\ (pronounced Pro-Fit, not profit!) is designed to be the ultimate
+program for performing least squares fits of two or more protein
+structures. It performs a very simple and basic function, but allows
+as much flexibility as possible in performing this procedure. Thus one
+can specify subsets of atoms to be considered, specify zones to be
+fitted by number, sequence, or by sequence alignment.
+
+Early versions of \pf\ did not try to address the question of sorting out 
+equivalent
+atoms for you beyond doing a sequence alignment. There are other
+programs such as SSAP and GAFIT which address that problem. You must
+specify which residues and atoms you consider to be equivalent
+although the program supports internal sequence alignment to set the
+zones automatically.
+
+As of \pf\ V2.0, iterative updating of fitting zones is now
+supported. Thus you may give a sequence alignment or just a small fragment 
+to initiate the
+fitting process (a minimum of 3 amino acids). Fitting is performed on
+this region and then all residue pairs within 3\AA\ are included in
+the fitting zones and the fitting is repeated. This iterates until the
+C$\alpha$ RMSd converges to within 0.01\AA. This is particularly
+useful in conjunction with the initial zone specification based on
+sequence alignment. Convergence typically takes 3--4 cycles.
+
+\pf\ V2.0 also introduced multiple structure fitting. The first
+structure file is used as a reference set for the first fitting stage
+but the coordinates are averaged after each stage to derive a template
+used for subsequent fitting. i.e.\ Given $N$ files to fit, file 2 is
+fitted to file 1 and an averaged structure, $A$, is calculated, file 3
+is then fitted to $A$ and a new average, $A'$ is calculated. This
+continues until all $N$ structures have been fitted. The whole
+procedure iterates until convergence (typically 3 or 4 cycles).
+
+As of \pf\ V3.3, you can now specify the model number that you want to
+read from a PDB file. This is done by appending \% and a model number
+to the filename. For example, {\tt pdb2kqn.ent\%5}.
+
+The program will output an RMS deviation and optionally the fitted
+coordinates.  RMS deviations over alternate zones and atoms may also
+be calculated without performing a new fit. Thus the zones for
+calculating the RMS deviation can be different from those used for
+fitting.
+
+While optimised for proteins, non-protein structures may also be
+fitted if they are stored in the standard Protein Databank (PDB) format.
+
+\pf\ is written to be as easily portable between systems as possible
+and uses a command-driven interface. 
+
+\pf\ uses the McLachlan fitting algorithm, essentially a steepest
+descents minimisation, as described in McLachlan, A.D. (1982)
+\emph{Rapid Comparison of Protein Structures}, \emph{Acta Cryst.}\
+{\bfseries A38}, 871--873. This part of the code is based on an
+implementation by Dr.\ Mike Sutcliffe.
+
+
+In summary, \pf\ has the following features:
+
+\begin{enumerate}
+\setlength{\parsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\itemsep}{0pt}
+\item Portability between different operating systems
+\item Ability to specify atom subsets
+\item Ability to specify zones:
+\begin{itemize}
+        \setlength{\parsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\itemsep}{0pt}
+        \item Numerically
+        \item By sequence
+        \item By auto sequence alignment
+        \item By iterative updating and optimization
+\end{itemize}
+\item Output RMS deviation over:
+\begin{itemize}
+        \setlength{\parsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\itemsep}{0pt}
+        \item Fitted region
+        \item Any other region
+        \item Any other atom set
+\end{itemize}
+\item Optionally output fitted coordinates in PDB format
+\item Integrated help facility
+\item Fitting zones derived from sequence alignment
+\item Iterative updating of fitting zones
+\item Multiple structure fitting
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Version numbering}
+
+From V2.6, version numbering in \pf\ adopted the following scheme. A
+version of \pf\ has a version number of the form V$a.b.c.d$ where $c$
+and $d$ are optionally present.
+
+$a$ is the major version number. A change in this
+represents a significant rewrite of \pf\ and/or the addition of a
+major new feature set.
+
+$b$ is the minor version number. A change in $b$ represents a new
+feature added to \pf . It may also indicate a fix to a major
+show-stopper bug.
+
+$c$ is a bug-fix number. It indicates that a bug in the \pf\ code has
+been fixed compared with the previous release.
+
+$d$ is also a bug-fix number, but indicates that bugs have been fixed
+in the Bioplib libraries used by \pf\ and not in \pf\
+itself.  Alternatively, it may indicate a distribution bug (i.e.\
+missing files for a distribution or a simple documentation change).
+
+In V2.5.$x$, $b$ was used to represent a new feature \emph{or} a bug
+fix while $c$ was used to indicate a bug-fix in Bioplib ($d$ is now
+used for that purpose).
+
+In earlier releases, the scheme was used much more loosely with $b$
+being used both for new features and bug fixes in \pf\ or in Bioplib.
+Lettered versions (e.g.\ V1.7g) were sometimes used for bug-fixes and
+sometimes for internal non-released versions. Lettered versions are
+now used exclusively for internal non-released versions.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Starting the program}
+
+The program is started from the command line by typing the command:
+\begin{verbatim}
+   profit
+\end{verbatim}
+Once the program is started, you may read in structures to be
+fitted. Alternatively, the PDB files may be specified on the command
+line:
+\begin{verbatim}
+   profit reference.pdb mobile.pdb
+\end{verbatim}
+By default, \pf\ does not read HETATM records from the PDB file. This
+may be changed from the command line by using the -h flag:
+\begin{verbatim}
+   profit -h
+   profit -h reference.pdb mobile.pdb
+\end{verbatim}
+Alternatively, once in the program you may give the \verb1HETATOMS1 
+command before reading in the structures (see Section~\ref{sec:read}).
+
+\pf\ can run a script file, a text file of \pf\ commands, from the command 
+line using the -f flag: 
+\begin{verbatim}
+   profit -f myscriptfile.txt
+   profit -f myscriptfile.txt -h reference.pdb mobile.pdb
+\end{verbatim}
+Once in the program you may use the command \verb|SCRIPT myscriptfile.txt|
+to run a script file (see Section~\ref{sec:script}). 
+
+If compiled with XMAS\footnote{XMAS is an XML-like file format
+developed at Inpharmatica, Ltd.\ which is designed for leaf-heavy data
+such as protein structure data} file support, the \verb1-x1 flag may
+be used to specify that the files named on the command line are XMAS
+files instead of PDB files. Note that the program currently will only
+write PDB format files.
+\begin{verbatim}
+   profit -x reference.xmas mobile.xmas
+\end{verbatim}
+
+If compiled with GUNZIP support
+then the program can read gzipped PDB files. This will only work on
+unix-like platforms and assumes that the \verb|gunzip| program is in
+your path. Note that the uncompressed files will remain in \verb|/tmp|
+with a name like \verb|readpdb_12345| where 12345 is a process
+number. You will need to delete these regularly!
+
+
+Once in the program, you issue commands by typing at the
+keyboard. These commands may always be abbreviated to the minimum
+non-ambiguous string. The program is mostly case insensitive; you may
+mix upper and lower case at will, though uppercase will be used
+throughout this documentation. The only times that \pf\ will be case sensitive are when dealing with file names or lowercase chain identifiers (see Section~\ref{sec:zone}).
+
+Support for the GNU Readline library\footnote{The GNU Readline library is 
+available from http://directory.fsf.org/project/readline/} 
+was introduced in \pf\ V3.0 allowing you to edit the command line and to 
+recall previous commands. Again, this is a compile time option.
+
+You exit from the program by typing \verb1QUIT1.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reading Structures}
+
+\label{sec:read} 
+\pf\ reads files in PDB format. If compiled with XMAS support, then
+XMAS files may also be read, but only PDB files may be written. It
+uses the concept of a \emph{reference} structure and a \emph{mobile}
+structure. The reference structure remains static in space and the
+mobile structure is fitted onto it.  When the files are specified on
+the command line, the reference structure is specified first, the
+mobile structure second.
+
+Once in the program, you may read the reference structure using the
+\verb1REFERENCE1 command and the mobile structure using the
+\verb1MOBILE1 command. Using these commands causes the equivalent
+current structure to be deleted from the program's memory
+first. However, any zone and atom specifications (see
+Sections~\ref{sec:atoms} and~\ref{sec:zone}) are not deleted.  For
+example, you can read p3hfl.pdb as a new reference structure using the
+command:
+\begin{verbatim}
+   REFERENCE p3hfl.pdb
+\end{verbatim}
+and read p3hfm.pdb as a new mobile structure with:
+\begin{verbatim}
+   MOBILE p3hfm.pdb
+\end{verbatim}
+
+If compiled with XMAS support, then the XMAS format is specified by
+placing the keyword \verb1XMAS1 after the commands \verb1REFERENCE1 or
+\verb1MOBILE1: 
+\begin{verbatim}
+   REFERENCE XMAS p3hfl.pdb
+   MOBILE XMAS p3hfm.pdb
+\end{verbatim}
+
+When you read a structure containing insertions, you will receive a
+warning message to this effect. This dates from when the program was
+unable to handle residue specifications containing insertion codes,
+but is still useful to draw your attention to the fact that they are
+present.
+
+Note that atoms with coordinates of 9999.00, 9999.00, 9999.00 will
+be ignored during all calculations allowing atoms with undefined 
+coordinates to be handled. 
+
+When fitting multiple structures (new in \pf\ V2.0), you use the
+\verb1MULTI1 command to read in the structures. See
+Section~\ref{sec:multi}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Getting Help}
+
+To get help within the programs simply type \verb1HELP1 and you will
+be presented with a list of commands which the help facility knows
+about. The \verb1ProFit>1 prompt will also change to \verb1Help>1. You
+may then type the name of a command to get help on that
+command. Typing \verb1HELP1 once in the help facility will repeat the
+list of available help topics. Like the main command interface, the
+help facility will accept upper or lower case and you may abbreviate
+commands. If your abbreviation is ambiguous (i.e.\ more than one
+command starts with the letters you have specified), help will be
+supplied on all the commands which match\footnote{The one exception to
+this is if the letters you supply are an abbreviation of {\tt HELP},
+when the list of help topics will be shown again.}.
+
+If the help text is longer than 21 lines, you will see a prompt saying
+\begin{verbatim}
+   More...
+\end{verbatim}
+in which case you should hit the Return (or `Enter') key to get the
+next page of help.
+
+Once at the \verb1Help>1 prompt, you should simply hit the Return (or
+`Enter') key to get back to the main \verb1ProFit>1 prompt.
+
+If you know the topic on which you need help, you may type the name of
+the command after the \verb1HELP1 keyword at the main \verb1ProFit>1
+prompt. After the help message is printed, you will be returned
+directly to the \verb1ProFit>1 prompt. For example, if you want help
+on the \verb1ZONE1 command, you may type:
+\begin{verbatim}
+   HELP ZONE
+\end{verbatim}
+
+Allied to help, is the \verb1STATUS1 command. This tells you the
+current status of the program: what structures are loaded, fitting
+zones, atoms and the like.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fitting Structures}
+
+Having read in a reference and a mobile structure, you actually fit
+them by giving the \verb1FIT1 command. When you do this, you will get
+a message like:
+\begin{verbatim}
+   Fitting structures...
+   RMS: 0.366
+\end{verbatim}
+However, this will only work if the two structures are of identical
+composition i.e.\ if the sequences are the same and the same atoms are
+present in both. If there are any mismatches, the first such mismatch
+will be reported and the RMS deviation will not be calculated.  
+
+Since you will frequently need to fit non-identical structures, you
+may use the \verb1ZONE1 and \verb1ATOMS1 commands to specify which
+residues should be considered equivalent and which atoms should be
+considered in the calculation.
+
+If you are using zone or atom specifications, the RMS deviations will
+be displayed over the atoms and zones specified in those commands.
+
+Normally the fitting procedure will not be completed if there are
+any mismatched atoms or atoms missing from one of the two structures. 
+The program issues an error message about atoms missing in the mobile 
+structure which are found in the reference structure. The 
+\verb1IGNOREMISSING1 command causes the program to issue a warning
+instead of an error and the fitting proceeds ignoring the mismatched
+atoms. The default behaviour is restored by using the
+\verb1NOIGNOREMISSING1 command.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Specifying Atom Subsets}
+
+\label{sec:atoms}
+The \verb1ATOMS1 command is used to specify a subset of atoms to be 
+used in the calculations. It has the syntax:
+\begin{verbatim}
+   ATOMS atm[,atm]...
+\end{verbatim}
+i.e.\ you specify the \verb1ATOMS1 keyword followed by one or more
+atom names separated by commas. A \verb1*1 may be used to specify all
+atoms and a \verb1~1 or \verb1^1 may be placed at the beginning of the
+specification to inverse the selection. For example, to fit only
+C$\alpha$ atoms:
+\begin{verbatim}
+   ATOMS CA
+\end{verbatim}
+to fit N, C$\alpha$, C and O atoms:
+\begin{verbatim}
+   ATOMS N,CA,C,O
+\end{verbatim}
+to fit sidechains only (i.e.\ everything except N, C$\alpha$, C and O atoms):
+\begin{verbatim}
+   ATOMS ^N,CA,C,O
+\end{verbatim}
+to return to fitting all atoms:
+\begin{verbatim}
+   ATOMS *
+\end{verbatim}
+
+The PDB atom name field is 4 characters wide followed by a space.  The
+first two characters are the right-justified element type, so for
+normal protein and DNA atoms consist of a space followed by a N, C, O,
+S or P. Thus the atom name field for a C$\alpha$ contains
+`~CA~'. HETATMs such as calcium will contain the two characters CA in
+the first two fields. i.e.\ `CA~~'. When you specify an atom type it is
+matched against the atom name field from the \emph{second character onwards},
+unless you preceed it with a \verb1<1. Thus to match a C$\alpha$ you use
+\verb1CA1, but to match Calcium, you use \verb1<CA1. For example, as
+stated above, to match C$\alpha$ atoms:
+\begin{verbatim}
+   ATOMS CA
+\end{verbatim}
+while to match calcium atoms
+\begin{verbatim}
+   ATOMS <CA
+\end{verbatim}
+and to match both C$\alpha$ and calcium:
+\begin{verbatim}
+   ATOMS <CA,CA
+\end{verbatim}
+
+
+Wildcards are also allowed. A \verb1%1 or a \verb1?1 may be used to
+match a single letter at any point in the specification while a
+\verb1*1 may be used to match all remaining characters (thus \verb1C*1
+is allowed, but \verb1*G1 is not). These special characters may be
+escaped by preceding them with a \verb1\1. For example to fit all
+carbons:
+\begin{verbatim}
+   ATOMS C*
+\end{verbatim}
+or to match all atoms at the $\gamma$ position:
+\begin{verbatim}
+   ATOMS ?G*
+\end{verbatim}
+and to match the \verb1C4*1 atoms in DNA:
+\begin{verbatim}
+   ATOMS C4\*
+\end{verbatim}
+
+If atom names contain spaces (e.g.\ in heme groups) the whole atom
+specification must be enclosed in double inverted commas:
+\begin{verbatim}
+   ATOMS "N A,N B,N C"
+\end{verbatim}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Specifying Zones}
+
+\label{sec:zone}
+The \verb1ZONE1 command is used to specify zones in the two structures
+which are considered equivalent. The complete syntax for the command
+is:
+
+\begin{verbatim}
+   ZONE CLEAR|((*|(X...[,n][/m])|(j-k))[:(*|(X...[,n][/m])|(j-k))])
+\end{verbatim}
+where \verb1X...1 is an amino acid sequence, \verb1n1 is a number of
+residues, \verb1m1 is the occurrence number, \verb1j1 and \verb1k1 are
+residue specifications of the form \emph{[chain][.]resnum[insert]}. Items
+in square brackets are optional and alternatives are marked by a
+\verb1|1 and grouped in parentheses.
+
+\verb1ZONE1 commands are cumulative. Thus each zone you specify is
+added to those currently active. To clear all zones (i.e.\ fit all
+residues), the \verb1ZONE CLEAR1 or \verb1ZONE *1 command may be
+given. To clear a single zone, the DELZONE command can be used 
+(see the end of this section).
+
+When a new zone is added, a warning message is displayed if the new zone 
+overlaps an existing zone. Overlapping zones will be flagged with \verb1*1 
+when using the \verb1STATUS1 command.
+
+Although it appears complex, the syntax is actually very simple and
+consists of two identical sections separated by a colon (:). The left
+half is applied to the reference structure and the right half to the
+mobile structure. In its simplest form, the right hand half of the
+expression is absent and the specification is applied to both
+reference and mobile structures. For example:
+\begin{verbatim}
+   ZONE 24-34
+\end{verbatim}
+will set the zone to include residues 24--34 in both structures. If you
+wanted to fit 24--34 in the reference structure with 25--35 in the
+mobile structure, this simply becomes:
+\begin{verbatim}
+   ZONE 24-34:25-35
+\end{verbatim}
+Single residues can be specified using the same syntax:
+\begin{verbatim}
+   ZONE 44-44:55-55
+\end{verbatim}
+
+You may also specify chain names and insertion codes. The chain name is placed
+before the residue number and the insertion code afterwards. For example:
+\begin{verbatim}
+   ZONE L25A-L30
+\end{verbatim}
+fits residues 25A--30 in the L chain of both structures. Optionally,
+the chain name may be separated from the residue number using a full
+stop. For example:
+\begin{verbatim}
+   ZONE L.25A-L.30
+\end{verbatim}
+Using the full stop also makes the statement case-sensitive. In practice, the
+full stop separator is used with numeric chain names to separate the
+chain name from the residue number and with lowercase chain names.
+\begin{verbatim}
+   ZONE 1.25-1.30
+   ZONE b.1-b.60:A.1-A.60
+\end{verbatim}
+
+Simple wildcards may also be used. For example
+\begin{verbatim}
+   ZONE H*:B*
+\end{verbatim}
+fits the reference H chain with the mobile B chain,
+\begin{verbatim}
+   ZONE -10:50-59
+\end{verbatim}
+fits from the first residue to residue 10 in the reference structure
+with 50--59 in the mobile structure.
+\begin{verbatim}
+   ZONE *:1-100
+\end{verbatim}
+fits all residues in the reference structure with 1-100 in the mobile
+structure.  
+
+If the structure file contains negatively numbered residues and you
+are using residue numbering, you can escape the minus sign in the
+residue number using a backslash:
+\begin{verbatim}
+   ZONE \-4-10:\-1-13
+\end{verbatim}
+will fit residues $-4$ to 10 in one structure with $-1$ to 13 in the
+other.
+
+Alternatively, you may specify the zones to be fitted by giving a
+sequence fragment. Together with that fragment, you may specify the
+number of residues to consider starting at that point. If the fragment
+occurs more than once in the sequence you may specify which occurrence
+you wish to consider. For example:
+\begin{verbatim}
+   ZONE CAR:VNS
+\end{verbatim}
+fits the first occurrence of CAR in the reference set with first
+occurrence of VNS in the mobile set;
+\begin{verbatim}
+   ZONE CAR,10:VNS,10
+\end{verbatim}
+fits 10 residues starting at the  first occurrence of CAR in the 
+reference set with 10 residues from the first occurrence of VNS in 
+the mobile set;
+\begin{verbatim}
+   ZONE CAR,5/2
+\end{verbatim}
+fits 5 residues from second occurrence of CAR in both structures;
+\begin{verbatim}
+   ZONE 24-34:EIR,ll
+\end{verbatim}
+fits 24-34 in the reference set with 11 residues starting at the 
+first occurrence of EIR in the mobile set.
+
+By default, \pf\ works in `Residue Number' mode, i.e.\ the numbers
+used in zone commands are the numbers seen in the PDB file. The
+alternative mode is `Sequential' mode where residues are numbered
+sequentially throughout the structure (including throughout multiple
+chains). Any chain names appearing in zone specifications will be
+ignored in Sequential mode. To switch mode, you use the {\tt NUMBER
+SEQUENTIAL} or {\tt NUMBER RESIDUE} commands.
+
+The \verb1DELZONE1 command specifies zones to be deleted from the user-defined 
+list of fit zones. \verb1DELZONE1 uses the same syntax as the \verb1ZONE1 
+command. The command matches the specified zone with a zone in the user-defined
+list of fitting zones and deletes the matching zone from the list. Entering 
+either \verb1DELZONE ALL1 or \verb1DELZONE *1 will delete all user-defined 
+zones.
+
+\subsection{Sequence Alignment}
+%------------------------------
+Another way of specifying zones is to let the program do it. \pf\ 
+allows you to perform a simple Needleman and
+Wunsch sequence alignment and to apply zones automatically derived
+from that sequence alignment. This is done by issuing the \verb1ALIGN1
+command. The sequence alignment is displayed, any currently active
+fitting zones are cleared and replaced by zones derived from the
+alignment. Additional zones may also be specified in the usual way.
+
+As of Version 3.0, \pf\ offers a choice of three alignment options:
+
+\begin{enumerate}
+\setlength{\parsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\itemsep}{0pt}
+
+\item  The default alignment option is a chain-by-chain alignment where the 
+first chain in the mobile is aligned with first chain in the reference, the 
+second chain in the mobile is aligned with the second chain in the reference, 
+and so on. If the number of chains does not match then a warning is issued.
+
+\item The \verb1ALIGN1 \verb1WHOLE1 command gives a whole sequence alignment. 
+The whole sequence (regardless of chain ID) is aligned. If the fitting zones 
+assigned in this manner extend over more than one chain the zones are split 
+into smaller zones at the breaks between chains.
+This may be useful if a sequence has been split into fragments.
+
+\item If a zone definition is supplied to the \verb1ALIGN1 command then \pf\ 
+will perform an alignment over the defined region to assign fitting zones. 
+(See Section~\ref{sec:zone} for the syntax for defining zones.)
+ 
+It is also possible to append new zones onto the end of the zone list (rather 
+than overwriting the current zone list) by adding \verb1APPEND1 after the zone 
+definition.
+
+For example one could use following commands: 
+\begin{verbatim}
+   ALIGN A*:B*
+   ALIGN B*:A* APPEND
+\end{verbatim}
+to align chain A with chain B and then B with A. 
+This is useful when chains appear in different orders in the PDB files.
+
+When doing multiple fitting, it is not possible use the colon notation
+to define regions on both the reference and mobile structures. This is 
+the same restriction as the \verb1ZONE1 command 
+(see Section~\ref{subsec:multi_zone}).
+\end{enumerate}
+
+Clearly, it will normally be necessary to use the \verb1ATOMS1 command
+to specify that only backbone or C$\alpha$ atoms are included in the
+fitting. The \verb1TRIMZONES1 command can also be used when doing multiple 
+structure fitting to ensure that the fitting zones are identical for all 
+mobile structures. (See Section~\ref{subsec:multi_zone})
+
+The \verb1GAPPEN1 command allows you to specify an integer gap penalty
+and gap extension penalty for the sequence alignment performed by the 
+\verb1ALIGN1 command. The default values for the gap penalty and gap 
+extension penalty are 10 and 2 respectively.
+
+\subsection{Reading an Alignment}
+%--------------------------------
+
+If you have an alignment performed outside \pf\ you may use this to
+specify the equivalent zones. Any previously defined fitting zones are
+automatically cleared first. As of \pf\ V3.0, the \verb1READALIGN1 command 
+can be used with structures having more than one chain.  
+
+The alignment should be a file in PIR format using -- characters to
+align the sequences. The two sequences are represented by separate
+entries, i.e.\ each must have a header of the form:
+\begin{verbatim}
+   >P1;xxxxxx
+   title text .......
+\end{verbatim}
+
+When reading an alignment file for aligning a reference structure with a 
+single mobile structure, the first sequence will be assumed to be that of 
+the reference structure and the second is that of the mobile structure. Any
+other sequences in the file are ignored. Chain Breaks in a sequence are 
+indicated with a \verb1*1.
+\begin{verbatim}
+   >P1;REFSEQ
+   Reference Sequence - first.pdb
+   WILLIAM*H-ARTNELL-*
+
+   >P1;M_0001
+   Mobile Sequence - second.pdb
+   --PATRI-K*TR--GHTN*
+\end{verbatim}
+
+The \verb1READALIGNMENT1 command is also used to read in the PIR files 
+containing a multiple sequence alignment.
+When performing a multiple structure fit, the first sequence
+\emph{must appear twice} in the sequence alignment file. This is
+because it is used as both the initial reference and first mobile set:
+\begin{verbatim}
+   >P1;REFSEQ
+   Reference Sequence - first.pdb
+   ----WILLIAM*H-ARTNELL-*
+
+   >P1;M_0001
+   Mobile Sequence - first.pdb
+   ----WILLIAM*H-ARTNELL-*
+
+   >P1;M_0002
+   Mobile Sequence - second.pdb
+   ------PATRI-K*TR--GHTN*
+
+   >P1;M_0003
+   Mobile Sequence - third.pdb
+   PERTWEE---------------*
+\end{verbatim}
+
+Note that a bug in using the  \verb1READALIGNMENT1 with multiple
+structure fitting was fixed in V2.3. (The bug caused the program
+to crash if a deletion appeared in the same place in two or
+more of the sequences.)
+
+\subsection{Limiting Zones Read From an Alignment}
+%-------------------------------------------------
+
+When obtaining fit zones from a sequence alignment, either from
+\verb1ALIGN1 or from \verb1READALIGNMENT1, it can be useful to limit
+the zones of residues used. Normally all aligned residue pairs will be
+used.
+
+For example, if the alignment were:
+\begin{verbatim}
+                       1         2         3
+              123456789012345678901234567890123
+              ASAHSTGEHNM--PLELLGHISLAM---NPRTY
+              ---HSTADHNLRTPLEVLG--SLAMEDRQPRTY
+\end{verbatim}
+the zones would normally be taken from the following positions
+in the alignment: 4-11, 14-19, 22-25, 29-33
+
+By using the command:
+\begin{verbatim}
+      LIMIT 20 28
+\end{verbatim}
+only the zone from 22-25 would be included.
+
+This is particularly useful in conjunction with the ITERATE command
+(Section~\ref{subsec:iterate}) and when fitting multiple structures
+(Section~\ref{sec:multi}).
+
+The \verb|LIMIT OFF| command restores the default behaviour of
+deriving the zones from the whole alignment.
+
+
+
+
+\subsection{Iterative Updating of the Fitting Zones}
+%---------------------------------------------------
+
+\label{subsec:iterate}
+
+The \verb1ITERATE1 command switches on the iterative updating of
+fitted zones during subsequent \verb1FIT1 commands. The \verb1ITERATE1
+command may be followed by an optional parameter to specify the cutoff
+used to include or exclude pairs from the zones.  (\verb1ITERATE OFF1
+is used to switch it off again.)
+
+Note that this immediately does an \verb1ATOMS CA1 since iteration of
+zones is only performed on C$\alpha$ atoms. The program gives an
+informational message to this effect. See notes below if you want to
+calculate an RMSd over other atoms.
+
+After the initial fit on the specified zones, the zones are updated
+such that residue pairs with C$\alpha$ atoms within a specified cutoff
+(default 3.0\AA) are included and those more distant are excluded. The
+optimum set of equivalences is obtained using a dynamic programming
+method.
+
+After updating the zones, the structures are refitted and the
+procedure iterates to convergence of $<0.01$\AA, (typically 3 or 4
+cycles). The RMSd on C$\alpha$ atoms is shown after each cycle unless
+the \verb1QUIET1 command is given before running \verb1ITERATE1.
+
+You may specify a minimal initial zone of say 3 amino acids on which
+to fit first. The zone iteration will expand the zones until as many
+residues as possible can be equivalenced. Alternatively, this option
+is particularly useful in conjunction with the \verb1ALIGN1
+command. Using \verb1ALIGN1 followed by \verb1ITERATE1 gives a
+particularly convenient method of fitting two arbitrary structures.
+
+As stated above, the \verb1ITERATE1 command implies 
+\verb1ATOMS CA1. Having fitted on C$\alpha$ atoms, you can of course
+display the RMSd over other atom sets in the usual way using the
+\verb1RATOMS1 command (e.g.\ \verb1RATOMS N,CA,C,O1 will display the
+backbone RMSd).
+
+Should you wish to refit on another atom set using the iterated zones,
+simply use \verb1ITERATE OFF1 to switch off iteration, select the atom
+set required using the \verb1ATOMS1 command and use \verb1FIT1 to
+refit the structures in the usual way. For example, to fit on backbone
+atoms:
+
+\begin{verbatim}
+   ITERATE OFF
+   ATOMS N,CA,C,O
+   FIT
+\end{verbatim}
+
+
+\subsection{Fitting Zones based on the Temperature Factor Column.}
+%-----------------------------------------------------------------
+
+\label{sec:bzone} 
+Note that this use of the B-value column is not compatible with the commands described in Section~\ref{sec:modfit}.
+
+It is possible to define zones by flagging residues in the temperature 
+factor column of the PDB file using the \verb1BZONE1 command. Zones are marked 
+using a positive whole numbers while zeros are ignored. Multiple zones can be 
+marked using additional numbers. 
+So, residues with the B-factor set to 1 will be fitted with one another, 
+residues with the B-factor set to 2 will be fitted with one another, etc.
+
+Assignment of zones is carried out in two ways: 
+
+If only the reference 
+structure is marked then the same set of residue numbers will be added as a 
+fitting zone in both the reference and mobile structure. 
+
+If both the reference and the mobile 
+structure are marked then fitting zones are assigned by scanning through and 
+setting zones for corresponding continuous stretches of flagged residues in 
+either the reference or mobile structures. 
+
+
+\subsection{Centre of Fitting}
+%-----------------------------
+
+\label{sec:setcentre}
+The default method for fitting is to centre the fit around the centre of 
+geometry of the fit atoms. Alternatively, fitting can be centred around 
+the centre of geometry of a residue
+specified by the \verb1SETCENTRE1 (or \verb1SETCENTER1) command.
+
+
+\begin{verbatim}
+   SETCENTRE CLEAR|(*|i[:j])
+\end{verbatim}
+where i and j are residue specifications of the form \emph{[chain][.]resnum[insert]}.
+Items in square brackets are optional and alternatives are marked by a
+\verb1|1 and grouped in parentheses.
+
+The command:
+\begin{verbatim}
+   SETCENTRE 24:35
+\end{verbatim}
+will centre the fit around residue 24 of the reference structure and residue 25 of the mobile structure. The mobile residue number can be omitted. For example:
+\begin{verbatim}
+   SETCENTRE 33
+\end{verbatim}
+will centre the fit around residue 33 of the reference structure and residue 33 of the mobile structure.
+
+Entering \verb1SETCENTRE CLEAR1 or\verb1 SETCENTRE *1 will clear the centre 
+residue.
+
+\subsection{Distance Cutoff for RMSd Calculations}
+%-------------------------------------------------
+
+\label{sec:distcutoff}
+The \verb1DISTCUTOFF1 command specifies a distance cutoff for ignoring atom 
+pairs outside a specified distance when calculating RMSd.
+
+\begin{verbatim}
+   DISTCUTOFF [cutoff|ON|OFF]
+\end{verbatim}
+
+The \verb1DISTCUTOFF1 command specifies a distance cutoff for ignoring atom 
+pairs outside a specified distance when calculating RMSd. Entering 
+\verb1DISTCUTOFF ON1 or \verb1DISTCUTOFF OFF1 will turn the distance cutoff on 
+or off. Entering \verb1DISTCUTOFF 2.51 will set the value of the distance 
+cutoff to 2.5 Angstroms and turn the distance cutoff on. A warning is displayed
+if the distance cutoff is set to zero and turned on. Note that the cutoff is 
+only applied to the final calculation of RMSD and not to the fitting.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Multiple Structure Fitting}
+
+\label{sec:multi}
+
+The \verb1MULTI1 command allows a multiple set of structures to be
+read in for fitting. The filename specified for \verb1MULTI1 is a
+`file of files' i.e.\ it contains a list of filenames which will be
+read.
+
+As with single structure fitting, a model number may be appended after
+a \% (e.g. {\tt pdb2kqn.ent\%2}).
+
+\verb1MULTI1 is used in place of \verb1REFERENCE1 and \verb1MOBILE1 to
+read in a set of structure files. The first structure file is used as
+a reference set for the first fitting stage, but the coordinates are
+averaged after each fitting stage to derive an averaged template used
+for subsequent fitting.
+
+i.e.\ Given $N$ files to fit, file 2 is fitted to file 1 and an
+averaged structure, $A$, is calculated, file 3 is then fitted to $A$
+and a new average, $A'$ is calculated. This continues until all $N$
+structures have been fitted. The whole procedure iterates until
+convergence (typically 3 or 4 cycles).
+
+\pf\ V3.0 changes the default method of calculating the average template. 
+As each new mobile structure is added, the degree of change in the averaged 
+structure is inversely proportional to the total number of mobile structures. 
+Consequently, outlying structures should have less effect on the averaged 
+reference structure.
+
+Normally, the coordinates of the first structure in the \verb1MULTI1 list 
+are taken as the starting point for the averaged reference structure. It is 
+possible however, to select another mobile structure as the initial reference 
+structure using the \verb1SETREF1 command. 
+For example, \verb1SETREF 31 will use the third mobile structure as the 
+reference strcture.
+If no structure number is 
+specified, then the \verb1SETREF1 command carries out an all vs. all 
+comparison and the coordinates 
+of the mobile structure with the least overall RMSD to all the other 
+mobile structures are selected as the initial reference structure.
+
+Multiple structures can be fitted with either the \verb1FIT1 or 
+\verb1ORDERFIT1 command. The \verb1ORDERFIT1 command (new in V3.0) will 
+perform the multiple structure fit in a similar manner to the \verb1FIT1 
+command but fitting the most similar structures first. As the averaged 
+template is updated with each new structure fitted, the order of fitting 
+has a (small) influence on the template. The ORDERFIT command (possibly 
+along with the SETREF command) can provide a standardized fitting scheme.
+
+
+Progress and RMSds are reported at each iteration unless the \verb1QUIET1
+command is used.
+
+By default, RMSDs, pairwise distances and transformation matrices are given in 
+relation to the first mobile structure. The \verb1MULTREF1 command will set 
+\pf\ to give results in relation to the averaged reference structure rather 
+than the  first mobile structure (\verb1MULTREF1 \verb1OFF1 restores the 
+default behaviour).
+
+The resulting fitted files are written with the \verb1MWRITE1 command.
+Note that there is no ``reference'' set in the sense used for normal
+2-structure fitting; fitted versions of all $N$ files will be written
+since the reference set is actually an averaged template used purely as a 
+guide for fitting. 
+
+The averaged template can be written to a file using the \verb1WRITE1 
+\verb1REF1 command. As it is a simple numerical average of the cartesian 
+coordinates however, taking the reference structure generated by ProFit as a 
+representation of an actual geometry/conformation accessible by the structure 
+should be done with caution.
+
+When the \verb1MWRITE1 command is used, the output filenames are the
+same as the input files, but with the extension replaced by that
+specified in the \verb1MWRITE1 command. If no extension is specified,
+then `.fit' will be used. If the input structure files contained no
+extension, then the extension specified will be appended to the
+filenames.
+
+If you have specified a model number for the input files, then this
+will be appended to the output filename except for model 1.
+
+Note that since only the extension is changed when writing back the
+fitted files, you must have permission to write to the directory from
+which the original files were read.
+
+Multiple-structure fitting is particularly effective in combination
+with the \verb1ITERATE1 command (see Section~\ref{subsec:iterate})
+which refines the fitting zones iteratively. This can lead to
+extremely good multiple structures fits.
+
+Note that multiple structure fitting and zone iteration can be very
+slow as these have been added to the earlier pair-wise fitting
+engine. An increase in speed needs a complete re-design of the code.
+
+
+\subsection{Specifying Zones With Multiple Structure Fitting}
+%------------------------------------------------------------
+
+\label{subsec:multi_zone}
+
+Currently, the ZONE command may only be used with multiple structure
+fitting when the same zone specification may be applied to every
+structure. i.e.\ You cannot specify a zone for each structure
+separating the zones with a colon (:)
+
+Thus, the following are legal zones:
+\begin{verbatim}
+  ZONE 20-30
+  ZONE C,3
+\end{verbatim}
+while the following are not:
+\begin{verbatim}
+  ZONE 24-34:25-35
+  ZONE CAR:VNS
+  ZONE 24-34:EIR,11
+\end{verbatim}
+
+For normal use, it is recommended that the \verb1ALIGN1, \verb1TRIMZONES1 and
+\verb1READALIGNMENT1 commands (possibly in conjunction with the
+\verb1LIMIT1 command) are used for specifying zones when fitting
+multiple structures.
+
+
+As of \pf\ V3.0, the \verb1TRIMZONES1 command can be used in conjuction with 
+the \verb1ALIGN1 command. The \verb1ALIGN1 command performs a pairwise 
+alignment for each of the mobile structures with the reference. 
+Although fitting each mobile 
+using an individualized set of zones offers the best fitting for each mobile 
+to the reference, there may be times when a like vs. like comparison is 
+required. If the number of residues used for fitting varies, RMS 
+deviation cannot be directly compared between structures.
+
+To allow for a like vs. like comparison, the \verb1TRIMZONES1 command resets 
+the fitting zones for each mobile structure to include only fitting residues 
+that are common to all the mobile structures. Thus, by ensuring that the 
+fitting zones are the same for each mobile, the \verb1TRIMZONES1 command 
+allows for a like vs. like comparison. 
+
+When using \verb1READALIGNMENT1 with
+multiple structures, the first sequence \emph{must appear twice} in
+the alignment file. This is because it is used as both the first
+reference and mobile set.
+
+Note that a bug in using the  \verb1READALIGNMENT1 with multiple
+structure fitting was fixed in V2.3. (The bug caused the program
+to crash if a deletion appeared in the same place in two or
+more of the sequences.)
+
+\subsection{All Versus All Comparisons}
+%--------------------------------------
+
+\label{subsec:multi_allvall}
+
+As of \pf\ V3.0, it is possible to perform an all versus all comparison of 
+the mobile structures when fitting multiple structures. The \verb1ALLVSALL1 
+command requires that the fitting zones set are identical for all mobile 
+stuctures and automatically resets the fitting zones using the 
+\verb1TRIMZONES1 command.
+
+Results are presented as tab-delimited text suitable for loading into a 
+spreadsheet. If the optional filename parameter is given, output is 
+directed to the specified file. If a filename is not specified, or the file 
+cannot be opened, output appears on the screen. If the filename begins with 
+a pipe character ($\mid$), the results are piped into the specified program.
+This is particularly useful with the \verb1more1 (or \verb1less1) Unix
+command. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Calculating the RMSd Over Other Zones and Atoms}
+Having fitted the structures using the \verb1ZONE1 and \verb1ATOMS1
+commands to specify which residues and atoms should be included in the
+fitting, the RMS deviation may then be calculated over a different
+region of the structure and/or a different atom set.
+
+This is achieved using the \verb1RZONE1 and \verb1RATOMS1
+commands. The syntax of these commands is identical to that of the
+\verb1ZONE1 and \verb1ATOMS1 commands described in
+Sections~\ref{sec:atoms} and~\ref{sec:zone}.
+
+As each \verb1RZONE1 or \verb1RATOMS1 command is given, the RMS
+deviation is reported over the new set of zones or over the new atom
+set. Don't forget the \verb1RZONE1 commands are cummulative, like the
+\verb1ZONE1 commands. Note that the \verb1RZONE *1 or \verb1RZONE1
+\verb1CLEAR1 behaves slightly differently from \verb1ZONE *1 or
+\verb1ZONE1 \verb1CLEAR1 since it resets the zones to be the same as
+those specified for the fitting using \verb1ZONE1, \verb1ALIGN1 or
+\verb1READALIGNMENT1 commands.
+
+The \verb1DELRZONE1 command specifies zones to be deleted from the list of 
+user-defined zones for calculating the RMSd. The \verb1DELRZONE1 command uses 
+the same syntax as the \verb1DELZONE1 command. The command matches the 
+specified zone with a zone in the user-defined list of RMSd calculation zones 
+and deletes the matching zone from the list. Unlike the \verb1RZONE1 command, 
+entering either \verb1DELRZONE ALL1 or \verb1DELRZONE *1 will delete all 
+user-defined RMSd calculation zones rather than returning to the default 
+condition where the RMSd calculation zones are set to the user-defined fitting 
+zones. Thus avoiding the somewhat counterintuitive situation where deleting 
+the last RMSd zone restores all RMSd zones. If no RMSd calculation zones are 
+defined then \pf\ will calculate the RMSd over all residues.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Obtaining Output}
+
+\subsection{The Fitted Structure}
+%--------------------------------
+The fitted mobile structure may be written to a file in PDB format
+using the \verb1WRITE1 command:
+\begin{verbatim}
+   WRITE fitted.pdb
+\end{verbatim}
+If the first character of the filename is a pipe character ($\mid$),
+then the results will be piped into the specified program. For
+example:
+\begin{verbatim}
+   WRITE |less
+\end{verbatim}
+will cause the coordinates to be displayed on the screen using the
+\verb1less1 pager program.
+
+The reference set may also be written:
+\begin{verbatim}
+   WRITE REFERENCE ref_fitted.pdb
+\end{verbatim}
+(only the three letters `REF' of the REFERENCE parameter are
+required). This is only useful if the CENTRE command has been used
+(see below).
+
+\subsection{Centering the Coordinates}
+%-------------------------------------
+By default, the mobile structure is moved to the coordinate frame of
+the reference set. If the \verb1CENTRE1 (or \verb1CENTER1) command is
+given then the centre of geometry of the fitted coordinates will be
+located at the origin.
+
+If a residue has been set as the centre of fitting using \verb1SETCENTRE1 
+(see Section~\ref{sec:setcentre}) then that residue will be moved to the 
+origin when the \verb1CENTRE1 command is used.
+
+If only two structures are fitted then the \verb1WRITE REFERENCE1
+command must be used to write the reference set in the origin-centred
+coordinate frame. If multiple structures are fitted and written using
+\verb1MWRITE1 then the reference set will be written automatically.
+
+
+
+
+
+\subsection{Details of the Fitting}
+%----------------------------------
+
+More details about the fitting may be obtained by using the
+\verb1MATRIX1 command. This displays the centres of geometry, the
+rotation matrix and the translation vector which is the vector between
+the centres of geometry. Thus to superimpose the mobile structure onto
+the reference structure using these data, you should translate the
+mobile set to the origin, apply the rotation matrix, translate back to
+the original centre of geometry and finally apply the translation
+vector.
+
+Note that the rotation matrix is not orthogonal and cannot therefore
+be used to extract Euler angles. This is a result of the fitting
+method used.
+
+The \verb1NFITTED1 command displays the number of atom pairs which
+were fitted in the last fitting operation. Note that this will not
+be the number of residues fitted unless you are only fitting one
+atom type per residue (typically C$\alpha$ atoms).
+
+
+\subsection{By-residue RMS Deviation}
+%------------------------------------
+
+The \verb1RESIDUE1 command is used to obtain a by-residue RMS
+deviation on the currently specified RMS atoms in the currently
+specified RMS zone. If no \verb1RATOMS1 and \verb1RZONE1 commands have
+been used, the atoms and zones used for the fitting will be used.
+
+The \verb1RESIDUE1 command may be followed by an optional filename
+parameter in which case output is directed to the specified file. If
+the file cannot be opened or a filename is not specified, output
+appears on the screen. If the first character of the filename is a
+pipe character ($\mid$), then the results will be piped into the
+specified program. For example:
+\begin{verbatim}
+   RESIDUE |less
+\end{verbatim}
+will cause the results to be displayed on the screen using the
+\verb1less1 pager program.
+
+If the distance cutoff is set then residues fully outside the distance cutoff 
+are flagged with \verb1**1 and residues partially outside the distance cutoff 
+are flagged with \verb1*1 (see Section~\ref{sec:distcutoff})
+
+
+The related command, \verb1PAIRDIST1 prints the pairwise distances between 
+equivalent atom pairs in the reference and mobile structures. \verb1PAIRDIST1 
+has the same syntax as \verb1RESIDUE1. If the distance cutoff is set then 
+residues outside the distance cutoff are flagged with \verb1*1.
+
+\subsection{Outputting Fit Zones As An Alignment}
+%-----------------------------------------------
+
+As of \pf\ V3.0, it is possible to output the equivalenced regions found by 
+iterative fitting as an alignment using the \verb1PRINTALIGN1 command. The 
+default output is a (user-friendly) pairwise alignment with the reference and 
+mobile sequences printed as pairs of 60-character wide lines. The optional 
+\verb1FASTA1 and \verb1PIR1 parameters set the printout to (machine-friendly) FASTA or PIR formatting 
+for the chain names and sequences.
+
+Alignments can be exported to a text file using the \verb1PRINTALIGN1 command. \pf\ V3.0 can read PIR formatted files for assigning zones.
+
+
+{\bfseries Note:} For a set of fit zones to be converted into an alignment, 
+the fitting zones must occur sequentially along the protein chain.
+Additionally, the fit zones cannot overlap.
+In other words, to obtain a sequence alignment the fitting zones must be in 
+sequence. 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modifying the Fit}
+
+\label{sec:modfit} 
+The commands described in this section make use of the temperature factor 
+column as a 'flag' and are therefore not compatible with the \verb1BZONE1 
+command (Section~\ref{sec:bzone}).
+
+Normally, no weighting is applied during the fitting i.e.\ all atoms
+are weighted equally. The \verb1WEIGHT1 command causes the fitting to
+be weighted by the mean of the B-values in the equivalent
+atoms. Normally, you wouldn't use this with real B-values, but with
+some other weight parameter (e.g.\ SSAP scores).
+
+The \verb1BWEIGHT1 command weights the fitting by the inverse of the
+mean of the B-values in the equivalent atoms. This is useful for
+genuine weighting by B-values (i.e.\ the mobile set atoms will be less
+heavily weighted).
+
+The \verb1NOWEIGHT1 command switches off weighting.
+
+Atoms can also be removed from consideration in the fitting and RMS
+deviation calculations using temperature factors as a cutoff. The
+\verb1BVALUE1 command allows you to specify a B-value cutoff and any
+atoms with B-values greater than this value will be \emph{ignored
+completely} in both the fitting and RMS deviation calculations. The
+B-value may not be higher than this value in either the reference set
+or the mobile set. For example, if you specify $10$, then atoms with
+B-values greater than $10$ will be ignored.
+
+By specifying a negative value for \verb1BVALUE1, you require that any
+atoms with B-values less than the absolute value you specify will be
+ignored. For example, if you specify $-10$, then atoms with B-values
+less than $10$ will be ignored.
+
+The value may be followed by an optional \verb1REF1 or \verb1MOB1
+parameter which restricts checking of B-values to the specified
+structure.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Script Files}
+
+\label{sec:script} 
+
+While it is possible to run a script from the unix command line using a redirection operator ($<$) or pipe ($\mid$), there are occasions when this is problematic such as when running \pf\ from within another application. It is possible to use a command line flag to run a script file.
+
+For example, a script file can be run using either a command line flag:
+\begin{verbatim}
+   profit -f myscriptfile.txt -h reference.pdb mobile.pdb
+\end{verbatim}
+By using the redirection operator:
+\begin{verbatim}
+   profit -h reference.pdb mobile.pdb < myscriptfile.txt 
+\end{verbatim}
+Or by piping input from another program:
+\begin{verbatim}
+   cat myscriptfile.txt | profit -h reference.pdb mobile.pdb
+\end{verbatim}
+All three options produce identical outputs. 
+
+It is also possible to run a script from within \pf\ using the SCRIPT command:
+\begin{verbatim}
+   SCRIPT myscriptfile.txt
+\end{verbatim}
+
+When a script file is run, messages indicating the start and end of the script are sent to stdout, if quiet mode is off. A comment marker (\verb1#1) at the beginning of a line will echo the line to stdout, a useful method for annotating an output file when running non-interactively.
+
+Finally, it is possible to run a script from within a script using the \verb1SCRIPT1 command. \pf\ tracks the number of open/nested scripts and will allow up to 1000 nested scripts to be open. The assumption is that if over a thousand scripts are open then \pf\ has been sent into an infinite loop (for instance by having a script call itself). 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Miscellaneous Commands}
+
+The \verb1RMS1 command may be used to reprint the RMS deviation over
+the currently defined set of RMS zones and RMS atoms.
+
+
+If you simply wish to calculate the RMSd between two or more structures 
+without actually fitting them, defining fitting regions in the normal way then 
+typing the \verb1NOFIT1 command (instead of the \verb1FIT1 command) 
+will set up \pf\ to perform RMSd calculations but will not fit the structures. 
+The \verb1RMS1 command can then be used to print the RMS deviation. 
+
+
+As of \pf\ V3.0 it is possible to match symmetrical atoms automatically in 
+amino acid sidechains (e.g.CD1 - CD2 and CE1 - CE2 of tyrosine) using the 
+\verb1SYMMATOMS1 command. \verb1SYMMATOMS1 matches the charged oxygens and 
+nitrogens on arginine, aspartate and glutamate residues and the delta and 
+epsilon carbons of phenylalanine and tyrosine residues. It is also possible 
+to match the nitrogen and oxygen atoms of the amide 
+sidechains of asparagine and glutamine residues and the prochiral methyl 
+groups of valine and leucine. Typing \verb1SYMMATOMS1 will display the pairs 
+of atoms currently matched by \pf . Typing \verb1SYMMATOMS ON1 or 
+\verb1SYMMATOMS OFF1 will turn symmetrical atom matching on or off.
+Individual residue types, for example ASP, can be turned-on or off by 
+typing SYMMATOMS ASP ON or SYMMATOMS ASP OFF, respectively. Alternatively, 
+SYMMATOMS ALL ON will turn all atom pairs on. By default, the matching of 
+symmetrical atoms is turned-off.
+
+
+Any operating system command may be run from within \pf\ by
+preceding it with a \verb1$1. The string following the \verb1$1 is
+passed to the operating system exactly as given and is useful for
+obtaining directory listings, typing, editing or copying files.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Command Summary}
+
+\begin{description}
+
+\item[\$ \emph{command}] Passes command to the operating system.
+
+\item[\# \emph{comment}] Echoes comment to stdout.
+
+\item[ALIGN [[WHOLE$\mid$*\mbox{]}$\mid$[\emph{zonespec} [APPEND\mbox{]}\mbox{]}\mbox{]}]
+Performs Needleman and Wunsch sequence alignment on the
+sequences of the two structures and derives zones from the equivalent
+regions in the alignment. For multiple structure fitting, \verb1ALIGN1 
+performs a pairwise alignments for the reference sequence and each mobile 
+sequence.
+
+   It will normally be necessary to use the ATOMS command to specify
+   that only backbone or C-alpha atoms are included in the fitting
+   calculations.
+
+\item[ALLVSALL [\emph{filename}\mbox{]}] Performs an all versus all 
+comparison of the mobile structures when fitting multiple structures.
+Results are presented as tab-delimited text suitable for loading into
+a spreadsheet. 
+
+If the optional filename parameter is given, output is directed to
+the specified file. If the file cannot be opened or a filename is
+not specified, output appears on the screen. If the filename begins
+with a pipe character ($\mid$), the results are piped into the
+specified program.
+
+\item[ATOMS \emph{atm[,atm]\ldots}] Specifies the atom subset to fit.
+
+\item[BVALUE \emph{cutoff} [ REF$\mid$MOB\mbox{]}] Specify a B-value
+cutoff. Any atoms with B-values greater than this value will be
+ignored completely. A negative cutoff specifies that atoms with
+B-values less than the absolute cutoff should be ignored. The optional
+\verb1REF1 or \verb1MOB1 parameter restricts B-value checking to
+the specified structure.
+
+\item[BWEIGHT] Weight the fitting by the inverse of the mean of the
+B-values in the equivalent atoms.
+
+\item[BZONE] Sets fitting zones based on markers in the temperature factor (B-value) column
+
+\item[CENTER [ OFF \mbox{]}] See \verb1CENTRE1.
+
+\item[CENTRE [ OFF \mbox{]}] Cause the coordinates to be written (using
+the \verb1WRITE1 or \verb1MWRITE1 commands), with the centre of
+geometry located at the origin instead of in the same coordinate frame
+as the reference set.
+
+\item[DELRZONE \emph{zonespec}] Removes a zone specification to the list of
+zones considered in RMS deviation calculation. \verb1DELRZONE *1 or
+\verb1DELRZONE1 \verb1ALL1 deletes all RMS deviation calculation zones.
+
+\item[DELZONE \emph{zonespec}] Removes a zone specification to the list of
+zones considered in fitting. \verb1DELZONE *1 or \verb1DELZONE1 \verb1ALL1
+removes all zone specifications.
+
+\item[DISTCUTOFF [\emph{cutoff} $\mid$ ON $\mid$ OFF\mbox{]}]
+Specifies a distance cutoff for RMSd calculations.
+
+\item[FIT] Performs the actual fitting. Returns the RMS deviation over
+the atoms included in the fit.
+
+\item[GAPPEN \emph{val} [\emph{val}\mbox{]}] Specifies an integer gap 
+penalty and a gap extension penalty for the sequence alignment performed 
+by the \verb1ALIGN1 command. The default values for the gap penalty and gap 
+extension penalty are 10 and 2 respectively.
+
+\item[HEADER [ON $\mid$ OFF\mbox{]}] Include PDB header and trailer records when writing structures. By default, only the coordinate section of a file is output when a structure is written.
+
+\item[HETATOMS] Read HETATM records with subsequent \verb1MOBILE1 and
+\verb1REFERENCE1 commands.
+
+\item[IGNOREMISSING] Ignore any atom mismatches and proceed with the
+fitting. Such atoms are listed as warnings.
+
+\item[ITERATE [ (\emph{limit} $\mid$ OFF) \mbox{]}] Switches on (or
+off) iterative updating of the zones for fitting. The \verb1ITERATE1
+command may be followed by an optional distance cutoff (default:
+3.0\AA) or by the keyword `OFF' to switch off iterative zone
+calculation.
+
+\item[LIMIT (\emph{pos1 pos2} $\mid$ OFF)] Limits the range in an
+alignment (from \verb1READALIGNMENT1) used to derive zones. 
+\verb|LIMIT OFF| restores the default behaviour.
+
+\item[MATRIX] Displays the centres of geometry, rotation matrix and
+translation vector.
+
+\item[MOBILE [ XMAS \mbox{]} \emph{\bfseries filename}] Reads a mobile
+  PDB structure.  If a \% and number is added to the end of the
+  filename then that model number will be read instead of the first.
+  If compiled with XMAS support, then the XMAS keyword specifies that
+  the input is in XMAS format.
+
+\item[MULTI \emph{filename}] Reads a file of files containing a list
+of structures for multiple fitting. Model numbers may be included in
+those filenames.
+
+\item[MULTREF [OFF\mbox{]}]
+   Sets RMSd calculations to give values to the averaged reference rather 
+   than the first mobile structure.
+
+ \item[MWRITE [ \emph{ext}]] Write the results of multiple structure
+   fitting. The structures are written back using the same filenames
+   with which they were read, but with the extension changed to that
+   specified. If no extension is given, then `.fit' is used. Note
+   therefore, that you must have write permission to the directory
+   from which the input files were read. If you specified a model
+   number for the input files, this will be included in the output
+   files (except for model 1).
+
+\item[NFITTED] Reports the number of atom pairs fitted.
+
+\item[NOFIT] Sets the fitted flag in profit allowing the user to calculate 
+the RMSD on a structure without fitting.
+
+\item[NOHETATOMS] Do not read HETATM records with subsequent
+\verb1MOBILE1 and \verb1REFERENCE1 commands.
+
+\item[NOIGNOREMISSING] Restore the default behaviour of issuing an
+error message for any atom mismatches and halting the fitting
+proceedure.
+
+\item[NOWEIGHT] Normal, non-weighted fitting.
+
+\item[NUMBER (RESIDUE$\mid$SEQUENTIAL)] Specifies whether zones are
+based on residue numbers in the PDB file or on sequential numbering
+(running through all chains).
+
+\item[OCCRANK \emph{n}] Sets ProFit to read the \emph{n}th ranked highest 
+occupancy atom position for alternative atom positions.
+
+For structure files containing partial occupancies, lower occupancy atoms 
+can be read using by setting the occupancy rank parameter to read alternative 
+atom positions.
+
+By default, OCCRANK is set to 1 and reads the highest ranked atom position, 
+a setting of 2 will read the second most occupied position and a setting of 3 
+will read the third most occupied position, etc.
+
+\item[ORDERFIT]
+   Performs a fit of all mobile structures to the reference structure. The 
+   most similar structures are fitted first.
+
+
+\item[PAIRDIST [ \emph{filename}\mbox{]}] Prints the pairwise distances between equivalent atom pairs.
+If the first character of the (optional) filename is a pipe character
+($\mid$), then the results will be piped into the specified
+program. For example:
+\begin{verbatim}
+   PAIRDIST |less
+\end{verbatim}
+will cause the results to be displayed on the screen using the
+\verb1less1 pager program.
+
+\item[PRINTALIGN [FASTA$\mid$PIR\mbox{]} [ \emph{filename}\mbox{]}] 
+   Prints current fitting zones as a sequence alignment.
+   The default output is a (user-friendly) pairwise alignment with the 
+   reference and mobile sequences printed as pairs of 60-character wide 
+   lines.
+   The optional \verb1FASTA1 and \verb1PIR1 parameters set the printout 
+   to FASTA or PIR formatting.
+   \pf\ can read PIR-formatted files using the \verb1READALIGN1 command.
+
+\item[QUIET [ OFF \mbox{]}] Switches on (or off) quiet mode. In quiet
+mode, warning messages are suppressed and progress of iterative zone
+updating and multiple structure fitting is not reported.
+
+\item[QUIT] Exits from the program.
+
+\item[RATOMS \emph{atm[,atm]\ldots}] Specifies atoms over which to
+calculate the RMS deviation. Fitting must already have been performed.
+
+\item[READALIGNMENT \emph{filename}] Reads an alignment in PIR
+sequence file format and sets zones based on that alignment.  Note
+that when used with multiple structures, the first sequence \emph{must
+appear twice} in the alignment file. This is because it is used as
+both the first reference and mobile set.
+
+\item[REFERENCE [ XMAS \mbox{]} \emph{\bfseries filename}] Reads a
+  reference PDB structure.  If a \% and number is added to the end of
+  the filename then that model number will be read instead of the
+  first. If compiled with XMAS support, then the XMAS keyword
+  specifies that the input is in XMAS format.
+
+\item[RESIDUE [ \emph{filename}]] Gives a by-residue RMS deviation.
+If the first character of the (optional) filename is a pipe character
+($\mid$), then the results will be piped into the specified
+program. For example:
+\begin{verbatim}
+   RESIDUE |less
+\end{verbatim}
+will cause the results to be displayed on the screen using the
+\verb1less1 pager program.
+
+\item[RMS] Recalculate the RMS deviation over the zones and atoms
+currently defined with \verb1RZONE1 and \verb1RATOMS1.
+
+\item[RZONE \emph{zonespec}] Adds a zone specification to the list of
+zones considered in RMS deviation calculation. \verb1RZONE *1 or
+\verb1RZONE1 \verb1CLEAR1 resets the zones for RMSD calculation to be
+the same as that specified with the \verb1ZONE1 command.
+   
+\item[SCRIPT \emph{filename}] Executes a script file.
+
+\item[SETCENTER \emph{residue}] See \verb1SETCENTRE1.
+
+\item[SETCENTRE \emph{residue}] Specifies a single residue as the centre of fitting. Entering SETCENTRE CLEAR or SETCENTRE * will clear the centre residue.
+
+   \item[SETREF [\emph{n}\mbox{]}]
+   Sets the reference structure to the \emph{n}th mobile structure when fitting multiple structures.
+
+   If no structure number is given then the reference is automatically set 
+   by performing an all versus all comparison of the mobile structures then
+   selecting the structure with the lowest overall RMSD to the other mobile 
+   structures.
+
+\item[STATUS[ \emph{filename}]] Reports current program status. 
+   If the optional filename parameter is given, output is directed to
+   the specified file. If the file cannot be opened or a filename is
+   not specified, output appears on the screen. If the filename begins
+   with a pipe character ($\mid$), the results are piped into the
+   specified program.
+
+\item[SYMMATOMS [[OFF$\mid$ON$\mid$ALL\mbox{]}$\mid$\emph{xxx} [OFF$\mid$ON\mbox{]}]
+
+   where \emph{xxx} is a three-letter amino acid code.
+
+   Enabes the auto-matching of symmetrical atoms (eg CD1 - CD2 and 
+   CE1 - CE2 of tyrosine) in \pf\
+
+   \verb1SYMMATOMS1 matches charged oxygens and nitrogens on arginine, 
+   aspartate and glutamate residues and the delta and epsilon carbons of 
+   phenylalanine and tyrosine residues.
+
+   It is also possible to match the nitrogen and oxygen atoms of the amide 
+   sidechains of asparagine and glutamine residues and the prochiral methyl 
+   groups of valine and leucine.
+
+   Typing \verb1SYMMATOMS1 will display the pairs of atoms currently matched 
+   by \pf. Typing \verb1SYMMATOMS1 \verb1ON1 or \verb1SYMMATOMS1 \verb1OFF1 
+   will turn symmetrical atom matching on or off.
+
+   Individual residue types, for example ASP, can be turned-on or off by 
+   typing \verb1SYMMATOMS1 \verb1ASP1 \verb1ON1 or \verb1SYMATM1 \verb1ASP1 
+   \verb1OFF1, respectively. Alternatively, \verb1SYMMATOMS1 \verb1ALL1 
+   \verb1ON1 will turn all atom pairs on.
+
+   By default, the the matching of symmetrical atoms is turned-off
+
+
+\item[TRIMZONES]
+   This command is used primarily with fitting zones derived using \verb1ALIGN1. 
+   With pairwise alignments, the lengths of the aligned regions may vary and
+   there may be gaps in the alignments from one structure to another. The 
+   \verb1TRIMZONES1 command trims the ends of the aligned zones and adds gaps 
+   allowing for a like versus like comparison by using fitting zones that are
+   common to all the structures.
+
+   \verb1TRIMZONES1 is automatically called by the \verb1ALLVSALL1 and 
+   \verb1SETREF1 commands. 
+   This command is only used with multiple structures.
+
+\item[WEIGHT] Weight the fitting by the mean of the B-values in the
+equivalent atoms.
+
+\item[WRITE [ REFerence \mbox{]} \emph{\bfseries filename}] Writes the fitted structure
+to a PDB file. If the first character of the filename is a pipe
+character ($\mid$), then the results will be piped into the specified
+program. For example:
+\begin{verbatim}
+   WRITE |less
+\end{verbatim}
+will cause the coordinates to be displayed on the screen using the
+\verb1less1 pager program.
+
+If the \verb1REFERENCE1 keyword is given (only the letters `REF' are
+required), then the reference set will be written. This is used in
+conjunction with the \verb1CENTRE1 command.
+
+\item[WTAVERAGE [ ON$\mid$OFF \mbox{]}]
+
+   Sets the weighting system for the averaged reference structure to the 
+   default weighting system where the change in the coordinates of the 
+   reference structure is inversely proportional to the number of mobile 
+   strucures. The weighted averaging scheme was introduced to lower the 
+   effect that outlying structures have on the averaged reference.
+   (Default: ON)
+
+   The alternative weighting scheme sets the coordinates of the 
+   reference stucture to the average of the reference and the mobile 
+   structures. This was the scheme used by ProFit prior to version 3.0. 
+   (\verb1WTAVERAGE OFF1)
+
+\item[ZONE \emph{zonespec}] Adds a zone specification to the list of
+zones considered in fitting. \verb1ZONE *1 or \verb1ZONE1 \verb1CLEAR1
+removes all zone specifications.
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Copyright}
+
+Please note that the program is called \pf\ --- not PROFIT, Profit or
+profit; this attempts to avoid confusion with the threading program
+known as PROFIT. \pf\ was written first and released to the public
+around the same time. 
+
+\pf\ is pronounced as it is written, i.e.\ `pro' (as in `protein') then
+`fit' (not `profit' as in `make lots of money'!
+
+\pf\ was initially written by Dr Andrew C.R. Martin while self-employed and 
+trading as {\sffamily SciTech Software}. 
+Enhancements have been made since at UCL and at the University of Reading. 
+Addition of iteration and multiple fitting was sponsored by Inpharmatica, Ltd. 
+Enhancements in V2.6 and V3.0 were made possible by a Tools and Resources 
+grant from the BBSRC.
+
+
+
+\begin{quotation}
+This program is not in the public domain.
+
+It may not be copied or made available to third parties, but may be
+freely used by non-profit-making organisations and commercial
+companies who have obtained it directly from the author or by FTP or
+HTTP from the author's web sites.
+
+If you did not register the program via the web site, you are
+requested to send EMail to the author to say that you are using this
+code so that you may be informed of future updates.
+
+The code may not be made available on other FTP or Web sites without
+express permission from the author.
+
+The code may be modified as required, but any modifications must be
+documented so that the person responsible can be identified. If
+someone else breaks this code, the author doesn't want to be blamed
+for code that does not work! You may not distribute any modifications,
+but are encouraged to send them to the author so that they may be
+incorporated into future versions of the code.
+
+While the compiled \pf\ program may be used by commercial companies,
+it may not be sold commercially or included as part of a commercial
+product. The source code or any derivative works may not be sold
+commercially or used for commercial purposes outside of \pf\ without
+prior permission from the author.
+\end{quotation}
+
+\vspace{2em}
+
+While this software is provided ``as is'' and free of charge, I
+do appreciate hearing from people who use it and find it useful. An
+EMail or a postcard would be nice.
+
+If you find \pf\ useful, please tell your colleagues about it. Please
+\emph{do not} pass copies of \pf\ on to them directly; ask them to
+obtain it \emph{via} my World Wide Web page
+(\verb1http://www.bioinf.org.uk/software/profit/1)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{How do I Reference \pf?}
+
+No paper has been published describing \pf\ itself since it is simply
+a convenient program (I hope) to let you use a standard fitting
+algorithm; consequently, it is a little difficult to reference. The
+exact wording is up to you and dependent on the context, but I suggest
+something similar to:
+
+\begin{quotation}
+Fitting was performed using the McLachlan algorithm (McLachlan, A.D.,
+1982 ``Rapid Comparison of Protein Structres'', Acta Cryst A38,
+871-873) as implemented in the program ProFit (Martin, A.C.R. and
+Porter, C.T.,
+\verb1http://www.bioinf.org.uk/software/profit/1) 
+\end{quotation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Acknowledgements}
+
+Inpharmatica Ltd. are acknowledged for funding development of V2.0 of ProFit. 
+The BBSRC are acknowledged for funding development of V2.6 and V3.0 of ProFit.
+
+\end{document}

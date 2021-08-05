@@ -1,0 +1,107 @@
+\hypertarget{_write_p_i_r_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Write\-P\-I\-R.c File Reference}
+\label{_write_p_i_r_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Write\-P\-I\-R.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Write\-P\-I\-R.\-c}}
+}
+
+
+Writes a P\-I\-R sequence file.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}seq.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_write_p_i_r_8c_a3a1ccadc40fd5bebd6992853d958759c}{bl\-Write\-One\-String\-P\-I\-R} (F\-I\-L\-E $\ast$out, char $\ast$label, char $\ast$title, char $\ast$sequence, char $\ast$$\ast$chain\-Labels, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} By\-Chain, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} do\-Fasta)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Writes a P\-I\-R sequence file. \begin{DoxyVersion}{Version}
+V1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+11.\-06.\-16 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 11.\-06.\-15 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_write_p_i_r_8c_source}{Write\-P\-I\-R.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_write_p_i_r_8c_a3a1ccadc40fd5bebd6992853d958759c}{\index{Write\-P\-I\-R.\-c@{Write\-P\-I\-R.\-c}!bl\-Write\-One\-String\-P\-I\-R@{bl\-Write\-One\-String\-P\-I\-R}}
+\index{bl\-Write\-One\-String\-P\-I\-R@{bl\-Write\-One\-String\-P\-I\-R}!WritePIR.c@{Write\-P\-I\-R.\-c}}
+\subsubsection[{bl\-Write\-One\-String\-P\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-One\-String\-P\-I\-R (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{out, }
+\item[{char $\ast$}]{label, }
+\item[{char $\ast$}]{title, }
+\item[{char $\ast$}]{sequence, }
+\item[{char $\ast$$\ast$}]{chain\-Labels, }
+\item[{{\bf B\-O\-O\-L}}]{By\-Chain, }
+\item[{{\bf B\-O\-O\-L}}]{do\-Fasta}
+\end{DoxyParamCaption}
+)}}\label{_write_p_i_r_8c_a3a1ccadc40fd5bebd6992853d958759c}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$out} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$label} & Sequence label \\
+\hline
+\mbox{\tt in}  & {\em $\ast$title} & Sequence title \\
+\hline
+\mbox{\tt in}  & {\em $\ast$sequence} & Sequence (1-\/letter code) with chains separated by $\ast$ \\
+\hline
+\mbox{\tt in}  & {\em $\ast$$\ast$chain\-Labels} & Chain labels (may be set to N\-U\-L\-L unless By\-Chain is set) \\
+\hline
+\mbox{\tt in}  & {\em By\-Chain} & Print a separate header for each chain \\
+\hline
+\mbox{\tt in}  & {\em do\-Fasta} & Output F\-A\-S\-T\-A format instead of P\-I\-R\\
+\hline
+\end{DoxyParams}
+Writes a P\-I\-R sequence file from a 1-\/letter code sequence. Multiple chains are split with '$\ast$'. If By\-Chain is set the the chain\-Labels array must be non-\/\-N\-U\-L\-L and contains labels for each chain Adds a terminating $\ast$ if required.
+
+
+\begin{DoxyItemize}
+\item 10.\-05.\-94 Original By\-: A\-C\-R\-M
+\item 22.\-08.\-97 Can now handle chains separately
+\item 26.\-08.\-97 If chains are handled separately, don't bother writing out an empty chain
+\item 10.\-08.\-98 Basically a total rewrite to fix a bug which caused the header not to be printed with -\/c -\/p for a chain after one which was non-\/protein. Much simplified the code by printing the header at the beginning of a chain rather than end of previous chain.
+\item 18.\-10.\-00 Added code to write F\-A\-S\-T\-A as well
+\item 11.\-06.\-15 Reset count=0 after a $\ast$ -\/ tidies up the output! 
+\end{DoxyItemize}
+
+Definition at line 116 of file Write\-P\-I\-R.\-c.
+

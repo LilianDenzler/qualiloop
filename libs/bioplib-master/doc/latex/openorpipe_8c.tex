@@ -1,0 +1,153 @@
+\hypertarget{openorpipe_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/openorpipe.c File Reference}
+\label{openorpipe_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/openorpipe.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/openorpipe.\-c}}
+}
+
+
+Open a file for writing unless the filename starts with a $|$ in which case open as a pipe.  
+
+
+{\ttfamily \#include \char`\"{}port.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen} (char $\ast$, char $\ast$)
+\item 
+int \hyperlink{openorpipe_8c_a92e41b535f1505676ed8cbe5896606d5}{pclose} (F\-I\-L\-E $\ast$)
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{openorpipe_8c_ac89a4227e0a95ce3865e21fa60b66ca3}{bl\-Open\-Or\-Pipe} (char $\ast$filename)
+\item 
+int \hyperlink{openorpipe_8c_a1273c967c46a56b7ba0b928b421aff40}{bl\-Close\-Or\-Pipe} (F\-I\-L\-E $\ast$fp)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Open a file for writing unless the filename starts with a $|$ in which case open as a pipe. \begin{DoxyVersion}{Version}
+V1.\-10 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+17.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1997-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 26.\-05.\-97 Original By\-: A\-C\-R\-M
+\item V1.\-1 26.\-06.\-97 Added calls to signal()
+\item V1.\-2 27.\-02.\-98 Uses \hyperlink{port_8h}{port.\-h}
+\item V1.\-3 18.\-08.\-98 Added cast to \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} for Sun\-O\-S
+\item V1.\-4 28.\-01.\-04 Added N\-O\-P\-I\-P\-E define. Allows compilation on systems which don't support unix pipes
+\item V1.\-5 03.\-02.\-06 Added prototypes for \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} and \hyperlink{openorpipe_8c_a92e41b535f1505676ed8cbe5896606d5}{pclose()}
+\item V1.\-6 29.\-06.\-07 \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} and \hyperlink{openorpipe_8c_a92e41b535f1505676ed8cbe5896606d5}{pclose()} prototypes now skipped for M\-A\-C O\-S\-X which defines them differently
+\item V1.\-7 17.\-03.\-09 \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} prototype now skipped for Windows.
+\item V1.\-8 02.\-04.\-09 Clean compile with N\-O\-P\-I\-P\-E defined
+\item V1.\-9 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-10 17.\-07.\-14 Added 'stdout' as a special file which maps to standard output 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{openorpipe_8c_source}{openorpipe.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{openorpipe_8c_a1273c967c46a56b7ba0b928b421aff40}{\index{openorpipe.\-c@{openorpipe.\-c}!bl\-Close\-Or\-Pipe@{bl\-Close\-Or\-Pipe}}
+\index{bl\-Close\-Or\-Pipe@{bl\-Close\-Or\-Pipe}!openorpipe.c@{openorpipe.\-c}}
+\subsubsection[{bl\-Close\-Or\-Pipe}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Close\-Or\-Pipe (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}}\label{openorpipe_8c_a1273c967c46a56b7ba0b928b421aff40}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer to be closed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code (as for fclose())
+\end{DoxyReturn}
+Attempts to close a file pointer as a pipe. If it isn't associated with a pipe (i.\-e. pclose returns (-\/1)), tries again to close it as a normal file.
+
+
+\begin{DoxyItemize}
+\item 26.\-05.\-97 Original By\-: A\-C\-R\-M
+\item 26.\-06.\-97 Added call to signal()
+\item 28.\-01.\-05 Added N\-O\-P\-I\-P\-E define
+\item 02.\-04.\-09 Moved 'int ret' to be in the \#else
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 17.\-07.\-14 Added check that the file pointer isn't stdout By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 172 of file openorpipe.\-c.
+
+\hypertarget{openorpipe_8c_ac89a4227e0a95ce3865e21fa60b66ca3}{\index{openorpipe.\-c@{openorpipe.\-c}!bl\-Open\-Or\-Pipe@{bl\-Open\-Or\-Pipe}}
+\index{bl\-Open\-Or\-Pipe@{bl\-Open\-Or\-Pipe}!openorpipe.c@{openorpipe.\-c}}
+\subsubsection[{bl\-Open\-Or\-Pipe}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ bl\-Open\-Or\-Pipe (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}}\label{openorpipe_8c_ac89a4227e0a95ce3865e21fa60b66ca3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$filename} & A file or pipe to be opened \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A file pointer
+\end{DoxyReturn}
+Opens a file for writing unless the filename begins with a $|$ in which case it is opened as a pipe.
+
+Broken pipe signals are ignored.
+
+
+\begin{DoxyItemize}
+\item 26.\-05.\-97 Original By\-: A\-C\-R\-M
+\item 26.\-06.\-97 Added call to signal()
+\item 18.\-08.\-98 Added case to \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} for Sun\-O\-S
+\item 28.\-01.\-05 Added N\-O\-P\-I\-P\-E define
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 17.\-07.\-14 Added special 'stdout' file By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 128 of file openorpipe.\-c.
+
+\hypertarget{openorpipe_8c_a92e41b535f1505676ed8cbe5896606d5}{\index{openorpipe.\-c@{openorpipe.\-c}!pclose@{pclose}}
+\index{pclose@{pclose}!openorpipe.c@{openorpipe.\-c}}
+\subsubsection[{pclose}]{\setlength{\rightskip}{0pt plus 5cm}int pclose (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{openorpipe_8c_a92e41b535f1505676ed8cbe5896606d5}
+\hypertarget{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{\index{openorpipe.\-c@{openorpipe.\-c}!popen@{popen}}
+\index{popen@{popen}!openorpipe.c@{openorpipe.\-c}}
+\subsubsection[{popen}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ popen (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{char $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}

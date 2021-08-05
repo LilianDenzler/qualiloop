@@ -1,0 +1,60 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.17;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifndef __CGPARSE_H__
+#define __CGPARSE_H__
+
+
+#define NSIDEOPT 5
+static int nsideopt = NSIDEOPT;
+#define SIDEOPTWIDTH 3
+static int sideoptwidth = SIDEOPTWIDTH;
+static char st_sideopt[NSIDEOPT][4*SIDEOPTWIDTH] = {
+            "FIRST      ",
+            "INDEPENDENT",
+            "ALL        ",
+            "COMBINATION",
+            "ITERATIVE  " };
+ 
+#define NEVALOPT 2
+static int nevalopt = NEVALOPT;
+#define EVALOPTWIDTH 2
+static int evaloptwidth = EVALOPTWIDTH;
+static char st_evalopt[NEVALOPT][4*EVALOPTWIDTH] = {
+            "ENERGY ",
+            "RMS    " };
+static int l_evalopt[NEVALOPT] = { 6,3 };
+ 
+static char *move_name[] = {
+            "",
+            "Chain Closure",
+            "Backbone",
+            "Side Chain",
+            "Write Coordinates",
+            "Status",
+            "Read Best Conformations",
+            "Evaluate" };
+
+
+#endif
+@

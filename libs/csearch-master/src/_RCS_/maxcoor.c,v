@@ -1,0 +1,43 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.02;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+float maxcoor(
+float *a,
+int   n
+)
+{
+   float anum = 9999.0,
+         maxval = -9999.0;
+   int   i;
+ 
+   for(i=0;i<n;i++)
+      if(a[i] != anum) maxval = maxf2(maxval,a[i]);
+   if(maxval == -anum) maxval = 0.0;
+ 
+   return(maxval);
+}
+ 
+@

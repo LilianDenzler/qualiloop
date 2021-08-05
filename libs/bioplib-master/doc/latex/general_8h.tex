@@ -1,0 +1,1341 @@
+\hypertarget{general_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/general.h File Reference}
+\label{general_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/general.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/general.\-h}}
+}
+
+
+Header file for general purpose routines.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__stringlist}{\-\_\-stringlist}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{general_8h_ad2f18620ba3d5dc5cf204c70f515b666}{F\-R\-E\-E\-S\-T\-R\-I\-N\-G\-L\-I\-S\-T}(l)
+\item 
+\#define \hyperlink{general_8h_acbcb71dec341b2e39559ab23f925f479}{\-\_\-\-G\-E\-N\-E\-R\-A\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct__stringlist}{\-\_\-stringlist} \hyperlink{general_8h_a9689e1c779b5f538d971aa687c441210}{S\-T\-R\-I\-N\-G\-L\-I\-S\-T}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{general_8h_a4ba273766cb8e3f5b32eaa226c3e0fc7}{bl\-String\-To\-Lower} (char $\ast$string1, char $\ast$string2)
+\item 
+void \hyperlink{general_8h_aedf1772a9e444145f5f692f8d7827015}{bl\-String\-To\-Upper} (char $\ast$string1, char $\ast$string2)
+\item 
+char $\ast$ \hyperlink{general_8h_a343dd1cffc43f451113e38dc681f8868}{bl\-Kill\-Lead\-Spaces} (char $\ast$string)
+\item 
+void \hyperlink{general_8h_a6cfc94e83ff4825e293a29ade5317d88}{bl\-Kill\-Line} (F\-I\-L\-E $\ast$fp)
+\item 
+void \hyperlink{general_8h_ae5bf7680943b697923bc16e550896d1a}{bl\-Set\-Extn} (char $\ast$File, char $\ast$Ext)
+\item 
+int \hyperlink{general_8h_a2a6525116fbb20bd7232197f58da5cb3}{bl\-Chindex} (char $\ast$string, char ch)
+\item 
+void \hyperlink{general_8h_a38df4250c9dac963202207bd6e37f204}{bl\-Word} (char $\ast$string1, char $\ast$string2)
+\item 
+void \hyperlink{general_8h_a6a91862f4f4ccfc0f6a73631c0aa5726}{bl\-Word\-N} (char $\ast$string1, char $\ast$string2, int Max\-Char)
+\item 
+void \hyperlink{general_8h_af3e38629eb9182b36af7bf960d3758d8}{bl\-Padterm} (char $\ast$string, int length)
+\item 
+void \hyperlink{general_8h_a3d51946e1ce17558766a0984c5d77914}{bl\-Padchar} (char $\ast$string, int length, char ch)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{general_8h_a7f77cdab603f1f33435df9e1584d701a}{bl\-Check\-Extn} (char $\ast$string, char $\ast$ext)
+\item 
+char $\ast$ \hyperlink{general_8h_adf14ae6edb2230b1198bf3e7bbe87da2}{bl\-Ftostr} (char $\ast$str, int maxlen, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, int precision)
+\item 
+void \hyperlink{general_8h_ae5fb53bf91cc5152904110964f053262}{bl\-Get\-Filestem} (char $\ast$filename, char $\ast$stem)
+\item 
+int \hyperlink{general_8h_ab7da15f8d8ceef1b0f8d599c22eb5469}{bl\-Upstrcmp} (char $\ast$word1, char $\ast$word2)
+\item 
+int \hyperlink{general_8h_a6408a18d4fe862bb0c2051de495b2456}{bl\-Upstrncmp} (char $\ast$word1, char $\ast$word2, int ncomp)
+\item 
+char $\ast$ \hyperlink{general_8h_ae5bab9f31883eae5ccf5a0a33bda73c2}{bl\-Get\-Word} (char $\ast$buffer, char $\ast$word, int maxsize)
+\item 
+char $\ast$$\ast$ \hyperlink{general_8h_a78bedd3b9e96196fe6eb9fe9bcd1e19b}{bl\-Split\-String\-On\-Commas} (char $\ast$string, int min\-Item\-Len)
+\item 
+char $\ast$$\ast$ \hyperlink{general_8h_a62e1ec6a65252619dd1060bdd68bc7a5}{bl\-Split\-String\-On\-Chars} (char $\ast$string)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{general_8h_a1f4aab78fc238d3315311d816e756592}{bl\-Open\-Std\-Files} (char $\ast$infile, char $\ast$outfile, F\-I\-L\-E $\ast$$\ast$in, F\-I\-L\-E $\ast$$\ast$out)
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{general_8h_a1d4ddefb8433489fe4d855938943c4b7}{bl\-Open\-File} (char $\ast$filename, char $\ast$envvar, char $\ast$mode, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} $\ast$noenv)
+\item 
+int \hyperlink{general_8h_a954ee779da9b59fcbb2065ac61e21c91}{bl\-Countchar} (char $\ast$string, char ch)
+\item 
+char $\ast$ \hyperlink{general_8h_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany} (F\-I\-L\-E $\ast$fp)
+\item 
+char $\ast$ \hyperlink{general_8h_afcb923c739bf3a71e89e724e42a23af3}{bl\-Strcatalloc} (char $\ast$instr, char $\ast$catstr)
+\item 
+char $\ast$ \hyperlink{general_8h_a6b5045229f8ad05a80f24126203cc2d8}{bl\-Strncat} (char $\ast$out, const char $\ast$in, size\-\_\-t len)
+\item 
+\hyperlink{general_8h_a9689e1c779b5f538d971aa687c441210}{S\-T\-R\-I\-N\-G\-L\-I\-S\-T} $\ast$ \hyperlink{general_8h_a6729e97bc8fa920ae9391a6fb91dc5be}{bl\-Store\-String} (\hyperlink{general_8h_a9689e1c779b5f538d971aa687c441210}{S\-T\-R\-I\-N\-G\-L\-I\-S\-T} $\ast$String\-List, char $\ast$string)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{general_8h_a318621be88adcea6523add25a804f438}{bl\-In\-String\-List} (\hyperlink{general_8h_a9689e1c779b5f538d971aa687c441210}{S\-T\-R\-I\-N\-G\-L\-I\-S\-T} $\ast$String\-List, char $\ast$string)
+\item 
+void \hyperlink{general_8h_a5a7f5b9d2713c87a595340f5c2c9590f}{bl\-Free\-String\-List} (\hyperlink{general_8h_a9689e1c779b5f538d971aa687c441210}{S\-T\-R\-I\-N\-G\-L\-I\-S\-T} $\ast$String\-List)
+\item 
+char $\ast$ \hyperlink{general_8h_acdc27ff9b62a98ded5d9c714f0e444e7}{bl\-Query\-Str\-Str} (char $\ast$string, char $\ast$substring)
+\item 
+void \hyperlink{general_8h_ab497c8d98d541e0bb843b002439641d4}{bl\-Index\-Real} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$arrin, int $\ast$indx, int n)
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{general_8h_ac89a4227e0a95ce3865e21fa60b66ca3}{bl\-Open\-Or\-Pipe} (char $\ast$filename)
+\item 
+int \hyperlink{general_8h_a1273c967c46a56b7ba0b928b421aff40}{bl\-Close\-Or\-Pipe} (F\-I\-L\-E $\ast$fp)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{general_8h_acccb9091b4202013b48322965cb19dcf}{bl\-Wrap\-String} (char $\ast$in, char $\ast$out, int maxlen)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{general_8h_af558d2efeb2ba23931396882d32f3fe9}{bl\-Wrap\-Print} (F\-I\-L\-E $\ast$out, char $\ast$string)
+\item 
+void \hyperlink{general_8h_ad1ba646ac012e961c10d1fe26cd4cce7}{bl\-Right\-Justify} (char $\ast$string)
+\item 
+char $\ast$ \hyperlink{general_8h_a2a5476282817a78d1532407c76a095d1}{bl\-Get\-Word\-N\-C} (char $\ast$buffer, char $\ast$word, int maxlen)
+\item 
+void \hyperlink{general_8h_ac8793089a43729df92f62854914dd11a}{bl\-Getfield} (char $\ast$buffer, int start, int width, char $\ast$str)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{general_8h_ab679cd4204deabe5b01ef7b346b66eba}{bl\-Check\-Prog\-Name} (char $\ast$name, char $\ast$expected)
+\item 
+char $\ast$ \hyperlink{general_8h_a2f9caac3ea9d130adfb79dc3d8dd44f7}{bl\-Collapse\-Spaces} (char $\ast$in\-Text)
+\item 
+char $\ast$ \hyperlink{general_8h_adfc7bbb71e472cb8edba7bbcd0f3e772}{bl\-Remove\-Spaces} (char $\ast$in\-Text)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for general purpose routines. \begin{DoxyVersion}{Version}
+V1.\-22 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+10.\-11.\-17 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1994-\/2017 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 11.\-05.\-94 Original By\-: A\-C\-R\-M
+\item V1.\-1 24.\-08.\-94 Added Open\-Std\-Files()
+\item V1.\-2 22.\-09.\-94 Added Open\-File()
+\item V1.\-3 17.\-07.\-95 Added countchar()
+\item V1.\-4 11.\-09.\-95 Added fgetsany()
+\item V1.\-5 18.\-10.\-95 Moved Yor\-N() to \hyperlink{_wind_i_o_8h}{Wind\-I\-O.\-h}
+\item V1.\-6 06.\-11.\-95 Added Store\-String(), In\-String\-List() and Free\-String\-List()
+\item V1.\-7 15.\-12.\-95 Added Query\-Str\-Str()
+\item V1.\-8 09.\-07.\-96 Added Indx\-Real()
+\item V1.\-9 18.\-09.\-96 Added padchar()
+\item V1.\-11 13.\-06.\-00 Added strcatalloc()
+\item V1.\-12 30.\-05.\-02 Added Wrap\-String(), Wrap\-Print(), Right\-Justify(), Get\-Word\-N\-C() and getfield()
+\item V1.\-13 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-14 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-15 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P
+\item V1.\-16 10.\-03.\-15 Added \hyperlink{general_8h_a78bedd3b9e96196fe6eb9fe9bcd1e19b}{bl\-Split\-String\-On\-Commas()} By\-: A\-C\-R\-M
+\item V1.\-17 12.\-03.\-15 Added \hyperlink{general_8h_a62e1ec6a65252619dd1060bdd68bc7a5}{bl\-Split\-String\-On\-Chars()}, \hyperlink{filename_8c_ae1a090231e92e19926215f1d7feecbed}{bl\-Check\-Prog\-Name()}
+\item V1.\-18 26.\-03.\-15 Added \hyperlink{general_8h_a6b5045229f8ad05a80f24126203cc2d8}{bl\-Strncat()}
+\item V1.\-19 28.\-04.\-15 Added \hyperlink{general_8h_a2f9caac3ea9d130adfb79dc3d8dd44f7}{bl\-Collapse\-Spaces()}
+\item V1.\-20 14.\-05.\-15 Added \hyperlink{hash_8h_aa78d7f1c3e3e9c611b6ebf61475ed358}{bl\-Strdup()}
+\item V1.\-21 26.\-06.\-15 Added \hyperlink{general_8h_ad2f18620ba3d5dc5cf204c70f515b666}{F\-R\-E\-E\-S\-T\-R\-I\-N\-G\-L\-I\-S\-T()} macro
+\item V1.\-22 10.\-11.\-17 Added \hyperlink{general_8h_adfc7bbb71e472cb8edba7bbcd0f3e772}{bl\-Remove\-Spaces()} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{general_8h_source}{general.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{general_8h_acbcb71dec341b2e39559ab23f925f479}{\index{general.\-h@{general.\-h}!\-\_\-\-G\-E\-N\-E\-R\-A\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-G\-E\-N\-E\-R\-A\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-G\-E\-N\-E\-R\-A\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-G\-E\-N\-E\-R\-A\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!general.h@{general.\-h}}
+\subsubsection[{\-\_\-\-G\-E\-N\-E\-R\-A\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-G\-E\-N\-E\-R\-A\-L\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{general_8h_acbcb71dec341b2e39559ab23f925f479}
+
+
+Definition at line 147 of file general.\-h.
+
+\hypertarget{general_8h_ad2f18620ba3d5dc5cf204c70f515b666}{\index{general.\-h@{general.\-h}!F\-R\-E\-E\-S\-T\-R\-I\-N\-G\-L\-I\-S\-T@{F\-R\-E\-E\-S\-T\-R\-I\-N\-G\-L\-I\-S\-T}}
+\index{F\-R\-E\-E\-S\-T\-R\-I\-N\-G\-L\-I\-S\-T@{F\-R\-E\-E\-S\-T\-R\-I\-N\-G\-L\-I\-S\-T}!general.h@{general.\-h}}
+\subsubsection[{F\-R\-E\-E\-S\-T\-R\-I\-N\-G\-L\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-E\-S\-T\-R\-I\-N\-G\-L\-I\-S\-T(
+\begin{DoxyParamCaption}
+\item[{}]{l}
+\end{DoxyParamCaption}
+)}}\label{general_8h_ad2f18620ba3d5dc5cf204c70f515b666}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                          \hyperlink{general_8h_a9689e1c779b5f538d971aa687c441210}{\(\backslash\)}
+\hyperlink{general_8h_a9689e1c779b5f538d971aa687c441210}{      STRINGLIST} *\_s = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL};                            \(\backslash\)
+      for(\_s = (l); \_s != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{NEXT}(\_s)) \{             \(\backslash\)
+         if(\_s->string != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) free(\_s->\textcolor{keywordtype}{string});       \(\backslash\)
+      \}                                                 \(\backslash\)
+      \hyperlink{macros_8h_a4151f4e24778e7b290ec804c29c91f27}{FREELIST}((l), \hyperlink{struct__stringlist}{STRINGLIST});                        \(\backslash\)
+   \}                                                    \(\backslash\)
+   while(0)
+\end{DoxyCode}
+
+
+Definition at line 89 of file general.\-h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{general_8h_a9689e1c779b5f538d971aa687c441210}{\index{general.\-h@{general.\-h}!S\-T\-R\-I\-N\-G\-L\-I\-S\-T@{S\-T\-R\-I\-N\-G\-L\-I\-S\-T}}
+\index{S\-T\-R\-I\-N\-G\-L\-I\-S\-T@{S\-T\-R\-I\-N\-G\-L\-I\-S\-T}!general.h@{general.\-h}}
+\subsubsection[{S\-T\-R\-I\-N\-G\-L\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \-\_\-stringlist}   {\bf S\-T\-R\-I\-N\-G\-L\-I\-S\-T}}}\label{general_8h_a9689e1c779b5f538d971aa687c441210}
+
+
+\subsection{Function Documentation}
+\hypertarget{general_8h_a7f77cdab603f1f33435df9e1584d701a}{\index{general.\-h@{general.\-h}!bl\-Check\-Extn@{bl\-Check\-Extn}}
+\index{bl\-Check\-Extn@{bl\-Check\-Extn}!general.h@{general.\-h}}
+\subsubsection[{bl\-Check\-Extn}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Check\-Extn (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{char $\ast$}]{ext}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a7f77cdab603f1f33435df9e1584d701a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & String to be checked for given extension \\
+\hline
+\mbox{\tt in}  & {\em $\ast$ext} & Extension to check for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Found?
+\end{DoxyReturn}
+Check the extension of a filename. For use on machines like V\-A\-Xes, M\-S-\/\-D\-O\-S and Amigas, everything is converted to upper case first.
+
+
+\begin{DoxyItemize}
+\item 18.\-06.\-93 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 120 of file Check\-Extn.\-c.
+
+\hypertarget{general_8h_ab679cd4204deabe5b01ef7b346b66eba}{\index{general.\-h@{general.\-h}!bl\-Check\-Prog\-Name@{bl\-Check\-Prog\-Name}}
+\index{bl\-Check\-Prog\-Name@{bl\-Check\-Prog\-Name}!general.h@{general.\-h}}
+\subsubsection[{bl\-Check\-Prog\-Name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Check\-Prog\-Name (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{progname, }
+\item[{char $\ast$}]{expected}
+\end{DoxyParamCaption}
+)}}\label{general_8h_ab679cd4204deabe5b01ef7b346b66eba}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$filename} & A P\-D\-B filename containing a P\-D\-B code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Does the program name match?
+\end{DoxyReturn}
+This routine strips the path and checks a program name.
+
+
+\begin{DoxyItemize}
+\item 12.\-03.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 92 of file filename.\-c.
+
+\hypertarget{general_8h_a2a6525116fbb20bd7232197f58da5cb3}{\index{general.\-h@{general.\-h}!bl\-Chindex@{bl\-Chindex}}
+\index{bl\-Chindex@{bl\-Chindex}!general.h@{general.\-h}}
+\subsubsection[{bl\-Chindex}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Chindex (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{char}]{ch}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a2a6525116fbb20bd7232197f58da5cb3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & A string \\
+\hline
+\mbox{\tt in}  & {\em ch} & A character for which to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The offset of ch in string.
+\end{DoxyReturn}
+Returns the offset of a character in a string. -\/1 if not found. This is used in a similar manner to strchr(), but gives an offset in the string rather than a pointer to the character.
+
+
+\begin{DoxyItemize}
+\item 10.\-02.\-91 Original
+\item 28.\-05.\-92 A\-N\-S\-Ied
+\item 06.\-10.\-93 Changed name to chindex() to avoid U\-N\-I\-X name clash
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 122 of file chindex.\-c.
+
+\hypertarget{general_8h_a1273c967c46a56b7ba0b928b421aff40}{\index{general.\-h@{general.\-h}!bl\-Close\-Or\-Pipe@{bl\-Close\-Or\-Pipe}}
+\index{bl\-Close\-Or\-Pipe@{bl\-Close\-Or\-Pipe}!general.h@{general.\-h}}
+\subsubsection[{bl\-Close\-Or\-Pipe}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Close\-Or\-Pipe (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a1273c967c46a56b7ba0b928b421aff40}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer to be closed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code (as for fclose())
+\end{DoxyReturn}
+Attempts to close a file pointer as a pipe. If it isn't associated with a pipe (i.\-e. pclose returns (-\/1)), tries again to close it as a normal file.
+
+
+\begin{DoxyItemize}
+\item 26.\-05.\-97 Original By\-: A\-C\-R\-M
+\item 26.\-06.\-97 Added call to signal()
+\item 28.\-01.\-05 Added N\-O\-P\-I\-P\-E define
+\item 02.\-04.\-09 Moved 'int ret' to be in the \#else
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 17.\-07.\-14 Added check that the file pointer isn't stdout By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 172 of file openorpipe.\-c.
+
+\hypertarget{general_8h_a2f9caac3ea9d130adfb79dc3d8dd44f7}{\index{general.\-h@{general.\-h}!bl\-Collapse\-Spaces@{bl\-Collapse\-Spaces}}
+\index{bl\-Collapse\-Spaces@{bl\-Collapse\-Spaces}!general.h@{general.\-h}}
+\subsubsection[{bl\-Collapse\-Spaces}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Collapse\-Spaces (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{in\-Text}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a2f9caac3ea9d130adfb79dc3d8dd44f7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$in\-Text} & Input text string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+malloc()'d string with multiple spaces collapsed
+\end{DoxyReturn}
+Takes a string and collapses multiple spaces down to a single space Equivalent of perl 's/+/ /g' The input string is unmodified and malloc()s the output.
+
+28.\-04.\-15 Original By\-: A\-C\-R\-M 
+
+Definition at line 110 of file stringutil.\-c.
+
+\hypertarget{general_8h_a954ee779da9b59fcbb2065ac61e21c91}{\index{general.\-h@{general.\-h}!bl\-Countchar@{bl\-Countchar}}
+\index{bl\-Countchar@{bl\-Countchar}!general.h@{general.\-h}}
+\subsubsection[{bl\-Countchar}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Countchar (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{char}]{ch}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a954ee779da9b59fcbb2065ac61e21c91}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & String to search for characters \\
+\hline
+\mbox{\tt in}  & {\em ch} & Character for which to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of occurrences of ch in string
+\end{DoxyReturn}
+Counts occurrences of charcater ch in string, string.
+
+
+\begin{DoxyItemize}
+\item 17.\-07.\-95 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 115 of file countchar.\-c.
+
+\hypertarget{general_8h_a63b80964ef28655814582cad09dbc69a}{\index{general.\-h@{general.\-h}!bl\-Fgetsany@{bl\-Fgetsany}}
+\index{bl\-Fgetsany@{bl\-Fgetsany}!general.h@{general.\-h}}
+\subsubsection[{bl\-Fgetsany}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Fgetsany (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a63b80964ef28655814582cad09dbc69a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer open for reading \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Allocated string or N\-U\-L\-L on E\-O\-F and no memory (errno==E\-N\-O\-M\-E\-M)
+\end{DoxyReturn}
+\hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany()} provides a routine like fgets() for reading strings from a file, but does not require you to impose a limit on the length of string which may be read. \hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany()} allocates memory to store a string of any length and returns a pointer to that allocated memory. After use, this memory must be freed by the calling routine.
+
+\hyperlink{fgetsany_8c_a63b80964ef28655814582cad09dbc69a}{bl\-Fgetsany()} returns N\-U\-L\-L on end-\/of-\/file and if memory allocation failed. It uses the global `errno' variable to indicate a memory allocation failure (errno==E\-N\-O\-M\-E\-M).
+
+
+\begin{DoxyItemize}
+\item 11.\-09.\-95 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 143 of file fgetsany.\-c.
+
+\hypertarget{general_8h_a5a7f5b9d2713c87a595340f5c2c9590f}{\index{general.\-h@{general.\-h}!bl\-Free\-String\-List@{bl\-Free\-String\-List}}
+\index{bl\-Free\-String\-List@{bl\-Free\-String\-List}!general.h@{general.\-h}}
+\subsubsection[{bl\-Free\-String\-List}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Free\-String\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-R\-I\-N\-G\-L\-I\-S\-T} $\ast$}]{String\-List}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a5a7f5b9d2713c87a595340f5c2c9590f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$\-String\-List} & Linked list of strings\\
+\hline
+\end{DoxyParams}
+Frees memory allocated for a string list.
+
+
+\begin{DoxyItemize}
+\item 06.\-11.\-95 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 122 of file Free\-String\-List.\-c.
+
+\hypertarget{general_8h_adf14ae6edb2230b1198bf3e7bbe87da2}{\index{general.\-h@{general.\-h}!bl\-Ftostr@{bl\-Ftostr}}
+\index{bl\-Ftostr@{bl\-Ftostr}!general.h@{general.\-h}}
+\subsubsection[{bl\-Ftostr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Ftostr (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{int}]{maxlen, }
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{int}]{precision}
+\end{DoxyParamCaption}
+)}}\label{general_8h_adf14ae6edb2230b1198bf3e7bbe87da2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em $\ast$str} & String version of number \\
+\hline
+\mbox{\tt in}  & {\em maxlen} & Max length for f-\/form. Switches to e-\/form if exceeded \\
+\hline
+\mbox{\tt in}  & {\em x} & Number to convert \\
+\hline
+\mbox{\tt in}  & {\em precision} & Number of decimal places If negative, use e-\/form rather than f-\/form \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Same as str
+\end{DoxyReturn}
+Convert a R\-E\-A\-L to a string using precision decimal places. If precision is negative, use e-\/form, otherwise use f-\/form. This is used to generate precisely formatted string versions of numbers for applications where the appearance of a numeric value is important.
+
+
+\begin{DoxyItemize}
+\item 01.\-07.\-92 Original
+\item 07.\-07.\-92 Changed to stop value of -\/0.\-0
+\item 24.\-07.\-92 Added maxlen parameter. If the f-\/form will exceed this number of characters we switch to e-\/form autmatically
+\item 28.\-07.\-92 If precision -\/ve, is never $<$ maxlen-\/5
+\item 27.\-07.\-93 Changed to double precision I/\-O
+\item 09.\-10.\-97 If precision is 0 prints as an integer since C libraries handle \char`\"{}\%.\-0f\char`\"{} inconsistently
+\item 14.\-11.\-97 Oops, had forgotten to fix this in the check for e-\/form
+\item 03.\-06.\-05 Tidied up some loops to stop warnings under G\-C\-C 3.\-2.\-2
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 07.\-08.\-18 fmt\mbox{[}\mbox{]} changed from 8 to 16 to silence gcc 7.\-3.\-1 with -\/\-O2 
+\end{DoxyItemize}
+
+Definition at line 135 of file ftostr.\-c.
+
+\hypertarget{general_8h_ac8793089a43729df92f62854914dd11a}{\index{general.\-h@{general.\-h}!bl\-Getfield@{bl\-Getfield}}
+\index{bl\-Getfield@{bl\-Getfield}!general.h@{general.\-h}}
+\subsubsection[{bl\-Getfield}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Getfield (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{int}]{start, }
+\item[{int}]{width, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{general_8h_ac8793089a43729df92f62854914dd11a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$buffer} & Buffer from which to read a field \\
+\hline
+\mbox{\tt in}  & {\em start} & Starting column (count from 0) \\
+\hline
+\mbox{\tt in}  & {\em width} & Width of field to read \\
+\hline
+\mbox{\tt out}  & {\em $\ast$str} & Field read from buffer\\
+\hline
+\end{DoxyParams}
+Reads a column out of a buffer. If the specfied column extends beyond the size of the buffer, then it will be padded with spaces.
+
+Note that the output string must be of at lease width+1 characters to store the field read from the buffer plus the terminating character.
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 99 of file getfield.\-c.
+
+\hypertarget{general_8h_ae5fb53bf91cc5152904110964f053262}{\index{general.\-h@{general.\-h}!bl\-Get\-Filestem@{bl\-Get\-Filestem}}
+\index{bl\-Get\-Filestem@{bl\-Get\-Filestem}!general.h@{general.\-h}}
+\subsubsection[{bl\-Get\-Filestem}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Get\-Filestem (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{char $\ast$}]{stem}
+\end{DoxyParamCaption}
+)}}\label{general_8h_ae5fb53bf91cc5152904110964f053262}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$filename} & Complete filename \\
+\hline
+\mbox{\tt out}  & {\em $\ast$stem} & The filestem\\
+\hline
+\end{DoxyParams}
+Extracts the filestem from a complete filename. Should work under Unix, V\-M\-S, M\-S-\/\-D\-O\-S, Amiga\-D\-O\-S, etc.
+
+
+\begin{DoxyItemize}
+\item 14.\-04.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 116 of file Get\-Filestem.\-c.
+
+\hypertarget{general_8h_ae5bab9f31883eae5ccf5a0a33bda73c2}{\index{general.\-h@{general.\-h}!bl\-Get\-Word@{bl\-Get\-Word}}
+\index{bl\-Get\-Word@{bl\-Get\-Word}!general.h@{general.\-h}}
+\subsubsection[{bl\-Get\-Word}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Get\-Word (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{char $\ast$}]{word, }
+\item[{int}]{maxlen}
+\end{DoxyParamCaption}
+)}}\label{general_8h_ae5bab9f31883eae5ccf5a0a33bda73c2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$buffer} & Input buffer to read words from \\
+\hline
+\mbox{\tt in}  & {\em maxlen} & Max length of output word \\
+\hline
+\mbox{\tt out}  & {\em $\ast$word} & Word read from buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to start of next word in buffer or N\-U\-L\-L
+\end{DoxyReturn}
+This code is a wrapper to do\-Get\-Word()
+
+Reads a whitespace/comma delimited word out of buffer into word.
+
+Words containing white space may be wrapped in double inverted commas. A \textbackslash{} is used as an escape character and maybe used to escape {\itshape any} following character. In particular\-: \char`\"{}\textbackslash{}\textbackslash{}\char`\"{} -\/$>$ '\textbackslash{}' To get a backslash \char`\"{}\textbackslash{} \char`\"{} -\/$>$ ' ' To get a hard whitespace (alternatively wrap the string in double inverted commas) \char`\"{}\textbackslash{}\char`\"{}\char`\"{} -\/$>$ '\char`\"{}' To get a double inverted comma
+
+
+\begin{DoxyItemize}
+\item 10.\-06.\-99 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 268 of file Get\-Word.\-c.
+
+\hypertarget{general_8h_a2a5476282817a78d1532407c76a095d1}{\index{general.\-h@{general.\-h}!bl\-Get\-Word\-N\-C@{bl\-Get\-Word\-N\-C}}
+\index{bl\-Get\-Word\-N\-C@{bl\-Get\-Word\-N\-C}!general.h@{general.\-h}}
+\subsubsection[{bl\-Get\-Word\-N\-C}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Get\-Word\-N\-C (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{char $\ast$}]{word, }
+\item[{int}]{maxlen}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a2a5476282817a78d1532407c76a095d1}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$buffer} & Input buffer to read words from \\
+\hline
+\mbox{\tt in}  & {\em maxlen} & Max length of output word \\
+\hline
+\mbox{\tt out}  & {\em $\ast$word} & Word read from buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to start of next word in buffer or N\-U\-L\-L
+\end{DoxyReturn}
+This code is a wrapper to do\-Get\-Word()
+
+Reads a whitespace delimited word out of buffer into word. Commas are treated just like normal characters.
+
+Words containing white space may be wrapped in double inverted commas. A \textbackslash{} is used as an escape character and maybe used to escape {\itshape any} following character. In particular\-: \char`\"{}\textbackslash{}\textbackslash{}\char`\"{} -\/$>$ '\textbackslash{}' To get a backslash \char`\"{}\textbackslash{} \char`\"{} -\/$>$ ' ' To get a hard whitespace (alternatively wrap the string in double inverted commas) \char`\"{}\textbackslash{}\char`\"{}\char`\"{} -\/$>$ '\char`\"{}' To get a double inverted comma
+
+
+\begin{DoxyItemize}
+\item 10.\-06.\-99 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 300 of file Get\-Word.\-c.
+
+\hypertarget{general_8h_ab497c8d98d541e0bb843b002439641d4}{\index{general.\-h@{general.\-h}!bl\-Index\-Real@{bl\-Index\-Real}}
+\index{bl\-Index\-Real@{bl\-Index\-Real}!general.h@{general.\-h}}
+\subsubsection[{bl\-Index\-Real}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Index\-Real (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$}]{arrin, }
+\item[{int $\ast$}]{indx, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{general_8h_ab497c8d98d541e0bb843b002439641d4}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$arrin} & Array to be indexed \\
+\hline
+\mbox{\tt in}  & {\em n} & Number of elements in array \\
+\hline
+\mbox{\tt out}  & {\em $\ast$indx} & Index array\\
+\hline
+\end{DoxyParams}
+Index an array by Heapsort.
+
+
+\begin{DoxyItemize}
+\item 03.\-06.\-90 Original
+\item 01.\-06.\-92 A\-N\-S\-Ied and autodoc'd
+\item 19.\-07.\-93 Corrected bug (said j=l+1 rather than j=l+l). Oops!
+\item 08.\-07.\-96 Changed from double to R\-E\-A\-L and tidied. Changed param order
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 110 of file Indx\-Real.\-c.
+
+\hypertarget{general_8h_a318621be88adcea6523add25a804f438}{\index{general.\-h@{general.\-h}!bl\-In\-String\-List@{bl\-In\-String\-List}}
+\index{bl\-In\-String\-List@{bl\-In\-String\-List}!general.h@{general.\-h}}
+\subsubsection[{bl\-In\-String\-List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-In\-String\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-R\-I\-N\-G\-L\-I\-S\-T} $\ast$}]{String\-List, }
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a318621be88adcea6523add25a804f438}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$\-String\-List} & Linked list of strings \\
+\hline
+\mbox{\tt in}  & {\em $\ast$string} & String for which to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Is string found?
+\end{DoxyReturn}
+Searches a string list for an {\itshape exact match} with the specified string.
+
+
+\begin{DoxyItemize}
+\item 06.\-11.\-95 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 118 of file In\-String\-List.\-c.
+
+\hypertarget{general_8h_a343dd1cffc43f451113e38dc681f8868}{\index{general.\-h@{general.\-h}!bl\-Kill\-Lead\-Spaces@{bl\-Kill\-Lead\-Spaces}}
+\index{bl\-Kill\-Lead\-Spaces@{bl\-Kill\-Lead\-Spaces}!general.h@{general.\-h}}
+\subsubsection[{bl\-Kill\-Lead\-Spaces}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Kill\-Lead\-Spaces (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a343dd1cffc43f451113e38dc681f8868}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & A character string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the string with the leading spaces removed
+\end{DoxyReturn}
+This routine strips leading spaces and tabs from a string returning a pointer to the first non-\/whitespace character.
+
+N.\-B. T\-H\-E M\-A\-C\-R\-O \hyperlink{macros_8h_a1b8cbb77f6df1b328324b217ea7eebd3}{K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S()} M\-A\-Y N\-O\-W B\-E U\-S\-E\-D I\-N\-S\-T\-E\-A\-D
+
+
+\begin{DoxyItemize}
+\item 06.\-02.\-91 Original
+\item 28.\-05.\-92 A\-N\-S\-Ied
+\item 06.\-07.\-93 Added tab skipping
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 121 of file Kill\-Lead\-Spaces.\-c.
+
+\hypertarget{general_8h_a6cfc94e83ff4825e293a29ade5317d88}{\index{general.\-h@{general.\-h}!bl\-Kill\-Line@{bl\-Kill\-Line}}
+\index{bl\-Kill\-Line@{bl\-Kill\-Line}!general.h@{general.\-h}}
+\subsubsection[{bl\-Kill\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Kill\-Line (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a6cfc94e83ff4825e293a29ade5317d88}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A file pointer\\
+\hline
+\end{DoxyParams}
+This routine reads characters from a file till it reaches a '\par
+' or the end of file.
+
+
+\begin{DoxyItemize}
+\item 08.\-02.\-91 Original
+\item 28.\-05.\-92 A\-N\-S\-Ied
+\item 18.\-03.\-94 getc() -\/$>$ fgetc()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 117 of file Kill\-Line.\-c.
+
+\hypertarget{general_8h_a1d4ddefb8433489fe4d855938943c4b7}{\index{general.\-h@{general.\-h}!bl\-Open\-File@{bl\-Open\-File}}
+\index{bl\-Open\-File@{bl\-Open\-File}!general.h@{general.\-h}}
+\subsubsection[{bl\-Open\-File}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ bl\-Open\-File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{char $\ast$}]{envvar, }
+\item[{char $\ast$}]{mode, }
+\item[{{\bf B\-O\-O\-L} $\ast$}]{noenv}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a1d4ddefb8433489fe4d855938943c4b7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$filename} & Filename to be opened \\
+\hline
+\mbox{\tt in}  & {\em $\ast$envvar} & Unix/\-M\-S-\/\-D\-O\-S environment variable Other O\-S assign name (with \-:) \\
+\hline
+\mbox{\tt in}  & {\em $\ast$mode} & Mode in which to open file (r, w, etc) \\
+\hline
+\mbox{\tt out}  & {\em $\ast$noenv} & Set to T\-R\-U\-E under Unix/\-M\-S-\/\-D\-O\-S if the reason for failure was that the environment variable was not set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+File pointer or N\-U\-L\-L on failure
+\end{DoxyReturn}
+Attempts to open a filename as specified. Returns a file pointer. If this fails\-:
+
+Under U\-N\-I\-X/\-M\-S-\/\-D\-O\-S\-: gets the contents of the envvar environment variable and prepends that to the filename and tries again. If envvar was not set, noenv is set to T\-R\-U\-E and the routine returns a N\-U\-L\-L pointer.
+
+Under other O\-Ss\-: prepends the envvar string onto the filename and tries to open the file again.
+
+Returns the pointer returned by the open() command after all this.
+
+
+\begin{DoxyItemize}
+\item 22.\-09.\-94 Original By\-: A\-C\-R\-M
+\item 11.\-09.\-94 Puts a \-: in for the assign type.
+\item 24.\-11.\-94 Added {\bfseries unix define. Checks for trailing / in environment variable}
+\item {\bfseries  08.\-03.\-95 Corrected basename to filename in non-\/unix version}
+\item {\bfseries  09.\-03.\-95 Checks that filename is not a N\-U\-L\-L or blank string}
+\item {\bfseries  28.\-07.\-05 Added conditionals for Mac O\-S/\-X\-: \-\_\-\-\_\-\-M\-A\-C\-H} and {\bfseries A\-P\-P\-L\-E}
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 146 of file Open\-File.\-c.
+
+\hypertarget{general_8h_ac89a4227e0a95ce3865e21fa60b66ca3}{\index{general.\-h@{general.\-h}!bl\-Open\-Or\-Pipe@{bl\-Open\-Or\-Pipe}}
+\index{bl\-Open\-Or\-Pipe@{bl\-Open\-Or\-Pipe}!general.h@{general.\-h}}
+\subsubsection[{bl\-Open\-Or\-Pipe}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ bl\-Open\-Or\-Pipe (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}}\label{general_8h_ac89a4227e0a95ce3865e21fa60b66ca3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$filename} & A file or pipe to be opened \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A file pointer
+\end{DoxyReturn}
+Opens a file for writing unless the filename begins with a $|$ in which case it is opened as a pipe.
+
+Broken pipe signals are ignored.
+
+
+\begin{DoxyItemize}
+\item 26.\-05.\-97 Original By\-: A\-C\-R\-M
+\item 26.\-06.\-97 Added call to signal()
+\item 18.\-08.\-98 Added case to \hyperlink{openorpipe_8c_af78772fbd79937a93ce4a787b011a520}{popen()} for Sun\-O\-S
+\item 28.\-01.\-05 Added N\-O\-P\-I\-P\-E define
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 17.\-07.\-14 Added special 'stdout' file By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 128 of file openorpipe.\-c.
+
+\hypertarget{general_8h_a1f4aab78fc238d3315311d816e756592}{\index{general.\-h@{general.\-h}!bl\-Open\-Std\-Files@{bl\-Open\-Std\-Files}}
+\index{bl\-Open\-Std\-Files@{bl\-Open\-Std\-Files}!general.h@{general.\-h}}
+\subsubsection[{bl\-Open\-Std\-Files}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Open\-Std\-Files (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{infile, }
+\item[{char $\ast$}]{outfile, }
+\item[{F\-I\-L\-E $\ast$$\ast$}]{in, }
+\item[{F\-I\-L\-E $\ast$$\ast$}]{out}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a1f4aab78fc238d3315311d816e756592}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$infile} & Input filename \\
+\hline
+\mbox{\tt in}  & {\em $\ast$outfile} & Output filename \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$in} & Input file pointer \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$out} & Output file pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Open the files if specified. In and out are not modified if files are not specified.
+
+
+\begin{DoxyItemize}
+\item 29.\-06.\-94 Original By\-: A\-C\-R\-M
+\item 24.\-08.\-94 Name changed from Open\-Files() and placed in gen lib.
+\item 18.\-12.\-95 Now treats a filename of -\/ as stdin/stdout
+\item 05.\-02.\-96 Allows N\-U\-L\-L pointers
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 126 of file Open\-Std\-Files.\-c.
+
+\hypertarget{general_8h_a3d51946e1ce17558766a0984c5d77914}{\index{general.\-h@{general.\-h}!bl\-Padchar@{bl\-Padchar}}
+\index{bl\-Padchar@{bl\-Padchar}!general.h@{general.\-h}}
+\subsubsection[{bl\-Padchar}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Padchar (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{int}]{length, }
+\item[{char}]{ch}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a3d51946e1ce17558766a0984c5d77914}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$string} & String to be padded with spaces \\
+\hline
+\mbox{\tt in}  & {\em length} & Required size for string \\
+\hline
+\mbox{\tt in}  & {\em ch} & Character with which to pad\\
+\hline
+\end{DoxyParams}
+Pads a string with a specified character to length characters, then terminates it.
+
+
+\begin{DoxyItemize}
+\item 18.\-09.\-96 Original based on padterm() By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 119 of file padchar.\-c.
+
+\hypertarget{general_8h_af3e38629eb9182b36af7bf960d3758d8}{\index{general.\-h@{general.\-h}!bl\-Padterm@{bl\-Padterm}}
+\index{bl\-Padterm@{bl\-Padterm}!general.h@{general.\-h}}
+\subsubsection[{bl\-Padterm}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Padterm (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}}\label{general_8h_af3e38629eb9182b36af7bf960d3758d8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$string} & String to be padded with spaces \\
+\hline
+\mbox{\tt in}  & {\em length} & Required size for string\\
+\hline
+\end{DoxyParams}
+Pads a string with spaces to length characters, then terminates it.
+
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 117 of file padterm.\-c.
+
+\hypertarget{general_8h_acdc27ff9b62a98ded5d9c714f0e444e7}{\index{general.\-h@{general.\-h}!bl\-Query\-Str\-Str@{bl\-Query\-Str\-Str}}
+\index{bl\-Query\-Str\-Str@{bl\-Query\-Str\-Str}!general.h@{general.\-h}}
+\subsubsection[{bl\-Query\-Str\-Str}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Query\-Str\-Str (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{char $\ast$}]{substring}
+\end{DoxyParamCaption}
+)}}\label{general_8h_acdc27ff9b62a98ded5d9c714f0e444e7}
+This is like strstr() but allows a ? character in the substring which matches any character.
+
+
+\begin{DoxyItemize}
+\item 15.\-12.\-95 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 113 of file Query\-Str\-Str.\-c.
+
+\hypertarget{general_8h_adfc7bbb71e472cb8edba7bbcd0f3e772}{\index{general.\-h@{general.\-h}!bl\-Remove\-Spaces@{bl\-Remove\-Spaces}}
+\index{bl\-Remove\-Spaces@{bl\-Remove\-Spaces}!general.h@{general.\-h}}
+\subsubsection[{bl\-Remove\-Spaces}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Remove\-Spaces (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{in\-Text}
+\end{DoxyParamCaption}
+)}}\label{general_8h_adfc7bbb71e472cb8edba7bbcd0f3e772}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em in\-Text} & Input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Malloc'd string without spaces
+\end{DoxyReturn}
+Allocates a string and copies the input to it skipping whitespace.
+
+
+\begin{DoxyItemize}
+\item 10.\-11.\-17 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 182 of file stringutil.\-c.
+
+\hypertarget{general_8h_ad1ba646ac012e961c10d1fe26cd4cce7}{\index{general.\-h@{general.\-h}!bl\-Right\-Justify@{bl\-Right\-Justify}}
+\index{bl\-Right\-Justify@{bl\-Right\-Justify}!general.h@{general.\-h}}
+\subsubsection[{bl\-Right\-Justify}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Right\-Justify (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{general_8h_ad1ba646ac012e961c10d1fe26cd4cce7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$string} & A string\\
+\hline
+\end{DoxyParams}
+Right justifies a string in place
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 90 of file justify.\-c.
+
+\hypertarget{general_8h_ae5bf7680943b697923bc16e550896d1a}{\index{general.\-h@{general.\-h}!bl\-Set\-Extn@{bl\-Set\-Extn}}
+\index{bl\-Set\-Extn@{bl\-Set\-Extn}!general.h@{general.\-h}}
+\subsubsection[{bl\-Set\-Extn}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Set\-Extn (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{File, }
+\item[{char $\ast$}]{Ext}
+\end{DoxyParamCaption}
+)}}\label{general_8h_ae5bf7680943b697923bc16e550896d1a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$\-File} & Filename to be modified \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Ext} & New extension\\
+\hline
+\end{DoxyParams}
+Force a filename extension. Modifies the input filename to have the specified extension. Note that the string File should be large enough to cope with longer extensions, if required. Searches back through the string to find a `.' Anything after this is replaced with the specified extension. The search for a `.' stops as soon as a `/',`\textbackslash{}', or a `\-:' is found as these indicate a directory. If no `.' is found, one is appended to the string and the extension is added.
+
+
+\begin{DoxyItemize}
+\item 10.\-02.\-91 Original
+\item 28.\-05.\-92 A\-N\-S\-Ied
+\item 22.\-06.\-92 Improved to work from end of string for Unix filenames, etc.
+\item 11.\-03.\-94 Added check on '\textbackslash{}' for M\-S-\/\-D\-O\-S
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 125 of file Set\-Extn.\-c.
+
+\hypertarget{general_8h_a62e1ec6a65252619dd1060bdd68bc7a5}{\index{general.\-h@{general.\-h}!bl\-Split\-String\-On\-Chars@{bl\-Split\-String\-On\-Chars}}
+\index{bl\-Split\-String\-On\-Chars@{bl\-Split\-String\-On\-Chars}!general.h@{general.\-h}}
+\subsubsection[{bl\-Split\-String\-On\-Chars}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ bl\-Split\-String\-On\-Chars (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a62e1ec6a65252619dd1060bdd68bc7a5}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & String containing comma-\/separated items \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Malloc'd array of strings
+\end{DoxyReturn}
+Splits a string into a list of items malloc'ing a 2\-D array which contains the item strings. The first dimension will be the number if items plus one. The second dimension will be 2 -\/ a single charcater plus the \textbackslash{}0
+
+The last position in the first array will be set to a null string
+
+Note that this routine malloc's a 2\-D array which will need to be freed
+
+
+\begin{DoxyItemize}
+\item 12.\-03.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 394 of file Get\-Word.\-c.
+
+\hypertarget{general_8h_a78bedd3b9e96196fe6eb9fe9bcd1e19b}{\index{general.\-h@{general.\-h}!bl\-Split\-String\-On\-Commas@{bl\-Split\-String\-On\-Commas}}
+\index{bl\-Split\-String\-On\-Commas@{bl\-Split\-String\-On\-Commas}!general.h@{general.\-h}}
+\subsubsection[{bl\-Split\-String\-On\-Commas}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ bl\-Split\-String\-On\-Commas (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string, }
+\item[{int}]{min\-Item\-Len}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a78bedd3b9e96196fe6eb9fe9bcd1e19b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & String containing comma-\/separated items \\
+\hline
+\mbox{\tt in}  & {\em min\-Item\-Length} & Min size to allocate for each item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Malloc'd array of strings
+\end{DoxyReturn}
+Splits a comma separated list of items malloc'ing a 2\-D array which contains the item strings. The first dimension will be the number if items plus one. The second dimension will be the maximum item length plus one, or at least min\-Item\-Len.
+
+The last position in the first array will be set to a null string
+
+Note that this routine malloc's a 2\-D array which will need to be freed
+
+
+\begin{DoxyItemize}
+\item 10.\-03.\-15 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 325 of file Get\-Word.\-c.
+
+\hypertarget{general_8h_a6729e97bc8fa920ae9391a6fb91dc5be}{\index{general.\-h@{general.\-h}!bl\-Store\-String@{bl\-Store\-String}}
+\index{bl\-Store\-String@{bl\-Store\-String}!general.h@{general.\-h}}
+\subsubsection[{bl\-Store\-String}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-T\-R\-I\-N\-G\-L\-I\-S\-T}$\ast$ bl\-Store\-String (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-T\-R\-I\-N\-G\-L\-I\-S\-T} $\ast$}]{String\-List, }
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a6729e97bc8fa920ae9391a6fb91dc5be}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$\-String\-List} & The current linked list or N\-U\-L\-L if nothing yet allocated \\
+\hline
+\mbox{\tt in}  & {\em $\ast$string} & The string to store \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Start of linked list. Used on first call (when input String\-List is N\-U\-L\-L) to return the pointer to the start of the linked list. N\-U\-L\-L if unable to allocate.
+\end{DoxyReturn}
+Stores strings (of any length) in a linked list of type S\-T\-R\-I\-N\-G\-L\-I\-S\-T. Return a pointer to the start of the linked list which is used on the first call to access the newly allocated memory.
+
+If allocation fails, memory allocated so far is freed and the routine returns N\-U\-L\-L.
+
+
+\begin{DoxyItemize}
+\item 06.\-11.\-95 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 131 of file Store\-String.\-c.
+
+\hypertarget{general_8h_afcb923c739bf3a71e89e724e42a23af3}{\index{general.\-h@{general.\-h}!bl\-Strcatalloc@{bl\-Strcatalloc}}
+\index{bl\-Strcatalloc@{bl\-Strcatalloc}!general.h@{general.\-h}}
+\subsubsection[{bl\-Strcatalloc}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Strcatalloc (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{instr, }
+\item[{char $\ast$}]{catstr}
+\end{DoxyParamCaption}
+)}}\label{general_8h_afcb923c739bf3a71e89e724e42a23af3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$instr} & String to append to \\
+\hline
+\mbox{\tt in}  & {\em $\ast$catstr} & String to append \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+realloc'd version of instr with catstr appended
+\end{DoxyReturn}
+Like strcat() but uses a realloc() on instr to make space available.
+
+
+\begin{DoxyItemize}
+\item 22.\-05.\-99 Original By\-: A\-C\-R\-M
+\item 16.\-06.\-99 Initialise outstr to N\-U\-L\-L
+\item 25.\-08.\-99 Fixed bug where testing for N\-U\-L\-L outstr instead of catstr
+\item 11.\-07.\-00 Check that realloc succeeded
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 26.\-06.\-15 Corrected checks on instr and catstr being null By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 100 of file strcatalloc.\-c.
+
+\hypertarget{general_8h_a4ba273766cb8e3f5b32eaa226c3e0fc7}{\index{general.\-h@{general.\-h}!bl\-String\-To\-Lower@{bl\-String\-To\-Lower}}
+\index{bl\-String\-To\-Lower@{bl\-String\-To\-Lower}!general.h@{general.\-h}}
+\subsubsection[{bl\-String\-To\-Lower}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-String\-To\-Lower (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string1, }
+\item[{char $\ast$}]{string2}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a4ba273766cb8e3f5b32eaa226c3e0fc7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string1} & A character string \\
+\hline
+\mbox{\tt out}  & {\em $\ast$string2} & Lower case version of string1\\
+\hline
+\end{DoxyParams}
+This routine converts a lower or mixed case string to lower case.
+
+
+\begin{DoxyItemize}
+\item 06.\-02.\-91 Original
+\item 28.\-05.\-92 A\-N\-S\-Ied
+\item 07.\-01.\-93 Checks case before converting for Sys\-V
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 119 of file String\-To\-Lower.\-c.
+
+\hypertarget{general_8h_aedf1772a9e444145f5f692f8d7827015}{\index{general.\-h@{general.\-h}!bl\-String\-To\-Upper@{bl\-String\-To\-Upper}}
+\index{bl\-String\-To\-Upper@{bl\-String\-To\-Upper}!general.h@{general.\-h}}
+\subsubsection[{bl\-String\-To\-Upper}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-String\-To\-Upper (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string1, }
+\item[{char $\ast$}]{string2}
+\end{DoxyParamCaption}
+)}}\label{general_8h_aedf1772a9e444145f5f692f8d7827015}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string1} & A character string \\
+\hline
+\mbox{\tt out}  & {\em $\ast$string2} & Upper case version of string1\\
+\hline
+\end{DoxyParams}
+This routine converts a lower or mixed case string to upper case.
+
+
+\begin{DoxyItemize}
+\item 06.\-02.\-91 Original
+\item 28.\-05.\-92 A\-N\-S\-Ied
+\item 07.\-01.\-93 Checks case before converting for Sys\-V
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 119 of file String\-To\-Upper.\-c.
+
+\hypertarget{general_8h_a6b5045229f8ad05a80f24126203cc2d8}{\index{general.\-h@{general.\-h}!bl\-Strncat@{bl\-Strncat}}
+\index{bl\-Strncat@{bl\-Strncat}!general.h@{general.\-h}}
+\subsubsection[{bl\-Strncat}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Strncat (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{out, }
+\item[{const char $\ast$}]{in, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a6b5045229f8ad05a80f24126203cc2d8}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$in} & Input string to be appended \\
+\hline
+\mbox{\tt in}  & {\em len} & Length of output string \\
+\hline
+\mbox{\tt in,out}  & {\em $\ast$out} & String that we are appending to\\
+\hline
+\end{DoxyParams}
+A simpler version of strncat. strncat takes the max number of chars to be appended whereas this takes the max number of chars that 'out' can hold.
+
+
+\begin{DoxyItemize}
+\item 16.\-01.\-15 Original By\-: A\-C\-R\-M
+\item 04.\-06.\-15 Fixed -\/ was subtracting the input string length as well! 
+\end{DoxyItemize}
+
+Definition at line 97 of file stringcat.\-c.
+
+\hypertarget{general_8h_ab7da15f8d8ceef1b0f8d599c22eb5469}{\index{general.\-h@{general.\-h}!bl\-Upstrcmp@{bl\-Upstrcmp}}
+\index{bl\-Upstrcmp@{bl\-Upstrcmp}!general.h@{general.\-h}}
+\subsubsection[{bl\-Upstrcmp}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Upstrcmp (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{word1, }
+\item[{char $\ast$}]{word2}
+\end{DoxyParamCaption}
+)}}\label{general_8h_ab7da15f8d8ceef1b0f8d599c22eb5469}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$word1} & First word \\
+\hline
+\mbox{\tt in}  & {\em $\ast$word2} & Second word \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if strings match or offset of first mismatched character
+\end{DoxyReturn}
+Like strcmp(), but upcases each character before comparison
+
+
+\begin{DoxyItemize}
+\item 20.\-04.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 116 of file upstrcmp.\-c.
+
+\hypertarget{general_8h_a6408a18d4fe862bb0c2051de495b2456}{\index{general.\-h@{general.\-h}!bl\-Upstrncmp@{bl\-Upstrncmp}}
+\index{bl\-Upstrncmp@{bl\-Upstrncmp}!general.h@{general.\-h}}
+\subsubsection[{bl\-Upstrncmp}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Upstrncmp (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{word1, }
+\item[{char $\ast$}]{word2, }
+\item[{int}]{ncomp}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a6408a18d4fe862bb0c2051de495b2456}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$word1} & First word \\
+\hline
+\mbox{\tt in}  & {\em $\ast$word2} & Second word \\
+\hline
+\mbox{\tt in}  & {\em ncomp} & Number of characters to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if strings match or offset of first mismatched character
+\end{DoxyReturn}
+Like strncmp(), but upcases each character before comparison
+
+
+\begin{DoxyItemize}
+\item 20.\-04.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 116 of file upstrncmp.\-c.
+
+\hypertarget{general_8h_a38df4250c9dac963202207bd6e37f204}{\index{general.\-h@{general.\-h}!bl\-Word@{bl\-Word}}
+\index{bl\-Word@{bl\-Word}!general.h@{general.\-h}}
+\subsubsection[{bl\-Word}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Word (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string1, }
+\item[{char $\ast$}]{string2}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a38df4250c9dac963202207bd6e37f204}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string1} & A string \\
+\hline
+\mbox{\tt out}  & {\em $\ast$string2} & A new string\\
+\hline
+\end{DoxyParams}
+Removes leading spaces and extracts a space/tab delimited word. string2 must have the same amount of space as string1.
+
+
+\begin{DoxyItemize}
+\item 20.\-03.\-91 Original
+\item 28.\-05.\-92 A\-N\-S\-Ied
+\item 22.\-06.\-92 Added tab check.
+\item 29.\-03.\-01 Changed to use K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S macro
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 121 of file Word.\-c.
+
+\hypertarget{general_8h_a6a91862f4f4ccfc0f6a73631c0aa5726}{\index{general.\-h@{general.\-h}!bl\-Word\-N@{bl\-Word\-N}}
+\index{bl\-Word\-N@{bl\-Word\-N}!general.h@{general.\-h}}
+\subsubsection[{bl\-Word\-N}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Word\-N (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string1, }
+\item[{char $\ast$}]{string2, }
+\item[{int}]{Max\-Char}
+\end{DoxyParamCaption}
+)}}\label{general_8h_a6a91862f4f4ccfc0f6a73631c0aa5726}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string1} & A string \\
+\hline
+\mbox{\tt in}  & {\em Max\-Char} & Max characters to copy \\
+\hline
+\mbox{\tt out}  & {\em $\ast$string2} & A new string\\
+\hline
+\end{DoxyParams}
+Removes leading spaces and extracts a space/tab delimited word. A maximum of Max\-Char characters will be copied into the word. If necessary a terminating N\-U\-L\-L will be added {\itshape after} Max\-Char other characters. Thus Max\-Char should always be at least 1 smaller than the size of string2.
+
+
+\begin{DoxyItemize}
+\item 22.\-06.\-92 Original based on Word()
+\item 29.\-03.\-01 Changed to use \hyperlink{macros_8h_a1b8cbb77f6df1b328324b217ea7eebd3}{K\-I\-L\-L\-L\-E\-A\-D\-S\-P\-A\-C\-E\-S()} macro
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 122 of file Word\-N.\-c.
+
+\hypertarget{general_8h_af558d2efeb2ba23931396882d32f3fe9}{\index{general.\-h@{general.\-h}!bl\-Wrap\-Print@{bl\-Wrap\-Print}}
+\index{bl\-Wrap\-Print@{bl\-Wrap\-Print}!general.h@{general.\-h}}
+\subsubsection[{bl\-Wrap\-Print}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Wrap\-Print (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{out, }
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{general_8h_af558d2efeb2ba23931396882d32f3fe9}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$out} & Output file pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$string} & String to be printed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O\-K?
+\end{DoxyReturn}
+Wraps a string with double inverted commas if it contains spaces and escapes any contained double inverted commas with a backslash. Allocates memory for temporary storage of the wrapped string. Returns F\-A\-L\-S\-E if this memory allocation failed.
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 204 of file wrapprint.\-c.
+
+\hypertarget{general_8h_acccb9091b4202013b48322965cb19dcf}{\index{general.\-h@{general.\-h}!bl\-Wrap\-String@{bl\-Wrap\-String}}
+\index{bl\-Wrap\-String@{bl\-Wrap\-String}!general.h@{general.\-h}}
+\subsubsection[{bl\-Wrap\-String}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Wrap\-String (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{in, }
+\item[{char $\ast$}]{out, }
+\item[{int}]{maxlen}
+\end{DoxyParamCaption}
+)}}\label{general_8h_acccb9091b4202013b48322965cb19dcf}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$in} & Input string \\
+\hline
+\mbox{\tt in}  & {\em maxlen} & Max length of output string \\
+\hline
+\mbox{\tt out}  & {\em $\ast$out} & Output wrapped string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Output string was long enough
+\end{DoxyReturn}
+Wraps a string with double inverted commas if it contains spaces and escapes any contained double inverted commas with a backslash. If the output string wasn't big enough, then the routine just returns F\-A\-L\-S\-E without copying anything into the output string.
+
+
+\begin{DoxyItemize}
+\item 30.\-05.\-02 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 104 of file wrapprint.\-c.
+

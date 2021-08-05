@@ -1,0 +1,132 @@
+\hypertarget{regression_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/regression.h File Reference}
+\label{regression_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/regression.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/regression.\-h}}
+}
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{regression_8h_a4590d7b1ffdfbe244995c34ebbf1b207}{\-\_\-\-R\-E\-G\-R\-E\-S\-S\-I\-O\-N\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{regression_8h_a58fb3080d71818c2820eb08a035bb4fd}{bl\-Calculate\-Best\-Fit\-Line} (double $\ast$$\ast$coordinates, int number\-Of\-Points, int number\-Of\-Dimensions, double $\ast$centroid, double $\ast$eigen\-Vector)
+\item 
+void \hyperlink{regression_8h_a8a34d11b1e0ec31a9a6a945c4b51a8be}{bl\-Find\-Centroid} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$$\ast$coordinates, int number\-Of\-Points, int number\-Of\-Dimensions, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$centroid)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{regression_8h_aef76ff997460bf5ccdd1457268fa39d4}{bl\-Calculate\-Covariance\-Matrix} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$$\ast$x, int num\-X, int num\-Y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$$\ast$cov)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{regression_8h_a4590d7b1ffdfbe244995c34ebbf1b207}{\index{regression.\-h@{regression.\-h}!\-\_\-\-R\-E\-G\-R\-E\-S\-S\-I\-O\-N\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-R\-E\-G\-R\-E\-S\-S\-I\-O\-N\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-R\-E\-G\-R\-E\-S\-S\-I\-O\-N\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-R\-E\-G\-R\-E\-S\-S\-I\-O\-N\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!regression.h@{regression.\-h}}
+\subsubsection[{\-\_\-\-R\-E\-G\-R\-E\-S\-S\-I\-O\-N\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-R\-E\-G\-R\-E\-S\-S\-I\-O\-N\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{regression_8h_a4590d7b1ffdfbe244995c34ebbf1b207}
+
+
+Definition at line 16 of file regression.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{regression_8h_a58fb3080d71818c2820eb08a035bb4fd}{\index{regression.\-h@{regression.\-h}!bl\-Calculate\-Best\-Fit\-Line@{bl\-Calculate\-Best\-Fit\-Line}}
+\index{bl\-Calculate\-Best\-Fit\-Line@{bl\-Calculate\-Best\-Fit\-Line}!regression.h@{regression.\-h}}
+\subsubsection[{bl\-Calculate\-Best\-Fit\-Line}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Calculate\-Best\-Fit\-Line (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$$\ast$}]{coordinates, }
+\item[{int}]{number\-Of\-Points, }
+\item[{int}]{number\-Of\-Dimensions, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{centroid, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{eigen\-Vector}
+\end{DoxyParamCaption}
+)}}\label{regression_8h_a58fb3080d71818c2820eb08a035bb4fd}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em coordinates} & 2\-D Array containing the coordinates \\
+\hline
+\mbox{\tt in}  & {\em number\-Of\-Points} & The number of points in the array \\
+\hline
+\mbox{\tt in}  & {\em number\-Of\-Dimensions} & The number of dimensions (usually 3) \\
+\hline
+\mbox{\tt out}  & {\em centroid} & The centroid of the points \\
+\hline
+\mbox{\tt out}  & {\em eigen\-Vector} & The best Eigen vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Calculates a best fit line through a set of coordinates in 3\-D. The results are returned in 'eigen\-Vector'
+
+The code calculates the centroid and ouputs this. The covariance matrix is then calculated and the Eigen vectors and values of the covariance matrix are then calculated. The Eigenvalue with the largest Eigenvector represents the best fit line passing through the centroid.
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-14 Original By\-: A\-C\-R\-M Based on code by Abhi Raghavan 
+\end{DoxyItemize}
+
+Definition at line 116 of file regression.\-c.
+
+\hypertarget{regression_8h_aef76ff997460bf5ccdd1457268fa39d4}{\index{regression.\-h@{regression.\-h}!bl\-Calculate\-Covariance\-Matrix@{bl\-Calculate\-Covariance\-Matrix}}
+\index{bl\-Calculate\-Covariance\-Matrix@{bl\-Calculate\-Covariance\-Matrix}!regression.h@{regression.\-h}}
+\subsubsection[{bl\-Calculate\-Covariance\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Calculate\-Covariance\-Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$$\ast$}]{matrix, }
+\item[{int}]{num\-X, }
+\item[{int}]{num\-Y, }
+\item[{{\bf R\-E\-A\-L} $\ast$$\ast$}]{cov}
+\end{DoxyParamCaption}
+)}}\label{regression_8h_aef76ff997460bf5ccdd1457268fa39d4}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em matrix} & The matrix \\
+\hline
+\mbox{\tt in}  & {\em num\-X} & x-\/dimension of the matrix \\
+\hline
+\mbox{\tt in}  & {\em num\-Y} & y-\/dimension of the matrix \\
+\hline
+\mbox{\tt out}  & {\em cov} & The covariance matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Find the covariance matrix for a given matrix
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-14 Original By\-: A\-C\-R\-M (based on code by Abhi Raghavan) 
+\end{DoxyItemize}
+
+Definition at line 254 of file regression.\-c.
+
+\hypertarget{regression_8h_a8a34d11b1e0ec31a9a6a945c4b51a8be}{\index{regression.\-h@{regression.\-h}!bl\-Find\-Centroid@{bl\-Find\-Centroid}}
+\index{bl\-Find\-Centroid@{bl\-Find\-Centroid}!regression.h@{regression.\-h}}
+\subsubsection[{bl\-Find\-Centroid}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Find\-Centroid (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$$\ast$}]{matrix, }
+\item[{int}]{num\-X, }
+\item[{int}]{num\-Y, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{centroid}
+\end{DoxyParamCaption}
+)}}\label{regression_8h_a8a34d11b1e0ec31a9a6a945c4b51a8be}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em matrix} & Coordinate array \\
+\hline
+\mbox{\tt in}  & {\em num\-X} & The x-\/dimension of the array \\
+\hline
+\mbox{\tt in}  & {\em num\-Y} & The y-\/dimension of the array \\
+\hline
+\mbox{\tt out}  & {\em centroid} & The centroid of the points\\
+\hline
+\end{DoxyParams}
+Calculates the centroid of an array of points
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-14 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 215 of file regression.\-c.
+

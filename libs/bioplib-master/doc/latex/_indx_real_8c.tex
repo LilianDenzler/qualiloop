@@ -1,0 +1,102 @@
+\hypertarget{_indx_real_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Indx\-Real.c File Reference}
+\label{_indx_real_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Indx\-Real.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Indx\-Real.\-c}}
+}
+
+
+Index heapsort a R\-E\-A\-L array.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_indx_real_8c_ab497c8d98d541e0bb843b002439641d4}{bl\-Index\-Real} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$arrin, int $\ast$indx, int n)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Index heapsort a R\-E\-A\-L array. \begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1991-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+This routine uses a heapsort to index a floating point array such that arrin\mbox{[}indx\mbox{[}j\mbox{]}\mbox{]} is in ascending order with j. It is modified from the F\-O\-R\-T\-R\-A\-N version in 'Numerical Recipes' Page 233. This version correctly sorts from array element 0 as opposed to 1 in the F\-O\-R\-T\-R\-A\-N version.
+
+\subsection*{Usage\-: }
+
+\begin{DoxyVerb}  IndexReal(arrin,indx,n);
+  Input:  int   n       Number of elements in array
+          REAL  *arrin  Array to be indexed
+  Output: int   *indx   Index array
+\end{DoxyVerb}
+
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 23.\-06.\-90 Original
+\item V1.\-1 01.\-06.\-92 A\-N\-S\-Ied and autodoc'd
+\item V1.\-2 19.\-07.\-93 Corrected bug (said j=l+1 rather than j=l+l). Oops!
+\item V1.\-3 08.\-07.\-96 Changed from double to R\-E\-A\-L and tidied.
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_indx_real_8c_source}{Indx\-Real.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_indx_real_8c_ab497c8d98d541e0bb843b002439641d4}{\index{Indx\-Real.\-c@{Indx\-Real.\-c}!bl\-Index\-Real@{bl\-Index\-Real}}
+\index{bl\-Index\-Real@{bl\-Index\-Real}!IndxReal.c@{Indx\-Real.\-c}}
+\subsubsection[{bl\-Index\-Real}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Index\-Real (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$}]{arrin, }
+\item[{int $\ast$}]{indx, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{_indx_real_8c_ab497c8d98d541e0bb843b002439641d4}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$arrin} & Array to be indexed \\
+\hline
+\mbox{\tt in}  & {\em n} & Number of elements in array \\
+\hline
+\mbox{\tt out}  & {\em $\ast$indx} & Index array\\
+\hline
+\end{DoxyParams}
+Index an array by Heapsort.
+
+
+\begin{DoxyItemize}
+\item 03.\-06.\-90 Original
+\item 01.\-06.\-92 A\-N\-S\-Ied and autodoc'd
+\item 19.\-07.\-93 Corrected bug (said j=l+1 rather than j=l+l). Oops!
+\item 08.\-07.\-96 Changed from double to R\-E\-A\-L and tidied. Changed param order
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 110 of file Indx\-Real.\-c.
+

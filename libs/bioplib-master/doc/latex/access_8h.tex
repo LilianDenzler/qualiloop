@@ -1,0 +1,213 @@
+\hypertarget{access_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/access.h File Reference}
+\label{access_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/access.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/access.\-h}}
+}
+
+
+Accessibility calculation code.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__resrad}{\-\_\-resrad}
+\item 
+struct \hyperlink{struct__resaccess}{\-\_\-resaccess}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{access_8h_a9c4aac920d912705ad034f6b59dbdcf1}{A\-C\-C\-E\-S\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-O\-M\-S\-\_\-\-P\-E\-R\-\_\-\-R\-E\-S\-I\-D\-U\-E}~50
+\item 
+\#define \hyperlink{access_8h_a11c9c1c34c6fe098dae1d01ca2d1852a}{A\-C\-C\-E\-S\-S\-\_\-\-D\-E\-F\-\_\-\-I\-N\-T\-A\-C\-C}~0.\-05
+\item 
+\#define \hyperlink{access_8h_a77f67ff29641c54b5d7f909e6197fd97}{V\-E\-R\-Y\-\_\-\-S\-M\-A\-L\-L}~(\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L})1e-\/6
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct__resrad}{\-\_\-resrad} \hyperlink{access_8h_a63db097c1f823f4e2d7aa4f02b045379}{R\-E\-S\-R\-A\-D}
+\item 
+typedef struct \hyperlink{struct__resaccess}{\-\_\-resaccess} \hyperlink{access_8h_a76af7605541c2e03adbac474389d0963}{R\-E\-S\-A\-C\-C\-E\-S\-S}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{access_8h_a63db097c1f823f4e2d7aa4f02b045379}{R\-E\-S\-R\-A\-D} $\ast$ \hyperlink{access_8h_ae697c1552c8004b355d84f2f72a4c6f9}{bl\-Set\-Atom\-Radii} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, F\-I\-L\-E $\ast$fp\-Rad)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{access_8h_a25e95868bba0491487408f2a04f018cf}{bl\-Calc\-Access} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, int natoms, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} integration\-Accuracy, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} probe\-Radius, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} do\-Accessibility)
+\item 
+\hyperlink{access_8h_a76af7605541c2e03adbac474389d0963}{R\-E\-S\-A\-C\-C\-E\-S\-S} $\ast$ \hyperlink{access_8h_a8665f8aad4742be11492028cfc816902}{bl\-Calc\-Res\-Access} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{access_8h_a63db097c1f823f4e2d7aa4f02b045379}{R\-E\-S\-R\-A\-D} $\ast$resrad)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Accessibility calculation code. \begin{DoxyVersion}{Version}
+V1.\-2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+17.\-06.\-16 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L, Dr. Andrew C.\-R. Martin, 1999-\/2015 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C.\-R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 21.\-04.\-99 Original By\-: A\-C\-R\-M
+\item V1.\-1 17.\-07.\-14 Extracted from X\-M\-A\-S code
+\item V1.\-2 17.\-06.\-15 Added sc\-Access and sc\-Rel\-Access to R\-E\-S\-A\-C\-C\-E\-S\-S structure Added stdaccess\-Sc to R\-E\-S\-R\-A\-D structure 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{access_8h_source}{access.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{access_8h_a11c9c1c34c6fe098dae1d01ca2d1852a}{\index{access.\-h@{access.\-h}!A\-C\-C\-E\-S\-S\-\_\-\-D\-E\-F\-\_\-\-I\-N\-T\-A\-C\-C@{A\-C\-C\-E\-S\-S\-\_\-\-D\-E\-F\-\_\-\-I\-N\-T\-A\-C\-C}}
+\index{A\-C\-C\-E\-S\-S\-\_\-\-D\-E\-F\-\_\-\-I\-N\-T\-A\-C\-C@{A\-C\-C\-E\-S\-S\-\_\-\-D\-E\-F\-\_\-\-I\-N\-T\-A\-C\-C}!access.h@{access.\-h}}
+\subsubsection[{A\-C\-C\-E\-S\-S\-\_\-\-D\-E\-F\-\_\-\-I\-N\-T\-A\-C\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-C\-E\-S\-S\-\_\-\-D\-E\-F\-\_\-\-I\-N\-T\-A\-C\-C~0.\-05}}\label{access_8h_a11c9c1c34c6fe098dae1d01ca2d1852a}
+
+
+Definition at line 58 of file access.\-h.
+
+\hypertarget{access_8h_a9c4aac920d912705ad034f6b59dbdcf1}{\index{access.\-h@{access.\-h}!A\-C\-C\-E\-S\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-O\-M\-S\-\_\-\-P\-E\-R\-\_\-\-R\-E\-S\-I\-D\-U\-E@{A\-C\-C\-E\-S\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-O\-M\-S\-\_\-\-P\-E\-R\-\_\-\-R\-E\-S\-I\-D\-U\-E}}
+\index{A\-C\-C\-E\-S\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-O\-M\-S\-\_\-\-P\-E\-R\-\_\-\-R\-E\-S\-I\-D\-U\-E@{A\-C\-C\-E\-S\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-O\-M\-S\-\_\-\-P\-E\-R\-\_\-\-R\-E\-S\-I\-D\-U\-E}!access.h@{access.\-h}}
+\subsubsection[{A\-C\-C\-E\-S\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-O\-M\-S\-\_\-\-P\-E\-R\-\_\-\-R\-E\-S\-I\-D\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-C\-E\-S\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-O\-M\-S\-\_\-\-P\-E\-R\-\_\-\-R\-E\-S\-I\-D\-U\-E~50}}\label{access_8h_a9c4aac920d912705ad034f6b59dbdcf1}
+
+
+Definition at line 57 of file access.\-h.
+
+\hypertarget{access_8h_a77f67ff29641c54b5d7f909e6197fd97}{\index{access.\-h@{access.\-h}!V\-E\-R\-Y\-\_\-\-S\-M\-A\-L\-L@{V\-E\-R\-Y\-\_\-\-S\-M\-A\-L\-L}}
+\index{V\-E\-R\-Y\-\_\-\-S\-M\-A\-L\-L@{V\-E\-R\-Y\-\_\-\-S\-M\-A\-L\-L}!access.h@{access.\-h}}
+\subsubsection[{V\-E\-R\-Y\-\_\-\-S\-M\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-E\-R\-Y\-\_\-\-S\-M\-A\-L\-L~({\bf R\-E\-A\-L})1e-\/6}}\label{access_8h_a77f67ff29641c54b5d7f909e6197fd97}
+
+
+Definition at line 61 of file access.\-h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{access_8h_a76af7605541c2e03adbac474389d0963}{\index{access.\-h@{access.\-h}!R\-E\-S\-A\-C\-C\-E\-S\-S@{R\-E\-S\-A\-C\-C\-E\-S\-S}}
+\index{R\-E\-S\-A\-C\-C\-E\-S\-S@{R\-E\-S\-A\-C\-C\-E\-S\-S}!access.h@{access.\-h}}
+\subsubsection[{R\-E\-S\-A\-C\-C\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \-\_\-resaccess}   {\bf R\-E\-S\-A\-C\-C\-E\-S\-S}}}\label{access_8h_a76af7605541c2e03adbac474389d0963}
+\hypertarget{access_8h_a63db097c1f823f4e2d7aa4f02b045379}{\index{access.\-h@{access.\-h}!R\-E\-S\-R\-A\-D@{R\-E\-S\-R\-A\-D}}
+\index{R\-E\-S\-R\-A\-D@{R\-E\-S\-R\-A\-D}!access.h@{access.\-h}}
+\subsubsection[{R\-E\-S\-R\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \-\_\-resrad}   {\bf R\-E\-S\-R\-A\-D}}}\label{access_8h_a63db097c1f823f4e2d7aa4f02b045379}
+
+
+\subsection{Function Documentation}
+\hypertarget{access_8h_a25e95868bba0491487408f2a04f018cf}{\index{access.\-h@{access.\-h}!bl\-Calc\-Access@{bl\-Calc\-Access}}
+\index{bl\-Calc\-Access@{bl\-Calc\-Access}!access.h@{access.\-h}}
+\subsubsection[{bl\-Calc\-Access}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Calc\-Access (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{int}]{natoms, }
+\item[{{\bf R\-E\-A\-L}}]{integration\-Accuracy, }
+\item[{{\bf R\-E\-A\-L}}]{probe\-Radius, }
+\item[{{\bf B\-O\-O\-L}}]{do\-Accessibility}
+\end{DoxyParamCaption}
+)}}\label{access_8h_a25e95868bba0491487408f2a04f018cf}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em natoms} & Number of atoms \\
+\hline
+\mbox{\tt in}  & {\em integration\-Accuracy} & Integration accuracy \\
+\hline
+\mbox{\tt in}  & {\em probe\-Radius} & Probe radius \\
+\hline
+\mbox{\tt in}  & {\em do\-Accessibility} & Accessibility or contact area \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Allocates arrays and calls routines to populate them, do the access calculations and populate into the P\-D\-B linked list
+
+
+\begin{DoxyItemize}
+\item 22.\-04.\-99 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 331 of file access.\-c.
+
+\hypertarget{access_8h_a8665f8aad4742be11492028cfc816902}{\index{access.\-h@{access.\-h}!bl\-Calc\-Res\-Access@{bl\-Calc\-Res\-Access}}
+\index{bl\-Calc\-Res\-Access@{bl\-Calc\-Res\-Access}!access.h@{access.\-h}}
+\subsubsection[{bl\-Calc\-Res\-Access}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-S\-A\-C\-C\-E\-S\-S}$\ast$ bl\-Calc\-Res\-Access (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf R\-E\-S\-R\-A\-D} $\ast$}]{resrad}
+\end{DoxyParamCaption}
+)}}\label{access_8h_a8665f8aad4742be11492028cfc816902}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$resrad} & Linked list of atom radius information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked list of residue accessibilities
+\end{DoxyReturn}
+Calculates and populates the residue totals and relative values using standards stored in resrad
+
+
+\begin{DoxyItemize}
+\item 22.\-04.\-99 Original By\-: A\-C\-R\-M
+\item 04.\-08.\-99 Changed check on return from Get\-Standard\-Access() to check for $<$ V\-E\-R\-Y\-\_\-\-S\-M\-A\-L\-L rather than ==0.\-0 Set relative access to -\/1 if the standard accessibility is unknown rather than to 0.\-0
+\item 17.\-06.\-15 Added calculation of sidechain accessibility 
+\end{DoxyItemize}
+
+Definition at line 673 of file access.\-c.
+
+\hypertarget{access_8h_ae697c1552c8004b355d84f2f72a4c6f9}{\index{access.\-h@{access.\-h}!bl\-Set\-Atom\-Radii@{bl\-Set\-Atom\-Radii}}
+\index{bl\-Set\-Atom\-Radii@{bl\-Set\-Atom\-Radii}!access.h@{access.\-h}}
+\subsubsection[{bl\-Set\-Atom\-Radii}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\-E\-S\-R\-A\-D}$\ast$ bl\-Set\-Atom\-Radii (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{F\-I\-L\-E $\ast$}]{fp\-Rad}
+\end{DoxyParamCaption}
+)}}\label{access_8h_ae697c1552c8004b355d84f2f72a4c6f9}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em $\ast$fp\-Rad} & Radius file pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linked list of radius information
+\end{DoxyReturn}
+Set atom radii from the radius file in the P\-D\-B linked list Returns the radius lookup information since it also contains the standard accessibilities
+
+
+\begin{DoxyItemize}
+\item 22.\-04.\-99 Original By\-: A\-C\-R\-M
+\item 16.\-06.\-99 Initialise radii to N\-U\-L\-L
+\item 22.\-06.\-99 Changed to call Default\-Radius() with element type rather than atom name
+\item 16.\-07.\-14 Rewritten to work outside X\-M\-A\-S format and now takes the file pointer to the radii file rather than the filename 
+\end{DoxyItemize}
+
+Definition at line 259 of file access.\-c.
+

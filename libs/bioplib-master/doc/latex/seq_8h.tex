@@ -1,0 +1,1310 @@
+\hypertarget{seq_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/seq.h File Reference}
+\label{seq_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/seq.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/seq.\-h}}
+}
+
+
+Header file for sequence handling.  
+
+
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hash.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_s_e_q_i_n_f_o}{S\-E\-Q\-I\-N\-F\-O}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{seq_8h_a529534bba52894559b7827fddf1b6de3}{bl\-M\-A\-X\-P\-I\-R\-L\-A\-B\-E\-L}~160
+\item 
+\#define \hyperlink{seq_8h_aa9b785ec0b88702d35f444586b8a89f9}{A\-L\-L\-O\-C\-S\-I\-Z\-E}
+\item 
+\#define \hyperlink{seq_8h_a795d8111a6987ef6a850b685467fdb14}{bl\-P\-D\-B2\-Seq}(x)~\hyperlink{seq_8h_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq}((x), \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E})
+\item 
+\#define \hyperlink{seq_8h_a662b598c938b9c9f6284f40b36b2a9c4}{bl\-P\-D\-B2\-Seq\-X}(x)~\hyperlink{seq_8h_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq}((x), \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E},  \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E})
+\item 
+\#define \hyperlink{seq_8h_a3f2c84814aca7311fa539d9132e6607d}{bl\-P\-D\-B2\-Seq\-No\-X}(x)~\hyperlink{seq_8h_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq}((x), \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{seq_8h_ab7ca9992a646b87854e76dc7e450e45a}{bl\-P\-D\-B2\-Seq\-X\-No\-X}(x)~\hyperlink{seq_8h_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq}((x), \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E},  \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{seq_8h_ae1a8358058771317e339652534d694e2}{bl\-P\-D\-B\-Prot2\-Seq}(x)~\hyperlink{seq_8h_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq}((x), \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E})
+\item 
+\#define \hyperlink{seq_8h_a94adacd36aef02b7a67b8fa00b1a82be}{bl\-P\-D\-B\-Prot2\-Seq\-X}(x)~\hyperlink{seq_8h_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq}((x), \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E},  \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E})
+\item 
+\#define \hyperlink{seq_8h_af0653d029cdebba73c16e409af3729b2}{bl\-P\-D\-B\-Prot2\-Seq\-No\-X}(x)~\hyperlink{seq_8h_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq}((x), \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{seq_8h_ae7e9ca54125d545d36e46c6de7b6bc6e}{bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X}(x)~\hyperlink{seq_8h_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq}((x), \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E},  \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{seq_8h_af158a02df5cae7dbdd7953196face363}{bl\-P\-D\-B2\-Seq\-By\-Chain}(x)~\hyperlink{seq_8h_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E})
+\item 
+\#define \hyperlink{seq_8h_a59e5e73dca76477627b99888d8d27aac}{bl\-P\-D\-B2\-Seq\-X\-By\-Chain}(x)~\hyperlink{seq_8h_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E},  \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E})
+\item 
+\#define \hyperlink{seq_8h_a2b46b71d81771c894f4fc0175bb7dc36}{bl\-P\-D\-B2\-Seq\-No\-X\-By\-Chain}(x)~\hyperlink{seq_8h_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{seq_8h_ad52e4ceb37a06b9799e201aafec26146}{bl\-P\-D\-B2\-Seq\-X\-No\-X\-By\-Chain}(x)~\hyperlink{seq_8h_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E},  \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{seq_8h_ad45ee48faa1f1df335cf86d8a192c9fb}{bl\-P\-D\-B\-Prot2\-Seq\-By\-Chain}(x)~\hyperlink{seq_8h_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E})
+\item 
+\#define \hyperlink{seq_8h_a5ed123aae7c21e2776ea9bf2b7d87ae8}{bl\-P\-D\-B\-Prot2\-Seq\-X\-By\-Chain}(x)~\hyperlink{seq_8h_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E},  \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}, \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E})
+\item 
+\#define \hyperlink{seq_8h_acb7f53e896a9fda26fff021260e093d5}{bl\-P\-D\-B\-Prot2\-Seq\-No\-X\-By\-Chain}(x)~\hyperlink{seq_8h_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), \hyperlink{_sys_defs_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{seq_8h_a456c48765e1dbe5a97fd3778b4599526}{bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X\-By\-Chain}(x)~\hyperlink{seq_8h_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E},  \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}, \hyperlink{_sys_defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{seq_8h_a844deca862b85f3fabcbdc44aeb3b9bb}{\-\_\-\-S\-E\-Q\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{seq_8h_a29e50e2e8ab3aa15ab9e05e81d2274ab}{bl\-Throne} (char $\ast$three)
+\item 
+char \hyperlink{seq_8h_ad5f101649d4acff71295dd407310d194}{bl\-Thronex} (char $\ast$three)
+\item 
+char $\ast$ \hyperlink{seq_8h_ae549d85acf85ad5233ec378101033e8b}{bl\-Onethr} (char one)
+\item 
+char $\ast$ \hyperlink{seq_8h_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Do\-Asx\-Glx, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Prot\-Only, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} No\-X)
+\item 
+\hyperlink{struct_h_a_s_h_t_a_b_l_e}{H\-A\-S\-H\-T\-A\-B\-L\-E} $\ast$ \hyperlink{seq_8h_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Do\-Asx\-Glx, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Prot\-Only, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} No\-X)
+\item 
+int \hyperlink{seq_8h_a64c321ff1aaec459fafcd8c02abdc088}{bl\-Split\-Seq} (char $\ast$Linear\-Seq, char $\ast$$\ast$seqs)
+\item 
+int \hyperlink{seq_8h_ad246bc81a152dd498cbfd579d9f7b901}{bl\-Read\-Simple\-P\-I\-R} (F\-I\-L\-E $\ast$fp, int maxres, char $\ast$$\ast$seqs)
+\item 
+int \hyperlink{seq_8h_af1b174b41b5e3e31e6e0ef0a474420b3}{bl\-Read\-P\-I\-R} (F\-I\-L\-E $\ast$fp, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Do\-Insert, char $\ast$$\ast$seqs, int maxchain, \hyperlink{struct_s_e_q_i_n_f_o}{S\-E\-Q\-I\-N\-F\-O} $\ast$seqinfo, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} $\ast$punct, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} $\ast$error)
+\item 
+int \hyperlink{seq_8h_a30bfed19b661389a331406432e9dfc59}{bl\-Read\-Raw\-P\-I\-R} (F\-I\-L\-E $\ast$fp, char $\ast$$\ast$seqs, int maxchain, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} upcase, \hyperlink{struct_s_e_q_i_n_f_o}{S\-E\-Q\-I\-N\-F\-O} $\ast$seqinfo, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} $\ast$error)
+\item 
+int \hyperlink{seq_8h_ad4440404ba000b804b8e5bdbf5144296}{bl\-Align} (char $\ast$seq1, int length1, char $\ast$seq2, int length2, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} verbose, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} identity, int penalty, char $\ast$align1, char $\ast$align2, int $\ast$align\-\_\-len)
+\item 
+int \hyperlink{seq_8h_a2bfda833cbb45aa99d853f90b0a8c3e6}{bl\-Affinealign} (char $\ast$seq1, int length1, char $\ast$seq2, int length2, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} verbose, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} identity, int penalty, int penext, char $\ast$align1, char $\ast$align2, int $\ast$align\-\_\-len)
+\item 
+int \hyperlink{seq_8h_a503439e6489823462c1c4c242ccc47e0}{bl\-Calc\-M\-D\-M\-Score} (char resa, char resb)
+\item 
+int \hyperlink{seq_8h_a202550fea7f22fad1fa8bcd23aa736b3}{bl\-Affinealignuc} (char $\ast$seq1, int length1, char $\ast$seq2, int length2, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} verbose, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} identity, int penalty, int penext, char $\ast$align1, char $\ast$align2, int $\ast$align\-\_\-len)
+\item 
+int \hyperlink{seq_8h_ad4bd60d9e34a3ac0d408508be92f4c83}{bl\-Calc\-M\-D\-M\-Score\-U\-C} (char resa, char resb)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{seq_8h_a7427990ccc2bc14bf3e1a1797a1aaba7}{bl\-Read\-M\-D\-M} (char $\ast$mdmfile)
+\item 
+void \hyperlink{seq_8h_a6ff80e0085ce2af58bdbdfbefa887749}{bl\-Free\-M\-D\-M} (void)
+\item 
+int \hyperlink{seq_8h_ad774c0d240bcf9902340a66c2336658e}{bl\-Zero\-M\-D\-M} (void)
+\item 
+char \hyperlink{seq_8h_ae68acfc61d30bed5ecfdaf4422c70f87}{bl\-D\-N\-Ato\-A\-A} (char $\ast$dna)
+\item 
+int \hyperlink{seq_8h_ac0b588fc17073612af3c544bba8d1044}{bl\-True\-Seq\-Len} (char $\ast$sequence)
+\item 
+int \hyperlink{seq_8h_a458ac08b1ca2e18cdca58412b48a59af}{bl\-Known\-Seq\-Len} (char $\ast$sequence)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{seq_8h_af3438f88a5286d057de168f03e146703}{bl\-Numeric\-Read\-M\-D\-M} (char $\ast$mdmfile)
+\item 
+int \hyperlink{seq_8h_a4ca4dc7d7e7714971036f5d1e22ccce6}{bl\-Numeric\-Calc\-M\-D\-M\-Score} (int resa, int resb)
+\item 
+int \hyperlink{seq_8h_a65436ca35c20f5c0dca48c3ead12b816}{bl\-Numeric\-Affine\-Align} (int $\ast$seq1, int length1, int $\ast$seq2, int length2, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} verbose, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} identity, int penalty, int penext, int $\ast$align1, int $\ast$align2, int $\ast$align\-\_\-len)
+\item 
+void \hyperlink{seq_8h_a543c1d8afe579c1d3ebf03c4522f8554}{bl\-Set\-M\-D\-M\-Score\-Weight} (char resa, char resb, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} weight)
+\item 
+void \hyperlink{seq_8h_ab536c0363df3f8075bf4e1772d99f968}{bl\-Write\-One\-String\-P\-I\-R} (F\-I\-L\-E $\ast$out, char $\ast$label, char $\ast$title, char $\ast$sequence, char $\ast$$\ast$chains, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} By\-Chain, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} do\-Fasta)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{seq_8h_ae6e0b2b3fc8612b06187c1f5be8458ac}{g\-Bioplib\-Seq\-Nucleic\-Acid}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for sequence handling. \begin{DoxyVersion}{Version}
+V2.\-17 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+02.\-05.\-18 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1991-\/2018 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V2.\-0 11.\-03.\-94 Original V2 release
+\item V2.\-1 11.\-05.\-94 Added D\-N\-Ato\-A\-A() \& True\-Seq\-Len() prototypes
+\item V2.\-2 13.\-05.\-93 Added Known\-Seq\-Len() prototype
+\item V2.\-3 28.\-02.\-95 Added Read\-Raw\-P\-I\-R()
+\item V2.\-4 25.\-07.\-95 Added the g\-Bioplib\-Seq\-Nucleic\-Acid external for throne()
+\item V2.\-5 11.\-07.\-96 Added Calc\-M\-D\-M\-Score()
+\item V2.\-6 17.\-09.\-95 Added Zero\-M\-D\-M()
+\item V2.\-7 26.\-08.\-97 Added macro interfaces to new Do\-P\-D\-B2\-Seq()
+\item V2.\-8 08.\-03.\-00 Added Numeric$\ast$$\ast$$\ast$() alignment routines
+\item V2.\-9 02.\-10.\-00 Modified Do\-P\-D\-B2\-Seq()
+\item V2.\-10 27.\-02.\-07 Added Calc\-M\-D\-M\-Score\-U\-C() and affinealignuc()
+\item V2.\-11 07.\-07.\-14 Use bl prefix for functions. Renamed P\-D\-B2\-Seq macros to bl\-P\-D\-B2\-Seq and added P\-D\-B2\-Seq defines to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P
+\item V2.\-12 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h}, added prototypes for renamed functions and defines for P\-D\-B2\-Seq macros. By\-: C\-T\-P
+\item V2.\-13 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P
+\item V2.\-14 26.\-08.\-14 Added \hyperlink{align_8c_a543c1d8afe579c1d3ebf03c4522f8554}{bl\-Set\-M\-D\-M\-Score\-Weight()}
+\item V2.\-15 11.\-06.\-15 Added \hyperlink{seq_8h_ab536c0363df3f8075bf4e1772d99f968}{bl\-Write\-One\-String\-P\-I\-R()}
+\item V2.\-16 30.\-11.\-15 Added wrapper macros for \hyperlink{_p_d_b2_seq_8c_a1e99d4509d7280688a936f96d9c00325}{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain()} and prototype
+\item V2.\-17 02.\-05.\-18 Added \hyperlink{align_8c_a6ff80e0085ce2af58bdbdfbefa887749}{bl\-Free\-M\-D\-M()} 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{seq_8h_source}{seq.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{seq_8h_a844deca862b85f3fabcbdc44aeb3b9bb}{\index{seq.\-h@{seq.\-h}!\-\_\-\-S\-E\-Q\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-S\-E\-Q\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-S\-E\-Q\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-S\-E\-Q\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!seq.h@{seq.\-h}}
+\subsubsection[{\-\_\-\-S\-E\-Q\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-E\-Q\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{seq_8h_a844deca862b85f3fabcbdc44aeb3b9bb}
+
+
+Definition at line 170 of file seq.\-h.
+
+\hypertarget{seq_8h_aa9b785ec0b88702d35f444586b8a89f9}{\index{seq.\-h@{seq.\-h}!A\-L\-L\-O\-C\-S\-I\-Z\-E@{A\-L\-L\-O\-C\-S\-I\-Z\-E}}
+\index{A\-L\-L\-O\-C\-S\-I\-Z\-E@{A\-L\-L\-O\-C\-S\-I\-Z\-E}!seq.h@{seq.\-h}}
+\subsubsection[{A\-L\-L\-O\-C\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-L\-O\-C\-S\-I\-Z\-E}}\label{seq_8h_aa9b785ec0b88702d35f444586b8a89f9}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+80  \textcolor{comment}{/* ReadPIR() uses this as a chunk size for }
+\textcolor{comment}{                         allocating memory}
+\textcolor{comment}{                      */}
+\end{DoxyCode}
+
+
+Definition at line 87 of file seq.\-h.
+
+\hypertarget{seq_8h_a529534bba52894559b7827fddf1b6de3}{\index{seq.\-h@{seq.\-h}!bl\-M\-A\-X\-P\-I\-R\-L\-A\-B\-E\-L@{bl\-M\-A\-X\-P\-I\-R\-L\-A\-B\-E\-L}}
+\index{bl\-M\-A\-X\-P\-I\-R\-L\-A\-B\-E\-L@{bl\-M\-A\-X\-P\-I\-R\-L\-A\-B\-E\-L}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-M\-A\-X\-P\-I\-R\-L\-A\-B\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-M\-A\-X\-P\-I\-R\-L\-A\-B\-E\-L~160}}\label{seq_8h_a529534bba52894559b7827fddf1b6de3}
+
+
+Definition at line 86 of file seq.\-h.
+
+\hypertarget{seq_8h_a795d8111a6987ef6a850b685467fdb14}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B2\-Seq@{bl\-P\-D\-B2\-Seq}}
+\index{bl\-P\-D\-B2\-Seq@{bl\-P\-D\-B2\-Seq}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B2\-Seq}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B2\-Seq(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq}((x), {\bf F\-A\-L\-S\-E}, {\bf F\-A\-L\-S\-E}, {\bf F\-A\-L\-S\-E})}}\label{seq_8h_a795d8111a6987ef6a850b685467fdb14}
+
+
+Definition at line 108 of file seq.\-h.
+
+\hypertarget{seq_8h_af158a02df5cae7dbdd7953196face363}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B2\-Seq\-By\-Chain@{bl\-P\-D\-B2\-Seq\-By\-Chain}}
+\index{bl\-P\-D\-B2\-Seq\-By\-Chain@{bl\-P\-D\-B2\-Seq\-By\-Chain}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B2\-Seq\-By\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B2\-Seq\-By\-Chain(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), {\bf F\-A\-L\-S\-E}, {\bf F\-A\-L\-S\-E}, {\bf F\-A\-L\-S\-E})}}\label{seq_8h_af158a02df5cae7dbdd7953196face363}
+
+
+Definition at line 118 of file seq.\-h.
+
+\hypertarget{seq_8h_a3f2c84814aca7311fa539d9132e6607d}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B2\-Seq\-No\-X@{bl\-P\-D\-B2\-Seq\-No\-X}}
+\index{bl\-P\-D\-B2\-Seq\-No\-X@{bl\-P\-D\-B2\-Seq\-No\-X}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B2\-Seq\-No\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B2\-Seq\-No\-X(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq}((x), {\bf F\-A\-L\-S\-E}, {\bf F\-A\-L\-S\-E}, {\bf T\-R\-U\-E})}}\label{seq_8h_a3f2c84814aca7311fa539d9132e6607d}
+
+
+Definition at line 110 of file seq.\-h.
+
+\hypertarget{seq_8h_a2b46b71d81771c894f4fc0175bb7dc36}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B2\-Seq\-No\-X\-By\-Chain@{bl\-P\-D\-B2\-Seq\-No\-X\-By\-Chain}}
+\index{bl\-P\-D\-B2\-Seq\-No\-X\-By\-Chain@{bl\-P\-D\-B2\-Seq\-No\-X\-By\-Chain}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B2\-Seq\-No\-X\-By\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B2\-Seq\-No\-X\-By\-Chain(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), {\bf F\-A\-L\-S\-E}, {\bf F\-A\-L\-S\-E}, {\bf T\-R\-U\-E})}}\label{seq_8h_a2b46b71d81771c894f4fc0175bb7dc36}
+
+
+Definition at line 120 of file seq.\-h.
+
+\hypertarget{seq_8h_a662b598c938b9c9f6284f40b36b2a9c4}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B2\-Seq\-X@{bl\-P\-D\-B2\-Seq\-X}}
+\index{bl\-P\-D\-B2\-Seq\-X@{bl\-P\-D\-B2\-Seq\-X}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B2\-Seq\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B2\-Seq\-X(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq}((x), {\bf T\-R\-U\-E},  {\bf F\-A\-L\-S\-E}, {\bf F\-A\-L\-S\-E})}}\label{seq_8h_a662b598c938b9c9f6284f40b36b2a9c4}
+
+
+Definition at line 109 of file seq.\-h.
+
+\hypertarget{seq_8h_a59e5e73dca76477627b99888d8d27aac}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B2\-Seq\-X\-By\-Chain@{bl\-P\-D\-B2\-Seq\-X\-By\-Chain}}
+\index{bl\-P\-D\-B2\-Seq\-X\-By\-Chain@{bl\-P\-D\-B2\-Seq\-X\-By\-Chain}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B2\-Seq\-X\-By\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B2\-Seq\-X\-By\-Chain(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), {\bf T\-R\-U\-E},  {\bf F\-A\-L\-S\-E}, {\bf F\-A\-L\-S\-E})}}\label{seq_8h_a59e5e73dca76477627b99888d8d27aac}
+
+
+Definition at line 119 of file seq.\-h.
+
+\hypertarget{seq_8h_ab7ca9992a646b87854e76dc7e450e45a}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B2\-Seq\-X\-No\-X@{bl\-P\-D\-B2\-Seq\-X\-No\-X}}
+\index{bl\-P\-D\-B2\-Seq\-X\-No\-X@{bl\-P\-D\-B2\-Seq\-X\-No\-X}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B2\-Seq\-X\-No\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B2\-Seq\-X\-No\-X(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq}((x), {\bf T\-R\-U\-E},  {\bf F\-A\-L\-S\-E}, {\bf T\-R\-U\-E})}}\label{seq_8h_ab7ca9992a646b87854e76dc7e450e45a}
+
+
+Definition at line 111 of file seq.\-h.
+
+\hypertarget{seq_8h_ad52e4ceb37a06b9799e201aafec26146}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B2\-Seq\-X\-No\-X\-By\-Chain@{bl\-P\-D\-B2\-Seq\-X\-No\-X\-By\-Chain}}
+\index{bl\-P\-D\-B2\-Seq\-X\-No\-X\-By\-Chain@{bl\-P\-D\-B2\-Seq\-X\-No\-X\-By\-Chain}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B2\-Seq\-X\-No\-X\-By\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B2\-Seq\-X\-No\-X\-By\-Chain(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), {\bf T\-R\-U\-E},  {\bf F\-A\-L\-S\-E}, {\bf T\-R\-U\-E})}}\label{seq_8h_ad52e4ceb37a06b9799e201aafec26146}
+
+
+Definition at line 121 of file seq.\-h.
+
+\hypertarget{seq_8h_ae1a8358058771317e339652534d694e2}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B\-Prot2\-Seq@{bl\-P\-D\-B\-Prot2\-Seq}}
+\index{bl\-P\-D\-B\-Prot2\-Seq@{bl\-P\-D\-B\-Prot2\-Seq}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B\-Prot2\-Seq}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B\-Prot2\-Seq(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq}((x), {\bf F\-A\-L\-S\-E}, {\bf T\-R\-U\-E}, {\bf F\-A\-L\-S\-E})}}\label{seq_8h_ae1a8358058771317e339652534d694e2}
+
+
+Definition at line 113 of file seq.\-h.
+
+\hypertarget{seq_8h_ad45ee48faa1f1df335cf86d8a192c9fb}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B\-Prot2\-Seq\-By\-Chain@{bl\-P\-D\-B\-Prot2\-Seq\-By\-Chain}}
+\index{bl\-P\-D\-B\-Prot2\-Seq\-By\-Chain@{bl\-P\-D\-B\-Prot2\-Seq\-By\-Chain}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B\-Prot2\-Seq\-By\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B\-Prot2\-Seq\-By\-Chain(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), {\bf F\-A\-L\-S\-E}, {\bf T\-R\-U\-E}, {\bf F\-A\-L\-S\-E})}}\label{seq_8h_ad45ee48faa1f1df335cf86d8a192c9fb}
+
+
+Definition at line 123 of file seq.\-h.
+
+\hypertarget{seq_8h_af0653d029cdebba73c16e409af3729b2}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B\-Prot2\-Seq\-No\-X@{bl\-P\-D\-B\-Prot2\-Seq\-No\-X}}
+\index{bl\-P\-D\-B\-Prot2\-Seq\-No\-X@{bl\-P\-D\-B\-Prot2\-Seq\-No\-X}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B\-Prot2\-Seq\-No\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B\-Prot2\-Seq\-No\-X(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq}((x), {\bf F\-A\-L\-S\-E}, {\bf T\-R\-U\-E}, {\bf T\-R\-U\-E})}}\label{seq_8h_af0653d029cdebba73c16e409af3729b2}
+
+
+Definition at line 115 of file seq.\-h.
+
+\hypertarget{seq_8h_acb7f53e896a9fda26fff021260e093d5}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B\-Prot2\-Seq\-No\-X\-By\-Chain@{bl\-P\-D\-B\-Prot2\-Seq\-No\-X\-By\-Chain}}
+\index{bl\-P\-D\-B\-Prot2\-Seq\-No\-X\-By\-Chain@{bl\-P\-D\-B\-Prot2\-Seq\-No\-X\-By\-Chain}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B\-Prot2\-Seq\-No\-X\-By\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B\-Prot2\-Seq\-No\-X\-By\-Chain(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), {\bf F\-A\-L\-S\-E}, {\bf T\-R\-U\-E}, {\bf T\-R\-U\-E})}}\label{seq_8h_acb7f53e896a9fda26fff021260e093d5}
+
+
+Definition at line 125 of file seq.\-h.
+
+\hypertarget{seq_8h_a94adacd36aef02b7a67b8fa00b1a82be}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B\-Prot2\-Seq\-X@{bl\-P\-D\-B\-Prot2\-Seq\-X}}
+\index{bl\-P\-D\-B\-Prot2\-Seq\-X@{bl\-P\-D\-B\-Prot2\-Seq\-X}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B\-Prot2\-Seq\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B\-Prot2\-Seq\-X(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq}((x), {\bf T\-R\-U\-E},  {\bf T\-R\-U\-E}, {\bf F\-A\-L\-S\-E})}}\label{seq_8h_a94adacd36aef02b7a67b8fa00b1a82be}
+
+
+Definition at line 114 of file seq.\-h.
+
+\hypertarget{seq_8h_a5ed123aae7c21e2776ea9bf2b7d87ae8}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B\-Prot2\-Seq\-X\-By\-Chain@{bl\-P\-D\-B\-Prot2\-Seq\-X\-By\-Chain}}
+\index{bl\-P\-D\-B\-Prot2\-Seq\-X\-By\-Chain@{bl\-P\-D\-B\-Prot2\-Seq\-X\-By\-Chain}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B\-Prot2\-Seq\-X\-By\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B\-Prot2\-Seq\-X\-By\-Chain(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), {\bf T\-R\-U\-E},  {\bf T\-R\-U\-E}, {\bf F\-A\-L\-S\-E})}}\label{seq_8h_a5ed123aae7c21e2776ea9bf2b7d87ae8}
+
+
+Definition at line 124 of file seq.\-h.
+
+\hypertarget{seq_8h_ae7e9ca54125d545d36e46c6de7b6bc6e}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X@{bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X}}
+\index{bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X@{bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq}((x), {\bf T\-R\-U\-E},  {\bf T\-R\-U\-E}, {\bf T\-R\-U\-E})}}\label{seq_8h_ae7e9ca54125d545d36e46c6de7b6bc6e}
+
+
+Definition at line 116 of file seq.\-h.
+
+\hypertarget{seq_8h_a456c48765e1dbe5a97fd3778b4599526}{\index{seq.\-h@{seq.\-h}!bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X\-By\-Chain@{bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X\-By\-Chain}}
+\index{bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X\-By\-Chain@{bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X\-By\-Chain}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X\-By\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}\#define bl\-P\-D\-B\-Prot2\-Seq\-X\-No\-X\-By\-Chain(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}((x), {\bf T\-R\-U\-E},  {\bf T\-R\-U\-E}, {\bf T\-R\-U\-E})}}\label{seq_8h_a456c48765e1dbe5a97fd3778b4599526}
+
+
+Definition at line 126 of file seq.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{seq_8h_a2bfda833cbb45aa99d853f90b0a8c3e6}{\index{seq.\-h@{seq.\-h}!bl\-Affinealign@{bl\-Affinealign}}
+\index{bl\-Affinealign@{bl\-Affinealign}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Affinealign}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Affinealign (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{seq1, }
+\item[{int}]{length1, }
+\item[{char $\ast$}]{seq2, }
+\item[{int}]{length2, }
+\item[{{\bf B\-O\-O\-L}}]{verbose, }
+\item[{{\bf B\-O\-O\-L}}]{identity, }
+\item[{int}]{penalty, }
+\item[{int}]{penext, }
+\item[{char $\ast$}]{align1, }
+\item[{char $\ast$}]{align2, }
+\item[{int $\ast$}]{align\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a2bfda833cbb45aa99d853f90b0a8c3e6}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$seq1} & First sequence \\
+\hline
+\mbox{\tt in}  & {\em length1} & First sequence length \\
+\hline
+\mbox{\tt in}  & {\em $\ast$seq2} & Second sequence \\
+\hline
+\mbox{\tt in}  & {\em length2} & Second sequence length \\
+\hline
+\mbox{\tt in}  & {\em verbose} & Display N\&W matrix \\
+\hline
+\mbox{\tt in}  & {\em identity} & Use identity matrix \\
+\hline
+\mbox{\tt in}  & {\em penalty} & Gap insertion penalty value \\
+\hline
+\mbox{\tt in}  & {\em penext} & Extension penalty \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align1} & Sequence 1 aligned \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align2} & Sequence 2 aligned \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align\-\_\-len} & Alignment length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Alignment score (0 on error)
+\end{DoxyReturn}
+Perform simple N\&W alignment of seq1 and seq2. No window is used, so will be slow for long sequences.
+
+Note that you must allocate sufficient memory for the aligned sequences. The easy way to do this is to ensure that align1 and align2 are of length (length1+length2).
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-92 Adapted from original written while at N\-I\-M\-R
+\item 08.\-10.\-92 Split into separate routines
+\item 09.\-10.\-92 Changed best structure to simple integers, moved Search\-For\-Best() into Trace\-Back()
+\item 21.\-08.\-95 Was only filling in the bottom right cell at initialisation rather than all the right hand column and bottom row
+\item 11.\-07.\-96 Changed calls to calcscore() to Calc\-M\-D\-M\-Score()
+\item 06.\-03.\-00 Changed name to affinealign() (the routine align() is provided as a backwards compatible wrapper). Added penext parameter. Now supports affine gap penalties with separate opening and extension penalties. The code now maintains the path as it goes.
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P \begin{DoxyVerb}  NOTE AND CHANGES SHOULD BE PROPAGATED TO affinealignuc()   ******\end{DoxyVerb}
+ 
+\end{DoxyItemize}
+
+Definition at line 280 of file align.\-c.
+
+\hypertarget{seq_8h_a202550fea7f22fad1fa8bcd23aa736b3}{\index{seq.\-h@{seq.\-h}!bl\-Affinealignuc@{bl\-Affinealignuc}}
+\index{bl\-Affinealignuc@{bl\-Affinealignuc}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Affinealignuc}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Affinealignuc (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{seq1, }
+\item[{int}]{length1, }
+\item[{char $\ast$}]{seq2, }
+\item[{int}]{length2, }
+\item[{{\bf B\-O\-O\-L}}]{verbose, }
+\item[{{\bf B\-O\-O\-L}}]{identity, }
+\item[{int}]{penalty, }
+\item[{int}]{penext, }
+\item[{char $\ast$}]{align1, }
+\item[{char $\ast$}]{align2, }
+\item[{int $\ast$}]{align\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a202550fea7f22fad1fa8bcd23aa736b3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$seq1} & First sequence \\
+\hline
+\mbox{\tt in}  & {\em length1} & First sequence length \\
+\hline
+\mbox{\tt in}  & {\em $\ast$seq2} & Second sequence \\
+\hline
+\mbox{\tt in}  & {\em length2} & Second sequence length \\
+\hline
+\mbox{\tt in}  & {\em verbose} & Display N\&W matrix \\
+\hline
+\mbox{\tt in}  & {\em identity} & Use identity matrix \\
+\hline
+\mbox{\tt in}  & {\em penalty} & Gap insertion penalty value \\
+\hline
+\mbox{\tt in}  & {\em penext} & Extension penalty \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align1} & Sequence 1 aligned \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align2} & Sequence 2 aligned \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align\-\_\-len} & Alignment length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Alignment score (0 on error)
+\end{DoxyReturn}
+Perform simple N\&W alignment of seq1 and seq2. No window is used, so will be slow for long sequences.
+
+Note that you must allocate sufficient memory for the aligned sequences. The easy way to do this is to ensure that align1 and align2 are of length (length1+length2).
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-92 Adapted from original written while at N\-I\-M\-R
+\item 08.\-10.\-92 Split into separate routines
+\item 09.\-10.\-92 Changed best structure to simple integers, moved Search\-For\-Best() into Trace\-Back()
+\item 21.\-08.\-95 Was only filling in the bottom right cell at initialisation rather than all the right hand column and bottom row
+\item 11.\-07.\-96 Changed calls to calcscore() to Calc\-M\-D\-M\-Score()
+\item 06.\-03.\-00 Changed name to affinealign() (the routine align() is provided as a backwards compatible wrapper). Added penext parameter. Now supports affine gap penalties with separate opening and extension penalties. The code now maintains the path as it goes.
+\item 27.\-02.\-07 Exactly as affinealign() but upcases characters before comparison
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\end{DoxyItemize}
+
+\begin{DoxyVerb}      NOTE AND CHANGES SHOULD BE PROPAGATED TO affinealign()    ******\end{DoxyVerb}
+ 
+
+Definition at line 588 of file align.\-c.
+
+\hypertarget{seq_8h_ad4440404ba000b804b8e5bdbf5144296}{\index{seq.\-h@{seq.\-h}!bl\-Align@{bl\-Align}}
+\index{bl\-Align@{bl\-Align}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Align}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Align (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{seq1, }
+\item[{int}]{length1, }
+\item[{char $\ast$}]{seq2, }
+\item[{int}]{length2, }
+\item[{{\bf B\-O\-O\-L}}]{verbose, }
+\item[{{\bf B\-O\-O\-L}}]{identity, }
+\item[{int}]{penalty, }
+\item[{char $\ast$}]{align1, }
+\item[{char $\ast$}]{align2, }
+\item[{int $\ast$}]{align\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_ad4440404ba000b804b8e5bdbf5144296}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$seq1} & First sequence \\
+\hline
+\mbox{\tt in}  & {\em length1} & First sequence length \\
+\hline
+\mbox{\tt in}  & {\em $\ast$seq2} & Second sequence \\
+\hline
+\mbox{\tt in}  & {\em length2} & Second sequence length \\
+\hline
+\mbox{\tt in}  & {\em verbose} & Display N\&W matrix \\
+\hline
+\mbox{\tt in}  & {\em identity} & Use identity matrix \\
+\hline
+\mbox{\tt in}  & {\em penalty} & Gap insertion penalty value \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align1} & Sequence 1 aligned \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align2} & Sequence 2 aligned \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align\-\_\-len} & Alignment length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Alignment score (0 on error)
+\end{DoxyReturn}
+Perform simple N\&W alignment of seq1 and seq2. No window is used, so will be slow for long sequences.
+
+A single gap penalty is used, so gap extension incurrs no further penalty.
+
+Note that you must allocate sufficient memory for the aligned sequences. The easy way to do this is to ensure that align1 and align2 are of length (length1+length2).
+
+
+\begin{DoxyItemize}
+\item 06.\-03.\-00 Implemented as a wrapper to affinealign() which is the old align() routine, plus support for affine gap penalties, plus new traceback code based on storing the path as we go
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 219 of file align.\-c.
+
+\hypertarget{seq_8h_a503439e6489823462c1c4c242ccc47e0}{\index{seq.\-h@{seq.\-h}!bl\-Calc\-M\-D\-M\-Score@{bl\-Calc\-M\-D\-M\-Score}}
+\index{bl\-Calc\-M\-D\-M\-Score@{bl\-Calc\-M\-D\-M\-Score}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Calc\-M\-D\-M\-Score}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Calc\-M\-D\-M\-Score (
+\begin{DoxyParamCaption}
+\item[{char}]{resa, }
+\item[{char}]{resb}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a503439e6489823462c1c4c242ccc47e0}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em resa} & First residue \\
+\hline
+\mbox{\tt in}  & {\em resb} & Second residue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+score
+\end{DoxyReturn}
+Calculate score from static globally stored mutation data matrix
+
+If both residues are set as '\textbackslash{}0' it will simply silence all warnings
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-92 Adapted from N\-I\-M\-R-\/written original
+\item 24.\-11.\-94 Only gives 10 warnings
+\item 28.\-02.\-95 Modified to use s\-M\-D\-M\-Size
+\item 24.\-08.\-95 If a residue was not found was doing an out-\/of-\/bounds array reference causing a potential core dump
+\item 11.\-07.\-96 Name changed from calcscore() and now non-\/static
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 04.\-01.\-16 Added special call with both residues set to '\textbackslash{}0' to silence warnings. Also warnings now go to stderr 
+\end{DoxyItemize}
+
+Definition at line 1241 of file align.\-c.
+
+\hypertarget{seq_8h_ad4bd60d9e34a3ac0d408508be92f4c83}{\index{seq.\-h@{seq.\-h}!bl\-Calc\-M\-D\-M\-Score\-U\-C@{bl\-Calc\-M\-D\-M\-Score\-U\-C}}
+\index{bl\-Calc\-M\-D\-M\-Score\-U\-C@{bl\-Calc\-M\-D\-M\-Score\-U\-C}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Calc\-M\-D\-M\-Score\-U\-C}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Calc\-M\-D\-M\-Score\-U\-C (
+\begin{DoxyParamCaption}
+\item[{char}]{resa, }
+\item[{char}]{resb}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_ad4bd60d9e34a3ac0d408508be92f4c83}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em resa} & First residue \\
+\hline
+\mbox{\tt in}  & {\em resb} & Second residue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+score
+\end{DoxyReturn}
+Calculate score from static globally stored mutation data matrix
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-92 Adapted from N\-I\-M\-R-\/written original
+\item 24.\-11.\-94 Only gives 10 warnings
+\item 28.\-02.\-95 Modified to use s\-M\-D\-M\-Size
+\item 24.\-08.\-95 If a residue was not found was doing an out-\/of-\/bounds array reference causing a potential core dump
+\item 11.\-07.\-96 Name changed from calcscore() and now non-\/static
+\item 27.\-02.\-07 As Calc\-M\-D\-M\-Score() but upcases characters before comparison
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 04.\-01.\-16 Added special call with both residues set to '\textbackslash{}0' to silence warnings. Also warnings now go to stderr 
+\end{DoxyItemize}
+
+Definition at line 1314 of file align.\-c.
+
+\hypertarget{seq_8h_ae68acfc61d30bed5ecfdaf4422c70f87}{\index{seq.\-h@{seq.\-h}!bl\-D\-N\-Ato\-A\-A@{bl\-D\-N\-Ato\-A\-A}}
+\index{bl\-D\-N\-Ato\-A\-A@{bl\-D\-N\-Ato\-A\-A}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-D\-N\-Ato\-A\-A}]{\setlength{\rightskip}{0pt plus 5cm}char bl\-D\-N\-Ato\-A\-A (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{dna}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_ae68acfc61d30bed5ecfdaf4422c70f87}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$dna} & D\-N\-A/\-R\-N\-A codon \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1-\/letter amino acid code (X=termination)
+\end{DoxyReturn}
+Converts a nucleic acid codon to the 1-\/letter amino acid equivalent. Termination codons are returned as X. No special action is taken for initiation codons.
+
+
+\begin{DoxyItemize}
+\item 18.\-04.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 110 of file D\-N\-Ato\-A\-A.\-c.
+
+\hypertarget{seq_8h_a3ceea54ec3e1794795d12708eb15d21b}{\index{seq.\-h@{seq.\-h}!bl\-Do\-P\-D\-B2\-Seq@{bl\-Do\-P\-D\-B2\-Seq}}
+\index{bl\-Do\-P\-D\-B2\-Seq@{bl\-Do\-P\-D\-B2\-Seq}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Do\-P\-D\-B2\-Seq}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Do\-P\-D\-B2\-Seq (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf B\-O\-O\-L}}]{Do\-Asx\-Glx, }
+\item[{{\bf B\-O\-O\-L}}]{Prot\-Only, }
+\item[{{\bf B\-O\-O\-L}}]{No\-X}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a3ceea54ec3e1794795d12708eb15d21b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em Do\-Asx\-Glx} & Handle Asx and Glx as B and Z rather than X \\
+\hline
+\mbox{\tt in}  & {\em Prot\-Only} & Don't do D\-N\-A/\-R\-N\-A; these simply don't get done rather than being handled as X \\
+\hline
+\mbox{\tt in}  & {\em No\-X} & Skip amino acids which would be assigned as X \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Allocated character array containing sequence
+\end{DoxyReturn}
+malloc()'s an array containing the 1-\/letter sequence corresponding to an input P\-D\-B linked list. Returns N\-U\-L\-L if given a N\-U\-L\-L parameter or memory allocation fails. Puts $\ast$'s in the sequence for multi-\/chains.
+
+This routine is normally called via the macro interfaces\-: P\-D\-B2\-Seq(pdb), P\-D\-B2\-Seq\-X(pdb), P\-D\-B\-Prot2\-Seq(pdb), P\-D\-B\-Prot2\-Seq\-X(pdb) Those with Prot in their names handle protein only; those with X handle Asx/\-Glx as B/\-Z rather than as X
+
+
+\begin{DoxyItemize}
+\item 29.\-09.\-92 Original By\-: A\-C\-R\-M
+\item 07.\-06.\-93 Corrected allocation.
+\item 18.\-06.\-93 Handles multi-\/chains and skips N\-T\-E\-R and C\-T\-E\-R residues
+\item 13.\-05.\-94 Check for chain change {\itshape before} copy residue (!) (Bug reported by Bob Mac\-Cullum)
+\item 19.\-07.\-95 Added check for A\-T\-O\-M records
+\item 24.\-01.\-96 Returns blank string (rather than core dumping!) if the linked list contained no A\-T\-O\-M records
+\item 26.\-08.\-97 Changed to do\-P\-D\-B2\-Seq with extra parameters (Do\-Asx\-Glx \& Prot\-Only). The old calling forms have now become macros
+\item 02.\-10.\-00 Added No\-X
+\item 10.\-06.\-05 Changed the initialization of rescount, resnum, etc. so it correctly points to the first residue. This solves a bug with C\-A-\/only chains where it was undercounting by 1
+\item 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H By\-: C\-T\-P
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 146 of file P\-D\-B2\-Seq.\-c.
+
+\hypertarget{seq_8h_a1e99d4509d7280688a936f96d9c00325}{\index{seq.\-h@{seq.\-h}!bl\-Do\-P\-D\-B2\-Seq\-By\-Chain@{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}}
+\index{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain@{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Do\-P\-D\-B2\-Seq\-By\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf H\-A\-S\-H\-T\-A\-B\-L\-E}$\ast$ bl\-Do\-P\-D\-B2\-Seq\-By\-Chain (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf B\-O\-O\-L}}]{Do\-Asx\-Glx, }
+\item[{{\bf B\-O\-O\-L}}]{Prot\-Only, }
+\item[{{\bf B\-O\-O\-L}}]{No\-X}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a1e99d4509d7280688a936f96d9c00325}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em Do\-Asx\-Glx} & Handle Asx and Glx as B and Z rather than X \\
+\hline
+\mbox{\tt in}  & {\em Prot\-Only} & Don't do D\-N\-A/\-R\-N\-A; these simply don't get done rather than being handled as X \\
+\hline
+\mbox{\tt in}  & {\em No\-X} & Skip amino acids which would be assigned as X \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A hash of 1-\/letter code sequences indexed by chain label
+\end{DoxyReturn}
+Reads sequence from A\-T\-O\-M records in 1-\/letter code, storing the results in a hash indexed by chain label.
+
+This routine is normally called via the macro interfaces\-: P\-D\-B2\-Seq\-By\-C\-Hain(pdb), P\-D\-B2\-Seq\-X\-By\-C\-Hain(pdb), P\-D\-B\-Prot2\-Seq\-By\-Chain(pdb), P\-D\-B\-Prot2\-Seq\-X\-By\-Chain(pdb) Those with Prot in their names handle protein only; those with X handle Asx/\-Glx as B/\-Z rather than as X
+
+
+\begin{DoxyItemize}
+\item 30.\-11.\-15 Original based on \hyperlink{_p_d_b2_seq_8c_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq()} By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 294 of file P\-D\-B2\-Seq.\-c.
+
+\hypertarget{seq_8h_a6ff80e0085ce2af58bdbdfbefa887749}{\index{seq.\-h@{seq.\-h}!bl\-Free\-M\-D\-M@{bl\-Free\-M\-D\-M}}
+\index{bl\-Free\-M\-D\-M@{bl\-Free\-M\-D\-M}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Free\-M\-D\-M}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Free\-M\-D\-M (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a6ff80e0085ce2af58bdbdfbefa887749}
+Frees the memory allocated by \hyperlink{align_8c_a7427990ccc2bc14bf3e1a1797a1aaba7}{bl\-Read\-M\-D\-M()}
+
+
+\begin{DoxyItemize}
+\item 02.\-05.\-18 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 1012 of file align.\-c.
+
+\hypertarget{seq_8h_a458ac08b1ca2e18cdca58412b48a59af}{\index{seq.\-h@{seq.\-h}!bl\-Known\-Seq\-Len@{bl\-Known\-Seq\-Len}}
+\index{bl\-Known\-Seq\-Len@{bl\-Known\-Seq\-Len}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Known\-Seq\-Len}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Known\-Seq\-Len (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{sequence}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a458ac08b1ca2e18cdca58412b48a59af}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$sequence} & A sequence containing deletions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Length without deletions
+\end{DoxyReturn}
+Scans a 1-\/letter code sequence and calculate the length without `-\/', ` ' or '?' residues
+
+
+\begin{DoxyItemize}
+\item 13.\-05.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 107 of file Known\-Seq\-Len.\-c.
+
+\hypertarget{seq_8h_a65436ca35c20f5c0dca48c3ead12b816}{\index{seq.\-h@{seq.\-h}!bl\-Numeric\-Affine\-Align@{bl\-Numeric\-Affine\-Align}}
+\index{bl\-Numeric\-Affine\-Align@{bl\-Numeric\-Affine\-Align}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Numeric\-Affine\-Align}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Numeric\-Affine\-Align (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{seq1, }
+\item[{int}]{length1, }
+\item[{int $\ast$}]{seq2, }
+\item[{int}]{length2, }
+\item[{{\bf B\-O\-O\-L}}]{verbose, }
+\item[{{\bf B\-O\-O\-L}}]{identity, }
+\item[{int}]{penalty, }
+\item[{int}]{penext, }
+\item[{int $\ast$}]{align1, }
+\item[{int $\ast$}]{align2, }
+\item[{int $\ast$}]{align\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a65436ca35c20f5c0dca48c3ead12b816}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$seq1} & First sequence of tokens \\
+\hline
+\mbox{\tt in}  & {\em length1} & First sequence length \\
+\hline
+\mbox{\tt in}  & {\em $\ast$seq2} & Second sequence of tokens \\
+\hline
+\mbox{\tt in}  & {\em length2} & Second sequence length \\
+\hline
+\mbox{\tt in}  & {\em verbose} & Display N\&W matrix \\
+\hline
+\mbox{\tt in}  & {\em identity} & Use identity matrix \\
+\hline
+\mbox{\tt in}  & {\em penalty} & Gap insertion penalty value \\
+\hline
+\mbox{\tt in}  & {\em penext} & Extension penalty \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align1} & Sequence 1 aligned \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align2} & Sequence 2 aligned \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align\-\_\-len} & Alignment length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Alignment score (0 on error)
+\end{DoxyReturn}
+Perform simple N\&W alignment of seq1 and seq2. No window is used, so will be slow for long sequences.
+
+The sequences come as integer arrays containing numeric tokens
+
+Note that you must allocate sufficient memory for the aligned sequences. The easy way to do this is to ensure that align1 and align2 are of length (length1+length2).
+
+Identical to \hyperlink{align_8c}{align.\-c}/affinealign(), but uses integer arrays
+
+
+\begin{DoxyItemize}
+\item 08.\-03.\-00 Original based on \hyperlink{align_8c}{align.\-c}/affinealign() 06.\-03.\-00 By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 412 of file Numeric\-Align.\-c.
+
+\hypertarget{seq_8h_a4ca4dc7d7e7714971036f5d1e22ccce6}{\index{seq.\-h@{seq.\-h}!bl\-Numeric\-Calc\-M\-D\-M\-Score@{bl\-Numeric\-Calc\-M\-D\-M\-Score}}
+\index{bl\-Numeric\-Calc\-M\-D\-M\-Score@{bl\-Numeric\-Calc\-M\-D\-M\-Score}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Numeric\-Calc\-M\-D\-M\-Score}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Numeric\-Calc\-M\-D\-M\-Score (
+\begin{DoxyParamCaption}
+\item[{int}]{resa, }
+\item[{int}]{resb}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a4ca4dc7d7e7714971036f5d1e22ccce6}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em resa} & First token \\
+\hline
+\mbox{\tt in}  & {\em resb} & Second token \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+score
+\end{DoxyReturn}
+Calculate score from static globally stored mutation data matrix
+
+Identical to \hyperlink{align_8c}{align.\-c}/\-Calc\-M\-D\-M\-Score(), but uses a different static score array and takes integer parameters. These are used as direct lookups into the score array rather than being searched.
+
+
+\begin{DoxyItemize}
+\item 08.\-03.\-00 Original based on \hyperlink{align_8c}{align.\-c}/\-Calc\-M\-D\-M\-Score() 11.\-07.\-96 By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 342 of file Numeric\-Align.\-c.
+
+\hypertarget{seq_8h_af3438f88a5286d057de168f03e146703}{\index{seq.\-h@{seq.\-h}!bl\-Numeric\-Read\-M\-D\-M@{bl\-Numeric\-Read\-M\-D\-M}}
+\index{bl\-Numeric\-Read\-M\-D\-M@{bl\-Numeric\-Read\-M\-D\-M}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Numeric\-Read\-M\-D\-M}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Numeric\-Read\-M\-D\-M (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{mdmfile}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_af3438f88a5286d057de168f03e146703}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$mdmfile} & Mutation data matrix filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Read mutation data matrix into static global arrays. The matrix may have comments at the start introduced with a ! in the first column. The matrix must be complete (i.\-e. a triangular matrix will not work). A line describing the residue types must appear, and may be placed before or after the matrix itself
+
+Identical to \hyperlink{align_8c}{align.\-c}/\-Read\-M\-D\-M() but reads into a different static 2\-D array and doesn't read a symbol identifier line from the file as the symbols are numeric and always start from 1 (0 is used as the insert character)
+
+
+\begin{DoxyItemize}
+\item 08.\-03.\-00 Original based on \hyperlink{align_8c}{align.\-c}/\-Read\-M\-D\-M() 26.\-07.\-95 By\-: A\-C\-R\-M
+\item 06.\-02.\-03 Fixed for new version of Get\-Word()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 258 of file Numeric\-Align.\-c.
+
+\hypertarget{seq_8h_ae549d85acf85ad5233ec378101033e8b}{\index{seq.\-h@{seq.\-h}!bl\-Onethr@{bl\-Onethr}}
+\index{bl\-Onethr@{bl\-Onethr}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Onethr}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Onethr (
+\begin{DoxyParamCaption}
+\item[{char}]{one}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_ae549d85acf85ad5233ec378101033e8b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em one} & One letter code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Three letter code (padded to 4 chars with a space)
+\end{DoxyReturn}
+Converts 1-\/letter code to 3-\/letter code (actually as 4 chars).
+
+
+\begin{DoxyItemize}
+\item 07.\-06.\-93 Original By\-: A\-C\-R\-M
+\item 25.\-07.\-95 If the g\-Bioplib\-Seq\-Nucleic\-Acid flag is set, assumes nucleic acids rather than amino acids
+\item 03.\-02.\-09 Fixed nucleic search -\/ j was incrementing instead of decrementing!
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 223 of file throne.\-c.
+
+\hypertarget{seq_8h_a7427990ccc2bc14bf3e1a1797a1aaba7}{\index{seq.\-h@{seq.\-h}!bl\-Read\-M\-D\-M@{bl\-Read\-M\-D\-M}}
+\index{bl\-Read\-M\-D\-M@{bl\-Read\-M\-D\-M}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Read\-M\-D\-M}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Read\-M\-D\-M (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{mdmfile}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a7427990ccc2bc14bf3e1a1797a1aaba7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$mdmfile} & Mutation data matrix filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Read mutation data matrix into static global arrays. The matrix may have comments at the start introduced with a ! in the first column. The matrix must be complete (i.\-e. a triangular matrix will not work). A line describing the residue types must appear, and may be placed before or after the matrix itself
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-92 Original
+\item 18.\-03.\-94 getc() -\/$>$ fgetc()
+\item 24.\-11.\-94 Automatically looks in D\-A\-T\-A\-E\-N\-V if not found in current directory
+\item 28.\-02.\-95 Modified to read any size M\-D\-M and allow comments Also allows the list of aa types before or after the actual matrix
+\item 26.\-07.\-95 Removed unused variables
+\item 06.\-02.\-03 Fixed for new version of Get\-Word()
+\item 07.\-04.\-09 Completely re-\/written to allow it to read B\-L\-A\-S\-T style matrix files as well as the ones used previously Allow comments introduced with \# as well as ! Uses M\-A\-X\-W\-O\-R\-D rather than hardcoded 16
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 876 of file align.\-c.
+
+\hypertarget{seq_8h_af1b174b41b5e3e31e6e0ef0a474420b3}{\index{seq.\-h@{seq.\-h}!bl\-Read\-P\-I\-R@{bl\-Read\-P\-I\-R}}
+\index{bl\-Read\-P\-I\-R@{bl\-Read\-P\-I\-R}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Read\-P\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Read\-P\-I\-R (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf B\-O\-O\-L}}]{Do\-Insert, }
+\item[{char $\ast$$\ast$}]{seqs, }
+\item[{int}]{maxchain, }
+\item[{{\bf S\-E\-Q\-I\-N\-F\-O} $\ast$}]{seqinfo, }
+\item[{{\bf B\-O\-O\-L} $\ast$}]{punct, }
+\item[{{\bf B\-O\-O\-L} $\ast$}]{error}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_af1b174b41b5e3e31e6e0ef0a474420b3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em Do\-Insert} & T\-R\-U\-E Read -\/ characters into the sequence F\-A\-L\-S\-E Skip -\/ characters \\
+\hline
+\mbox{\tt in}  & {\em maxchain} & Max number of chains to read. This is the dimension of the seqs array. N.\-B. T\-H\-I\-S S\-H\-O\-U\-L\-D B\-E A\-T L\-E\-A\-S\-T 1 M\-O\-R\-E T\-H\-A\-N T\-H\-E E\-X\-P\-E\-C\-T\-E\-D M\-A\-X\-I\-M\-U\-M N\-U\-M\-B\-E\-R O\-F S\-E\-Q\-U\-E\-N\-C\-E\-S \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$seqs} & Array of character pointers which will be filled in with sequence information. Memory will be allocated for any sequence length. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$seqinfo} & This structure will be filled in with extra information about the sequence. Header \& title information and details of any punctuation. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$punct} & T\-R\-U\-E if any punctuation found. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$error} & T\-R\-U\-E if an error occured (e.\-g. memory allocation) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of chains in this sequence. 0 if file ended, or no valid sequence entries found.
+\end{DoxyReturn}
+This is an all-\/singing, all-\/dancing P\-I\-R reader which should handle all legal P\-I\-R files and some (slightly) incorrect ones. The only requirements of the code are that the P\-I\-R file should have 2 title lines per entry, the first line starting with a $>$ sign.
+
+The routine will handle multiple sequence files. Successive calls will return information on the next entry. The routine will return 0 when there are no more entries.
+
+Header line\-: Must start with $>$. Will handle files which don't have the proper P1; or F1; parts of the header as well as those which do.
+
+Title line\-: Will read the name and source fields if correctly separated by a -\/, otherwise copies all information into the name.
+
+Sequence\-: May contain allowed puctuation. This will set the punct flag and information on the types found will be placed in seqinfo. White space and line breaks are ignored. Each chain should end with a $\ast$, but the routine will accept the last chain of an entry with no . While the standard requires upper case text, this routine will handle lower case and convert it to upper case. While the routine does pretty well at last chains not terminated with a $\ast$, a last chain ending with a / not followed by a $\ast$ but followed by a text line will be identified as incomplete rather than truncated. If the Do\-Insert flag is set, -\/ signs in the sequence will be read as part of the sequence, otherwise they will be skipped. This is an addition to the P\-I\-R standard.
+
+Text lines\-: Text lines after an entry (beginning with R;, C;, A;, N; or F;) are ignored.
+
+
+\begin{DoxyItemize}
+\item 02.\-03.\-94 Original By\-: A\-C\-R\-M
+\item 03.\-03.\-94 Added / and = handling, upcasing, strcpy()-\/$>$strncpy(), header lines without semi-\/colon, title lines without -\/
+\item 07.\-03.\-94 Added sequence insertion handling and Do\-Insert parameter.
+\item 11.\-05.\-94 buffer is now 504 characters (V38.\-0 spec allows 500 chars) Removes leading spaces from entry code and terminates at first space (V39.\-0 spec allows comments after the code).
+\item 28.\-02.\-95 Added check that buffer doesn't overflow. Check on nseq changed to $>$=
+\item 06.\-02.\-96 Removes trailing spaces from comment line
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 180 of file Read\-P\-I\-R.\-c.
+
+\hypertarget{seq_8h_a30bfed19b661389a331406432e9dfc59}{\index{seq.\-h@{seq.\-h}!bl\-Read\-Raw\-P\-I\-R@{bl\-Read\-Raw\-P\-I\-R}}
+\index{bl\-Read\-Raw\-P\-I\-R@{bl\-Read\-Raw\-P\-I\-R}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Read\-Raw\-P\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Read\-Raw\-P\-I\-R (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{char $\ast$$\ast$}]{seqs, }
+\item[{int}]{maxchain, }
+\item[{{\bf B\-O\-O\-L}}]{upcase, }
+\item[{{\bf S\-E\-Q\-I\-N\-F\-O} $\ast$}]{seqinfo, }
+\item[{{\bf B\-O\-O\-L} $\ast$}]{error}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a30bfed19b661389a331406432e9dfc59}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em maxchain} & Max number of chains to read. This is the dimension of the seqs array. N.\-B. T\-H\-I\-S S\-H\-O\-U\-L\-D B\-E A\-T L\-E\-A\-S\-T 1 M\-O\-R\-E T\-H\-A\-N T\-H\-E E\-X\-P\-E\-C\-T\-E\-D M\-A\-X\-I\-M\-U\-M N\-U\-M\-B\-E\-R O\-F S\-E\-Q\-U\-E\-N\-C\-E\-S \\
+\hline
+\mbox{\tt in}  & {\em upcase} & Should lower-\/case letters be upcased? \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$seqs} & Array of character pointers which will be filled in with sequence information. Memory will be allocated for any sequence length. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$seqinfo} & This structure will be filled in with extra information about the sequence. Header \& title information and details of any punctuation. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$error} & T\-R\-U\-E if an error occured (e.\-g. memory allocation) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of chains in this sequence. 0 if file ended, or no valid sequence entries found.
+\end{DoxyReturn}
+This is based on Read\-P\-I\-R(), but reads all characters into the sequence arrays (i.\-e. all punctuation characters are read as is). This is useful when punctuation has been used to indicate consensus sequence features.
+
+The only requirements of the code are that the P\-I\-R file should have 2 title lines per entry, the first line starting with a $>$ sign. The routine will handle multiple sequence files. Successive calls will return information on the next entry. The routine will return 0 when there are no more entries.
+
+Header line\-: Must start with $>$. Will handle files which don't have the proper P1; or F1; parts of the header as well as those which do.
+
+Title line\-: Will read the name and source fields if correctly separated by a -\/, otherwise copies all information into the name.
+
+White space and line breaks are ignored. Each chain should end with a $\ast$, but the routine will accept the last chain of an entry with no . While the standard requires upper case text, this routine will handle lower case and convert it to upper case. While the routine does pretty well at last chains not terminated with a $\ast$, a last chain ending with a / not followed by a $\ast$ but followed by a text line will be identified as incomplete rather than truncated. If the Do\-Insert flag is set, -\/ signs in the sequence will be read as part of the sequence, otherwise they will be skipped. This is an addition to the P\-I\-R standard.
+
+Text lines\-: Text lines after an entry (beginning with R;, C;, A;, N; or F;) are ignored.
+
+
+\begin{DoxyItemize}
+\item 28.\-02.\-95 Original based on Read\-P\-I\-R() By\-: A\-C\-R\-M
+\item 13.\-03.\-95 chpos++ had got moved wrongly when adapting from Read\-P\-I\-R(). Put it back fixing handling of text lines.
+\item 26.\-07.\-95 Removed unused variables
+\item 06.\-02.\-96 Remove any trailing spaces 
+\end{DoxyItemize}
+
+Definition at line 169 of file Read\-Raw\-P\-I\-R.\-c.
+
+\hypertarget{seq_8h_ad246bc81a152dd498cbfd579d9f7b901}{\index{seq.\-h@{seq.\-h}!bl\-Read\-Simple\-P\-I\-R@{bl\-Read\-Simple\-P\-I\-R}}
+\index{bl\-Read\-Simple\-P\-I\-R@{bl\-Read\-Simple\-P\-I\-R}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Read\-Simple\-P\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Read\-Simple\-P\-I\-R (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int}]{maxres, }
+\item[{char $\ast$$\ast$}]{seqs}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_ad246bc81a152dd498cbfd579d9f7b901}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em maxres} & Max number of residues in chain. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$seqs} & Array of pointers to sequences \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of chains. 0 if error
+\end{DoxyReturn}
+Read a P\-I\-R file containing multiple chains of up to maxres amino acids. Each chain is returned in seqs\mbox{[}\mbox{]}. The number of chains is returned by the routine. 0 is returned if a memory allocation failed
+
+
+\begin{DoxyItemize}
+\item 01.\-06.\-91 Original
+\item 03.\-03.\-94 Added check on case before toupper(). Changed name.
+\item 18.\-03.\-94 Changed getc() to fgetc()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 121 of file Read\-Simple\-P\-I\-R.\-c.
+
+\hypertarget{seq_8h_a543c1d8afe579c1d3ebf03c4522f8554}{\index{seq.\-h@{seq.\-h}!bl\-Set\-M\-D\-M\-Score\-Weight@{bl\-Set\-M\-D\-M\-Score\-Weight}}
+\index{bl\-Set\-M\-D\-M\-Score\-Weight@{bl\-Set\-M\-D\-M\-Score\-Weight}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Set\-M\-D\-M\-Score\-Weight}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Set\-M\-D\-M\-Score\-Weight (
+\begin{DoxyParamCaption}
+\item[{char}]{resa, }
+\item[{char}]{resb, }
+\item[{{\bf R\-E\-A\-L}}]{weight}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a543c1d8afe579c1d3ebf03c4522f8554}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em resa} & First residue \\
+\hline
+\mbox{\tt in}  & {\em resb} & Second residue \\
+\hline
+\mbox{\tt in}  & {\em weight} & Weight to apply\\
+\hline
+\end{DoxyParams}
+Apply a weight to a particular amino acid substitution
+
+
+\begin{DoxyItemize}
+\item 26.\-08.\-14 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 1429 of file align.\-c.
+
+\hypertarget{seq_8h_a64c321ff1aaec459fafcd8c02abdc088}{\index{seq.\-h@{seq.\-h}!bl\-Split\-Seq@{bl\-Split\-Seq}}
+\index{bl\-Split\-Seq@{bl\-Split\-Seq}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Split\-Seq}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Split\-Seq (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{Linear\-Seq, }
+\item[{char $\ast$$\ast$}]{seqs}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a64c321ff1aaec459fafcd8c02abdc088}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$\-Linear\-Seq} & Array containing sequence with chains terminated by $\ast$'s \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$seqs} & Allocated set of character arrays containing one chain per array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of chains found
+\end{DoxyReturn}
+Splits a sequence stored as a linear array with each chain separated by a $\ast$ into an array of sequences. Returns the number of chains found.
+
+
+\begin{DoxyItemize}
+\item 18.\-06.\-93 Original By\-: A\-C\-R\-M
+\item 09.\-07.\-93 Cleans up properly of allocation failed
+\item 07.\-09.\-94 Sequence space was being allocated one too small
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 115 of file Split\-Seq.\-c.
+
+\hypertarget{seq_8h_a29e50e2e8ab3aa15ab9e05e81d2274ab}{\index{seq.\-h@{seq.\-h}!bl\-Throne@{bl\-Throne}}
+\index{bl\-Throne@{bl\-Throne}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Throne}]{\setlength{\rightskip}{0pt plus 5cm}char bl\-Throne (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{three}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_a29e50e2e8ab3aa15ab9e05e81d2274ab}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$three} & Three letter code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One letter code
+\end{DoxyReturn}
+Converts 3-\/letter code to 1-\/letter code. Handles A\-S\-X and G\-L\-X as X
+
+
+\begin{DoxyItemize}
+\item 29.\-09.\-92 Original By\-: A\-C\-R\-M
+\item 11.\-03.\-94 Modified to handle A\-S\-X and G\-L\-X in the tables
+\item 25.\-07.\-95 Added handling of g\-Bioplib\-Seq\-Nucleic\-Acid
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 153 of file throne.\-c.
+
+\hypertarget{seq_8h_ad5f101649d4acff71295dd407310d194}{\index{seq.\-h@{seq.\-h}!bl\-Thronex@{bl\-Thronex}}
+\index{bl\-Thronex@{bl\-Thronex}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Thronex}]{\setlength{\rightskip}{0pt plus 5cm}char bl\-Thronex (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{three}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_ad5f101649d4acff71295dd407310d194}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$three} & Three letter code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One letter code
+\end{DoxyReturn}
+Converts 3-\/letter code to 1-\/letter code. Handles A\-S\-X and G\-L\-X as B and Z.
+
+
+\begin{DoxyItemize}
+\item 29.\-09.\-92 Original By\-: A\-C\-R\-M
+\item 25.\-07.\-95 Added handling of g\-Bioplib\-Seq\-Nucleic\-Acid
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 188 of file throne.\-c.
+
+\hypertarget{seq_8h_ac0b588fc17073612af3c544bba8d1044}{\index{seq.\-h@{seq.\-h}!bl\-True\-Seq\-Len@{bl\-True\-Seq\-Len}}
+\index{bl\-True\-Seq\-Len@{bl\-True\-Seq\-Len}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-True\-Seq\-Len}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-True\-Seq\-Len (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{sequence}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_ac0b588fc17073612af3c544bba8d1044}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$sequence} & A sequence containing deletions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Length without deletions
+\end{DoxyReturn}
+Scans a 1-\/letter code sequence and calculate the length without `-\/' or ` ' residues
+
+
+\begin{DoxyItemize}
+\item 14.\-04.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 106 of file True\-Seq\-Len.\-c.
+
+\hypertarget{seq_8h_ab536c0363df3f8075bf4e1772d99f968}{\index{seq.\-h@{seq.\-h}!bl\-Write\-One\-String\-P\-I\-R@{bl\-Write\-One\-String\-P\-I\-R}}
+\index{bl\-Write\-One\-String\-P\-I\-R@{bl\-Write\-One\-String\-P\-I\-R}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Write\-One\-String\-P\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Write\-One\-String\-P\-I\-R (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{out, }
+\item[{char $\ast$}]{label, }
+\item[{char $\ast$}]{title, }
+\item[{char $\ast$}]{sequence, }
+\item[{char $\ast$$\ast$}]{chain\-Labels, }
+\item[{{\bf B\-O\-O\-L}}]{By\-Chain, }
+\item[{{\bf B\-O\-O\-L}}]{do\-Fasta}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_ab536c0363df3f8075bf4e1772d99f968}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$out} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em $\ast$label} & Sequence label \\
+\hline
+\mbox{\tt in}  & {\em $\ast$title} & Sequence title \\
+\hline
+\mbox{\tt in}  & {\em $\ast$sequence} & Sequence (1-\/letter code) with chains separated by $\ast$ \\
+\hline
+\mbox{\tt in}  & {\em $\ast$$\ast$chain\-Labels} & Chain labels (may be set to N\-U\-L\-L unless By\-Chain is set) \\
+\hline
+\mbox{\tt in}  & {\em By\-Chain} & Print a separate header for each chain \\
+\hline
+\mbox{\tt in}  & {\em do\-Fasta} & Output F\-A\-S\-T\-A format instead of P\-I\-R\\
+\hline
+\end{DoxyParams}
+Writes a P\-I\-R sequence file from a 1-\/letter code sequence. Multiple chains are split with '$\ast$'. If By\-Chain is set the the chain\-Labels array must be non-\/\-N\-U\-L\-L and contains labels for each chain Adds a terminating $\ast$ if required.
+
+
+\begin{DoxyItemize}
+\item 10.\-05.\-94 Original By\-: A\-C\-R\-M
+\item 22.\-08.\-97 Can now handle chains separately
+\item 26.\-08.\-97 If chains are handled separately, don't bother writing out an empty chain
+\item 10.\-08.\-98 Basically a total rewrite to fix a bug which caused the header not to be printed with -\/c -\/p for a chain after one which was non-\/protein. Much simplified the code by printing the header at the beginning of a chain rather than end of previous chain.
+\item 18.\-10.\-00 Added code to write F\-A\-S\-T\-A as well
+\item 11.\-06.\-15 Reset count=0 after a $\ast$ -\/ tidies up the output! 
+\end{DoxyItemize}
+
+Definition at line 116 of file Write\-P\-I\-R.\-c.
+
+\hypertarget{seq_8h_ad774c0d240bcf9902340a66c2336658e}{\index{seq.\-h@{seq.\-h}!bl\-Zero\-M\-D\-M@{bl\-Zero\-M\-D\-M}}
+\index{bl\-Zero\-M\-D\-M@{bl\-Zero\-M\-D\-M}!seq.h@{seq.\-h}}
+\subsubsection[{bl\-Zero\-M\-D\-M}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Zero\-M\-D\-M (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{seq_8h_ad774c0d240bcf9902340a66c2336658e}
+\begin{DoxyReturn}{Returns}
+Maximum value in modified matrix
+\end{DoxyReturn}
+Modifies all values in the M\-D\-M such that the minimum value is 0
+\begin{DoxyItemize}
+\item 17.\-09.\-96 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 1379 of file align.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{seq_8h_ae6e0b2b3fc8612b06187c1f5be8458ac}{\index{seq.\-h@{seq.\-h}!g\-Bioplib\-Seq\-Nucleic\-Acid@{g\-Bioplib\-Seq\-Nucleic\-Acid}}
+\index{g\-Bioplib\-Seq\-Nucleic\-Acid@{g\-Bioplib\-Seq\-Nucleic\-Acid}!seq.h@{seq.\-h}}
+\subsubsection[{g\-Bioplib\-Seq\-Nucleic\-Acid}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} g\-Bioplib\-Seq\-Nucleic\-Acid}}\label{seq_8h_ae6e0b2b3fc8612b06187c1f5be8458ac}
+
+
+Definition at line 130 of file throne.\-c.
+

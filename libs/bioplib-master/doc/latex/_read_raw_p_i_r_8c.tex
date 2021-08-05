@@ -1,0 +1,126 @@
+\hypertarget{_read_raw_p_i_r_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Read\-Raw\-P\-I\-R.c File Reference}
+\label{_read_raw_p_i_r_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Read\-Raw\-P\-I\-R.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Read\-Raw\-P\-I\-R.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}seq.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_read_raw_p_i_r_8c_a30bfed19b661389a331406432e9dfc59}{bl\-Read\-Raw\-P\-I\-R} (F\-I\-L\-E $\ast$fp, char $\ast$$\ast$seqs, int maxchain, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} upcase, \hyperlink{struct_s_e_q_i_n_f_o}{S\-E\-Q\-I\-N\-F\-O} $\ast$seqinfo, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} $\ast$error)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V2.\-8 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1991-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{int} ReadRawPIR(FILE *fp, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{BOOL} DoInsert, \textcolor{keywordtype}{char} **seqs, \textcolor{keywordtype}{int} maxchain, 
+               \hyperlink{struct_s_e_q_i_n_f_o}{SEQINFO} *seqinfo, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{BOOL} *punct, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{BOOL} *error)
+\end{DoxyCode}
+
+
+As Read\-P\-I\-R(), but reads punctuation characters without taking any special action. Used when punctuation characters have been used to indicate consensus sequence features.
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-06.\-92 Original
+\item V2.\-0 08.\-03.\-94 Changed name of Read\-P\-I\-R() to Read\-Simple\-P\-I\-R() Added new Read\-P\-I\-R().
+\item V2.\-1 18.\-03.\-94 getc() -\/$>$ fgetc()
+\item V2.\-2 11.\-05.\-94 Changes to Read\-P\-I\-R() for better compatibility with P\-I\-R V38.\-0 and V39.\-0
+\item V2.\-3 28.\-02.\-95 Added Read\-Raw\-P\-I\-R()
+\item V2.\-4 13.\-03.\-95 Fixed bug in reading text lines in Read\-Raw\-P\-I\-R()
+\item V2.\-5 26.\-07.\-95 Removed unused variables
+\item V2.\-6 30.\-10.\-95 Cosmetic
+\item V2.\-7 06.\-02.\-96 Removes trailing spaces from comment line
+\item V2.\-8 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_read_raw_p_i_r_8c_source}{Read\-Raw\-P\-I\-R.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_read_raw_p_i_r_8c_a30bfed19b661389a331406432e9dfc59}{\index{Read\-Raw\-P\-I\-R.\-c@{Read\-Raw\-P\-I\-R.\-c}!bl\-Read\-Raw\-P\-I\-R@{bl\-Read\-Raw\-P\-I\-R}}
+\index{bl\-Read\-Raw\-P\-I\-R@{bl\-Read\-Raw\-P\-I\-R}!ReadRawPIR.c@{Read\-Raw\-P\-I\-R.\-c}}
+\subsubsection[{bl\-Read\-Raw\-P\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Read\-Raw\-P\-I\-R (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{char $\ast$$\ast$}]{seqs, }
+\item[{int}]{maxchain, }
+\item[{{\bf B\-O\-O\-L}}]{upcase, }
+\item[{{\bf S\-E\-Q\-I\-N\-F\-O} $\ast$}]{seqinfo, }
+\item[{{\bf B\-O\-O\-L} $\ast$}]{error}
+\end{DoxyParamCaption}
+)}}\label{_read_raw_p_i_r_8c_a30bfed19b661389a331406432e9dfc59}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & File pointer \\
+\hline
+\mbox{\tt in}  & {\em maxchain} & Max number of chains to read. This is the dimension of the seqs array. N.\-B. T\-H\-I\-S S\-H\-O\-U\-L\-D B\-E A\-T L\-E\-A\-S\-T 1 M\-O\-R\-E T\-H\-A\-N T\-H\-E E\-X\-P\-E\-C\-T\-E\-D M\-A\-X\-I\-M\-U\-M N\-U\-M\-B\-E\-R O\-F S\-E\-Q\-U\-E\-N\-C\-E\-S \\
+\hline
+\mbox{\tt in}  & {\em upcase} & Should lower-\/case letters be upcased? \\
+\hline
+\mbox{\tt out}  & {\em $\ast$$\ast$seqs} & Array of character pointers which will be filled in with sequence information. Memory will be allocated for any sequence length. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$seqinfo} & This structure will be filled in with extra information about the sequence. Header \& title information and details of any punctuation. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$error} & T\-R\-U\-E if an error occured (e.\-g. memory allocation) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of chains in this sequence. 0 if file ended, or no valid sequence entries found.
+\end{DoxyReturn}
+This is based on Read\-P\-I\-R(), but reads all characters into the sequence arrays (i.\-e. all punctuation characters are read as is). This is useful when punctuation has been used to indicate consensus sequence features.
+
+The only requirements of the code are that the P\-I\-R file should have 2 title lines per entry, the first line starting with a $>$ sign. The routine will handle multiple sequence files. Successive calls will return information on the next entry. The routine will return 0 when there are no more entries.
+
+Header line\-: Must start with $>$. Will handle files which don't have the proper P1; or F1; parts of the header as well as those which do.
+
+Title line\-: Will read the name and source fields if correctly separated by a -\/, otherwise copies all information into the name.
+
+White space and line breaks are ignored. Each chain should end with a $\ast$, but the routine will accept the last chain of an entry with no . While the standard requires upper case text, this routine will handle lower case and convert it to upper case. While the routine does pretty well at last chains not terminated with a $\ast$, a last chain ending with a / not followed by a $\ast$ but followed by a text line will be identified as incomplete rather than truncated. If the Do\-Insert flag is set, -\/ signs in the sequence will be read as part of the sequence, otherwise they will be skipped. This is an addition to the P\-I\-R standard.
+
+Text lines\-: Text lines after an entry (beginning with R;, C;, A;, N; or F;) are ignored.
+
+
+\begin{DoxyItemize}
+\item 28.\-02.\-95 Original based on Read\-P\-I\-R() By\-: A\-C\-R\-M
+\item 13.\-03.\-95 chpos++ had got moved wrongly when adapting from Read\-P\-I\-R(). Put it back fixing handling of text lines.
+\item 26.\-07.\-95 Removed unused variables
+\item 06.\-02.\-96 Remove any trailing spaces 
+\end{DoxyItemize}
+
+Definition at line 169 of file Read\-Raw\-P\-I\-R.\-c.
+

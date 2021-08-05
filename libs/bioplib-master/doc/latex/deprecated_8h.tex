@@ -1,0 +1,143 @@
+\hypertarget{deprecated_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/deprecated.h File Reference}
+\label{deprecated_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/deprecated.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/deprecated.\-h}}
+}
+
+
+Redirect calls to deprecated functions.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{deprecated_8h_a92972db70eea7d7a0b81198fb4b2d156}{D\-E\-P\-R\-E\-C\-A\-T\-E\-D}(s, t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Redirect calls to deprecated functions. \begin{DoxyVersion}{Version}
+v1.\-5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+02.\-08.\-19 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 2014-\/2019 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Allows code utilising Biop\-Lib to compile without modification to use function names with the 'bl' prefix.(The 'bl' prefix was introduced in July 2014.)
+
+Contains prototypes for all deprecated functions.
+
+Contains the \hyperlink{deprecated_8h_a92972db70eea7d7a0b81198fb4b2d156}{D\-E\-P\-R\-E\-C\-A\-T\-E\-D()} macro which prints a warning message when a call is made to a deprecated function.
+
+Allows use of deprecated functions that took a single character for the P\-D\-B chain identifier or insert value.
+
+Used by the following header files\-:
+
+
+\begin{DoxyItemize}
+\item \hyperlink{pdb_8h}{pdb.\-h}
+\item \hyperlink{general_8h}{general.\-h}
+\item \hyperlink{_buff_inp_8h}{Buff\-Inp.\-h}
+\item \hyperlink{_err_stack_8h}{Err\-Stack.\-h}
+\item \hyperlink{_math_util_8h}{Math\-Util.\-h}
+\item \hyperlink{_wind_i_o_8h}{Wind\-I\-O.\-h}
+\item \hyperlink{aalist_8h}{aalist.\-h}
+\item \hyperlink{angle_8h}{angle.\-h}
+\item \hyperlink{array_8h}{array.\-h}
+\item \hyperlink{cssr_8h}{cssr.\-h}
+\item \hyperlink{fit_8h}{fit.\-h}
+\item \hyperlink{hbond_8h}{hbond.\-h}
+\item \hyperlink{help_8h}{help.\-h}
+\item \hyperlink{hpgl_8h}{hpgl.\-h}
+\item \hyperlink{matrix_8h}{matrix.\-h}
+\item \hyperlink{parse_8h}{parse.\-h}
+\item \hyperlink{plotting_8h}{plotting.\-h}
+\item \hyperlink{ps_8h}{ps.\-h}
+\item \hyperlink{safemem_8h}{safemem.\-h}
+\item \hyperlink{seq_8h}{seq.\-h}
+\item \hyperlink{eigen_8h}{eigen.\-h}
+\item \hyperlink{regression_8h}{regression.\-h}
+\end{DoxyItemize}
+
+\begin{DoxyParagraph}{Documentation}
+Doxygen is not set to document deprecated functions. To document deprecated functions, add \char`\"{}deprecated\char`\"{} to the E\-N\-A\-B\-L\-E\-D S\-E\-C\-T\-I\-O\-N\-S tag in the Doxygen config file\-: bioplib/doc/doxygen/\-Doxyfile
+\end{DoxyParagraph}
+\subsection*{Usage\-: }
+
+The \hyperlink{deprecated_8h}{deprecated.\-h} header file is included at the end of a header file with deprecated functions. This is to ensure that data structures are defined {\itshape before} the prototypes that use them are declared in \hyperlink{deprecated_8h}{deprecated.\-h}. For example, the P\-D\-B data structure must be defined before declaring the prototypes for the functions returning a P\-D\-B linked list.
+
+Prototypes for the deprecated functions for each header file are enclosed within compiler directives to ensure that functions are not declared using undefined data structures.
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 07.\-05.\-14 Original By\-: C\-T\-P
+\item V1.\-1 07.\-07.\-14 Rename functions with 'bl' prefix. By\-: C\-T\-P
+\item V1.\-2 31.\-07.\-14 Rewrite of deprecation system. Moved deprecated function code to deprecated.\-c By\-: C\-T\-P
+\item V1.\-3 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P
+\item V1.\-4 26.\-08.\-14 Added \hyperlink{align_8c_a543c1d8afe579c1d3ebf03c4522f8554}{bl\-Set\-M\-D\-M\-Score\-Weight()} By\-: A\-C\-R\-M P\-D\-B2\-Seq macros give deprecation message. By\-: C\-T\-P
+\item V1.\-5 24.\-10.\-14 Added regression and eigen By\-: A\-C\-R\-M Added N\-O\-D\-E\-P\-R\-E\-C\-A\-T\-I\-O\-N check Added Extract\-Zone\-Spec\-P\-D\-B
+\item V1.\-6 02.\-08.\-19 The P\-D\-B2\-Seq() macros now call the \hyperlink{_p_d_b2_seq_8c_a3ceea54ec3e1794795d12708eb15d21b}{bl\-Do\-P\-D\-B2\-Seq()} function 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{deprecated_8h_source}{deprecated.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{deprecated_8h_a92972db70eea7d7a0b81198fb4b2d156}{\index{deprecated.\-h@{deprecated.\-h}!D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!deprecated.h@{deprecated.\-h}}
+\subsubsection[{D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-P\-R\-E\-C\-A\-T\-E\-D(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{t}
+\end{DoxyParamCaption}
+)}}\label{deprecated_8h_a92972db70eea7d7a0b81198fb4b2d156}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{                                                                     \(\backslash\)
+      if(!getenv(\textcolor{stringliteral}{"BIOPLIB\_DEPRECATED\_QUIET"}))                            \(\backslash\)
+         fprintf(stderr,                                                 \(\backslash\)
+                 \textcolor{stringliteral}{"This code uses %s which is now deprecated!\(\backslash\)n"}          \(\backslash\)
+                 \textcolor{stringliteral}{"   Use %s instead\(\backslash\)n"}                                   \(\backslash\)
+                 \textcolor{stringliteral}{"   Set the BIOPLIB\_DEPRECATED\_QUIET environment \(\backslash\)variable to silence this message\(\backslash\)n"} , (s
+      ), (t));                         \(\backslash\)
+   \}
+\end{DoxyCode}
+The D\-E\-P\-R\-E\-C\-A\-T\-E\-D macro gives a warning message if a function is deprecated and indicates the replacement function.
+
+The default option is to give a warning message unless an environment variable, B\-I\-O\-P\-L\-I\-B\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D\-\_\-\-Q\-U\-I\-E\-T, is set.
+
+Alternatively the compile options\-: -\/\-D B\-I\-O\-P\-L\-I\-B\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K or -\/\-D B\-I\-O\-P\-L\-I\-B\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D\-\_\-\-Q\-U\-I\-E\-T will set the D\-E\-P\-R\-E\-C\-A\-T\-E\-D macro to ignore the B\-I\-O\-P\-L\-I\-B\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D\-\_\-\-Q\-U\-I\-E\-T environment variable.
+
+-\/\-D B\-I\-O\-P\-L\-I\-B\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D\-\_\-\-C\-H\-E\-C\-K will display the warning message. -\/\-D B\-I\-O\-P\-L\-I\-B\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D\-\_\-\-Q\-U\-I\-E\-T will always silence the warning message.
+
+
+\begin{DoxyItemize}
+\item 29.\-04.\-14 Original By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 168 of file deprecated.\-h.
+

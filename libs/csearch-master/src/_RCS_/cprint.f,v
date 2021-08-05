@@ -1,0 +1,33 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@c @;
+
+
+1.1
+date	2006.02.17.12.03.45;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C     CPRINT
+C     ACRM 13.06.91
+C     Replaces writes to channel 6 with C i/o
+      SUBROUTINE CPRINT(STRING)
+      CHARACTER*(*) STRING
+      CALL CPRINT1(%REF(STRING),LEN(STRING))
+      RETURN
+      END
+@

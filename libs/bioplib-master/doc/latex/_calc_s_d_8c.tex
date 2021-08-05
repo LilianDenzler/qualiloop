@@ -1,0 +1,114 @@
+\hypertarget{_calc_s_d_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-S\-D.c File Reference}
+\label{_calc_s_d_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-S\-D.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-S\-D.\-c}}
+}
+
+
+Calculate mean and standard deviation.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_calc_s_d_8c_a6be832c4999268c59458a08373d1b144}{bl\-Calc\-S\-D} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} val, int action, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$mean, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$S\-D)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calculate mean and standard deviation. \begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1990-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+This routine calculates the mean and standard deviation from a set of numbers. The routine is called with each value to be sampled and the action required is specified.
+
+\subsection*{Usage\-: }
+
+\begin{DoxyVerb}  #include "MathUtil.h" before using these routines
+
+  CalcSD(val,action,mean,SD)
+  --------------------------
+  Input:   val     int       The value to be sampled
+  Input:   action  short     0: Sample the value
+                             1: Calculate & return mean and SD
+                             2: Clear the sample lists
+  Output:  mean    *REAL     The returned mean
+  Output:  SD      *REAL     The returned standard deviation
+
+  The output values are only set when action=1
+\end{DoxyVerb}
+
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 30.\-03.\-90 Original By\-: A\-C\-R\-M
+\item V1.\-1 17.\-06.\-93 Modified for book
+\item V1.\-2 01.\-03.\-94 Added Calc\-Ext\-S\-D()
+\item V1.\-3 22.\-06.\-94 Fixed for just one value
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_calc_s_d_8c_source}{Calc\-S\-D.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_calc_s_d_8c_a6be832c4999268c59458a08373d1b144}{\index{Calc\-S\-D.\-c@{Calc\-S\-D.\-c}!bl\-Calc\-S\-D@{bl\-Calc\-S\-D}}
+\index{bl\-Calc\-S\-D@{bl\-Calc\-S\-D}!CalcSD.c@{Calc\-S\-D.\-c}}
+\subsubsection[{bl\-Calc\-S\-D}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Calc\-S\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{val, }
+\item[{int}]{action, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{mean, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{S\-D}
+\end{DoxyParamCaption}
+)}}\label{_calc_s_d_8c_a6be832c4999268c59458a08373d1b144}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em val} & The value to be sampled \\
+\hline
+\mbox{\tt in}  & {\em action} & 0\-: Sample the value 1\-: Calculate \& return mean and S\-D 2\-: Clear the sample lists \\
+\hline
+\mbox{\tt out}  & {\em mean} & The returned mean \\
+\hline
+\mbox{\tt out}  & {\em S\-D} & The returned standard deviation\\
+\hline
+\end{DoxyParams}
+Calculate the mean and standard deviation from a set of numbers. The routine is called with each value to be sampled and the action required is specified.
+
+The output values are only set when action=1
+
+
+\begin{DoxyItemize}
+\item 30.\-03.\-90 Original By\-: A\-C\-R\-M
+\item 17.\-06.\-93 Modified for book
+\item 22.\-06.\-94 Fixed for 0 values supplied
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 124 of file Calc\-S\-D.\-c.
+

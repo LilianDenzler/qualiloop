@@ -1,0 +1,69 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.57;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Reads the CONGEN conformation file written to the unit given in the
+   rbest_d descriptor, and sets the list of atoms for this degree of
+   freedom to those found in the file. If the conformation file is
+   inconsistent with the current PSTRUCT or with itself, *okp is set to false.*/
+ 
+void gtrbstatms(
+struct dof *dofp,
+struct rbest_d *desc,
+logical *okp
+)
+{
+   struct atom **atpp,*atp;
+   int i;
+ 
+/* Use C vesrion
+//   cgrdinit(&desc->unit,ctitla.titlea,&ctitla.ntitla,okp,&one);
+*/
+   cgrdinit(loops_fp,okp);
+   if (!*okp) return;
+ 
+/* Use C version
+//   cgrdncons(&desc->unit,&desc->nconsp);
+*/
+   cgrdncons(loops_fp,&desc->nconsp);
+   desc->consp = (int *) alloc(desc->nconsp * sizeof(int));
+ 
+/* Use C version
+//   cgrdconsp(&desc->unit,desc->consp,&desc->nconsp);
+*/
+   cgrdconsp(loops_fp,desc->consp,&desc->nconsp);
+   dofp->atoms = (struct atom **)
+                 alloc((desc->nconsp+1) * sizeof(struct atom *));
+   for (i=0,atpp=dofp->atoms; i<desc->nconsp; i++)
+   {
+      atp = (struct atom *) alloc(sizeof(struct atom));
+      *atpp++ = atp;
+      atp->atomno = desc->consp[i];
+      clear_atom(atp);
+   }
+   *atpp = null;
+}
+ 
+@

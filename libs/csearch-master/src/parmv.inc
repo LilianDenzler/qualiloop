@@ -1,0 +1,14 @@
+**!!PARMV.INS
+C
+C -- ????
+      INTEGER NCOEF
+C -- ????
+      INTEGER INPR
+      COMMON /PARMV/ NCOEF ( KPARMX ) , INPR ( KPARMX)
+C
+C -- ????
+      DOUBLE PRECISION CPV
+      COMMON /PARMV/   CPV ( MXPAR )
+C
+      SAVE /PARMV/
+C

@@ -1,0 +1,47 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@c @;
+
+
+1.1
+date	2006.02.17.12.03.48;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@      FUNCTION GAMMQ(A,X)
+ 
+COM OMUPD BNJ 2/9/91
+ 
+      REAL X,A,GLN,GAMMQ,GAMSER,GAMMCF
+ 
+COM
+ 
+C     Returns the incomplete gamma function Q(a,p) == 1 - P(a,x)
+ 
+      IF (X.LT.0..OR.A.LE.0.) THEN
+         PRINT *, 'Error in GAMMQ'
+         CALL DIE
+      ENDIF
+      IF (X.LT.A+1.) THEN
+         CALL GSER(GAMSER,A,X,GLN)
+         GAMMQ = 1. - GAMSER
+      ELSE
+         CALL GCF(GAMMCF,A,X,GLN)
+         GAMMQ = GAMMCF
+      ENDIF
+      RETURN
+      END
+@

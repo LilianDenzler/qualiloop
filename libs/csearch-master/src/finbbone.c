@@ -1,0 +1,33 @@
+#include "ProtoTypes.h"
+#include "CongenProto.h"
+#include "values.h"
+ 
+/* Makes the atom constructors for a backbone degree of freedom and takes
+   care of other details. */
+ 
+void finbbone(
+struct dof *dofp,
+struct backbone_d *desc
+)
+{
+   int fstres,lstres,iseg;
+   long null_val = null;
+ 
+   if (desc->maxdt != -1.0)
+   {
+      desc->maxdt *= dtorad;
+   }
+   iseg = getseg(&desc->resno,pstruct.segndx,&values.nsegs);
+   fstres = pstruct.segndx[iseg-1][0] + 1;
+   lstres = pstruct.segndx[iseg][0];
+   desc->nter = desc->resno == fstres + 1;
+   desc->cter = desc->resno == lstres - 1;
+   dofp->atoms = (struct atom **) alloc(10*sizeof(struct atom *));
+   /* ACRM This use is with pointers, so casting to int should be OK */
+   fill4((long *)dofp->atoms,&nine,&null_val);
+   fillbbatms(dofp->atoms,desc->resno,desc->forward,desc->nter,
+                          &desc->at_n,&desc->at_h,&desc->at_ca,
+                          &desc->at_cb,&desc->at_cg,&desc->at_cd,
+                          &desc->at_c,&desc->at_o,&desc->at_ht1);
+}
+ 

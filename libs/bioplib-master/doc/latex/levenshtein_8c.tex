@@ -1,0 +1,142 @@
+\hypertarget{levenshtein_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/levenshtein.c File Reference}
+\label{levenshtein_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/levenshtein.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/levenshtein.\-c}}
+}
+
+
+Calculate a Levenshtein distance.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{levenshtein_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{M\-I\-N}(a, b)~((a) $<$ (b) ? (a) \-: (b))
+\item 
+\#define \hyperlink{levenshtein_8c_a1e342411c5330d324294ea28e61eeaed}{M\-I\-N3}(c, d, e)~(\hyperlink{macros_8h_a3acffbd305ee72dcd4593c0d8af64a4f}{M\-I\-N}(\hyperlink{macros_8h_a3acffbd305ee72dcd4593c0d8af64a4f}{M\-I\-N}((c),(d)),(e)))
+\item 
+\#define \hyperlink{levenshtein_8c_aaff789bf85ed92510fb3a872a85fd171}{S\-W\-A\-P\-I\-N\-T\-P\-T\-R}(a, b)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{levenshtein_8c_a4592ce4c4151b7f192cb53511664f907}{bl\-Levenshtein\-Distance} (char $\ast$column\-String, char $\ast$row\-String)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calculate a Levenshtein distance. Program\-:
+
+\begin{DoxyVersion}{Version}
+V1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+15.\-06.\-20 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Prof. Andrew C. R. Martin 2020 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Prof. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This program is not in the public domain, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+Fast and low-\/memory method to calculate the Levenshtein distance between two strings. Maintains only two rows of the matrix rather than the whole thing.
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+Definition in file \hyperlink{levenshtein_8c_source}{levenshtein.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{levenshtein_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{\index{levenshtein.\-c@{levenshtein.\-c}!M\-I\-N@{M\-I\-N}}
+\index{M\-I\-N@{M\-I\-N}!levenshtein.c@{levenshtein.\-c}}
+\subsubsection[{M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-N(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~((a) $<$ (b) ? (a) \-: (b))}}\label{levenshtein_8c_a3acffbd305ee72dcd4593c0d8af64a4f}
+
+
+Definition at line 63 of file levenshtein.\-c.
+
+\hypertarget{levenshtein_8c_a1e342411c5330d324294ea28e61eeaed}{\index{levenshtein.\-c@{levenshtein.\-c}!M\-I\-N3@{M\-I\-N3}}
+\index{M\-I\-N3@{M\-I\-N3}!levenshtein.c@{levenshtein.\-c}}
+\subsubsection[{M\-I\-N3}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-N3(
+\begin{DoxyParamCaption}
+\item[{}]{c, }
+\item[{}]{d, }
+\item[{}]{e}
+\end{DoxyParamCaption}
+)~({\bf M\-I\-N}({\bf M\-I\-N}((c),(d)),(e)))}}\label{levenshtein_8c_a1e342411c5330d324294ea28e61eeaed}
+
+
+Definition at line 67 of file levenshtein.\-c.
+
+\hypertarget{levenshtein_8c_aaff789bf85ed92510fb3a872a85fd171}{\index{levenshtein.\-c@{levenshtein.\-c}!S\-W\-A\-P\-I\-N\-T\-P\-T\-R@{S\-W\-A\-P\-I\-N\-T\-P\-T\-R}}
+\index{S\-W\-A\-P\-I\-N\-T\-P\-T\-R@{S\-W\-A\-P\-I\-N\-T\-P\-T\-R}!levenshtein.c@{levenshtein.\-c}}
+\subsubsection[{S\-W\-A\-P\-I\-N\-T\-P\-T\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-W\-A\-P\-I\-N\-T\-P\-T\-R(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}}\label{levenshtein_8c_aaff789bf85ed92510fb3a872a85fd171}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{                     \(\backslash\)
+   int *t = a;                                  \(\backslash\)
+   a = b;                                       \(\backslash\)
+   b = t;                                       \(\backslash\)
+   \}
+\end{DoxyCode}
+
+
+Definition at line 70 of file levenshtein.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{levenshtein_8c_a4592ce4c4151b7f192cb53511664f907}{\index{levenshtein.\-c@{levenshtein.\-c}!bl\-Levenshtein\-Distance@{bl\-Levenshtein\-Distance}}
+\index{bl\-Levenshtein\-Distance@{bl\-Levenshtein\-Distance}!levenshtein.c@{levenshtein.\-c}}
+\subsubsection[{bl\-Levenshtein\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Levenshtein\-Distance (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{column\-String, }
+\item[{char $\ast$}]{row\-String}
+\end{DoxyParamCaption}
+)}}\label{levenshtein_8c_a4592ce4c4151b7f192cb53511664f907}
+column\-String A N\-U\-L\-L-\/terminated string pointer  row\-String A N\-U\-L\-L-\/terminated string pointer \begin{DoxyReturn}{Returns}
+Levenshtein distance ($<$0 for error)
+\end{DoxyReturn}
+Calculates the Levenshtein edit distance using the iterative method with two matrix rows. See \href{https://en.m.wikipedia.org/wiki/Levenshtein_distance}{\tt https\-://en.\-m.\-wikipedia.\-org/wiki/\-Levenshtein\-\_\-distance}
+
+The method is memory efficient as it uses only two rows from the complete matrix -\/ to minimize memory usage, ensure that row\-String is the shorter string.
+
+However, it is suboptimal. The amount of memory required may be reduced to one row and one (index) word of overhead, for better cache locality. Thus speed comes from using very little memory, often keeping the buffer entirely in cache, and reducing the amount of work by skipping any prefix and postfix that won't add to the cost. You only really need to know the three values when you want to update a cell in the matrix and you can keep two of them in a buffer, while keeping the third value in a fixed location.
+
+See \href{https://web.archive.org/web/20180612143641/https://bitbucket.org/clearer/iosifovich/}{\tt https\-://web.\-archive.\-org/web/20180612143641/https\-://bitbucket.\-org/clearer/iosifovich/}
+
+and the C++ implementation of that version at \href{https://github.com/rljacobson/Levenshtein/blob/master/damlev.cpp}{\tt https\-://github.\-com/rljacobson/\-Levenshtein/blob/master/damlev.\-cpp}
+
+
+\begin{DoxyItemize}
+\item 15.\-06.\-20 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 110 of file levenshtein.\-c.
+

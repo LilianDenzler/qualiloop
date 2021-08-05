@@ -1,0 +1,102 @@
+\hypertarget{_set_chi_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Set\-Chi.c File Reference}
+\label{_set_chi_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Set\-Chi.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Set\-Chi.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_set_chi_8c_afe0ac1870975612e3fe9f731e038425f}{bl\-Set\-Chi} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$next, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} chi, int type)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin, University of Reading, 2002-\/14 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-1 01.\-03.\-94
+\item V1.\-2 27.\-02.\-98 Removed unreachable break from switch()
+\item V1.\-3 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_set_chi_8c_source}{Set\-Chi.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_set_chi_8c_afe0ac1870975612e3fe9f731e038425f}{\index{Set\-Chi.\-c@{Set\-Chi.\-c}!bl\-Set\-Chi@{bl\-Set\-Chi}}
+\index{bl\-Set\-Chi@{bl\-Set\-Chi}!SetChi.c@{Set\-Chi.\-c}}
+\subsubsection[{bl\-Set\-Chi}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Set\-Chi (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf P\-D\-B} $\ast$}]{next, }
+\item[{{\bf R\-E\-A\-L}}]{chi, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{_set_chi_8c_afe0ac1870975612e3fe9f731e038425f}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & P\-D\-B linked list to change \\
+\hline
+\mbox{\tt in}  & {\em $\ast$next} & If N\-U\-L\-L, move all atoms in the linked list from the last atom in the torsion. Otherwise move atoms up to (but not including) next. Normally this would be the start of the next residue. \\
+\hline
+\mbox{\tt in}  & {\em chi} & Sidechain chi angle to set \\
+\hline
+\mbox{\tt in}  & {\em type} & Torsion angle to set (as defined below)\\
+\hline
+\end{DoxyParams}
+Sets a sidechain torsion angle in a pdb linked list. The routine assumes standard atom ordering\-: N,C\-A,C,O,s/c with standard order in the s/c.
+
+The type input parameter is defined as follows\-:
+
+\begin{DoxyVerb}     type     Atom names        Sequential atom numbers
+     --------------------------------------------------
+     0        N,  CA, CB, XG    (0 - 1 - 4 - 5)
+     1        CA, CB, XG, XD    (1 - 4 - 5 - 6)
+     2        CB, XG, XD, XE    (4 - 5 - 6 - 7)
+     3        XG, XD, XE, XZ    (5 - 6 - 7 - 8)
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item 13.\-05.\-92 Original
+\item 27.\-02.\-98 Removed unreachable break from switch()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 26.\-08.\-14 Removed unused 'one' variable 
+\end{DoxyItemize}
+
+Definition at line 119 of file Set\-Chi.\-c.
+

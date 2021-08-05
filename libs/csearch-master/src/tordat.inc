@@ -1,0 +1,10 @@
+**!!TORDAT.INS
+C
+C -- ????
+      INTEGER NTTYPS
+C -- ????
+      INTEGER NAMTOR
+      COMMON /TORDAT/ NTTYPS , NAMTOR ( 100 )
+C
+      SAVE /TORDAT/
+C

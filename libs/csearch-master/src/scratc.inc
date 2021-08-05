@@ -1,0 +1,12 @@
+**!!SCRATC.INS
+C
+C -- ????
+      DOUBLE PRECISION C1
+C -- ????
+      DOUBLE PRECISION C2
+C -- ????
+      DOUBLE PRECISION C3
+      COMMON /SCRATC/  C1 ( MXIAT3 ) , C2 ( MXATM3 ) , C3 ( MXINT )
+C
+      SAVE /SCRATC/
+C

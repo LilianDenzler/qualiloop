@@ -1,0 +1,226 @@
+\hypertarget{_numeric_align_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Numeric\-Align.c File Reference}
+\label{_numeric_align_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Numeric\-Align.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Numeric\-Align.\-c}}
+}
+
+
+Perform Needleman \& Wunsch sequence alignment on two sequences encoded as numeric symbols.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}array.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}seq.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_x_y}{X\-Y}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_numeric_align_8c_a182088d18407b75db67d5185b9ac0bfa}{D\-A\-T\-A\-E\-N\-V}~\char`\"{}D\-A\-T\-A\-D\-I\-R\char`\"{}   /$\ast$ Environment variable or assign           $\ast$/
+\item 
+\#define \hyperlink{_numeric_align_8c_a0c8dad16ba61ded55d3f302a616c0ced}{M\-A\-X\-B\-U\-F\-F}~2048
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_numeric_align_8c_af3438f88a5286d057de168f03e146703}{bl\-Numeric\-Read\-M\-D\-M} (char $\ast$mdmfile)
+\item 
+int \hyperlink{_numeric_align_8c_a4ca4dc7d7e7714971036f5d1e22ccce6}{bl\-Numeric\-Calc\-M\-D\-M\-Score} (int resa, int resb)
+\item 
+int \hyperlink{_numeric_align_8c_a65436ca35c20f5c0dca48c3ead12b816}{bl\-Numeric\-Affine\-Align} (int $\ast$seq1, int length1, int $\ast$seq2, int length2, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} verbose, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} identity, int penalty, int penext, int $\ast$align1, int $\ast$align2, int $\ast$align\-\_\-len)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Perform Needleman \& Wunsch sequence alignment on two sequences encoded as numeric symbols. \begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin / University of Reading 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+Note, the code herein is very heavily based on code written by Dr. Andrew C.\-R. Martin while self-\/employed. Some modifications were made to that original code while employed at University College London. This version which handles sequences encoded as arrays of numbers rather than as character arrays was modified from the original version(s) while employed at Reading University.
+
+\subsection*{Description\-: }
+
+A simple Needleman \& Wunsch Dynamic Programming alignment of 2 sequences encoded as numeric symbols. A window is not used so the routine may be a bit slow on long sequences.
+
+\subsection*{Usage\-: }
+
+First call Numeric\-Read\-M\-D\-M() to read the mutation data matrix, then call Numeric\-Affine\-Align() to align the sequences.
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 08.\-03.\-00 A modified version of \hyperlink{align_8c}{align.\-c} V2.\-12 written by A\-C\-R\-M from 19.\-06.\-90 to 06.\-03.\-00
+\item V1.\-1 28.\-09.\-00 Fixed bug at end of alignment if one sequence finishes first
+\item V1.\-2 06.\-02.\-03 Fixed for new version of Get\-Word()
+\item V1.\-3 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_numeric_align_8c_source}{Numeric\-Align.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_numeric_align_8c_a182088d18407b75db67d5185b9ac0bfa}{\index{Numeric\-Align.\-c@{Numeric\-Align.\-c}!D\-A\-T\-A\-E\-N\-V@{D\-A\-T\-A\-E\-N\-V}}
+\index{D\-A\-T\-A\-E\-N\-V@{D\-A\-T\-A\-E\-N\-V}!NumericAlign.c@{Numeric\-Align.\-c}}
+\subsubsection[{D\-A\-T\-A\-E\-N\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A\-E\-N\-V~\char`\"{}D\-A\-T\-A\-D\-I\-R\char`\"{}   /$\ast$ Environment variable or assign           $\ast$/}}\label{_numeric_align_8c_a182088d18407b75db67d5185b9ac0bfa}
+
+
+Definition at line 110 of file Numeric\-Align.\-c.
+
+\hypertarget{_numeric_align_8c_a0c8dad16ba61ded55d3f302a616c0ced}{\index{Numeric\-Align.\-c@{Numeric\-Align.\-c}!M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}}
+\index{M\-A\-X\-B\-U\-F\-F@{M\-A\-X\-B\-U\-F\-F}!NumericAlign.c@{Numeric\-Align.\-c}}
+\subsubsection[{M\-A\-X\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-B\-U\-F\-F~2048}}\label{_numeric_align_8c_a0c8dad16ba61ded55d3f302a616c0ced}
+
+
+Definition at line 112 of file Numeric\-Align.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_numeric_align_8c_a65436ca35c20f5c0dca48c3ead12b816}{\index{Numeric\-Align.\-c@{Numeric\-Align.\-c}!bl\-Numeric\-Affine\-Align@{bl\-Numeric\-Affine\-Align}}
+\index{bl\-Numeric\-Affine\-Align@{bl\-Numeric\-Affine\-Align}!NumericAlign.c@{Numeric\-Align.\-c}}
+\subsubsection[{bl\-Numeric\-Affine\-Align}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Numeric\-Affine\-Align (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{seq1, }
+\item[{int}]{length1, }
+\item[{int $\ast$}]{seq2, }
+\item[{int}]{length2, }
+\item[{{\bf B\-O\-O\-L}}]{verbose, }
+\item[{{\bf B\-O\-O\-L}}]{identity, }
+\item[{int}]{penalty, }
+\item[{int}]{penext, }
+\item[{int $\ast$}]{align1, }
+\item[{int $\ast$}]{align2, }
+\item[{int $\ast$}]{align\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{_numeric_align_8c_a65436ca35c20f5c0dca48c3ead12b816}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$seq1} & First sequence of tokens \\
+\hline
+\mbox{\tt in}  & {\em length1} & First sequence length \\
+\hline
+\mbox{\tt in}  & {\em $\ast$seq2} & Second sequence of tokens \\
+\hline
+\mbox{\tt in}  & {\em length2} & Second sequence length \\
+\hline
+\mbox{\tt in}  & {\em verbose} & Display N\&W matrix \\
+\hline
+\mbox{\tt in}  & {\em identity} & Use identity matrix \\
+\hline
+\mbox{\tt in}  & {\em penalty} & Gap insertion penalty value \\
+\hline
+\mbox{\tt in}  & {\em penext} & Extension penalty \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align1} & Sequence 1 aligned \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align2} & Sequence 2 aligned \\
+\hline
+\mbox{\tt out}  & {\em $\ast$align\-\_\-len} & Alignment length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Alignment score (0 on error)
+\end{DoxyReturn}
+Perform simple N\&W alignment of seq1 and seq2. No window is used, so will be slow for long sequences.
+
+The sequences come as integer arrays containing numeric tokens
+
+Note that you must allocate sufficient memory for the aligned sequences. The easy way to do this is to ensure that align1 and align2 are of length (length1+length2).
+
+Identical to \hyperlink{align_8c}{align.\-c}/affinealign(), but uses integer arrays
+
+
+\begin{DoxyItemize}
+\item 08.\-03.\-00 Original based on \hyperlink{align_8c}{align.\-c}/affinealign() 06.\-03.\-00 By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 412 of file Numeric\-Align.\-c.
+
+\hypertarget{_numeric_align_8c_a4ca4dc7d7e7714971036f5d1e22ccce6}{\index{Numeric\-Align.\-c@{Numeric\-Align.\-c}!bl\-Numeric\-Calc\-M\-D\-M\-Score@{bl\-Numeric\-Calc\-M\-D\-M\-Score}}
+\index{bl\-Numeric\-Calc\-M\-D\-M\-Score@{bl\-Numeric\-Calc\-M\-D\-M\-Score}!NumericAlign.c@{Numeric\-Align.\-c}}
+\subsubsection[{bl\-Numeric\-Calc\-M\-D\-M\-Score}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-Numeric\-Calc\-M\-D\-M\-Score (
+\begin{DoxyParamCaption}
+\item[{int}]{resa, }
+\item[{int}]{resb}
+\end{DoxyParamCaption}
+)}}\label{_numeric_align_8c_a4ca4dc7d7e7714971036f5d1e22ccce6}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em resa} & First token \\
+\hline
+\mbox{\tt in}  & {\em resb} & Second token \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+score
+\end{DoxyReturn}
+Calculate score from static globally stored mutation data matrix
+
+Identical to \hyperlink{align_8c}{align.\-c}/\-Calc\-M\-D\-M\-Score(), but uses a different static score array and takes integer parameters. These are used as direct lookups into the score array rather than being searched.
+
+
+\begin{DoxyItemize}
+\item 08.\-03.\-00 Original based on \hyperlink{align_8c}{align.\-c}/\-Calc\-M\-D\-M\-Score() 11.\-07.\-96 By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 342 of file Numeric\-Align.\-c.
+
+\hypertarget{_numeric_align_8c_af3438f88a5286d057de168f03e146703}{\index{Numeric\-Align.\-c@{Numeric\-Align.\-c}!bl\-Numeric\-Read\-M\-D\-M@{bl\-Numeric\-Read\-M\-D\-M}}
+\index{bl\-Numeric\-Read\-M\-D\-M@{bl\-Numeric\-Read\-M\-D\-M}!NumericAlign.c@{Numeric\-Align.\-c}}
+\subsubsection[{bl\-Numeric\-Read\-M\-D\-M}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Numeric\-Read\-M\-D\-M (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{mdmfile}
+\end{DoxyParamCaption}
+)}}\label{_numeric_align_8c_af3438f88a5286d057de168f03e146703}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$mdmfile} & Mutation data matrix filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Read mutation data matrix into static global arrays. The matrix may have comments at the start introduced with a ! in the first column. The matrix must be complete (i.\-e. a triangular matrix will not work). A line describing the residue types must appear, and may be placed before or after the matrix itself
+
+Identical to \hyperlink{align_8c}{align.\-c}/\-Read\-M\-D\-M() but reads into a different static 2\-D array and doesn't read a symbol identifier line from the file as the symbols are numeric and always start from 1 (0 is used as the insert character)
+
+
+\begin{DoxyItemize}
+\item 08.\-03.\-00 Original based on \hyperlink{align_8c}{align.\-c}/\-Read\-M\-D\-M() 26.\-07.\-95 By\-: A\-C\-R\-M
+\item 06.\-02.\-03 Fixed for new version of Get\-Word()
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 258 of file Numeric\-Align.\-c.
+

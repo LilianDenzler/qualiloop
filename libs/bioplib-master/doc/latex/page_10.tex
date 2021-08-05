@@ -1,0 +1,59 @@
+Biop\-Lib -\/ Maths
+
+\subsection*{Geometry }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{angle_8c_a15d42fd7c62e6437ea948e4f4368aa8a}{bl\-Angle()} -\/ Calculates the angle between three sets of coordinates
+\item \hyperlink{regression_8c_a2ab38f6c853b731625078307cc54c8b1}{bl\-Calculate\-Best\-Fit\-Line()} -\/ Calculates a best fit line through a set of coordinates in 3\-D. Results are returned as a vector and a point through which the vector must pass.
+\item \hyperlink{_dist_pt_line_8c_a5fecc1af047d8c84e295d8ac3c60ec05}{bl\-Dist\-Pt\-Line()} -\/ Calculate the distance from a point to a line vector described by two vector end points. See also \hyperlink{_math_util_8h_aa79ffe75bcb856281d385996098de754}{bl\-Point\-Line\-Distance()}
+\item \hyperlink{regression_8c_a2979a35841ba3c78d55aae8cb0ef7641}{bl\-Find\-Centroid()} -\/ Calculates the centroid of an array of points. (Like \hyperlink{_get_c_g_p_d_b_8c_a8044f4c9cc4e72b145b22fb6aa7cff96}{bl\-Get\-Cof\-G\-P\-D\-B()} but for a coordinate array instead of a P\-D\-B linked list)
+\item \hyperlink{angle_8h_a87538c775599e78844390780df3b0653}{bl\-Phi()} -\/ Calculates the torsion angle described by 4 sets of coordinates.
+\item \hyperlink{_math_util_8h_aa79ffe75bcb856281d385996098de754}{bl\-Point\-Line\-Distance()} -\/ Calculates the shortest distance from a point P to a line between points P1 and P2. This value is returned and the point on the line can also be returned. See also \hyperlink{_dist_pt_line_8c_a5fecc1af047d8c84e295d8ac3c60ec05}{bl\-Dist\-Pt\-Line()}
+\item \hyperlink{angle_8h_ad658cd317108e2cf29326fa689fb8ec3}{bl\-Simpleangle()} -\/ Simplifies a signed angle to an unsigned angle $<$=2$\ast$\-P\-I
+\item \hyperlink{angle_8h_a902829b1c25ea3681486c1ede42846b6}{bl\-Tor\-To\-Coor()} -\/ Calculates cartesian coordinates for an atom given the coordinates of three antecedant atoms and the bond length, angle and torsion angle
+\item \hyperlink{angle_8h_a5828e7459715c9b8382e7ee19cd43b54}{bl\-True\-Angle()} -\/ Return the +ve angle between 0 and 2\-P\-I given the opp and adj values.
+\end{DoxyItemize}
+
+\subsection*{Matrices }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{regression_8c_a7ecef8a6ff090f41bb8b78e526c7b1c0}{bl\-Calculate\-Covariance\-Matrix()} -\/ Find the covariance matrix for a given matrix
+\item \hyperlink{_create_rot_mat_8c_a889ddf79e2c922e8c6d2905ee8ae163b}{bl\-Create\-Rot\-Mat()} -\/ Create a 3x3 rotation matrix. Takes a direction as a single character ('x', 'y', or 'z'), an angle (in rads) and outputs a rotation matrix
+\item \hyperlink{eigen_8c_aff275dac2e154d79b964066c31fd1be1}{bl\-Eigen()} -\/ Calculates the eigenvalues and eigenvectors of a R\-E\-A\-L symmetric matrix Note that this routine destroys the values above the diagonal of the matrix.
+\item \hyperlink{invert33_8c_ac6636fdfdbd575b5c1309f5fe5ce11c2}{bl\-Invert33()} -\/ Invert a 3x3 matrix
+\item \hyperlink{_mat_mult33__33_8c_a022074db4fea512661f861a76ff61649}{bl\-Mat\-Mult33\-\_\-33()} -\/ Multiply two 3x3 matrices
+\item \hyperlink{_mat_mult3__33_8c_a38c36311ce82e6d103c7a8d4ae398fd1}{bl\-Mat\-Mult3\-\_\-33()} -\/ Multiply a 3-\/vector by a 3x3 matrix
+\end{DoxyItemize}
+
+\subsection*{Miscellaneous }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{factdiv_8c_adfed83e4c2306e2fe6caac25651e5391}{bl\-Factdiv()} -\/ Calculates the factorial of one number divided by the factorial of another (smaller) number.
+\item \hyperlink{factorial_8c_abca90ab73d789494132fac8c76ccc461}{bl\-Factorial()} -\/ Calculates the factorial of an integer.
+\item \hyperlink{_math_util_8h_a5231f7d17925927da83f3bc2b2e43f6c}{bl\-N\-Comb()} -\/ Calculates number of combinations of n items in r groups
+\item \hyperlink{_math_util_8h_aeedda0f6840d485f123a8694494f83ee}{bl\-N\-Perm()} -\/ Calculates number of permutations of n items in r groups
+\end{DoxyItemize}
+
+\subsection*{Statistics }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_calc_ext_s_d_8c_a0ce11017b526a387632280d0d7bb8930}{bl\-Calc\-Ext\-S\-D()} -\/ Calculate the mean and standard deviation from a set of numbers. The routine is called with each value to be sampled and then again to obtain the results. This is the same as \hyperlink{_calc_s_d_8c_a6be832c4999268c59458a08373d1b144}{bl\-Calc\-S\-D()} except that the variables used to accumulate totals are kept outside the function instead of being static within the function
+\item \hyperlink{_calc_s_d_8c_a6be832c4999268c59458a08373d1b144}{bl\-Calc\-S\-D()} -\/ Calculate the mean and standard deviation from a set of numbers. The routine is called with each value to be sampled and then called again to extract the results
+\item \hyperlink{_math_util_8h_a950d087bd130c8270ec1960f8d1c361e}{bl\-Pearson()} -\/ Calculates the Pearson correlation coefficient making two passes through the data
+\item \hyperlink{_math_util_8h_a43c7573134f708e799ef237f15eb5614}{bl\-Pearson1()} -\/ Calculates the Pearson correlation coefficient making a single pass through the data
+\end{DoxyItemize}
+
+\subsection*{Vectors }
+
+
+\begin{DoxyItemize}
+\item \hyperlink{_cross_prod3_8c_ae030a8e5551b2a1ffd5bbc9f7456ac40}{bl\-Cross\-Prod3()} -\/ Calculate the cross product of 2 3-\/vectors
+\item \hyperlink{_math_util_8h_adefb6a6e11a7bb36ddc6479ce93667db}{bl\-Vec\-Add3()} -\/ Add 2 vectors
+\item \hyperlink{matrix_8h_ae6f8645556041bca6707f172ecb2c4cc}{bl\-Vec\-Dist()} -\/ Finds the distance between two vectors of arbitrary length
+\item \hyperlink{_math_util_8h_a7f5b432d8567a25ff5da2b6aae162cc7}{bl\-Vec\-Len3()} -\/ Calculate the length of a vector
+\item \hyperlink{_math_util_8h_ab122c0a7de95289d60f96dc717580010}{bl\-Vec\-Sub3()} -\/ Subtract 2 vectors 
+\end{DoxyItemize}

@@ -1,0 +1,168 @@
+\hypertarget{regression_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/regression.c File Reference}
+\label{regression_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/regression.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/regression.\-c}}
+}
+
+
+Routines for finding the best fit line through a set of points.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}array.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}regression.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}eigen.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{regression_8c_a2ab38f6c853b731625078307cc54c8b1}{bl\-Calculate\-Best\-Fit\-Line} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$$\ast$coordinates, int number\-Of\-Points, int number\-Of\-Dimensions, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$centroid, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$eigen\-Vector)
+\item 
+void \hyperlink{regression_8c_a2979a35841ba3c78d55aae8cb0ef7641}{bl\-Find\-Centroid} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$$\ast$matrix, int num\-X, int num\-Y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$centroid)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{regression_8c_a7ecef8a6ff090f41bb8b78e526c7b1c0}{bl\-Calculate\-Covariance\-Matrix} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$$\ast$matrix, int num\-X, int num\-Y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$$\ast$cov)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Routines for finding the best fit line through a set of points. \begin{DoxyVersion}{Version}
+V1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+08.\-10.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) Dr. Andrew C. R. Martin, U\-C\-L, 2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This program is not in the public domain, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 08.\-10.\-14 Original By\-: A\-C\-R\-M Based on code by Abhi Raghavan 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{regression_8c_source}{regression.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{regression_8c_a2ab38f6c853b731625078307cc54c8b1}{\index{regression.\-c@{regression.\-c}!bl\-Calculate\-Best\-Fit\-Line@{bl\-Calculate\-Best\-Fit\-Line}}
+\index{bl\-Calculate\-Best\-Fit\-Line@{bl\-Calculate\-Best\-Fit\-Line}!regression.c@{regression.\-c}}
+\subsubsection[{bl\-Calculate\-Best\-Fit\-Line}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Calculate\-Best\-Fit\-Line (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$$\ast$}]{coordinates, }
+\item[{int}]{number\-Of\-Points, }
+\item[{int}]{number\-Of\-Dimensions, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{centroid, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{eigen\-Vector}
+\end{DoxyParamCaption}
+)}}\label{regression_8c_a2ab38f6c853b731625078307cc54c8b1}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em coordinates} & 2\-D Array containing the coordinates \\
+\hline
+\mbox{\tt in}  & {\em number\-Of\-Points} & The number of points in the array \\
+\hline
+\mbox{\tt in}  & {\em number\-Of\-Dimensions} & The number of dimensions (usually 3) \\
+\hline
+\mbox{\tt out}  & {\em centroid} & The centroid of the points \\
+\hline
+\mbox{\tt out}  & {\em eigen\-Vector} & The best Eigen vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success?
+\end{DoxyReturn}
+Calculates a best fit line through a set of coordinates in 3\-D. The results are returned in 'eigen\-Vector'
+
+The code calculates the centroid and ouputs this. The covariance matrix is then calculated and the Eigen vectors and values of the covariance matrix are then calculated. The Eigenvalue with the largest Eigenvector represents the best fit line passing through the centroid.
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-14 Original By\-: A\-C\-R\-M Based on code by Abhi Raghavan 
+\end{DoxyItemize}
+
+Definition at line 116 of file regression.\-c.
+
+\hypertarget{regression_8c_a7ecef8a6ff090f41bb8b78e526c7b1c0}{\index{regression.\-c@{regression.\-c}!bl\-Calculate\-Covariance\-Matrix@{bl\-Calculate\-Covariance\-Matrix}}
+\index{bl\-Calculate\-Covariance\-Matrix@{bl\-Calculate\-Covariance\-Matrix}!regression.c@{regression.\-c}}
+\subsubsection[{bl\-Calculate\-Covariance\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Calculate\-Covariance\-Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$$\ast$}]{matrix, }
+\item[{int}]{num\-X, }
+\item[{int}]{num\-Y, }
+\item[{{\bf R\-E\-A\-L} $\ast$$\ast$}]{cov}
+\end{DoxyParamCaption}
+)}}\label{regression_8c_a7ecef8a6ff090f41bb8b78e526c7b1c0}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em matrix} & The matrix \\
+\hline
+\mbox{\tt in}  & {\em num\-X} & x-\/dimension of the matrix \\
+\hline
+\mbox{\tt in}  & {\em num\-Y} & y-\/dimension of the matrix \\
+\hline
+\mbox{\tt out}  & {\em cov} & The covariance matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success
+\end{DoxyReturn}
+Find the covariance matrix for a given matrix
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-14 Original By\-: A\-C\-R\-M (based on code by Abhi Raghavan) 
+\end{DoxyItemize}
+
+Definition at line 254 of file regression.\-c.
+
+\hypertarget{regression_8c_a2979a35841ba3c78d55aae8cb0ef7641}{\index{regression.\-c@{regression.\-c}!bl\-Find\-Centroid@{bl\-Find\-Centroid}}
+\index{bl\-Find\-Centroid@{bl\-Find\-Centroid}!regression.c@{regression.\-c}}
+\subsubsection[{bl\-Find\-Centroid}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Find\-Centroid (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L} $\ast$$\ast$}]{matrix, }
+\item[{int}]{num\-X, }
+\item[{int}]{num\-Y, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{centroid}
+\end{DoxyParamCaption}
+)}}\label{regression_8c_a2979a35841ba3c78d55aae8cb0ef7641}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em matrix} & Coordinate array \\
+\hline
+\mbox{\tt in}  & {\em num\-X} & The x-\/dimension of the array \\
+\hline
+\mbox{\tt in}  & {\em num\-Y} & The y-\/dimension of the array \\
+\hline
+\mbox{\tt out}  & {\em centroid} & The centroid of the points\\
+\hline
+\end{DoxyParams}
+Calculates the centroid of an array of points
+
+
+\begin{DoxyItemize}
+\item 07.\-10.\-14 Original By\-: A\-C\-R\-M 
+\end{DoxyItemize}
+
+Definition at line 215 of file regression.\-c.
+

@@ -1,0 +1,45 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.53;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+
+/* OMUPD JAW 11/08/92 Added ProtoTypes.h as part of CR 318 */
+ 
+/*
+*   Determines the sign of i.
+*/
+ 
+int sign(
+int i
+)
+{
+   if (i < 0)
+      return -1;
+   else if (i == 0)
+      return 0;
+   else
+      return 1;
+}
+ 
+@

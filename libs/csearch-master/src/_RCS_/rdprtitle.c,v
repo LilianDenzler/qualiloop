@@ -1,0 +1,50 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.05.15;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* This does a rdtitl. It echoes the title lines to the output list file. */
+ 
+void rdprtitle(
+FILE *fp
+)
+{
+   char buffer[201];
+ 
+   for(;;)
+   {
+      if(!fgets(buffer,200,fp))
+         break;
+      terminate(buffer);
+      if(buffer[0] == '*')
+      {
+          fprintf(out,"\n");
+          break;
+      }
+ 
+      fprintf(stdout,"%s\n",buffer);
+   }
+}
+ 
+@

@@ -1,0 +1,131 @@
+\hypertarget{_err_stack_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Err\-Stack.h File Reference}
+\label{_err_stack_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Err\-Stack.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Err\-Stack.\-h}}
+}
+
+
+Build and print an error stack for program failure.  
+
+
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_err_stack_8h_a175651817ca160cd9269c9634dd00174}{\-\_\-\-E\-R\-R\-S\-T\-A\-C\-K\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_err_stack_8h_a1760e9ed0da602c2b3c9ab6935ce758d}{bl\-Store\-Error} (char $\ast$routine, char $\ast$error)
+\item 
+void \hyperlink{_err_stack_8h_a42ec3c99acc8e5f9e3300876521f4c00}{bl\-Show\-Errors} (void $\ast$Print\-Routine(char $\ast$), \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} Trace)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Build and print an error stack for program failure. \begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1994-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+This set of routines allows a stack of errors to be created. When a program has a fatal error, the Store\-Error() routine is called to place the error on the stack. As the program un-\/winds, each routine which fails stores it's error. Finally, before the program actually exits, it calls Show\-Errors() to display the error stack.
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 31.\-08.\-94 Original By\-: A\-C\-R\-M
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-2 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-3 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_err_stack_8h_source}{Err\-Stack.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_err_stack_8h_a175651817ca160cd9269c9634dd00174}{\index{Err\-Stack.\-h@{Err\-Stack.\-h}!\-\_\-\-E\-R\-R\-S\-T\-A\-C\-K\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-E\-R\-R\-S\-T\-A\-C\-K\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-E\-R\-R\-S\-T\-A\-C\-K\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-E\-R\-R\-S\-T\-A\-C\-K\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!ErrStack.h@{Err\-Stack.\-h}}
+\subsubsection[{\-\_\-\-E\-R\-R\-S\-T\-A\-C\-K\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-E\-R\-R\-S\-T\-A\-C\-K\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{_err_stack_8h_a175651817ca160cd9269c9634dd00174}
+
+
+Definition at line 78 of file Err\-Stack.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_err_stack_8h_a42ec3c99acc8e5f9e3300876521f4c00}{\index{Err\-Stack.\-h@{Err\-Stack.\-h}!bl\-Show\-Errors@{bl\-Show\-Errors}}
+\index{bl\-Show\-Errors@{bl\-Show\-Errors}!ErrStack.h@{Err\-Stack.\-h}}
+\subsubsection[{bl\-Show\-Errors}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Show\-Errors (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{Print\-Routinechar $\ast$, }
+\item[{{\bf B\-O\-O\-L}}]{Trace}
+\end{DoxyParamCaption}
+)}}\label{_err_stack_8h_a42ec3c99acc8e5f9e3300876521f4c00}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$\-Print\-Routine} & The print routine or N\-U\-L\-L \\
+\hline
+\mbox{\tt in}  & {\em Trace} & Flag to print routine names\\
+\hline
+\end{DoxyParams}
+Display the error stack using the supplied print routine or the simple default one if N\-U\-L\-L is given.
+
+
+\begin{DoxyItemize}
+\item 31.\-08.\-94 Original By\-: A\-C\-R\-M
+\item 06.\-09.\-94 No longer tries to set Print\-Routine if was N\-U\-L\-L (strict A\-N\-S\-I compliance)
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 182 of file Err\-Stack.\-c.
+
+\hypertarget{_err_stack_8h_a1760e9ed0da602c2b3c9ab6935ce758d}{\index{Err\-Stack.\-h@{Err\-Stack.\-h}!bl\-Store\-Error@{bl\-Store\-Error}}
+\index{bl\-Store\-Error@{bl\-Store\-Error}!ErrStack.h@{Err\-Stack.\-h}}
+\subsubsection[{bl\-Store\-Error}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Store\-Error (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{routine, }
+\item[{char $\ast$}]{error}
+\end{DoxyParamCaption}
+)}}\label{_err_stack_8h_a1760e9ed0da602c2b3c9ab6935ce758d}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$routine} & Name of the routine generating the error \\
+\hline
+\mbox{\tt in}  & {\em $\ast$error} & Description of the error\\
+\hline
+\end{DoxyParams}
+Stores an error on the error stack.
+
+
+\begin{DoxyItemize}
+\item 31.\-08.\-94 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 137 of file Err\-Stack.\-c.
+

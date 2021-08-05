@@ -1,0 +1,48 @@
+**!!MDAVS.INS
+C
+C
+C -- Number of steps so far
+      INTEGER ISTEPS
+C -- ????
+      INTEGER ISTPAV
+      COMMON /MDAVS/ ISTEPS , ISTPAV
+C
+C -- ????
+      DOUBLE PRECISION CTEMP
+C -- ????
+      DOUBLE PRECISION CTMPAV
+C -- ????
+      DOUBLE PRECISION UTOT
+C -- ????
+      DOUBLE PRECISION UTOTAV
+C -- ????
+      DOUBLE PRECISION UTP
+C -- ????
+      DOUBLE PRECISION UTPAV
+C -- ????
+      DOUBLE PRECISION UTK
+C -- ????
+      DOUBLE PRECISION UTKAV
+C -- ????
+      DOUBLE PRECISION UENS
+C -- ????
+      DOUBLE PRECISION UENAVS
+C -- ????
+      DOUBLE PRECISION TPRESS
+C -- ????
+      DOUBLE PRECISION TPRSAV
+C -- ????
+      DOUBLE PRECISION TPRESM
+C -- ????
+      DOUBLE PRECISION TPRMAV
+C -- ????
+      DOUBLE PRECISION FRCNGO
+C -- ????
+      DOUBLE PRECISION ATMPAV
+      COMMON /MDAVS/ CTEMP , CTMPAV , UTOT , UTOTAV , UTP , UTPAV  ,
+     +               UTK , UTKAV , UENS ( MXENGS ) , UENAVS ( MXENGS ) ,
+     +               TPRESS , TPRSAV , TPRESM , TPRMAV ,
+     +               FRCNGO ( MXFORC ) , ATMPAV ( MXATM )
+C
+      SAVE /MDAVS/
+C

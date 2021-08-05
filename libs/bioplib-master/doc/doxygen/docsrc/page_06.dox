@@ -1,0 +1,74 @@
+/** 
+\page page_06 Graphics
+\brief
+  BiopLib - Graphics
+
+
+
+
+
+
+
+HPGL
+----
+
+- blHPGLCBText() - Write centre-bottom justified text in HPGL 
+- blHPGLCTText() - Center Top justify text at x,y with y-offset in pts. 
+- blHPGLDraw() - Draw on HPGL plot 
+- blHPGLEnd() - Close the HPGL plot file 
+- blHPGLFont() - Set font for HPGL plot 
+- blHPGLInit() - Initialise an HPGL plot. The parameters specify the unprintable margins on the output device. 
+- blHPGLLCText() - Print left-centre justified text 
+- blHPGLLText() - Write left justified text on HPGL plot 
+- blHPGLMove() - Move on HPGL plot 
+- blHPGLPen() - Select a Pen 
+- blHPGLROffText() - Print right-justified text to HPGL 
+- blHPGLSetDash() - Set the line style (may be printer dependent): 
+- blHPGLShowText() - Displays the text, raising or lowering as appropriate and selecting alternate font where required. Used by the various ...Text() routines.
+- blHPGLVText() - Write vertical text centred on x,y offset back along x by the size of label and by xoff in pts 
+
+
+Plotting
+--------
+
+- blAMCBText() - Centre-bottom justify text 
+- blAMCTText() - Centre/top justify text at position in data coordinates. 
+- blAMDraw() - Draw to a position specified in data coordinates. 
+- blAMEndLine() - End a line; required by PostScript actually to draw on the paper. 
+- blAMEndPlot() - Close up a device after plotting. 
+- blAMInitPlot() - Initialise a device ready for plotting. 
+- blAMLCText() - Left/centre height justify text at position in data coordinates 
+- blAMMove() - Move to a position specified in data coordinates. 
+- blAMRText() - Right/centre justify text at position in data coordinates; offset is an x-offset specified in device coordinates (pt) 
+- blAMSetFont() - Sets the current font using PostScript font names. If producing HPGL output, a lookup table is used to translate this to an HPGL font number 
+- blAMSetLineStyle() - Set the line style 
+- blAMSetPen() - Change pen 
+- blAMText() - Left/bottom justify text at position in data coordinates 
+- blPS2HPGLFont() - Takes the PostScript font name and works out the best HPGL equivalent from a translation table. On the first call, the table is read from disk and space is allocated for it. If the routine is called with a NULL parameter, the space allocated for the table is freed. It is quite safe to call the routine again after this has occurred; the table will simply be re-read from disk. 
+- blSimplifyText() - Removes control codes from a string for screen display. Also used for calculating string length. The returned string is stored as static within the routine
+
+
+Postscript
+----------
+
+- blPSCBText() - Centers a piece of text with X,Y being the Coords of the BOTTOM centre point 
+- blPSCTText() - Centers a piece of text with X,Y being the Coords of the TOP centre point 
+- blPSClearDash() - Clear the dash pattern to a full line 
+- blPSCorrectCase() - Goes through a fontname and fixes case to match the required standard.
+- blPSDraw() - Draw to X,Y 
+- blPSEnd() - End of page 
+- blPSFont() - Set the font and size 
+- blPSInit() - Initialises the file writing the Prologue. The filename and creator are written into the Prologue and EPSFxoff and EPSFyoff are used to calculate the bounding box size for EPSF plots. 
+- blPSLCText() - Left justify text, centred on Y 
+- blPSLText() - Left justify text 
+- blPSMove() - Move to X,Y 
+- blPSROffText() - Right justify text with offset in device coordinates (points). 
+- blPSSetDash() - Set a line dash pattern which must be supplied as a string 
+- blPSShowText() - Displays text, processing it first if any control codes are found. Used by the various text positioning routines. 
+- blPSStroke() - Actually draw what you've just done onto the paper 
+- blPSThick() - Set the line thickness 
+- blPSVText() - Write vertical text centred on x,y offset back along x by the size of label and by xoff in pts. Used, for example, to title the y-axis of a graph. The `label' specification is used to calculate an amount by which to move the text back. Typically this would be the longest data label on the graph's Y-axis. 
+
+
+*/
+

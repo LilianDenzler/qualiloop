@@ -1,0 +1,166 @@
+#ifndef __SEQU_H__
+#define __SEQU_H__
+
+/***********************************************************************
+ *      Name: SeqU.h                                                   *
+ *  Function: Declares structures for sequence alignment program       *
+ * Copyright: (C) Oxford Molecular Limited                             *
+ *---------------------------------------------------------------------*
+ *    Author: KY Cockwell, Oxford Molecular Ltd.                       *
+ *      Date: 02/07/1993                                               *
+ *---------------------------------------------------------------------*
+ * Modification Record                                                 *
+ * Date     Inits   Comments                                           *
+ * 20/10/93 DW      Added colour by region structure                   *
+ * 26/11/93 DW      Sequence/alignment I/O review (CR 2757)            *
+ ***********************************************************************/
+
+#include <stdlib.h>
+#include <sys/types.h>
+#include <malloc.h>
+
+/* Define some types for the sequence pointers etc. */
+
+typedef struct alignstruct ALNType,    *ALNPtr;
+typedef struct seqstruct   SEQType,    *SEQPtr;
+typedef struct resstruct   RESType,    *RESPtr;
+typedef struct cgfstruct   CGFType,    *CGFPtr;
+typedef struct grouprec    CGFGType,   *CGFGPtr;
+typedef struct scoremat    MATType,    *MATPtr;
+typedef struct profstruct  PRFType,    *PRFPtr;
+typedef struct profcalc    ProfType,   *ProfPtr;
+typedef struct profpoint   ProfPtType, *ProfPtPtr;
+typedef struct lockstruct  LockType,   *LockPtr;
+typedef struct sstruct     SSType,     *SecSPtr;
+typedef struct seqrgn      SeqRegion,  *SEQRPtr;
+
+struct alignstruct
+{
+   SEQPtr  seq;             /* Head of linked list of sequences */
+   SEQPtr  ident;           /* Identity sequence pointer */
+   SEQPtr  consens;         /* Concensus sequence pointer */
+   short   nseqs;           /* No. residues in the Identity/concensus */
+   short   longest;         /* No. residues in the longest sequence */
+   CGFPtr  cgf;             /* CGF structure */
+   short   nblocks;         /* No. blocks for Multal interface */
+   LockPtr lockarray;       /* Locking points for Multal interface */
+   short   ptype;           /* percentage same type for consensus */
+   short   presidue;        /* percentage same residue for consensus */
+};
+
+struct profcalc
+{
+   ProfPtr   next;          /* Next profile pointer */
+   ProfPtr   previous;      /* Previous Profile pointer */
+   SEQPtr    seq;           /* Back link to sequence */
+   char      property[80];  /* Property name */
+   short     window;        /* Window length */
+   short     nEntries;      /* No. entries */
+   short     output;        /* Selected for output */
+   ProfPtPtr profile;       /* Array of profile data */
+};
+
+struct profpoint
+{
+   short   valid;   /* Value calculated? */
+   float   value;   /* Profile value */
+};
+
+struct scoremat
+{
+   char      title[80];        /* Matrix title */
+   short     scores[24][24];   /* Pairwise scores */
+};
+
+struct profstruct
+{
+   char    title[80];        /* profile title */
+   char    reference[512];   /* Journal Reference */ 
+   float   attribute[25];    /* Attributes array */
+};
+
+struct seqrgn
+{
+   short end;                     /* Last residue number in region */
+   short r;                       /* Red gun value */
+   short g;                       /* Green gun value */
+   short b;                       /* Blue gun value */
+};
+
+#define SEQ_MAXRGN 50             /* Maximum number of colour regions */
+
+struct seqstruct
+{
+   SEQPtr    next;                /* Next sequence pointer */
+   SEQPtr    previous;            /* previous sequence pointer */
+   short     nres;                /* Number of residues including gaps */
+   RESPtr    res;                 /* Residue list pointer */
+   char      *organism;           /* Organism name */
+   char      *accession;          /* Accession number */
+   short     flags;               /* Sequence State flags */
+   short     group;               /* Group Number */
+   ProfPtr   profiles;            /* pointer to profiles linked list */
+   SecSPtr   secondary;           /* pointer to secondary structure */
+   SeqRegion colrgn[SEQ_MAXRGN];  /* Colour regions */
+};
+
+struct cgfstruct
+{
+   char     *title;        /* title of grouping */
+   CGFGPtr   groups;       /* Pointer to linked list of colour structures */
+   short     ngroups;      /* number of groups in CGF (max 23) */
+};
+
+struct grouprec
+{
+   CGFGPtr   next;         /* Next group structure pointer */
+   CGFGPtr   previous;     /* Pointer to previous group structure */
+   short     red;
+   short     green;
+   short     blue;
+   char      comment[80];  /* colour group name */
+   char      amino[25];    /* List of single letter residue codes in group */
+   char      symbol;       /* group symbol for consensus */
+};
+
+struct resstruct
+{
+   RESPtr    next;         /* Pointer to next residue */
+   RESPtr    previous;     /* Pointer to previous residue */
+   char      res;          /* encoded residue type */
+   short     select;       /* Residue selected flag */
+};
+
+struct lockstruct
+{
+   short  start;
+   short  locked;
+};
+
+struct sstruct
+{
+   SEQPtr   parent;        /* backward link to parent sequence structure */
+   short   *ssval;         /* array of secondary structure values */
+};
+
+#define GRP_MAX    100  /* Maximum sensible number of groups */
+#define RES_MAX    25   /* Number of defined residue codes */
+#define RES_GAP    23   /* gap residue index */
+#define RES_UNK    24   /* Unknown residue */
+#define SEQ_GAPC   '-'  /* Gap character */
+
+#define SF_SELECT  0x01 /* Seq. Selected Flag */
+#define SF_LOCKED  0x02 /* Seq. Locked Flag */
+#define SF_COLRGN  0x04 /* Colour by region flag */
+
+#define SEQU_OK    0    /* no error */
+#define SEQU_MEM   1    /* error allocating memory */
+#define SEQU_NOSEL 2    /* no selected sequences */
+
+/* Ensure TRUE and FALSE are defined */
+#ifndef FALSE
+#define FALSE 0
+#define TRUE  1
+#endif
+
+#endif

@@ -1,0 +1,43 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.13.45;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#ifdef __FORT_UNDERSCORE__
+#define c_print_atom c_print_atom_
+#endif
+
+#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Calls print_atom1, used by FORPRTATM().
+   Always sets the input string to a null string first. */
+ 
+void c_print_atom(
+char string[],
+int  atnum
+)
+{
+   string[0] = '\0';
+   print_atom1(string,atnum);
+}
+ 
+@

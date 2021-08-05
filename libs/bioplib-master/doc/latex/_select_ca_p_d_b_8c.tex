@@ -1,0 +1,99 @@
+\hypertarget{_select_ca_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Select\-Ca\-P\-D\-B.c File Reference}
+\label{_select_ca_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Select\-Ca\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Select\-Ca\-P\-D\-B.\-c}}
+}
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_select_ca_p_d_b_8c_a803184a2bdeaf7ba9096dab94a479bbd}{bl\-Select\-Ca\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVersion}{Version}
+V1.\-8 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1990-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-03.\-90 Original By\-: A\-C\-R\-M
+\item V1.\-1 28.\-03.\-90 Modified to match new version of \hyperlink{pdb_8h}{pdb.\-h}
+\item V1.\-2 24.\-05.\-90 Fixed so the variables passed in as sel\mbox{[}\mbox{]} don't have$\ast$ to be 4 chars.
+\item V1.\-3 17.\-05.\-93 Modified for book. Returns B\-O\-O\-L.
+\item V1.\-4 09.\-07.\-93 Modified to return P\-D\-B pointer. Changed allocation scheme. Changed back to sel\mbox{[}\mbox{]} variables {\itshape must} be 4 chars.
+\item V1.\-5 01.\-11.\-94 Added H\-Strip\-P\-D\-B()
+\item V1.\-6 26.\-07.\-95 Removed unused variables
+\item V1.\-7 16.\-10.\-96 Added Select\-Ca\-P\-D\-B()
+\item V1.\-8 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_select_ca_p_d_b_8c_source}{Select\-Ca\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_select_ca_p_d_b_8c_a803184a2bdeaf7ba9096dab94a479bbd}{\index{Select\-Ca\-P\-D\-B.\-c@{Select\-Ca\-P\-D\-B.\-c}!bl\-Select\-Ca\-P\-D\-B@{bl\-Select\-Ca\-P\-D\-B}}
+\index{bl\-Select\-Ca\-P\-D\-B@{bl\-Select\-Ca\-P\-D\-B}!SelectCaPDB.c@{Select\-Ca\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Select\-Ca\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Select\-Ca\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_select_ca_p_d_b_8c_a803184a2bdeaf7ba9096dab94a479bbd}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & A P\-D\-B linked list \\
+\hline
+\mbox{\tt out}  & {\em $\ast$} & The linked list reduced to C\-A atoms only\\
+\hline
+\end{DoxyParams}
+Reduce a P\-D\-B linked list to C\-A atoms only. Returns the reduced P\-D\-B linked list. Note that the input linked list is modified (storage for non-\/\-C\-A atoms is freed) and that the pointer input to the routine is likely to become invalid since the first atom is generally no a C\-A and the first record will therefore be freed.
+
+Normally you would call this routine with something like\-:
+
+pdb = Select\-Ca\-P\-D\-B(pdb);
+
+i.\-e. the same variable name is used for the input and the return.
+
+This is used in place of the normal Select\-Atoms\-P\-D\-B() since it is simpler and faster to call for this rather common requirement.
+
+N.\-B. Unlike Select\-Atoms\-P\-D\-B(), the routine is destructive; i.\-e. the original P\-D\-B linked list is N\-O\-T intact after the selection process.
+
+
+\begin{DoxyItemize}
+\item 15.\-10.\-96 Original By\-: A\-C\-R\-M
+\item 11.\-01.\-02 Added check on pdb!=N\-U\-L\-L in case there are no C\-As (D\-N\-A etc)
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 124 of file Select\-Ca\-P\-D\-B.\-c.
+

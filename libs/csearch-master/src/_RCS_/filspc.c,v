@@ -1,0 +1,44 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.48;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Fill unused part of string with spaces, doesn't properly terminate
+   a C-string */
+ 
+void filspc(
+char st[],
+int  *stmax,
+int *stlen
+)
+{
+int i;
+   if(*stlen == *stmax)
+      return;
+   for(i = *stlen+1; i<*stmax; i++)
+      st[i] = ' ';
+   return;
+}
+ 
+@

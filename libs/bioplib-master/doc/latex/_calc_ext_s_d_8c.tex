@@ -1,0 +1,128 @@
+\hypertarget{_calc_ext_s_d_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Ext\-S\-D.c File Reference}
+\label{_calc_ext_s_d_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Ext\-S\-D.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Calc\-Ext\-S\-D.\-c}}
+}
+
+
+Calculate mean and standard deviation.  
+
+
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_calc_ext_s_d_8c_a0ce11017b526a387632280d0d7bb8930}{bl\-Calc\-Ext\-S\-D} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} val, int action, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$Sx, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$Sx\-Sq, int $\ast$N\-Values, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$mean, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} $\ast$S\-D)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Calculate mean and standard deviation. \begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1990-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+This routine calculates the mean and standard deviation from a set of numbers. The routine is called with each value to be sampled and the action required is specified.
+
+\subsection*{Usage\-: }
+
+\begin{DoxyVerb}  #include "MathUtil.h" before using these routines
+
+  void CalcExtSD(REAL val, int action, REAL *Sx, REAL *SxSq, 
+                 int *NValues, REAL *mean, REAL *SD)
+  ----------------------------------------------------------
+  Input:   val     int       The value to be sampled
+  Input:   action  short     0: Sample the value
+                             1: Calculate & return mean and SD
+                             2: Clear the sample lists
+  Output:  mean    *REAL     The returned mean
+  Output:  SD      *REAL     The returned standard deviation
+  I/O:     Sx      *REAL     Sum of values
+  I/O:     SxSq    *REAL     Sum of values squared
+  I/O:     NValues *int      Number of values
+
+  The output values are only set when action==1
+\end{DoxyVerb}
+
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 30.\-03.\-90 Original By\-: A\-C\-R\-M
+\item V1.\-1 17.\-06.\-93 Modified for book
+\item V1.\-2 01.\-03.\-94 Added Calc\-Ext\-S\-D()
+\item V1.\-3 22.\-06.\-94 Fixed for just one value
+\item V1.\-4 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_calc_ext_s_d_8c_source}{Calc\-Ext\-S\-D.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_calc_ext_s_d_8c_a0ce11017b526a387632280d0d7bb8930}{\index{Calc\-Ext\-S\-D.\-c@{Calc\-Ext\-S\-D.\-c}!bl\-Calc\-Ext\-S\-D@{bl\-Calc\-Ext\-S\-D}}
+\index{bl\-Calc\-Ext\-S\-D@{bl\-Calc\-Ext\-S\-D}!CalcExtSD.c@{Calc\-Ext\-S\-D.\-c}}
+\subsubsection[{bl\-Calc\-Ext\-S\-D}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Calc\-Ext\-S\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{val, }
+\item[{int}]{action, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{Sx, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{Sx\-Sq, }
+\item[{int $\ast$}]{N\-Values, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{mean, }
+\item[{{\bf R\-E\-A\-L} $\ast$}]{S\-D}
+\end{DoxyParamCaption}
+)}}\label{_calc_ext_s_d_8c_a0ce11017b526a387632280d0d7bb8930}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em val} & The value to be sampled \\
+\hline
+\mbox{\tt in}  & {\em action} & 0\-: Sample the value 1\-: Calculate \& return mean and S\-D 2\-: Clear the sample lists \\
+\hline
+\mbox{\tt out}  & {\em mean} & The returned mean \\
+\hline
+\mbox{\tt out}  & {\em S\-D} & The returned standard deviation \\
+\hline
+\mbox{\tt in,out}  & {\em Sx} & Sum of values \\
+\hline
+\mbox{\tt in,out}  & {\em Sx\-Sq} & Sum of values squared \\
+\hline
+\mbox{\tt in,out}  & {\em N\-Values} & Number of values\\
+\hline
+\end{DoxyParams}
+Calculate the mean and standard deviation from a set of numbers. The routine is called with each value to be sampled and the action required is specified\-:
+
+The output values are only set when action==1
+
+This is the same as \hyperlink{_calc_s_d_8c_a6be832c4999268c59458a08373d1b144}{bl\-Calc\-S\-D()} except that the Sx, Sx\-Sq and N\-Values variables are kept outside the function instead of being static within the function
+
+
+\begin{DoxyItemize}
+\item 13.\-10.\-93 Original based on Calc\-S\-D By\-: A\-C\-R\-M
+\item 22.\-06.\-94 Fixed for only one value supplied
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 137 of file Calc\-Ext\-S\-D.\-c.
+

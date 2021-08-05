@@ -1,0 +1,37 @@
+head	1.1;
+access;
+symbols;
+locks
+	martin:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2006.02.17.12.04.42;	author martin;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "ProtoTypes.h"
+#include "CongenProto.h"
+ 
+/* Branches (using longjmp) out of all dispatch calls. */
+ 
+void dststop(
+void
+)
+{
+   fprintf(out,"\nCGEN execution terminating prior to completion of search\n");
+   longjmp(*top_level_env,1);
+}
+ 
+@

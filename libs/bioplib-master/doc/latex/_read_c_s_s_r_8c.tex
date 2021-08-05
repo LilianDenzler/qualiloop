@@ -1,0 +1,364 @@
+\hypertarget{_read_c_s_s_r_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Read\-C\-S\-S\-R.c File Reference}
+\label{_read_c_s_s_r_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Read\-C\-S\-S\-R.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Read\-C\-S\-S\-R.\-c}}
+}
+
+
+Read a C\-S\-S\-R file.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}cssr.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}matrix.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}general.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{cssr_8h_abe57ac43ae0fa2b9edd3eb628ed0cc38}{C\-S\-S\-R} $\ast$ \hyperlink{_read_c_s_s_r_8c_abe0c4e2d63f57318b309a5ae55b6aec3}{bl\-Read\-C\-S\-S\-R} (F\-I\-L\-E $\ast$fp, int $\ast$natom, char $\ast$name, char $\ast$title)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_read_c_s_s_r_8c_aee7acce9da0fc46eab7f6251890b06a7}{bl\-Read\-C\-S\-S\-Ras\-P\-D\-B} (F\-I\-L\-E $\ast$fp, int $\ast$natom)
+\item 
+void \hyperlink{_read_c_s_s_r_8c_a68debd234d6b82467b7f86d07957fb8b}{bl\-Normalise\-C\-S\-S\-R} (\hyperlink{cssr_8h_abe57ac43ae0fa2b9edd3eb628ed0cc38}{C\-S\-S\-R} $\ast$cssr, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} cell\mbox{[}3\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} alpha, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} beta, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} gamma)
+\item 
+void \hyperlink{_read_c_s_s_r_8c_a647b405d5b4a6ef77dd4ca7278e7f282}{bl\-Normalise\-P\-D\-B} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} cell\mbox{[}3\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} alpha, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} beta, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} gamma)
+\item 
+void \hyperlink{_read_c_s_s_r_8c_a8266255c8dd56c4c05d5268107b4d97a}{bl\-Ortho} (\hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} cell\mbox{[}3\mbox{]}, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} alpha, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} beta, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} gamma, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} amatrx\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, int isw, int ncode)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read a C\-S\-S\-R file. \begin{DoxyVersion}{Version}
+V1.\-7 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+15.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1991-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+
+\begin{DoxyCode}
+ReadCSSR(fp,cssr,natom,name,title)
+\end{DoxyCode}
+
+
+This subroutine will read a C\-S\-S\-R file of any size and form a linked list of the structure. This list is contained in a linked set of structures of type \hyperlink{structcssr__entry}{cssr\-\_\-entry}. The strucure is set up by including the file \char`\"{}cssr.\-h\char`\"{}. For details of the structure, see this file.
+
+To define a structure list in which to store the protein, the user need only include the file \char`\"{}cssr.\-h\char`\"{}, declare a pointer to a structure of type C\-S\-S\-R using the statement\-: C\-S\-S\-R $\ast$mycssr;
+
+
+\begin{DoxyCode}
+ReadCSSRasPDB(fp,cssr,natom)
+\end{DoxyCode}
+
+
+As Read\-C\-S\-S\-R(), but reads the structure into a P\-D\-B type linked list. Atom connection information is ignored, and charges are placed into the B-\/val column.
+
+
+\begin{DoxyCode}
+NormaliseCSSR(cssr,cell,alpha,beta,gamma)
+\end{DoxyCode}
+
+
+Given the unit cell dimensions, converts C\-S\-S\-R to orthonormal coordinates.
+
+
+\begin{DoxyCode}
+NormalisePDB(pdb,cell,alpha,beta,gamma)
+\end{DoxyCode}
+
+
+Given the unit cell dimensions, converts P\-D\-B to orthonormal coordinates.
+
+
+\begin{DoxyCode}
+ortho(cell,alpha,beta,gamma,amatrx,isw,ncode)
+\end{DoxyCode}
+
+
+Calculates the 3x3 matrix required to convert between fractional and orthonormal coordinates given the unit cell dimensions.
+
+\subsection*{Usage\-: }
+
+\begin{DoxyVerb}   ReadCSSR(fp,cssr,natom,name,title)
+   Input:   FILE     *fp      A pointer to type FILE in which the
+                              CSSR file is stored.
+            CSSR     *cssr    A pointer to the first allocated item of
+                              the CSSR linked list
+   Output:  int      *natom   Number of atoms read.
+            char     *name    The molecule's name.
+            char     *title   Title on the molecule.
+
+   ReadCSSRasPDB(fp,pdb,natom)
+                              into a PDB linked list
+   Input:   FILE     *fp      A pointer to type FILE in which the
+                              CSSR file is stored.
+            PDB      *pdb     A pointer to the first allocated item of
+                              the PDB linked list
+   Output:  int      *natom   Number of atoms read.
+
+   NormaliseCSSR(cssr,cell,alpha,beta,gamma)
+   I/O:     CSSR     *cssr    Pointer to CSSR linked list
+   Input:   REAL     cell[3]  Unit cell dimensions
+                     alpha    Unit cell angles
+                     beta
+                     gamma
+
+   NormalisePDB(pdb,cell,alpha,beta,gamma)
+   I/O:     PDB      *pdb     Pointer to PDB linked list
+   Input:   REAL     cell[3]  Unit cell dimensions
+                     alpha    Unit cell angles
+                     beta
+                     gamma
+
+   ortho(cell,alpha,beta,gamma,amatrx,isw,ncode)
+   Input:   REAL     cell[3]  Unit cell dimensions
+                     alpha    Unit cell angles
+                     beta
+                     gamma
+   Output:  REAL     amatrx[3][3]   Returned conversion matrix
+   Input:   int      isw      0: Frac-->Ortho,  1: Ortho-->Frac
+            int      ncode    Orientation of reciprocal axes wrt true 
+                              axes.
+                              1: a || xo,          c* || zo
+                              2: b || xo,          a* || zo
+                              3: c || xo,          b* || zo
+                              4: hex a & b || xo,  c* || zo
+                              5: a* || xo,         c  || zo
+\end{DoxyVerb}
+
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 06.\-09.\-91 Original
+\item V1.\-1 24.\-01.\-92 Fixed for reading files with blank link numbers.
+\item V1.\-2 01.\-06.\-92 Documented and added F\-P\-U check
+\item V1.\-3 10.\-06.\-93 Tidied for book
+\item V1.\-4 27.\-07.\-93 Changed I/\-O to double precision
+\item V1.\-5 30.\-05.\-02 Changed P\-D\-B field from 'junk' to 'record\-\_\-type'
+\item V1.\-6 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-7 15.\-08.\-14 Updated \hyperlink{cssr_8h_aee7acce9da0fc46eab7f6251890b06a7}{bl\-Read\-C\-S\-S\-Ras\-P\-D\-B()} to use \hyperlink{pdb_8h_aa060eecccbc29f0bfbbaf442b42d0cdc}{C\-L\-E\-A\-R\-\_\-\-P\-D\-B()} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_read_c_s_s_r_8c_source}{Read\-C\-S\-S\-R.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_read_c_s_s_r_8c_a68debd234d6b82467b7f86d07957fb8b}{\index{Read\-C\-S\-S\-R.\-c@{Read\-C\-S\-S\-R.\-c}!bl\-Normalise\-C\-S\-S\-R@{bl\-Normalise\-C\-S\-S\-R}}
+\index{bl\-Normalise\-C\-S\-S\-R@{bl\-Normalise\-C\-S\-S\-R}!ReadCSSR.c@{Read\-C\-S\-S\-R.\-c}}
+\subsubsection[{bl\-Normalise\-C\-S\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Normalise\-C\-S\-S\-R (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-S\-S\-R} $\ast$}]{cssr, }
+\item[{{\bf R\-E\-A\-L}}]{cell\mbox{[}3\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{alpha, }
+\item[{{\bf R\-E\-A\-L}}]{beta, }
+\item[{{\bf R\-E\-A\-L}}]{gamma}
+\end{DoxyParamCaption}
+)}}\label{_read_c_s_s_r_8c_a68debd234d6b82467b7f86d07957fb8b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$cssr} & Pointer to C\-S\-S\-R linked list \\
+\hline
+\mbox{\tt in}  & {\em cell} & Unit cell dimensions \\
+\hline
+\mbox{\tt in}  & {\em alpha} & Unit cell angles \\
+\hline
+\mbox{\tt in}  & {\em beta} & \\
+\hline
+\mbox{\tt in}  & {\em gamma} & Convert a C\-S\-S\-R linked list in fractional coordinates to orthonormal\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original
+\item 01.\-06.\-92 Documented
+\item 10.\-06.\-93 void return
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 513 of file Read\-C\-S\-S\-R.\-c.
+
+\hypertarget{_read_c_s_s_r_8c_a647b405d5b4a6ef77dd4ca7278e7f282}{\index{Read\-C\-S\-S\-R.\-c@{Read\-C\-S\-S\-R.\-c}!bl\-Normalise\-P\-D\-B@{bl\-Normalise\-P\-D\-B}}
+\index{bl\-Normalise\-P\-D\-B@{bl\-Normalise\-P\-D\-B}!ReadCSSR.c@{Read\-C\-S\-S\-R.\-c}}
+\subsubsection[{bl\-Normalise\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Normalise\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb, }
+\item[{{\bf R\-E\-A\-L}}]{cell\mbox{[}3\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{alpha, }
+\item[{{\bf R\-E\-A\-L}}]{beta, }
+\item[{{\bf R\-E\-A\-L}}]{gamma}
+\end{DoxyParamCaption}
+)}}\label{_read_c_s_s_r_8c_a647b405d5b4a6ef77dd4ca7278e7f282}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em $\ast$pdb} & Pointer to P\-D\-B linked list \\
+\hline
+\mbox{\tt in}  & {\em cell} & Unit cell dimensions \\
+\hline
+\mbox{\tt in}  & {\em alpha} & Unit cell angles \\
+\hline
+\mbox{\tt in}  & {\em beta} & \\
+\hline
+\mbox{\tt in}  & {\em gamma} & Convert a P\-D\-B linked list in fractional cooridinates to orthonormal\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original
+\item 01.\-06.\-92 Documented
+\item 10.\-06.\-93 void return
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 574 of file Read\-C\-S\-S\-R.\-c.
+
+\hypertarget{_read_c_s_s_r_8c_a8266255c8dd56c4c05d5268107b4d97a}{\index{Read\-C\-S\-S\-R.\-c@{Read\-C\-S\-S\-R.\-c}!bl\-Ortho@{bl\-Ortho}}
+\index{bl\-Ortho@{bl\-Ortho}!ReadCSSR.c@{Read\-C\-S\-S\-R.\-c}}
+\subsubsection[{bl\-Ortho}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Ortho (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-E\-A\-L}}]{cell\mbox{[}3\mbox{]}, }
+\item[{{\bf R\-E\-A\-L}}]{alpha, }
+\item[{{\bf R\-E\-A\-L}}]{beta, }
+\item[{{\bf R\-E\-A\-L}}]{gamma, }
+\item[{{\bf R\-E\-A\-L}}]{amatrx\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}, }
+\item[{int}]{isw, }
+\item[{int}]{ncode}
+\end{DoxyParamCaption}
+)}}\label{_read_c_s_s_r_8c_a8266255c8dd56c4c05d5268107b4d97a}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cell} & Unit cell dimensions \\
+\hline
+\mbox{\tt in}  & {\em alpha} & Unit cell angles \\
+\hline
+\mbox{\tt in}  & {\em beta} & \\
+\hline
+\mbox{\tt in}  & {\em gamma} & \\
+\hline
+\mbox{\tt out}  & {\em amatrx} & Returned conversion matrix \\
+\hline
+\mbox{\tt in}  & {\em isw} & 0\-: Frac--$>$Ortho, 1\-: Ortho--$>$Frac \\
+\hline
+\mbox{\tt in}  & {\em ncode} & Orientation of reciprocal axes wrt true axes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyVerb}   ncode    Orientation of reciprocal axes wrt true axes.
+
+                              1: a || xo,          c* || zo
+                              2: b || xo,          a* || zo
+                              3: c || xo,          b* || zo
+                              4: hex a & b || xo,  c* || zo
+                              5: a* || xo,         c  || zo
+\end{DoxyVerb}
+
+
+Function to calculate a matrix which will convert between fractional and orthonormal coordinates given unit cell dimensions and angles. ncode defines the orientation of the reciprocal axes wrt the real axes.
+
+See Rollett `\-Computing Methods in Crystallography' p.\-23
+
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original
+\item 01.\-06.\-92 Documented
+\item 10.\-06.\-93 void return
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 643 of file Read\-C\-S\-S\-R.\-c.
+
+\hypertarget{_read_c_s_s_r_8c_abe0c4e2d63f57318b309a5ae55b6aec3}{\index{Read\-C\-S\-S\-R.\-c@{Read\-C\-S\-S\-R.\-c}!bl\-Read\-C\-S\-S\-R@{bl\-Read\-C\-S\-S\-R}}
+\index{bl\-Read\-C\-S\-S\-R@{bl\-Read\-C\-S\-S\-R}!ReadCSSR.c@{Read\-C\-S\-S\-R.\-c}}
+\subsubsection[{bl\-Read\-C\-S\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-S\-S\-R}$\ast$ bl\-Read\-C\-S\-S\-R (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int $\ast$}]{natom, }
+\item[{char $\ast$}]{name, }
+\item[{char $\ast$}]{title}
+\end{DoxyParamCaption}
+)}}\label{_read_c_s_s_r_8c_abe0c4e2d63f57318b309a5ae55b6aec3}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E in which the C\-S\-S\-R file is stored. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms read. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$name} & The molecule's name. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$title} & Title on the molecule.\\
+\hline
+\end{DoxyParams}
+Read a C\-S\-S\-R file into a C\-S\-S\-R linked list
+
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original
+\item 24.\-01.\-92 Fixed for blank link columns (V1.\-1)
+\item 01.\-06.\-92 Documented
+\item 10.\-06.\-93 Returns T\-R\-U\-E or F\-A\-L\-S\-E to indicate success
+\item 09.\-07.\-93 Changed allocation scheme. Now returns pointer to start of list. No need to call init\-\_\-cssr
+\item 13.\-07.\-93 Returns N\-U\-L\-L if allocation failed
+\item 27.\-07.\-93 Changed I/\-O to double precision
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 224 of file Read\-C\-S\-S\-R.\-c.
+
+\hypertarget{_read_c_s_s_r_8c_aee7acce9da0fc46eab7f6251890b06a7}{\index{Read\-C\-S\-S\-R.\-c@{Read\-C\-S\-S\-R.\-c}!bl\-Read\-C\-S\-S\-Ras\-P\-D\-B@{bl\-Read\-C\-S\-S\-Ras\-P\-D\-B}}
+\index{bl\-Read\-C\-S\-S\-Ras\-P\-D\-B@{bl\-Read\-C\-S\-S\-Ras\-P\-D\-B}!ReadCSSR.c@{Read\-C\-S\-S\-R.\-c}}
+\subsubsection[{bl\-Read\-C\-S\-S\-Ras\-P\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Read\-C\-S\-S\-Ras\-P\-D\-B (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{int $\ast$}]{natom}
+\end{DoxyParamCaption}
+)}}\label{_read_c_s_s_r_8c_aee7acce9da0fc46eab7f6251890b06a7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$fp} & A pointer to type F\-I\-L\-E in which the C\-S\-S\-R file is stored. \\
+\hline
+\mbox{\tt out}  & {\em $\ast$natom} & Number of atoms read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the first allocated item of the P\-D\-B linked list
+\end{DoxyReturn}
+Read a C\-S\-S\-R file into a P\-D\-B linked list
+
+
+\begin{DoxyItemize}
+\item 06.\-09.\-91 Original
+\item 01.\-06.\-92 Documented
+\item 10.\-06.\-93 Returns T\-R\-U\-E or F\-A\-L\-S\-E to indicate success
+\item 09.\-07.\-93 Changed allocation scheme. Now returns pointer to start of list. No need to call init\-\_\-pdb
+\item 13.\-07.\-93 Returns N\-U\-L\-L if allocation failed
+\item 27.\-07.\-93 Changed I/\-O to double precision
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item 15.\-08.\-14 Use \hyperlink{pdb_8h_aa060eecccbc29f0bfbbaf442b42d0cdc}{C\-L\-E\-A\-R\-\_\-\-P\-D\-B()} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 368 of file Read\-C\-S\-S\-R.\-c.
+

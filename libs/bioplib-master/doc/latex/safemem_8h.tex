@@ -1,0 +1,373 @@
+\hypertarget{safemem_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/safemem.h File Reference}
+\label{safemem_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/safemem.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/safemem.\-h}}
+}
+
+
+Safe malloc()/free() routines which check for array overflow on free.  
+
+
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{safemem_8h_a27b5a1d75aafa63db2dbf08f659f1d34}{\-\_\-\-S\-A\-F\-E\-M\-E\-M\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\item 
+\#define \hyperlink{safemem_8h_aa167d4937e9a8d9a33c3e93bbcad8a35}{I\-N\-I\-T}(x, y)
+\item 
+\#define \hyperlink{safemem_8h_ad48f627b78d63b7af972e819978664ff}{I\-N\-I\-T\-P\-R\-E\-V}(x, y)
+\item 
+\#define \hyperlink{safemem_8h_ae0a46a92b4865dd29e1ea9e0a4d64772}{A\-L\-L\-O\-C\-N\-E\-X\-T}(x, y)
+\item 
+\#define \hyperlink{safemem_8h_a98b4aca4c6194e23c34b1a94cfdd3901}{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}(x, y)
+\item 
+\#define \hyperlink{safemem_8h_a4151f4e24778e7b290ec804c29c91f27}{F\-R\-E\-E\-L\-I\-S\-T}(y, z)
+\item 
+\#define \hyperlink{safemem_8h_a08b10a39748ec8aba2d075bb82760d4c}{O\-R\-D\-F\-R\-E\-E\-L\-I\-S\-T}(y, z)
+\item 
+\#define \hyperlink{safemem_8h_ab866ee223048678a3d417c2e786576e4}{D\-E\-L\-E\-T\-E}(x, y, z)
+\item 
+\#define \hyperlink{safemem_8h_ae3c5cba1181d731309b7b33b50fe21e0}{S\-A\-F\-E\-I\-N\-I\-T}(x, y)~\hyperlink{safemem_8h_aa167d4937e9a8d9a33c3e93bbcad8a35}{I\-N\-I\-T}(x,y)
+\item 
+\#define \hyperlink{safemem_8h_a1bff1a2d63b7d6735929e1f3152bcdb2}{S\-A\-F\-E\-I\-N\-I\-T\-P\-R\-E\-V}(x, y)~\hyperlink{safemem_8h_ad48f627b78d63b7af972e819978664ff}{I\-N\-I\-T\-P\-R\-E\-V}(x,y)
+\item 
+\#define \hyperlink{safemem_8h_af59be0fedd7a98ec2f761c815215eff9}{S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T}(x, y)~\hyperlink{safemem_8h_ae0a46a92b4865dd29e1ea9e0a4d64772}{A\-L\-L\-O\-C\-N\-E\-X\-T}(x,y)
+\item 
+\#define \hyperlink{safemem_8h_a3f447be4f6419cee69400fb1dfb7a7d6}{S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}(x, y)~\hyperlink{safemem_8h_a98b4aca4c6194e23c34b1a94cfdd3901}{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}(x,y)
+\item 
+\#define \hyperlink{safemem_8h_a077874bf45be4de6a0394dccce7da9cf}{S\-A\-F\-E\-F\-R\-E\-E\-L\-I\-S\-T}(y, z)~\hyperlink{safemem_8h_a4151f4e24778e7b290ec804c29c91f27}{F\-R\-E\-E\-L\-I\-S\-T}(y,z)
+\item 
+\#define \hyperlink{safemem_8h_a03cf2154b215ca1719c3aafd2767e9be}{S\-A\-F\-E\-D\-E\-L\-E\-T\-E}(x, y, z)~\hyperlink{safemem_8h_ab866ee223048678a3d417c2e786576e4}{D\-E\-L\-E\-T\-E}(x, y, z)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{safemem_8h_a6fb1420daf9aae70c83e9cd558bce4f7}{bl\-Safemalloc} (int nbytes)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{safemem_8h_a75e4d6982f7cc802621dbc4f776446df}{bl\-Safefree} (void $\ast$ptr)
+\item 
+void \hyperlink{safemem_8h_a32aa9f6dc5a258fd19c0523385d0f33a}{bl\-Safeleaks} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Safe malloc()/free() routines which check for array overflow on free. \begin{DoxyVersion}{Version}
+V1.\-4 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1995-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+N.\-B. This header file should be included {\itshape after} \hyperlink{macros_8h}{macros.\-h}
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 23.\-06.\-95 Original
+\item V1.\-1 03.\-07.\-06 Added safeleaks() prototype
+\item V1.\-2 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-3 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-4 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} Use bl\-Safefree instead of safefree for macros. By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{safemem_8h_source}{safemem.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{safemem_8h_a27b5a1d75aafa63db2dbf08f659f1d34}{\index{safemem.\-h@{safemem.\-h}!\-\_\-\-S\-A\-F\-E\-M\-E\-M\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-S\-A\-F\-E\-M\-E\-M\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-S\-A\-F\-E\-M\-E\-M\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-S\-A\-F\-E\-M\-E\-M\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!safemem.h@{safemem.\-h}}
+\subsubsection[{\-\_\-\-S\-A\-F\-E\-M\-E\-M\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-A\-F\-E\-M\-E\-M\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{safemem_8h_a27b5a1d75aafa63db2dbf08f659f1d34}
+
+
+Definition at line 75 of file safemem.\-h.
+
+\hypertarget{safemem_8h_ae0a46a92b4865dd29e1ea9e0a4d64772}{\index{safemem.\-h@{safemem.\-h}!A\-L\-L\-O\-C\-N\-E\-X\-T@{A\-L\-L\-O\-C\-N\-E\-X\-T}}
+\index{A\-L\-L\-O\-C\-N\-E\-X\-T@{A\-L\-L\-O\-C\-N\-E\-X\-T}!safemem.h@{safemem.\-h}}
+\subsubsection[{A\-L\-L\-O\-C\-N\-E\-X\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-L\-O\-C\-N\-E\-X\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{safemem_8h_ae0a46a92b4865dd29e1ea9e0a4d64772}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}=(y *)\hyperlink{safemem_8c_a6fb1420daf9aae70c83e9cd558bce4f7}{blSafemalloc}(\textcolor{keyword}{sizeof}(y));      \(\backslash\)
+                         if((x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next} != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) \{ (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}=
+      \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; \} \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{\(\backslash\)}
+\hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{                         NEXT}(x); \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 97 of file safemem.\-h.
+
+\hypertarget{safemem_8h_a98b4aca4c6194e23c34b1a94cfdd3901}{\index{safemem.\-h@{safemem.\-h}!A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V@{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}}
+\index{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V@{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}!safemem.h@{safemem.\-h}}
+\subsubsection[{A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{safemem_8h_a98b4aca4c6194e23c34b1a94cfdd3901}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}=(y *)\hyperlink{safemem_8c_a6fb1420daf9aae70c83e9cd558bce4f7}{blSafemalloc}(\textcolor{keyword}{sizeof}(y));  \(\backslash\)
+                             if((x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next} != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                       \(\backslash\)
+                             \{ (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}->\hyperlink{struct__memlist_ad18781e89269318ca9b53b1f673056c3}{prev} = (x);                    \(\backslash\)
+                               (x)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next}=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; \}                   
+      \hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{\(\backslash\)}
+\hyperlink{macros_8h_a184eb1eeb21deade2e180823b4a0e04c}{                               NEXT}(x);\} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Definition at line 100 of file safemem.\-h.
+
+\hypertarget{safemem_8h_ab866ee223048678a3d417c2e786576e4}{\index{safemem.\-h@{safemem.\-h}!D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}}
+\index{D\-E\-L\-E\-T\-E@{D\-E\-L\-E\-T\-E}!safemem.h@{safemem.\-h}}
+\subsubsection[{D\-E\-L\-E\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-L\-E\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)}}\label{safemem_8h_ab866ee223048678a3d417c2e786576e4}
+
+
+Definition at line 132 of file safemem.\-h.
+
+\hypertarget{safemem_8h_a4151f4e24778e7b290ec804c29c91f27}{\index{safemem.\-h@{safemem.\-h}!F\-R\-E\-E\-L\-I\-S\-T@{F\-R\-E\-E\-L\-I\-S\-T}}
+\index{F\-R\-E\-E\-L\-I\-S\-T@{F\-R\-E\-E\-L\-I\-S\-T}!safemem.h@{safemem.\-h}}
+\subsubsection[{F\-R\-E\-E\-L\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-E\-L\-I\-S\-T(
+\begin{DoxyParamCaption}
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)}}\label{safemem_8h_a4151f4e24778e7b290ec804c29c91f27}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{while}((y)!=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                                 \(\backslash\)
+                        \{  z *\_freelist\_macro\_q;                         \(\backslash\)
+                           \_freelist\_macro\_q = (y)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next};                \hyperlink{safemem_8c_a75e4d6982f7cc802621dbc4f776446df}{\(\backslash\)}
+\hyperlink{safemem_8c_a75e4d6982f7cc802621dbc4f776446df}{                           blSafefree}((\textcolor{keywordtype}{char} *)(y));                   
+         \(\backslash\)
+                           (y) = \_freelist\_macro\_q;                      \(\backslash\)
+                        \}
+\end{DoxyCode}
+
+
+Definition at line 109 of file safemem.\-h.
+
+\hypertarget{safemem_8h_aa167d4937e9a8d9a33c3e93bbcad8a35}{\index{safemem.\-h@{safemem.\-h}!I\-N\-I\-T@{I\-N\-I\-T}}
+\index{I\-N\-I\-T@{I\-N\-I\-T}!safemem.h@{safemem.\-h}}
+\subsubsection[{I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-I\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{safemem_8h_aa167d4937e9a8d9a33c3e93bbcad8a35}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ x=(y *)\hyperlink{safemem_8c_a6fb1420daf9aae70c83e9cd558bce4f7}{blSafemalloc}(\textcolor{keyword}{sizeof}(y));                   \(\backslash\)
+                    if(x != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) x->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next} = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; \} while(0)
+\end{DoxyCode}
+
+
+Definition at line 92 of file safemem.\-h.
+
+\hypertarget{safemem_8h_ad48f627b78d63b7af972e819978664ff}{\index{safemem.\-h@{safemem.\-h}!I\-N\-I\-T\-P\-R\-E\-V@{I\-N\-I\-T\-P\-R\-E\-V}}
+\index{I\-N\-I\-T\-P\-R\-E\-V@{I\-N\-I\-T\-P\-R\-E\-V}!safemem.h@{safemem.\-h}}
+\subsubsection[{I\-N\-I\-T\-P\-R\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-I\-T\-P\-R\-E\-V(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{safemem_8h_ad48f627b78d63b7af972e819978664ff}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ x=(y *)\hyperlink{safemem_8c_a6fb1420daf9aae70c83e9cd558bce4f7}{blSafemalloc}(\textcolor{keyword}{sizeof}(y));               \(\backslash\)
+                       if(x != \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}) \{x->next = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}; x->prev = \hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL};\} \} \(\backslash\)
+                      while(0)
+\end{DoxyCode}
+
+
+Definition at line 94 of file safemem.\-h.
+
+\hypertarget{safemem_8h_a08b10a39748ec8aba2d075bb82760d4c}{\index{safemem.\-h@{safemem.\-h}!O\-R\-D\-F\-R\-E\-E\-L\-I\-S\-T@{O\-R\-D\-F\-R\-E\-E\-L\-I\-S\-T}}
+\index{O\-R\-D\-F\-R\-E\-E\-L\-I\-S\-T@{O\-R\-D\-F\-R\-E\-E\-L\-I\-S\-T}!safemem.h@{safemem.\-h}}
+\subsubsection[{O\-R\-D\-F\-R\-E\-E\-L\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-R\-D\-F\-R\-E\-E\-L\-I\-S\-T(
+\begin{DoxyParamCaption}
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)}}\label{safemem_8h_a08b10a39748ec8aba2d075bb82760d4c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{while}((y)!=\hyperlink{array2_8c_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL})                              \(\backslash\)
+                        \{  z *\_freelist\_macro\_q;                         \(\backslash\)
+                           \_freelist\_macro\_q = (y)->\hyperlink{struct__memlist_a1847396f97fd84beffe2edc08fe000c5}{next};                \(\backslash\)
+                           free((\textcolor{keywordtype}{char} *)(y));                            \(\backslash\)
+                           (y) = \_freelist\_macro\_q;                      \(\backslash\)
+                        \}
+\end{DoxyCode}
+
+
+Definition at line 115 of file safemem.\-h.
+
+\hypertarget{safemem_8h_af59be0fedd7a98ec2f761c815215eff9}{\index{safemem.\-h@{safemem.\-h}!S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T@{S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T}}
+\index{S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T@{S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T}!safemem.h@{safemem.\-h}}
+\subsubsection[{S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~{\bf A\-L\-L\-O\-C\-N\-E\-X\-T}(x,y)}}\label{safemem_8h_af59be0fedd7a98ec2f761c815215eff9}
+
+
+Definition at line 168 of file safemem.\-h.
+
+\hypertarget{safemem_8h_a3f447be4f6419cee69400fb1dfb7a7d6}{\index{safemem.\-h@{safemem.\-h}!S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V@{S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}}
+\index{S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V@{S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}!safemem.h@{safemem.\-h}}
+\subsubsection[{S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-F\-E\-A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~{\bf A\-L\-L\-O\-C\-N\-E\-X\-T\-P\-R\-E\-V}(x,y)}}\label{safemem_8h_a3f447be4f6419cee69400fb1dfb7a7d6}
+
+
+Definition at line 169 of file safemem.\-h.
+
+\hypertarget{safemem_8h_a03cf2154b215ca1719c3aafd2767e9be}{\index{safemem.\-h@{safemem.\-h}!S\-A\-F\-E\-D\-E\-L\-E\-T\-E@{S\-A\-F\-E\-D\-E\-L\-E\-T\-E}}
+\index{S\-A\-F\-E\-D\-E\-L\-E\-T\-E@{S\-A\-F\-E\-D\-E\-L\-E\-T\-E}!safemem.h@{safemem.\-h}}
+\subsubsection[{S\-A\-F\-E\-D\-E\-L\-E\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-F\-E\-D\-E\-L\-E\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~{\bf D\-E\-L\-E\-T\-E}(x, y, z)}}\label{safemem_8h_a03cf2154b215ca1719c3aafd2767e9be}
+
+
+Definition at line 171 of file safemem.\-h.
+
+\hypertarget{safemem_8h_a077874bf45be4de6a0394dccce7da9cf}{\index{safemem.\-h@{safemem.\-h}!S\-A\-F\-E\-F\-R\-E\-E\-L\-I\-S\-T@{S\-A\-F\-E\-F\-R\-E\-E\-L\-I\-S\-T}}
+\index{S\-A\-F\-E\-F\-R\-E\-E\-L\-I\-S\-T@{S\-A\-F\-E\-F\-R\-E\-E\-L\-I\-S\-T}!safemem.h@{safemem.\-h}}
+\subsubsection[{S\-A\-F\-E\-F\-R\-E\-E\-L\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-F\-E\-F\-R\-E\-E\-L\-I\-S\-T(
+\begin{DoxyParamCaption}
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~{\bf F\-R\-E\-E\-L\-I\-S\-T}(y,z)}}\label{safemem_8h_a077874bf45be4de6a0394dccce7da9cf}
+
+
+Definition at line 170 of file safemem.\-h.
+
+\hypertarget{safemem_8h_ae3c5cba1181d731309b7b33b50fe21e0}{\index{safemem.\-h@{safemem.\-h}!S\-A\-F\-E\-I\-N\-I\-T@{S\-A\-F\-E\-I\-N\-I\-T}}
+\index{S\-A\-F\-E\-I\-N\-I\-T@{S\-A\-F\-E\-I\-N\-I\-T}!safemem.h@{safemem.\-h}}
+\subsubsection[{S\-A\-F\-E\-I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-F\-E\-I\-N\-I\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~{\bf I\-N\-I\-T}(x,y)}}\label{safemem_8h_ae3c5cba1181d731309b7b33b50fe21e0}
+
+
+Definition at line 166 of file safemem.\-h.
+
+\hypertarget{safemem_8h_a1bff1a2d63b7d6735929e1f3152bcdb2}{\index{safemem.\-h@{safemem.\-h}!S\-A\-F\-E\-I\-N\-I\-T\-P\-R\-E\-V@{S\-A\-F\-E\-I\-N\-I\-T\-P\-R\-E\-V}}
+\index{S\-A\-F\-E\-I\-N\-I\-T\-P\-R\-E\-V@{S\-A\-F\-E\-I\-N\-I\-T\-P\-R\-E\-V}!safemem.h@{safemem.\-h}}
+\subsubsection[{S\-A\-F\-E\-I\-N\-I\-T\-P\-R\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-F\-E\-I\-N\-I\-T\-P\-R\-E\-V(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~{\bf I\-N\-I\-T\-P\-R\-E\-V}(x,y)}}\label{safemem_8h_a1bff1a2d63b7d6735929e1f3152bcdb2}
+
+
+Definition at line 167 of file safemem.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{safemem_8h_a75e4d6982f7cc802621dbc4f776446df}{\index{safemem.\-h@{safemem.\-h}!bl\-Safefree@{bl\-Safefree}}
+\index{bl\-Safefree@{bl\-Safefree}!safemem.h@{safemem.\-h}}
+\subsubsection[{bl\-Safefree}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Safefree (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}}\label{safemem_8h_a75e4d6982f7cc802621dbc4f776446df}
+Debugging version of free() which checks protection buffers each side of the requested memory block.
+
+
+\begin{DoxyItemize}
+\item 23.\-06.\-95 Original By\-: A\-C\-R\-M
+\item 27.\-02.\-98 Added cast to ptr
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 246 of file safemem.\-c.
+
+\hypertarget{safemem_8h_a32aa9f6dc5a258fd19c0523385d0f33a}{\index{safemem.\-h@{safemem.\-h}!bl\-Safeleaks@{bl\-Safeleaks}}
+\index{bl\-Safeleaks@{bl\-Safeleaks}!safemem.h@{safemem.\-h}}
+\subsubsection[{bl\-Safeleaks}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Safeleaks (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{safemem_8h_a32aa9f6dc5a258fd19c0523385d0f33a}
+Prints a list of any safemalloc()'d memory which was not freed
+
+
+\begin{DoxyItemize}
+\item 03.\-07.\-06 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 322 of file safemem.\-c.
+
+\hypertarget{safemem_8h_a6fb1420daf9aae70c83e9cd558bce4f7}{\index{safemem.\-h@{safemem.\-h}!bl\-Safemalloc@{bl\-Safemalloc}}
+\index{bl\-Safemalloc@{bl\-Safemalloc}!safemem.h@{safemem.\-h}}
+\subsubsection[{bl\-Safemalloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ bl\-Safemalloc (
+\begin{DoxyParamCaption}
+\item[{int}]{nbytes}
+\end{DoxyParamCaption}
+)}}\label{safemem_8h_a6fb1420daf9aae70c83e9cd558bce4f7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em nbytes} & Number of bytes to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to block of memory
+\end{DoxyReturn}
+Debugging version of malloc() which creates protection buffers each side of the requested memory block.
+
+
+\begin{DoxyItemize}
+\item 23.\-06.\-95 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 145 of file safemem.\-c.
+

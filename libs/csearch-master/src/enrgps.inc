@@ -1,0 +1,10 @@
+**!!ENRGPS.INS
+C
+C -- ????
+      INTEGER LPRINT
+C -- ????
+      INTEGER NCALL
+      COMMON /ENRGPS/ LPRINT , NCALL
+C
+      SAVE /ENRGPS/
+C

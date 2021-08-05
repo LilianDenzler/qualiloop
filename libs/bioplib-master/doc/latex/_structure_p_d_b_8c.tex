@@ -1,0 +1,141 @@
+\hypertarget{_structure_p_d_b_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Structure\-P\-D\-B.c File Reference}
+\label{_structure_p_d_b_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Structure\-P\-D\-B.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Structure\-P\-D\-B.\-c}}
+}
+
+
+Build a structured P\-D\-B representation.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_p_d_b_s_t_r_u_c_t}{P\-D\-B\-S\-T\-R\-U\-C\-T} $\ast$ \hyperlink{_structure_p_d_b_8c_a39096516fa57de5431f60ff082ebcc55}{bl\-Alloc\-P\-D\-B\-Structure} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\item 
+void \hyperlink{_structure_p_d_b_8c_a20dac3f334345da4302df5b1f21b4d6b}{bl\-Free\-P\-D\-B\-Structure} (\hyperlink{struct_p_d_b_s_t_r_u_c_t}{P\-D\-B\-S\-T\-R\-U\-C\-T} $\ast$pdbstruct)
+\item 
+\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$ \hyperlink{_structure_p_d_b_8c_a5601ab36cb8d8fe8c012821a6e178e02}{bl\-Find\-Next\-Chain} (\hyperlink{pdb_8h_aa31eb9fe57a50b29778e64bb131b22bf}{P\-D\-B} $\ast$pdb)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Build a structured P\-D\-B representation. \begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 2009-\/14 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 24.\-11.\-09 Original
+\item V1.\-1 19.\-05.\-10 P\-D\-B\-R\-E\-S\-I\-D\-U\-E and P\-D\-B\-C\-H\-A\-I\-N are doubly linked lists
+\item V1.\-2 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H By\-: C\-T\-P
+\item V1.\-3 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_structure_p_d_b_8c_source}{Structure\-P\-D\-B.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_structure_p_d_b_8c_a39096516fa57de5431f60ff082ebcc55}{\index{Structure\-P\-D\-B.\-c@{Structure\-P\-D\-B.\-c}!bl\-Alloc\-P\-D\-B\-Structure@{bl\-Alloc\-P\-D\-B\-Structure}}
+\index{bl\-Alloc\-P\-D\-B\-Structure@{bl\-Alloc\-P\-D\-B\-Structure}!StructurePDB.c@{Structure\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Alloc\-P\-D\-B\-Structure}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B\-S\-T\-R\-U\-C\-T}$\ast$ bl\-Alloc\-P\-D\-B\-Structure (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_structure_p_d_b_8c_a39096516fa57de5431f60ff082ebcc55}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{struct_p_d_b_s_t_r_u_c_t}{P\-D\-B\-S\-T\-R\-U\-C\-T} structure containing chain linked list
+\end{DoxyReturn}
+Takes a P\-D\-B linked list and converts it into a hierarchical structure of chains, residues and atoms
+
+
+\begin{DoxyItemize}
+\item 24.\-11.\-09 Original By\-: A\-C\-R\-M
+\item 19.\-05.\-10 Correctly do doubly linked lists
+\item 02.\-06.\-10 Fixed some initializations!
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 109 of file Structure\-P\-D\-B.\-c.
+
+\hypertarget{_structure_p_d_b_8c_a5601ab36cb8d8fe8c012821a6e178e02}{\index{Structure\-P\-D\-B.\-c@{Structure\-P\-D\-B.\-c}!bl\-Find\-Next\-Chain@{bl\-Find\-Next\-Chain}}
+\index{bl\-Find\-Next\-Chain@{bl\-Find\-Next\-Chain}!StructurePDB.c@{Structure\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Find\-Next\-Chain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-D\-B}$\ast$ bl\-Find\-Next\-Chain (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B} $\ast$}]{pdb}
+\end{DoxyParamCaption}
+)}}\label{_structure_p_d_b_8c_a5601ab36cb8d8fe8c012821a6e178e02}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdb} & P\-D\-B linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to start of next chain
+\end{DoxyReturn}
+Takes a P\-D\-B linked list and find the start of the next chain. This is similar to another Bioplib routine (\hyperlink{_find_next_chain_p_d_b_8c_aee19617cd3ae67b737737a3aaf850484}{bl\-Find\-Next\-Chain\-P\-D\-B()}) which terminates the first chain, but this routines doesn't terminate.
+
+
+\begin{DoxyItemize}
+\item 24.\-11.\-09 Original By\-: A\-C\-R\-M
+\item 04.\-02.\-14 Use C\-H\-A\-I\-N\-M\-A\-T\-C\-H By\-: C\-T\-P
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 252 of file Structure\-P\-D\-B.\-c.
+
+\hypertarget{_structure_p_d_b_8c_a20dac3f334345da4302df5b1f21b4d6b}{\index{Structure\-P\-D\-B.\-c@{Structure\-P\-D\-B.\-c}!bl\-Free\-P\-D\-B\-Structure@{bl\-Free\-P\-D\-B\-Structure}}
+\index{bl\-Free\-P\-D\-B\-Structure@{bl\-Free\-P\-D\-B\-Structure}!StructurePDB.c@{Structure\-P\-D\-B.\-c}}
+\subsubsection[{bl\-Free\-P\-D\-B\-Structure}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-Free\-P\-D\-B\-Structure (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-B\-S\-T\-R\-U\-C\-T} $\ast$}]{pdbstruct}
+\end{DoxyParamCaption}
+)}}\label{_structure_p_d_b_8c_a20dac3f334345da4302df5b1f21b4d6b}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$pdbstruct} & \hyperlink{struct_p_d_b_s_t_r_u_c_t}{P\-D\-B\-S\-T\-R\-U\-C\-T} structure containing chain linked list\\
+\hline
+\end{DoxyParams}
+Frees memory used by the hierarchical description of a P\-D\-B structure. Note this does not free the underlying P\-D\-B linked list
+
+
+\begin{DoxyItemize}
+\item 24.\-11.\-09 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 219 of file Structure\-P\-D\-B.\-c.
+

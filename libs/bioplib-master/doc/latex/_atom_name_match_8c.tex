@@ -1,0 +1,136 @@
+\hypertarget{_atom_name_match_8c}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Atom\-Name\-Match.c File Reference}
+\label{_atom_name_match_8c}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Atom\-Name\-Match.\-c@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/\-Atom\-Name\-Match.\-c}}
+}
+
+
+Tests for matching atom names with wild cards.  
+
+
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pdb.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_atom_name_match_8c_ad77422fc2b983565a6a18f7637b90ccb}{bl\-Atom\-Name\-Match} (char $\ast$atnam, char $\ast$spec, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} $\ast$Error\-Warn)
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{_atom_name_match_8c_ad421ee2a06f5464d432a05ca77f3816e}{bl\-Atom\-Name\-Raw\-Match} (char $\ast$atnam, char $\ast$spec, \hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} $\ast$Error\-Warn)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tests for matching atom names with wild cards. \begin{DoxyVersion}{Version}
+V1.\-8 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+07.\-07.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/9 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-0 01.\-03.\-94 Original
+\item V1.\-1 07.\-07.\-95 Now non-\/destructive
+\item V1.\-2 17.\-07.\-95 Now checks that a number was specified as part of the spec. and returns a B\-O\-O\-L
+\item V1.\-3 23.\-10.\-95 Moved Find\-Residue\-Spec() from P\-D\-B\-List.\-c
+\item V1.\-4 08.\-02.\-96 Added Find\-Residue() and changed Find\-Residue\-Spec() to use it
+\item V1.\-5 23.\-07.\-96 Added Atom\-Name\-Match() and Legal\-Atom\-Spec()
+\item V1.\-6 18.\-03.\-98 Added option to include a . to separate chain and residue number so numeric chain names can be used
+\item V1.\-7 11.\-10.\-99 Allow a . to be used to start a number (such that the default blank chain name is used). Allows negative residue numbers
+\item V1.\-8 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{_atom_name_match_8c_source}{Atom\-Name\-Match.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_atom_name_match_8c_ad77422fc2b983565a6a18f7637b90ccb}{\index{Atom\-Name\-Match.\-c@{Atom\-Name\-Match.\-c}!bl\-Atom\-Name\-Match@{bl\-Atom\-Name\-Match}}
+\index{bl\-Atom\-Name\-Match@{bl\-Atom\-Name\-Match}!AtomNameMatch.c@{Atom\-Name\-Match.\-c}}
+\subsubsection[{bl\-Atom\-Name\-Match}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Atom\-Name\-Match (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{atnam, }
+\item[{char $\ast$}]{spec, }
+\item[{{\bf B\-O\-O\-L} $\ast$}]{Error\-Warn}
+\end{DoxyParamCaption}
+)}}\label{_atom_name_match_8c_ad77422fc2b983565a6a18f7637b90ccb}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$atnam} & The atom name to test \\
+\hline
+\mbox{\tt in}  & {\em $\ast$spec} & The atom specification \\
+\hline
+\mbox{\tt in,out}  & {\em $\ast$\-Error\-Warn} & On input, if T\-R\-U\-E, this routine will indicate errors. On output, indicates whether there was an error. Note that you must be careful to supply an lvalue here, you can't just use T\-R\-U\-E or F\-A\-L\-S\-E since it's modified on return. N\-U\-L\-L is allowed if you don't care about errors.\\
+\hline
+\end{DoxyParams}
+Tests whether an atom name matches an atom name specification. ? or \% is used to match a single character is used to match any trailing characters; it may not be used for leading characters or in the middle of a specification (e.\-g. {\itshape B}, C$\ast$2 are both illegal). Wildcards may be escaped with a backslash.
+
+For example\-: C$\ast$ matches all carbon atoms, O5$\ast$ matches an atom called O5$\ast$ ?B$\ast$ matches all beta atoms
+
+
+\begin{DoxyItemize}
+\item 23.\-07.\-96 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 139 of file Atom\-Name\-Match.\-c.
+
+\hypertarget{_atom_name_match_8c_ad421ee2a06f5464d432a05ca77f3816e}{\index{Atom\-Name\-Match.\-c@{Atom\-Name\-Match.\-c}!bl\-Atom\-Name\-Raw\-Match@{bl\-Atom\-Name\-Raw\-Match}}
+\index{bl\-Atom\-Name\-Raw\-Match@{bl\-Atom\-Name\-Raw\-Match}!AtomNameMatch.c@{Atom\-Name\-Match.\-c}}
+\subsubsection[{bl\-Atom\-Name\-Raw\-Match}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-Atom\-Name\-Raw\-Match (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{atnam, }
+\item[{char $\ast$}]{spec, }
+\item[{{\bf B\-O\-O\-L} $\ast$}]{Error\-Warn}
+\end{DoxyParamCaption}
+)}}\label{_atom_name_match_8c_ad421ee2a06f5464d432a05ca77f3816e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$atnam} & The atom name to check \\
+\hline
+\mbox{\tt in}  & {\em $\ast$spec} & The atom specification \\
+\hline
+\mbox{\tt in,out}  & {\em $\ast$\-Error\-Warn} & On input, if T\-R\-U\-E, this routine will indicate errors. On output, indicates whether there was an error. Note that you must be careful to supply an lvalue here, you can't just use T\-R\-U\-E or F\-A\-L\-S\-E since it's modified on return. N\-U\-L\-L is allowed if you don't care about errors.\\
+\hline
+\end{DoxyParams}
+Tests whether an atom name matches an atom name specification.
+
+This version should be given the raw atom name rather than the massaged one. i.\-e. \char`\"{} C\-A \char`\"{} is C-\/alpha, \char`\"{}\-C\-A  \char`\"{} is Calcium
+
+Normally it checks against the second character onwards unless the spec starts with a $<$ in which case it checks from the beginning of the string
+
+Written as a wrapper to Atom\-Name\-Match()
+
+
+\begin{DoxyItemize}
+\item 15.\-02.\-01 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 250 of file Atom\-Name\-Match.\-c.
+

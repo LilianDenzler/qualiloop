@@ -1,0 +1,654 @@
+\hypertarget{plotting_8h}{\section{/serv/www/html\-\_\-lilian/bioplib-\/master/src/plotting.h File Reference}
+\label{plotting_8h}\index{/serv/www/html\-\_\-lilian/bioplib-\/master/src/plotting.\-h@{/serv/www/html\-\_\-lilian/bioplib-\/master/src/plotting.\-h}}
+}
+
+
+Include file for using plotting routines.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Sys\-Defs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Math\-Type.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hpgl.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ps.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}deprecated.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{plotting_8h_a54c6af4ff8e964ed28a63748db401ecf}{D\-E\-S\-T\-\_\-\-S\-C\-R\-E\-E\-N}~0
+\item 
+\#define \hyperlink{plotting_8h_a27fdfa5c93f2cad5caa7d28d10d0985d}{D\-E\-S\-T\-\_\-\-P\-S}~1
+\item 
+\#define \hyperlink{plotting_8h_a31304905bbfe57055b379bab890c9ce4}{D\-E\-S\-T\-\_\-\-H\-P\-G\-L}~2
+\item 
+\#define \hyperlink{plotting_8h_a14e35d27119b778450cb4c24f533cdca}{\-\_\-\-P\-L\-O\-T\-T\-I\-N\-G\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sys_defs_8h_a2df9d82ef74025dde989a5ae3edc886c}{B\-O\-O\-L} \hyperlink{plotting_8h_a882ebfb86f47355981aa7b24cfc0333e}{bl\-A\-M\-Init\-Plot} (char $\ast$filename, char $\ast$title, int dest, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Out\-X\-Size, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Out\-Y\-Size, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Out\-X\-Off, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Out\-Y\-Off, char $\ast$Alt\-Font, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} xmargin, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} ymargin, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Data\-X\-Min, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Data\-Y\-Min, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Data\-X\-Max, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Data\-Y\-Max)
+\item 
+void \hyperlink{plotting_8h_a601ad492394598369583fb08b2ac3f72}{bl\-A\-M\-Set\-Pen} (int dest, int pen)
+\item 
+void \hyperlink{plotting_8h_aa9686dd307c19b521c701c41c5c50ad0}{bl\-A\-M\-Move} (int dest, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y)
+\item 
+void \hyperlink{plotting_8h_aa027a19973fbfb011ff18661111233e0}{bl\-A\-M\-Draw} (int dest, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y)
+\item 
+void \hyperlink{plotting_8h_ac977a16930392913e65c6dcc90842708}{bl\-A\-M\-Set\-Line\-Style} (int dest, int style)
+\item 
+void \hyperlink{plotting_8h_ae241207f3a108ce23d0ce920141e74f2}{bl\-A\-M\-End\-Line} (int dest)
+\item 
+void \hyperlink{plotting_8h_a7218a327d50fce53aa80e90c39a18105}{bl\-A\-M\-Set\-Font} (int dest, char $\ast$P\-S\-Font\-Name, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} Font\-Size)
+\item 
+void \hyperlink{plotting_8h_a85e0105685226fbc8efea525d3625341}{bl\-A\-M\-Text} (int dest, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, char $\ast$text)
+\item 
+void \hyperlink{plotting_8h_adf7ece916af24c21f0931f0b7c4761ca}{bl\-A\-M\-C\-B\-Text} (int dest, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, char $\ast$text)
+\item 
+void \hyperlink{plotting_8h_a914c411effe569d1e5d0825e20199af9}{bl\-A\-M\-R\-Text} (int dest, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} offset, char $\ast$text)
+\item 
+void \hyperlink{plotting_8h_a184cd5d1d049ac2afafb40c63b46c487}{bl\-A\-M\-L\-C\-Text} (int dest, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, char $\ast$text)
+\item 
+void \hyperlink{plotting_8h_a383fcda4bb5fb61217074d66a6419f98}{bl\-A\-M\-C\-T\-Text} (int dest, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} x, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} y, \hyperlink{_math_type_8h_a5821460e95a0800cf9f24c38915cbbde}{R\-E\-A\-L} C\-T\-Offset, char $\ast$text)
+\item 
+void \hyperlink{plotting_8h_a5b3e1e4252999369a2240283ab892bf7}{bl\-A\-M\-End\-Plot} (int dest)
+\item 
+int \hyperlink{plotting_8h_a72e3d7f312397d3991d11c85f9c31187}{bl\-P\-S2\-H\-P\-G\-L\-Font} (char $\ast$font)
+\item 
+char $\ast$ \hyperlink{plotting_8h_afc7b2728d2874e4133786a77c5175fef}{bl\-Simplify\-Text} (char $\ast$string)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Include file for using plotting routines. \begin{DoxyVersion}{Version}
+V1.\-3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14.\-08.\-14 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+(c) U\-C\-L / Dr. Andrew C. R. Martin 1993-\/2014 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Dr. Andrew C. R. Martin 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{}
+Institute of Structural \& Molecular Biology, University College London, Gower Street, London. W\-C1\-E 6\-B\-T. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\href{mailto:andrew@bioinf.org.uk}{\tt andrew@bioinf.\-org.\-uk} \href{mailto:andrew.martin@ucl.ac.uk}{\tt andrew.\-martin@ucl.\-ac.\-uk}
+\end{DoxyParagraph}
+This code is N\-O\-T I\-N T\-H\-E P\-U\-B\-L\-I\-C D\-O\-M\-A\-I\-N, but it may be copied according to the conditions laid out in the accompanying file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+The code may be modified as required, but any modifications must be documented so that the person responsible can be identified.
+
+The code may not be sold commercially or included as part of a commercial product except as described in the file C\-O\-P\-Y\-I\-N\-G.\-D\-O\-C.
+
+\subsection*{Description\-: }
+
+\subsection*{Usage\-: }
+
+\subsection*{Revision History\-: }
+
+
+\begin{DoxyItemize}
+\item V1.\-1 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P
+\item V1.\-2 31.\-07.\-14 Updated deprecation\-: Removed \hyperlink{deprecated_8h}{deprecated.\-h} and added prototypes for renamed functions. By\-: C\-T\-P
+\item V1.\-3 14.\-08.\-14 Moved deprecated function prototypes to \hyperlink{deprecated_8h}{deprecated.\-h} By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{plotting_8h_source}{plotting.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{plotting_8h_a14e35d27119b778450cb4c24f533cdca}{\index{plotting.\-h@{plotting.\-h}!\-\_\-\-P\-L\-O\-T\-T\-I\-N\-G\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-P\-L\-O\-T\-T\-I\-N\-G\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}
+\index{\-\_\-\-P\-L\-O\-T\-T\-I\-N\-G\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D@{\-\_\-\-P\-L\-O\-T\-T\-I\-N\-G\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}!plotting.h@{plotting.\-h}}
+\subsubsection[{\-\_\-\-P\-L\-O\-T\-T\-I\-N\-G\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-P\-L\-O\-T\-T\-I\-N\-G\-\_\-\-H\-\_\-\-D\-E\-P\-R\-E\-C\-A\-T\-E\-D}}\label{plotting_8h_a14e35d27119b778450cb4c24f533cdca}
+
+
+Definition at line 102 of file plotting.\-h.
+
+\hypertarget{plotting_8h_a31304905bbfe57055b379bab890c9ce4}{\index{plotting.\-h@{plotting.\-h}!D\-E\-S\-T\-\_\-\-H\-P\-G\-L@{D\-E\-S\-T\-\_\-\-H\-P\-G\-L}}
+\index{D\-E\-S\-T\-\_\-\-H\-P\-G\-L@{D\-E\-S\-T\-\_\-\-H\-P\-G\-L}!plotting.h@{plotting.\-h}}
+\subsubsection[{D\-E\-S\-T\-\_\-\-H\-P\-G\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-S\-T\-\_\-\-H\-P\-G\-L~2}}\label{plotting_8h_a31304905bbfe57055b379bab890c9ce4}
+
+
+Definition at line 75 of file plotting.\-h.
+
+\hypertarget{plotting_8h_a27fdfa5c93f2cad5caa7d28d10d0985d}{\index{plotting.\-h@{plotting.\-h}!D\-E\-S\-T\-\_\-\-P\-S@{D\-E\-S\-T\-\_\-\-P\-S}}
+\index{D\-E\-S\-T\-\_\-\-P\-S@{D\-E\-S\-T\-\_\-\-P\-S}!plotting.h@{plotting.\-h}}
+\subsubsection[{D\-E\-S\-T\-\_\-\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-S\-T\-\_\-\-P\-S~1}}\label{plotting_8h_a27fdfa5c93f2cad5caa7d28d10d0985d}
+
+
+Definition at line 74 of file plotting.\-h.
+
+\hypertarget{plotting_8h_a54c6af4ff8e964ed28a63748db401ecf}{\index{plotting.\-h@{plotting.\-h}!D\-E\-S\-T\-\_\-\-S\-C\-R\-E\-E\-N@{D\-E\-S\-T\-\_\-\-S\-C\-R\-E\-E\-N}}
+\index{D\-E\-S\-T\-\_\-\-S\-C\-R\-E\-E\-N@{D\-E\-S\-T\-\_\-\-S\-C\-R\-E\-E\-N}!plotting.h@{plotting.\-h}}
+\subsubsection[{D\-E\-S\-T\-\_\-\-S\-C\-R\-E\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-S\-T\-\_\-\-S\-C\-R\-E\-E\-N~0}}\label{plotting_8h_a54c6af4ff8e964ed28a63748db401ecf}
+
+
+Definition at line 73 of file plotting.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{plotting_8h_adf7ece916af24c21f0931f0b7c4761ca}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-C\-B\-Text@{bl\-A\-M\-C\-B\-Text}}
+\index{bl\-A\-M\-C\-B\-Text@{bl\-A\-M\-C\-B\-Text}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-C\-B\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-C\-B\-Text (
+\begin{DoxyParamCaption}
+\item[{int}]{dest, }
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_adf7ece916af24c21f0931f0b7c4761ca}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination \\
+\hline
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em $\ast$text} & Text to print\\
+\hline
+\end{DoxyParams}
+Centre-\/bottom justify text
+
+
+\begin{DoxyItemize}
+\item 07.\-04.\-92 Handles screen
+\item 10.\-04.\-92 Added log support
+\item 29.\-04.\-92 Added check on log bounds
+\item 07.\-05.\-92 Added P\-S support
+\item 25.\-06.\-92 Added H\-P\-G\-L support
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 563 of file plotting.\-c.
+
+\hypertarget{plotting_8h_a383fcda4bb5fb61217074d66a6419f98}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-C\-T\-Text@{bl\-A\-M\-C\-T\-Text}}
+\index{bl\-A\-M\-C\-T\-Text@{bl\-A\-M\-C\-T\-Text}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-C\-T\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-C\-T\-Text (
+\begin{DoxyParamCaption}
+\item[{int}]{dest, }
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{{\bf R\-E\-A\-L}}]{C\-T\-Offset, }
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_a383fcda4bb5fb61217074d66a6419f98}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination \\
+\hline
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em C\-T\-Offset} & Move down by this amount (points) \\
+\hline
+\mbox{\tt in}  & {\em $\ast$text} & Text to print\\
+\hline
+\end{DoxyParams}
+Centre/top justify text at position in data coordinates.
+
+
+\begin{DoxyItemize}
+\item 06.\-04.\-92 Handles screen
+\item 07.\-04.\-92 Fix to positioning
+\item 10.\-04.\-92 Added log support
+\item 29.\-04.\-92 Added check on log bounds
+\item 07.\-05.\-92 Added P\-S support
+\item 25.\-06.\-92 Added H\-P\-G\-L support
+\item 01.\-07.\-92 Changed for new versions of P\-S\-C\-T\-Text() and H\-P\-G\-L\-C\-T\-Text() which take offset in points.
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-06.\-93 Added C\-T\-Offset param
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 718 of file plotting.\-c.
+
+\hypertarget{plotting_8h_aa027a19973fbfb011ff18661111233e0}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-Draw@{bl\-A\-M\-Draw}}
+\index{bl\-A\-M\-Draw@{bl\-A\-M\-Draw}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-Draw}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-Draw (
+\begin{DoxyParamCaption}
+\item[{int}]{dest, }
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_aa027a19973fbfb011ff18661111233e0}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination \\
+\hline
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate\\
+\hline
+\end{DoxyParams}
+Draw to a position specified in data coordinates.
+
+
+\begin{DoxyItemize}
+\item 06.\-04.\-92 Handles screen
+\item 10.\-04.\-92 Added log support
+\item 29.\-04.\-92 Added check on log bounds
+\item 07.\-05.\-92 Added P\-S support
+\item 25.\-06.\-92 Added H\-P\-G\-L support
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 347 of file plotting.\-c.
+
+\hypertarget{plotting_8h_ae241207f3a108ce23d0ce920141e74f2}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-End\-Line@{bl\-A\-M\-End\-Line}}
+\index{bl\-A\-M\-End\-Line@{bl\-A\-M\-End\-Line}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-End\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-End\-Line (
+\begin{DoxyParamCaption}
+\item[{int}]{dest}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_ae241207f3a108ce23d0ce920141e74f2}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination\\
+\hline
+\end{DoxyParams}
+End a line; required by Post\-Script actually to draw on the paper.
+
+
+\begin{DoxyItemize}
+\item 07.\-05.\-92 Original
+\item 25.\-06.\-92 Added H\-P\-G\-L support
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 432 of file plotting.\-c.
+
+\hypertarget{plotting_8h_a5b3e1e4252999369a2240283ab892bf7}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-End\-Plot@{bl\-A\-M\-End\-Plot}}
+\index{bl\-A\-M\-End\-Plot@{bl\-A\-M\-End\-Plot}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-End\-Plot}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-End\-Plot (
+\begin{DoxyParamCaption}
+\item[{int}]{dest}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_a5b3e1e4252999369a2240283ab892bf7}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination\\
+\hline
+\end{DoxyParams}
+Close up a device after plotting.
+
+
+\begin{DoxyItemize}
+\item 07.\-05.\-92 Original
+\item 25.\-06.\-92 Added H\-P\-G\-L support
+\item 01.\-07.\-92 Added blank Write\-Message() when plotting to screen
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 764 of file plotting.\-c.
+
+\hypertarget{plotting_8h_a882ebfb86f47355981aa7b24cfc0333e}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-Init\-Plot@{bl\-A\-M\-Init\-Plot}}
+\index{bl\-A\-M\-Init\-Plot@{bl\-A\-M\-Init\-Plot}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-Init\-Plot}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-O\-O\-L} bl\-A\-M\-Init\-Plot (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filename, }
+\item[{char $\ast$}]{title, }
+\item[{int}]{dest, }
+\item[{{\bf R\-E\-A\-L}}]{Out\-X\-Size, }
+\item[{{\bf R\-E\-A\-L}}]{Out\-Y\-Size, }
+\item[{{\bf R\-E\-A\-L}}]{Out\-X\-Off, }
+\item[{{\bf R\-E\-A\-L}}]{Out\-Y\-Off, }
+\item[{char $\ast$}]{Alt\-Font, }
+\item[{{\bf R\-E\-A\-L}}]{xmargin, }
+\item[{{\bf R\-E\-A\-L}}]{ymargin, }
+\item[{{\bf R\-E\-A\-L}}]{Data\-X\-Min, }
+\item[{{\bf R\-E\-A\-L}}]{Data\-Y\-Min, }
+\item[{{\bf R\-E\-A\-L}}]{Data\-X\-Max, }
+\item[{{\bf R\-E\-A\-L}}]{Data\-Y\-Max}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_a882ebfb86f47355981aa7b24cfc0333e}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$filename} & File to open \\
+\hline
+\mbox{\tt in}  & {\em $\ast$title} & Title for plot \\
+\hline
+\mbox{\tt in}  & {\em dest} & Destination (D\-E\-S\-T\-\_\-\-P\-S or D\-E\-S\-T\-\_\-\-H\-P\-G\-L) \\
+\hline
+\mbox{\tt in}  & {\em Out\-X\-Size} & Output plot X size (inches) \\
+\hline
+\mbox{\tt in}  & {\em Out\-Y\-Size} & Output plot Y size (inches) \\
+\hline
+\mbox{\tt in}  & {\em Out\-X\-Off} & Output plot X offset (inches) \\
+\hline
+\mbox{\tt in}  & {\em Out\-Y\-Off} & Output plot Y offset (inches) \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-Alt\-Font} & Alternate font name \\
+\hline
+\mbox{\tt in}  & {\em xmargin} & Unprintable x margin (inches, H\-P\-G\-L) Sensible default\-: 0.\-58 \\
+\hline
+\mbox{\tt in}  & {\em ymargin} & Unprintable y margin (inches, H\-P\-G\-L) Sensible default\-: 0.\-1465 \\
+\hline
+\mbox{\tt in}  & {\em Data\-X\-Min} & Min data X value \\
+\hline
+\mbox{\tt in}  & {\em Data\-Y\-Min} & Min data Y value \\
+\hline
+\mbox{\tt in}  & {\em Data\-X\-Max} & Max data X value \\
+\hline
+\mbox{\tt in}  & {\em Data\-Y\-Max} & Max data Y value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\-R\-U\-E\-: O\-K, F\-A\-L\-S\-E\-: Failed
+\end{DoxyReturn}
+Initialise a device ready for plotting.
+
+
+\begin{DoxyItemize}
+\item 07.\-05.\-92 Original
+\item 25.\-06.\-92 Added H\-P\-G\-L support. Moved setting of P\-S globals to here.
+\item 02.\-07.\-92 Put Clear\-Window() in for screen plotting. Added seek to start of file for P\-S and H\-P\-G\-L file plotting.
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 17.\-07.\-92 Corrected call to Install\-D\-R2\-D\-Fonts() {\itshape before} Init\-D\-R2\-D(). Changed buffer to \mbox{[}40\mbox{]}. Added bounds calc'n for D\-R2\-D.
+\item 20.\-07.\-92 Added alternate font parameter to D\-R2\-D\-Init(). Added check on D\-R2\-D\-Init() return.
+\item 22.\-07.\-92 Consider x-\/axis labelling in finding max x. Corrected to consider precision for log axes
+\item 24.\-07.\-92 Added extras parameter to ftostr
+\item 27.\-07.\-92 Removed the specification of E\-P\-S\-F offsets since the P\-S\-Fix\-Bounding\-Box() routine takes care of all this. Increased size of xmax border for D\-R2\-D plots.
+\item 06.\-07.\-93 Changed parameters
+\item 27.\-02.\-98 Removed unreachable breaks from switch() statement
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 204 of file plotting.\-c.
+
+\hypertarget{plotting_8h_a184cd5d1d049ac2afafb40c63b46c487}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-L\-C\-Text@{bl\-A\-M\-L\-C\-Text}}
+\index{bl\-A\-M\-L\-C\-Text@{bl\-A\-M\-L\-C\-Text}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-L\-C\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-L\-C\-Text (
+\begin{DoxyParamCaption}
+\item[{int}]{dest, }
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_a184cd5d1d049ac2afafb40c63b46c487}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination \\
+\hline
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em $\ast$text} & Text to print\\
+\hline
+\end{DoxyParams}
+Left/centre height justify text at position in data coordinates
+
+
+\begin{DoxyItemize}
+\item 08.\-04.\-92 Handles screen
+\item 10.\-04.\-92 Added log support
+\item 29.\-04.\-92 Added check on log bounds
+\item 06.\-05.\-92 Fix to height centering
+\item 07.\-05.\-92 Added P\-S support
+\item 08.\-05.\-92 Corrected Y-\/pos for P\-S
+\item 25.\-06.\-92 Added H\-P\-G\-L support
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 665 of file plotting.\-c.
+
+\hypertarget{plotting_8h_aa9686dd307c19b521c701c41c5c50ad0}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-Move@{bl\-A\-M\-Move}}
+\index{bl\-A\-M\-Move@{bl\-A\-M\-Move}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-Move}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-Move (
+\begin{DoxyParamCaption}
+\item[{int}]{dest, }
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_aa9686dd307c19b521c701c41c5c50ad0}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination \\
+\hline
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate\\
+\hline
+\end{DoxyParams}
+Move to a position specified in data coordinates.
+\begin{DoxyItemize}
+\item 06.\-04.\-92 Handles screen
+\item 10.\-04.\-92 Added log support
+\item 29.\-04.\-92 Added check on log bounds
+\item 07.\-05.\-92 Added P\-S support
+\item 25.\-06.\-92 Added H\-P\-G\-L support
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 303 of file plotting.\-c.
+
+\hypertarget{plotting_8h_a914c411effe569d1e5d0825e20199af9}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-R\-Text@{bl\-A\-M\-R\-Text}}
+\index{bl\-A\-M\-R\-Text@{bl\-A\-M\-R\-Text}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-R\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-R\-Text (
+\begin{DoxyParamCaption}
+\item[{int}]{dest, }
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{{\bf R\-E\-A\-L}}]{offset, }
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_a914c411effe569d1e5d0825e20199af9}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination \\
+\hline
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em offset} & Move left by this amount (in points) \\
+\hline
+\mbox{\tt in}  & {\em $\ast$text} & Text to print\\
+\hline
+\end{DoxyParams}
+Right/centre justify text at position in data coordinates; offset is an x-\/offset specified in device coordinates (pt)
+
+
+\begin{DoxyItemize}
+\item 06.\-04.\-92 Handles screen
+\item 07.\-04.\-92 Fix to positioning
+\item 10.\-04.\-92 Added log support
+\item 29.\-04.\-92 Added check on log bounds
+\item 07.\-05.\-92 Added P\-S support and offset
+\item 25.\-06.\-92 Added H\-P\-G\-L support
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 614 of file plotting.\-c.
+
+\hypertarget{plotting_8h_a7218a327d50fce53aa80e90c39a18105}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-Set\-Font@{bl\-A\-M\-Set\-Font}}
+\index{bl\-A\-M\-Set\-Font@{bl\-A\-M\-Set\-Font}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-Set\-Font}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-Set\-Font (
+\begin{DoxyParamCaption}
+\item[{int}]{dest, }
+\item[{char $\ast$}]{P\-S\-Font\-Name, }
+\item[{{\bf R\-E\-A\-L}}]{Font\-Size}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_a7218a327d50fce53aa80e90c39a18105}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination \\
+\hline
+\mbox{\tt in}  & {\em $\ast$\-P\-S\-Font\-Name} & Post\-Script font name \\
+\hline
+\mbox{\tt in}  & {\em Font\-Size} & Size (in points) of font\\
+\hline
+\end{DoxyParams}
+Sets the current font using Post\-Script font names. If producing H\-P\-G\-L output, a lookup table is used to translate this to an H\-P\-G\-L font number
+
+
+\begin{DoxyItemize}
+\item 07.\-04.\-92 Framework
+\item 05.\-05.\-92 Original for Screen
+\item 07.\-05.\-92 Added P\-S support
+\item 25.\-06.\-92 Added H\-P\-G\-L support.
+\item 29.\-06.\-92 Modified to use new P\-S2\-Amiga\-Font() for H\-P\-G\-L
+\item 13.\-07.\-92 Added D\-E\-F\-\_\-\-F\-O\-N\-T parameter to Set\-Amiga\-Font()
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 472 of file plotting.\-c.
+
+\hypertarget{plotting_8h_ac977a16930392913e65c6dcc90842708}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-Set\-Line\-Style@{bl\-A\-M\-Set\-Line\-Style}}
+\index{bl\-A\-M\-Set\-Line\-Style@{bl\-A\-M\-Set\-Line\-Style}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-Set\-Line\-Style}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-Set\-Line\-Style (
+\begin{DoxyParamCaption}
+\item[{int}]{dest, }
+\item[{int}]{style}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_ac977a16930392913e65c6dcc90842708}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination \\
+\hline
+\mbox{\tt in}  & {\em style} & Style number (0--5)\\
+\hline
+\end{DoxyParams}
+Set the line style
+
+
+\begin{DoxyItemize}
+\item 08.\-04.\-92 Framework
+\item 07.\-05.\-92 Original (screen \& P\-S)
+\item 25.\-06.\-92 Added H\-P\-G\-L support. Removed static store of style.
+\item 05.\-07.\-92 Corrected line patterns. They don't have commas!
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 392 of file plotting.\-c.
+
+\hypertarget{plotting_8h_a601ad492394598369583fb08b2ac3f72}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-Set\-Pen@{bl\-A\-M\-Set\-Pen}}
+\index{bl\-A\-M\-Set\-Pen@{bl\-A\-M\-Set\-Pen}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-Set\-Pen}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-Set\-Pen (
+\begin{DoxyParamCaption}
+\item[{int}]{dest, }
+\item[{int}]{pen}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_a601ad492394598369583fb08b2ac3f72}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination \\
+\hline
+\mbox{\tt in}  & {\em pen} & Pen number\\
+\hline
+\end{DoxyParams}
+Change pen
+\begin{DoxyItemize}
+\item 06.\-04.\-92 Handles screen
+\item 07.\-05.\-92 Added P\-S support
+\item 25.\-06.\-92 Added H\-P\-G\-L support
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 261 of file plotting.\-c.
+
+\hypertarget{plotting_8h_a85e0105685226fbc8efea525d3625341}{\index{plotting.\-h@{plotting.\-h}!bl\-A\-M\-Text@{bl\-A\-M\-Text}}
+\index{bl\-A\-M\-Text@{bl\-A\-M\-Text}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-A\-M\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void bl\-A\-M\-Text (
+\begin{DoxyParamCaption}
+\item[{int}]{dest, }
+\item[{{\bf R\-E\-A\-L}}]{x, }
+\item[{{\bf R\-E\-A\-L}}]{y, }
+\item[{char $\ast$}]{text}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_a85e0105685226fbc8efea525d3625341}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dest} & Destination \\
+\hline
+\mbox{\tt in}  & {\em x} & X coordinate \\
+\hline
+\mbox{\tt in}  & {\em y} & Y coordinate \\
+\hline
+\mbox{\tt in}  & {\em $\ast$text} & Text to write\\
+\hline
+\end{DoxyParams}
+Left/bottom justify text at position in data coordinates
+
+
+\begin{DoxyItemize}
+\item 08.\-04.\-92 Handles screen
+\item 10.\-04.\-92 Added log support
+\item 29.\-04.\-92 Added check on log bounds
+\item 07.\-05.\-92 Added P\-S support
+\item 25.\-06.\-92 Added H\-P\-G\-L support
+\item 16.\-07.\-92 Added D\-R2\-D support
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 515 of file plotting.\-c.
+
+\hypertarget{plotting_8h_a72e3d7f312397d3991d11c85f9c31187}{\index{plotting.\-h@{plotting.\-h}!bl\-P\-S2\-H\-P\-G\-L\-Font@{bl\-P\-S2\-H\-P\-G\-L\-Font}}
+\index{bl\-P\-S2\-H\-P\-G\-L\-Font@{bl\-P\-S2\-H\-P\-G\-L\-Font}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-P\-S2\-H\-P\-G\-L\-Font}]{\setlength{\rightskip}{0pt plus 5cm}int bl\-P\-S2\-H\-P\-G\-L\-Font (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{font}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_a72e3d7f312397d3991d11c85f9c31187}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$font} & Post\-Script font name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+H\-P\-G\-L font number
+\end{DoxyReturn}
+Takes the Post\-Script font name and works out the best H\-P\-G\-L equivalent from a translation table. On the first call, the table is read from disk and space is allocated for it. If the routine is called with a N\-U\-L\-L parameter, the space allocated for the table is freed. It is quite safe to call the routine again after this has occurred; the table will simply be re-\/read from disk.
+
+If the requested translation is unsuccessful, 0 will be returned as the font number.
+
+
+\begin{DoxyItemize}
+\item 06.\-07.\-93 Original By\-: A\-C\-R\-M
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 803 of file plotting.\-c.
+
+\hypertarget{plotting_8h_afc7b2728d2874e4133786a77c5175fef}{\index{plotting.\-h@{plotting.\-h}!bl\-Simplify\-Text@{bl\-Simplify\-Text}}
+\index{bl\-Simplify\-Text@{bl\-Simplify\-Text}!plotting.h@{plotting.\-h}}
+\subsubsection[{bl\-Simplify\-Text}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bl\-Simplify\-Text (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{plotting_8h_afc7b2728d2874e4133786a77c5175fef}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$string} & String containing control codes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String with control codes removed
+\end{DoxyReturn}
+Removes control codes from a string for screen display. Also used for calculating string length. The returned string is stored as static within the routine
+
+
+\begin{DoxyItemize}
+\item 06.\-05.\-92 Original
+\item 07.\-07.\-14 Use bl prefix for functions By\-: C\-T\-P 
+\end{DoxyItemize}
+
+Definition at line 915 of file plotting.\-c.
+
