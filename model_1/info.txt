@@ -19,3 +19,185 @@ params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.
 full_dataset_path: None,
 save_prefix: model_1,
 run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+Scaling numerical features using scaler: robust
+Deleted the following columns as tey contained more than 60 Nan values: []
+ The tip_res_blosum_62-encoded vector is reduced in dimensionality using odict_keys(['LLE', 'Mod_LLE', 'Isomap', 'MDS', 'SE', 'tSNE', 'PCA'])
+ The tip_res_NLF-encoded vector is reduced in dimensionality using odict_keys(['LLE', 'Mod_LLE', 'Isomap', 'MDS', 'SE', 'tSNE', 'PCA'])
+Amino acid encoding of the feature: tip_res using One-Hot encoding, BLOSUM62 encoding, NLF encoding and physicochemical 
+        4-d vector encoding.
+Deleted the following columns as tey contained more than 60 Nan values: []
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+START OF RUN
+model_type: equal,
+mode: ['local_CA', 'global_CA', 'local_AA', 'global_AA'],
+params: [array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.]), array([1., 8., 8., 2.])],
+full_dataset_path: None,
+save_prefix: model_1,
+run_dir: model_1
+Scaling numerical features using scaler: robust
+Deleted the following columns as tey contained more than 60 Nan values: []
+ The tip_res_blosum_62-encoded vector is reduced in dimensionality using odict_keys(['LLE', 'Mod_LLE', 'Isomap', 'MDS', 'SE', 'tSNE', 'PCA'])
+ The tip_res_NLF-encoded vector is reduced in dimensionality using odict_keys(['LLE', 'Mod_LLE', 'Isomap', 'MDS', 'SE', 'tSNE', 'PCA'])
+Amino acid encoding of the feature: tip_res using One-Hot encoding, BLOSUM62 encoding, NLF encoding and physicochemical 
+        4-d vector encoding.
+Deleted the following columns as tey contained more than 60 Nan values: []
